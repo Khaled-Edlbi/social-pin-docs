@@ -7,7 +7,7 @@ priority: critical
 release: mvp
 screens: [s11, s12, s14, s16, s17, s68]
 created: 2026-10-15
-updated: 2026-11-01
+updated: 2026-11-08
 tags: [feature, module/identity, priority/critical, release/mvp]
 ---
 
@@ -15,7 +15,7 @@ tags: [feature, module/identity, priority/critical, release/mvp]
 
 > ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
 
-**Backend:** Partial (needs more) · **Priority:** Critical · **Release:** MVP · **Module:** [[M-01 Identity Core Module|Identity Core]]
+**Backend:** Done (S11 with F-14, backend `main` `1c460b0`) · **Priority:** Critical · **Release:** MVP · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
 **Layers:** [[S-03 Counts Story|Story]] · [[FR-03 Counts Frontend Requirements|Frontend Requirements]] · [[BD-03 Counts Backend Delivery|Backend Delivery]] · [[BI-14 Counts Backend Integration|Backend Integration]] · [[FD-06 Counts Frontend Delivery|Frontend Delivery]] · [[QB-07 Counts QA Backend|QA Backend]] · [[Counts QA Frontend|QA Frontend]]
 

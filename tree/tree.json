@@ -2040,13 +2040,16 @@
     },
     "GET /connections": {
       "containers": [
-        "feature:connections"
+        "feature:connections",
+        "feature:counts"
       ],
       "kind": "endpoint",
       "notes": [
         "backend-delivery:connections",
+        "backend-delivery:counts",
         "backend-integration:connections",
-        "frontend-requirements:connections"
+        "frontend-requirements:connections",
+        "frontend-requirements:counts"
       ],
       "owner": "feature:connections"
     },
@@ -2068,13 +2071,16 @@
     },
     "GET /connections/count": {
       "containers": [
-        "feature:connections"
+        "feature:connections",
+        "feature:counts"
       ],
       "kind": "endpoint",
       "notes": [
         "backend-delivery:connections",
+        "backend-delivery:counts",
         "backend-integration:connections",
-        "frontend-requirements:connections"
+        "frontend-requirements:connections",
+        "frontend-requirements:counts"
       ],
       "owner": "feature:connections"
     },
@@ -6603,12 +6609,12 @@
     },
     "concepts": 318,
     "decisions": 34,
-    "edges": 7551,
+    "edges": 7550,
     "features": 41,
     "layerNotes": 155,
     "modules": 8,
     "notes": 339,
-    "partial": 12,
+    "partial": 11,
     "placeholders": 130,
     "records": 33
   },
@@ -10245,11 +10251,6 @@
       "to": "story:connections"
     },
     {
-      "from": "backend-delivery:counts",
-      "kind": "pending",
-      "to": "frontend-requirements:counts"
-    },
-    {
       "from": "backend-delivery:profiles",
       "kind": "pending",
       "to": "decision:D-22"
@@ -11446,7 +11447,9 @@
       "kind": "related",
       "to": "backend-delivery:counts",
       "via": [
-        "E_RING_02"
+        "E_RING_02",
+        "GET /connections",
+        "GET /connections/count"
       ]
     },
     {
@@ -11767,7 +11770,9 @@
       "kind": "related",
       "to": "frontend-requirements:counts",
       "via": [
-        "E_RING_02"
+        "E_RING_02",
+        "GET /connections",
+        "GET /connections/count"
       ]
     },
     {
@@ -12427,6 +12432,8 @@
       "to": "frontend-requirements:counts",
       "via": [
         "E_RING_02",
+        "GET /connections",
+        "GET /connections/count",
         "GET /rings",
         "GET /rings/:id",
         "GET /rings/shared-with-me",
@@ -16493,6 +16500,8 @@
       "to": "backend-delivery:counts",
       "via": [
         "E_RING_02",
+        "GET /connections",
+        "GET /connections/count",
         "GET /rings",
         "GET /rings/shared-with-me"
       ]
@@ -16844,6 +16853,8 @@
       "to": "frontend-requirements:counts",
       "via": [
         "E_RING_02",
+        "GET /connections",
+        "GET /connections/count",
         "GET /rings"
       ]
     },
@@ -23543,6 +23554,8 @@
       "to": "backend-delivery:counts",
       "via": [
         "E_RING_02",
+        "GET /connections",
+        "GET /connections/count",
         "GET /rings",
         "GET /rings/shared-with-me"
       ]
@@ -45664,6 +45677,8 @@
       "via": [
         "DELETE /rings/:ringId/members/:userId",
         "E_RING_02",
+        "GET /connections",
+        "GET /connections/count",
         "GET /rings",
         "GET /rings/shared-with-me"
       ]
@@ -64282,6 +64297,8 @@
         "frontend-requirements:connections",
         "story:connections",
         "frontend-requirements:badge-qr",
+        "backend-delivery:counts",
+        "frontend-requirements:counts",
         "needs-decision:ND-29",
         "task:B-09",
         "task:B-10",
@@ -64317,10 +64334,8 @@
         "frontend-requirements:event-ring-auto",
         "frontend-requirements:exhibitor",
         "frontend-requirements:post-event",
-        "backend-delivery:counts",
         "backend-integration:counts",
         "frontend-delivery:counts",
-        "frontend-requirements:counts",
         "qa-backend:counts",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
@@ -64393,7 +64408,7 @@
         "frontend-requirements:counts",
         "story:counts"
       ],
-      "effectiveStatus": "partial",
+      "effectiveStatus": "done",
       "effort": null,
       "feature": "counts",
       "foundOn": null,
@@ -64414,13 +64429,7 @@
         "feature:counts"
       ],
       "path": "social-pin/modules/Identity Core/features/Counts/flow/BD-03 Counts Backend Delivery.md",
-      "pending": [
-        {
-          "person": null,
-          "text": "the connection count on Me (Counts · S11); waits on connections themselves, which [[BD-14 Connections Backend Delivery]] builds",
-          "to": "frontend-requirements:counts"
-        }
-      ],
+      "pending": [],
       "priority": "critical",
       "related": [
         "task:B-13",
@@ -64528,7 +64537,7 @@
       "task": null,
       "title": "BD-03 Counts Backend Delivery",
       "unmet": [],
-      "updated": "2026-11-05"
+      "updated": "2026-11-08"
     },
     "backend-delivery:delegated-admins": {
       "affects": [],
@@ -67449,6 +67458,8 @@
         "needs-decision:ND-24",
         "frontend-requirements:connections",
         "frontend-requirements:badge-qr",
+        "backend-delivery:counts",
+        "frontend-requirements:counts",
         "needs-decision:ND-29",
         "needs-decision:ND-22",
         "backend-delivery:badge-qr",
@@ -67483,10 +67494,8 @@
         "qa-backend:auth",
         "qa-frontend:auth",
         "story:auth",
-        "backend-delivery:counts",
         "backend-integration:counts",
         "frontend-delivery:counts",
-        "frontend-requirements:counts",
         "qa-backend:counts",
         "story:counts",
         "backend-delivery:profiles",
@@ -73008,11 +73017,12 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "approved": 2,
+        "approved": 1,
         "current": 1,
-        "done": 1,
+        "delivered": 1,
+        "done": 2,
         "missing": 1,
-        "partial": 2
+        "partial": 1
       },
       "scope": null,
       "screens": [
@@ -73034,7 +73044,7 @@
       "task": null,
       "title": "F-03 Counts",
       "unmet": [],
-      "updated": "2026-11-01"
+      "updated": "2026-11-08"
     },
     "feature:delegated-admins": {
       "affects": [],
@@ -78815,6 +78825,7 @@
       "affects": [
         "story:counts"
       ],
+      "autoDelivered": true,
       "blockedBy": [],
       "card": "FR-03",
       "children": [],
@@ -78822,7 +78833,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "approved",
+      "effectiveStatus": "delivered",
       "effort": null,
       "feature": "counts",
       "foundOn": null,
@@ -78904,7 +78915,7 @@
       "task": null,
       "title": "FR-03 Counts Frontend Requirements",
       "unmet": [],
-      "updated": "2026-11-05"
+      "updated": "2026-11-08"
     },
     "frontend-requirements:delegated-admins": {
       "affects": [],
@@ -82228,18 +82239,18 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 16,
+        "approved": 15,
         "blocked": 3,
         "current": 5,
         "decided": 10,
-        "delivered": 11,
-        "done": 30,
+        "delivered": 12,
+        "done": 31,
         "draft": 4,
         "failing": 1,
         "in-progress": 13,
         "missing": 19,
         "needs-decision": 1,
-        "partial": 11,
+        "partial": 10,
         "passing": 7,
         "ready": 1,
         "verified": 10
@@ -91946,18 +91957,18 @@
         }
       ],
       "rollup": {
-        "approved": 43,
+        "approved": 42,
         "blocked": 29,
         "current": 6,
         "decided": 33,
-        "delivered": 11,
-        "done": 31,
+        "delivered": 12,
+        "done": 32,
         "draft": 27,
         "failing": 1,
         "in-progress": 49,
         "missing": 130,
         "needs-decision": 1,
-        "partial": 12,
+        "partial": 11,
         "passing": 7,
         "ready": 2,
         "reference": 32,

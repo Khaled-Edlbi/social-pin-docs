@@ -13,7 +13,7 @@ depends: []
 affects: ["S-03 Counts Story"]
 related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "F-11 Rings", "F-14 Connections", "S-23 Connections Story", "S-87 Error Contract Story"]
 created: 2026-10-18
-updated: 2026-11-05
+updated: 2026-11-08
 tags: [frontend-requirements, frontend-requirements/approved, module/identity, layer/frontend]
 ---
 
@@ -65,7 +65,7 @@ Every count here is **owner-facing**: a person only ever sees how many people ar
 | Number of Rings I own (Home "All N", My Rings tab, Me) | `GET /rings` → `meta.total` | ✅ | — (listed under [[F-11 Rings]]) |
 | Live member count per owned Ring, on the list and the detail | `GET /rings` → `data[].memberCount`, `GET /rings/:id` → `memberCount` | ✅ | [[S-03 Counts Story|Counts · S6–S10]] ([[BI-14 Counts Backend Integration]]) |
 | Number of **people** sharing a Ring with me, live now | `GET /rings/shared-with-me/count` → `people` | ✅ | [[S-03 Counts Story|Counts · S2]] ([[BI-14 Counts Backend Integration]]); not `meta.total` of `GET /rings/shared-with-me`, which counts Rings |
-| Connection count on Me (Me only, no count on Home: [[S-03 Counts Story|Counts · S4]]) | — | ❌ | [[S-03 Counts Story|Counts · S11]] (waits on [[S-23 Connections Story|Connections · S2–S7]]) |
+| Connection count on Me (Me only, no count on Home: [[S-03 Counts Story|Counts · S4]]) | `GET /connections/count` → `connections` (or `meta.total` of `GET /connections`) | ✅ | [[S-03 Counts Story|Counts · S11]] ([[BD-14 Connections Backend Delivery]], backend `main` `1c460b0`) |
 
 Not asked, by decision: a member count on a Ring shared with me ([[D-14 Shared with me lists people, never the Ring]]).
 
