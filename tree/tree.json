@@ -63,6 +63,7 @@
     "B-17 A new Ring answers 404 to its own owner until its projection is opened": "task:B-17",
     "B-18 Sign-in Verify overflows when the not-active message shows": "task:B-18",
     "B-19 Claim your Pin shows the prefix @ instead of !": "task:B-19",
+    "B-20 In Arabic the code boxes fill right to left": "task:B-20",
     "BD-01 Account Backend Delivery": "backend-delivery:account",
     "BD-02 Auth & Sign-up Backend Delivery": "backend-delivery:auth",
     "BD-03 Counts Backend Delivery": "backend-delivery:counts",
@@ -392,6 +393,7 @@
     "B-17": "task:B-17",
     "B-18": "task:B-18",
     "B-19": "task:B-19",
+    "B-20": "task:B-20",
     "BD-01": "backend-delivery:account",
     "BD-02": "backend-delivery:auth",
     "BD-03": "backend-delivery:counts",
@@ -4873,7 +4875,8 @@
         "feature:error-contract",
         "needs-decision:ND-01",
         "needs-decision:ND-30",
-        "task:B-18"
+        "task:B-18",
+        "task:B-20"
       ],
       "kind": "screen",
       "notes": [
@@ -4892,7 +4895,8 @@
         "qa-frontend:auth",
         "story:auth",
         "story:code-delivery",
-        "task:B-18"
+        "task:B-18",
+        "task:B-20"
       ],
       "owner": null
     },
@@ -6653,7 +6657,7 @@
   },
   "counts": {
     "blocked": 27,
-    "bugs": 19,
+    "bugs": 20,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 14,
@@ -6667,22 +6671,22 @@
       "qa-backend": 11,
       "qa-frontend": 2,
       "story": 41,
-      "task": 19
+      "task": 20
     },
     "byLayer": {
       "backend": 61,
-      "business": 174,
+      "business": 175,
       "frontend": 52,
       "qa": 13,
       "shared": 10
     },
     "concepts": 318,
     "decisions": 34,
-    "edges": 7594,
+    "edges": 7599,
     "features": 41,
     "layerNotes": 155,
     "modules": 8,
-    "notes": 341,
+    "notes": 342,
     "partial": 12,
     "placeholders": 130,
     "records": 33
@@ -42233,6 +42237,21 @@
       "to": "story:auth"
     },
     {
+      "from": "task:B-20",
+      "kind": "related",
+      "to": "frontend-delivery:auth"
+    },
+    {
+      "from": "task:B-20",
+      "kind": "related",
+      "to": "qa-frontend:auth"
+    },
+    {
+      "from": "task:B-20",
+      "kind": "related",
+      "to": "story:auth"
+    },
+    {
       "from": "decision:D-10",
       "kind": "shares",
       "to": "decision:D-17",
@@ -55952,6 +55971,11 @@
       "to": "task:B-19"
     },
     {
+      "from": "frontend-delivery:auth",
+      "kind": "tree",
+      "to": "task:B-20"
+    },
+    {
       "from": "group:backend",
       "kind": "tree",
       "to": "project:api-conventions"
@@ -62450,6 +62474,11 @@
       "from": "task:B-19",
       "kind": "wikilink",
       "to": "feature:auth"
+    },
+    {
+      "from": "task:B-20",
+      "kind": "wikilink",
+      "to": "feature:auth"
     }
   ],
   "emoji": {
@@ -62660,6 +62689,10 @@
     },
     "social-pin/bugs/B-19 Claim your Pin shows the prefix @ instead of !.md": {
       "name": "B-19 Claim your Pin shows the prefix @ instead of !",
+      "type": "bug"
+    },
+    "social-pin/bugs/B-20 In Arabic the code boxes fill right to left.md": {
+      "name": "B-20 In Arabic the code boxes fill right to left",
       "type": "bug"
     },
     "social-pin/business/Feature Graph.md": {
@@ -73029,7 +73062,7 @@
         "done": 6,
         "draft": 1,
         "passing": 1,
-        "todo": 2,
+        "todo": 3,
         "verified": 2
       },
       "scope": null,
@@ -76286,7 +76319,8 @@
       "card": "FD-05",
       "children": [
         "task:B-18",
-        "task:B-19"
+        "task:B-19",
+        "task:B-20"
       ],
       "code": "auth",
       "created": "2026-11-05",
@@ -76312,7 +76346,8 @@
       "module": "identity",
       "openBugs": [
         "task:B-18",
-        "task:B-19"
+        "task:B-19",
+        "task:B-20"
       ],
       "parentTask": null,
       "parents": [
@@ -76328,6 +76363,7 @@
         "task:B-13",
         "task:B-18",
         "task:B-19",
+        "task:B-20",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-integration:connections",
@@ -82846,7 +82882,7 @@
         "partial": 10,
         "passing": 7,
         "ready": 1,
-        "todo": 2,
+        "todo": 3,
         "verified": 10
       },
       "scope": null,
@@ -90623,6 +90659,7 @@
         "task:B-13",
         "task:B-18",
         "task:B-19",
+        "task:B-20",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-integration:connections",
@@ -92559,7 +92596,7 @@
         "passing": 7,
         "ready": 2,
         "reference": 32,
-        "todo": 5,
+        "todo": 6,
         "verified": 33
       },
       "scope": null,
@@ -92791,6 +92828,7 @@
         "task:B-13",
         "task:B-18",
         "task:B-19",
+        "task:B-20",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-integration:connections",
@@ -97409,6 +97447,66 @@
       ],
       "task": null,
       "title": "B-19 Claim your Pin shows the prefix @ instead of !",
+      "unmet": [],
+      "updated": "2026-11-08"
+    },
+    "task:B-20": {
+      "affects": [],
+      "blockedBy": [],
+      "card": "B-20",
+      "children": [],
+      "code": "B-20",
+      "created": "2026-11-08",
+      "deadline": null,
+      "decision": null,
+      "depends": [],
+      "dir": null,
+      "effectiveStatus": "todo",
+      "effort": "S",
+      "feature": "auth",
+      "foundOn": "FD-05 Auth & Sign-up Frontend Delivery",
+      "frontendOnly": false,
+      "id": "task:B-20",
+      "inherits": {
+        "release": "feature:auth"
+      },
+      "kind": "task",
+      "label": "Bug",
+      "labels": [
+        "bug"
+      ],
+      "layer": "business",
+      "module": "identity",
+      "openBugs": [],
+      "parentTask": null,
+      "parents": [
+        "frontend-delivery:auth"
+      ],
+      "path": "social-pin/bugs/B-20 In Arabic the code boxes fill right to left.md",
+      "pending": [],
+      "priority": "high",
+      "related": [
+        "frontend-delivery:auth",
+        "qa-frontend:auth",
+        "story:auth"
+      ],
+      "release": "mvp",
+      "resolution": null,
+      "rollup": {},
+      "scope": null,
+      "screens": [
+        "s02"
+      ],
+      "status": "todo",
+      "summary": "The fix is /frontend's. It sets in-progress when it starts and ready when the fix ships; QA re-runs AU-47 and closes or reopens it.",
+      "tags": [
+        "bug",
+        "bug/todo",
+        "module/identity",
+        "priority/high"
+      ],
+      "task": null,
+      "title": "B-20 In Arabic the code boxes fill right to left",
       "unmet": [],
       "updated": "2026-11-08"
     }
