@@ -19,6 +19,8 @@ tags: [frontend-delivery, frontend-delivery/done, module/identity, layer/fronten
 
 # ✅ Files Upload · Frontend Delivery
 
+> ⚠ Affected by [[BD-04 Files Upload Backend Delivery]] (2026-11-08): followerCount shipped on backend main cb95a39: every GET /files item has isMainPhoto and followerCount (a number on the main photo, null elsewhere); the s30 inherit count is no longer waiting; shapes in BI-03; for /frontend
+
 **Feature:** [[F-04 Files Upload]] · **Status:** Done · **Built from:** [[BI-03 Files Upload Backend Integration]] · **Against:** [[S-06 Files Upload Story]] · **Requirements:** [[FR-04 Files Upload Frontend Requirements]] · **QA:** [[Files Upload QA Frontend]]
 
 What the client shipped for uploading, attaching, showing and opening photos and files. Attaching from s36, the files on Ring data and switching them on s24 are on `social_pin` `main` (`aae765d`, `2a5d690`, `4887fcb`, 2026-11-01 to 11-03); the signed links, the photos, the library and the documents list are on `rings/F-11/honest-rings` @ `8939d8e` (2026-11-05), not on `main` yet. The QA checklist is PH-01…PH-11 and FL-01…FL-08 in the client's test cases.

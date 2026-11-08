@@ -3488,6 +3488,7 @@
         "feature:account",
         "feature:auth",
         "feature:companies",
+        "feature:files",
         "feature:onboarding-imports",
         "feature:profiles",
         "feature:ring-projection"
@@ -3496,6 +3497,7 @@
       "notes": [
         "backend-delivery:auth",
         "backend-delivery:profiles",
+        "backend-integration:files",
         "backend-integration:profiles",
         "frontend-delivery:account",
         "frontend-delivery:profiles",
@@ -6177,7 +6179,7 @@
     "layerNotes": 151,
     "modules": 8,
     "notes": 335,
-    "partial": 14,
+    "partial": 13,
     "placeholders": 134,
     "records": 33
   },
@@ -9669,11 +9671,6 @@
       "to": "frontend-requirements:counts"
     },
     {
-      "from": "backend-delivery:files",
-      "kind": "pending",
-      "to": "frontend-requirements:files"
-    },
-    {
       "from": "backend-delivery:photo-library",
       "kind": "pending",
       "to": "frontend-requirements:photo-library"
@@ -10965,6 +10962,16 @@
         "GET /files/content/:token",
         "POST /files"
       ]
+    },
+    {
+      "from": "backend-delivery:files",
+      "kind": "related",
+      "to": "decision:D-02"
+    },
+    {
+      "from": "backend-delivery:files",
+      "kind": "related",
+      "to": "decision:D-05"
     },
     {
       "from": "backend-delivery:files",
@@ -14069,6 +14076,7 @@
       "via": [
         "E_FILE_02",
         "E_FILE_04",
+        "PATCH /profiles/:id",
         "POST /files"
       ]
     },
@@ -14111,6 +14119,7 @@
       "via": [
         "E_FILE_02",
         "E_FILE_04",
+        "PATCH /profiles/:id",
         "POST /files"
       ]
     },
@@ -14131,6 +14140,11 @@
       "via": [
         "GET /files/content/:token"
       ]
+    },
+    {
+      "from": "backend-integration:files",
+      "kind": "related",
+      "to": "decision:D-02"
     },
     {
       "from": "backend-integration:files",
@@ -14203,6 +14217,7 @@
       "kind": "related",
       "to": "frontend-requirements:profiles",
       "via": [
+        "PATCH /profiles/:id",
         "POST /files"
       ]
     },
@@ -14310,6 +14325,7 @@
       "via": [
         "E_FILE_02",
         "E_FILE_04",
+        "PATCH /profiles/:id",
         "POST /files"
       ]
     },
@@ -37284,7 +37300,8 @@
       "kind": "shares",
       "to": "feature:files",
       "via": [
-        "GET /rings/:ringId/projection"
+        "GET /rings/:ringId/projection",
+        "PATCH /profiles/:id"
       ]
     },
     {
@@ -38141,6 +38158,7 @@
       "kind": "shares",
       "to": "feature:files",
       "via": [
+        "PATCH /profiles/:id",
         "POST /rings"
       ]
     },
@@ -39551,6 +39569,7 @@
         "E_RING_02",
         "E_RING_05",
         "GET /views/ring/:ringId",
+        "PATCH /profiles/:id",
         "PATCH /rings/:ringId/projection",
         "POST /rings"
       ]
@@ -43004,6 +43023,7 @@
       "kind": "shares",
       "to": "feature:onboarding-imports",
       "via": [
+        "PATCH /profiles/:id",
         "POST /files"
       ]
     },
@@ -43057,6 +43077,7 @@
         "E_FILE_04",
         "GET /views/pin/:pinName",
         "GET /views/pin/SaraAz",
+        "PATCH /profiles/:id",
         "PATCH /rings/:ringId/projection",
         "POST /files"
       ]
@@ -43106,6 +43127,7 @@
         "GET /files/content/:token",
         "GET /rings/:ringId/projection",
         "GET /views/ring/:ringId",
+        "PATCH /profiles/:id",
         "PATCH /rings/:ringId/projection",
         "POST /files",
         "POST /rings"
@@ -50606,16 +50628,6 @@
       "from": "backend-delivery:exhibitor",
       "kind": "wikilink",
       "to": "frontend-requirements:exhibitor"
-    },
-    {
-      "from": "backend-delivery:files",
-      "kind": "wikilink",
-      "to": "decision:D-02"
-    },
-    {
-      "from": "backend-delivery:files",
-      "kind": "wikilink",
-      "to": "decision:D-05"
     },
     {
       "from": "backend-delivery:gemma",
@@ -59273,7 +59285,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "partial",
+      "effectiveStatus": "done",
       "effort": null,
       "feature": "files",
       "foundOn": null,
@@ -59294,17 +59306,13 @@
         "feature:files"
       ],
       "path": "social-pin/modules/Identity Core/features/Files Upload/flow/BD-04 Files Upload Backend Delivery.md",
-      "pending": [
-        {
-          "person": null,
-          "text": "followerCount on the main photo on GET /files?kind=image (Photo Library · S8); waits on the main photo itself, which does not exist until [[BD-07 Profiles & Pin Name Backend Delivery]] ships S-14 S9–S11 (D-02, D-05)",
-          "to": "frontend-requirements:files"
-        }
-      ],
+      "pending": [],
       "priority": "critical",
       "related": [
         "task:B-07",
         "decision:D-16",
+        "decision:D-02",
+        "decision:D-05",
         "backend-delivery:photo-library",
         "backend-delivery:profiles",
         "backend-integration:files",
@@ -59357,7 +59365,7 @@
       "task": null,
       "title": "BD-04 Files Upload Backend Delivery",
       "unmet": [],
-      "updated": "2026-11-05"
+      "updated": "2026-11-08"
     },
     "backend-delivery:gemma": {
       "affects": [],
@@ -62051,6 +62059,8 @@
         "task:B-08",
         "decision:D-16",
         "backend-delivery:files",
+        "decision:D-02",
+        "backend-integration:photo-library",
         "backend-integration:ring-projection",
         "backend-integration:view-as",
         "frontend-requirements:files",
@@ -62068,7 +62078,6 @@
         "frontend-delivery:files",
         "frontend-requirements:onboarding-imports",
         "backend-delivery:photo-library",
-        "backend-integration:photo-library",
         "frontend-delivery:photo-library",
         "qa-backend:photo-library",
         "story:photo-library",
@@ -62105,7 +62114,7 @@
       "task": null,
       "title": "BI-03 Files Upload Backend Integration",
       "unmet": [],
-      "updated": "2026-11-05"
+      "updated": "2026-11-08"
     },
     "backend-integration:gemma": {
       "affects": [],
@@ -63562,6 +63571,8 @@
         "needs-decision:ND-02",
         "decision:D-05",
         "decision:D-03",
+        "backend-delivery:files",
+        "backend-integration:files",
         "frontend-requirements:onboarding-imports",
         "story:onboarding-imports",
         "frontend-delivery:photo-library",
@@ -63822,6 +63833,7 @@
         "needs-decision:ND-05",
         "decision:D-04",
         "decision:D-34",
+        "backend-delivery:files",
         "frontend-requirements:photo-library",
         "story:photo-library",
         "frontend-delivery:profiles",
@@ -67466,12 +67478,11 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "approved": 2,
+        "approved": 1,
         "decided": 1,
-        "delivered": 1,
-        "done": 2,
+        "delivered": 2,
+        "done": 3,
         "missing": 1,
-        "partial": 1,
         "passing": 1,
         "verified": 1
       },
@@ -73196,6 +73207,7 @@
       "affects": [
         "backend-delivery:files"
       ],
+      "autoDelivered": true,
       "blockedBy": [],
       "card": "FR-04",
       "children": [],
@@ -73205,7 +73217,7 @@
       "depends": [
         "story:files"
       ],
-      "effectiveStatus": "approved",
+      "effectiveStatus": "delivered",
       "effort": null,
       "feature": "files",
       "foundOn": null,
@@ -73316,7 +73328,7 @@
       "task": null,
       "title": "FR-04 Files Upload Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-08"
     },
     "frontend-requirements:gemma": {
       "affects": [],
@@ -75727,18 +75739,18 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 19,
+        "approved": 18,
         "blocked": 3,
         "current": 5,
         "decided": 10,
-        "delivered": 8,
-        "done": 27,
+        "delivered": 9,
+        "done": 28,
         "draft": 3,
         "failing": 1,
         "in-progress": 13,
         "missing": 20,
         "needs-decision": 1,
-        "partial": 14,
+        "partial": 13,
         "passing": 7,
         "ready": 1,
         "verified": 10
@@ -85205,18 +85217,18 @@
         }
       ],
       "rollup": {
-        "approved": 43,
+        "approved": 42,
         "blocked": 30,
         "current": 5,
         "decided": 33,
-        "delivered": 8,
-        "done": 28,
+        "delivered": 9,
+        "done": 29,
         "draft": 27,
         "failing": 1,
         "in-progress": 47,
         "missing": 134,
         "needs-decision": 1,
-        "partial": 14,
+        "partial": 13,
         "passing": 7,
         "ready": 4,
         "reference": 32,
