@@ -5,134 +5,203 @@ module: shared-rings
 feature: ring-invitations
 status: draft
 scope: feature
-screens: [s17, s74]
-owner: "omar"
-related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-18 Ring names shown when joined knowingly"]
+screens: [s15, s17, s19, s26, s43, s72, s73, s74]
+owner: "Omar Fostok"
+related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-18 Ring names shown when joined knowingly", "ND-31 What an invitation is", "ND-32 How a Ring's join code works", "ND-33 When a work email is checked", "ND-34 What a member contributes to a shared Ring", "ND-35 A colleague's QR offering their company Ring", "ND-36 Whether an invitee sees who a Ring is for", "S-16 Ring Members Story", "S-18 Rings Story", "S-29 Companies Story", "S-31 Delegated Admins Story", "S-37 Badge & QR Story", "BI-08 Rings Backend Integration", "FR-15 Companies Frontend Requirements"]
 created: 2026-10-18
-updated: 2026-10-29
+updated: 2026-11-08
 tags: [story, story/draft, module/shared-rings, layer/business]
 ---
 
 # Ring Invitations & Join · User Story
 
-> ⚠ Affected by [[S-18 Rings Story]] (2026-10-29): where the owner invites someone or makes a code for a Ring, one line says "**People who join this way will see this Ring's name.**" (D-18), since the Ring's name copy (s09, s22) now reads "Only you see this name, unless someone joins it with an invitation or a code." The wizard's step 2 "Invite" (s19) is this story's.
+**Feature:** [[F-17 Ring Invitations & Join]] · **Status:** Draft (rewritten 2026-11-08, six questions open) · **Frontend Requirements:** [[FR-17 Ring Invitations & Join Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
-> ⚠ Affected by [[S-16 Ring Members Story]] (2026-10-29): the **owner approves a Ring's join requests on s15** ("Waiting on you · N", S-16 S9): Add makes the person a member recorded as joined knowingly, Decline removes the request. This story makes the requests; s15 needs, per Ring, the pending requests with who asked, how (with a code, from the public card) and when.
+> **Rewritten 2026-11-08** as one set of parts, ordered as the journey happens, against backend `main` @ `12172c6` ([[BI-08 Rings Backend Integration]]), [[D-04 Ring settings at launch and their defaults]] and [[D-18 Ring names shown when joined knowingly]]. The merged tasks T-026 to T-028 (old S7–S9) are folded into the parts below. The owner's side, which [[S-16 Ring Members Story]] and [[S-18 Rings Story]] handed to this story, is S6–S8; the company asks of [[FR-15 Companies Frontend Requirements]] are in S1 and S5. Six questions are open as needs-decision cards (ND-31 to ND-36); every part that waits on one says so.
 
-**Feature:** [[F-17 Ring Invitations & Join]] · **Status:** Draft (awaiting product sign-off) · **Frontend Requirements:** [[FR-17 Ring Invitations & Join Frontend Requirements]] · **API Integration:** not yet (backend not built)
+Being let into someone else's Ring **knowingly**. A company invites its new hire into "Acme Team"; an organizer invites a speaker into "TechSummit Speakers"; a colleague hands over a join code; an employee proves their work address. The person sees what they are joining, accepts or declines, or asks to join and waits for the owner. Who may ask and whether the owner approves each one are the Ring's settings ([[D-04 Ring settings at launch and their defaults]]). Because the person chose to join, the Ring keeps its **name** for them on Shared with me, the one exception to [[D-14 Shared with me lists people, never the Ring]] ([[D-18 Ring names shown when joined knowingly]]).
 
-Being on the receiving end of someone else's Ring. A company invites its new hire into "Acme Team"; an organizer invites a speaker into "TechSummit Speakers"; a colleague hands over a join code. The person reviews what they are being offered, accepts or declines, or joins on their own with a code or a verified work address. Who may ask to join, and whether the owner approves each one, are the Ring's settings ([[D-04 Ring settings at launch and their defaults]]). Once inside, the owner appears on Shared with me with the Ring's name, because the person joined it knowingly ([[D-18 Ring names shown when joined knowingly]], the one exception to [[D-14 Shared with me lists people, never the Ring]]), and the owner's projection becomes readable.
+**What exists today** (backend `main` @ `12172c6`): the six Ring settings, saved with their defaults; "members can see each other" **enforced**, the other four saved and enforced only when this story ships; Shared with me as **people**, each row with a `ringName` and a `memberCount` that are always `null` until a membership records how it was made ([[BI-08 Rings Backend Integration]]). No invitation, code, join request or work-email check exists.
 
 ## Persona
 
-An **invitee**: a personal user who received an invitation into a Ring they do not own, or who holds a join code from a company. They are on Shared with me (s17) or My companies (s72) and want to settle the invitation. The owner's side (sending the invite) is one action on the Ring people screen and is described only where it touches these screens.
+- **The joiner**: a personal user invited into a Ring they don't own, or holding a code from a company, or with a work address at its domain. On Shared with me ([[Screen Index#s17|s17]]), My companies ([[Screen Index#s72|s72]]) or the join screen ([[Screen Index#s74|s74]]).
+- **The owner**, and the Ring's admins at "can also manage who's in it" ([[S-31 Delegated Admins Story|Delegated Admins · A4]]): who invite, manage the code and approve requests, from the Ring's people ([[Screen Index#s15|s15]]) and Edit Ring's *Joining and permissions* ([[Screen Index#s26|s26]]).
 
 ## Stories
 
-### S1 · Shared with me, with pending invitations ([[Screen Index#s17|s17]])
+### S1 · Shared with me: my invitations, and the Rings I joined ([[Screen Index#s17|s17]])
 
-**As an** invitee, **I want** my pending invitations shown above the Rings I am already in, **so that** I can act on them where I expect to find shared Rings.
+**As a** joiner **I want** my pending invitations above the people who share with me **so that** I settle them where I look for what's shared with me.
 
 Acceptance criteria:
-- [ ] The list of people who share with me renders as in [[S-18 Rings Story]] S3: the person, with the Ring's **name** only for a Ring I joined by invitation, code or work email; never its colour or type ([[D-18 Ring names shown when joined knowingly]]).
-- [ ] An *Invitations* section above it lists each pending invite with **the Ring's name**, the owner's display name, who invited me and when it was sent.
-- [ ] *Review invite* opens s74 for that invitation; *Join with a code* opens s74 with the code field focused.
-- [ ] A Ring whose access lapsed (window closed, removed, blocked) disappears from the list on the next focus with no message.
-- [ ] Empty state covers both: "No Rings shared with you yet" plus the join action.
+- [ ] An **Invitations** section above the list: each pending invitation with the Ring's **name** (an invitation names its Ring, D-18), the owner's name, who invited me and when; *Review* → s74 for it. Hidden while empty. What an invitation is: [[ND-31 What an invitation is]].
+- [ ] An invitation to a company Ring also carries the company (`business { id, name, logoFileId }`), so s72 can list it **by company** ([[S-29 Companies Story|Companies · S3]], [[FR-15 Companies Frontend Requirements|FR-15]]).
+- [ ] The people list is `GET /rings/shared-with-me` as it is: one row per person (exists). On a row I **joined knowingly**, `ringName` is shown with the person ("Acme Team · Shared by Acme Studio"), and "· N people" only when `memberCount` is not `null` (the Ring lets members see each other). Never its colour or type. Not available yet: `ringName` and `memberCount` are always `null` until joining records how it was made (S2–S4).
+- [ ] *Join with a code* opens s74 with the code field ready.
+- [ ] An invitation to a Ring that ended or was deleted reads "This invitation is no longer valid" with *Dismiss* only (`valid: false`, FR-15).
+- [ ] The two load separately: one failing doesn't blank the other. Empty: "Nothing shared with you yet" and *Join with a code*.
 
 ### S2 · Review an invitation ([[Screen Index#s74|s74]])
 
-**As an** invitee, **I want** to see what I am joining before I accept, **so that** I do not join a Ring blindly.
+**As a** joiner **I want** to see what I'm joining before I accept **so that** I never join a Ring blindly.
 
 Acceptance criteria:
-- [ ] Shows the owner (name, Pin name), the access window if the invite carries one, and who invited me: the owner, an admin, or a member when the Ring's "members can invite others" is on (off by default, [[D-04 Ring settings at launch and their defaults]]).
-- [ ] Shows **the Ring's name**, and its "who it's for" label if the owner wrote one, so I know what I am joining ([[D-18 Ring names shown when joined knowingly]]); never its colour or type.
-- [ ] *Join Ring* accepts; on success the Ring is in Shared with me, named, and its projection opens; the prototype's path to s16 (My Rings) is a design slip, the destination is s17.
-- [ ] *Decline* closes the invitation; the owner may invite again; the screen returns to where it came from (s17 or s72).
-- [ ] An invitation to a Ring that has since expired or been deleted reads "This invitation is no longer valid" and offers only *Dismiss*.
+- [ ] Shows the Ring's **name**, the owner (name, Pin name, photo), who invited me (the owner, an admin, or a member when the Ring lets members invite others), and the access window if the invitation carries one. Never the Ring's colour or type.
+- [ ] Whether the Ring's "who it's for" line shows here: [[ND-36 Whether an invitee sees who a Ring is for]]. As built it is the owner's alone ("Only you see this").
+- [ ] **Join Ring** accepts: I become a member recorded as **joined knowingly**; the owner is on Shared with me with the Ring's name and their card opens. The design's path to s16 (My Rings) is a slip: the destination is s17.
+- [ ] **Decline** closes it; the owner may invite me again; back to where I came from (s17 or s72).
+- [ ] An invitation that is no longer valid (S1) offers only *Dismiss*.
+- [ ] Not available yet: invitations ([[ND-31 What an invitation is]]).
 
 ### S3 · Join with a code ([[Screen Index#s74|s74]])
 
-**As a** new employee holding a join code, **I want** to enter it and land in the company Ring, **so that** nobody has to invite me by hand.
+**As a** new employee holding a code **I want** to type it and land in the company Ring **so that** nobody has to invite me by hand.
 
 Acceptance criteria:
-- [ ] A code field with paste support; submit resolves the code to one Ring and shows the S2 review before joining, never a silent join.
-- [ ] A wrong, expired or revoked code produces one neutral message ("This code doesn't work"); the UI never confirms that a Ring exists behind a partial code.
-- [ ] A code works only on a Ring whose "who can request to join" allows a code (anyone who scans, or only with a code; the default is with a code or by invitation).
-- [ ] With "approve each one" on, the default, submit shows "Request sent" and the owner approves; with it off, I join at once after the S2 review ([[D-04 Ring settings at launch and their defaults]]).
-- [ ] Rendered disabled with "not available yet" until the settings exist.
+- [ ] A code field with paste; submit resolves the code to one Ring and shows the S2 review before anything happens, never a silent join.
+- [ ] A wrong, replaced or turned-off code gets one message, "This code doesn't work", and never confirms that a Ring is behind a partial code; tries are limited.
+- [ ] A code works only where the Ring's "who can request to join" allows it: anyone who scans, or with a code or invitation (the default); never "only by invitation".
+- [ ] With "approve each one" on (the default), *Join Ring* sends a **join request** and shows "Request sent: {owner} will approve it" (S5, S8); off, I join at once.
+- [ ] What a code is: [[ND-32 How a Ring's join code works]]. Not available yet.
 
 ### S4 · Join with a verified work email ([[Screen Index#s74|s74]])
 
-**As an** employee, **I want** to prove I own an address at the company's domain, **so that** I join the employees Ring without a code.
+**As an** employee **I want** to prove I own an address at my company's domain **so that** I join its Ring without a code.
 
 Acceptance criteria:
-- [ ] The user enters a work address; the domain must match the Ring's required domain; a one-time code is sent to that address and entered on the same screen.
-- [ ] On verification the S2 review shows and *Join Ring* completes; the verified address is not added to my profile unless I say so.
-- [ ] A mismatching domain gets the same neutral message as a wrong code.
-- [ ] Rendered disabled with "not available yet" until the required domain exists on the Ring; that setting is not in the launch set and comes with [[F-15 Companies]] ([[D-04 Ring settings at launch and their defaults]]).
+- [ ] I type my work address; its domain must be the Ring's **required work email domain** ([[S-29 Companies Story|Companies · S12]]); a six-digit code goes to that address and is typed on the same screen.
+- [ ] Then the S2 review; *Join Ring* joins, or sends a request when the Ring approves each one.
+- [ ] A domain that doesn't match gets the same neutral message as a wrong code.
+- [ ] The address is never added to my profile; Company detail shows it ([[S-29 Companies Story|Companies · S5]]). When it is checked, and whether ever again: [[ND-33 When a work email is checked]].
+- [ ] Not available yet: the domain setting (S-29 S12), and code delivery by email ([[S-78 Code Delivery Story|Code Delivery · S6]]).
 
-### S5 · Join via a colleague's QR ([[Screen Index#s43|s43]] → [[Screen Index#s74|s74]])
+### S5 · My join requests: waiting, cancelled, declined ([[Screen Index#s72|s72]], [[Screen Index#s17|s17]])
 
-**As an** employee, **I want** scanning a colleague's badge to offer me the company Ring they belong to, **so that** joining is one scan at the desk.
-
-Acceptance criteria:
-- [ ] A scanned badge resolves to the colleague's Ring view, as any scan does; the "join this company Ring" offer appears only if the scanned token was issued for that purpose, never by reading which Ring the colleague is in.
-- [ ] Not built in any form; shown nowhere until decided.
-
-### S6 · What you contribute to a shared Ring ([[Screen Index#s74|s74]] after joining)
-
-**As a** member of a company Ring, **I want** to choose what of mine the Ring may show to other members, **so that** joining does not expose my whole profile.
+**As a** joiner **I want** to see the requests I sent and cancel one **so that** I know where I stand.
 
 Acceptance criteria:
-- [ ] After *Join Ring*, an optional step lists fields and links I can contribute; default is nothing.
-- [ ] Not built; the step is skipped until the concept exists in the schema.
+- [ ] My pending and declined requests, newest first: the Ring's name, the company when it is a company Ring, when I asked, and the status (`PENDING`, `DECLINED`). On s72 by company ([[S-29 Companies Story|Companies · S3]]); on s17 under Invitations.
+- [ ] **Cancel** a pending request; **Dismiss** a declined one. Both remove it from my list.
+- [ ] Approved: the request is not listed any more, and the Ring is on Shared with me (and the company on s72) on the next refetch.
+- [ ] A declined request tells me only "Not accepted": never why.
+- [ ] Not available yet.
 
-### S7 · Ring invitations invite, review, decline
+### S6 · Invite someone into my Ring ([[Screen Index#s15|s15]], [[Screen Index#s19|s19]], [[Screen Index#s26|s26]])
 
-*From T-026 (status then: Needs a decision), merged 2026-10-27.*
+**As a** Ring owner **I want** to invite a person into a Ring by name **so that** they join knowingly and see what they joined.
 
-Likely a `RingMember` in an INVITED state with accept / decline endpoints. Notification on invite. Joining by invitation is one of the launch values of "who can request to join" (default: with a code or by invitation), and "members can invite others" is a launch setting, off by default ([[D-04 Ring settings at launch and their defaults]]).
+Acceptance criteria:
+- [ ] *Invite* on the Ring's people (s15), and in the New Ring wizard's step 2 (s19): pick a connection, or type a Pin name; an optional access window. Sent as one invitation per person ([[ND-31 What an invitation is]]).
+- [ ] Beside it, one line: "**People who join this way will see this Ring's name.**" ([[D-18 Ring names shown when joined knowingly]]), matching the Ring's name copy ("Only you see this name, unless someone joins it with an invitation or a code.", [[S-18 Rings Story|Rings · S1, S5]]).
+- [ ] Who may invite: the owner; an admin at "can also manage who's in it" ([[S-31 Delegated Admins Story|Delegated Admins · A4]]); a member only when "members can invite others" is on (off by default, D-04).
+- [ ] **Invited · N** on s15: the invitations I sent and haven't been answered, each with *Withdraw*; a declined one shows as declined, never why. They are never counted as members.
+- [ ] An invitation works whatever the Ring's "who can request to join" says: the policy limits who may **ask**, never whom the owner invites.
+- [ ] Not available yet.
 
-Screens: [[Screen Index#s17|s17]] Shared with me
+### S7 · The Ring's join code (Edit Ring · *Joining and permissions*, [[Screen Index#s26|s26]])
 
+**As a** Ring owner **I want** a code I can hand out **so that** people join without me inviting each one.
 
-### S8 · Join a Ring with a code or verified work email
+Acceptance criteria:
+- [ ] Under *Joining and permissions*, when the policy allows codes: the Ring's code, **Share**, **Make a new code** (the old one stops working at once) and **Turn off**; with the D-18 line under it.
+- [ ] Changed by the owner and admins at "can also manage who's in it" (A4); hidden when the policy is "only by invitation".
+- [ ] Its shape, end and revoke: [[ND-32 How a Ring's join code works]]. Not available yet. **For the designer:** the owner's code section is not drawn.
 
-*From T-027 (status then: Blocked), merged 2026-10-27.*
+### S8 · Approve people who asked to join ([[Screen Index#s15|s15]])
 
-Needs `joinPolicy`, join code and `requiredEmailDomain` on the Ring. Joining with a code is in the launch set ("who can request to join", default: with a code or by invitation; "approve each one" on by default); the required work email domain comes later, with [[F-15 Companies]], so the verified-work-email part waits for it ([[D-04 Ring settings at launch and their defaults]]).
+**As a** Ring owner **I want** to approve or decline each request **so that** a Ring that approves each one stays mine to fill.
 
-Screens: [[Screen Index#s74|s74]] Join a company Ring
+Acceptance criteria:
+- [ ] "**Waiting on you · N**" on s15, as [[S-16 Ring Members Story|Ring Members · S9]] draws it: the person (name, headline), how they asked ("with your code", "with a work email at acme.co"), how long ago, **Add** and **Decline**.
+- [ ] **Add** makes them a member at once, recorded as **joined knowingly**; **Decline** ends the request (they see "Not accepted", S5).
+- [ ] Requests exist only while "approve each one" is on (the default); turning it off leaves the waiting ones to decide.
+- [ ] Approved by the owner and admins at "can also manage who's in it" (A4).
+- [ ] Not available yet: nothing makes requests (S3, S4).
 
+### S9 · Join from a QR ([[Screen Index#s43|s43]] → [[Screen Index#s74|s74]])
 
-### S9 · What you contribute to a shared Ring
+**As an** employee **I want** one scan at the desk to bring me to the company Ring **so that** joining is quick.
 
-*From T-028 (status then: Needs a decision), merged 2026-10-27.*
+Acceptance criteria:
+- [ ] Which QR, and whether at all: [[ND-35 A colleague's QR offering their company Ring]]. A personal badge never offers a Ring: that would tell a stranger which Ring its holder is in (D-14).
+- [ ] Not built; shown nowhere until decided.
 
-A member-side projection inside someone else's Ring. Not in the schema; needs a product definition.
+### S10 · What I show the Ring's members (after *Join Ring*, [[Screen Index#s74|s74]])
 
-Screens: [[Screen Index#s74|s74]] Join a company Ring
+**As a** member of a company Ring **I want** to choose what the other members see of me **so that** joining doesn't expose my whole profile.
+
+Acceptance criteria:
+- [ ] Asked only on a Ring that lets members see each other; on any other Ring there is nothing to choose and nothing is shown.
+- [ ] What I choose: [[ND-34 What a member contributes to a shared Ring]]. The default shows nothing more of me than a stranger who scans me already sees.
+- [ ] Not built.
+
+### S11 · Inside the Ring ([[Screen Index#s17|s17]] → the person's card)
+
+**As a** member **I want** to know what joining lets me see **so that** I'm not surprised by what others see of me.
+
+Acceptance criteria:
+- [ ] The owner's card as that Ring shows it, named (D-18).
+- [ ] "Members can see each other" **off** (the default, enforced today): no roster, no count, no other member anywhere.
+- [ ] **On**: "Members · N" on the card, then each member's card ([[S-16 Ring Members Story|Ring Members · S8]]; whose card: ND-34). Not available yet: the member-facing roster route.
+- [ ] Leaving: *Leave this Ring* on the card ends my membership; the owner isn't told. For a company, leaving the company ends all of it at once ([[S-29 Companies Story|Companies · P5]]).
+
+### S12 · Being told
+
+**As a** joiner or an owner **I want** one notification when something waits on me or is answered **so that** I don't have to check.
+
+Acceptance criteria:
+- [ ] An invitation received; a join request approved (to the joiner); a join request waiting (to the owner and the admins who approve).
+- [ ] Never a decline, a withdrawal or a removal: those are silent.
+- [ ] Sent once notifications exist ([[F-39 Notifications]]); no push carries a Ring's name except to someone who joined it knowingly.
 
 ## States and motion the design asks for
 
-- State: invitation pending, accepted, declined, no longer valid; code entry idle, checking, rejected, approval pending.
-- Motion: joining a Ring plays the **new ring forming** animation into the Shared with me carousel; declining collapses the invitation row out; reduced-motion fallback is a fade.
-- State on s17: the live list and the invitations section load independently; one failing does not blank the other.
+- States: invitation pending, accepted, declined, withdrawn, no longer valid; code idle, checking, refused; request sent, declined; owner's Invited and Waiting lists; the code section on, off.
+- Motion: joining plays the **new ring forming** into Shared with me; declining collapses the row; reduced motion: a fade.
+
+## Where the design disagrees (for the designer)
+
+| Screen | The design | The story |
+|---|---|---|
+| s74 | *Join Ring* lands on My Rings (s16) | Shared with me (s17): I don't own the Ring |
+| s74 | "a QR from a colleague" as a way in | Waits on ND-35; a personal badge never offers a Ring |
+| s15 | "Scanned your badge" in Waiting | A join request with how they asked (S8, S-16 S9) |
+| s26 | No owner side for codes or invitations | The code section (S7) and *Invite* (S6) |
+| s74 | The review shows "who it's for" | Waits on ND-36; owner-only as built |
+
+## What the backend has to build
+
+1. **Invitations** ([[ND-31 What an invitation is]]): send (one per person, optional window), list mine (pending, with `business` on a company Ring and `valid`), accept, decline, dismiss; the owner's list with withdraw; enforced against `joinPolicy` and `membersCanInvite`.
+2. **Joining records how**: a membership made by an accepted invitation, a code or a work email is **joined knowingly**; `ringName` (and `memberCount` when members can see each other) then fill on Shared with me (`isRingNamedToMember`, [[BD-11 Rings Backend Delivery]]).
+3. **The join code** ([[ND-32 How a Ring's join code works]]): one per Ring, make new, turn off, resolve to the review, a try limit, refused under "only by invitation".
+4. **Join requests**: made by a code or work email while "approve each one" is on; the owner's list per Ring (who, how, when), approve, decline; **mine**: `GET /rings/join-requests/mine` (`id`, `status`, `createdAt`, `business`, `ringName`) and `DELETE /rings/join-requests/:id` to cancel or dismiss ([[FR-15 Companies Frontend Requirements|FR-15]]).
+5. **Work email** ([[ND-33 When a work email is checked]]): a code to the address, matched against the Ring's required domain ([[S-29 Companies Story|Companies · S12]]).
+6. **The member-facing roster** when members can see each other, and what each member shows ([[ND-34 What a member contributes to a shared Ring]]).
+7. **Leave a Ring** as a member.
+8. **Notifications** of S12, with [[F-39 Notifications]].
 
 ## Rules the backend already enforces
 
-- `GET /rings/shared-with-me` returns only Rings whose access is live now: Ring window and membership window both open, no block ([[BI-08 Rings Backend Integration]]). An invitation must not appear there as a member row.
-- Access is resolved per request; after *Join Ring* the next `GET /views/ring/:ringId` already works, and after a revoke it already fails.
-- A member never reads their own membership row. Not available yet: the membership does not record how it was created (invitation, code, work email), which is what lets the app name the Ring ([[D-18 Ring names shown when joined knowingly]]).
-- "Members can see each other" does not exist yet; it is a launch setting, off by default, and while it is off joining a Ring never shows who else is in it ([[D-04 Ring settings at launch and their defaults]]).
-- An expired Ring returns 404 `E_RING_ACCESS_02` to a member; S2's "no longer valid" state maps to that.
+- The six settings exist with D-04's defaults: `joinPolicy` `CODE_OR_INVITATION`, `requireApproval` on, `membersCanSeeEachOther` off, `membersCanInvite` off, `membersCanSaveAttachments` off, `purpose` empty; changed by the owner, or an admin at `CONTENT_MANAGER` or above ([[BI-08 Rings Backend Integration]]).
+- `membersCanSeeEachOther` off means **no member-facing roster or count anywhere**; the other four are saved and enforced when this story ships.
+- `purpose` is an owner-only label, never shown to a member (ND-36).
+- Shared with me lists **people**, one row per owner, only live access (Ring live, membership live, no block either way); `ringName` and `memberCount` are `null` today; the row's `ringId` opens the card (D-15).
+- Access is decided on every request: after *Join Ring* the card opens at once; after a removal it doesn't. An ended Ring answers 404 `E_RING_ACCESS_02` to a member: the "no longer valid" state.
 
 ## Open questions
 
-- Decided: [[D-04 Ring settings at launch and their defaults]] (join policy and approval in S3, "members can invite" in S2; the email domain of S4 comes later). S3 and S4 stay disabled until the settings are built (not ticketed yet).
-- Decided: [[D-18 Ring names shown when joined knowingly]] (S1 and S2 name the Ring; a Ring joined by invitation, code or work email stays named). The "who it's for" label beside the name on S2 is D-18's natural reading, not asked separately.
-- [[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S7]] — whether an invitation is a `RingMember` in an invited state or its own object; what the invite carries (window, purpose, inviter).
-- [[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S8]] — how the work email is verified; the sign-up OTP machinery exists but is not scoped for this.
-- [[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S9]] — the member-side projection of S6; not in the schema.
-- [[S-37 Badge & QR Story|Badge & QR · S13–S18]] — whether a token can carry a join offer (S5), which must not depend on the colleague's membership.
+- [[ND-31 What an invitation is]] (S1, S2, S6) · recommended: its own record.
+- [[ND-32 How a Ring's join code works]] (S3, S7) · recommended: one code per Ring.
+- [[ND-33 When a work email is checked]] (S4) · recommended: once, at joining.
+- [[ND-34 What a member contributes to a shared Ring]] (S10, S11) · recommended: one of my own Rings.
+- [[ND-35 A colleague's QR offering their company Ring]] (S9) · recommended: the Ring's join QR.
+- [[ND-36 Whether an invitee sees who a Ring is for]] (S2) · recommended: owner-only, as built.
+- Decided: [[D-04 Ring settings at launch and their defaults]], [[D-18 Ring names shown when joined knowingly]] (a member moved by the owner out of a Ring they joined knowingly reads as placed, D-18 *Still open*).
+
+## Log
+
+- 2026-11-08 · `tickets/pm/M-03-shared-rings/F-17-ring-invitations/S-33-rewrite` · rewritten as one set of parts (S1–S12) against backend `main` @ `12172c6`, D-04 and D-18; the owner's side from S-16 S9 and S-18 (S6–S8), FR-15's company asks (S1, S5); ND-31 to ND-36 raised; the S-18 and S-16 flags answered and cleared; stays draft
+- 2026-11-08 · flagged [[FR-17 Ring Invitations & Join Frontend Requirements]]: S-33 was rewritten (2026-11-08) as one set of parts S1-S12 against backend main 12172c6: invitations on s17 (by company for s72), review (s74), code, work email, my join requests (cancel, dismiss), the owner's Invite and Invited list, the join code on Joining and permissions, Waiting on you on s15, QR join, what a member shows, inside the Ring, notifications; six questions open as ND-31 to ND-36. The old S7-S9 (T-026 to T-028) are folded in
+- 2026-11-08 · flagged [[BD-17 Ring Invitations & Join Backend Delivery]]: S-33 was rewritten (2026-11-08) as one set of parts S1-S12 against backend main 12172c6: invitations on s17 (by company for s72), review (s74), code, work email, my join requests (cancel, dismiss), the owner's Invite and Invited list, the join code on Joining and permissions, Waiting on you on s15, QR join, what a member shows, inside the Ring, notifications; six questions open as ND-31 to ND-36. The old S7-S9 (T-026 to T-028) are folded in
+- 2026-11-08 · flagged [[F-17 Ring Invitations & Join]]: S-33 was rewritten (2026-11-08) as one set of parts S1-S12 against backend main 12172c6: invitations on s17 (by company for s72), review (s74), code, work email, my join requests (cancel, dismiss), the owner's Invite and Invited list, the join code on Joining and permissions, Waiting on you on s15, QR join, what a member shows, inside the Ring, notifications; six questions open as ND-31 to ND-36. The old S7-S9 (T-026 to T-028) are folded in
