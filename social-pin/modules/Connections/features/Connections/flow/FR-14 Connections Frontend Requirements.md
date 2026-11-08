@@ -3,9 +3,11 @@ id: FR-14
 type: frontend-requirements
 module: connections
 feature: connections
-status: ready
+status: approved
 scope: feature
 screens: [s11, s15, s17, s19, s34, s38, s42, s43, s44, s45, s46, s47, s62, s68, s69]
+approvedBy: "khaled"
+approvedAt: 2026-11-08
 blockedBy: []
 depends: ["S-23 Connections Story"]
 affects: ["BD-14 Connections Backend Delivery"]
@@ -13,14 +15,14 @@ related: ["S-23 Connections Story", "D-04 Ring settings at launch and their defa
 pending: []
 created: 2026-10-18
 updated: 2026-11-08
-tags: [frontend-requirements, frontend-requirements/ready, module/connections, layer/frontend]
+tags: [frontend-requirements, frontend-requirements/approved, module/connections, layer/frontend]
 ---
 
 # 📨 Connections · Frontend Requirements
 
 > ⚠ Affected by [[D-12 The badge QR is a socialpin.me link]] (2026-11-08): "By scan" reads the token from the link https://socialpin.me/q/<token> before GET /views/qr/:token; Connect still sends { qrToken } (D-10)
 
-**Feature:** [[F-14 Connections]] · **Status:** Ready (waiting on the backend's review) · **Story:** [[S-23 Connections Story]] (approved 2026-11-04) · **Backend Integration:** not yet (no routes: [[BD-14 Connections Backend Delivery]])
+**Feature:** [[F-14 Connections]] · **Status:** Approved by the backend 2026-11-08 · **Story:** [[S-23 Connections Story]] (approved 2026-11-04) · **Backend Integration:** not yet (no routes: [[BD-14 Connections Backend Delivery]])
 
 What the client needs from the backend to build every part of [[S-23 Connections Story]], S1 to S16, and whether each need is met today. **Rewritten 2026-11-04** against the approved story and the decisions D-10, D-23 and D-24 to D-29: every link names the story's current parts, *Connect* sends `{ qrToken }` or `{ pinName }`, s47 shows the mutual count, and the questions the story left open are answered below.
 
@@ -115,7 +117,7 @@ What the client needs from the backend to build every part of [[S-23 Connections
 - **The Ring list:** `GET /rings` ✅, filtered on the phone:
   - only **live** Rings: `status` ACTIVE, not ended (`expiresAt` null or later than now), started or not;
   - **Event / temporary Rings** only when the request came from that event: the request carries `eventRingId` when `source` is `EVENT` ❌;
-  - each row: name, colour, member count (`memberCount` ❌, asked in [[FR-11 Rings Frontend Requirements|FR-11]]);
+  - each row: name, colour, member count (`memberCount` ✅ on `GET /rings`, [[BD-03 Counts Backend Delivery|BD-03]]);
   - Rings where I'm a **delegated admin** at `MEMBER_MANAGER`, under their owner's name: ❌ ([[FR-16 Delegated Admins Frontend Requirements|FR-16]]); my own Rings only until then.
 - **Picked to start:** my default Ring (`isDefault` ✅). Gemma's suggestion: not yet ([[S-89 Gemma AI Story|Gemma AI · S7]]).
 - *+ New Ring for this person*: the New Ring wizard (s19), back to the sheet with the new Ring picked. App only.
@@ -247,7 +249,7 @@ What the client needs from the backend to build every part of [[S-23 Connections
 | A request row (incoming) | `id`, `status`, `createdAt`, `expiresAt`, `note`, `source`, `eventName`, `eventRingId`, `from { userId, displayName, pinName, avatarUrl }` | ❌ |
 | A request row (sent) | the same, with `to { displayName, pinName, avatarUrl }`, **no userId** | ❌ |
 | Tab counts, badge counts | `meta.total` | ❌ |
-| The Ring list on s46 | `GET /rings`: `id`, `name`, `colour`, `type`, `status`, `expiresAt`, `isDefault`, `memberCount` | 🟡 `memberCount` ❌ |
+| The Ring list on s46 | `GET /rings`: `id`, `name`, `colour`, `type`, `status`, `expiresAt`, `isDefault`, `memberCount` | ✅ |
 | A contact | `userId`, `displayName`, `pinName`, `avatarUrl`, `connectedAt`, `source`, `ringCount` | ❌ |
 | Connection detail | the contact plus `mutualCount`, `memberships[]`; `connectedAt: null` for a member who isn't a connection | ❌ |
 | What they can see | `GET /rings/:ringId/projection` of the oldest live membership | ✅ |
@@ -270,7 +272,7 @@ What the client needs from the backend to build every part of [[S-23 Connections
 | Accept into a Ring with a window, one transaction | `POST /connections/requests/:id/accept { ringId, startsAt?, expiresAt? }` | ❌ | S5 |
 | Decline | `POST /connections/requests/:id/decline` | ❌ | S6 · D-13 |
 | The picker | `GET /rings` | ✅ | S5 |
-| Member count on the picker | `memberCount` on `GET /rings` | ❌ | S5 · [[FR-11 Rings Frontend Requirements\|FR-11]] |
+| Member count on the picker | `memberCount` on `GET /rings` | ✅ | S5 · [[FR-11 Rings Frontend Requirements\|FR-11]] |
 | Rings I administer, under their owner | — | ❌ | S5 · [[FR-16 Delegated Admins Frontend Requirements\|FR-16]] |
 | Shared with me as people | `GET /rings/shared-with-me` without Ring names | 🟡 | S7 · D-14 · [[FR-11 Rings Frontend Requirements\|FR-11]] |
 | First Ring first | `/views/pin`, `/perspectives` ordered by oldest membership | ❌ | S7 · D-15 · [[FR-12 View As & Pin Views Frontend Requirements\|FR-12]] |
@@ -338,4 +340,4 @@ The story is approved and its open questions are decided (D-24 to D-29), so this
 
 ## Sign-off
 
-- Approved by: — · on: —
+- Approved by: khaled · on: 2026-11-08

@@ -3,15 +3,15 @@ id: BD-14
 type: backend-delivery
 module: connections
 feature: connections
-status: todo
+status: in-progress
 scope: feature
 screens: [s44, s45, s46, s47, s62]
 created: 2026-10-18
-updated: 2026-10-29
-tags: [backend-delivery, backend-delivery/todo, module/connections, layer/backend]
+updated: 2026-11-08
+tags: [backend-delivery, backend-delivery/in-progress, module/connections, layer/backend]
 ---
 
-# ⬜ Connections · Backend Delivery
+# 🟡 Connections · Backend Delivery
 
 > ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23's open questions are decided (D-24 to D-29): one pending request per pair, a crossing request answers 409 with the other request's id (D-24); account deletion ends connections, requests and blocks silently (D-25); DELETE /connections/:userId sends no notification (D-26); the Sent list drops declined and expired requests 30 days after they ended (D-27); no POST /rings/:ringId/members { qrToken } in the MVP (D-28); GET /connections/:userId answers a member who isn't a connection with connectedAt null (D-29).
 
@@ -19,7 +19,7 @@ tags: [backend-delivery, backend-delivery/todo, module/connections, layer/backen
 
 > ⚠ Affected by [[D-10 Connect sends what the requester already has]] (2026-11-04): ND-10 decided, option 3: POST /connections/requests accepts { qrToken } or { pinName }, resolves the person through the access engine, and answers the views' 404 on every failure.
 
-**Feature:** [[F-14 Connections]] · **Status:** To do · **Integration guide:** [[Connections Backend Integration]] · **Requirements:** [[FR-14 Connections Frontend Requirements]] · **QA:** [[Connections QA Backend]]
+**Feature:** [[F-14 Connections]] · **Status:** In progress · **Integration guide:** [[Connections Backend Integration]] · **Requirements:** [[FR-14 Connections Frontend Requirements]] · **QA:** [[Connections QA Backend]]
 
 What the backend shipped for this feature and how it works. The sum of this feature's task-level Backend Delivery notes (see the *Tasks* table below).
 
