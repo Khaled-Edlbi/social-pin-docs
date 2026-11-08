@@ -16,6 +16,8 @@ tags: [story, story/approved, module/commerce, layer/business]
 
 # Subscription (Free vs Pro) · User Story
 
+> ⚠ Affected by [[D-12 The badge QR is a socialpin.me link]] (2026-11-08): the Pro permanent code is a https://socialpin.me/q/<token> link and waits until the socialpin.me domain and app links work
+
 **Feature:** [[F-28 Subscription (Free vs Pro)]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[FR-28 Subscription (Free vs Pro) Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 A user meets a Pro lock somewhere in the app (a permanent QR on the badge, Smart Match, any-lounge access, Gemma automation) and lands on one subscription screen that explains the two plans and lets them go Pro. The lock itself is a server decision: `User.accountType` and a `Subscription` row exist in the schema, but there is no endpoint and no single gate yet, so no screen can show a truthful lock today.

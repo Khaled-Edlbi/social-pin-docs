@@ -121,6 +121,7 @@
     "D-07 Stripe for all four flows": "decision:D-07",
     "D-10 Connect sends what the requester already has": "decision:D-10",
     "D-11 The badge code stays the same for its day": "decision:D-11",
+    "D-12 The badge QR is a socialpin.me link": "decision:D-12",
     "D-13 The requester sees a declined request": "decision:D-13",
     "D-14 Shared with me lists people, never the Ring": "decision:D-14",
     "D-15 Several Rings per connection, remove or disconnect": "decision:D-15",
@@ -442,6 +443,7 @@
     "D-07": "decision:D-07",
     "D-10": "decision:D-10",
     "D-11": "decision:D-11",
+    "D-12": "decision:D-12",
     "D-13": "decision:D-13",
     "D-14": "decision:D-14",
     "D-15": "decision:D-15",
@@ -3243,11 +3245,13 @@
     },
     "GET /views/qr/:token": {
       "containers": [
+        "decision:D-12",
         "feature:badge-qr",
         "feature:connections"
       ],
       "kind": "endpoint",
       "notes": [
+        "decision:D-12",
         "frontend-requirements:connections",
         "story:badge-qr",
         "story:connections"
@@ -4287,12 +4291,14 @@
     "POST /rings/:ringId/qr": {
       "containers": [
         "decision:D-11",
+        "decision:D-12",
         "feature:badge-qr",
         "needs-decision:ND-11"
       ],
       "kind": "endpoint",
       "notes": [
         "decision:D-11",
+        "decision:D-12",
         "needs-decision:ND-11",
         "story:badge-qr"
       ],
@@ -6138,12 +6144,12 @@
     }
   },
   "counts": {
-    "blocked": 31,
+    "blocked": 30,
     "bugs": 17,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 11,
-      "decision": 32,
+      "decision": 33,
       "feature": 41,
       "frontend-delivery": 9,
       "frontend-requirements": 39,
@@ -6157,21 +6163,21 @@
     },
     "byLayer": {
       "backend": 58,
-      "business": 171,
+      "business": 172,
       "frontend": 52,
       "qa": 12,
       "shared": 10
     },
     "concepts": 291,
     "decisions": 34,
-    "edges": 6934,
+    "edges": 6955,
     "features": 41,
     "layerNotes": 151,
     "modules": 8,
-    "notes": 334,
+    "notes": 335,
     "partial": 14,
     "placeholders": 134,
-    "records": 32
+    "records": 33
   },
   "deadlines": {
     "missed": {
@@ -6524,6 +6530,31 @@
       "from": "decision:D-11",
       "kind": "affects",
       "to": "story:badge-qr"
+    },
+    {
+      "from": "decision:D-12",
+      "kind": "affects",
+      "to": "backend-delivery:badge-qr"
+    },
+    {
+      "from": "decision:D-12",
+      "kind": "affects",
+      "to": "frontend-requirements:badge-qr"
+    },
+    {
+      "from": "decision:D-12",
+      "kind": "affects",
+      "to": "frontend-requirements:connections"
+    },
+    {
+      "from": "decision:D-12",
+      "kind": "affects",
+      "to": "story:badge-qr"
+    },
+    {
+      "from": "decision:D-12",
+      "kind": "affects",
+      "to": "story:subscription"
     },
     {
       "from": "decision:D-13",
@@ -8269,11 +8300,6 @@
       "from": "frontend-requirements:widgets",
       "kind": "blocks",
       "to": "backend-delivery:widgets"
-    },
-    {
-      "from": "needs-decision:ND-12",
-      "kind": "blocks",
-      "to": "story:badge-qr"
     },
     {
       "from": "needs-decision:ND-21",
@@ -15856,6 +15882,41 @@
       "from": "decision:D-11",
       "kind": "related",
       "to": "story:subscription"
+    },
+    {
+      "from": "decision:D-12",
+      "kind": "related",
+      "to": "decision:D-10"
+    },
+    {
+      "from": "decision:D-12",
+      "kind": "related",
+      "to": "decision:D-11"
+    },
+    {
+      "from": "decision:D-12",
+      "kind": "related",
+      "to": "decision:D-22"
+    },
+    {
+      "from": "decision:D-12",
+      "kind": "related",
+      "to": "decision:D-35"
+    },
+    {
+      "from": "decision:D-12",
+      "kind": "related",
+      "to": "feature:badge-qr"
+    },
+    {
+      "from": "decision:D-12",
+      "kind": "related",
+      "to": "feature:subscription"
+    },
+    {
+      "from": "decision:D-12",
+      "kind": "related",
+      "to": "needs-decision:ND-12"
     },
     {
       "from": "decision:D-13",
@@ -36137,7 +36198,40 @@
     {
       "from": "decision:D-11",
       "kind": "shares",
+      "to": "decision:D-12",
+      "via": [
+        "POST /rings/:ringId/qr"
+      ]
+    },
+    {
+      "from": "decision:D-11",
+      "kind": "shares",
       "to": "feature:badge-qr",
+      "via": [
+        "POST /rings/:ringId/qr"
+      ]
+    },
+    {
+      "from": "decision:D-12",
+      "kind": "shares",
+      "to": "feature:badge-qr",
+      "via": [
+        "GET /views/qr/:token",
+        "POST /rings/:ringId/qr"
+      ]
+    },
+    {
+      "from": "decision:D-12",
+      "kind": "shares",
+      "to": "feature:connections",
+      "via": [
+        "GET /views/qr/:token"
+      ]
+    },
+    {
+      "from": "decision:D-12",
+      "kind": "shares",
+      "to": "needs-decision:ND-11",
       "via": [
         "POST /rings/:ringId/qr"
       ]
@@ -49817,6 +49911,11 @@
       "to": "decision:D-11"
     },
     {
+      "from": "needs-decision:ND-12",
+      "kind": "tree",
+      "to": "decision:D-12"
+    },
+    {
       "from": "needs-decision:ND-13",
       "kind": "tree",
       "to": "decision:D-13"
@@ -51000,6 +51099,31 @@
       "from": "decision:D-11",
       "kind": "wikilink",
       "to": "story:badge-qr"
+    },
+    {
+      "from": "decision:D-12",
+      "kind": "wikilink",
+      "to": "backend-delivery:badge-qr"
+    },
+    {
+      "from": "decision:D-12",
+      "kind": "wikilink",
+      "to": "frontend-requirements:badge-qr"
+    },
+    {
+      "from": "decision:D-12",
+      "kind": "wikilink",
+      "to": "frontend-requirements:connections"
+    },
+    {
+      "from": "decision:D-12",
+      "kind": "wikilink",
+      "to": "story:badge-qr"
+    },
+    {
+      "from": "decision:D-12",
+      "kind": "wikilink",
+      "to": "story:subscription"
     },
     {
       "from": "decision:D-15",
@@ -56312,6 +56436,10 @@
     },
     "social-pin/decisions/D-11 The badge code stays the same for its day.md": {
       "name": "D-11 The badge code stays the same for its day",
+      "type": "decision"
+    },
+    "social-pin/decisions/D-12 The badge QR is a socialpin.me link.md": {
+      "name": "D-12 The badge QR is a socialpin.me link",
       "type": "decision"
     },
     "social-pin/decisions/D-13 The requester sees a declined request.md": {
@@ -63800,6 +63928,7 @@
         "feature:badge-qr",
         "backend-integration:view-as",
         "decision:D-11",
+        "decision:D-12",
         "decision:D-28",
         "frontend-requirements:connections",
         "story:connections",
@@ -63872,6 +64001,7 @@
         "feature:badge-qr",
         "story:subscription",
         "story:connections",
+        "decision:D-12",
         "decision:D-35"
       ],
       "release": null,
@@ -63888,6 +64018,71 @@
       "title": "D-11 The badge code stays the same for its day",
       "unmet": [],
       "updated": "2026-11-04"
+    },
+    "decision:D-12": {
+      "affects": [
+        "story:badge-qr",
+        "frontend-requirements:badge-qr",
+        "backend-delivery:badge-qr",
+        "frontend-requirements:connections",
+        "story:subscription"
+      ],
+      "blockedBy": [],
+      "card": "D-12",
+      "children": [],
+      "code": "D-12",
+      "created": "2026-11-08",
+      "deadline": null,
+      "decidedAt": "2026-11-08",
+      "decidedBy": "Omar Fostok",
+      "decides": "ND-12",
+      "depends": [],
+      "effectiveStatus": "decided",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "badge-qr"
+      ],
+      "foundOn": null,
+      "frontendOnly": false,
+      "id": "decision:D-12",
+      "inherits": {},
+      "kind": "decision",
+      "label": "Decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "openBugs": [],
+      "parentTask": null,
+      "parents": [
+        "needs-decision:ND-12"
+      ],
+      "path": "social-pin/decisions/D-12 The badge QR is a socialpin.me link.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "needs-decision:ND-12",
+        "feature:badge-qr",
+        "decision:D-11",
+        "decision:D-10",
+        "decision:D-22",
+        "decision:D-35",
+        "feature:subscription"
+      ],
+      "release": null,
+      "resolution": null,
+      "scope": null,
+      "screens": [],
+      "status": "decided",
+      "summary": "This rules out option 2 (the bare token) and option 3 (a socialpin:// scheme).",
+      "tags": [
+        "decision",
+        "decision/decided"
+      ],
+      "task": null,
+      "title": "D-12 The badge QR is a socialpin.me link",
+      "unmet": [],
+      "updated": "2026-11-08"
     },
     "decision:D-13": {
       "affects": [
@@ -64554,6 +64749,7 @@
       "pending": [],
       "priority": null,
       "related": [
+        "decision:D-12",
         "needs-decision:ND-22",
         "decision:D-06",
         "needs-decision:ND-12",
@@ -65417,6 +65613,7 @@
       "pending": [],
       "priority": null,
       "related": [
+        "decision:D-12",
         "needs-decision:ND-35",
         "feature:ring-invitations",
         "decision:D-32",
@@ -65899,6 +66096,7 @@
         "decision:D-06",
         "decision:D-10",
         "decision:D-11",
+        "decision:D-12",
         "decision:D-22",
         "frontend-requirements:profiles",
         "story:profiles"
@@ -65906,11 +66104,12 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "blocked": 2,
-        "decided": 2,
-        "draft": 2,
+        "approved": 1,
+        "blocked": 1,
+        "decided": 3,
+        "draft": 1,
         "missing": 4,
-        "verified": 2
+        "verified": 3
       },
       "scope": null,
       "screens": [
@@ -68677,6 +68876,7 @@
         "project:spec-map",
         "feature:account",
         "needs-decision:ND-07",
+        "decision:D-12",
         "story:payments"
       ],
       "release": "mvp",
@@ -75279,13 +75479,13 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 2,
-        "blocked": 4,
-        "decided": 2,
-        "draft": 4,
+        "approved": 3,
+        "blocked": 3,
+        "decided": 3,
+        "draft": 3,
         "in-progress": 3,
         "missing": 12,
-        "verified": 2
+        "verified": 3
       },
       "scope": null,
       "screens": [],
@@ -76233,13 +76433,15 @@
         "story:badge-qr"
       ],
       "card": "ND-12",
-      "children": [],
+      "children": [
+        "decision:D-12"
+      ],
       "code": "ND-12",
       "created": "2026-10-25",
       "deadline": null,
       "decider": "owner",
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "verified",
       "effort": null,
       "feature": null,
       "features": [
@@ -76247,6 +76449,7 @@
       ],
       "foundOn": null,
       "frontendOnly": false,
+      "fulfilledBy": "decision:D-12",
       "id": "needs-decision:ND-12",
       "inherits": {},
       "kind": "needs-decision",
@@ -76265,6 +76468,7 @@
       "related": [
         "feature:badge-qr",
         "needs-decision:ND-22",
+        "decision:D-12",
         "decision:D-22",
         "frontend-requirements:view-as",
         "story:view-as",
@@ -76277,16 +76481,16 @@
         "s34",
         "s43"
       ],
-      "status": "draft",
+      "status": "needs-decision",
       "summary": "What the QR on the badge (s34) carries: the bare token, or a URL with the token in it. A bare token works only when the Social Pin app scans it (s43); a phone's own camera shows it as text, and…",
       "tags": [
         "needs-decision",
-        "needs-decision/draft"
+        "needs-decision/open"
       ],
       "task": null,
       "title": "ND-12 What the badge QR encodes",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-08"
     },
     "needs-decision:ND-13": {
       "affects": [],
@@ -84881,13 +85085,13 @@
         }
       ],
       "rollup": {
-        "approved": 41,
-        "blocked": 31,
+        "approved": 42,
+        "blocked": 30,
         "current": 5,
-        "decided": 32,
+        "decided": 33,
         "delivered": 8,
         "done": 28,
-        "draft": 28,
+        "draft": 27,
         "failing": 1,
         "in-progress": 47,
         "missing": 134,
@@ -84897,7 +85101,7 @@
         "ready": 5,
         "reference": 32,
         "todo": 3,
-        "verified": 32
+        "verified": 33
       },
       "scope": null,
       "screens": [],
@@ -85176,13 +85380,7 @@
     },
     "story:badge-qr": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "needs-decision:ND-12",
-          "title": "ND-12 What the badge QR encodes",
-          "why": "needs decision ND-12 (draft)"
-        }
-      ],
+      "blockedBy": [],
       "card": "S-37",
       "children": [
         "needs-decision:ND-10",
@@ -85193,7 +85391,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "badge-qr",
       "foundOn": null,

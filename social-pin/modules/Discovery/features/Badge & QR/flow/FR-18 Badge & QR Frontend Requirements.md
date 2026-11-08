@@ -13,6 +13,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/discovery, lay
 
 # Badge & QR · Frontend Requirements
 
+> ⚠ Affected by [[D-12 The badge QR is a socialpin.me link]] (2026-11-08): url in the token response draws the QR; the scanner parses https://socialpin.me/q/<token> on the phone (anything else: "Not a Social Pin code"); deep links, the share link and the web page wait on the domain
+
 > ⚠ Affected by [[D-11 The badge code stays the same for its day]] (2026-11-04): ND-11 decided, option 2: the badge shows the same code all day (countdown from expiresAt) and offers a Reset code action.
 
 > ⚠ Affected by [[D-10 Connect sends what the requester already has]] (2026-11-04): ND-10 decided, option 3: the scanner hands the token it resolved on to the card, for Connect.
