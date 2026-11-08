@@ -3,7 +3,7 @@ id: B-14
 type: bug
 module: identity
 feature: rings
-status: todo
+status: ready
 priority: medium
 effort: S
 foundOn: "BI-08 Rings Backend Integration"
@@ -13,13 +13,15 @@ affects: []
 related: ["BI-08 Rings Backend Integration", "QB-12 Rings QA Backend", "BD-11 Rings Backend Delivery", "PATCH /rings/:id"]
 pending: []
 created: 2026-11-05
-updated: 2026-11-05
-tags: [bug, bug/todo, module/identity, priority/medium]
+updated: 2026-11-08
+tags: [bug, bug/ready, module/identity, priority/medium]
 ---
 
-# ⬜ B-14 · PATCH a Ring with null on a required field answers 500
+# 📨 B-14 · PATCH a Ring with null on a required field answers 500
 
-**Found against:** [[BI-08 Rings Backend Integration]] · **Feature:** [[F-11 Rings]] · **Status:** To do · **Priority:** Medium (`critical | high | medium | low`, from `docs.config.json`) · **Deadline:** — · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
+> ⚠ Affected by [[BD-11 Rings Backend Delivery]] (2026-11-08): fixed on backend main e483d49 (38b2b97: `PATCH /rings/:id` takes `null` only where it clears (`purpose`, `colorHex`, `style`, `startsAt`, `expiresAt`, `parentRingId`); `null` on any other field is a 400 validation error), ready for re-test
+
+**Found against:** [[BI-08 Rings Backend Integration]] · **Feature:** [[F-11 Rings]] · **Status:** Ready · **Priority:** Medium (`critical | high | medium | low`, from `docs.config.json`) · **Deadline:** — · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
 
 **Found by:** [[QB-12 Rings QA Backend]] row B30, on build backend `main @ 12172c6` (2026-11-05).
 

@@ -18,6 +18,8 @@ tags: [qa-backend, qa-backend/failing, module/identity, layer/qa]
 
 # 🧪 Ring Projection · QA Backend
 
+> ⚠ Affected by [[BD-10 Ring Projection Backend Delivery]] (2026-11-08): backend main e483d49 fixes B-11 (rows B25, B26): show* and isVisible take true/false only, anything else 400; ready for re-test (/qa)
+
 **Feature:** [[F-10 Ring Projection]] · **Verifies:** [[BD-10 Ring Projection Backend Delivery]] against [[S-17 Ring Projection Story]] and [[FR-10 Ring Projection Frontend Requirements]], through the contract in [[BI-07 Ring Projection Backend Integration]] · **Verdict:** Failing on backend `main @ 12172c6`, 2026-11-05 ([[B-11 Projection switches read any string as true]], [[B-12 Null on a link or custom field's required field answers 500]])
 
 Expected behaviour of the API, as artefacts a person can check a build against: tables and diagrams, **not test code** (the specs live in the backend repo). `status: passing` or `failing` after a run; the verdict tells the PM whether the story can be fulfilled (passing with nothing pending or unmet). A failing row is one of two things: a story part the delivery does not fulfil (not built, or built other than the story says) goes in `unmet` and turns the story's badge ✕; a bug (built as asked, but it breaks) is filed against the Backend Integration and goes in `pending`, and leaves the story alone.

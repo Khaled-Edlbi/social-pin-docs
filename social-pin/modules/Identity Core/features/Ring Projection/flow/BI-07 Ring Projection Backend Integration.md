@@ -10,13 +10,11 @@ depends: ["BD-10 Ring Projection Backend Delivery"]
 affects: ["FR-10 Ring Projection Frontend Requirements"]
 related: ["D-03 Links entered once, switched on or off per Ring", "D-16 Files load from signed links that expire in 15 minutes", "BI-03 Files Upload Backend Integration", "GET /files/content/:token", "GET /rings/:ringId/projection", "PATCH /rings/:ringId/projection", "POST /rings/:ringId/projection/links", E_RING_05]
 created: 2026-10-15
-updated: 2026-11-05
+updated: 2026-11-08
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---
 
 # 🔌 Ring Projection · Backend Integration
-
-> ⚠ Affected by [[QB-13 Ring Projection QA Backend]] (2026-11-05): failing on main 12172c6: a string for show* / isVisible is stored as true, so "false" turns sharing on (B-11); null on a link's type, value, isVisible or a field's title answers 500, not 400 (B-12); for /backend
 
 > ⚠ Affected by [[D-02 One main profile every Ring starts from]] (2026-10-25): ND-02 decided, one main profile (headline, role, company, location, photo, bio) every Ring starts from; a Ring may change all of them but the full name and keeps its own value when the main one changes.
 
@@ -51,7 +49,8 @@ What the client builds: the owner's "what this Ring shows" editor: display name,
    - **Delete, everywhere:** `DELETE …/links/:linkId` deletes the link from the library, so from every Ring. Owner only. To take it off this Ring only, `PATCH { isVisible: false }`.
    - `:linkId` is the `id` from `links[]`: the library link's id, the same in every Ring of the owner.
    - Several links of one type are allowed; use `label` to tell them apart ("Work LinkedIn"). Two different values are two links. `value` is validated against `type`, see below.
-4. **Custom fields (info blocks)**, the same rule: `POST …/info-blocks` with `{ title (≤120), body? (≤4000), sortOrder?, isVisible? }` adds to the library and switches on here (an identical `title` + `body` is reused); `PATCH …/info-blocks/:blockId` with `title` / `body` edits everywhere (owner only), with `isVisible` / `sortOrder` this Ring only; `DELETE` deletes everywhere (owner only).
+   - `null` clears `label` and nothing else: `null` on `type`, `value`, `isVisible` or `sortOrder` is a 400 validation error, on `POST` and on `PATCH`. To leave a field as it is, leave it out.
+4. **Custom fields (info blocks)**, the same rule: `POST …/info-blocks` with `{ title (≤120), body? (≤4000), sortOrder?, isVisible? }` adds to the library and switches on here (an identical `title` + `body` is reused); `PATCH …/info-blocks/:blockId` with `title` / `body` edits everywhere (owner only), with `isVisible` / `sortOrder` this Ring only; `DELETE` deletes everywhere (owner only). `null` clears `body` and nothing else: `null` on `title`, `isVisible` or `sortOrder` is a 400 validation error.
 5. **Attachments.** Upload first ([[BI-03 Files Upload Backend Integration]]), then `POST …/attachments` with `{ fileId, label?, sortOrder?, isVisible? }` → 201. `DELETE …/attachments/:attachmentId` detaches (the file itself stays in the library). Files were already "upload once, attach per Ring"; nothing changed here.
 6. **Preview.** `GET /views/ring/:ringId` as the owner returns exactly what a member of that Ring sees: that is the "View as" screen.
 
@@ -76,7 +75,7 @@ What the client builds: the owner's "what this Ring shows" editor: display name,
 
 The five in bold are D-03's (S5): detect them from the pasted link (a booking page such as Calendly or cal.com, behance.net, dribbble.com, github.com, youtube.com / youtu.be) and send them as their own type rather than as labelled custom links. A mismatch is a 400 `E_RING_PROFILE_03` with a human message, also when only `type` changes (the stored value is checked against the new type). Validate on the client with the same rules so the user sees it before submitting.
 
-- **`show*` all default to `false`.** A new Ring shares no birthdate, gender, marital status, phone or email until the owner turns each on, for that Ring. The values themselves live on the profile ([[BI-04 Profiles & Pin Name Backend Integration]]) and on the account (phone, email). If the base value is empty, turning the flag on shows `null` to the viewer.
+- **`show*` all default to `false`.** A new Ring shares no birthdate, gender, marital status, phone or email until the owner turns each on, for that Ring. Every `show*` and `isVisible` takes `true` / `false` only (the strings `"true"` / `"false"` are read the same); any other value is a 400, never a share. The values themselves live on the profile ([[BI-04 Profiles & Pin Name Backend Integration]]) and on the account (phone, email). If the base value is empty, turning the flag on shows `null` to the viewer.
 - `isVisible: false` on a link, field or attachment hides it from **every viewer of this Ring**: the query excludes it. The owner entity still lists it (with the flag) so the editor can show it as off; s14 does not render it.
 - `widgets[]` is read-only today: there are no widget endpoints ([[S-20 Widgets Story|Widgets · S7]]).
 
@@ -92,6 +91,8 @@ One editor state per Ring, refetched after every write (every write but `DELETE`
 | 403 | `E_RING_05` | a delegated admin sends `type`, `value`, `label` (`title`, `body`) or a `DELETE` on a link or field: that would change the owner's other Rings | hide edit and delete for delegated admins; offer the switch |
 | 404 | `E_RING_02` | Ring not found | missing |
 | 400 | `E_RING_PROFILE_03` | link `value` does not match `type` | inline, message from the server |
+| 400 | — (validation) | a `show*` or `isVisible` that is not `true` / `false` (`"yes"`, `"0"`, `null`) | a client bug: send a boolean |
+| 400 | — (validation) | `null` on a link's `type`, `value`, `isVisible` or `sortOrder`, or on a field's `title`, `isVisible` or `sortOrder` (only `label` and `body` take `null`) | a client bug: leave the field out instead |
 | 404 | `E_RING_PROFILE_03` | link or field is not in the owner's library (or, for a delegated admin, not on this Ring); also an id taken from a viewer response | refresh the editor |
 | 404 | `E_RING_PROFILE_04` | attachment not in this projection | refresh the editor |
 | 400 | `E_FILE_04` | `avatarFileId` or `fileId` is not a file the caller uploaded | pick from the library again |
@@ -117,7 +118,7 @@ One editor state per Ring, refetched after every write (every write but `DELETE`
 - [ ] "N of M on" counts `links[]` / `infoBlocks[]` with `isVisible: true` against their length.
 - [ ] Switching uses `PATCH { isVisible }`; a value is never copied into a second Ring.
 - [ ] After an edit or a delete of a link or field, every cached projection and view of that owner is invalidated.
-- [ ] `null` sent to clear text / file fields; `show*` sent as booleans.
+- [ ] `null` sent to clear text / file fields (on a link only `label`, on a field only `body`); a field left out when it is not changing, never `null`; `show*` sent as booleans.
 - [ ] Link editor validates `value` per `type` with the table above, the five new types included; labels for duplicates.
 - [ ] Delegated admins see the switch, not edit or delete.
 - [ ] "View as" calls `GET /views/ring/:ringId` after invalidating its cache.
@@ -126,3 +127,5 @@ One editor state per Ring, refetched after every write (every write but `DELETE`
 
 - 2026-11-05 · describes backend branch `FR-10/ring-profile/library-and-link-types` (`b0c14f2`), **not merged**: [[S-17 Ring Projection Story|Ring Projection · S5, S9]] (the library, the five link types), as [[BD-10 Ring Projection Backend Delivery]] logs it. The routes and shapes did not change; what `:linkId` / `:blockId` name, what an edit reaches, and the delegated admin's 403 did. The [[D-03 Links entered once, switched on or off per Ring]] flag is cleared: this note now describes its work.
 - 2026-11-05 · matches backend `main` `a249ab2`: the branch above is merged; S5 and S9 are live. With F-07's main profile fields merged before it, a viewer's `bio` and `avatarUrl` follow the main profile while the Ring's own are `null` ([[BI-04 Profiles & Pin Name Backend Integration]]).
+- 2026-11-08 · matches backend `main` `e483d49`: [[B-12 Null on a link or custom field's required field answers 500]] is fixed (`52bb683`). `null` on a required field of a link or a custom field answers 400 (validation), not 500; `label` and `body` still take `null`. The rule is written in *Flow* 3 and 4, the *Errors* table and the *Checklist*. Routes and shapes are unchanged.
+- 2026-11-08 · `docs/backend/M-01-identity/F-10-ring-projection/BD-10-b-11-fixed` · matches backend `main` `e483d49`: [[B-11 Projection switches read any string as true]] is fixed (`562368b`). `show*` and `isVisible` take `true` / `false` only, anything else a 400 (*Shapes that matter*, *Errors*). Routes and shapes unchanged. The [[QB-13 Ring Projection QA Backend]] flag under the H1 is cleared: B-11 and B-12 are both fixed on that build.
