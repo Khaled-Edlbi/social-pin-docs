@@ -18,7 +18,7 @@ tags: [frontend-requirements, frontend-requirements/approved, module/shared-ring
 
 # 📨 Ring Invitations & Join · Frontend Requirements
 
-**Feature:** [[F-17 Ring Invitations & Join]] · **Status:** Approved 2026-11-08 by khaled · **Story:** [[S-33 Ring Invitations & Join Story]] (approved 2026-11-08) · **API Integration:** not yet (backend not built)
+**Feature:** [[F-17 Ring Invitations & Join]] · **Status:** Approved 2026-11-08 by khaled · **Story:** [[S-33 Ring Invitations & Join Story]] (approved 2026-11-08) · **API Integration:** [[BI-17 Ring Invitations & Join Backend Integration]] (backend `main` `1c460b0`)
 
 What the client needs from the backend to build [[S-33 Ring Invitations & Join Story]] S1–S12, and whether each need is met today. **Rewritten 2026-11-08** against the approved story, [[D-31 An invitation is its own record|D-31]] to [[D-36 Who it's for stays the owner's alone|D-36]], and backend `main` @ `12172c6` ([[BI-08 Rings Backend Integration]]). Routes that don't exist yet are asked for as needs, not names: the backend names them in [[BD-17 Ring Invitations & Join Backend Delivery]]; the two join-request routes keep the names [[FR-15 Companies Frontend Requirements|FR-15]] already asked for.
 
@@ -34,7 +34,7 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
   - on that row, **my picked Ring** for my card there (its id and name: it is my own Ring, so I may see its name) (S10, D-34);
   - my **pending invitations**: invitation id, Ring name, owner (display name, Pin name, photo), inviter (display name), sent at, optional access window, `valid` (false once the Ring ended or was deleted), and `business { id, name, logoFileId }` on a company Ring (D-31, FR-15);
   - my **join requests**: `id`, `status` (`PENDING` | `DECLINED`), `createdAt`, `ringName`, `business` (FR-15).
-- **Source today:** `GET /rings/shared-with-me` ✅ (`ringName` and `memberCount` always `null` until a membership records how it was made). Invitations, requests and the picked Ring: not yet.
+- **Source today:** `GET /rings/shared-with-me` ✅ (`ringName` on a row I joined knowingly, `memberCount` when the Ring lets members see each other); `GET /rings/invitations/mine` ✅; `GET /rings/join-requests/mine` ✅. The picked Ring: not yet.
 - **What changes in the app:** today the tab lists people only. It gains an **Invitations** section and a **My requests** section above the people (each hidden while empty, each loading on its own); a joined-knowingly row shows "Acme Team · Shared by …" and **"Your card here: <my Ring> ›"**, which opens the picker (s74 step below). *Join with a code* opens s74.
 
 ### [[Screen Index#s74|s74]] Review an invitation, join with a code (S2, S3, S4)
@@ -45,7 +45,7 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
   - **a code resolved to a review** before anything happens: the Ring's name, the owner (display name, Pin name, photo), and whether joining makes a request (`requireApproval`); then join, or send the request;
   - one neutral refusal for a code that is wrong, off, ended or used up, and one for too many tries (with when I may try again, if the backend gives it);
   - a code refused under "only by invitation" reads the same as a wrong one.
-- **Source today:** none. `GET /views/ring/:ringId` ✅ opens the owner's card only **after** joining (before, the viewer gets the neutral 404).
+- **Source today:** `POST /rings/invitations/:id/accept` ✅, `POST /rings/invitations/:id/decline` ✅, `POST /rings/invitations/:id/dismiss` ✅, `POST /rings/join-codes/resolve` ✅, `POST /rings/join-codes/join` ✅. `GET /views/ring/:ringId` ✅ opens the owner's card only **after** joining (before, the viewer gets the neutral 404).
 - **What changes in the app:** today `join_company_ring_screen.dart` is a sample (Alma Group) with four ways in and a "What you contribute" list. It keeps **This invite** and **Invite code** only:
   - **Work email** goes (D-33), with "verified domain alma.co";
   - **Scan a colleague** goes: the app's scanner opens this screen instead (D-35);
@@ -62,7 +62,7 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
 ### [[Screen Index#s43|s43]] Scanner (S9, D-35)
 
 - **Needs:** a scanned **join QR** resolved to the same review as a typed code, with the same refusals; a way to tell a join QR from a badge (the backend writes it in BD-17); a badge resolve that never returns a join offer.
-- **Source today:** none; the badge resolve route doesn't exist yet either ([[S-37 Badge & QR Story|Badge & QR · S13–S18]]).
+- **Source today:** a join QR carries `socialpin://join/<code>` and goes to `POST /rings/join-codes/resolve` ✅ with the scanned text as `code`; a badge carries `https://socialpin.me/q/<token>` ([[S-37 Badge & QR Story|Badge & QR]]).
 - **What changes in the app:** today the scanner is a timer that shows a sample card. When it reads a join QR it opens s74 with the code's review; a badge still opens only a person's card.
 
 ### [[Screen Index#s15|s15]] The Ring's people, the owner's side (S6, S8)
@@ -71,7 +71,7 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
   - **invite** one person: a connection or a Pin name, an optional access window; refused when I may not invite (not the owner, not an admin at "can also manage who's in it", or a member while "members can invite others" is off);
   - **Invited · N**: the invitations sent and not answered (invitee display name, Pin name, photo, sent at, status `PENDING` | `DECLINED`), **withdraw** one;
   - **Waiting on you · N**: the join requests (person display name, headline, photo, **the label of the code they used**, asked at), **approve**, **decline**.
-- **Source today:** the members list ✅ ([[S-16 Ring Members Story|Ring Members]]); the rest: not yet.
+- **Source today:** the members list ✅ ([[S-16 Ring Members Story|Ring Members]]); `POST /rings/:ringId/invitations` ✅, `GET /rings/:ringId/invitations` ✅, `POST /rings/:ringId/invitations/:id/withdraw` ✅, `GET /rings/:ringId/join-requests` ✅, `POST /rings/:ringId/join-requests/:id/approve` ✅, `POST /rings/:ringId/join-requests/:id/decline` ✅.
 - **What changes in the app:** *Invite* on the Ring's people; two new sections, **Invited · N** (with *Withdraw*) and **Waiting on you · N** ("asked with *Onboarding week*", *Add*, *Decline*). Pending invitations are never shown or counted as members.
 
 ### [[Screen Index#s19|s19]] New Ring wizard, step 2 (S6)
@@ -87,7 +87,7 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
   - **turn off** a code;
   - the code text is what *Share* sends and what *Show as QR* draws (the client draws the QR from what the backend says a join QR carries);
   - managed by the owner (later admins at "can also manage who's in it"); refused, and the list hidden, under "only by invitation".
-- **Source today:** the Ring's settings ✅ (`PATCH /rings/:id`, `joinPolicy`, `requireApproval`); codes: not yet.
+- **Source today:** the Ring's settings ✅ (`PATCH /rings/:id`, `joinPolicy`, `requireApproval`); `GET /rings/:ringId/join-codes` ✅, `POST /rings/:ringId/join-codes` ✅, `POST /rings/:ringId/join-codes/:codeId/turn-off` ✅.
 - **What changes in the app:** today *Joining* has who can join and approval, each with "Takes effect when…", an approval line "Auto-accept is set per QR code" and an old **"Verified email required"** row. It gains a **Join codes** list (label, K7QM-4RXT, "12 of 20 used", *Off* / *Ended*), *Make a new code* (a sheet: label, end date, use limit), and per active code **Share**, **Show as QR** (a new full-screen QR with the code under it) and **Turn off**. The "Verified email" row and the "per QR code" wording go. Not drawn: the app's own style.
 
 ### Inside a Ring I joined (S11, D-34)
@@ -109,21 +109,21 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
 | The owner's card of a Ring I'm in | `GET /views/ring/:ringId` | ✅ | S2, S11 |
 | My own Rings (for the card picker) | `GET /rings` | ✅ | S10 |
 | The Ring's joining settings | `PATCH /rings/:id` (`joinPolicy`, `requireApproval`) | ✅ | S7 |
-| `ringName` / `memberCount` filled when joined knowingly | `GET /rings/shared-with-me` | ❌ (always `null`) | S1, D-18 |
-| My pending invitations, with `valid` and `business` | — | ❌ | S1, D-31, FR-15 |
-| Accept an invitation (returns the membership) | — | ❌ | S2, D-31 |
-| Decline an invitation | — | ❌ | S2, D-31 |
-| Dismiss an invitation that is no longer valid | — | ❌ | S1, D-31 |
-| Resolve a join code to a review | — | ❌ | S3, D-32 |
-| Join, or send a request, with a code | — | ❌ | S3, D-32 |
-| Resolve a scanned join QR to a review | — (or the code route) | ❌ | S9, D-35 |
-| My join requests | `GET /rings/join-requests/mine` | ❌ | S5, FR-15 |
-| Cancel or dismiss my join request | `DELETE /rings/join-requests/:id` | ❌ | S5, FR-15 |
+| `ringName` / `memberCount` filled when joined knowingly | `GET /rings/shared-with-me` | ✅ | S1, D-18 |
+| My pending invitations, with `valid` and `business` | `GET /rings/invitations/mine` | ✅ | S1, D-31, FR-15 |
+| Accept an invitation (returns the membership) | `POST /rings/invitations/:id/accept` (returns `ringId`, `ringName`) | ✅ | S2, D-31 |
+| Decline an invitation | `POST /rings/invitations/:id/decline` | ✅ | S2, D-31 |
+| Dismiss an invitation that is no longer valid | `POST /rings/invitations/:id/dismiss` | ✅ | S1, D-31 |
+| Resolve a join code to a review | `POST /rings/join-codes/resolve` | ✅ | S3, D-32 |
+| Join, or send a request, with a code | `POST /rings/join-codes/join` | ✅ | S3, D-32 |
+| Resolve a scanned join QR to a review | `POST /rings/join-codes/resolve` (the scanned `socialpin://join/…` text as `code`) | ✅ | S9, D-35 |
+| My join requests | `GET /rings/join-requests/mine` | ✅ | S5, FR-15 |
+| Cancel or dismiss my join request | `DELETE /rings/join-requests/:id` | ✅ | S5, FR-15 |
 | Set / read my picked Ring in a Ring I joined | — | ❌ | S10, D-34 |
-| Invite a person (connection or Pin name, window) | — | ❌ | S6, D-31 |
-| The Ring's invitations (Invited · N), withdraw | — | ❌ | S6, D-31 |
-| The Ring's join requests with the code label, approve, decline | — | ❌ | S8, D-32 |
-| The Ring's join codes: list, make, turn off | — | ❌ | S7, D-32 |
+| Invite a person (connection or Pin name, window) | `POST /rings/:ringId/invitations` | ✅ | S6, D-31 |
+| The Ring's invitations (Invited · N), withdraw | `GET /rings/:ringId/invitations`, `POST /rings/:ringId/invitations/:id/withdraw` | ✅ | S6, D-31 |
+| The Ring's join requests with the code label, approve, decline | `GET /rings/:ringId/join-requests`, `POST /rings/:ringId/join-requests/:id/approve`, `POST /rings/:ringId/join-requests/:id/decline` | ✅ | S8, D-32 |
+| The Ring's join codes: list, make, turn off | `GET /rings/:ringId/join-codes`, `POST /rings/:ringId/join-codes`, `POST /rings/:ringId/join-codes/:codeId/turn-off` | ✅ | S7, D-32 |
 | The member-facing roster (picked cards) | — | ❌ | S11, D-34 |
 | Leave a Ring as a member | — | ❌ | S11 |
 | Notifications: invitation received, request approved, request waiting | — | ❌ | S12, [[S-96 Notifications Story|Notifications]] |
@@ -161,3 +161,4 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
 - 2026-11-08 · `tickets/frontend/M-03-shared-rings/F-17-ring-invitations/FR-17-draft` · rewritten against the approved S-33 (S1–S12) and D-31 to D-36: per screen s17, s74, the "Your card" step, s43, s15, s19, s26, inside the Ring, with **What changes in the app** under each; the endpoints table re-keyed to S-33's parts (no work email, several join codes with QR, invitations as their own record, the picked-Ring pointer, the member roster); FR-15's asks added; no purpose anywhere; all 13 ⚠ flags settled and cleared (S-33 ×2, D-31 to D-36, D-04, D-18, FR-15, S-23's renumbering, which no longer applies: no Connections part is linked); stays draft
 - 2026-11-08 · `tickets/frontend/M-03-shared-rings/F-17-ring-invitations/FR-17-ready` · set ready on Omar Fostok's word: handed to `/backend` to review, approve or send back
 - 2026-11-08 · `tickets/backend/M-03-shared-rings/F-17-ring-invitations/FR-17-accepted` · reviewed by `/backend` against backend `main` @ `cb95a39` and approved (khaled): every ✅ row holds (`GET /rings/shared-with-me` and its fields, `GET /views/ring/:ringId`, `GET /rings`, `PATCH /rings/:id` with `joinPolicy` / `requireApproval`, `E_RING_ACCESS_01` / `02`, `E_AUTH_04`); the ❌ asks match S-33 S1–S12. [[BD-17 Ring Invitations & Join Backend Delivery]] → in progress; the ❌ rows stay until the backend branch is merged
+- 2026-11-08 · `tickets/backend/M-03-shared-rings/F-17-ring-invitations/FR-17-rows-delivered` · backend `main` `1c460b0` shipped S-33 S1–S3, S5–S9: 14 rows → ✅ with their endpoints (`ringName` / `memberCount` on Shared with me, invitations, join codes, the join QR, join requests); the *Source today* lines and the API Integration link ([[BI-17 Ring Invitations & Join Backend Integration]]) updated. Still ❌: the picked Ring (S10), the member roster and leave (S11), notifications (S12); work email is not in this version. The error codes are named in BI-17 (on the wire once [[S-87 Error Contract Story|Error Contract]] ships)
