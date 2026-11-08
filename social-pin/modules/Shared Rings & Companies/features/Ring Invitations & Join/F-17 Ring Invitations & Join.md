@@ -15,6 +15,8 @@ tags: [feature, module/shared-rings, priority/critical, release/mvp]
 
 # Ring Invitations & Join
 
+> ⚠ Affected by [[S-33 Ring Invitations & Join Story]] (2026-11-08): S-33 was rewritten (2026-11-08) as one set of parts S1-S12 against backend main 12172c6: invitations on s17 (by company for s72), review (s74), code, work email, my join requests (cancel, dismiss), the owner's Invite and Invited list, the join code on Joining and permissions, Waiting on you on s15, QR join, what a member shows, inside the Ring, notifications; six questions open as ND-31 to ND-36. The old S7-S9 (T-026 to T-028) are folded in
+
 **Backend:** TODO · **Priority:** Critical · **Release:** MVP · **Module:** [[M-03 Shared Rings & Companies Module|Shared Rings & Companies]]
 
 **Layers:** [[S-33 Ring Invitations & Join Story|Story]] · [[FR-17 Ring Invitations & Join Frontend Requirements|Frontend Requirements]] · [[BD-17 Ring Invitations & Join Backend Delivery|Backend Delivery]] · [[Ring Invitations & Join Backend Integration|Backend Integration]] · [[Ring Invitations & Join Frontend Delivery|Frontend Delivery]] · [[Ring Invitations & Join QA Backend|QA Backend]] · [[Ring Invitations & Join QA Frontend|QA Frontend]]
