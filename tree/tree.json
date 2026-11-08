@@ -6154,7 +6154,7 @@
     },
     "concepts": 291,
     "decisions": 34,
-    "edges": 6902,
+    "edges": 6898,
     "features": 41,
     "layerNotes": 151,
     "modules": 8,
@@ -9714,26 +9714,6 @@
       "from": "qa-backend:ring-projection",
       "kind": "pending",
       "to": "task:B-12"
-    },
-    {
-      "from": "qa-backend:rings",
-      "kind": "pending",
-      "to": "task:B-13"
-    },
-    {
-      "from": "qa-backend:rings",
-      "kind": "pending",
-      "to": "task:B-14"
-    },
-    {
-      "from": "qa-backend:rings",
-      "kind": "pending",
-      "to": "task:B-15"
-    },
-    {
-      "from": "qa-backend:rings",
-      "kind": "pending",
-      "to": "task:B-16"
     },
     {
       "from": "qa-backend:view-as",
@@ -31166,6 +31146,7 @@
       "via": [
         "E_RING_01",
         "E_RING_09",
+        "E_RING_10",
         "GET /rings",
         "GET /rings/shared-with-me",
         "GET /rings/shared-with-me/count",
@@ -31179,6 +31160,7 @@
       "to": "project:frontend-contract",
       "via": [
         "E_RING_09",
+        "E_RING_10",
         "GET /rings",
         "GET /rings/shared-with-me",
         "GET /views/ring/:ringId",
@@ -34971,6 +34953,7 @@
       "via": [
         "DELETE /rings/:id",
         "E_RING_04",
+        "E_RING_10",
         "POST /rings/:id/disposition"
       ]
     },
@@ -62562,6 +62545,7 @@
     },
     "backend-integration:rings": {
       "affects": [],
+      "autoDelivered": true,
       "blockedBy": [],
       "card": "BI-08",
       "children": [
@@ -62574,7 +62558,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "current",
+      "effectiveStatus": "delivered",
       "effort": null,
       "feature": "rings",
       "foundOn": null,
@@ -68246,12 +68230,12 @@
       "resolution": null,
       "rollup": {
         "approved": 2,
-        "current": 1,
         "decided": 2,
+        "delivered": 1,
         "done": 1,
-        "failing": 1,
         "missing": 1,
         "partial": 1,
+        "passing": 1,
         "ready": 4,
         "verified": 2
       },
@@ -75048,17 +75032,17 @@
       "rollup": {
         "approved": 18,
         "blocked": 3,
-        "current": 7,
+        "current": 6,
         "decided": 10,
-        "delivered": 6,
+        "delivered": 7,
         "done": 18,
         "draft": 3,
-        "failing": 5,
+        "failing": 4,
         "in-progress": 13,
         "missing": 20,
         "needs-decision": 1,
         "partial": 13,
-        "passing": 4,
+        "passing": 5,
         "ready": 11,
         "verified": 10
       },
@@ -82083,7 +82067,7 @@
         "backend-delivery:rings",
         "story:rings"
       ],
-      "effectiveStatus": "failing",
+      "effectiveStatus": "passing",
       "effort": null,
       "feature": "rings",
       "foundOn": null,
@@ -82104,28 +82088,7 @@
         "feature:rings"
       ],
       "path": "social-pin/modules/Identity Core/features/Rings/flow/QB-12 Rings QA Backend.md",
-      "pending": [
-        {
-          "person": null,
-          "text": "rows B4 and B37 (/backend)",
-          "to": "task:B-13"
-        },
-        {
-          "person": null,
-          "text": "row B30 (/backend)",
-          "to": "task:B-14"
-        },
-        {
-          "person": null,
-          "text": "rows B63 and B64 (/backend)",
-          "to": "task:B-15"
-        },
-        {
-          "person": null,
-          "text": "rows B22 and B36 (/backend)",
-          "to": "task:B-16"
-        }
-      ],
+      "pending": [],
       "priority": "critical",
       "related": [
         "task:B-13",
@@ -82253,18 +82216,18 @@
         "s27",
         "s62"
       ],
-      "status": "failing",
+      "status": "passing",
       "summary": "Expected behaviour of the API, as artefacts a person can check a build against: tables and diagrams, not test code (the specs live in the backend repo). status: passing or failing after a run; the…",
       "tags": [
         "qa-backend",
-        "qa-backend/failing",
+        "qa-backend/passing",
         "module/identity",
         "layer/qa"
       ],
       "task": null,
       "title": "QB-12 Rings QA Backend",
       "unmet": [],
-      "updated": "2026-11-05"
+      "updated": "2026-11-08"
     },
     "qa-backend:subscription": {
       "affects": [],
@@ -84560,17 +84523,17 @@
       "rollup": {
         "approved": 40,
         "blocked": 32,
-        "current": 7,
+        "current": 6,
         "decided": 32,
-        "delivered": 6,
+        "delivered": 7,
         "done": 19,
         "draft": 29,
-        "failing": 5,
+        "failing": 4,
         "in-progress": 47,
         "missing": 134,
         "needs-decision": 1,
         "partial": 13,
-        "passing": 4,
+        "passing": 5,
         "ready": 13,
         "reference": 32,
         "todo": 3,
