@@ -36,7 +36,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
         - ⬜ [B-20 In Arabic the code boxes fill right to left](social-pin/bugs/B-20%20In%20Arabic%20the%20code%20boxes%20fill%20right%20to%20left.md) (bug, High)
         - ⬜ [B-21 A failed resend restarts the countdown](social-pin/bugs/B-21%20A%20failed%20resend%20restarts%20the%20countdown.md) (bug, High)
         - ⬜ [B-22 The code's expiry counts with the phone clock](social-pin/bugs/B-22%20The%20code's%20expiry%20counts%20with%20the%20phone%20clock.md) (bug, High)
-      - ✏️ [QF-05 Auth & Sign-up QA Frontend](social-pin/modules/Identity%20Core/features/Auth%20%26%20Sign-up/flow/QF-05%20Auth%20%26%20Sign-up%20QA%20Frontend.md) (QA Frontend, Critical)
+      - 🔴 [QF-05 Auth & Sign-up QA Frontend](social-pin/modules/Identity%20Core/features/Auth%20%26%20Sign-up/flow/QF-05%20Auth%20%26%20Sign-up%20QA%20Frontend.md) (QA Frontend, 5 pending notes, Critical)
       - ✅ [ND-01 Passwordless login](social-pin/needs-decisions/ND-01%20Passwordless%20login.md) (Needs decision)
         - ⚖️ [D-01 Code-only login](social-pin/decisions/D-01%20Code-only%20login.md) (Decision)
     - 🔵 [F-03 Counts](social-pin/modules/Identity%20Core/features/Counts/F-03%20Counts.md) (release MVP, Critical)
