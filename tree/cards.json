@@ -80,6 +80,8 @@
     "decision:D-32": "D-32",
     "decision:D-33": "D-33",
     "decision:D-34": "D-34",
+    "decision:D-35": "D-35",
+    "decision:D-36": "D-36",
     "feature:account": "F-01",
     "feature:app-shell": "F-29",
     "feature:audit-log": "F-30",

@@ -16,6 +16,8 @@ tags: [story, story/approved, module/discovery, layer/business]
 
 # Badge & QR · User Story
 
+> ⚠ Affected by [[D-35 A join code can be shown as a QR]] (2026-11-08): the scanner tells a Ring's join QR (opens the join review) from a badge; a badge only ever opens a person's card, never a Ring to join
+
 > ⚠ Affected by [[D-11 The badge code stays the same for its day]] (2026-11-04): ND-11 decided, option 2: POST /rings/:ringId/qr returns the valid token inside its 24 h window and issues a new one only past it; the owner can reset a code. S7–S12 no longer wait on ND-11.
 
 > ⚠ Affected by [[D-10 Connect sends what the requester already has]] (2026-11-04): ND-10 decided, option 3: the QR resolve keeps returning the view without a user id; Connect sends the scanned token.

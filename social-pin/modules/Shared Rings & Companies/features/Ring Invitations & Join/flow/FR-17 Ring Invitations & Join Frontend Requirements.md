@@ -13,6 +13,10 @@ tags: [frontend-requirements, frontend-requirements/draft, module/shared-rings, 
 
 # Ring Invitations & Join · Frontend Requirements
 
+> ⚠ Affected by [[D-36 Who it's for stays the owner's alone]] (2026-11-08): no purpose ("who it's for") on s74 or s72; only the owner's own screens show it
+
+> ⚠ Affected by [[D-35 A join code can be shown as a QR]] (2026-11-08): Show as QR on each active join code; the scanner recognises a join QR and opens the s74 review with the code's rules and errors; a badge never offers a Ring
+
 > ⚠ Affected by [[D-34 A member shows one of their own Rings]] (2026-11-08): a member picks one of their own Rings as their card in a Ring they joined; read and set the picked Ring, and the colleagues list only when members may see each other, without the picked Ring's name
 
 > ⚠ Affected by [[D-33 Work email joining waits for real emails and Companies]] (2026-11-08): ND-33 decided "not now": no work-email rows in this version; work-email verification is listed as later (waits on Code Delivery S-78 and Companies S-29 S12)

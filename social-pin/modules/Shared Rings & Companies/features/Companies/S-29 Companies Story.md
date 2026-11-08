@@ -20,6 +20,10 @@ tags: [story, story/approved, module/shared-rings, layer/business]
 
 # Companies · User Story
 
+> ⚠ Affected by [[D-36 Who it's for stays the owner's alone]] (2026-11-08): the invitation on s72 doesn't show what the Ring is for (purpose stays the owner's); the bio says it, after joining
+
+> ⚠ Affected by [[D-35 A join code can be shown as a QR]] (2026-11-08): S1's ways in read invitation, code or a join QR (shown by the company), never a colleague's badge
+
 > ⚠ Affected by [[D-34 A member shows one of their own Rings]] (2026-11-08): colleagues on Company detail (s73) open each one's card, the Ring they picked for that company Ring
 
 > ⚠ Affected by [[D-33 Work email joining waits for real emails and Companies]] (2026-11-08): ND-33 decided "not now": joining a company Ring with a verified work email is not in this version; S12's work-email domain has no join flow behind it yet; "Verified email" on Company detail and P5's "the work email I verified stops counting" apply once it exists; the Join a company Ring hint drops "work email" until then

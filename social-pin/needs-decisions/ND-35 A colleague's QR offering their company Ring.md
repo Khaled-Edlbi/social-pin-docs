@@ -14,7 +14,7 @@ updated: 2026-11-08
 tags: [needs-decision, needs-decision/open]
 ---
 
-# ❓ ND-35 · A colleague's QR offering their company Ring
+# ✅ ND-35 · A colleague's QR offering their company Ring
 
 **Status:** open · **Decider:** owner · **Raised:** 2026-11-08 · **Needed by:** [[S-33 Ring Invitations & Join Story]] (S9) · **Feature:** [[F-17 Ring Invitations & Join]]
 
@@ -45,4 +45,4 @@ Recommendation: option 2, once the join code (ND-32) is decided; option 1 if tha
 
 ## Decision
 
-— (answered on its decision card, never written here: the PM or the owner, on the user's word, runs `node scripts/build-tree.mjs --scaffold decision ND-35 "<the answer>"`, fills the decision card D-NN and sets it `decided` with `decidedBy` and `decidedAt`; this card then shows Fulfilled by itself.)
+Fulfilled by [[D-35 A join code can be shown as a QR]] — decided 2026-11-08 by Omar Fostok: option 2
