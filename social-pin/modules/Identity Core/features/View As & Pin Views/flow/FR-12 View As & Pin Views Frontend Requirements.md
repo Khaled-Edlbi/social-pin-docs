@@ -102,8 +102,8 @@ What the client needs from the backend for every screen that renders another per
 | All perspectives of one person | `GET /views/user/:userId/perspectives` | ✅ | S5 |
 | My live Rings for the selector and the owner face | `GET /rings`, `GET /rings/:ringId/projection` | ✅ | S2 (listed under [[F-11 Rings]], [[F-10 Ring Projection]]) |
 | **The photo and files on the view**: `avatarUrl` and a `url` per attachment, signed, valid 15 minutes, no file id | `GET /views/*` | ✅ `avatarUrl`, `attachments[].url`, served by `GET /files/content/:token` (2026-11-05) | [[D-16 Files load from signed links that expire in 15 minutes]] (decided; the backend builds it) |
-| Issue a rotating QR token for a Ring | — | ❌ | [[S-37 Badge & QR Story\|Badge & QR · S7–S12]], [[ND-12 What the badge QR encodes]] |
-| Resolve a scanned token to a view | — | ❌ | [[S-37 Badge & QR Story\|Badge & QR · S13–S18]] |
+| Issue a rotating QR token for a Ring | `POST /rings/:ringId/qr` | ✅ (2026-11-08, [[BI-15 Badge & QR Backend Integration\|BI-15]]) | [[S-37 Badge & QR Story\|Badge & QR · S1–S2]], [[D-12 The badge QR is a socialpin.me link]] |
+| Resolve a scanned token to a view | `GET /views/qr/:token` | ✅ (2026-11-08, this view + `expiresAt`) | [[S-37 Badge & QR Story\|Badge & QR · S6]] |
 | Connect after a scan | — | ❌ | [[S-23 Connections Story\|Connections · S8–S12]] |
 | Block a person | — | ❌ | [[S-23 Connections Story\|Connections · S25]] |
 | A `userId` to call `/perspectives` with | — | ❌ | [[S-23 Connections Story\|Connections · S19–S24]] |

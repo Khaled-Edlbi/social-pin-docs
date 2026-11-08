@@ -3495,6 +3495,7 @@
         "decision:D-12",
         "frontend-requirements:badge-qr",
         "frontend-requirements:connections",
+        "frontend-requirements:view-as",
         "project:frontend-api-guide",
         "project:ring-access-model",
         "project:spec-map",
@@ -4674,6 +4675,7 @@
         "decision:D-11",
         "decision:D-12",
         "frontend-requirements:badge-qr",
+        "frontend-requirements:view-as",
         "needs-decision:ND-11",
         "project:spec-map",
         "story:badge-qr"
@@ -6664,7 +6666,7 @@
     },
     "concepts": 318,
     "decisions": 34,
-    "edges": 7542,
+    "edges": 7543,
     "features": 41,
     "layerNotes": 155,
     "modules": 8,
@@ -11200,7 +11202,9 @@
       "to": "frontend-requirements:view-as",
       "via": [
         "GET /views/pin/:pinName",
-        "GET /views/ring/:ringId"
+        "GET /views/qr/:token",
+        "GET /views/ring/:ringId",
+        "POST /rings/:ringId/qr"
       ]
     },
     {
@@ -16264,7 +16268,9 @@
       "via": [
         "GET /rings",
         "GET /views/pin/:pinName",
-        "GET /views/ring/:ringId"
+        "GET /views/qr/:token",
+        "GET /views/ring/:ringId",
+        "POST /rings/:ringId/qr"
       ]
     },
     {
@@ -20140,6 +20146,7 @@
       "via": [
         "GET /files/content/:token",
         "GET /views/pin/:pinName",
+        "GET /views/qr/:token",
         "GET /views/ring/:ringId",
         "GET /views/user/:userId/perspectives"
       ]
@@ -58573,6 +58580,11 @@
     {
       "from": "frontend-requirements:view-as",
       "kind": "wikilink",
+      "to": "decision:D-12"
+    },
+    {
+      "from": "frontend-requirements:view-as",
+      "kind": "wikilink",
       "to": "feature:badge-qr"
     },
     {
@@ -64051,6 +64063,7 @@
         "frontend-requirements:badge-qr",
         "story:badge-qr",
         "backend-delivery:view-as",
+        "frontend-requirements:view-as",
         "project:spec-map",
         "story:connections",
         "backend-integration:view-as",
@@ -64078,7 +64091,6 @@
         "backend-integration:rings",
         "frontend-requirements:rings",
         "qa-backend:rings",
-        "frontend-requirements:view-as",
         "qa-backend:view-as",
         "story:view-as",
         "frontend-requirements:widgets",
@@ -67257,6 +67269,7 @@
         "frontend-requirements:badge-qr",
         "story:badge-qr",
         "backend-delivery:view-as",
+        "frontend-requirements:view-as",
         "project:spec-map",
         "story:connections",
         "backend-integration:view-as",
@@ -67284,7 +67297,6 @@
         "backend-integration:rings",
         "frontend-requirements:rings",
         "qa-backend:rings",
-        "frontend-requirements:view-as",
         "qa-backend:view-as",
         "story:view-as",
         "frontend-requirements:widgets",
