@@ -62193,7 +62193,6 @@
       "layer": "backend",
       "module": "identity",
       "openBugs": [
-        "task:B-09",
         "task:B-10"
       ],
       "parentTask": null,
@@ -67709,10 +67708,10 @@
         "approved": 1,
         "current": 1,
         "decided": 1,
-        "done": 1,
+        "done": 2,
         "failing": 1,
         "missing": 2,
-        "ready": 3,
+        "ready": 2,
         "verified": 1
       },
       "scope": null,
@@ -74727,7 +74726,7 @@
         "current": 7,
         "decided": 10,
         "delivered": 6,
-        "done": 18,
+        "done": 19,
         "draft": 3,
         "failing": 5,
         "in-progress": 13,
@@ -74735,7 +74734,7 @@
         "needs-decision": 1,
         "partial": 13,
         "passing": 4,
-        "ready": 11,
+        "ready": 10,
         "verified": 10
       },
       "scope": null,
@@ -84232,7 +84231,7 @@
         "current": 7,
         "decided": 30,
         "delivered": 6,
-        "done": 19,
+        "done": 20,
         "draft": 28,
         "failing": 5,
         "in-progress": 47,
@@ -84240,7 +84239,7 @@
         "needs-decision": 3,
         "partial": 13,
         "passing": 4,
-        "ready": 13,
+        "ready": 12,
         "reference": 32,
         "todo": 3,
         "verified": 30
@@ -87996,7 +87995,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "ready",
+      "effectiveStatus": "done",
       "effort": "S",
       "feature": "ring-members",
       "foundOn": "BI-06 Ring Members Backend Integration",
@@ -88039,7 +88038,7 @@
         "qa-backend:counts"
       ],
       "release": "mvp",
-      "resolution": null,
+      "resolution": "fixed",
       "rollup": {},
       "scope": null,
       "screens": [
@@ -88049,13 +88048,14 @@
         "s46",
         "s47"
       ],
-      "status": "ready",
+      "status": "done",
       "summary": "The fix is the backend's (/backend). That agent sets in-progress when it starts and ready when the fix ships (status, tag, H1 and the Status segment only; the fix itself is recorded in its own…",
       "tags": [
         "bug",
-        "bug/ready",
+        "bug/done",
         "module/identity",
-        "priority/high"
+        "priority/high",
+        "resolution/fixed"
       ],
       "task": null,
       "title": "B-09 Re-adding a lapsed member answers 409, not a reactivation",

@@ -3,7 +3,8 @@ id: B-09
 type: bug
 module: identity
 feature: ring-members
-status: ready
+status: done
+resolution: fixed
 priority: high
 effort: S
 foundOn: "BI-06 Ring Members Backend Integration"
@@ -14,14 +15,12 @@ related: ["BI-06 Ring Members Backend Integration", "BD-09 Ring Members Backend 
 pending: []
 created: 2026-11-05
 updated: 2026-11-08
-tags: [bug, bug/ready, module/identity, priority/high]
+tags: [bug, bug/done, module/identity, priority/high, resolution/fixed]
 ---
 
-# 📨 B-09 · Re-adding a lapsed member answers 409, not a reactivation
+# ✅ B-09 · Re-adding a lapsed member answers 409, not a reactivation
 
-> ⚠ Affected by [[BD-09 Ring Members Backend Delivery]] (2026-11-08): fixed on backend main e483d49, ready for re-test
-
-**Found against:** [[BI-06 Ring Members Backend Integration]] · **Feature:** [[F-09 Ring Members]] · **Status:** Ready · **Priority:** High (`critical | high | medium | low`, from `docs.config.json`) · **Deadline:** — · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
+**Found against:** [[BI-06 Ring Members Backend Integration]] · **Feature:** [[F-09 Ring Members]] · **Status:** Done · **Priority:** High (`critical | high | medium | low`, from `docs.config.json`) · **Deadline:** — · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
 
 **Found by:** [[QB-11 Ring Members QA Backend]] row B10, on build `main @ 12172c6 · localhost:3109, Node 22.22.2`.
 
@@ -50,11 +49,12 @@ Output of `node scripts/build-tree.mjs --impact B-09` when the bug was filed: th
 
 ## Definition of done
 
-- [ ] The behaviour is fixed, or the notes are corrected, as the decision says (`resolution:` set, the tag `resolution/<id>` with it)
-- [ ] The QA row that found it re-run against the fix, on a named build
-- [ ] `depends` / `affects` / `related` declared; notes listed by `--impact` updated or flagged
-- [ ] `node scripts/build-tree.mjs` run; tree, board and backlog committed
+- [x] The behaviour is fixed, or the notes are corrected, as the decision says (`resolution:` set, the tag `resolution/<id>` with it)
+- [x] The QA row that found it re-run against the fix, on a named build
+- [x] `depends` / `affects` / `related` declared; notes listed by `--impact` updated or flagged
+- [x] `node scripts/build-tree.mjs` run; tree, board and backlog committed
 
 ## Log
 
 - 2026-11-05 · filed with --scaffold bug, found against BI-06 Ring Members Backend Integration
+- 2026-11-08 · backend main e483d49 · re-test passed: a lapsed member (an `ACTIVE` row, `expiresAt` in the past) re-added with a new window answers 201 on the same row, and they see the Ring again on their next request; a member whose window is open now still gets 409 `E_RING_MEMBER_01`. A row not started yet is re-added too (201, same row), the backend's call. [[QB-11 Ring Members QA Backend]] row B10 ✅, run on localhost:3109 with a throwaway database. Closed `done`, `resolution: fixed`.
