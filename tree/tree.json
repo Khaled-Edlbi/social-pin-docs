@@ -67456,8 +67456,7 @@
         "failing": 1,
         "missing": 1,
         "partial": 1,
-        "ready": 1,
-        "todo": 1,
+        "ready": 2,
         "verified": 3
       },
       "scope": null,
@@ -74386,8 +74385,8 @@
         "needs-decision": 1,
         "partial": 13,
         "passing": 4,
-        "ready": 5,
-        "todo": 6,
+        "ready": 6,
+        "todo": 5,
         "verified": 10
       },
       "scope": null,
@@ -83884,9 +83883,9 @@
         "needs-decision": 5,
         "partial": 13,
         "passing": 4,
-        "ready": 7,
+        "ready": 8,
         "reference": 32,
-        "todo": 9,
+        "todo": 8,
         "verified": 28
       },
       "scope": null,
@@ -87901,7 +87900,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "todo",
+      "effectiveStatus": "ready",
       "effort": "S",
       "feature": "ring-projection",
       "foundOn": "BI-07 Ring Projection Backend Integration",
@@ -87940,18 +87939,18 @@
         "s25",
         "s36"
       ],
-      "status": "todo",
+      "status": "ready",
       "summary": "The fix is the backend's (/backend). That agent sets in-progress when it starts and ready when the fix ships (status, tag, H1 and the Status segment only; the fix itself is recorded in its own…",
       "tags": [
         "bug",
-        "bug/todo",
+        "bug/ready",
         "module/identity",
         "priority/medium"
       ],
       "task": null,
       "title": "B-12 Null on a link or custom field's required field answers 500",
       "unmet": [],
-      "updated": "2026-11-05"
+      "updated": "2026-11-08"
     },
     "task:B-13": {
       "affects": [],
