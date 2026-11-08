@@ -3,19 +3,21 @@ id: S-33
 type: story
 module: shared-rings
 feature: ring-invitations
-status: draft
+status: approved
 scope: feature
 screens: [s15, s17, s19, s26, s43, s72, s73, s74]
+approvedBy: "Omar Fostok"
+approvedAt: 2026-11-08
 owner: "Omar Fostok"
 related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-17 Requests expire after 30 days, optional note, ask again at once", "D-18 Ring names shown when joined knowingly", "D-31 An invitation is its own record", "D-32 Several join codes per Ring", "D-33 Work email joining waits for real emails and Companies", "D-34 A member shows one of their own Rings", "D-35 A join code can be shown as a QR", "D-36 Who it's for stays the owner's alone", "ND-31 What an invitation is", "ND-32 How a Ring's join code works", "ND-33 When a work email is checked", "ND-34 What a member contributes to a shared Ring", "ND-35 A colleague's QR offering their company Ring", "ND-36 Whether an invitee sees who a Ring is for", "S-16 Ring Members Story", "S-18 Rings Story", "S-29 Companies Story", "S-31 Delegated Admins Story", "S-37 Badge & QR Story", "S-78 Code Delivery Story", "BI-08 Rings Backend Integration", "FR-15 Companies Frontend Requirements"]
 created: 2026-10-18
 updated: 2026-11-08
-tags: [story, story/draft, module/shared-rings, layer/business]
+tags: [story, story/approved, module/shared-rings, layer/business]
 ---
 
 # Ring Invitations & Join · User Story
 
-**Feature:** [[F-17 Ring Invitations & Join]] · **Status:** Draft (updated 2026-11-08, all six questions decided) · **Frontend Requirements:** [[FR-17 Ring Invitations & Join Frontend Requirements]] · **API Integration:** not yet (backend not built)
+**Feature:** [[F-17 Ring Invitations & Join]] · **Status:** Approved (2026-11-08 by Omar Fostok) · **Frontend Requirements:** [[FR-17 Ring Invitations & Join Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 > **Rewritten 2026-11-08** as one set of parts, ordered as the journey happens, against backend `main` @ `12172c6` ([[BI-08 Rings Backend Integration]]), [[D-04 Ring settings at launch and their defaults]] and [[D-18 Ring names shown when joined knowingly]]; **updated the same day** with the answers to its six questions, [[D-31 An invitation is its own record|D-31]] to [[D-36 Who it's for stays the owner's alone|D-36]]. The merged tasks T-026 to T-028 (old S7–S9) are folded into the parts below. The owner's side, which [[S-16 Ring Members Story]] and [[S-18 Rings Story]] handed to this story, is S6–S8; the company asks of [[FR-15 Companies Frontend Requirements]] are in S1 and S5.
 
@@ -228,3 +230,4 @@ Left by those decisions, none blocking:
 - 2026-11-08 · `tickets/pm/M-03-shared-rings/F-17-ring-invitations/S-33-decisions` · updated with D-31 to D-36: invitations as their own record with 30-day expiry and withdraw (S1, S2, S6); several labelled join codes, a list under Joining → Join codes (S3, S7, S8); work email left out of this version (S4); Show as QR on each code and a join QR, never a personal badge (S9); the "Your card in <Ring>" step and colleagues' cards, with the card picked for the Ring opening from its members and the directly shared card everywhere else (S10, S11); no purpose on the review (S2); the six D flags cleared; Open questions closed; stays draft
 - 2026-11-08 · flagged [[FR-17 Ring Invitations & Join Frontend Requirements]]: S-33 updated with D-31 to D-36: invitation statuses and 30-day expiry, a Join codes list (labels, end date, use limit, Show as QR), no work email, the "Your card in <Ring>" step and the colleagues' cards, no purpose on the review
 - 2026-11-08 · flagged [[BD-17 Ring Invitations & Join Backend Delivery]]: S-33 updated with D-31 to D-36: "What the backend has to build" now reads the invitation record, several join codes with QR, no work email, the member's card pointer and the member-facing roster
+- 2026-11-08 · `tickets/pm/M-03-shared-rings/F-17-ring-invitations/S-33-approved` · approved by Omar Fostok; FR-17 continues
