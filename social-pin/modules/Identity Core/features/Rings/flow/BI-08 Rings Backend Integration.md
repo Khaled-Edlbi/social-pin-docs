@@ -65,10 +65,10 @@ What the client builds: My Rings and Shared with me, the create-a-Ring wizard (n
 | Field | Values | Default on a new Ring | Enforced today |
 |---|---|---|---|
 | `purpose` | string, 1–140 after trim, or `null` | `null` | owner-only label, never shown to a member |
-| `joinPolicy` | `ANYONE_WHO_SCANS` · `CODE_OR_INVITATION` · `INVITATION_ONLY` | `CODE_OR_INVITATION` | saved; enforced when invitations and codes ship ([[F-17 Ring Invitations & Join]]) |
-| `requireApproval` | boolean ("approve each one"; `false` = auto-accept) | `true` | saved; enforced with join requests (F-17) |
+| `joinPolicy` | `ANYONE_WHO_SCANS` · `CODE_OR_INVITATION` · `INVITATION_ONLY` | `CODE_OR_INVITATION` | yes, since `main` `1c460b0`: a join code works under the first two, never `INVITATION_ONLY`; an invitation works under all three ([[BI-17 Ring Invitations & Join Backend Integration]]) |
+| `requireApproval` | boolean ("approve each one"; `false` = auto-accept) | `true` | yes: on, a code makes a join request the owner approves; off, it joins at once (BI-17) |
 | `membersCanSeeEachOther` | boolean | `false` | yes: off means no member-facing roster or count anywhere |
-| `membersCanInvite` | boolean | `false` | saved; enforced with member invitations (F-17) |
+| `membersCanInvite` | boolean | `false` | yes: a live member may invite only while it is on (BI-17) |
 | `membersCanSaveAttachments` | boolean | `false` | saved; enforced when a save flow exists |
 
 s26's summary uses the same words ("Only with a code"); "Permissions · N set" counts only the settings shown. Show the three later settings nowhere.
@@ -98,11 +98,11 @@ s26's summary uses the same words ("Only with a code"); "Permissions · N set" c
 }
 ```
 
-- `ringId`: only to open `GET /views/ring/:ringId`; never show it, never compare it. When the person shares several Rings with you, it is the one you were put in first ([[D-15 Several Rings per connection, remove or disconnect]]).
+- `ringId`: only to open `GET /views/ring/:ringId`; never show it, never compare it. When the person shares several Rings with you, it is the oldest one you joined knowingly, else the one you were put in first ([[D-15 Several Rings per connection, remove or disconnect]]; the knowing one first since `main` `1c460b0`).
 - `pinName`, `displayName`, `avatarUrl`: the person as the card they share with you renders them (the card's own name, else their profile name; the signed photo link, D-16). `pinName` is `null` only for an account with no profile left; `displayName` and `avatarUrl` may be `null` (render a placeholder).
 - `expiresAt`: when that card stops being shared with you (the earlier of the Ring's end and your membership's end); `null` = no end.
-- `ringName`: the Ring's name **only for a Ring you joined knowingly** (invitation, code, work email, [[D-18 Ring names shown when joined knowingly]]). **Always `null` today**: memberships do not record how they were made yet. Never use anything else as a Ring title.
-- `memberCount`: only on a row with a `ringName` whose Ring lets members see each other. **Always `null` today.** Never show "· N people" when it is `null`.
+- `ringName`: the Ring's name **only for a Ring you joined knowingly**: an invitation you accepted, a join code, a join request the owner approved ([[D-18 Ring names shown when joined knowingly]], [[BI-17 Ring Invitations & Join Backend Integration]], since `main` `1c460b0`). `null` for a Ring you were placed in (added by the owner or an admin, a connection accepted into it, a reassign). Never use anything else as a Ring title.
+- `memberCount`: only on a row with a `ringName` whose Ring lets members see each other; `null` otherwise. Never show "· N people" when it is `null`.
 - Never on a row: a Ring's colour, type, style, settings, the owner's user id, or anything about your membership.
 
 ## State to keep on the client
@@ -154,3 +154,4 @@ Cache the owned list and the shared list separately, keyed by the signed-in user
 - 2026-11-05 · same vault branch, after merging vault `main` · describes the backend branch at `4aad168` (up to date with backend `main` a249ab2): `POST /rings/:id/copy` switches on the same library items as the source ([[D-03 Links entered once, switched on or off per Ring]]); no request or response shape changed. Still **not merged**.
 - 2026-11-05 · `docs/backend/M-01-identity/F-11-rings/BD-11-shipped-settings` · backend `main` `12172c6` merged the branch: this note now describes `main` (the branch banner and the ⏳ marks removed), `current`. Nothing in the shapes changed from what the branch described.
 - 2026-11-08 · `docs/backend/M-01-identity/F-11-rings/BD-11-bugs-fixed` · matches backend `main` `e483d49`: [[B-13 The string false is read as true on Ring filters and settings]], [[B-14 PATCH a Ring with null on a required field answers 500]], [[B-15 Disposition runs on a permanent Ring, the default included]] and [[B-16 Ring colour and purpose accept values the contract refuses]] fixed. Contract written down: booleans `true` / `false` only (*Flow* 1, 3); `null` only on the six fields that clear (*Flow* 5); disposition only on a temporary Ring whose window has ended, 409 `E_RING_10` (new) otherwise, `UNDECIDED` 400 (*Flow* 8, *Errors*). `colorHex` `#RRGGBB` and `purpose` 1–140 after trim were already this note's words; the server now enforces them. Routes and shapes unchanged.
+- 2026-11-08 · `docs/backend/M-01-identity/F-11-rings/BI-08-f17-shared-with-me` · matches backend `main` `1c460b0` (F-17, [[BD-17 Ring Invitations & Join Backend Delivery]]): `ringName` and `memberCount` on Shared with me are filled for a Ring joined knowingly (no longer always `null`), a row opens the oldest Ring joined knowingly first, and `joinPolicy`, `requireApproval`, `membersCanInvite` are enforced. Shapes unchanged; stays current
