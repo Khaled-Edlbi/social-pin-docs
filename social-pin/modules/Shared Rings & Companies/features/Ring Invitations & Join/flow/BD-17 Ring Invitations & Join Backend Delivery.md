@@ -13,6 +13,10 @@ tags: [backend-delivery, backend-delivery/todo, module/shared-rings, layer/backe
 
 # ⬜ Ring Invitations & Join · Backend Delivery
 
+> ⚠ Affected by [[D-36 Who it's for stays the owner's alone]] (2026-11-08): invitation, code and join-request reads never include purpose (the rule in BI-08 stands)
+
+> ⚠ Affected by [[D-35 A join code can be shown as a QR]] (2026-11-08): a join QR carries a join code (or a token for it) and resolves through the typed code's checks (policy, approval, end date, use limit, try limit, one neutral error); the badge resolve route never returns a join offer
+
 > ⚠ Affected by [[D-34 A member shows one of their own Rings]] (2026-11-08): a picked-Ring pointer on the membership (one of the member's own live Rings, falling back to their default when deleted) and a member-facing read of colleagues' cards gated by membersCanSeeEachOther, without the picked Ring's name or id
 
 > ⚠ Affected by [[D-33 Work email joining waits for real emails and Companies]] (2026-11-08): ND-33 decided "not now": nothing to build for work-email joining in this version (no verification route, no address on the membership); it waits on Code Delivery (S-78) and Companies S-29 S12

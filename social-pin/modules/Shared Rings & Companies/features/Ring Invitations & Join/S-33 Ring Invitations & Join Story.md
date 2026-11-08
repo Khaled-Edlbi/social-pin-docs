@@ -15,6 +15,10 @@ tags: [story, story/draft, module/shared-rings, layer/business]
 
 # Ring Invitations & Join · User Story
 
+> ⚠ Affected by [[D-36 Who it's for stays the owner's alone]] (2026-11-08): ND-36 decided, option 1: "who it's for" (purpose) stays the owner's alone; S2's review shows the Ring's name, the owner and the inviter, never the purpose; a company explains its Ring in the bio
+
+> ⚠ Affected by [[D-35 A join code can be shown as a QR]] (2026-11-08): ND-35 decided, option 2: each join code can be shown as a QR (Show as QR under Joining → Join codes); scanning it opens the s74 review with the code's rules; a personal badge never offers a Ring; s74's ways in read invitation, code, join QR
+
 > ⚠ Affected by [[D-34 A member shows one of their own Rings]] (2026-11-08): ND-34 decided, option 1: a member picks one of their own Rings as their card in a Ring they joined (default: their default Ring), changeable from Shared with me; colleagues see it only when members may see each other, never its name; falls back to the default if deleted; ends with the membership
 
 > ⚠ Affected by [[D-33 Work email joining waits for real emails and Companies]] (2026-11-08): ND-33 decided "not now": joining with a verified work email (S4) is left out of this version and hidden in the app; it waits on Code Delivery (S-78, real emails) and Companies' work-email domain (S-29 S12); s74 and s72 list only invitation and code; a new needs-decision card settles once vs yearly later
