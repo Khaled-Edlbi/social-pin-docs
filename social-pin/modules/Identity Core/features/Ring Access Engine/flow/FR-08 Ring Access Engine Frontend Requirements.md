@@ -19,6 +19,8 @@ tags: [frontend-requirements, frontend-requirements/approved, module/identity, l
 
 # Ring Access Engine · Frontend Requirements
 
+> ⚠ Affected by [[BD-14 Connections Backend Delivery]] (2026-11-08): F-14 shipped on backend main 1c460b0: blocks can now be made and removed (POST /blocks, GET /blocks, DELETE /blocks/:id, S-23 S13), and s47's mutual count is mutualCount on GET /connections/:userId (D-23, a count, no names; events in common stay hidden). The 'Create or remove a block' and 'Mutual connections' rows and Blocked by read not available
+
 > ⚠ Affected by [[BD-11 Rings Backend Delivery]] (2026-11-05): backend main 12172c6: GET /rings/shared-with-me now lists people, one row { ringId, pinName, displayName, avatarUrl, expiresAt, ringName, memberCount } (ringName and memberCount null until F-09 records how a membership was made), no filters; the six D-04 settings exist on a Ring, membersCanSeeEachOther enforced, the rest stored until their flows ship. The Shared with me and Ring settings 'Source today' lines are stale; shapes in BI-08 (/frontend)
 
 **Feature:** [[F-08 Ring Access Engine]] · **Status:** Approved 2026-11-08 by khaled · **Story:** [[S-15 Ring Access Engine Story]] · **Backend Integration:** [[BI-05 Ring Access Engine Backend Integration]]
