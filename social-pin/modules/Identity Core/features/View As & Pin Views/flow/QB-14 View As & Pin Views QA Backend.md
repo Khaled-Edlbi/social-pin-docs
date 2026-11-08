@@ -18,6 +18,8 @@ tags: [qa-backend, qa-backend/passing, module/identity, layer/qa]
 
 # 🧪 View As & Pin Views · QA Backend
 
+> ⚠ Affected by [[BD-12 View As & Pin Views Backend Delivery]] (2026-11-08): backend main cb95a39: avatarFileId left the viewer's view on every /views/* route (D-16); the owner's projection keeps it. Row B56 is delivered and ready to re-run (and B46's key list loses avatarFileId); for /qa
+
 > Blocked by default until [[BD-12 View As & Pin Views Backend Delivery]] is `done` (the hand-off order in `docs.config.json`); `blockedBy: []` opts out, `blockedBy: [...]` names other blockers.
 
 **Feature:** [[F-12 View As & Pin Views]] · **Verifies:** [[BD-12 View As & Pin Views Backend Delivery]] against [[S-19 View As & Pin Views Story]] and [[FR-12 View As & Pin Views Frontend Requirements]], with the shapes and errors of [[BI-09 View As & Pin Views Backend Integration]] · **Verdict:** 🟢 Passing · 2026-11-08 · `main @ e483d49 · localhost:3112, Node 22.22.2` · 63 of 63 delivered rows as expected, 2 not delivered yet (BD-12 pending), [[B-17 A new Ring answers 404 to its own owner until its projection is opened|B-17]] closed
