@@ -3,22 +3,22 @@ id: QB-11
 type: qa-backend
 module: identity
 feature: ring-members
-status: failing
+status: passing
 scope: feature
 screens: [s15, s16, s35, s46, s47]
 depends: ["BD-09 Ring Members Backend Delivery", "S-16 Ring Members Story"]
 affects: []
 related: ["BI-06 Ring Members Backend Integration", "FR-09 Ring Members Frontend Requirements", "BD-08 Ring Access Engine Backend Delivery", "BD-35 Error Contract Backend Delivery", "S-87 Error Contract Story", "S-31 Delegated Admins Story", "B-09 Re-adding a lapsed member answers 409, not a reactivation", "B-10 Adding an unknown userId answers 500", "GET /rings/:ringId/members", "POST /rings/:ringId/members", "PATCH /rings/:ringId/members/:userId", "POST /rings/:ringId/members/:userId/reassign", "DELETE /rings/:ringId/members/:userId", "E_RING_02", "E_RING_05", "E_RING_07"]
-pending: ["[[B-09 Re-adding a lapsed member answers 409, not a reactivation]]: row B10, re-run when the fix ships", "[[B-10 Adding an unknown userId answers 500]]: row B15, re-run when the fix ships"]
+pending: []
 unmet: []
 created: 2026-11-05
-updated: 2026-11-05
-tags: [qa-backend, qa-backend/failing, module/identity, layer/qa]
+updated: 2026-11-08
+tags: [qa-backend, qa-backend/passing, module/identity, layer/qa]
 ---
 
 # 🧪 Ring Members · QA Backend
 
-**Feature:** [[F-09 Ring Members]] · **Verifies:** [[BD-09 Ring Members Backend Delivery]] against [[S-16 Ring Members Story]] and [[FR-09 Ring Members Frontend Requirements]], on the contract [[BI-06 Ring Members Backend Integration]] · **Verdict:** 🔴 Failing · 2026-11-05 · `main @ 12172c6 · localhost:3109, Node 22.22.2` · 39 of 41 rows pass, 2 bugs
+**Feature:** [[F-09 Ring Members]] · **Verifies:** [[BD-09 Ring Members Backend Delivery]] against [[S-16 Ring Members Story]] and [[FR-09 Ring Members Frontend Requirements]], on the contract [[BI-06 Ring Members Backend Integration]] · **Verdict:** ✅ Passing · 2026-11-08 · `main @ e483d49 · localhost:3109, Node 22.22.2` · 44 of 44 rows pass; [[B-09 Re-adding a lapsed member answers 409, not a reactivation|B-09]] and [[B-10 Adding an unknown userId answers 500|B-10]] fixed and closed
 
 Expected behaviour of the API, as artefacts a person can check a build against: tables and diagrams, **not test code** (the specs live in the backend repo). `status: passing` or `failing` after a run; the verdict tells the PM whether the story can be fulfilled (passing with nothing pending or unmet). A failing row is one of two things: a story part the delivery does not fulfil (not built, or built other than the story says) goes in `unmet` and turns the story's badge ✕; a bug (built as asked, but it breaks) is filed against the Backend Integration and goes in `pending`, and leaves the story alone.
 
@@ -28,7 +28,7 @@ Expected behaviour of the API, as artefacts a person can check a build against: 
 
 **Not covered.** The story parts [[S-16 Ring Members Story]] itself marks *Not available yet*, which belong to other stories: names and search on the roster (S1, [[S-23 Connections Story]]); the Pending filter and join requests (S1, S9, [[S-33 Ring Invitations & Join Story]]); which of my Rings one person is in, in one call, and disconnect (S5); recording how a membership was created (S7, [[D-18 Ring names shown when joined knowingly]]); members who may see each other (S8, [[S-18 Rings Story|Rings · S9]]). Nothing tested here contradicts them, so `unmet` is empty. The Ring's own window (whichever ends first) is [[F-08 Ring Access Engine]]'s QA. The screens are QA Frontend's.
 
-**Test data.** A throwaway database `social_pin_qa_f09` on localhost:5432, migrated and seeded on `main @ 12172c6`, dropped after the run. Seed users signed in through the OTP flow (`devCode`): **Sara** (`sara@socialpin.test`, the owner: Rings *E-commerce Clients*, *Family*, *My Ring*), **Omar** (`omar@socialpin.test`, a member of Sara's *E-commerce Clients*; owner of his own *My Ring*), **GulfExpo** (`organizer@socialpin.test`, a member of Sara's *Family*; made a delegated admin), **SPAdmin** (`admin@socialpin.test`, a stranger to Sara), and **LinaQA** (`lina.qa09@socialpin.test`, a stranger, signed up through the three-call flow for this run). Sara created two Rings for the run, *QA Roster* and *QA Temp* (deleted at once, for B36).
+**Test data.** A throwaway database `social_pin_qa_f09` on localhost:5432, migrated and seeded fresh for each run (`main @ 12172c6` on 2026-11-05, `main @ e483d49` on 2026-11-08), dropped after each. The 2026-11-08 re-run also signed up **DanaQA** (`dana.qa09@socialpin.test`) and deleted the account through `DELETE /users/me`, for B42. Seed users signed in through the OTP flow (`devCode`): **Sara** (`sara@socialpin.test`, the owner: Rings *E-commerce Clients*, *Family*, *My Ring*), **Omar** (`omar@socialpin.test`, a member of Sara's *E-commerce Clients*; owner of his own *My Ring*), **GulfExpo** (`organizer@socialpin.test`, a member of Sara's *Family*; made a delegated admin), **SPAdmin** (`admin@socialpin.test`, a stranger to Sara), and **LinaQA** (`lina.qa09@socialpin.test`, a stranger, signed up through the three-call flow for this run). Sara created two Rings for the run, *QA Roster* and *QA Temp* (deleted at once, for B36).
 
 **Set up by SQL, in the throwaway database only.** No route creates a block or a delegated admin, so these rows were written with the backend's `pg` package: a `user_blocks` row Sara → SPAdmin, then SPAdmin → Sara (B12, each removed after its row); a `ring_admins` row GulfExpo at `MEMBER_MANAGER` on Sara's *E-commerce Clients* (B38) and a second on Omar's *My Ring* (B27). `RING_ADMIN_LEVEL` has no level below `MEMBER_MANAGER`, so there is no "admin too low" row: any admin row passes the gate. The transaction id check in B24 read `xmin` from `ring_members`.
 
@@ -54,13 +54,16 @@ Every row is one criterion of [[S-16 Ring Members Story]] or one contract line o
 | B7 | a person in none of Sara's Rings | `POST { userId }` | 201, `status: "ACTIVE"`, `startsAt: null`, `expiresAt: null`, `addedById` = Sara | ✅ |
 | B8 | Lina, not in *E-commerce Clients* | `POST { userId, startsAt: <1 h ago>, expiresAt: <in 30 days> }` | 201 with both bounds echoed | ✅ |
 | B9 | SPAdmin's row in *QA Roster* is `REMOVED` | `POST { userId, expiresAt: <in 10 days> }` | 201 on the **same row** (same `id`, `createdAt` kept), `status: "ACTIVE"`, the new window, `addedById` = Sara | ✅ |
-| B10 | Lina's row in *QA Roster* is `ACTIVE` with `expiresAt` yesterday (**lapsed**) | `POST { userId, expiresAt: <in 10 days> }` | 201, the row reactivated with the new window (BI-06 Flow 2, S2 "Re-adding someone who was removed or lapsed reactivates them") — **actual:** 409 "This user is already an active member of the ring" (`E_RING_MEMBER_01`) | 🔴 [[B-09 Re-adding a lapsed member answers 409, not a reactivation]] |
+| B10 | Lina's row in *QA Roster* is `ACTIVE` with `expiresAt` yesterday (**lapsed**) | `POST { userId, expiresAt: <in 10 days> }` | 201, the row reactivated with the new window (BI-06 Flow 2, S2 "Re-adding someone who was removed or lapsed reactivates them") | ✅ (was 🔴 on 12172c6, [[B-09 Re-adding a lapsed member answers 409, not a reactivation]], fixed) |
 | B11 | Sara's own user id; then GulfExpo, a delegated admin, sending Sara's id | `POST { userId: <the owner> }` | 400 `E_RING_MEMBER_03` "The ring owner already sees every perspective of their own profile", both times | ✅ |
 | B12 | a block Sara → SPAdmin; then instead SPAdmin → Sara | `POST { userId: <SPAdmin> }` | 409 `E_RING_MEMBER_04` "This user cannot be added" in both directions; the message never says "blocked" | ✅ |
 | B13 | Omar, already active in *E-commerce Clients* | `POST { userId: <Omar> }` | 409 `E_RING_MEMBER_01` "This user is already an active member of the ring" | ✅ |
 | B14 | any Ring | `POST { userId: "nope" }`, `POST {}`, `POST { …, expiresAt: "next week" }`, `POST { …, status: "ACTIVE" }` | 400 `["userId must be a UUID"]` (twice), `["expiresAt must be a valid ISO 8601 date string"]`, `["property status should not exist"]`; nothing written | ✅ |
-| B15 | a well-formed UUID that is no user | `POST { userId: "00000000-0000-4000-8000-000000000001" }` | a 4xx the client can act on, as for every other bad input (the contract is silent on which) — **actual:** 500 "Internal server error" (a foreign-key violation on `ring_members_user_id_fkey`, logged on the server; no Prisma text in the body) | 🔴 [[B-10 Adding an unknown userId answers 500]] |
-| B16 | SPAdmin in none of Sara's Rings | `GET /views/pin/SaraAz` as SPAdmin, then GulfExpo adds SPAdmin to *E-commerce Clients*, then the same call | 404 "This profile is not shared with you", then 200 with the *E-commerce Clients* projection: live on the next request | ✅ |
+| B15 | a well-formed UUID that is no user | `POST { userId: "00000000-0000-4000-8000-000000000001" }` | 409 `E_RING_MEMBER_04` "This user cannot be added", the block's body (BI-06 *Errors to handle*); nothing written | ✅ (was 🔴 500 on 12172c6, [[B-10 Adding an unknown userId answers 500]], fixed) |
+| B16 | SPAdmin in **no** live row of Sara's (checked in the database first) | `GET /views/pin/SaraAz` as SPAdmin, then SPAdmin is added to *E-commerce Clients*, then the same call | 404 "This profile is not shared with you", then 200 with the *E-commerce Clients* projection: live on the next request | ✅ |
+| B42 | DanaQA signed up and deleted through `DELETE /users/me`; separately a block Sara → SPAdmin | `POST { userId: <Dana> }`, `POST { userId: <SPAdmin> }`, `POST { userId: <a UUID that is no user> }` | 409 "This user cannot be added", the **same body** all three times: unknown, deleted and blocked cannot be told apart | ✅ |
+| B43 | SPAdmin added to *Family* with `startsAt` tomorrow (**not started yet**) | `POST { userId }` with no window, then the same `POST` again | 201 on the same row, the window now open; then 409 `E_RING_MEMBER_01` (live). Re-adding a not-started row is the backend's choice; the contract names only lapsed | ✅ |
+| B44 | SPAdmin's *Family* row lapsed a minute ago, so the view falls back to another Ring of Sara's | `POST { userId, expiresAt: <in 10 days> }`, then `GET /views/pin/SaraAz` as SPAdmin | 201 on the same `id`; the next view is the *Family* projection again ("Sara"): the re-add restores access at once | ✅ |
 
 ### `PATCH /rings/:ringId/members/:userId` — S3 the access window, S6 lapsed
 
@@ -70,7 +73,7 @@ Every row is one criterion of [[S-16 Ring Members Story]] or one contract line o
 | B18 | both bounds set | `PATCH { expiresAt: null }`, then `PATCH { startsAt: null }` | 200: only `expiresAt` cleared ("until removed"), `startsAt` kept; then `startsAt` cleared too | ✅ |
 | B19 | a window set | `PATCH {}` | 200, the row unchanged, `updatedAt` unchanged | ✅ |
 | B20 | GulfExpo's row in *QA Roster* `REMOVED`; GulfExpo never in *E-commerce Clients* | `PATCH { expiresAt: null }` on each | 404 `E_RING_MEMBER_02` "Membership not found", both | ✅ |
-| B21 | SPAdmin active in *E-commerce Clients*, seeing Sara's pin | `PATCH { expiresAt: <a minute ago> }`, view; `PATCH { expiresAt: null }`, view; `PATCH { startsAt: <tomorrow> }`, view | the row stays `ACTIVE` (the backend never writes `EXPIRED`); views 404 (lapsed), 200 (extended through PATCH, no re-add), 404 (not started yet) | ✅ |
+| B21 | SPAdmin active in *E-commerce Clients* and in no other Ring of Sara's, seeing her pin | `PATCH { expiresAt: <a minute ago> }`, view; `PATCH { expiresAt: null }`, view; `PATCH { startsAt: <tomorrow> }`, view | the row stays `ACTIVE` (the backend never writes `EXPIRED`); views 404 (lapsed), 200 (extended through PATCH, no re-add), 404 (not started yet) | ✅ |
 | B22 | any row | `PATCH { expiresAt: "tomorrow" }` | 400 `["expiresAt must be a valid ISO 8601 date string"]` | ✅ |
 
 ### `POST /rings/:ringId/members/:userId/reassign` — S4 bring people in from another Ring
@@ -92,7 +95,7 @@ Every row is one criterion of [[S-16 Ring Members Story]] or one contract line o
 |---|---|---|---|---|
 | B31 | SPAdmin active in *E-commerce Clients* | `DELETE …/members/<SPAdmin>` | 200, empty body; the row is kept as `REMOVED` in the unfiltered roster and is gone from `?status=ACTIVE` | ✅ |
 | B32 | that row `REMOVED`; Lina moved out by B30; SPAdmin never in *Family* | `DELETE` each | 404 `E_RING_MEMBER_02` "Membership not found", all three | ✅ |
-| B33 | SPAdmin viewing Sara's pin | `GET /views/pin/SaraAz` before and after B31 | 200, then 404 "This profile is not shared with you" | ✅ |
+| B33 | SPAdmin viewing Sara's pin, in no other Ring of hers | `GET /views/pin/SaraAz` before and after B31 | 200, then 404 "This profile is not shared with you" | ✅ |
 
 ### Owner or admin only — every route
 
@@ -137,9 +140,11 @@ stateDiagram-v2
   ACTIVE --> REMOVED: DELETE, or reassign out (the URL's Ring)
   REMOVED --> ACTIVE: POST add again (same row, new window)
   REMOVED --> ACTIVE: reassign in (toRingId, source window)
+  Lapsed --> Live: POST add again (same row, new window)
+  NotStarted --> Live: POST add again (same row, new window)
   note right of ACTIVE
-    POST add on any ACTIVE row is 409 E_RING_MEMBER_01,
-    Lapsed included (B10, B-09)
+    POST add on a Live row is 409 E_RING_MEMBER_01;
+    on a Lapsed or NotStarted row it restates the window (B10, B43, B44)
   end note
   note right of REMOVED
     PATCH, DELETE and reassign out answer
@@ -156,11 +161,10 @@ The `ErrorCode` column is what [[BI-06 Ring Members Backend Integration]] promis
 | caller neither owner nor admin (a stranger, or a member of that Ring) | 403 | `E_RING_05` | "You are not permitted to administer this ring" | stranger and member identical | B37, B39, B40 ✅ |
 | Ring unknown or deleted (URL or `toRingId`) | 404 | `E_RING_02` | "Ring not found" | unknown and deleted identical | B36, B28 ✅ |
 | adding the owner | 400 | `E_RING_MEMBER_03` | "The ring owner already sees every perspective of their own profile" | — | B11 ✅ |
-| a block either way | 409 | `E_RING_MEMBER_04` | "This user cannot be added" | both directions identical | B12 ✅ |
-| already active | 409 | `E_RING_MEMBER_01` | "This user is already an active member of the ring" | — | B13 ✅; B10 🔴 (also a lapsed row) |
+| a block either way, or a `userId` that is no user or a deleted one | 409 | `E_RING_MEMBER_04` | "This user cannot be added" | blocked (both directions), unknown and deleted identical | B12, B15, B42 ✅ |
+| already a live member (window open now) | 409 | `E_RING_MEMBER_01` | "This user is already an active member of the ring" | — | B13, B43 ✅; a lapsed row is reactivated instead (B10 ✅) |
 | no row, or a `REMOVED` row, for that user in that Ring | 404 | `E_RING_MEMBER_02` | "Membership not found" | missing and removed identical | B20, B29, B32 ✅ |
 | reassign across owners (an admin of both) | 400 | `E_RING_07` | "Both rings must belong to the same owner" | — | B27 ✅ |
-| a `userId` that is no user | 500 | — | "Internal server error" | — | B15 🔴 |
 | malformed id, date, enum, limit or extra key | 400 | — | the `class-validator` messages | — | B6, B14, B22, B28, B35 ✅ |
 | no token | 401 | — | "Unauthorized" | — | B34 ✅ |
 
@@ -168,18 +172,21 @@ The `ErrorCode` column is what [[BI-06 Ring Members Backend Integration]] promis
 
 - A member of the Ring → 403 on every members route, with the same body a stranger gets (B39, B40): the 403 does not tell a member from a stranger, and no route returns their own row.
 - The roster row names the Ring (`ringId`); it was only ever returned to the owner and a delegated admin (B1, B38).
-- A blocked pair is refused with "This user cannot be added", never "blocked" (B12).
+- A blocked pair, an unknown id and a deleted account are all refused with the same "This user cannot be added", never "blocked" or "not found" (B12, B15, B42): the add route is no probe for which ids exist.
 - Lapsed, not yet started, removed and never added all answer the viewer the same 404 "This profile is not shared with you" (B16, B21, B33).
 
 ## Verdict
 
-- **Run on:** 2026-11-05 · **build:** backend `main @ 12172c6`, `localhost:3109`, Node 22.22.2, throwaway database `social_pin_qa_f09` (dropped after the run) · **result:** 🔴 failing · **rows:** 41 run, 39 ✅, 2 🔴 · **failing rows:** B10, B15 · **story parts unmet:** none · **bugs:** [[B-09 Re-adding a lapsed member answers 409, not a reactivation]] (B10), [[B-10 Adding an unknown userId answers 500]] (B15), both for `/backend`.
+- **Run on:** 2026-11-08 · **build:** backend `main @ e483d49`, `localhost:3109`, Node 22.22.2, a fresh throwaway database `social_pin_qa_f09` (dropped after the run) · **result:** ✅ passing · **rows:** 44 run, 44 ✅ (all 41 rows of the first run again, plus B42–B44 for the fixes) · **failing rows:** none · **story parts unmet:** none · **bugs:** [[B-09 Re-adding a lapsed member answers 409, not a reactivation]] (B10) and [[B-10 Adding an unknown userId answers 500]] (B15) re-tested and closed, `done`, `resolution: fixed`.
+- **Correction to the first run.** On 2026-11-05 SPAdmin was still a live member of *QA Roster* (re-added by B9) during B16, B21 and B33. Those views answered 404 only because of [[B-17 A new Ring answers 404 to its own owner until its projection is opened]], since fixed. On `e483d49` the same script showed 200 there, correctly. The three rows were re-run with SPAdmin first removed from every other Ring of Sara's (no live row left, checked in the database), and pass as written.
+- First run: 2026-11-05 on `main @ 12172c6`, 41 rows, 39 ✅, B10 and B15 🔴 (B-09, B-10 filed).
 - Blocks and delegated admins were set up by SQL in the throwaway database only (no route creates them), as listed under *Test data*.
-- [[BD-09 Ring Members Backend Delivery]] says re-adding a lapsed member reactivates the row; B10 shows it does not (flagged). [[BI-06 Ring Members Backend Integration]] lists four statuses where the enum has five (flagged).
-- [[S-16 Ring Members Story]] is not ready to fulfil: this note is failing, and QA Frontend has not run.
+- [[BI-06 Ring Members Backend Integration]] still lists four statuses where the enum has five (`LEFT`); that part of the flag is open for `/backend`. Its B-09 and B-10 parts are done.
+- [[S-16 Ring Members Story]] is not ready to fulfil yet: this note passes with nothing pending or unmet, but QA Frontend has not run.
 
 ## Log
 
 - 2026-11-05 · `docs/qa/M-01-identity/F-09-ring-members/QB-11-failing` · first run, 41 rows on `main @ 12172c6`: 39 pass, B-09 and B-10 filed against BI-06.
 - 2026-11-05 · flagged [[BD-09 Ring Members Backend Delivery]]: QA run on main 12172c6: re-adding a lapsed member answers 409 E_RING_MEMBER_01, not the reactivation How it works describes (B-09); an unknown userId on add answers 500 (B-10)
 - 2026-11-05 · flagged [[BI-06 Ring Members Backend Integration]]: QA run on main 12172c6: RING_MEMBER_STATUS has a fifth value LEFT that Shapes that matter does not list; re-adding a lapsed member answers 409 (B-09); an unknown userId on add answers 500, not in Errors to handle (B-10)
+- 2026-11-08 · `docs/qa/M-01-identity/F-09-ring-members/QB-11-passing` · re-run on `main @ e483d49`: all 44 rows pass (B10 and B15 now ✅, B42–B44 added for the fixes; B16, B21, B33 re-run isolated, see the verdict). B-09 and B-10 closed on their own branches. Status → passing.

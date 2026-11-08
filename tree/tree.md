@@ -105,7 +105,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
       - 🔵 [BI-06 Ring Members Backend Integration](social-pin/modules/Identity%20Core/features/Ring%20Members/flow/BI-06%20Ring%20Members%20Backend%20Integration.md) (Backend Integration, Critical)
         - ✅ [B-09 Re-adding a lapsed member answers 409, not a reactivation](social-pin/bugs/B-09%20Re-adding%20a%20lapsed%20member%20answers%20409%2C%20not%20a%20reactivation.md) (bug, Fixed, High)
         - ✅ [B-10 Adding an unknown userId answers 500](social-pin/bugs/B-10%20Adding%20an%20unknown%20userId%20answers%20500.md) (bug, Fixed, Medium)
-      - 🔴 [QB-11 Ring Members QA Backend](social-pin/modules/Identity%20Core/features/Ring%20Members/flow/QB-11%20Ring%20Members%20QA%20Backend.md) (QA Backend, 2 pending notes, Critical)
+      - 🟢 [QB-11 Ring Members QA Backend](social-pin/modules/Identity%20Core/features/Ring%20Members/flow/QB-11%20Ring%20Members%20QA%20Backend.md) (QA Backend, Critical)
       - ∅ _Ring Members Frontend Delivery_ (Frontend Delivery)
       - ∅ _Ring Members QA Frontend_ (QA Frontend, blocked by Ring Members Frontend Delivery)
       - ✅ [ND-04 Ring settings](social-pin/needs-decisions/ND-04%20Ring%20settings.md) (Needs decision)
