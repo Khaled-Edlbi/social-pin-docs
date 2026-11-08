@@ -59177,7 +59177,7 @@
       "task": null,
       "title": "BD-09 Ring Members Backend Delivery",
       "unmet": [],
-      "updated": "2026-11-05"
+      "updated": "2026-11-08"
     },
     "backend-delivery:ring-projection": {
       "affects": [
@@ -61752,7 +61752,7 @@
       "task": null,
       "title": "BI-06 Ring Members Backend Integration",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-08"
     },
     "backend-integration:ring-projection": {
       "affects": [
