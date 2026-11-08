@@ -13,11 +13,13 @@ depends: ["S-17 Ring Projection Story"]
 affects: ["BD-10 Ring Projection Backend Delivery"]
 related: ["BI-07 Ring Projection Backend Integration", "D-02 One main profile every Ring starts from", "D-03 Links entered once, switched on or off per Ring", "D-05 Inherit per field, copy without members", "ND-16 Viewer access to file bytes", "D-16 Files load from signed links that expire in 15 minutes", "FR-04 Files Upload Frontend Requirements", "FR-06 Photo Library Frontend Requirements", "FR-07 Profiles & Pin Name Frontend Requirements", "S-14 Profiles & Pin Name Story", "S-20 Widgets Story", "S-89 Gemma AI Story", "S-87 Error Contract Story", "GET /rings/:ringId/projection", "PATCH /rings/:ringId/projection", "GET /views/ring/:ringId", "GET /profiles", E_RING_05, E_RING_02, E_FILE_04]
 created: 2026-10-18
-updated: 2026-11-05
+updated: 2026-11-08
 tags: [frontend-requirements, frontend-requirements/approved, module/identity, layer/frontend]
 ---
 
 # Ring Projection · Frontend Requirements
+
+> ⚠ Affected by [[BD-10 Ring Projection Backend Delivery]] (2026-11-08): S10 per field, per Ring is on backend main cb95a39 (row flipped ✅, shapes in BI-07 Flow 2a): the s24 'Not available yet' on Headline, Role & company, Location, 'Main-profile field switches: not yet', the s23 'Headline, role, company, location per Ring: not yet … coming soon' and the Blocked-by S10 line no longer hold; the frontend's to update (/frontend)
 
 > ⚠ Affected by [[BD-10 Ring Projection Backend Delivery]] (2026-11-05): S5 and S9 are on main a249ab2: the prose that still says 15 LINK_TYPE values, per-Ring copies and the phone-side imitation (s25, Blocked by) is the frontend's to update
 
@@ -94,7 +96,7 @@ What the client needs from the backend to build the "what this Ring shows" edito
 | Copy another Ring's bio or photo | `GET …/projection` (source), `PATCH …/projection` (this Ring) | ✅ | S3 |
 | Preview as the audience | `GET /views/ring/:ringId` | ✅ | S8 (listed under [[F-12 View As & Pin Views]]) |
 | **The library**: my links and custom fields as items of mine, each switched on or off per Ring; editing one changes it everywhere; today's per-Ring copies merged once (identical type and value → one item) | `GET /rings/:ringId/projection` (every item, this Ring's `isVisible` / `sortOrder`); `POST / PATCH / DELETE …/links[/:linkId]`, `…/info-blocks[/:blockId]` ([[BI-07 Ring Projection Backend Integration\|BI-07]]) | ✅ | [[S-17 Ring Projection Story\|Ring Projection · S9]] (D-03) |
-| **Per field, per Ring**: off / follow the Pin / own value for headline, role, company, location; follow / own for photo and bio | — | ❌ | [[S-17 Ring Projection Story\|Ring Projection · S10]] (D-05; needs [[S-14 Profiles & Pin Name Story\|Profiles & Pin Name · S9–S11]]) |
+| **Per field, per Ring**: off / follow the Pin / own value for headline, role, company, location; follow / own for photo and bio | `GET` / `PATCH /rings/:ringId/projection` → `headline`, `role`, `company`, `location`, `showHeadline`, `showRole`, `showCompany`, `showLocation`, `headlineMode` … `locationMode`, `bioMode`, `photoMode`; resolved on `GET /views/ring/:ringId` | ✅ | [[S-17 Ring Projection Story\|Ring Projection · S10]] (D-05; needs [[S-14 Profiles & Pin Name Story\|Profiles & Pin Name · S9–S11]]) |
 | The five link types D-03 added (booking, Behance, Dribbble, GitHub, YouTube) in `LINK_TYPE` | `POST / PATCH …/links[/:linkId]` with `BOOKING`, `BEHANCE`, `DRIBBBLE`, `GITHUB`, `YOUTUBE` (`http(s)` URLs) | ✅ | S5 (D-03) |
 | Display the photo and attachments: a signed `avatarUrl` and a signed `url` per attachment on the owner projection, valid 15 minutes | `GET /rings/:ringId/projection` → `avatarUrl`, `attachments[].url` | ✅ | [[D-16 Files load from signed links that expire in 15 minutes]] (decided) |
 | Widgets add / edit / remove | — | ❌ | [[S-20 Widgets Story\|Widgets · S6]], [[S-20 Widgets Story\|Widgets · S7]] |
