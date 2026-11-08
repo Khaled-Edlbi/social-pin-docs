@@ -2963,6 +2963,7 @@
     },
     "GET /rings/invitations/mine": {
       "containers": [
+        "feature:companies",
         "feature:ring-invitations",
         "feature:rings"
       ],
@@ -2970,6 +2971,7 @@
       "notes": [
         "backend-delivery:ring-invitations",
         "backend-integration:ring-invitations",
+        "frontend-requirements:companies",
         "frontend-requirements:ring-invitations",
         "frontend-requirements:rings"
       ],
@@ -6637,7 +6639,7 @@
     },
     "concepts": 318,
     "decisions": 34,
-    "edges": 7554,
+    "edges": 7555,
     "features": 41,
     "layerNotes": 155,
     "modules": 8,
@@ -23017,6 +23019,7 @@
       "to": "backend-delivery:ring-invitations",
       "via": [
         "DELETE /rings/join-requests/:id",
+        "GET /rings/invitations/mine",
         "GET /rings/join-requests/mine",
         "GET /rings/shared-with-me"
       ]
@@ -23052,6 +23055,7 @@
       "via": [
         "DELETE /rings/join-requests/:id",
         "E_RING_05",
+        "GET /rings/invitations/mine",
         "GET /rings/join-requests/mine",
         "GET /rings/shared-with-me",
         "GET /views/ring/:ringId"
@@ -45437,6 +45441,7 @@
         "E_AUTH_04",
         "E_RING_05",
         "GET /rings",
+        "GET /rings/invitations/mine",
         "GET /rings/join-requests/mine",
         "GET /rings/shared-with-me",
         "GET /views/ring/:ringId",
@@ -45480,6 +45485,7 @@
         "E_RING_06",
         "GET /rings",
         "GET /rings/:id",
+        "GET /rings/invitations/mine",
         "GET /rings/shared-with-me",
         "GET /views/ring/:ringId",
         "PATCH /rings/:id",
@@ -57817,6 +57823,11 @@
       "from": "frontend-requirements:code-delivery",
       "kind": "wikilink",
       "to": "story:error-contract"
+    },
+    {
+      "from": "frontend-requirements:companies",
+      "kind": "wikilink",
+      "to": "decision:D-36"
     },
     {
       "from": "frontend-requirements:companies",
