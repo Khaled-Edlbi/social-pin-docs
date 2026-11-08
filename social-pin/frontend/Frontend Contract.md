@@ -9,6 +9,8 @@ tags: [project]
 
 # Frontend Contract
 
+> ⚠ Affected by [[BD-17 Ring Invitations & Join Backend Delivery]] (2026-11-08): backend main 1c460b0 (F-17): 17 new routes under /rings (invitations, join-codes, join-requests, see BI-17) and new ErrorCodes E_RING_INVITATION_01-07, E_RING_JOIN_CODE_01-06, E_RING_JOIN_REQUEST_01-02 (not in the body until Error Contract ships); RingMemberEntity gains origin
+
 > ⚠ Affected by [[BD-11 Rings Backend Delivery]] (2026-11-08): backend main e483d49: new ErrorCode E_RING_10 (409, disposition on a Ring that is not temporary or whose window has not ended, the default included); a boolean other than true/false and null on a PATCH field that does not clear are now 400 everywhere (/frontend)
 
 > ⚠ Affected by [[BD-11 Rings Backend Delivery]] (2026-11-05): backend main 12172c6: new POST /rings/:id/copy (endpoint count +1), new ErrorCode E_RING_09 (409, temporary Ring as default), GET /rings/shared-with-me now { ringId, pinName, displayName, avatarUrl, expiresAt, ringName, memberCount } per person with no filters (400), the D-04 settings on RingEntity (/frontend)

@@ -6585,7 +6585,7 @@
     }
   },
   "counts": {
-    "blocked": 29,
+    "blocked": 28,
     "bugs": 17,
     "byKind": {
       "backend-delivery": 39,
@@ -6611,12 +6611,12 @@
     },
     "concepts": 318,
     "decisions": 34,
-    "edges": 7550,
+    "edges": 7552,
     "features": 41,
     "layerNotes": 155,
     "modules": 8,
     "notes": 339,
-    "partial": 11,
+    "partial": 12,
     "placeholders": 130,
     "records": 33
   },
@@ -6674,7 +6674,9 @@
   ],
   "diagnostics": {
     "errors": [],
-    "warnings": []
+    "warnings": [
+      "social-pin/modules/Shared Rings & Companies/features/Ring Invitations & Join/flow/BD-17 Ring Invitations & Join Backend Delivery.md: status: done, but its Backend Integration is `draft`: the requirements of this scope cannot reach `delivered` until it is `current`"
+    ]
   },
   "edges": [
     {
@@ -8306,16 +8308,6 @@
       "from": "backend-delivery:post-event",
       "kind": "blocks",
       "to": "qa-backend:post-event"
-    },
-    {
-      "from": "backend-delivery:ring-invitations",
-      "kind": "blocks",
-      "to": "backend-integration:ring-invitations"
-    },
-    {
-      "from": "backend-delivery:ring-invitations",
-      "kind": "blocks",
-      "to": "qa-backend:ring-invitations"
     },
     {
       "from": "backend-delivery:subscription",
@@ -10266,6 +10258,11 @@
       "from": "backend-delivery:ring-access",
       "kind": "pending",
       "to": "story:companies"
+    },
+    {
+      "from": "backend-delivery:ring-invitations",
+      "kind": "pending",
+      "to": "story:ring-invitations"
     },
     {
       "from": "backend-delivery:rings",
@@ -56509,6 +56506,16 @@
     {
       "from": "backend-delivery:ring-invitations",
       "kind": "wikilink",
+      "to": "feature:badge-qr"
+    },
+    {
+      "from": "backend-delivery:ring-invitations",
+      "kind": "wikilink",
+      "to": "feature:connections"
+    },
+    {
+      "from": "backend-delivery:ring-invitations",
+      "kind": "wikilink",
       "to": "feature:delegated-admins"
     },
     {
@@ -61045,6 +61052,11 @@
       "from": "qa-backend:ring-access",
       "kind": "wikilink",
       "to": "feature:view-as"
+    },
+    {
+      "from": "qa-backend:ring-members",
+      "kind": "wikilink",
+      "to": "backend-delivery:ring-invitations"
     },
     {
       "from": "qa-backend:ring-members",
@@ -66145,7 +66157,7 @@
         "frontend-requirements:ring-invitations",
         "story:ring-invitations"
       ],
-      "effectiveStatus": "in-progress",
+      "effectiveStatus": "partial",
       "effort": null,
       "feature": "ring-invitations",
       "foundOn": null,
@@ -66166,7 +66178,33 @@
         "feature:ring-invitations"
       ],
       "path": "social-pin/modules/Shared Rings & Companies/features/Ring Invitations & Join/flow/BD-17 Ring Invitations & Join Backend Delivery.md",
-      "pending": [],
+      "pending": [
+        {
+          "person": null,
+          "text": "S4 joining with a verified work email waits on Code Delivery and the Companies work-email domain (D-33)",
+          "to": "story:ring-invitations"
+        },
+        {
+          "person": null,
+          "text": "S10 the member's card in a Ring they joined (the picked-Ring pointer, D-34) is not built",
+          "to": "story:ring-invitations"
+        },
+        {
+          "person": null,
+          "text": "S11 the member-facing roster of picked cards and Leave this Ring are not built",
+          "to": "story:ring-invitations"
+        },
+        {
+          "person": null,
+          "text": "S12 notifications wait on F-39 Notifications",
+          "to": "story:ring-invitations"
+        },
+        {
+          "person": "pm",
+          "text": "confirm that a Shared with me row opens the oldest Ring joined knowingly before an older placed one (a reading of D-15 next to S-33 S2)",
+          "to": null
+        }
+      ],
       "priority": "critical",
       "related": [
         "frontend-requirements:connections",
@@ -66225,11 +66263,11 @@
         "s43",
         "s74"
       ],
-      "status": "in-progress",
-      "summary": "What the backend built for S-33 Ring Invitations & Join Story S1–S3 and S5–S9 and how it works. Not on main yet: everything below is on the backend branch…",
+      "status": "done",
+      "summary": "What the backend shipped for S-33 Ring Invitations & Join Story S1–S3 and S5–S9 and how it works, as on backend main 1c460b0 (the merge of FR-17/ring-invitation/invitations-codes-origin @…",
       "tags": [
         "backend-delivery",
-        "backend-delivery/in-progress",
+        "backend-delivery/done",
         "module/shared-rings",
         "layer/backend"
       ],
@@ -69030,13 +69068,7 @@
       "affects": [
         "frontend-requirements:ring-invitations"
       ],
-      "blockedBy": [
-        {
-          "id": "backend-delivery:ring-invitations",
-          "title": "BD-17 Ring Invitations & Join Backend Delivery",
-          "why": "BD-17 Ring Invitations & Join Backend Delivery is in progress"
-        }
-      ],
+      "blockedBy": [],
       "card": "BI-17",
       "children": [],
       "code": "ring-invitations",
@@ -69045,7 +69077,7 @@
       "depends": [
         "backend-delivery:ring-invitations"
       ],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "ring-invitations",
       "foundOn": null,
@@ -74934,10 +74966,10 @@
       "resolution": null,
       "rollup": {
         "approved": 2,
-        "blocked": 1,
         "decided": 8,
-        "in-progress": 1,
+        "draft": 1,
         "missing": 3,
+        "partial": 1,
         "verified": 8
       },
       "scope": null,
@@ -77455,7 +77487,7 @@
         {
           "id": "backend-integration:ring-invitations",
           "title": "BI-17 Ring Invitations & Join Backend Integration",
-          "why": "BI-17 Ring Invitations & Join Backend Integration is blocked"
+          "why": "BI-17 Ring Invitations & Join Backend Integration is draft"
         }
       ],
       "card": null,
@@ -82446,11 +82478,12 @@
       "resolution": null,
       "rollup": {
         "approved": 3,
-        "blocked": 4,
+        "blocked": 3,
         "decided": 8,
-        "draft": 1,
-        "in-progress": 4,
+        "draft": 2,
+        "in-progress": 3,
         "missing": 11,
+        "partial": 1,
         "ready": 1,
         "verified": 8
       },
@@ -89041,13 +89074,7 @@
     },
     "qa-backend:ring-invitations": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "backend-delivery:ring-invitations",
-          "title": "BD-17 Ring Invitations & Join Backend Delivery",
-          "why": "BD-17 Ring Invitations & Join Backend Delivery is in progress"
-        }
-      ],
+      "blockedBy": [],
       "card": null,
       "children": [],
       "code": "ring-invitations",
@@ -91968,17 +91995,17 @@
       ],
       "rollup": {
         "approved": 42,
-        "blocked": 29,
+        "blocked": 28,
         "current": 6,
         "decided": 33,
         "delivered": 12,
         "done": 32,
-        "draft": 27,
+        "draft": 28,
         "failing": 1,
-        "in-progress": 49,
+        "in-progress": 48,
         "missing": 130,
         "needs-decision": 1,
-        "partial": 11,
+        "partial": 12,
         "passing": 7,
         "ready": 2,
         "reference": 32,
