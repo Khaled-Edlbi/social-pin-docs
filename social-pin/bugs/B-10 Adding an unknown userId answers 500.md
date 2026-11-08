@@ -3,7 +3,7 @@ id: B-10
 type: bug
 module: identity
 feature: ring-members
-status: todo
+status: ready
 priority: medium
 effort: S
 foundOn: "BI-06 Ring Members Backend Integration"
@@ -13,13 +13,15 @@ affects: ["BI-06 Ring Members Backend Integration", "QB-11 Ring Members QA Backe
 related: ["BI-06 Ring Members Backend Integration", "BD-09 Ring Members Backend Delivery", "QB-11 Ring Members QA Backend", "BD-35 Error Contract Backend Delivery", "POST /rings/:ringId/members"]
 pending: []
 created: 2026-11-05
-updated: 2026-11-05
-tags: [bug, bug/todo, module/identity, priority/high]
+updated: 2026-11-08
+tags: [bug, bug/ready, module/identity, priority/high]
 ---
 
-# ⬜ B-10 · Adding an unknown userId answers 500
+# 📨 B-10 · Adding an unknown userId answers 500
 
-**Found against:** [[BI-06 Ring Members Backend Integration]] · **Feature:** [[F-09 Ring Members]] · **Status:** To do · **Priority:** Medium (`critical | high | medium | low`, from `docs.config.json`) · **Deadline:** — · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
+> ⚠ Affected by [[BD-09 Ring Members Backend Delivery]] (2026-11-08): fixed on backend main e483d49, ready for re-test
+
+**Found against:** [[BI-06 Ring Members Backend Integration]] · **Feature:** [[F-09 Ring Members]] · **Status:** Ready · **Priority:** Medium (`critical | high | medium | low`, from `docs.config.json`) · **Deadline:** — · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
 
 **Found by:** [[QB-11 Ring Members QA Backend]] row B15, on build `main @ 12172c6 · localhost:3109, Node 22.22.2`.
 
