@@ -68389,13 +68389,12 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "approved": 1,
+        "approved": 2,
         "current": 1,
         "done": 1,
         "failing": 1,
         "missing": 1,
-        "partial": 1,
-        "ready": 1
+        "partial": 1
       },
       "scope": null,
       "screens": [
@@ -74143,7 +74142,7 @@
       "depends": [
         "story:ring-access"
       ],
-      "effectiveStatus": "ready",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "ring-access",
       "foundOn": null,
@@ -74274,18 +74273,18 @@
         "s47",
         "s62"
       ],
-      "status": "ready",
+      "status": "approved",
       "summary": "The engine exposes no endpoint. What the client needs from it is a set of guarantees that other endpoints carry: which rows appear on Shared with me and what each may say, what every /views route…",
       "tags": [
         "frontend-requirements",
-        "frontend-requirements/ready",
+        "frontend-requirements/approved",
         "module/identity",
         "layer/frontend"
       ],
       "task": null,
       "title": "FR-08 Ring Access Engine Frontend Requirements",
       "unmet": [],
-      "updated": "2026-11-05"
+      "updated": "2026-11-08"
     },
     "frontend-requirements:ring-invitations": {
       "affects": [
@@ -75612,7 +75611,7 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 18,
+        "approved": 19,
         "blocked": 3,
         "current": 5,
         "decided": 10,
@@ -75625,7 +75624,7 @@
         "needs-decision": 1,
         "partial": 14,
         "passing": 7,
-        "ready": 2,
+        "ready": 1,
         "verified": 10
       },
       "scope": null,
@@ -85085,7 +85084,7 @@
         }
       ],
       "rollup": {
-        "approved": 42,
+        "approved": 43,
         "blocked": 30,
         "current": 5,
         "decided": 33,
@@ -85098,7 +85097,7 @@
         "needs-decision": 1,
         "partial": 14,
         "passing": 7,
-        "ready": 5,
+        "ready": 4,
         "reference": 32,
         "todo": 3,
         "verified": 33
