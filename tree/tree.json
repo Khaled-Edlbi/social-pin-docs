@@ -3489,6 +3489,7 @@
       "notes": [
         "backend-delivery:badge-qr",
         "backend-delivery:connections",
+        "backend-delivery:view-as",
         "backend-integration:badge-qr",
         "backend-integration:view-as",
         "decision:D-12",
@@ -4661,12 +4662,14 @@
         "decision:D-11",
         "decision:D-12",
         "feature:badge-qr",
+        "feature:view-as",
         "needs-decision:ND-11",
         "project:spec-map"
       ],
       "kind": "endpoint",
       "notes": [
         "backend-delivery:badge-qr",
+        "backend-delivery:view-as",
         "backend-integration:badge-qr",
         "decision:D-11",
         "decision:D-12",
@@ -6661,7 +6664,7 @@
     },
     "concepts": 318,
     "decisions": 34,
-    "edges": 7540,
+    "edges": 7542,
     "features": 41,
     "layerNotes": 155,
     "modules": 8,
@@ -10905,7 +10908,9 @@
       "kind": "related",
       "to": "backend-delivery:view-as",
       "via": [
-        "GET /views/ring/:ringId"
+        "GET /views/qr/:token",
+        "GET /views/ring/:ringId",
+        "POST /rings/:ringId/qr"
       ]
     },
     {
@@ -15954,7 +15959,9 @@
       "to": "backend-delivery:view-as",
       "via": [
         "GET /views/pin/:pinName",
-        "GET /views/ring/:ringId"
+        "GET /views/qr/:token",
+        "GET /views/ring/:ringId",
+        "POST /rings/:ringId/qr"
       ]
     },
     {
@@ -20099,7 +20106,8 @@
       "kind": "related",
       "to": "backend-delivery:view-as",
       "via": [
-        "GET /files/content/:token"
+        "GET /files/content/:token",
+        "GET /views/qr/:token"
       ]
     },
     {
@@ -42111,6 +42119,14 @@
     {
       "from": "decision:D-11",
       "kind": "shares",
+      "to": "feature:view-as",
+      "via": [
+        "POST /rings/:ringId/qr"
+      ]
+    },
+    {
+      "from": "decision:D-11",
+      "kind": "shares",
       "to": "project:spec-map",
       "via": [
         "POST /rings/:ringId/qr"
@@ -42138,7 +42154,8 @@
       "kind": "shares",
       "to": "feature:view-as",
       "via": [
-        "GET /views/qr/:token"
+        "GET /views/qr/:token",
+        "POST /rings/:ringId/qr"
       ]
     },
     {
@@ -44671,7 +44688,8 @@
         "GET /rings",
         "GET /views/pin/:pinName",
         "GET /views/qr/:token",
-        "GET /views/ring/:ringId"
+        "GET /views/ring/:ringId",
+        "POST /rings/:ringId/qr"
       ]
     },
     {
@@ -52324,6 +52342,14 @@
     {
       "from": "feature:view-as",
       "kind": "shares",
+      "to": "needs-decision:ND-11",
+      "via": [
+        "POST /rings/:ringId/qr"
+      ]
+    },
+    {
+      "from": "feature:view-as",
+      "kind": "shares",
       "to": "needs-decision:ND-14",
       "via": [
         "GET /views/ring/:id",
@@ -52437,7 +52463,8 @@
         "GET /views/ring/:ringId",
         "GET /views/user/:userId/perspectives",
         "POST /rings",
-        "POST /rings/:id/default"
+        "POST /rings/:id/default",
+        "POST /rings/:ringId/qr"
       ]
     },
     {
@@ -64023,6 +64050,7 @@
         "backend-integration:badge-qr",
         "frontend-requirements:badge-qr",
         "story:badge-qr",
+        "backend-delivery:view-as",
         "project:spec-map",
         "story:connections",
         "backend-integration:view-as",
@@ -64050,7 +64078,6 @@
         "backend-integration:rings",
         "frontend-requirements:rings",
         "qa-backend:rings",
-        "backend-delivery:view-as",
         "frontend-requirements:view-as",
         "qa-backend:view-as",
         "story:view-as",
@@ -67229,6 +67256,7 @@
         "decision:D-12",
         "frontend-requirements:badge-qr",
         "story:badge-qr",
+        "backend-delivery:view-as",
         "project:spec-map",
         "story:connections",
         "backend-integration:view-as",
@@ -67256,7 +67284,6 @@
         "backend-integration:rings",
         "frontend-requirements:rings",
         "qa-backend:rings",
-        "backend-delivery:view-as",
         "frontend-requirements:view-as",
         "qa-backend:view-as",
         "story:view-as",

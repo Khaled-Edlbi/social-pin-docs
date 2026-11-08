@@ -27,6 +27,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/identity, laye
 
 > ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
 
+> ⚠ Affected by [[BD-12 View As & Pin Views Backend Delivery]] (2026-11-08): backend main 1c460b0: the QR rows are delivered: POST /rings/:ringId/qr issues the badge code, GET /views/qr/:token resolves it into RingProfileViewEntity plus expiresAt (BI-15). 'Source today' (a Ring id in the QR, temporary) is out of date: the QR carries https://socialpin.me/q/<token>, never a Ring id; for /frontend
+
 **Feature:** [[F-12 View As & Pin Views]] · **Status:** Draft, sent back by the backend 2026-11-05 · **Story:** [[S-19 View As & Pin Views Story]] · **Backend Integration:** [[BI-09 View As & Pin Views Backend Integration]]
 
 > **For `/frontend`, from the backend's review (2026-11-05, against backend `main` f186ba1).** The three `/views` routes, the view's shape (no `ringId`, `show*` gating, hidden rows left out), the signed links and both `E_RING_ACCESS_*` 404s match the code. It goes back to `draft` for four fixes; set it `ready` again once they're in.
