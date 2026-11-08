@@ -6170,7 +6170,7 @@
     },
     "concepts": 291,
     "decisions": 34,
-    "edges": 6955,
+    "edges": 6958,
     "features": 41,
     "layerNotes": 151,
     "modules": 8,
@@ -15734,6 +15734,21 @@
       "via": [
         "GET /files/content/:token"
       ]
+    },
+    {
+      "from": "backend-integration:view-as",
+      "kind": "related",
+      "to": "backend-integration:ring-projection"
+    },
+    {
+      "from": "backend-integration:view-as",
+      "kind": "related",
+      "to": "decision:D-02"
+    },
+    {
+      "from": "backend-integration:view-as",
+      "kind": "related",
+      "to": "decision:D-05"
     },
     {
       "from": "backend-integration:view-as",
@@ -50943,11 +50958,6 @@
     {
       "from": "backend-integration:ring-projection",
       "kind": "wikilink",
-      "to": "backend-integration:view-as"
-    },
-    {
-      "from": "backend-integration:ring-projection",
-      "kind": "wikilink",
       "to": "decision:D-02"
     },
     {
@@ -50999,6 +51009,11 @@
       "from": "backend-integration:view-as",
       "kind": "wikilink",
       "to": "project:ring-access-model"
+    },
+    {
+      "from": "backend-integration:view-as",
+      "kind": "wikilink",
+      "to": "story:ring-projection"
     },
     {
       "from": "decision:D-01",
@@ -62996,7 +63011,8 @@
         "qa-backend:rings",
         "story:companies",
         "frontend-requirements:delegated-admins",
-        "story:delegated-admins"
+        "story:delegated-admins",
+        "backend-integration:view-as"
       ],
       "release": "mvp",
       "resolution": null,
@@ -63264,6 +63280,9 @@
         "backend-integration:rings",
         "frontend-requirements:rings",
         "qa-backend:rings",
+        "decision:D-02",
+        "decision:D-05",
+        "backend-integration:ring-projection",
         "decision:D-16",
         "needs-decision:ND-16",
         "backend-delivery:files",
@@ -63467,6 +63486,7 @@
         "backend-delivery:ring-projection",
         "frontend-requirements:ring-projection",
         "story:ring-projection",
+        "backend-integration:view-as",
         "frontend-requirements:companies",
         "story:companies"
       ],
@@ -63727,7 +63747,8 @@
         "backend-delivery:rings",
         "backend-integration:rings",
         "qa-backend:rings",
-        "story:rings"
+        "story:rings",
+        "backend-integration:view-as"
       ],
       "release": null,
       "resolution": null,
