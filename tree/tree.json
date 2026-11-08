@@ -4080,7 +4080,9 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:rings",
+        "backend-delivery:view-as",
         "backend-integration:rings",
+        "backend-integration:view-as",
         "frontend-delivery:files",
         "frontend-delivery:rings",
         "frontend-requirements:auth",
@@ -6140,7 +6142,7 @@
     },
     "concepts": 291,
     "decisions": 34,
-    "edges": 6825,
+    "edges": 6832,
     "features": 41,
     "layerNotes": 151,
     "modules": 8,
@@ -23612,6 +23614,22 @@
     {
       "from": "frontend-requirements:rings",
       "kind": "related",
+      "to": "backend-delivery:view-as",
+      "via": [
+        "POST /rings"
+      ]
+    },
+    {
+      "from": "frontend-requirements:rings",
+      "kind": "related",
+      "to": "backend-integration:view-as",
+      "via": [
+        "POST /rings"
+      ]
+    },
+    {
+      "from": "frontend-requirements:rings",
+      "kind": "related",
       "to": "decision:D-04"
     },
     {
@@ -30488,7 +30506,8 @@
       "kind": "related",
       "to": "backend-delivery:view-as",
       "via": [
-        "GET /views/ring/:ringId"
+        "GET /views/ring/:ringId",
+        "POST /rings"
       ]
     },
     {
@@ -30522,7 +30541,8 @@
       "kind": "related",
       "to": "backend-integration:view-as",
       "via": [
-        "GET /views/ring/:ringId"
+        "GET /views/ring/:ringId",
+        "POST /rings"
       ]
     },
     {
@@ -33941,6 +33961,14 @@
     {
       "from": "task:B-13",
       "kind": "related",
+      "to": "backend-delivery:view-as",
+      "via": [
+        "POST /rings"
+      ]
+    },
+    {
+      "from": "task:B-13",
+      "kind": "related",
       "to": "backend-integration:counts",
       "via": [
         "GET /rings"
@@ -33961,6 +33989,14 @@
       "via": [
         "GET /rings",
         "PATCH /rings/:id",
+        "POST /rings"
+      ]
+    },
+    {
+      "from": "task:B-13",
+      "kind": "related",
+      "to": "backend-integration:view-as",
+      "via": [
         "POST /rings"
       ]
     },
@@ -34773,11 +34809,27 @@
     {
       "from": "task:B-16",
       "kind": "related",
+      "to": "backend-delivery:view-as",
+      "via": [
+        "POST /rings"
+      ]
+    },
+    {
+      "from": "task:B-16",
+      "kind": "related",
       "to": "backend-integration:rings",
       "via": [
         "PATCH /rings/:id",
         "POST /rings",
         "POST /rings/:id/copy"
+      ]
+    },
+    {
+      "from": "task:B-16",
+      "kind": "related",
+      "to": "backend-integration:view-as",
+      "via": [
+        "POST /rings"
       ]
     },
     {
@@ -49905,6 +49957,11 @@
       "to": "story:connections"
     },
     {
+      "from": "backend-delivery:view-as",
+      "kind": "wikilink",
+      "to": "task:B-12"
+    },
+    {
       "from": "backend-delivery:widgets",
       "kind": "wikilink",
       "to": "frontend-requirements:widgets"
@@ -59784,6 +59841,8 @@
       ],
       "priority": "critical",
       "related": [
+        "task:B-13",
+        "task:B-16",
         "task:B-17",
         "frontend-requirements:connections",
         "backend-delivery:account",
@@ -59805,6 +59864,7 @@
         "backend-integration:ring-projection",
         "frontend-requirements:ring-projection",
         "qa-backend:ring-projection",
+        "frontend-requirements:rings",
         "qa-backend:rings",
         "backend-integration:view-as",
         "frontend-requirements:view-as",
@@ -59832,7 +59892,7 @@
       "task": null,
       "title": "BD-12 View As & Pin Views Backend Delivery",
       "unmet": [],
-      "updated": "2026-11-05"
+      "updated": "2026-11-08"
     },
     "backend-delivery:widgets": {
       "affects": [],
@@ -62341,6 +62401,8 @@
       "priority": "critical",
       "related": [
         "task:B-08",
+        "task:B-13",
+        "task:B-16",
         "task:B-17",
         "decision:D-10",
         "frontend-requirements:connections",
@@ -62355,6 +62417,7 @@
         "frontend-requirements:ring-projection",
         "qa-backend:ring-projection",
         "backend-integration:rings",
+        "frontend-requirements:rings",
         "qa-backend:rings",
         "decision:D-16",
         "needs-decision:ND-16",
@@ -62385,7 +62448,7 @@
       "task": null,
       "title": "BI-09 View As & Pin Views Backend Integration",
       "unmet": [],
-      "updated": "2026-11-05"
+      "updated": "2026-11-08"
     },
     "backend-integration:widgets": {
       "affects": [],
@@ -73489,6 +73552,8 @@
         "frontend-requirements:auth",
         "frontend-delivery:files",
         "story:files",
+        "backend-delivery:view-as",
+        "backend-integration:view-as",
         "qa-backend:view-as",
         "story:meetings",
         "frontend-requirements:view-as"
@@ -81446,6 +81511,8 @@
         "story:exhibitor",
         "frontend-delivery:files",
         "story:files",
+        "backend-delivery:view-as",
+        "backend-integration:view-as",
         "qa-backend:view-as",
         "story:meetings",
         "story:companies",
@@ -81467,8 +81534,6 @@
         "story:badge-qr",
         "frontend-requirements:exhibitor",
         "story:ring-projection",
-        "backend-delivery:view-as",
-        "backend-integration:view-as",
         "story:view-as",
         "frontend-requirements:widgets",
         "project:ring-access-model",
@@ -87976,6 +88041,8 @@
         "frontend-delivery:files",
         "story:files",
         "qa-backend:ring-projection",
+        "backend-delivery:view-as",
+        "backend-integration:view-as",
         "qa-backend:view-as",
         "story:meetings",
         "story:companies",
@@ -88222,6 +88289,8 @@
         "frontend-delivery:rings",
         "frontend-requirements:rings",
         "story:rings",
+        "backend-delivery:view-as",
+        "backend-integration:view-as",
         "qa-backend:view-as",
         "story:meetings",
         "frontend-requirements:companies",

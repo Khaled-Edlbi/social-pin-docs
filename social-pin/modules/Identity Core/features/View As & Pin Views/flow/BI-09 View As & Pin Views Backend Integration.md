@@ -8,13 +8,11 @@ scope: feature
 screens: [s10, s31, s44]
 related: ["D-16 Files load from signed links that expire in 15 minutes", "BI-03 Files Upload Backend Integration", "GET /files/content/:token"]
 created: 2026-10-15
-updated: 2026-11-05
+updated: 2026-11-08
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---
 
 # 🔌 View As & Pin Views · Backend Integration
-
-> ⚠ Affected by [[QB-14 View As & Pin Views QA Backend]] (2026-11-05): on main 12172c6, GET /views/ring/:ringId answers 404 E_RING_ACCESS_01 to the owner and to live members of a Ring made with POST /rings until the owner first opens GET /rings/:id/projection, and /perspectives leaves it out: B-17 (/backend)
 
 > ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
 
@@ -35,7 +33,8 @@ What the client builds: every screen that shows **another person**: the scanned 
 
 1. **By Pin name.** `GET /views/pin/:pinName` (without the `!`) → 200 `RingProfileViewEntity`: the perspective of the person's **default Ring if the viewer is in it, else the oldest Ring they can see**. 404 `E_RING_ACCESS_01` otherwise, see below.
 2. **By Ring.** `GET /views/ring/:ringId` → the projection of that one Ring, if the viewer may see it: the owner always, a member while the Ring and the membership are both live and no block exists. 404 `E_RING_ACCESS_02` when the Ring is not live (expired, archived, deleted, not started), 404 `E_RING_ACCESS_01` when the viewer is not in it or is blocked.
-3. **All perspectives.** `GET /views/user/:userId/perspectives` → 200 `RingProfileViewEntity[]`, default Ring first then oldest first; **empty** when nothing is shared (not a 404). A viewer in several Rings of one person gets several entries; the switcher indexes by position because the entries carry no identifier.
+   - **A Ring just made renders from its first moment.** A Ring nobody has edited yet (made with `POST /rings`, its projection never opened) answers 200 with the empty projection, to its owner and to its members. That view has the Pin name, the name, the nickname, and the bio and photo of the profile the Ring presents; every sensitive field `null`; and empty `links[]`, `infoBlocks[]`, `widgets[]` and `attachments[]`. It is the same view the Ring gives once its projection is opened and before anything is switched on (S-19 S1). It is never a 404.
+3. **All perspectives.** `GET /views/user/:userId/perspectives` → 200 `RingProfileViewEntity[]`, default Ring first then oldest first; **empty** when nothing is shared (not a 404). A viewer in several Rings of one person gets several entries; the switcher indexes by position because the entries carry no identifier. A Ring just made is one of them, as its empty projection.
 4. **View as (owner).** The owner calls `GET /views/ring/:ringId` on their own Ring and gets byte for byte what that audience gets: same code path, same gates. An **expired** Ring 404s here even for the owner (`E_RING_ACCESS_02`): "View as" is for live Rings.
 
 ## Shapes that matter
@@ -87,3 +86,4 @@ Do **not** try to tell the `E_RING_ACCESS_01` cases apart, from timing or from a
 ## Log
 
 - 2026-11-05 · flagged [[FR-12 View As & Pin Views Frontend Requirements]]: avatarUrl and attachments[].url are on every /views/* response on backend main @ 80e7fa2 (rows flipped ✅). avatarFileId is still sent on the view, from before D-16 (viewers never receive a file id): stop reading it, use avatarUrl, then the backend removes it (/frontend)
+- 2026-11-08 · matches backend `main` `e483d49`: [[B-17 A new Ring answers 404 to its own owner until its projection is opened]] is fixed (`90fc7b3`). A Ring with no projection yet renders as the empty projection on `/views/ring`, `/views/pin` and `/perspectives`, as *Flow* 2 now says. No shape or error changed. The [[QB-14 View As & Pin Views QA Backend]] flag is cleared: B-17 is `ready` for re-test.
