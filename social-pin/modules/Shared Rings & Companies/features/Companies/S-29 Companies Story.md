@@ -14,7 +14,7 @@ affects: ["S-33 Ring Invitations & Join Story", "S-59 Exhibitor Story", "S-31 De
 related: ["D-02 One main profile every Ring starts from", "S-14 Profiles & Pin Name Story", "S-15 Ring Access Engine Story", "D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-16 Files load from signed links that expire in 15 minutes", "D-18 Ring names shown when joined knowingly", "Ring Access Model"]
 pending: []
 created: 2026-10-18
-updated: 2026-11-05
+updated: 2026-11-08
 tags: [story, story/approved, module/shared-rings, layer/business]
 ---
 
@@ -78,7 +78,7 @@ Acceptance criteria:
 - [ ] A row opens Company detail (s73).
 - [ ] A company is listed while I have **at least one live membership** in its Rings. A company whose Rings I'm in have all ended, or that removed me, leaves the list (S10).
 - [ ] Empty: "You're not part of a company yet", with *Join a company Ring* (s74, [[S-33 Ring Invitations & Join Story]]).
-- [ ] *+ Join a company Ring*, "Invite code, work email or a QR from a colleague", always at the end of the list → s74 with nothing picked. Each way in follows [[S-33 Ring Invitations & Join Story]] (code: S3; work email: S4, needs S12 here; colleague's QR: S5, not built).
+- [ ] *+ Join a company Ring*, "Invite code, work email or a QR from a colleague", always at the end of the list → s74 with nothing picked. Each way in follows [[S-33 Ring Invitations & Join Story]] (code: S3; work email: S4, needs S12 here; colleague's QR: S9, waiting on [[ND-35 A colleague's QR offering their company Ring]]; my join requests: S5).
 - [ ] The footnote: "Leaving a company removes its shared Rings. Connections you made stay yours."
 - [ ] Refetches when the screen opens (an invitation, an approval or a removal can happen without me doing anything). Not available yet: the route.
 
