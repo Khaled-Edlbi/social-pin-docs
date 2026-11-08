@@ -111,6 +111,7 @@
     "BI-09 View As & Pin Views Backend Integration": "backend-integration:view-as",
     "BI-13 Photo Library Backend Integration": "backend-integration:photo-library",
     "BI-14 Counts Backend Integration": "backend-integration:counts",
+    "BI-16 Connections Backend Integration": "backend-integration:connections",
     "Backend Agent": "project:backend-agent",
     "D-01 Code-only login": "decision:D-01",
     "D-02 One main profile every Ring starts from": "decision:D-02",
@@ -434,6 +435,7 @@
     "BI-09": "backend-integration:view-as",
     "BI-13": "backend-integration:photo-library",
     "BI-14": "backend-integration:counts",
+    "BI-16": "backend-integration:connections",
     "D-01": "decision:D-01",
     "D-02": "decision:D-02",
     "D-03": "decision:D-03",
@@ -698,6 +700,7 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections"
       ],
       "owner": "feature:connections"
@@ -720,6 +723,7 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:connections",
+        "backend-integration:connections",
         "decision:D-26",
         "frontend-requirements:connections"
       ],
@@ -732,6 +736,7 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "story:connections"
       ],
@@ -856,6 +861,7 @@
     },
     "DELETE /rings/:ringId/members/:userId": {
       "containers": [
+        "feature:connections",
         "feature:counts",
         "feature:ring-access",
         "feature:ring-members"
@@ -863,6 +869,7 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:ring-members",
+        "backend-integration:connections",
         "backend-integration:ring-members",
         "frontend-requirements:ring-members",
         "qa-backend:counts",
@@ -1240,6 +1247,7 @@
       "kind": "error",
       "notes": [
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections"
       ],
       "owner": null
@@ -1250,7 +1258,8 @@
       ],
       "kind": "error",
       "notes": [
-        "backend-delivery:connections"
+        "backend-delivery:connections",
+        "backend-integration:connections"
       ],
       "owner": null
     },
@@ -1291,6 +1300,7 @@
       "kind": "error",
       "notes": [
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections"
       ],
       "owner": null
@@ -1302,6 +1312,7 @@
       "kind": "error",
       "notes": [
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections"
       ],
       "owner": null
@@ -1536,6 +1547,7 @@
         "backend-delivery:error-contract",
         "backend-delivery:ring-access",
         "backend-delivery:rings",
+        "backend-integration:connections",
         "backend-integration:counts",
         "backend-integration:ring-members",
         "backend-integration:ring-projection",
@@ -1615,6 +1627,7 @@
         "backend-delivery:connections",
         "backend-delivery:ring-access",
         "backend-delivery:ring-projection",
+        "backend-integration:connections",
         "backend-integration:ring-access",
         "backend-integration:ring-members",
         "backend-integration:ring-projection",
@@ -1922,6 +1935,7 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "story:connections"
       ],
@@ -1986,6 +2000,7 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections"
       ],
       "owner": "feature:connections"
@@ -1999,6 +2014,7 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:connections",
+        "backend-integration:connections",
         "decision:D-29",
         "frontend-requirements:connections",
         "needs-decision:ND-29"
@@ -2011,7 +2027,8 @@
       ],
       "kind": "endpoint",
       "notes": [
-        "backend-delivery:connections"
+        "backend-delivery:connections",
+        "backend-integration:connections"
       ],
       "owner": "feature:connections"
     },
@@ -2021,7 +2038,8 @@
       ],
       "kind": "endpoint",
       "notes": [
-        "backend-delivery:connections"
+        "backend-delivery:connections",
+        "backend-integration:connections"
       ],
       "owner": "feature:connections"
     },
@@ -2041,7 +2059,8 @@
       ],
       "kind": "endpoint",
       "notes": [
-        "backend-delivery:connections"
+        "backend-delivery:connections",
+        "backend-integration:connections"
       ],
       "owner": "feature:connections"
     },
@@ -2578,6 +2597,7 @@
         "backend-delivery:counts",
         "backend-delivery:profiles",
         "backend-delivery:rings",
+        "backend-integration:connections",
         "backend-integration:counts",
         "backend-integration:profiles",
         "backend-integration:rings",
@@ -2774,6 +2794,7 @@
         "backend-delivery:ring-projection",
         "backend-delivery:rings",
         "backend-delivery:view-as",
+        "backend-integration:connections",
         "backend-integration:ring-projection",
         "frontend-delivery:files",
         "frontend-delivery:ring-projection",
@@ -2893,6 +2914,7 @@
         "backend-delivery:counts",
         "backend-delivery:ring-access",
         "backend-delivery:rings",
+        "backend-integration:connections",
         "backend-integration:counts",
         "backend-integration:rings",
         "decision:D-14",
@@ -3196,6 +3218,7 @@
       "notes": [
         "backend-delivery:connections",
         "backend-delivery:view-as",
+        "backend-integration:connections",
         "backend-integration:profiles",
         "backend-integration:view-as",
         "decision:D-10",
@@ -3492,6 +3515,7 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:view-as",
+        "backend-integration:connections",
         "backend-integration:ring-members",
         "backend-integration:view-as",
         "decision:D-15",
@@ -3638,11 +3662,13 @@
     },
     "PATCH /rings/:ringId/members/:userId": {
       "containers": [
+        "feature:connections",
         "feature:ring-members"
       ],
       "kind": "endpoint",
       "notes": [
         "backend-delivery:ring-members",
+        "backend-integration:connections",
         "backend-integration:ring-members",
         "frontend-requirements:ring-members",
         "qa-backend:ring-members"
@@ -4024,7 +4050,8 @@
       ],
       "kind": "endpoint",
       "notes": [
-        "backend-delivery:connections"
+        "backend-delivery:connections",
+        "backend-integration:connections"
       ],
       "owner": "feature:connections"
     },
@@ -4061,6 +4088,7 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:connections",
+        "backend-integration:connections",
         "decision:D-10",
         "decision:D-17",
         "decision:D-24",
@@ -4078,7 +4106,8 @@
       ],
       "kind": "endpoint",
       "notes": [
-        "backend-delivery:connections"
+        "backend-delivery:connections",
+        "backend-integration:connections"
       ],
       "owner": "feature:connections"
     },
@@ -4089,6 +4118,7 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections"
       ],
       "owner": "feature:connections"
@@ -4331,6 +4361,7 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:ring-members",
+        "backend-integration:connections",
         "backend-integration:ring-members",
         "decision:D-14",
         "decision:D-15",
@@ -4737,6 +4768,7 @@
         "backend-delivery:connections",
         "backend-delivery:counts",
         "backend-delivery:pincast",
+        "backend-integration:connections",
         "backend-integration:counts",
         "feature:counts",
         "feature:pincast",
@@ -4841,6 +4873,7 @@
       "notes": [
         "backend-delivery:connections",
         "backend-delivery:ring-members",
+        "backend-integration:connections",
         "backend-integration:ring-members",
         "feature:ring-access",
         "feature:ring-members",
@@ -4928,6 +4961,7 @@
         "backend-delivery:counts",
         "backend-delivery:ring-invitations",
         "backend-delivery:rings",
+        "backend-integration:connections",
         "backend-integration:counts",
         "backend-integration:rings",
         "feature:counts",
@@ -4991,6 +5025,7 @@
       "notes": [
         "backend-delivery:connections",
         "backend-delivery:rings",
+        "backend-integration:connections",
         "backend-integration:rings",
         "feature:rings",
         "frontend-delivery:rings",
@@ -5469,6 +5504,7 @@
       "notes": [
         "backend-delivery:connections",
         "backend-delivery:discover-hub",
+        "backend-integration:connections",
         "feature:discover-hub",
         "frontend-requirements:companies",
         "frontend-requirements:connections",
@@ -5582,6 +5618,7 @@
         "backend-delivery:badge-qr",
         "backend-delivery:connections",
         "backend-delivery:view-as",
+        "backend-integration:connections",
         "backend-integration:view-as",
         "feature:badge-qr",
         "feature:connections",
@@ -5631,6 +5668,7 @@
       "kind": "screen",
       "notes": [
         "backend-delivery:connections",
+        "backend-integration:connections",
         "feature:connections",
         "frontend-requirements:connections",
         "needs-decision:ND-13",
@@ -5654,6 +5692,7 @@
       "kind": "screen",
       "notes": [
         "backend-delivery:connections",
+        "backend-integration:connections",
         "feature:connections",
         "feature:ring-members",
         "frontend-requirements:connections",
@@ -5685,6 +5724,7 @@
       "notes": [
         "backend-delivery:connections",
         "backend-delivery:ring-members",
+        "backend-integration:connections",
         "backend-integration:ring-members",
         "feature:connections",
         "feature:ring-access",
@@ -6058,6 +6098,7 @@
         "backend-delivery:profiles",
         "backend-integration:account",
         "backend-integration:auth",
+        "backend-integration:connections",
         "backend-integration:counts",
         "backend-integration:photo-library",
         "backend-integration:profiles",
@@ -6253,11 +6294,11 @@
     }
   },
   "counts": {
-    "blocked": 29,
+    "blocked": 30,
     "bugs": 17,
     "byKind": {
       "backend-delivery": 39,
-      "backend-integration": 11,
+      "backend-integration": 12,
       "decision": 33,
       "feature": 41,
       "frontend-delivery": 9,
@@ -6271,7 +6312,7 @@
       "task": 17
     },
     "byLayer": {
-      "backend": 58,
+      "backend": 59,
       "business": 172,
       "frontend": 52,
       "qa": 12,
@@ -6279,13 +6320,13 @@
     },
     "concepts": 298,
     "decisions": 34,
-    "edges": 7083,
+    "edges": 7192,
     "features": 41,
-    "layerNotes": 151,
+    "layerNotes": 152,
     "modules": 8,
-    "notes": 335,
+    "notes": 336,
     "partial": 11,
-    "placeholders": 134,
+    "placeholders": 133,
     "records": 33
   },
   "deadlines": {
@@ -6409,6 +6450,11 @@
       "from": "backend-integration:account",
       "kind": "affects",
       "to": "qa-frontend:account"
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "affects",
+      "to": "frontend-requirements:connections"
     },
     {
       "from": "backend-integration:counts",
@@ -8911,6 +8957,16 @@
       "to": "frontend-requirements:ring-projection"
     },
     {
+      "from": "backend-integration:connections",
+      "kind": "depends",
+      "to": "backend-delivery:connections"
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "depends",
+      "to": "frontend-requirements:connections"
+    },
+    {
       "from": "backend-integration:counts",
       "kind": "depends",
       "to": "backend-delivery:counts"
@@ -9199,6 +9255,11 @@
       "from": "backend-delivery:auth",
       "kind": "flow",
       "to": "qa-backend:auth"
+    },
+    {
+      "from": "backend-delivery:connections",
+      "kind": "flow",
+      "to": "backend-integration:connections"
     },
     {
       "from": "backend-delivery:counts",
@@ -10414,6 +10475,34 @@
       "to": "backend-delivery:view-as",
       "via": [
         "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "backend-delivery:connections",
+      "kind": "related",
+      "to": "backend-integration:connections",
+      "via": [
+        "DELETE /blocks/:id",
+        "DELETE /connections/:userId",
+        "DELETE /connections/requests/:id",
+        "E_BLOCK_01",
+        "E_BLOCK_02",
+        "E_CONNECTION_01",
+        "E_CONNECTION_02",
+        "E_RING_02",
+        "E_RING_05",
+        "GET /blocks",
+        "GET /connections",
+        "GET /connections/:userId",
+        "GET /connections/count",
+        "GET /connections/relationship",
+        "GET /connections/requests",
+        "GET /views/pin/:pinName",
+        "POST /blocks",
+        "POST /connections/requests",
+        "POST /connections/requests/:id/accept",
+        "POST /connections/requests/:id/decline",
+        "POST /rings/:ringId/members"
       ]
     },
     {
@@ -14347,6 +14436,872 @@
       "to": "task:B-02",
       "via": [
         "E_USER_01"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "backend-delivery:counts",
+      "via": [
+        "E_RING_02",
+        "GET /rings",
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "backend-delivery:error-contract",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "backend-delivery:profiles",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "backend-delivery:ring-access",
+      "via": [
+        "E_RING_02",
+        "E_RING_05",
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "backend-delivery:ring-members",
+      "via": [
+        "POST /rings/:ringId/members"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "backend-delivery:ring-projection",
+      "via": [
+        "E_RING_02",
+        "E_RING_05",
+        "GET /rings/:ringId/projection"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "backend-delivery:rings",
+      "via": [
+        "E_RING_02",
+        "GET /rings",
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "backend-delivery:view-as",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "backend-integration:counts",
+      "via": [
+        "E_RING_02",
+        "GET /rings",
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "backend-integration:profiles",
+      "via": [
+        "GET /rings",
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "backend-integration:ring-access",
+      "via": [
+        "E_RING_05"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "backend-integration:ring-members",
+      "via": [
+        "E_RING_02",
+        "E_RING_05",
+        "POST /rings/:ringId/members"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "backend-integration:ring-projection",
+      "via": [
+        "E_RING_02",
+        "E_RING_05",
+        "GET /rings/:ringId/projection"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "backend-integration:rings",
+      "via": [
+        "E_RING_02",
+        "E_RING_05",
+        "GET /rings",
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "backend-integration:view-as",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "decision:D-10",
+      "via": [
+        "GET /views/pin/:pinName",
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "decision:D-13"
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "decision:D-14",
+      "via": [
+        "POST /rings/:ringId/members"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "decision:D-15",
+      "via": [
+        "POST /rings/:ringId/members"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "decision:D-16"
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "decision:D-17",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "decision:D-23"
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "decision:D-24",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "decision:D-26",
+      "via": [
+        "DELETE /connections/:userId"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "decision:D-27"
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "decision:D-29",
+      "via": [
+        "GET /connections/:userId"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "frontend-delivery:auth",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "frontend-delivery:counts",
+      "via": [
+        "E_RING_02",
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "frontend-delivery:ring-access",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "frontend-delivery:rings",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "frontend-requirements:account",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "frontend-requirements:app-shell",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "frontend-requirements:auth",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "frontend-requirements:badge-qr",
+      "via": [
+        "E_RING_02",
+        "GET /rings",
+        "GET /views/pin/:pinName",
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "frontend-requirements:cleanup-jobs",
+      "via": [
+        "E_RING_02",
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "frontend-requirements:companies",
+      "via": [
+        "E_RING_02",
+        "E_RING_05",
+        "GET /rings",
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "frontend-requirements:connections",
+      "via": [
+        "DELETE /blocks/:id",
+        "DELETE /connections/:userId",
+        "DELETE /connections/requests/:id",
+        "DELETE /rings/:ringId/members/:userId",
+        "E_BLOCK_01",
+        "E_CONNECTION_01",
+        "E_CONNECTION_02",
+        "E_RING_02",
+        "E_RING_05",
+        "GET /blocks",
+        "GET /connections",
+        "GET /connections/:userId",
+        "GET /rings",
+        "GET /rings/:ringId/projection",
+        "GET /rings/shared-with-me",
+        "GET /views/pin/:pinName",
+        "GET /views/user/:userId/perspectives",
+        "PATCH /rings/:ringId/members/:userId",
+        "POST /connections/requests",
+        "POST /connections/requests/:id/decline",
+        "POST /rings/:ringId/members"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "frontend-requirements:counts",
+      "via": [
+        "E_RING_02",
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "frontend-requirements:delegated-admins",
+      "via": [
+        "E_RING_02",
+        "E_RING_05"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "frontend-requirements:discover-hub",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "frontend-requirements:e2e-tests",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "frontend-requirements:event-ring-auto",
+      "via": [
+        "E_RING_02",
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "frontend-requirements:events-before",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "frontend-requirements:exhibitor",
+      "via": [
+        "E_RING_02",
+        "E_RING_05"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "frontend-requirements:files",
+      "via": [
+        "E_RING_05",
+        "GET /rings/:ringId/projection"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "frontend-requirements:meetings",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "frontend-requirements:photo-library",
+      "via": [
+        "E_RING_02",
+        "E_RING_05",
+        "GET /rings/:ringId/projection"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "frontend-requirements:pincast",
+      "via": [
+        "E_RING_02",
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "frontend-requirements:post-event",
+      "via": [
+        "E_RING_02",
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "frontend-requirements:ring-access",
+      "via": [
+        "E_RING_02",
+        "E_RING_05",
+        "GET /rings/shared-with-me",
+        "GET /views/pin/:pinName",
+        "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "frontend-requirements:ring-invitations",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "frontend-requirements:ring-members",
+      "via": [
+        "DELETE /rings/:ringId/members/:userId",
+        "E_RING_02",
+        "E_RING_05",
+        "GET /rings",
+        "PATCH /rings/:ringId/members/:userId",
+        "POST /rings/:ringId/members"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "frontend-requirements:ring-projection",
+      "via": [
+        "E_RING_02",
+        "E_RING_05",
+        "GET /rings",
+        "GET /rings/:ringId/projection"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "frontend-requirements:rings",
+      "via": [
+        "E_RING_02",
+        "E_RING_05",
+        "GET /rings",
+        "GET /rings/shared-with-me",
+        "POST /rings/:ringId/members"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "frontend-requirements:view-as",
+      "via": [
+        "GET /rings",
+        "GET /views/pin/:pinName",
+        "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "frontend-requirements:widgets",
+      "via": [
+        "E_RING_02",
+        "E_RING_05"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "needs-decision:ND-10",
+      "via": [
+        "GET /views/pin/:pinName",
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "needs-decision:ND-14",
+      "via": [
+        "POST /rings/:ringId/members"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "needs-decision:ND-15",
+      "via": [
+        "POST /rings/:ringId/members"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "needs-decision:ND-22",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "needs-decision:ND-24",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "needs-decision:ND-29",
+      "via": [
+        "GET /connections/:userId"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "project:agent-rules",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "project:api-conventions",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "project:docs-tree",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "project:frontend-agent-prompt",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "GET /rings",
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "project:frontend-contract",
+      "via": [
+        "GET /rings",
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "project:spec-map",
+      "via": [
+        "GET /rings",
+        "POST /rings/:ringId/members"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "project:status-report-2026-10-15",
+      "via": [
+        "GET /rings",
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "qa-backend:account",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "qa-backend:auth",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "qa-backend:counts",
+      "via": [
+        "DELETE /rings/:ringId/members/:userId",
+        "E_RING_02",
+        "GET /rings",
+        "GET /rings/shared-with-me",
+        "POST /rings/:ringId/members"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "qa-backend:files",
+      "via": [
+        "E_RING_02",
+        "E_RING_05",
+        "GET /rings/:ringId/projection",
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "qa-backend:photo-library",
+      "via": [
+        "E_RING_02",
+        "E_RING_05",
+        "GET /rings/:ringId/projection",
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "qa-backend:profiles",
+      "via": [
+        "GET /rings",
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "qa-backend:ring-access",
+      "via": [
+        "E_RING_02",
+        "E_RING_05",
+        "GET /rings",
+        "GET /rings/shared-with-me",
+        "GET /views/pin/:pinName",
+        "GET /views/user/:userId/perspectives",
+        "POST /rings/:ringId/members"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "qa-backend:ring-members",
+      "via": [
+        "DELETE /rings/:ringId/members/:userId",
+        "E_RING_02",
+        "E_RING_05",
+        "GET /views/pin/:pinName",
+        "PATCH /rings/:ringId/members/:userId",
+        "POST /rings/:ringId/members"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "qa-backend:ring-projection",
+      "via": [
+        "E_RING_02",
+        "E_RING_05",
+        "GET /rings/:ringId/projection"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "qa-backend:rings",
+      "via": [
+        "E_RING_02",
+        "E_RING_05",
+        "GET /rings",
+        "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "qa-backend:view-as",
+      "via": [
+        "GET /views/pin/:pinName",
+        "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "story:auth",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "story:badge-qr",
+      "via": [
+        "E_RING_02",
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "story:companies",
+      "via": [
+        "E_RING_05"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "story:connections",
+      "via": [
+        "DELETE /connections/requests/:id",
+        "E_RING_02",
+        "E_RING_05",
+        "GET /blocks",
+        "GET /rings",
+        "GET /views/pin/:pinName",
+        "POST /connections/requests",
+        "POST /rings/:ringId/members"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "story:counts",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "story:delegated-admins",
+      "via": [
+        "E_RING_02",
+        "E_RING_05",
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "story:discover-hub",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "story:event-ring-auto",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "story:post-event",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "story:ring-access",
+      "via": [
+        "E_RING_05"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "story:rings",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "story:view-as",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "task:B-02",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "task:B-15",
+      "via": [
+        "E_RING_02"
       ]
     },
     {
@@ -35088,6 +36043,15 @@
     {
       "from": "task:B-08",
       "kind": "related",
+      "to": "backend-integration:connections",
+      "via": [
+        "GET /rings/:ringId/projection",
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-08",
+      "kind": "related",
       "to": "backend-integration:files"
     },
     {
@@ -35323,6 +36287,14 @@
     {
       "from": "task:B-09",
       "kind": "related",
+      "to": "backend-integration:connections",
+      "via": [
+        "POST /rings/:ringId/members"
+      ]
+    },
+    {
+      "from": "task:B-09",
+      "kind": "related",
       "to": "backend-integration:ring-members",
       "via": [
         "POST /rings/:ringId/members"
@@ -35430,6 +36402,14 @@
       "from": "task:B-10",
       "kind": "related",
       "to": "backend-delivery:ring-members",
+      "via": [
+        "POST /rings/:ringId/members"
+      ]
+    },
+    {
+      "from": "task:B-10",
+      "kind": "related",
+      "to": "backend-integration:connections",
       "via": [
         "POST /rings/:ringId/members"
       ]
@@ -35736,6 +36716,14 @@
       "to": "backend-delivery:view-as",
       "via": [
         "POST /rings"
+      ]
+    },
+    {
+      "from": "task:B-13",
+      "kind": "related",
+      "to": "backend-integration:connections",
+      "via": [
+        "GET /rings"
       ]
     },
     {
@@ -36923,6 +37911,15 @@
       "via": [
         "GET /rings/:ringId/projection",
         "GET /views/ring/:ringId",
+        "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "task:B-17",
+      "kind": "related",
+      "to": "backend-integration:connections",
+      "via": [
+        "GET /rings/:ringId/projection",
         "GET /views/user/:userId/perspectives"
       ]
     },
@@ -41176,6 +42173,7 @@
       "kind": "shares",
       "to": "feature:counts",
       "via": [
+        "DELETE /rings/:ringId/members/:userId",
         "E_RING_02",
         "GET /rings",
         "GET /rings/shared-with-me"
@@ -41372,6 +42370,7 @@
       "kind": "shares",
       "to": "feature:ring-access",
       "via": [
+        "DELETE /rings/:ringId/members/:userId",
         "E_RING_02",
         "E_RING_05",
         "GET /rings",
@@ -41399,12 +42398,14 @@
       "kind": "shares",
       "to": "feature:ring-members",
       "via": [
+        "DELETE /rings/:ringId/members/:userId",
         "E_RING_02",
         "E_RING_05",
         "E_RING_07",
         "GET /rings",
         "GET /views/pin/:pinName",
         "GET /views/user/:userId/perspectives",
+        "PATCH /rings/:ringId/members/:userId",
         "POST /rings/:ringId/members"
       ]
     },
@@ -52208,6 +53209,21 @@
       "to": "story:linked-accounts"
     },
     {
+      "from": "backend-integration:connections",
+      "kind": "wikilink",
+      "to": "story:error-contract"
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "wikilink",
+      "to": "story:gemma"
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "wikilink",
+      "to": "story:notifications"
+    },
+    {
       "from": "backend-integration:profiles",
       "kind": "wikilink",
       "to": "decision:D-05"
@@ -54066,6 +55082,11 @@
       "from": "module:connections",
       "kind": "wikilink",
       "to": "backend-delivery:connections"
+    },
+    {
+      "from": "module:connections",
+      "kind": "wikilink",
+      "to": "backend-integration:connections"
     },
     {
       "from": "module:connections",
@@ -57843,6 +58864,10 @@
       "name": "BD-14 Connections Backend Delivery",
       "type": "backend-delivery"
     },
+    "social-pin/modules/Connections/features/Connections/flow/BI-16 Connections Backend Integration.md": {
+      "name": "BI-16 Connections Backend Integration",
+      "type": "backend-integration"
+    },
     "social-pin/modules/Connections/features/Connections/flow/FR-14 Connections Frontend Requirements.md": {
       "name": "FR-14 Connections Frontend Requirements",
       "type": "frontend-requirements"
@@ -59694,6 +60719,7 @@
         "project:ring-access-model",
         "needs-decision:ND-10",
         "needs-decision:ND-24",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "story:connections",
         "frontend-requirements:badge-qr",
@@ -59837,6 +60863,7 @@
       "related": [
         "task:B-13",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "feature:rings",
         "backend-delivery:rings",
@@ -60209,6 +61236,7 @@
         "task:B-02",
         "task:B-10",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "qa-backend:account",
         "qa-backend:auth",
@@ -61294,6 +62322,7 @@
         "task:B-08",
         "task:B-11",
         "task:B-13",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "qa-backend:auth",
         "backend-delivery:counts",
@@ -61424,6 +62453,7 @@
         "task:B-16",
         "task:B-17",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -61601,6 +62631,7 @@
         "task:B-10",
         "needs-decision:ND-31",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "qa-backend:counts",
         "frontend-requirements:ring-members",
@@ -61671,6 +62702,7 @@
         "task:B-12",
         "task:B-17",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:files",
         "backend-integration:files",
@@ -61819,6 +62851,7 @@
         "task:B-16",
         "task:B-17",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -62011,6 +63044,7 @@
         "task:B-16",
         "task:B-17",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:account",
         "backend-integration:account",
@@ -62609,7 +63643,9 @@
       "updated": null
     },
     "backend-integration:connections": {
-      "affects": [],
+      "affects": [
+        "frontend-requirements:connections"
+      ],
       "blockedBy": [
         {
           "id": "backend-delivery:connections",
@@ -62617,19 +63653,25 @@
           "why": "BD-14 Connections Backend Delivery is in progress"
         }
       ],
-      "card": null,
+      "card": "BI-16",
       "children": [],
       "code": "connections",
-      "created": null,
+      "created": "2026-11-08",
       "deadline": null,
-      "depends": [],
-      "effectiveStatus": "missing",
+      "depends": [
+        "backend-delivery:connections",
+        "frontend-requirements:connections"
+      ],
+      "effectiveStatus": "blocked",
       "effort": null,
       "feature": "connections",
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-integration:connections",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:connections",
+        "release": "feature:connections"
+      },
       "kind": "backend-integration",
       "label": "Backend Integration",
       "labels": [],
@@ -62640,21 +63682,139 @@
       "parents": [
         "feature:connections"
       ],
-      "path": null,
+      "path": "social-pin/modules/Connections/features/Connections/flow/BI-16 Connections Backend Integration.md",
       "pending": [],
-      "priority": null,
-      "related": [],
-      "release": null,
+      "priority": "critical",
+      "related": [
+        "task:B-08",
+        "task:B-09",
+        "task:B-10",
+        "task:B-13",
+        "task:B-17",
+        "backend-delivery:connections",
+        "story:connections",
+        "decision:D-10",
+        "decision:D-13",
+        "decision:D-14",
+        "decision:D-15",
+        "decision:D-16",
+        "decision:D-17",
+        "decision:D-23",
+        "decision:D-24",
+        "decision:D-26",
+        "decision:D-27",
+        "decision:D-29",
+        "backend-integration:ring-members",
+        "backend-integration:view-as",
+        "project:frontend-contract",
+        "needs-decision:ND-10",
+        "needs-decision:ND-24",
+        "frontend-requirements:connections",
+        "frontend-requirements:badge-qr",
+        "needs-decision:ND-29",
+        "needs-decision:ND-22",
+        "story:badge-qr",
+        "frontend-requirements:discover-hub",
+        "story:discover-hub",
+        "qa-backend:files",
+        "backend-integration:profiles",
+        "frontend-delivery:ring-access",
+        "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
+        "qa-backend:ring-members",
+        "backend-delivery:view-as",
+        "frontend-requirements:view-as",
+        "qa-backend:view-as",
+        "story:view-as",
+        "frontend-requirements:e2e-tests",
+        "project:status-report-2026-10-15",
+        "project:frontend-api-guide",
+        "task:B-02",
+        "frontend-requirements:pincast",
+        "frontend-requirements:event-ring-auto",
+        "story:event-ring-auto",
+        "frontend-requirements:events-before",
+        "frontend-requirements:post-event",
+        "story:post-event",
+        "frontend-requirements:account",
+        "qa-backend:account",
+        "frontend-delivery:auth",
+        "frontend-requirements:auth",
+        "qa-backend:auth",
+        "story:auth",
+        "backend-delivery:counts",
+        "backend-integration:counts",
+        "frontend-delivery:counts",
+        "frontend-requirements:counts",
+        "qa-backend:counts",
+        "story:counts",
+        "backend-delivery:profiles",
+        "qa-backend:profiles",
+        "frontend-requirements:ring-members",
+        "frontend-requirements:ring-projection",
+        "backend-delivery:rings",
+        "backend-integration:rings",
+        "frontend-delivery:rings",
+        "frontend-requirements:rings",
+        "qa-backend:rings",
+        "story:rings",
+        "frontend-requirements:app-shell",
+        "frontend-requirements:cleanup-jobs",
+        "frontend-requirements:companies",
+        "story:delegated-admins",
+        "frontend-requirements:ring-invitations",
+        "project:spec-map",
+        "needs-decision:ND-14",
+        "needs-decision:ND-15",
+        "backend-delivery:ring-members",
+        "task:B-15",
+        "frontend-requirements:exhibitor",
+        "frontend-requirements:photo-library",
+        "qa-backend:photo-library",
+        "backend-delivery:ring-access",
+        "backend-integration:ring-projection",
+        "qa-backend:ring-projection",
+        "frontend-requirements:widgets",
+        "frontend-requirements:meetings",
+        "backend-delivery:error-contract",
+        "frontend-requirements:delegated-admins",
+        "project:agent-rules",
+        "project:docs-tree",
+        "project:api-conventions",
+        "project:frontend-agent-prompt",
+        "frontend-requirements:files",
+        "backend-integration:ring-access",
+        "story:ring-access",
+        "backend-delivery:ring-projection",
+        "story:companies"
+      ],
+      "release": "mvp",
+      "resolution": null,
       "scope": "feature",
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold backend-integration connections",
-      "tags": [],
+      "screens": [
+        "s11",
+        "s15",
+        "s17",
+        "s19",
+        "s38",
+        "s44",
+        "s45",
+        "s46",
+        "s47",
+        "s68"
+      ],
+      "status": "draft",
+      "summary": "Written by the backend team for the frontend: how to call what was delivered. Draft: it describes the backend branch FR-14/connection/requests-accept-contacts-block, which is not on main yet; it…",
+      "tags": [
+        "backend-integration",
+        "backend-integration/draft",
+        "module/connections",
+        "layer/backend"
+      ],
       "task": null,
-      "template": "templates/Backend Integration Template.md",
-      "title": "Connections Backend Integration",
+      "title": "BI-16 Connections Backend Integration",
       "unmet": [],
-      "updated": null
+      "updated": "2026-11-08"
     },
     "backend-integration:counts": {
       "affects": [
@@ -62695,6 +63855,7 @@
       "related": [
         "task:B-13",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "story:counts",
@@ -63944,6 +65105,7 @@
         "task:B-11",
         "task:B-13",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "qa-backend:account",
         "qa-backend:auth",
@@ -64061,6 +65223,7 @@
       "priority": "critical",
       "related": [
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "frontend-requirements:files",
         "qa-backend:files",
@@ -64182,6 +65345,7 @@
         "task:B-10",
         "task:B-17",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -64272,6 +65436,7 @@
         "task:B-16",
         "task:B-17",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "qa-backend:account",
         "backend-delivery:counts",
@@ -64406,6 +65571,7 @@
         "decision:D-34",
         "decision:D-36",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -64584,6 +65750,7 @@
         "task:B-17",
         "decision:D-10",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "frontend-requirements:badge-qr",
         "story:badge-qr",
@@ -65281,6 +66448,7 @@
         "decision:D-12",
         "decision:D-28",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "story:connections",
         "frontend-requirements:badge-qr",
@@ -65485,6 +66653,7 @@
         "needs-decision:ND-17",
         "decision:D-17",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "story:connections"
       ],
@@ -65557,6 +66726,7 @@
         "decision:D-34",
         "decision:D-35",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "story:connections",
         "backend-delivery:counts",
@@ -65650,6 +66820,7 @@
         "feature:view-as",
         "decision:D-26",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "story:connections",
         "qa-backend:counts",
@@ -65745,6 +66916,7 @@
         "story:photo-library",
         "qa-backend:view-as",
         "project:frontend-api-guide",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "frontend-delivery:files",
         "backend-delivery:photo-library",
@@ -65823,6 +66995,7 @@
         "decision:D-27",
         "decision:D-31",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "story:connections",
         "story:ring-invitations"
@@ -66187,6 +67360,7 @@
         "decision:D-04",
         "decision:D-14",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "story:connections"
       ],
@@ -66248,6 +67422,7 @@
         "needs-decision:ND-24",
         "feature:connections",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "story:connections"
       ],
@@ -66372,6 +67547,7 @@
         "decision:D-15",
         "feature:connections",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "story:connections"
       ],
@@ -66434,6 +67610,7 @@
         "decision:D-17",
         "feature:connections",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "story:connections"
       ],
@@ -66564,6 +67741,7 @@
         "feature:ring-members",
         "feature:ring-invitations",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "story:connections"
       ],
@@ -67882,9 +69060,10 @@
       "resolution": null,
       "rollup": {
         "approved": 2,
+        "blocked": 1,
         "decided": 12,
         "in-progress": 1,
-        "missing": 4,
+        "missing": 3,
         "verified": 12
       },
       "scope": null,
@@ -70670,6 +71849,7 @@
         "task:B-13",
         "needs-decision:ND-30",
         "decision:D-30",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:account",
         "backend-integration:account",
@@ -70970,8 +72150,8 @@
       "blockedBy": [
         {
           "id": "backend-integration:connections",
-          "title": "Connections Backend Integration",
-          "why": "Connections Backend Integration is not written yet"
+          "title": "BI-16 Connections Backend Integration",
+          "why": "BI-16 Connections Backend Integration is blocked"
         }
       ],
       "card": null,
@@ -71051,6 +72231,7 @@
       "related": [
         "task:B-13",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -72317,6 +73498,7 @@
         "task:B-15",
         "task:B-17",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -72589,6 +73771,7 @@
         "task:B-14",
         "task:B-15",
         "task:B-16",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -72819,6 +74002,7 @@
         "task:B-08",
         "task:B-13",
         "task:B-17",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:account",
         "backend-integration:account",
@@ -72904,6 +74088,7 @@
       "related": [
         "task:B-03",
         "task:B-13",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "qa-backend:auth",
         "backend-delivery:counts",
@@ -73031,6 +74216,7 @@
         "task:B-16",
         "needs-decision:ND-30",
         "decision:D-30",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:account",
         "backend-integration:account",
@@ -73123,6 +74309,7 @@
         "task:B-13",
         "task:B-17",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "story:badge-qr",
         "backend-integration:view-as",
@@ -73264,6 +74451,7 @@
         "task:B-13",
         "task:B-15",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -73407,6 +74595,7 @@
         "task:B-17",
         "decision:D-31",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "qa-backend:auth",
         "backend-delivery:counts",
@@ -73574,6 +74763,7 @@
         "task:B-16",
         "task:B-17",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "story:connections",
         "decision:D-04",
         "decision:D-06",
@@ -73758,6 +74948,7 @@
       "related": [
         "task:B-13",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -73855,6 +75046,7 @@
         "task:B-15",
         "task:B-16",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "qa-backend:auth",
         "backend-delivery:counts",
@@ -73992,6 +75184,7 @@
       "related": [
         "task:B-03",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "qa-backend:auth",
         "qa-backend:files",
@@ -74053,6 +75246,7 @@
       "priority": null,
       "related": [
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "qa-backend:files",
         "qa-backend:photo-library",
@@ -74228,6 +75422,7 @@
         "task:B-16",
         "task:B-17",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -74301,6 +75496,7 @@
       "related": [
         "task:B-03",
         "task:B-13",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "qa-backend:auth",
         "backend-delivery:counts",
@@ -74441,6 +75637,7 @@
       "related": [
         "task:B-17",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -74528,6 +75725,7 @@
         "task:B-17",
         "decision:D-16",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:files",
         "backend-integration:files",
@@ -74832,6 +76030,7 @@
         "task:B-15",
         "task:B-17",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -75167,6 +76366,7 @@
         "task:B-17",
         "decision:D-16",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -75306,6 +76506,7 @@
         "task:B-13",
         "task:B-17",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "qa-backend:auth",
         "backend-delivery:counts",
@@ -75388,6 +76589,7 @@
         "task:B-15",
         "task:B-17",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "qa-backend:auth",
         "backend-delivery:counts",
@@ -75596,6 +76798,7 @@
         "task:B-16",
         "task:B-17",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -75751,6 +76954,7 @@
         "task:B-14",
         "task:B-16",
         "task:B-17",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "frontend-requirements:badge-qr",
         "qa-backend:auth",
@@ -75851,6 +77055,7 @@
         "task:B-10",
         "task:B-13",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -75999,6 +77204,7 @@
         "task:B-15",
         "task:B-17",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-integration:account",
         "backend-delivery:counts",
@@ -76166,6 +77372,7 @@
         "task:B-16",
         "task:B-17",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -76355,6 +77562,7 @@
         "task:B-13",
         "task:B-17",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:account",
         "backend-integration:account",
@@ -76509,6 +77717,7 @@
         "task:B-08",
         "task:B-17",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -76851,9 +78060,10 @@
       "resolution": null,
       "rollup": {
         "approved": 2,
+        "blocked": 1,
         "decided": 12,
         "in-progress": 2,
-        "missing": 4,
+        "missing": 3,
         "verified": 12
       },
       "scope": null,
@@ -77762,6 +78972,7 @@
         "feature:connections",
         "decision:D-10",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "story:connections",
         "story:badge-qr",
@@ -78036,6 +79247,7 @@
         "feature:view-as",
         "decision:D-14",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -78118,6 +79330,7 @@
         "feature:ring-members",
         "decision:D-15",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "qa-backend:counts",
         "frontend-requirements:ring-access",
@@ -78642,6 +79855,7 @@
         "story:view-as",
         "decision:D-22",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "qa-backend:files",
         "qa-backend:photo-library",
@@ -78781,7 +79995,8 @@
         "feature:connections",
         "decision:D-17",
         "decision:D-24",
-        "backend-delivery:connections"
+        "backend-delivery:connections",
+        "backend-integration:connections"
       ],
       "release": null,
       "resolution": null,
@@ -79094,7 +80309,8 @@
         "feature:ring-members",
         "feature:ring-invitations",
         "decision:D-29",
-        "backend-delivery:connections"
+        "backend-delivery:connections",
+        "backend-integration:connections"
       ],
       "release": null,
       "resolution": null,
@@ -79764,6 +80980,7 @@
       "related": [
         "needs-decision:ND-19",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -79878,6 +81095,7 @@
         "feature:delegated-admins",
         "feature:ring-invitations",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -80309,6 +81527,7 @@
       "related": [
         "needs-decision:ND-19",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -80526,6 +81745,7 @@
       "related": [
         "task:B-03",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "qa-backend:auth",
         "backend-delivery:counts",
@@ -80602,6 +81822,7 @@
         "decision:D-16",
         "decision:D-30",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:account",
         "backend-integration:account",
@@ -80692,6 +81913,7 @@
         "task:B-16",
         "task:B-17",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "frontend-requirements:badge-qr",
         "qa-backend:auth",
@@ -81316,6 +82538,7 @@
         "task:B-16",
         "task:B-17",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:account",
         "backend-integration:account",
@@ -81407,6 +82630,7 @@
         "task:B-16",
         "task:B-17",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "qa-backend:auth",
         "backend-delivery:counts",
@@ -81552,6 +82776,7 @@
         "task:B-13",
         "needs-decision:ND-30",
         "decision:D-30",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:account",
         "backend-integration:account",
@@ -81690,6 +82915,7 @@
         "task:B-13",
         "needs-decision:ND-30",
         "decision:D-30",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:account",
         "backend-integration:account",
@@ -82123,6 +83349,7 @@
       "related": [
         "task:B-13",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -82700,6 +83927,7 @@
         "task:B-17",
         "decision:D-16",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -83228,6 +84456,7 @@
         "task:B-15",
         "decision:D-16",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -83471,6 +84700,7 @@
         "task:B-08",
         "task:B-11",
         "task:B-13",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "qa-backend:auth",
         "backend-delivery:counts",
@@ -83629,6 +84859,7 @@
         "task:B-16",
         "task:B-17",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -83837,6 +85068,7 @@
         "task:B-09",
         "task:B-10",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:account",
         "backend-integration:account",
@@ -83968,6 +85200,7 @@
         "task:B-16",
         "task:B-17",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -84127,6 +85360,7 @@
         "task:B-16",
         "task:B-17",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:account",
         "backend-integration:account",
@@ -84363,6 +85597,7 @@
         "task:B-17",
         "decision:D-16",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:account",
         "backend-integration:account",
@@ -86549,7 +87784,7 @@
       ],
       "rollup": {
         "approved": 41,
-        "blocked": 29,
+        "blocked": 30,
         "current": 5,
         "decided": 33,
         "delivered": 11,
@@ -86557,7 +87792,7 @@
         "draft": 26,
         "failing": 1,
         "in-progress": 48,
-        "missing": 134,
+        "missing": 133,
         "needs-decision": 1,
         "partial": 11,
         "passing": 7,
@@ -86793,6 +88028,7 @@
         "task:B-13",
         "needs-decision:ND-30",
         "decision:D-30",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:account",
         "backend-integration:account",
@@ -86882,6 +88118,7 @@
         "task:B-17",
         "needs-decision:ND-35",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "frontend-requirements:badge-qr",
         "decision:D-10",
@@ -87164,6 +88401,7 @@
         "needs-decision:ND-36",
         "decision:D-32",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -87289,6 +88527,7 @@
         "task:B-17",
         "decision:D-11",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "decision:D-04",
         "decision:D-13",
@@ -87408,6 +88647,7 @@
       "priority": "critical",
       "related": [
         "task:B-13",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-integration:account",
         "frontend-delivery:account",
@@ -87500,6 +88740,7 @@
         "needs-decision:ND-32",
         "decision:D-31",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -87644,6 +88885,7 @@
       "priority": null,
       "related": [
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "qa-backend:auth",
         "qa-backend:files",
@@ -87849,6 +89091,7 @@
         "task:B-13",
         "task:B-16",
         "task:B-17",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -88814,6 +90057,7 @@
         "task:B-13",
         "task:B-15",
         "task:B-17",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -88986,6 +90230,7 @@
         "task:B-17",
         "needs-decision:ND-23",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "frontend-requirements:files",
         "qa-backend:files",
@@ -89360,6 +90605,7 @@
         "task:B-16",
         "needs-decision:ND-36",
         "decision:D-36",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -89517,6 +90763,7 @@
         "needs-decision:ND-22",
         "decision:D-22",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "story:badge-qr",
         "qa-backend:files",
@@ -89786,6 +91033,7 @@
         "feature:rings",
         "feature:profiles",
         "task:B-13",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-integration:account",
         "backend-delivery:auth",
@@ -90288,6 +91536,7 @@
         "backend-integration:files",
         "backend-integration:view-as",
         "task:B-17",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "frontend-requirements:account",
         "frontend-delivery:files",
@@ -90390,6 +91639,7 @@
         "needs-decision:ND-15",
         "decision:D-14",
         "decision:D-15",
+        "backend-integration:connections",
         "story:connections",
         "qa-backend:ring-access",
         "frontend-requirements:ring-members",
@@ -90472,6 +91722,7 @@
         "needs-decision:ND-15",
         "decision:D-14",
         "decision:D-15",
+        "backend-integration:connections",
         "story:connections",
         "qa-backend:ring-access",
         "frontend-requirements:ring-members",
@@ -90707,6 +91958,7 @@
         "backend-delivery:rings",
         "decision:D-04",
         "task:B-02",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "story:connections",
         "frontend-requirements:badge-qr",
@@ -90930,6 +92182,7 @@
         "frontend-requirements:delegated-admins",
         "story:delegated-admins",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -91148,6 +92401,7 @@
         "needs-decision:ND-14",
         "needs-decision:ND-15",
         "decision:D-15",
+        "backend-integration:connections",
         "frontend-requirements:pincast",
         "story:pincast",
         "backend-integration:ring-members",
