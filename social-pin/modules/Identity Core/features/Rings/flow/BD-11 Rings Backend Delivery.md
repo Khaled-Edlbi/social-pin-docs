@@ -15,6 +15,8 @@ tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 
 # ✅ Rings · Backend Delivery
 
+> ⚠ Affected by [[BD-17 Ring Invitations & Join Backend Delivery]] (2026-11-08): backend branch FR-17/ring-invitation/invitations-codes-origin (21899a6, not merged) records how a membership was made (RingMember.origin) and enforces joinPolicy, requireApproval and membersCanInvite: both pending entries close on its merge; a Shared with me row then names a Ring joined knowingly and opens it before an older placed one
+
 **Feature:** [[F-11 Rings]] · **Status:** Done · **Integration guide:** [[BI-08 Rings Backend Integration]] · **Requirements:** [[FR-11 Rings Frontend Requirements]] · **QA:** [[QB-12 Rings QA Backend]]
 
 What the backend shipped for this feature and how it works, as on backend `main` `e483d49`.
