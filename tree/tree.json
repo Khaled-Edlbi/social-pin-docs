@@ -67595,8 +67595,7 @@
         "failing": 1,
         "missing": 1,
         "partial": 1,
-        "ready": 3,
-        "todo": 1,
+        "ready": 4,
         "verified": 2
       },
       "scope": null,
@@ -74403,8 +74402,8 @@
         "needs-decision": 1,
         "partial": 13,
         "passing": 4,
-        "ready": 9,
-        "todo": 2,
+        "ready": 10,
+        "todo": 1,
         "verified": 10
       },
       "scope": null,
@@ -83901,9 +83900,9 @@
         "needs-decision": 5,
         "partial": 13,
         "passing": 4,
-        "ready": 11,
+        "ready": 12,
         "reference": 32,
-        "todo": 5,
+        "todo": 4,
         "verified": 28
       },
       "scope": null,
@@ -88262,7 +88261,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "todo",
+      "effectiveStatus": "ready",
       "effort": "S",
       "feature": "rings",
       "foundOn": "BI-08 Rings Backend Integration",
@@ -88333,18 +88332,18 @@
         "s18",
         "s22"
       ],
-      "status": "todo",
+      "status": "ready",
       "summary": "The fix is /backend's. That agent sets in-progress when it starts and ready when the fix ships (status, tag, H1 and the Status segment only; the fix itself is recorded in its own delivery note,…",
       "tags": [
         "bug",
-        "bug/todo",
+        "bug/ready",
         "module/identity",
         "priority/low"
       ],
       "task": null,
       "title": "B-16 Ring colour and purpose accept values the contract refuses",
       "unmet": [],
-      "updated": "2026-11-05"
+      "updated": "2026-11-08"
     },
     "task:B-17": {
       "affects": [

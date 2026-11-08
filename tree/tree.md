@@ -135,7 +135,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
         - 📨 [B-13 The string false is read as true on Ring filters and settings](social-pin/bugs/B-13%20The%20string%20false%20is%20read%20as%20true%20on%20Ring%20filters%20and%20settings.md) (bug, High)
         - 📨 [B-14 PATCH a Ring with null on a required field answers 500](social-pin/bugs/B-14%20PATCH%20a%20Ring%20with%20null%20on%20a%20required%20field%20answers%20500.md) (bug, Medium)
         - 📨 [B-15 Disposition runs on a permanent Ring, the default included](social-pin/bugs/B-15%20Disposition%20runs%20on%20a%20permanent%20Ring%2C%20the%20default%20included.md) (bug, Medium)
-        - ⬜ [B-16 Ring colour and purpose accept values the contract refuses](social-pin/bugs/B-16%20Ring%20colour%20and%20purpose%20accept%20values%20the%20contract%20refuses.md) (bug, Low)
+        - 📨 [B-16 Ring colour and purpose accept values the contract refuses](social-pin/bugs/B-16%20Ring%20colour%20and%20purpose%20accept%20values%20the%20contract%20refuses.md) (bug, Low)
       - 🔴 [QB-12 Rings QA Backend](social-pin/modules/Identity%20Core/features/Rings/flow/QB-12%20Rings%20QA%20Backend.md) (QA Backend, 4 pending notes, Critical)
       - ✅ [FD-12 Rings Frontend Delivery](social-pin/modules/Identity%20Core/features/Rings/flow/FD-12%20Rings%20Frontend%20Delivery.md) (Frontend Delivery, Critical)
       - ∅ _Rings QA Frontend_ (QA Frontend)

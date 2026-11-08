@@ -3,7 +3,7 @@ id: B-16
 type: bug
 module: identity
 feature: rings
-status: todo
+status: ready
 priority: low
 effort: S
 foundOn: "BI-08 Rings Backend Integration"
@@ -13,13 +13,15 @@ affects: []
 related: ["BI-08 Rings Backend Integration", "QB-12 Rings QA Backend", "BD-11 Rings Backend Delivery", "D-04 Ring settings at launch and their defaults", "POST /rings", "PATCH /rings/:id", "POST /rings/:id/copy"]
 pending: []
 created: 2026-11-05
-updated: 2026-11-05
-tags: [bug, bug/todo, module/identity, priority/low]
+updated: 2026-11-08
+tags: [bug, bug/ready, module/identity, priority/low]
 ---
 
-# ⬜ B-16 · Ring colour and purpose accept values the contract refuses
+# 📨 B-16 · Ring colour and purpose accept values the contract refuses
 
-**Found against:** [[BI-08 Rings Backend Integration]] · **Feature:** [[F-11 Rings]] · **Status:** To do · **Priority:** Low (`critical | high | medium | low`, from `docs.config.json`) · **Deadline:** — · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
+> ⚠ Affected by [[BD-11 Rings Backend Delivery]] (2026-11-08): fixed on backend main e483d49 (e2c3f15: `colorHex` must be exactly `#RRGGBB` and `purpose` 1–140 characters after trim, or `null`, on `POST /rings`, `PATCH /rings/:id` and `POST /rings/:id/copy`; anything else is a 400), ready for re-test
+
+**Found against:** [[BI-08 Rings Backend Integration]] · **Feature:** [[F-11 Rings]] · **Status:** Ready · **Priority:** Low (`critical | high | medium | low`, from `docs.config.json`) · **Deadline:** — · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
 
 **Found by:** [[QB-12 Rings QA Backend]] rows B22 and B36, on build backend `main @ 12172c6` (2026-11-05).
 
