@@ -3,7 +3,7 @@ id: P-17
 type: project
 layer: backend
 created: 2026-10-15
-updated: 2026-11-05
+updated: 2026-11-08
 tags: [project]
 ---
 # Spec → code map
@@ -151,7 +151,7 @@ model instead of turning Social Pin into a generic social network."*
 | 4 | Add widgets | schema | `RingWidget` |
 | 4 | Ring colour & style | **API** | `colorHex`, `style` on `CreateRingDto` |
 | 4 | File attachments on profile | **API** | `.../projection/attachments`; opened from each attachment's signed `url` |
-| 4 | Photo library (my files, which Rings use each) | **API** | `GET /files?kind=image\|document` with `usedBy`; `followerCount` waits on the main profile |
+| 4 | Photo library (my files, which Rings use each) | **API** | `GET /files?kind=image\|document` with `usedBy`, `isMainPhoto` and `followerCount` (the main photo's live followers, `RingAccessService.countMainPhotoFollowers`) |
 | 4 | Interests, not shown to others | schema | `Interest`, `UserInterest`, seeded vocabulary |
 | 4 | Connections counter | — | Derived; not yet exposed |
 | 5 | Multiple rings + a default ring | **API** | `POST /rings`, `POST /rings/:id/default` |

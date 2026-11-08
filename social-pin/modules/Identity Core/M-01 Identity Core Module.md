@@ -3,7 +3,7 @@ id: M-01
 type: module
 module: identity
 created: 2026-10-18
-updated: 2026-10-29
+updated: 2026-11-08
 tags: [module, module/identity]
 ---
 
@@ -22,7 +22,7 @@ A module is the sum of its features; a feature is the sum of its tasks. Each fea
 | [[F-03 Counts]] | 🟡 Partial | [[S-03 Counts Story\|Story]] | [[FR-03 Counts Frontend Requirements\|Req.]] | [[BD-03 Counts Backend Delivery\|Delivery]] · [[BI-14 Counts Backend Integration\|Integration]] | [[FD-06 Counts Frontend Delivery\|Delivery]] | [[QB-07 Counts QA Backend\|Backend]] · [[Counts QA Frontend\|Frontend]] |
 | [[F-04 Files Upload]] | ✅ Done | [[S-06 Files Upload Story\|Story]] | [[FR-04 Files Upload Frontend Requirements\|Req.]] | [[BD-04 Files Upload Backend Delivery\|Delivery]] · [[BI-03 Files Upload Backend Integration\|Integration]] | [[FD-07 Files Upload Frontend Delivery\|Delivery]] | [[QB-06 Files Upload QA Backend\|Backend]] · [[Files Upload QA Frontend\|Frontend]] |
 | [[F-05 Onboarding Imports]] | ⬜ To do | [[S-08 Onboarding Imports Story\|Story]] | [[FR-05 Onboarding Imports Frontend Requirements\|Req.]] | [[BD-05 Onboarding Imports Backend Delivery\|Delivery]] · [[Onboarding Imports Backend Integration\|Integration]] | [[Onboarding Imports Frontend Delivery\|Delivery]] | [[Onboarding Imports QA Backend\|Backend]] · [[Onboarding Imports QA Frontend\|Frontend]] |
-| [[F-06 Photo Library]] | 🟡 Partial | [[S-11 Photo Library Story\|Story]] | [[FR-06 Photo Library Frontend Requirements\|Req.]] | [[BD-06 Photo Library Backend Delivery\|Delivery]] · [[BI-13 Photo Library Backend Integration\|Integration]] | [[FD-08 Photo Library Frontend Delivery\|Delivery]] | [[QB-08 Photo Library QA Backend\|Backend]] · [[Photo Library QA Frontend\|Frontend]] |
+| [[F-06 Photo Library]] | ✅ Done | [[S-11 Photo Library Story\|Story]] | [[FR-06 Photo Library Frontend Requirements\|Req.]] | [[BD-06 Photo Library Backend Delivery\|Delivery]] · [[BI-13 Photo Library Backend Integration\|Integration]] | [[FD-08 Photo Library Frontend Delivery\|Delivery]] | [[QB-08 Photo Library QA Backend\|Backend]] · [[Photo Library QA Frontend\|Frontend]] |
 | [[F-07 Profiles & Pin Name]] | ✅ Done | [[S-14 Profiles & Pin Name Story\|Story]] | [[FR-07 Profiles & Pin Name Frontend Requirements\|Req.]] | [[BD-07 Profiles & Pin Name Backend Delivery\|Delivery]] · [[BI-04 Profiles & Pin Name Backend Integration\|Integration]] | [[FD-09 Profiles & Pin Name Frontend Delivery\|Delivery]] | [[QB-10 Profiles & Pin Name QA Backend\|Backend]] · [[Profiles & Pin Name QA Frontend\|Frontend]] |
 | [[F-08 Ring Access Engine]] | ✅ Done | [[S-15 Ring Access Engine Story\|Story]] | [[FR-08 Ring Access Engine Frontend Requirements\|Req.]] | [[BD-08 Ring Access Engine Backend Delivery\|Delivery]] · [[BI-05 Ring Access Engine Backend Integration\|Integration]] | [[FD-10 Ring Access Engine Frontend Delivery\|Delivery]] | [[QB-09 Ring Access Engine QA Backend\|Backend]] · [[Ring Access Engine QA Frontend\|Frontend]] |
 | [[F-09 Ring Members]] | ✅ Done | [[S-16 Ring Members Story\|Story]] | [[FR-09 Ring Members Frontend Requirements\|Req.]] | [[BD-09 Ring Members Backend Delivery\|Delivery]] · [[BI-06 Ring Members Backend Integration\|Integration]] | [[Ring Members Frontend Delivery\|Delivery]] | [[QB-11 Ring Members QA Backend\|Backend]] · [[Ring Members QA Frontend\|Frontend]] |
