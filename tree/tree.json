@@ -2368,6 +2368,7 @@
       "notes": [
         "backend-delivery:photo-library",
         "backend-delivery:profiles",
+        "backend-delivery:ring-projection",
         "backend-integration:account",
         "backend-integration:profiles",
         "frontend-delivery:account",
@@ -2446,11 +2447,13 @@
     },
     "GET /profiles/ring-privacy": {
       "containers": [
-        "feature:profiles"
+        "feature:profiles",
+        "feature:ring-projection"
       ],
       "kind": "endpoint",
       "notes": [
         "backend-delivery:profiles",
+        "backend-delivery:ring-projection",
         "backend-integration:profiles",
         "frontend-delivery:profiles",
         "frontend-requirements:profiles",
@@ -6180,12 +6183,12 @@
     },
     "concepts": 291,
     "decisions": 34,
-    "edges": 6996,
+    "edges": 6995,
     "features": 41,
     "layerNotes": 151,
     "modules": 8,
     "notes": 335,
-    "partial": 12,
+    "partial": 11,
     "placeholders": 134,
     "records": 33
   },
@@ -9697,11 +9700,6 @@
       "to": "story:companies"
     },
     {
-      "from": "backend-delivery:ring-projection",
-      "kind": "pending",
-      "to": "frontend-requirements:ring-projection"
-    },
-    {
       "from": "backend-delivery:rings",
       "kind": "pending",
       "to": "feature:ring-invitations"
@@ -11374,6 +11372,8 @@
       "to": "backend-delivery:ring-projection",
       "via": [
         "E_FILE_04",
+        "GET /profiles",
+        "GET /profiles/ring-privacy",
         "PATCH /rings/:ringId/projection"
       ]
     },
@@ -12465,21 +12465,13 @@
     {
       "from": "backend-delivery:ring-projection",
       "kind": "related",
-      "to": "frontend-requirements:profiles",
-      "via": [
-        "E_PROFILE_01",
-        "PATCH /rings/:ringId/projection"
-      ]
-    },
-    {
-      "from": "backend-delivery:ring-projection",
-      "kind": "related",
       "to": "frontend-requirements:ring-projection",
       "via": [
         "E_FILE_04",
         "E_PROFILE_01",
         "E_RING_02",
         "E_RING_05",
+        "GET /profiles",
         "GET /rings/:ringId/projection",
         "PATCH /rings/:ringId/projection"
       ]
@@ -14849,6 +14841,8 @@
       "via": [
         "E_FILE_04",
         "E_PROFILE_01",
+        "GET /profiles",
+        "GET /profiles/ring-privacy",
         "PATCH /rings/:ringId/projection"
       ]
     },
@@ -21388,6 +21382,7 @@
         "E_FILE_04",
         "E_RING_02",
         "E_RING_05",
+        "GET /profiles",
         "GET /rings/:ringId/projection",
         "PATCH /rings/:ringId/projection"
       ]
@@ -22002,6 +21997,16 @@
         "PATCH /profiles/:id",
         "POST /auth/complete-registration",
         "POST /profiles"
+      ]
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
+      "to": "backend-delivery:ring-projection",
+      "via": [
+        "E_PROFILE_01",
+        "GET /profiles",
+        "PATCH /rings/:ringId/projection"
       ]
     },
     {
@@ -28986,6 +28991,8 @@
       "via": [
         "E_FILE_04",
         "E_PROFILE_01",
+        "GET /profiles",
+        "GET /profiles/ring-privacy",
         "PATCH /rings/:ringId/projection"
       ]
     },
@@ -45288,6 +45295,7 @@
         "E_FILE_04",
         "E_PROFILE_01",
         "GET /profiles",
+        "GET /profiles/ring-privacy",
         "GET /rings",
         "PATCH /profiles/:id",
         "PATCH /rings/:ringId/projection",
@@ -60361,12 +60369,12 @@
         "qa-backend:account",
         "story:account",
         "qa-backend:profiles",
+        "backend-delivery:ring-projection",
         "frontend-requirements:ring-projection",
         "frontend-requirements:companies",
         "backend-delivery:auth",
         "qa-backend:ring-projection",
         "qa-backend:ring-access",
-        "backend-delivery:ring-projection",
         "backend-integration:ring-projection",
         "frontend-delivery:ring-projection",
         "story:ring-projection",
@@ -60668,7 +60676,7 @@
         "frontend-requirements:ring-projection",
         "decision:D-03"
       ],
-      "effectiveStatus": "partial",
+      "effectiveStatus": "done",
       "effort": null,
       "feature": "ring-projection",
       "foundOn": null,
@@ -60689,13 +60697,7 @@
         "feature:ring-projection"
       ],
       "path": "social-pin/modules/Identity Core/features/Ring Projection/flow/BD-10 Ring Projection Backend Delivery.md",
-      "pending": [
-        {
-          "person": null,
-          "text": "S10 per field, per Ring: off / follow the Pin / own value for headline, role, company, location; follow / own for photo and bio (D-05, D-02; the main profile fields are on main since a249ab2, BD-07, so it can be built now)",
-          "to": "frontend-requirements:ring-projection"
-        }
-      ],
+      "pending": [],
       "priority": "critical",
       "related": [
         "task:B-08",
@@ -60713,6 +60715,7 @@
         "qa-backend:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
+        "frontend-requirements:profiles",
         "qa-backend:profiles",
         "frontend-requirements:ring-access",
         "qa-backend:ring-access",
@@ -60734,7 +60737,6 @@
         "frontend-requirements:widgets",
         "story:widgets",
         "frontend-delivery:profiles",
-        "frontend-requirements:profiles",
         "frontend-requirements:companies",
         "project:spec-map",
         "project:status-report-2026-10-15",
@@ -60786,7 +60788,7 @@
         "s36"
       ],
       "status": "done",
-      "summary": "What the backend shipped for this feature and how it works, as on backend main (a249ab2). S5 and S9 (D-03 Links entered once, switched on or off per Ring) shipped there; S10 is the one open ask.",
+      "summary": "What the backend shipped for this feature and how it works, as on backend main (cb95a39). S5 and S9 (D-03 Links entered once, switched on or off per Ring) shipped in a249ab2, S10 (D-02 One main…",
       "tags": [
         "backend-delivery",
         "backend-delivery/done",
@@ -63011,12 +63013,12 @@
         "frontend-requirements:account",
         "story:account",
         "qa-backend:profiles",
+        "backend-delivery:ring-projection",
         "frontend-requirements:ring-projection",
         "frontend-requirements:companies",
         "backend-delivery:auth",
         "qa-backend:ring-projection",
         "qa-backend:ring-access",
-        "backend-delivery:ring-projection",
         "frontend-delivery:ring-projection",
         "story:ring-projection",
         "needs-decision:ND-21",
@@ -69040,12 +69042,11 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "approved": 2,
+        "approved": 1,
         "decided": 3,
-        "delivered": 1,
-        "done": 4,
+        "delivered": 2,
+        "done": 5,
         "missing": 1,
-        "partial": 1,
         "passing": 1,
         "verified": 3
       },
@@ -74498,6 +74499,7 @@
         "qa-backend:account",
         "story:account",
         "qa-backend:profiles",
+        "backend-delivery:ring-projection",
         "frontend-requirements:companies",
         "backend-delivery:auth",
         "qa-backend:ring-projection",
@@ -74507,8 +74509,7 @@
         "story:files",
         "frontend-delivery:photo-library",
         "story:photo-library",
-        "backend-integration:ring-projection",
-        "backend-delivery:ring-projection"
+        "backend-integration:ring-projection"
       ],
       "release": "mvp",
       "resolution": null,
@@ -74936,6 +74937,7 @@
       "affects": [
         "backend-delivery:ring-projection"
       ],
+      "autoDelivered": true,
       "blockedBy": [],
       "card": "FR-10",
       "children": [],
@@ -74945,7 +74947,7 @@
       "depends": [
         "story:ring-projection"
       ],
-      "effectiveStatus": "approved",
+      "effectiveStatus": "delivered",
       "effort": null,
       "feature": "ring-projection",
       "foundOn": null,
@@ -76016,18 +76018,18 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 17,
+        "approved": 16,
         "blocked": 3,
         "current": 5,
         "decided": 10,
-        "delivered": 10,
-        "done": 29,
+        "delivered": 11,
+        "done": 30,
         "draft": 3,
         "failing": 1,
         "in-progress": 13,
         "missing": 20,
         "needs-decision": 1,
-        "partial": 12,
+        "partial": 11,
         "passing": 7,
         "ready": 1,
         "verified": 10
@@ -82469,12 +82471,12 @@
         "qa-backend:account",
         "story:account",
         "backend-delivery:photo-library",
+        "backend-delivery:ring-projection",
         "frontend-requirements:ring-projection",
         "frontend-requirements:companies",
         "backend-delivery:auth",
         "qa-backend:ring-projection",
         "qa-backend:ring-access",
-        "backend-delivery:ring-projection",
         "frontend-delivery:ring-projection",
         "story:ring-projection",
         "needs-decision:ND-21",
@@ -85498,18 +85500,18 @@
         }
       ],
       "rollup": {
-        "approved": 41,
+        "approved": 40,
         "blocked": 30,
         "current": 5,
         "decided": 33,
-        "delivered": 10,
-        "done": 30,
+        "delivered": 11,
+        "done": 31,
         "draft": 27,
         "failing": 1,
         "in-progress": 47,
         "missing": 134,
         "needs-decision": 1,
-        "partial": 12,
+        "partial": 11,
         "passing": 7,
         "ready": 4,
         "reference": 32,
