@@ -3487,12 +3487,14 @@
     },
     "PATCH /rings": {
       "containers": [
-        "feature:rings"
+        "feature:rings",
+        "task:B-13"
       ],
       "kind": "endpoint",
       "notes": [
         "backend-delivery:rings",
-        "backend-integration:rings"
+        "backend-integration:rings",
+        "task:B-13"
       ],
       "owner": null
     },
@@ -45479,6 +45481,7 @@
       "to": "task:B-13",
       "via": [
         "GET /rings",
+        "PATCH /rings",
         "PATCH /rings/:id",
         "POST /rings"
       ]
@@ -67578,7 +67581,8 @@
         "failing": 1,
         "missing": 1,
         "partial": 1,
-        "todo": 4,
+        "ready": 1,
+        "todo": 3,
         "verified": 2
       },
       "scope": null,
@@ -74385,8 +74389,8 @@
         "needs-decision": 1,
         "partial": 13,
         "passing": 4,
-        "ready": 6,
-        "todo": 5,
+        "ready": 7,
+        "todo": 4,
         "verified": 10
       },
       "scope": null,
@@ -83883,9 +83887,9 @@
         "needs-decision": 5,
         "partial": 13,
         "passing": 4,
-        "ready": 8,
+        "ready": 9,
         "reference": 32,
-        "todo": 8,
+        "todo": 7,
         "verified": 28
       },
       "scope": null,
@@ -87963,7 +87967,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "todo",
+      "effectiveStatus": "ready",
       "effort": "S",
       "feature": "rings",
       "foundOn": "BI-08 Rings Backend Integration",
@@ -88061,18 +88065,18 @@
         "s26",
         "s27"
       ],
-      "status": "todo",
+      "status": "ready",
       "summary": "The fix is /backend's. That agent sets in-progress when it starts and ready when the fix ships (status, tag, H1 and the Status segment only; the fix itself is recorded in its own delivery note,…",
       "tags": [
         "bug",
-        "bug/todo",
+        "bug/ready",
         "module/identity",
         "priority/high"
       ],
       "task": null,
       "title": "B-13 The string false is read as true on Ring filters and settings",
       "unmet": [],
-      "updated": "2026-11-05"
+      "updated": "2026-11-08"
     },
     "task:B-14": {
       "affects": [],

@@ -3,7 +3,7 @@ id: B-13
 type: bug
 module: identity
 feature: rings
-status: todo
+status: ready
 priority: high
 effort: S
 foundOn: "BI-08 Rings Backend Integration"
@@ -13,13 +13,15 @@ affects: []
 related: ["BI-08 Rings Backend Integration", "QB-12 Rings QA Backend", "BD-11 Rings Backend Delivery", "D-04 Ring settings at launch and their defaults", "GET /rings", "POST /rings", "PATCH /rings/:id"]
 pending: []
 created: 2026-11-05
-updated: 2026-11-05
-tags: [bug, bug/todo, module/identity, priority/high]
+updated: 2026-11-08
+tags: [bug, bug/ready, module/identity, priority/high]
 ---
 
-# ⬜ B-13 · The string false is read as true on Ring filters and settings
+# 📨 B-13 · The string false is read as true on Ring filters and settings
 
-**Found against:** [[BI-08 Rings Backend Integration]] · **Feature:** [[F-11 Rings]] · **Status:** To do · **Priority:** High (`critical | high | medium | low`, from `docs.config.json`) · **Deadline:** — · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
+> ⚠ Affected by [[BD-11 Rings Backend Delivery]] (2026-11-08): fixed on backend main e483d49 (562368b: a shared `@ToBoolean()` on every boolean of `GET` / `POST` / `PATCH /rings`, so `?isTemporary=false` lists the permanent Rings and any value other than true/false is a 400), ready for re-test
+
+**Found against:** [[BI-08 Rings Backend Integration]] · **Feature:** [[F-11 Rings]] · **Status:** Ready · **Priority:** High (`critical | high | medium | low`, from `docs.config.json`) · **Deadline:** — · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
 
 **Found by:** [[QB-12 Rings QA Backend]] rows B4 and B37, on build backend `main @ 12172c6` (2026-11-05).
 
