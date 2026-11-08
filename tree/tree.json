@@ -280,6 +280,7 @@
     "ND-32 How a Ring's join code works": "needs-decision:ND-32",
     "ND-33 When a work email is checked": "needs-decision:ND-33",
     "ND-34 What a member contributes to a shared Ring": "needs-decision:ND-34",
+    "ND-35 A colleague's QR offering their company Ring": "needs-decision:ND-35",
     "Owner Agent": "project:owner-agent",
     "PM Agent": "project:pm-agent",
     "Project Overview": "project:project-overview",
@@ -580,6 +581,7 @@
     "ND-32": "needs-decision:ND-32",
     "ND-33": "needs-decision:ND-33",
     "ND-34": "needs-decision:ND-34",
+    "ND-35": "needs-decision:ND-35",
     "P-01": "project:feature-graph",
     "P-02": "project:feature-tree",
     "P-03": "project:glossary",
@@ -5193,7 +5195,8 @@
         "feature:connections",
         "feature:subscription",
         "needs-decision:ND-11",
-        "needs-decision:ND-12"
+        "needs-decision:ND-12",
+        "needs-decision:ND-35"
       ],
       "kind": "screen",
       "notes": [
@@ -5206,6 +5209,7 @@
         "frontend-requirements:subscription",
         "needs-decision:ND-11",
         "needs-decision:ND-12",
+        "needs-decision:ND-35",
         "story:badge-qr",
         "story:subscription"
       ],
@@ -5362,7 +5366,8 @@
         "feature:badge-qr",
         "feature:connections",
         "needs-decision:ND-10",
-        "needs-decision:ND-12"
+        "needs-decision:ND-12",
+        "needs-decision:ND-35"
       ],
       "kind": "screen",
       "notes": [
@@ -5372,6 +5377,7 @@
         "frontend-requirements:connections",
         "needs-decision:ND-10",
         "needs-decision:ND-12",
+        "needs-decision:ND-35",
         "story:badge-qr",
         "story:connections"
       ],
@@ -5391,6 +5397,7 @@
         "needs-decision:ND-17",
         "needs-decision:ND-22",
         "needs-decision:ND-24",
+        "needs-decision:ND-35",
         "task:B-07",
         "task:B-17"
       ],
@@ -5420,6 +5427,7 @@
         "needs-decision:ND-17",
         "needs-decision:ND-22",
         "needs-decision:ND-24",
+        "needs-decision:ND-35",
         "qa-backend:files",
         "qa-backend:profiles",
         "qa-backend:ring-access",
@@ -6020,7 +6028,8 @@
         "needs-decision:ND-31",
         "needs-decision:ND-32",
         "needs-decision:ND-33",
-        "needs-decision:ND-34"
+        "needs-decision:ND-34",
+        "needs-decision:ND-35"
       ],
       "kind": "screen",
       "notes": [
@@ -6033,6 +6042,7 @@
         "needs-decision:ND-32",
         "needs-decision:ND-33",
         "needs-decision:ND-34",
+        "needs-decision:ND-35",
         "story:companies",
         "story:ring-invitations"
       ],
@@ -6068,7 +6078,7 @@
       "frontend-delivery": 9,
       "frontend-requirements": 39,
       "module": 8,
-      "needs-decision": 32,
+      "needs-decision": 33,
       "project": 28,
       "qa-backend": 11,
       "qa-frontend": 1,
@@ -6077,18 +6087,18 @@
     },
     "byLayer": {
       "backend": 58,
-      "business": 163,
+      "business": 164,
       "frontend": 52,
       "qa": 12,
       "shared": 10
     },
     "concepts": 290,
-    "decisions": 32,
-    "edges": 6743,
+    "decisions": 33,
+    "edges": 6755,
     "features": 41,
     "layerNotes": 151,
     "modules": 8,
-    "notes": 326,
+    "notes": 327,
     "partial": 13,
     "placeholders": 134,
     "records": 26
@@ -8076,6 +8086,11 @@
       "to": "story:ring-invitations"
     },
     {
+      "from": "needs-decision:ND-35",
+      "kind": "blocks",
+      "to": "story:ring-invitations"
+    },
+    {
       "from": "story:build-deploy",
       "kind": "blocks",
       "to": "frontend-requirements:build-deploy"
@@ -8492,6 +8507,16 @@
     },
     {
       "from": "needs-decision:ND-34",
+      "kind": "decision",
+      "to": "story:ring-invitations"
+    },
+    {
+      "from": "needs-decision:ND-35",
+      "kind": "decision",
+      "to": "feature:ring-invitations"
+    },
+    {
+      "from": "needs-decision:ND-35",
       "kind": "decision",
       "to": "story:ring-invitations"
     },
@@ -24843,6 +24868,41 @@
       "from": "needs-decision:ND-34",
       "kind": "related",
       "to": "story:ring-members"
+    },
+    {
+      "from": "needs-decision:ND-35",
+      "kind": "related",
+      "to": "decision:D-11"
+    },
+    {
+      "from": "needs-decision:ND-35",
+      "kind": "related",
+      "to": "decision:D-14"
+    },
+    {
+      "from": "needs-decision:ND-35",
+      "kind": "related",
+      "to": "decision:D-28"
+    },
+    {
+      "from": "needs-decision:ND-35",
+      "kind": "related",
+      "to": "feature:badge-qr"
+    },
+    {
+      "from": "needs-decision:ND-35",
+      "kind": "related",
+      "to": "feature:ring-invitations"
+    },
+    {
+      "from": "needs-decision:ND-35",
+      "kind": "related",
+      "to": "story:badge-qr"
+    },
+    {
+      "from": "needs-decision:ND-35",
+      "kind": "related",
+      "to": "story:companies"
     },
     {
       "from": "project:admin-agent",
@@ -48928,6 +48988,11 @@
       "to": "needs-decision:ND-34"
     },
     {
+      "from": "story:ring-invitations",
+      "kind": "tree",
+      "to": "needs-decision:ND-35"
+    },
+    {
       "from": "story:subscription",
       "kind": "tree",
       "to": "needs-decision:ND-07"
@@ -52503,6 +52568,11 @@
       "to": "story:ring-members"
     },
     {
+      "from": "needs-decision:ND-35",
+      "kind": "wikilink",
+      "to": "needs-decision:ND-32"
+    },
+    {
       "from": "project:admin-agent",
       "kind": "wikilink",
       "to": "project:backend-agent"
@@ -56044,6 +56114,10 @@
     },
     "social-pin/needs-decisions/ND-34 What a member contributes to a shared Ring.md": {
       "name": "ND-34 What a member contributes to a shared Ring",
+      "type": "needs-decision"
+    },
+    "social-pin/needs-decisions/ND-35 A colleague's QR offering their company Ring.md": {
+      "name": "ND-35 A colleague's QR offering their company Ring",
       "type": "needs-decision"
     },
     "templates/Backend Delivery Template.md": {
@@ -62499,6 +62573,7 @@
       "priority": null,
       "related": [
         "needs-decision:ND-11",
+        "needs-decision:ND-35",
         "decision:D-10",
         "feature:badge-qr",
         "story:subscription",
@@ -62625,6 +62700,7 @@
         "task:B-10",
         "needs-decision:ND-18",
         "needs-decision:ND-23",
+        "needs-decision:ND-35",
         "needs-decision:ND-14",
         "feature:view-as",
         "decision:D-15",
@@ -63543,6 +63619,7 @@
       "priority": null,
       "related": [
         "needs-decision:ND-28",
+        "needs-decision:ND-35",
         "decision:D-10",
         "feature:connections",
         "frontend-requirements:connections",
@@ -64097,6 +64174,7 @@
         "needs-decision:ND-11",
         "needs-decision:ND-12",
         "needs-decision:ND-22",
+        "needs-decision:ND-35",
         "decision:D-06",
         "decision:D-10",
         "decision:D-11",
@@ -66478,6 +66556,7 @@
         "needs-decision:ND-32",
         "needs-decision:ND-33",
         "needs-decision:ND-34",
+        "needs-decision:ND-35",
         "decision:D-29"
       ],
       "release": "mvp",
@@ -66486,7 +66565,7 @@
         "blocked": 3,
         "decided": 2,
         "missing": 4,
-        "needs-decision": 4,
+        "needs-decision": 5,
         "verified": 2
       },
       "scope": null,
@@ -73779,7 +73858,7 @@
         "draft": 1,
         "in-progress": 3,
         "missing": 12,
-        "needs-decision": 4,
+        "needs-decision": 5,
         "ready": 1,
         "verified": 2
       },
@@ -75972,6 +76051,71 @@
       ],
       "task": null,
       "title": "ND-34 What a member contributes to a shared Ring",
+      "unmet": [],
+      "updated": "2026-11-08"
+    },
+    "needs-decision:ND-35": {
+      "affects": [],
+      "blockedBy": [],
+      "blocks": [
+        "story:ring-invitations"
+      ],
+      "card": "ND-35",
+      "children": [],
+      "code": "ND-35",
+      "created": "2026-11-08",
+      "deadline": null,
+      "decider": "owner",
+      "depends": [],
+      "effectiveStatus": "needs-decision",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "ring-invitations"
+      ],
+      "foundOn": null,
+      "frontendOnly": false,
+      "id": "needs-decision:ND-35",
+      "inherits": {},
+      "kind": "needs-decision",
+      "label": "Needs decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "openBugs": [],
+      "parentTask": null,
+      "parents": [
+        "story:ring-invitations"
+      ],
+      "path": "social-pin/needs-decisions/ND-35 A colleague's QR offering their company Ring.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "feature:ring-invitations",
+        "feature:badge-qr",
+        "story:badge-qr",
+        "decision:D-11",
+        "decision:D-14",
+        "decision:D-28",
+        "story:companies"
+      ],
+      "release": null,
+      "resolution": null,
+      "scope": null,
+      "screens": [
+        "s34",
+        "s43",
+        "s44",
+        "s74"
+      ],
+      "status": "needs-decision",
+      "summary": "Whether scanning a QR can offer to join a company Ring, and which QR. The design's s74 lists \"a QR from a colleague\" as a way in, and Companies · S1 repeats it (\"Invite code, work email or a QR…",
+      "tags": [
+        "needs-decision",
+        "needs-decision/open"
+      ],
+      "task": null,
+      "title": "ND-35 A colleague's QR offering their company Ring",
       "unmet": [],
       "updated": "2026-11-08"
     },
@@ -82943,7 +83087,7 @@
         "failing": 5,
         "in-progress": 47,
         "missing": 134,
-        "needs-decision": 5,
+        "needs-decision": 6,
         "partial": 13,
         "passing": 4,
         "ready": 4,
@@ -83270,6 +83414,7 @@
       "priority": "critical",
       "related": [
         "task:B-17",
+        "needs-decision:ND-35",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -83524,6 +83669,7 @@
         "needs-decision:ND-32",
         "needs-decision:ND-33",
         "needs-decision:ND-34",
+        "needs-decision:ND-35",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -85405,6 +85551,11 @@
           "id": "needs-decision:ND-34",
           "title": "ND-34 What a member contributes to a shared Ring",
           "why": "needs decision ND-34 (open)"
+        },
+        {
+          "id": "needs-decision:ND-35",
+          "title": "ND-35 A colleague's QR offering their company Ring",
+          "why": "needs decision ND-35 (open)"
         }
       ],
       "card": "S-33",
@@ -85413,7 +85564,8 @@
         "needs-decision:ND-31",
         "needs-decision:ND-32",
         "needs-decision:ND-33",
-        "needs-decision:ND-34"
+        "needs-decision:ND-34",
+        "needs-decision:ND-35"
       ],
       "code": "ring-invitations",
       "created": "2026-10-18",
