@@ -124,6 +124,7 @@
     "frontend-delivery:photo-library": "FD-08",
     "frontend-delivery:profiles": "FD-09",
     "frontend-delivery:ring-access": "FD-10",
+    "frontend-delivery:ring-projection": "FD-11",
     "frontend-requirements:account": "FR-01",
     "frontend-requirements:app-shell": "FR-29",
     "frontend-requirements:audit-log": "FR-30",
