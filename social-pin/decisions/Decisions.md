@@ -39,6 +39,7 @@ Where the design and the backend disagree, and every other decision a card needs
 | [[ND-29 Connection detail for a member who is not a connection]] | fulfilled (1, s47 opens them) | [[D-29 Connection detail opens a member who is not a connection]] | [[F-14 Connections]] | s15, s47 |
 | [[ND-31 What an invitation is]] | open (recommended 1, its own record) | — | [[F-17 Ring Invitations & Join]] | s15, s17, s72, s74 |
 | [[ND-32 How a Ring's join code works]] | open (recommended 1, one code per Ring) | — | [[F-17 Ring Invitations & Join]] | s26, s72, s74 |
+| [[ND-33 When a work email is checked]] | open (recommended 1, once at joining) | — | [[F-17 Ring Invitations & Join]], [[F-15 Companies]] | s26, s73, s74 |
 
 ```dataview
 TABLE status, features FROM #needs-decision
