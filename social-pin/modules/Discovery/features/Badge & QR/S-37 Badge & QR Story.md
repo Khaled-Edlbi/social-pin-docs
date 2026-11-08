@@ -3,256 +3,223 @@ id: S-37
 type: story
 module: discovery
 feature: badge-qr
-status: approved
+status: draft
 scope: feature
 screens: [s34, s43, s44, s56]
-approvedBy: "khaled"
-approvedAt: 2026-10-25
-owner: "khaled"
+owner: "Omar Fostok"
+related: ["D-10 Connect sends what the requester already has", "D-11 The badge code stays the same for its day", "D-12 The badge QR is a socialpin.me link", "D-22 The public page only says the Pin exists", "D-28 Scan someone in is not in the MVP", "D-35 A join code can be shown as a QR", "ND-10 How Connect addresses the scanned person", "ND-11 Get or rotate the badge token", "ND-12 What the badge QR encodes", "S-19 View As & Pin Views Story", "S-23 Connections Story", "S-33 Ring Invitations & Join Story", "S-53 Events During Story", "S-71 Subscription (Free vs Pro) Story", "S-82 Devices & NFC Story", "BI-09 View As & Pin Views Backend Integration", "F-12 View As & Pin Views", "F-28 Subscription (Free vs Pro)"]
 created: 2026-10-18
-updated: 2026-10-29
-tags: [story, story/approved, module/discovery, layer/business]
+updated: 2026-11-08
+tags: [story, story/draft, module/discovery, layer/business]
 ---
 
 # Badge & QR · User Story
 
-> ⚠ Affected by [[D-12 The badge QR is a socialpin.me link]] (2026-11-08): ND-12 decided, option 1: the badge QR is https://socialpin.me/q/<token> (opaque token); the token response adds url; the app's scanner reads the token from the link, so it works without the domain; the phone's camera, deep links and the D-22 page come with the domain; Pro and printed codes wait for it
+**Feature:** [[F-18 Badge & QR]] · **Status:** Draft (rewritten 2026-11-08, waiting for approval) · **Frontend Requirements:** [[FR-18 Badge & QR Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
-> ⚠ Affected by [[D-35 A join code can be shown as a QR]] (2026-11-08): the scanner tells a Ring's join QR (opens the join review) from a badge; a badge only ever opens a person's card, never a Ring to join
+> **Rewritten 2026-11-08** as one set of parts, in the order the moment happens, with [[D-10 Connect sends what the requester already has|D-10]], [[D-11 The badge code stays the same for its day|D-11]], [[D-12 The badge QR is a socialpin.me link|D-12]], [[D-22 The public page only says the Pin exists|D-22]], [[D-28 Scan someone in is not in the MVP|D-28]] and [[D-35 A join code can be shown as a QR|D-35]]. It replaces the old S1–S20, where S1–S6 and the merged tasks T-007 to T-010 (S7–S20) said the same things twice. The story was approved on 2026-10-25 (khaled) and goes back to draft for approval of the rewrite.
 
-> ⚠ Affected by [[D-11 The badge code stays the same for its day]] (2026-11-04): ND-11 decided, option 2: POST /rings/:ringId/qr returns the valid token inside its 24 h window and issues a new one only past it; the owner can reset a code. S7–S12 no longer wait on ND-11.
+The badge is the centre tab and the physical moment of the product: two people face to face, one shows a code, the other scans it. The code belongs to the Ring the presenter picked on the badge, so showing it is the same act as choosing what the other person sees. The scanner's side turns a square of pixels into a person's card, and that card is whatever that Ring shows. **A scan only ever shows a card**: it never puts anyone into anyone's Ring ([[D-28 Scan someone in is not in the MVP|D-28]]); being added to a Ring is *Connect* and *Accept* ([[S-23 Connections Story]]), an invitation or a join code ([[S-33 Ring Invitations & Join Story]]).
 
-> ⚠ Affected by [[D-10 Connect sends what the requester already has]] (2026-11-04): ND-10 decided, option 3: the QR resolve keeps returning the view without a user id; Connect sends the scanned token.
-
-> ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
-
-**Feature:** [[F-18 Badge & QR]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[FR-18 Badge & QR Frontend Requirements]] · **API Integration:** not yet (backend not built)
-
-The badge is the centre tab and the physical moment of the product: two people face to face, one shows a code, the other scans it. The code is bound to the Ring the owner has active at that moment, so showing the badge is the same act as choosing which perspective the other person gets. The scanner's side turns a square of pixels into a person, and that person's view is whatever Ring the owner put them in.
-
-**Task stories:** [[S-37 Badge & QR Story|Badge & QR · S7–S12]] (Badge & QR · S7–S12: the real, rotating code in S1) · [[S-37 Badge & QR Story|Badge & QR · S13–S18]] (Badge & QR · S13–S18: reading the code and the scanned Pin in S3 and S4). S5 waits on [[S-37 Badge & QR Story|Badge & QR · S19]] and [[S-37 Badge & QR Story|Badge & QR · S20]], still the empty template.
+**What exists today** (backend, per [[BD-18 Badge & QR Backend Delivery]]): the `RingQrToken` table (opaque, hashed at rest, revocable) and the card route `GET /views/ring/:ringId`; `GET /views/pin/:pinName` ([[BI-09 View As & Pin Views Backend Integration]]). No route issues, resets or resolves a code, and nothing counts scans. The `socialpin.me` domain and the app links are not set up.
 
 ## Persona
 
-The **presenter**: any user who taps the centre tab to show their badge (s34), at a meetup, a desk or an event (s56). The **scanner**: any user who flips the badge to the scanner (s43) and reads someone else's code; they have an account and are signed in. The visitor without the app who opens the share link is a third, undecided persona.
+- **The presenter**: any signed-in user who taps the centre tab to show their badge ([[Screen Index#s34|s34]]), at a meetup, a desk or an event.
+- **The scanner**: any signed-in user who flips the badge to the scanner ([[Screen Index#s43|s43]]) and reads someone else's code, then sees their card ([[Screen Index#s44|s44]]).
+- **Someone without the app**: reaches nothing until the domain exists; then the [[D-22 The public page only says the Pin exists|D-22]] web page (name and Pin name only).
 
 ## Stories
 
-### S1 · Show my badge for the active Ring ([[Screen Index#s34|s34]])
+### S1 · Show my badge ([[Screen Index#s34|s34]])
 
-**As a** presenter, **I want** the centre tab to rise into a large QR labelled with my active Ring, **so that** the person in front of me scans the right perspective.
-
-Acceptance criteria:
-- [ ] The badge shows a QR, the active Ring's name and colour, my display name and Pin name; the QR encodes an opaque token for that Ring, never the Ring id or my user id in the clear.
-- [ ] Changing the active Ring while the badge is open re-composes the badge (label, colour, QR) in place.
-- [ ] The token is refreshed at least every 24 h; a badge opened with a token older than that fetches a new one before showing it, and shows the last one in a *Refreshing* state only when offline.
-- [ ] *No Ring* state when the user has no live Ring to present (all expired): explain and link to My Rings.
-- [ ] *Get Pro* (s70) is shown next to a "rotates daily" hint; a Pro account can keep a permanent code.
-
-### S2 · Flip to the scanner ([[Screen Index#s34|s34]] → [[Screen Index#s43|s43]])
-
-**As a** presenter who is also the one scanning, **I want** to flip the badge card to the camera, **so that** both sides of the exchange live in one gesture.
+**As a** presenter **I want** the centre tab to rise into a large QR for the Ring I picked **so that** the person in front of me lands on the card I meant.
 
 Acceptance criteria:
-- [ ] A *Scan* toggle flips the card to the camera; flipping back restores the badge without re-fetching.
+- [ ] Opening the badge asks for the picked Ring's code: `POST /rings/:ringId/qr` → `{ token, issuedAt, expiresAt, url }` ([[D-11 The badge code stays the same for its day|D-11]], [[D-12 The badge QR is a socialpin.me link|D-12]]). The QR is drawn from `url`, `https://socialpin.me/q/<token>`; the token is opaque (no Ring id, no user id).
+- [ ] **The same code all day:** opening the badge again, or on a second phone, shows the same code while it is inside its window; a new one comes only once `expiresAt` has passed.
+- [ ] Beside the QR: the Ring's name and colour, my display name and Pin name, and "Changes in {time}" counted from `expiresAt` (the server's time, not the phone's).
+- [ ] **Switching Ring** in the picker re-draws the badge in place with that Ring's code; each Ring has its own code, and going back to a Ring shows its code again while it's valid.
+- [ ] Loading: the card with the code area as a ghost until the code arrives.
+- [ ] *No Ring*: when none of my Rings is live, explain it and link to My Rings.
+- [ ] Not available yet: the code route.
+
+### S2 · Reset my code ([[Screen Index#s34|s34]])
+
+**As a** presenter **I want** to kill my code at once **so that** a photo or a screenshot I think was copied stops working.
+
+Acceptance criteria:
+- [ ] *Reset code* asks first ("Anyone holding the current code won't reach you with it"), then revokes the code and shows the new one ([[D-11 The badge code stays the same for its day|D-11]]; the backend chooses `{ reset: true }` or a reset route).
+- [ ] The old code then answers the same neutral 404 as any unknown code (S6).
+- [ ] Not available yet.
+
+### S3 · Offline ([[Screen Index#s34|s34]])
+
+**As a** presenter **I want** to know when the code I'm showing may be dead **so that** I don't hand someone a code that doesn't work.
+
+Acceptance criteria:
+- [ ] Offline, with the last code still inside its window: that code, with a *Refreshing* chip.
+- [ ] Offline, past `expiresAt`: *Expired*, and no QR is drawn.
+
+### S4 · Only my Rings, only live ones
+
+**As a** presenter **I want** a code only for a Ring I own that is live **so that** nobody is shown a code that leads nowhere.
+
+Acceptance criteria:
+- [ ] A code asked for a Ring that isn't mine: 404 `E_RING_02`; the app reads my Rings again and resets the picked one.
+- [ ] A Ring that has ended: refused; the badge picks another live Ring, or shows *No Ring*.
+- [ ] Deleting a Ring revokes its code.
+
+### S5 · Flip to the scanner ([[Screen Index#s34|s34]] → [[Screen Index#s43|s43]])
+
+**As a** presenter who is also the one scanning **I want** to flip the badge to the camera **so that** both sides of the exchange live in one gesture.
+
+Acceptance criteria:
+- [ ] *Flip to scan* turns the card to the camera; flipping back shows the badge without asking for the code again.
 - [ ] Camera permission denied: an inline state with *Open settings*; the badge side keeps working.
-- [ ] A reduced-motion setting replaces the flip with a crossfade.
+- [ ] Reduced motion: a crossfade instead of the flip.
 
-### S3 · Reading the code ([[Screen Index#s43|s43]])
+### S6 · Reading a code ([[Screen Index#s43|s43]])
 
-**As a** scanner, **I want** a detected code to resolve into the person behind it, **so that** I see them the way they chose to show themselves to me.
-
-Acceptance criteria:
-- [ ] Detection is debounced: one resolve per distinct token per 5 s; the viewfinder shows "Checking which Ring they belong in" while resolving.
-- [ ] A valid token renders the Ring view (s44); the response never contains a Ring id, and the UI never shows one.
-- [ ] A code that is not a Social Pin token: "Not a Social Pin code", keep scanning. A token that no longer resolves (rotated, revoked, blocked, Ring gone, not shared): one neutral "This profile isn't available", keep scanning.
-- [ ] Scanning my own badge opens my own View as of that Ring, marked as a preview.
-
-### S4 · Scanned Pin ([[Screen Index#s44|s44]])
-
-**As a** scanner, **I want** the resolved view to be a full profile card I can connect from, **so that** the scan leads somewhere.
+**As a** scanner **I want** a code to turn into the person behind it **so that** I see them the way they chose to show themselves to me.
 
 Acceptance criteria:
-- [ ] Renders `RingProfileViewEntity` exactly as [[BI-09 View As & Pin Views Backend Integration]] describes: `null` is "not shared", sensitive rows hidden when `null`, no Ring name anywhere.
-- [ ] *Connect* leads into [[S-23 Connections Story]]; *Save for later* returns Home and keeps the scan in a local "recent scans" list (device only, no server call).
-- [ ] The presenter's scan counter increments once per resolve; the scanner is never told that it did.
+- [ ] **The phone reads the link itself**, without a request ([[D-12 The badge QR is a socialpin.me link|D-12]]):
+  - `https://socialpin.me/q/<token>` → a badge: resolve it (below);
+  - a Ring's **join QR** → the join review of [[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S9]] ([[D-35 A join code can be shown as a QR|D-35]]; how the two are told apart is in BD-17);
+  - anything else (a menu, a Wi-Fi code): "Not a Social Pin code", and the camera keeps scanning.
+- [ ] Works the same for a code picked **from photos**.
+- [ ] One resolve per code per 5 s; while it waits, "Checking who this is".
+- [ ] A badge resolves with `GET /views/qr/:token` → the person's card, the same body as `GET /views/ring/:ringId` (`RingProfileViewEntity`, [[BI-09 View As & Pin Views Backend Integration]]); never a Ring id or a user id. The answer also carries the code's `expiresAt`, for S8.
+- [ ] **One neutral answer** for unknown, expired, reset, ended Ring, deleted Ring, not shared and blocked: 404, "This profile isn't available", keep scanning; the response time doesn't tell them apart.
+- [ ] Too many scans in a short time: 429, "Slow down", keep the camera open (the numbers: `/backend` proposes them).
+- [ ] Not available yet: the resolve route.
 
-### S5 · Share link and scan counter ([[Screen Index#s34|s34]])
+### S7 · Scanning my own badge ([[Screen Index#s43|s43]])
 
-**As a** presenter, **I want** a link I can send and a count of how often my badge was scanned, **so that** the badge works beyond face to face.
-
-Acceptance criteria:
-- [ ] *Share* offers copy link, system share and save image; the link opens the app for users who have it and a browser page for those who do not.
-- [ ] The counter on the badge shows scans for the active Ring since its token was first issued, refreshed on open.
-- [ ] Both are rendered disabled with "not available yet" until the counter and the public page exist.
-
-### S6 · Event pass ([[Screen Index#s56|s56]])
-
-**As a** registered visitor inside an event, **I want** my event pass to be a code that rotates every 60 s, **so that** a screenshot cannot be reused at the door.
+**As a** presenter **I want** scanning my own badge to show me what others see **so that** I check it before an event.
 
 Acceptance criteria:
-- [ ] The pass shows the Event Ring's name, the event, a code with a visible countdown ring, and *Show my badge* to s34.
-- [ ] The code refreshes on the client at the window boundary without a user action; offline shows the last code with its remaining seconds, then an *Expired* state.
-- [ ] The mechanism is the same token as S1 with a shorter window; the pass never reveals the Event Ring's id.
+- [ ] The app knows its own current codes (S1): when the scanned token is one of them, it opens View as for that Ring, marked as a preview ([[S-19 View As & Pin Views Story|View As & Pin Views]]). No request and no backend change ([[D-10 Connect sends what the requester already has|D-10]] keeps the card without ids).
+- [ ] A code of mine that has expired or been reset reads as any dead code (S6).
 
-### S7 · My badge shows a real code for the Ring I chose ([[Screen Index#s34|s34]])
+### S8 · The scanned card ([[Screen Index#s44|s44]])
 
-*From T-007 Issue and rotate the QR token for a Ring (status then: To do), merged 2026-10-27.*
-
-**As a** Ring owner **I want** my badge to show a working QR for the active Ring **so that** whoever scans it lands in that Ring.
+**As a** scanner **I want** the card to lead somewhere **so that** a scan becomes a connection.
 
 Acceptance criteria:
-- [ ] Opening the badge gets a token for the active Ring (`POST /rings/:ringId/qr`) and draws it as the QR.
-- [ ] The token is opaque: it carries neither the Ring id nor my user id, and nothing can be read from it.
-- [ ] The Ring's name and colour sit beside the code, as now.
+- [ ] Renders the card as [[BI-09 View As & Pin Views Backend Integration]] describes: `null` is "not shared", sensitive rows hidden when `null`, no Ring name anywhere.
+- [ ] **Connect** sends the scanned code, `POST /connections/requests { qrToken }` ([[D-10 Connect sends what the requester already has|D-10]], [[S-23 Connections Story|Connections · S2]]).
+- [ ] **Save for later** keeps the card, the scanned code and its `expiresAt` on this phone only (no server call), in a "Saved scans" list, and returns Home.
+- [ ] From a saved scan, **Connect works until the code expires**; after `expiresAt` the saved card reads "This code has expired. Scan {name} again to connect.", and *Connect* is off. The saved card is the one seen at the scan, marked with its date; it is never read again from the server.
+- [ ] A saved scan can be removed; nothing about it ever leaves the phone.
+- [ ] Not available yet: Connect ([[S-23 Connections Story]]).
 
-### S8 · Switching Ring switches the code ([[Screen Index#s34|s34]])
+### S9 · Enter a Pin name ([[Screen Index#s43|s43]])
 
-**As a** Ring owner **I want** the code to change when I pick another Ring on the badge **so that** the next person lands where I meant.
-
-Acceptance criteria:
-- [ ] Choosing another Ring in the picker re-draws the badge with that Ring's token, in place.
-- [ ] Each Ring has its own token; switching back to a Ring reuses its token while it's still valid.
-
-### S9 · The code rotates every day ([[Screen Index#s34|s34]])
-
-**As a** Ring owner **I want** my code to change every 24 hours **so that** a photo of my badge stops working.
+**As a** scanner whose camera can't read a code **I want** to type the person's Pin name **so that** I can still open their card.
 
 Acceptance criteria:
-- [ ] A token is valid for 24 h from `issuedAt`; the response says when it expires.
-- [ ] Opening the badge with a token past its window fetches a new one before showing it.
-- [ ] Getting a new token revokes the previous one for that Ring: scanning the old one answers the same neutral 404 as any unknown code.
-- [ ] The "rotates every 24 h" line on the badge is true.
+- [ ] *Enter a Pin name* opens a field; `GET /views/pin/:pinName` (without the `!`) opens the card **if I am in one of their Rings**, else the same neutral "This profile isn't available" ([[BI-09 View As & Pin Views Backend Integration]], [[D-22 The public page only says the Pin exists|D-22]]). This exists today.
+- [ ] Connect from that card sends `{ pinName }` (D-10).
 
-### S10 · Offline, the badge says so ([[Screen Index#s34|s34]])
-
-**As a** Ring owner **I want** to know when the code I'm showing may be stale **so that** I don't hand someone a dead code.
-
-Acceptance criteria:
-- [ ] Offline with a token still in its window: the last token, with a *Refreshing* chip.
-- [ ] Offline past the window: *Expired*; no QR is drawn.
-
-### S11 · Only my Rings, only live ones
-
-**As a** Ring owner **I want** codes only for Rings I own that are live **so that** nobody shows a code for a Ring that can't be seen.
-
-Acceptance criteria:
-- [ ] A token for a Ring that isn't mine: 404 `E_RING_02`. The app refetches my Rings and resets the active one.
-- [ ] A token for an expired Ring: refused; the badge shows *No Ring* with a link to My Rings when none of my Rings is live.
-- [ ] Deleting a Ring revokes its token.
-
-### S12 · Pro keeps one code ([[Screen Index#s70|s70]])
-
-**As a** Pro user **I want** a permanent code **so that** I print it once.
-
-Acceptance criteria:
-- [ ] Out of scope here: [[S-71 Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]]. A free account always gets the 24 h token; the badge shows *Get Pro* next to the "rotates daily" line.
-
-### S13 · Scan a badge, see the card ([[Screen Index#s43|s43]] → [[Screen Index#s44|s44]])
-
-*From T-008 Resolve a scanned QR token (status then: To do), merged 2026-10-27.*
-
-**As a** scanner **I want** to point my camera at a badge and see that person's card **so that** I know who they are and what they share with me.
-
-Acceptance criteria:
-- [ ] The scanner reads the code and calls `GET /views/qr/:token`; while it waits, s43 shows "Checking which Ring they belong in".
-- [ ] A valid token returns the same body as `GET /views/ring/:ringId` (`RingProfileViewEntity`); s44 renders it as [[BI-09 View As & Pin Views Backend Integration]] describes: `null` is "not shared", no Ring name anywhere.
-- [ ] The response never contains the Ring id; the app never shows or stores one.
-
-### S14 · A dead code says nothing about why ([[Screen Index#s43|s43]])
-
-**As a** presenter **I want** an old, revoked or wrong code to give nothing away **so that** nobody learns whether a Ring exists or that I blocked them.
-
-Acceptance criteria:
-- [ ] Unknown, rotated, revoked, expired-Ring, deleted-Ring, not-shared and blocked all answer one 404, the same body as `/views` ("This profile isn't available").
-- [ ] The scanner keeps scanning after it; no retry loop.
-- [ ] Response time doesn't tell the cases apart.
-
-### S15 · Not our code ([[Screen Index#s43|s43]])
-
-**As a** scanner **I want** a QR that isn't a Social Pin code to be ignored politely **so that** I don't wait on a menu or a Wi-Fi code.
-
-Acceptance criteria:
-- [ ] A code that isn't in Social Pin's format is rejected on the phone, without a request: "Not a Social Pin code", keep scanning.
-
-### S16 · Scanning my own badge ([[Screen Index#s43|s43]])
-
-**As a** Ring owner **I want** scanning my own badge to show me what others see **so that** I check it before an event.
-
-Acceptance criteria:
-- [ ] The resolve tells the app the presenter is the viewer (or returns enough for the app to know), and the app opens View as for that Ring, marked as a preview.
-
-### S17 · The presenter's scan is counted ([[Screen Index#s34|s34]])
+### S10 · The scan is counted
 
 **As a** presenter **I want** each scan of my code counted **so that** the badge can show my reach later.
 
 Acceptance criteria:
-- [ ] Each successful resolve increments the Ring's scan counter once; a dead code doesn't.
-- [ ] The scanner is never told it was counted. Showing the count is [[S-37 Badge & QR Story|Badge & QR · S19]].
+- [ ] Each successful resolve counts once for that Ring; a dead code doesn't; the scanner is never told.
+- [ ] Not available yet; showing the count is S13.
 
-### S18 · Then connect ([[Screen Index#s44|s44]])
+### S11 · What a scan never does
 
-**As a** scanner **I want** *Connect* on the card **so that** the presenter can add me to their Ring.
+**As a** presenter **I want** a scan to show my card and nothing more **so that** nobody lands in one of my Rings because they pointed a camera at me.
 
 Acceptance criteria:
-- [ ] The resolve returns what *Connect* needs to address the presenter (a user id or an opaque handle), since the view body has none today. The request itself is [[S-23 Connections Story|Connections · S8–S12]].
+- [ ] No "Accept scans automatically", no "Auto-accept until", and no "They will land in {Ring}" on the scanner: a scan never adds the scanner, or the scanned person, to a Ring ([[D-28 Scan someone in is not in the MVP|D-28]]).
+- [ ] People reach my Rings through *Connect* and *Accept* ([[S-23 Connections Story]]), an invitation or a join code ([[S-33 Ring Invitations & Join Story]]).
+- [ ] A badge never offers a Ring to join (D-35): joining by scan is only a Ring's join QR.
 
-### S19 · Scan counter and share link
+### S12 · Share link and Save image ([[Screen Index#s34|s34]])
 
-*From T-009 (status then: To do), merged 2026-10-27.*
+**As a** presenter **I want** to send my badge to someone who isn't in front of me **so that** the badge works beyond face to face.
 
-Count per token and per Ring; share link is the public URL of Badge & QR · S20.
+Acceptance criteria:
+- [ ] **Save image** saves the badge (the QR with my name and the Ring's colour) to the phone's photos, with "Works until {time}" from `expiresAt`; someone with the app reads it with *From photos* (S6).
+- [ ] **Share link** stays on the badge as "Not available yet" until `socialpin.me` and the app links work ([[D-12 The badge QR is a socialpin.me link|D-12]]); then it shares `url`, which opens the app where it is installed and the [[D-22 The public page only says the Pin exists|D-22]] page (name and Pin name, nothing from any Ring) where it isn't.
+- [ ] **NFC tap**: "Not available yet" ([[S-82 Devices & NFC Story|Devices & NFC · S7]]).
 
-Screens: [[Screen Index#s34|s34]] Badge (flip)
+### S13 · Scan count on the badge ([[Screen Index#s34|s34]])
 
+**As a** presenter **I want** to see how often the picked Ring's code was scanned **so that** I know my reach.
 
-### S20 · Public browser page for viewers without the app
+Acceptance criteria:
+- [ ] The count of scans for the picked Ring (S10), read when the badge opens; no polling.
+- [ ] Not available yet: the count route. Until then nothing is shown (no made-up number).
 
-*From T-010 (status then: Needs a decision), merged 2026-10-27.*
+### S14 · Pro keeps one code ([[Screen Index#s70|s70]])
 
-Needs a decision: which Ring content is shown to an anonymous browser viewer, and whether that is a 'PUBLIC' Ring type or the default Ring.
+- [ ] A Pro account can keep a permanent code to print once: [[S-71 Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]]. It waits until `socialpin.me` works ([[D-12 The badge QR is a socialpin.me link|D-12]]).
+- [ ] A free account always gets the 24 h code; the badge shows "This code changes every 24 h" and *Get Pro*.
 
-Screens: [[Screen Index#s34|s34]] Badge (flip)
+### S15 · Event pass ([[Screen Index#s56|s56]])
+
+- [ ] The event pass is the same kind of code with a 60 s window: [[S-53 Events During Story|Events During · S9]]. It never shows the Event Ring's id.
 
 ## States and motion the design asks for
 
-- State: Ring selected, no Ring, scanning, no camera permission, invalid code, resolved profile, refreshing token, offline.
-- Motion: **rise + expand** from the centre tab into the badge sheet, reversible; **badge re-composes** on Ring change; flipping to the scanner is a continuous **card flip**; a detected code **animates into the resolved profile card** (the QR becomes the person); every one of these has a reduced-motion fallback.
-- (Badge & QR · S7–S12) Loading: the badge card with the code area in its ghost state until the token arrives.
-- (Badge & QR · S7–S12) Ready: the QR, the Ring name and colour, "rotates every 24 h".
-- (Badge & QR · S7–S12) *Refreshing* (offline, in window), *Expired* (offline, past window), *No Ring* (no live Ring).
-- (Badge & QR · S7–S12) Motion: switching Ring re-composes the card in place; reduced motion crossfades.
-- (Badge & QR · S13–S18) Scanning: the viewfinder, a ghost code in the frame.
-- (Badge & QR · S13–S18) Checking: "Checking which Ring they belong in" while resolving.
-- (Badge & QR · S13–S18) Found: hand-off to s44.
-- (Badge & QR · S13–S18) Not available (any 404), Not a Social Pin code, Camera permission denied (inline, *Open settings*), Offline ("You're offline", keep the camera running).
-- (Badge & QR · S13–S18) Motion: the design's flip from the badge to the scanner; reduced motion crossfades.
+- Badge: loading (ghost code), ready, *Refreshing* (offline, in window), *Expired* (offline, past window), *No Ring*, reset confirm.
+- Scanner: looking, checking, found (hand-off to s44), not available, not a Social Pin code, slow down, camera denied, offline ("You're offline", camera stays on).
+- Card: from a scan, from a saved scan (date, live or expired code), from a Pin name.
+- Motion: **rise + expand** from the centre tab into the badge, reversible; the badge **re-composes** on Ring change; the **card flip** to the scanner; a found code **animates into the card**. Each has a reduced-motion crossfade.
+
+## Where the design and the app disagree (for the designer)
+
+| Where | The design / the app today | The story |
+|---|---|---|
+| s34 | "Accept scans automatically" and "Auto-accept until 18:00" | Removed: a scan never adds anyone to a Ring (S11, D-28) |
+| s43 | "They will land in {Ring}" with *Change* | Removed: the scanner sees the presenter's card, and lands nowhere (S11) |
+| s34 | "Anyone without the app lands on your {ring} card in a browser" | Without the app: nothing until the domain; then the D-22 page, with no Ring (S12) |
+| s34 | A fixed sample code "A-2213-7741" | The QR from `url`, with "Changes in {time}" (S1) |
+| s34 | No *Reset code* | *Reset code* (S2) |
+| s44 | *Save for later* with no limit | Connect from a saved scan until its code expires (S8) |
+
+## What the backend has to build
+
+1. **The code** ([[D-11 The badge code stays the same for its day|D-11]], [[D-12 The badge QR is a socialpin.me link|D-12]]): `POST /rings/:ringId/qr` → `{ token, issuedAt, expiresAt, url }`, the same token while in its 24 h window, a new one past it; `url` from a configured base `https://socialpin.me/q/`; reset; revoke on Ring delete; only my live Rings.
+2. **The resolve**: `GET /views/qr/:token` → the card (`RingProfileViewEntity`) plus the code's `expiresAt`, one neutral 404 with even timing, a per-viewer rate limit (429), the scan counted once per success.
+3. **Connect by code** shares the token lookup ([[D-10 Connect sends what the requester already has|D-10]], [[BD-14 Connections Backend Delivery]]).
+4. **The scan count** read per Ring (S13).
+5. **Later, with the domain:** the `/q/<token>` web route, the D-22 page and the app-link files.
 
 ## Rules the backend already enforces
 
-- Rendering a scanned Ring is `GET /views/ring/:ringId` through `RingAccessService`: owner always, a live member while the Ring and the membership are live and no block exists; anything else is 404 `E_RING_ACCESS_01`, a non-live Ring 404 `E_RING_ACCESS_02` ([[F-12 View As & Pin Views]]).
-- "Not shared", "blocked" and "no such pin" are one body; the resolve-by-token route of Badge & QR · S13–S18 returns the same.
-- `RingQrToken` is opaque, hashed at rest and revocable; a rotated token stops resolving at rotation.
-- `RingProfileViewEntity` carries no `ringId`, `userId` or owner id; the scanner cannot derive the Ring from the view.
-- A permanent code is a Pro gate ([[F-28 Subscription (Free vs Pro)]]); the client must not keep reusing a token past 24 h on a free account.
-- (Badge & QR · S7–S12) Every visibility decision goes through `RingAccessService` ([[Ring Access Model]]); a Ring's live window decides whether it can be shown.
-- (Badge & QR · S7–S12) `GET /views/ring/:ringId` already renders a Ring for a viewer, with one 404 for missing, not shared and blocked; the token must resolve to the same body ([[S-37 Badge & QR Story|Badge & QR · S13–S18]]).
-- (Badge & QR · S7–S12) The Ring id is not shown to viewers; the token must not leak it.
-- (Badge & QR · S13–S18) `GET /views/ring/:ringId` resolves through `RingAccessService` with one 404 for missing, not shared and blocked; the token route must reuse it so both stay identical.
-- (Badge & QR · S13–S18) Sensitive fields are `null` unless the projection shows them; the view never names the Ring.
-- (Badge & QR · S13–S18) Enumeration resistance is part of the error contract ([[F-35 Error Contract]]).
+- A card is rendered through `RingAccessService` ([[Ring Access Model]]): one 404 `E_RING_ACCESS_01` for missing, not shared and blocked; a Ring not live 404 `E_RING_ACCESS_02` ([[F-12 View As & Pin Views]]). The QR resolve must reuse it, so both answer alike.
+- `RingProfileViewEntity` carries no Ring id, user id or owner id; sensitive fields are `null` unless the Ring shows them.
+- `RingQrToken` is opaque, hashed at rest and revocable.
+- `GET /views/pin/:pinName` answers only a viewer who is in one of the person's Rings.
+- A permanent code is a Pro gate ([[F-28 Subscription (Free vs Pro)]]).
 
 ## Open questions
 
-- [[S-37 Badge & QR Story|Badge & QR · S20]] — which Ring an anonymous visitor sees (a public Ring type or the default Ring); S5's link has no destination until decided.
-- [[S-37 Badge & QR Story|Badge & QR · S13–S18]] — whether the resolved body carries the presenter's user id for *Connect*, which the view entity does not and must not.
-- [[S-37 Badge & QR Story|Badge & QR · S7–S12]] — whether rotation is server-scheduled or on demand, which decides the client's refresh rule in S1.
-- [[S-53 Events During Story|Events During · S9]] — the pass window and whether the client or the server drives the 60 s boundary.
-- (Badge & QR · S7–S12) **Get or rotate.** If every `POST` revokes the previous token, opening the badge twice (or on two phones) kills the code just shown. The app asks for: return the current token while it's in its window, and issue a new one only when it's past it or when the owner asks to reset it.
-- (Badge & QR · S7–S12) **What the QR encodes.** A bare token only works inside the app. A URL carrying the token (for example `https://<domain>/q/<token>`) also opens the browser page for people without the app ([[S-37 Badge & QR Story|Badge & QR · S20]]) and lets the phone's own camera open the app. The app asks for the URL form, decided now so printed codes don't change later.
-- (Badge & QR · S7–S12) **Response shape.** The app needs `{ token, issuedAt, expiresAt }` (and `url` if the URL form is chosen); `expiresAt` from the server, so the countdown doesn't trust the phone's clock.
-- (Badge & QR · S13–S18) **Signed in only, or anyone.** The app always calls it signed in. A browser page for people without the app needs it without a token ([[S-37 Badge & QR Story|Badge & QR · S20]]); the route shape should allow that later.
-- (Badge & QR · S13–S18) **The presenter's id for Connect.** The view body has no user id today. Either the resolve response adds one (or an opaque handle), or *Connect* goes through the token.
-- (Badge & QR · S13–S18) **Own badge.** How the app knows the scanned badge is the viewer's own: a flag on the response, or the presenter's id compared with the signed-in user.
-- (Badge & QR · S13–S18) **Rate limit.** Scanning is the obvious place to guess codes; a per-viewer limit with a 429 the app can show as "Slow down".
+All the earlier questions are decided:
 
+- What Connect addresses: [[D-10 Connect sends what the requester already has]] (the scanned code, or the Pin name).
+- Get or rotate the code: [[D-11 The badge code stays the same for its day]] (the same code all day, a reset).
+- What the QR carries: [[D-12 The badge QR is a socialpin.me link]] (a `socialpin.me` link, read by the app without the domain).
+- What someone without the app sees: [[D-22 The public page only says the Pin exists]] (name and Pin name).
+- Scanning someone into a Ring: [[D-28 Scan someone in is not in the MVP]] (not in the MVP).
+- A join QR: [[D-35 A join code can be shown as a QR]] (a Ring's join code, never a badge).
+- Scanning my own badge: answered here, by the app (S7).
+
+Left, none blocking:
+
+- The rate limit's numbers: `/backend` proposes them.
+- When `socialpin.me` and the app links are set up: no date yet; Share link, the web page, deep links and Pro codes wait on it.
+
+## Log
+
+- 2026-10-25 · approved by khaled
+- 2026-11-08 · `tickets/pm/M-04-discovery/F-18-badge-qr/S-37-rewrite` · rewritten as one set of parts (S1–S15) with D-10, D-11, D-12, D-22, D-28 and D-35, replacing the doubled S1–S20; a reset (S2); the scanner reads the link on the phone and sends a join QR to S-33 (S6); own badge known by the app (S7); Save for later connects until the code expires (S8); Pin name lookup, which exists (S9); what a scan never does (S11); Share link "Not available yet" until the domain, Save image kept (S12); the five flags cleared; back to draft for approval
+- 2026-11-08 · flagged [[FR-18 Badge & QR Frontend Requirements]]: S-37 rewritten (S1–S15): the code with url, reset, offline, the link read on the phone with join QR to S-33, own badge by the app, Save for later until expiresAt, Pin name lookup, no auto-accept or "land in", Share link not available until the domain, Save image kept
+- 2026-11-08 · flagged [[BD-18 Badge & QR Backend Delivery]]: S-37 rewritten (S1–S15): "What the backend has to build" lists the code route with url and reset, the resolve with expiresAt, a 429 rate limit and the scan count, Connect sharing the token lookup, and the domain routes later

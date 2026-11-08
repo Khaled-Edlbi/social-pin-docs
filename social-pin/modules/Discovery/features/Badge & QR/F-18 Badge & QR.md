@@ -8,7 +8,7 @@ release: mvp
 screens: [s34, s43, s44, s56]
 related: ["F-01 Account", "F-11 Rings"]
 created: 2026-10-15
-updated: 2026-11-01
+updated: 2026-11-08
 tags: [feature, module/discovery, priority/critical, release/mvp]
 ---
 
@@ -58,6 +58,15 @@ One story per feature (since 2026-10-27): all of this feature's work is in [[S-3
 - T-010 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
 - T-010 · 2026-10-18 · created as the backend half of T-010
 - T-010 · 2026-10-18 · created as the frontend half of T-010
+
+## Decisions
+
+- [[ND-10 How Connect addresses the scanned person]] — decided, Connect sends the scanned code or the Pin name, never a user id ([[D-10 Connect sends what the requester already has|D-10]])
+- [[ND-11 Get or rotate the badge token]] — decided, the same code all day, a new one past 24 h, and a reset ([[D-11 The badge code stays the same for its day|D-11]])
+- [[ND-12 What the badge QR encodes]] — decided, a https://socialpin.me/q/<token> link the app reads without the domain ([[D-12 The badge QR is a socialpin.me link|D-12]])
+- [[D-22 The public page only says the Pin exists]] — the web page shows only the name and Pin name
+- [[D-28 Scan someone in is not in the MVP]] — a scan never adds anyone to a Ring
+- [[D-35 A join code can be shown as a QR]] — a Ring's join QR, never a badge, offers a Ring to join
 
 ## Related
 
