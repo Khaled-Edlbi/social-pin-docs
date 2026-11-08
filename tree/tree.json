@@ -67781,7 +67781,7 @@
         "failing": 1,
         "missing": 2,
         "partial": 1,
-        "todo": 1
+        "ready": 1
       },
       "scope": null,
       "screens": [
@@ -74402,8 +74402,7 @@
         "needs-decision": 1,
         "partial": 13,
         "passing": 4,
-        "ready": 10,
-        "todo": 1,
+        "ready": 11,
         "verified": 10
       },
       "scope": null,
@@ -83900,9 +83899,9 @@
         "needs-decision": 5,
         "partial": 13,
         "passing": 4,
-        "ready": 12,
+        "ready": 13,
         "reference": 32,
-        "todo": 4,
+        "todo": 3,
         "verified": 28
       },
       "scope": null,
@@ -88359,7 +88358,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "todo",
+      "effectiveStatus": "ready",
       "effort": "S",
       "feature": "view-as",
       "foundOn": "BI-09 View As & Pin Views Backend Integration",
@@ -88456,18 +88455,18 @@
         "s44",
         "s62"
       ],
-      "status": "todo",
+      "status": "ready",
       "summary": "The fix is the layer's work: /backend (create the projection with the Ring, or render a missing one as the empty projection). That agent sets in-progress when it starts and ready when the fix…",
       "tags": [
         "bug",
-        "bug/todo",
+        "bug/ready",
         "module/identity",
         "priority/high"
       ],
       "task": null,
       "title": "B-17 A new Ring answers 404 to its own owner until its projection is opened",
       "unmet": [],
-      "updated": "2026-11-05"
+      "updated": "2026-11-08"
     }
   },
   "priorities": [

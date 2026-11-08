@@ -3,7 +3,7 @@ id: B-17
 type: bug
 module: identity
 feature: view-as
-status: todo
+status: ready
 priority: high
 effort: S
 foundOn: "BI-09 View As & Pin Views Backend Integration"
@@ -13,13 +13,15 @@ affects: ["BI-09 View As & Pin Views Backend Integration", "QB-14 View As & Pin 
 related: ["BI-09 View As & Pin Views Backend Integration", "BD-12 View As & Pin Views Backend Delivery", "QB-14 View As & Pin Views QA Backend", "S-19 View As & Pin Views Story", "BD-10 Ring Projection Backend Delivery", "GET /views/ring/:ringId", "GET /views/user/:userId/perspectives", "GET /rings/:ringId/projection"]
 pending: []
 created: 2026-11-05
-updated: 2026-11-05
-tags: [bug, bug/todo, module/identity, priority/high]
+updated: 2026-11-08
+tags: [bug, bug/ready, module/identity, priority/high]
 ---
 
-# ⬜ B-17 · A new Ring answers 404 to its own owner until its projection is opened
+# 📨 B-17 · A new Ring answers 404 to its own owner until its projection is opened
 
-**Found against:** [[BI-09 View As & Pin Views Backend Integration]] · **Feature:** [[F-12 View As & Pin Views]] · **Status:** To do · **Priority:** High (`critical | high | medium | low`, from `docs.config.json`) · **Deadline:** — · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
+> ⚠ Affected by [[BD-12 View As & Pin Views Backend Delivery]] (2026-11-08): fixed on backend main e483d49, ready for re-test
+
+**Found against:** [[BI-09 View As & Pin Views Backend Integration]] · **Feature:** [[F-12 View As & Pin Views]] · **Status:** Ready · **Priority:** High (`critical | high | medium | low`, from `docs.config.json`) · **Deadline:** — · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
 
 **Found by:** [[QB-14 View As & Pin Views QA Backend]] rows B33, B34 and B45, on build `main @ 12172c6 · localhost:3112, Node 22.22.2`.
 
