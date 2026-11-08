@@ -302,8 +302,26 @@ for that ring specifically.
 | Method | Path | |
 |---|---|---|
 | GET | `/views/pin/:pinName` | Resolve a person by handle |
-| GET | `/views/ring/:ringId` | Render one named ring — QR scan, and the owner's "View as" |
+| GET | `/views/ring/:ringId` | Render one named ring — the owner's "View as" |
 | GET | `/views/user/:userId/perspectives` | Every perspective you hold of one person |
+| GET | `/views/qr/:token` | Resolve a scanned badge code: the ring's view plus the code's `expiresAt` |
+
+### Badge — `/rings/:ringId/qr` (owner only)
+
+| Method | Path | |
+|---|---|---|
+| POST | `/rings/:ringId/qr` | The ring's badge code `{ token, issuedAt, expiresAt, url }`: the same for its 24 h window, then a new one (201) |
+| POST | `/rings/:ringId/qr/reset` | Revoke the code now and issue a new one (201) |
+| GET | `/rings/:ringId/qr/scans` | `{ scanCount }` across every code the ring has had |
+
+A badge code is 32 opaque base64url characters; the QR draws `url`,
+`https://socialpin.me/q/<token>`. Any signed-in user may scan
+(`GET /views/qr/:token`): a valid code is the owner presenting that ring, and a
+scan adds nobody to it. Every refusal (malformed, unknown, expired, reset, an
+ended or deleted ring, a block) is the views' one 404 body, `E_RING_ACCESS_01`,
+with the same answer time; more than 20 scans a minute is 429 `E_BADGE_01`. A
+code for a ring that is not yours is 404 `E_RING_02`; for your ring that has
+ended, 409 `E_RING_03`. Details: BI-15 Badge & QR Backend Integration.
 
 `GET /views/ring/:ringId` is the same code path for the owner and for a member,
 which is what makes "View as" trustworthy rather than an approximation: the
@@ -416,8 +434,9 @@ slots, PinCast and nearby discovery, businesses, orders and payments,
 notifications, analytics, and Gemma. See `Spec Map.md` for the current state of
 each.
 
-QR tokens are partially available: `GET /views/ring/:ringId` renders a scanned
-ring, but the endpoints to issue and revoke a badge token are not written yet.
+Badge codes are available (see *Badge* above); Connect by a scanned code
+(`POST /connections/requests { qrToken }`), the `socialpin.me/q/<token>` web
+page and the app links are not yet.
 
 Per-feature client guides (screens → calls, flows, error tables, what is not
 available yet) live in the `social-pin-docs` vault under `frontend/`.

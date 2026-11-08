@@ -87,7 +87,7 @@ feature in the features list needs it.
 | `RingInfoBlock` | "Add information to your ring / Added info" (§4). |
 | `RingWidget` | "Add widgets" (§4). |
 | `RingProfileFile` | "File attachments on profile (Portfolio.pdf, Pitch Deck)" (§4). |
-| `RingQrToken` | "QR / badge is bound to the currently selected ring" (§5). Opaque, hashed, revocable. |
+| `RingQrToken` | "QR / badge is bound to the currently selected ring" (§5). Opaque (an HMAC of the row id), only `sha256(token)` stored, revocable, 24 h window; owned by `src/modules/badge`. |
 | `RolePermission` | The join the doc implies between `roles` and `permissions`. |
 | `OrderItem` | Needed to satisfy "Do not derive historical totals from mutable prices" — a price snapshot per line. |
 | `BusinessTag`, `BusinessFile` | The business setup form's tags and uploads (§10). |
@@ -159,7 +159,7 @@ model instead of turning Social Pin into a generic social network."*
 | 5 | Switch modes across several rings of one user | **API** | `GET /views/user/:userId/perspectives` |
 | 5 | Ring expiry dates | **API** | Enforced in `RingAccessService`, both windows |
 | 5 | Shared Rings vs My Rings | **API** | `GET /rings` and `GET /rings/shared-with-me` |
-| 5 | QR / badge bound to the selected ring | partial | `RingQrToken` table + `GET /views/ring/:ringId`; token issue/scan endpoints not written |
+| 5 | QR / badge bound to the selected ring | **API** | `src/modules/badge`: `POST /rings/:ringId/qr` (+ `/reset`, `GET …/qr/scans`), `GET /views/qr/:token` through `RingAccessService.assertRingPresented`; the web page waits on the domain |
 | 5 | Corporate rings (public/employees/c-suite), delegated admins | partial | `RING_TYPE.CORPORATE`, `parentRingId`, `RingAdmin` + `assertCanAdminister` enforce it; no corporate-specific endpoints |
 | 5 | MiniRings for sub-events | schema | `Ring.parentRingId`, `MiniEvent.ringId` |
 | 5 | Temporary rings → keep / merge / auto-delete | **API** | `POST /rings/:id/disposition` |

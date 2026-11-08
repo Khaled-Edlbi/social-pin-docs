@@ -14,7 +14,7 @@ tags: [feature, module/discovery, priority/critical, release/mvp]
 
 # Badge & QR
 
-**Backend:** Partial (needs more) · **Priority:** Critical · **Release:** MVP · **Module:** [[M-04 Discovery Module|Discovery]]
+**Backend:** Done (main `1c460b0`: the code, reset, scan count and resolve; the domain routes later) · **Priority:** Critical · **Release:** MVP · **Module:** [[M-04 Discovery Module|Discovery]]
 
 **Layers:** [[S-37 Badge & QR Story|Story]] · [[FR-18 Badge & QR Frontend Requirements|Frontend Requirements]] · [[BD-18 Badge & QR Backend Delivery|Backend Delivery]] · [[BI-15 Badge & QR Backend Integration|Backend Integration]] · [[Badge & QR Frontend Delivery|Frontend Delivery]] · [[Badge & QR QA Backend|QA Backend]] · [[Badge & QR QA Frontend|QA Frontend]]
 

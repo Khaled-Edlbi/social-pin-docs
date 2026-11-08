@@ -1257,12 +1257,14 @@
     },
     "E_BADGE_01": {
       "containers": [
-        "feature:badge-qr"
+        "feature:badge-qr",
+        "project:frontend-api-guide"
       ],
       "kind": "error",
       "notes": [
         "backend-delivery:badge-qr",
-        "backend-integration:badge-qr"
+        "backend-integration:badge-qr",
+        "project:frontend-api-guide"
       ],
       "owner": null
     },
@@ -1565,6 +1567,7 @@
         "project:api-conventions",
         "project:docs-tree",
         "project:frontend-agent-prompt",
+        "project:frontend-api-guide",
         "task:B-15"
       ],
       "kind": "error",
@@ -1603,6 +1606,7 @@
         "project:api-conventions",
         "project:docs-tree",
         "project:frontend-agent-prompt",
+        "project:frontend-api-guide",
         "qa-backend:counts",
         "qa-backend:files",
         "qa-backend:photo-library",
@@ -1620,13 +1624,15 @@
     "E_RING_03": {
       "containers": [
         "feature:badge-qr",
-        "feature:ring-invitations"
+        "feature:ring-invitations",
+        "project:frontend-api-guide"
       ],
       "kind": "error",
       "notes": [
         "backend-delivery:badge-qr",
         "backend-integration:badge-qr",
-        "backend-integration:ring-invitations"
+        "backend-integration:ring-invitations",
+        "project:frontend-api-guide"
       ],
       "owner": null
     },
@@ -3470,16 +3476,24 @@
       "containers": [
         "decision:D-12",
         "feature:badge-qr",
-        "feature:connections"
+        "feature:connections",
+        "feature:view-as",
+        "project:frontend-api-guide",
+        "project:ring-access-model",
+        "project:spec-map"
       ],
       "kind": "endpoint",
       "notes": [
         "backend-delivery:badge-qr",
         "backend-delivery:connections",
         "backend-integration:badge-qr",
+        "backend-integration:view-as",
         "decision:D-12",
         "frontend-requirements:badge-qr",
         "frontend-requirements:connections",
+        "project:frontend-api-guide",
+        "project:ring-access-model",
+        "project:spec-map",
         "story:badge-qr",
         "story:connections"
       ],
@@ -3541,7 +3555,6 @@
         "needs-decision:ND-10",
         "project:frontend-api-guide",
         "project:frontend-contract",
-        "project:ring-access-model",
         "project:spec-map",
         "project:status-report-2026-10-15",
         "task:B-11",
@@ -3577,7 +3590,6 @@
         "needs-decision:ND-10",
         "project:frontend-api-guide",
         "project:frontend-contract",
-        "project:ring-access-model",
         "project:spec-map",
         "project:status-report-2026-10-15",
         "qa-backend:ring-access",
@@ -4233,6 +4245,7 @@
       ],
       "kind": "endpoint",
       "notes": [
+        "backend-delivery:badge-qr",
         "backend-delivery:connections",
         "backend-integration:connections",
         "decision:D-10",
@@ -4644,7 +4657,8 @@
         "decision:D-11",
         "decision:D-12",
         "feature:badge-qr",
-        "needs-decision:ND-11"
+        "needs-decision:ND-11",
+        "project:spec-map"
       ],
       "kind": "endpoint",
       "notes": [
@@ -4654,6 +4668,7 @@
         "decision:D-12",
         "frontend-requirements:badge-qr",
         "needs-decision:ND-11",
+        "project:spec-map",
         "story:badge-qr"
       ],
       "owner": "feature:badge-qr"
@@ -6613,7 +6628,7 @@
     }
   },
   "counts": {
-    "blocked": 28,
+    "blocked": 27,
     "bugs": 17,
     "byKind": {
       "backend-delivery": 39,
@@ -6639,7 +6654,7 @@
     },
     "concepts": 318,
     "decisions": 34,
-    "edges": 7555,
+    "edges": 7540,
     "features": 41,
     "layerNotes": 155,
     "modules": 8,
@@ -6702,7 +6717,9 @@
   ],
   "diagnostics": {
     "errors": [],
-    "warnings": []
+    "warnings": [
+      "social-pin/modules/Discovery/features/Badge & QR/flow/BD-18 Badge & QR Backend Delivery.md: status: done, but its Backend Integration is `draft`: the requirements of this scope cannot reach `delivered` until it is `current`"
+    ]
   },
   "edges": [
     {
@@ -8094,16 +8111,6 @@
       "from": "backend-delivery:audit-log",
       "kind": "blocks",
       "to": "qa-backend:audit-log"
-    },
-    {
-      "from": "backend-delivery:badge-qr",
-      "kind": "blocks",
-      "to": "backend-integration:badge-qr"
-    },
-    {
-      "from": "backend-delivery:badge-qr",
-      "kind": "blocks",
-      "to": "qa-backend:badge-qr"
     },
     {
       "from": "backend-delivery:build-deploy",
@@ -10965,6 +10972,7 @@
       "kind": "related",
       "to": "backend-integration:view-as",
       "via": [
+        "GET /views/qr/:token",
         "GET /views/ring/:ringId"
       ]
     },
@@ -11248,6 +11256,10 @@
       "kind": "related",
       "to": "project:frontend-api-guide",
       "via": [
+        "E_BADGE_01",
+        "E_RING_02",
+        "E_RING_03",
+        "GET /views/qr/:token",
         "GET /views/ring/:ringId"
       ]
     },
@@ -11264,7 +11276,7 @@
       "kind": "related",
       "to": "project:ring-access-model",
       "via": [
-        "GET /views/ring/:ringId"
+        "GET /views/qr/:token"
       ]
     },
     {
@@ -11272,7 +11284,9 @@
       "kind": "related",
       "to": "project:spec-map",
       "via": [
-        "GET /views/ring/:ringId"
+        "GET /views/qr/:token",
+        "GET /views/ring/:ringId",
+        "POST /rings/:ringId/qr"
       ]
     },
     {
@@ -11454,7 +11468,8 @@
       "via": [
         "E_RING_02",
         "GET /views/pin/:pinName",
-        "GET /views/qr/:token"
+        "GET /views/qr/:token",
+        "POST /connections/requests"
       ]
     },
     {
@@ -11622,7 +11637,8 @@
       "kind": "related",
       "to": "backend-integration:view-as",
       "via": [
-        "GET /views/pin/:pinName"
+        "GET /views/pin/:pinName",
+        "GET /views/qr/:token"
       ]
     },
     {
@@ -12017,6 +12033,7 @@
       "kind": "related",
       "to": "project:frontend-api-guide",
       "via": [
+        "E_RING_02",
         "GET /views/pin/:pinName"
       ]
     },
@@ -12658,6 +12675,7 @@
       "kind": "related",
       "to": "project:frontend-api-guide",
       "via": [
+        "E_RING_02",
         "GET /rings",
         "GET /rings/shared-with-me",
         "GET /rings/shared-with-me/count"
@@ -14085,14 +14103,6 @@
     {
       "from": "backend-delivery:ring-access",
       "kind": "related",
-      "to": "project:ring-access-model",
-      "via": [
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "backend-delivery:ring-access",
-      "kind": "related",
       "to": "project:spec-map",
       "via": [
         "GET /rings/shared-with-me",
@@ -14847,6 +14857,14 @@
       "from": "backend-delivery:ring-projection",
       "kind": "related",
       "to": "project:frontend-agent-prompt",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "backend-delivery:ring-projection",
+      "kind": "related",
+      "to": "project:frontend-api-guide",
       "via": [
         "E_RING_02"
       ]
@@ -15984,6 +16002,7 @@
       "to": "backend-integration:view-as",
       "via": [
         "GET /views/pin/:pinName",
+        "GET /views/qr/:token",
         "GET /views/ring/:ringId"
       ]
     },
@@ -16295,7 +16314,11 @@
       "kind": "related",
       "to": "project:frontend-api-guide",
       "via": [
+        "E_BADGE_01",
+        "E_RING_02",
+        "E_RING_03",
         "GET /views/pin/:pinName",
+        "GET /views/qr/:token",
         "GET /views/ring/:ringId"
       ]
     },
@@ -16313,7 +16336,7 @@
       "kind": "related",
       "to": "project:ring-access-model",
       "via": [
-        "GET /views/ring/:ringId"
+        "GET /views/qr/:token"
       ]
     },
     {
@@ -16321,7 +16344,9 @@
       "kind": "related",
       "to": "project:spec-map",
       "via": [
-        "GET /views/ring/:ringId"
+        "GET /views/qr/:token",
+        "GET /views/ring/:ringId",
+        "POST /rings/:ringId/qr"
       ]
     },
     {
@@ -16525,7 +16550,8 @@
       "to": "backend-delivery:badge-qr",
       "via": [
         "E_RING_02",
-        "GET /views/pin/:pinName"
+        "GET /views/pin/:pinName",
+        "POST /connections/requests"
       ]
     },
     {
@@ -17151,6 +17177,7 @@
       "kind": "related",
       "to": "project:frontend-api-guide",
       "via": [
+        "E_RING_02",
         "GET /rings",
         "GET /views/pin/:pinName"
       ]
@@ -17850,6 +17877,7 @@
       "kind": "related",
       "to": "project:frontend-api-guide",
       "via": [
+        "E_RING_02",
         "GET /rings",
         "GET /rings/shared-with-me",
         "GET /rings/shared-with-me/count"
@@ -20061,6 +20089,14 @@
     {
       "from": "backend-integration:view-as",
       "kind": "related",
+      "to": "decision:D-12",
+      "via": [
+        "GET /views/qr/:token"
+      ]
+    },
+    {
+      "from": "backend-integration:view-as",
+      "kind": "related",
       "to": "decision:D-16"
     },
     {
@@ -20085,9 +20121,26 @@
     {
       "from": "backend-integration:view-as",
       "kind": "related",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "GET /views/qr/:token"
+      ]
+    },
+    {
+      "from": "backend-integration:view-as",
+      "kind": "related",
+      "to": "project:ring-access-model",
+      "via": [
+        "GET /views/qr/:token"
+      ]
+    },
+    {
+      "from": "backend-integration:view-as",
+      "kind": "related",
       "to": "project:spec-map",
       "via": [
-        "GET /files/content/:token"
+        "GET /files/content/:token",
+        "GET /views/qr/:token"
       ]
     },
     {
@@ -20099,6 +20152,14 @@
         "GET /views/pin/:pinName",
         "GET /views/ring/:ringId",
         "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "backend-integration:view-as",
+      "kind": "related",
+      "to": "story:connections",
+      "via": [
+        "GET /views/qr/:token"
       ]
     },
     {
@@ -22930,7 +22991,10 @@
     {
       "from": "frontend-requirements:badge-qr",
       "kind": "related",
-      "to": "backend-integration:view-as"
+      "to": "backend-integration:view-as",
+      "via": [
+        "GET /views/qr/:token"
+      ]
     },
     {
       "from": "frontend-requirements:badge-qr",
@@ -23382,6 +23446,7 @@
       "kind": "related",
       "to": "project:frontend-api-guide",
       "via": [
+        "E_RING_02",
         "GET /rings",
         "GET /rings/shared-with-me",
         "GET /views/ring/:ringId"
@@ -23394,14 +23459,6 @@
       "via": [
         "GET /rings",
         "GET /rings/shared-with-me",
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "frontend-requirements:companies",
-      "kind": "related",
-      "to": "project:ring-access-model",
-      "via": [
         "GET /views/ring/:ringId"
       ]
     },
@@ -23778,6 +23835,7 @@
       "to": "backend-integration:view-as",
       "via": [
         "GET /views/pin/:pinName",
+        "GET /views/qr/:token",
         "GET /views/user/:userId/perspectives"
       ]
     },
@@ -24268,6 +24326,7 @@
       "kind": "related",
       "to": "project:frontend-api-guide",
       "via": [
+        "E_RING_02",
         "GET /rings",
         "GET /rings/shared-with-me",
         "GET /views/pin/:pinName",
@@ -26057,7 +26116,8 @@
       "kind": "related",
       "to": "project:frontend-api-guide",
       "via": [
-        "E_FILE_01"
+        "E_FILE_01",
+        "E_RING_02"
       ]
     },
     {
@@ -27139,6 +27199,7 @@
       "kind": "related",
       "to": "project:frontend-api-guide",
       "via": [
+        "E_RING_02",
         "GET /rings/shared-with-me",
         "GET /views/pin/:pinName",
         "GET /views/ring/:ringId",
@@ -27159,10 +27220,7 @@
     {
       "from": "frontend-requirements:ring-access",
       "kind": "related",
-      "to": "project:ring-access-model",
-      "via": [
-        "GET /views/ring/:ringId"
-      ]
+      "to": "project:ring-access-model"
     },
     {
       "from": "frontend-requirements:ring-access",
@@ -27859,6 +27917,7 @@
       "kind": "related",
       "to": "project:frontend-api-guide",
       "via": [
+        "E_RING_02",
         "GET /rings"
       ]
     },
@@ -28415,6 +28474,7 @@
       "kind": "related",
       "to": "project:frontend-api-guide",
       "via": [
+        "E_RING_02",
         "GET /views/ring/:ringId"
       ]
     },
@@ -28422,14 +28482,6 @@
       "from": "frontend-requirements:ring-projection",
       "kind": "related",
       "to": "project:frontend-contract",
-      "via": [
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "frontend-requirements:ring-projection",
-      "kind": "related",
-      "to": "project:ring-access-model",
       "via": [
         "GET /views/ring/:ringId"
       ]
@@ -29332,14 +29384,6 @@
         "GET /views/pin/:pinName",
         "GET /views/ring/:ringId",
         "GET /views/user/:userId/perspectives"
-      ]
-    },
-    {
-      "from": "frontend-requirements:view-as",
-      "kind": "related",
-      "to": "project:ring-access-model",
-      "via": [
-        "GET /views/ring/:ringId"
       ]
     },
     {
@@ -31856,6 +31900,7 @@
       "kind": "related",
       "to": "project:frontend-api-guide",
       "via": [
+        "E_RING_02",
         "GET /rings",
         "GET /rings/shared-with-me",
         "GET /rings/shared-with-me/count"
@@ -33181,6 +33226,7 @@
       "to": "project:frontend-api-guide",
       "via": [
         "E_FILE_01",
+        "E_RING_02",
         "GET /views/pin/:pinName"
       ]
     },
@@ -34474,6 +34520,7 @@
       "kind": "related",
       "to": "project:frontend-api-guide",
       "via": [
+        "E_RING_02",
         "GET /rings/shared-with-me",
         "GET /rings/shared-with-me/count",
         "GET /views/pin/:pinName",
@@ -34492,14 +34539,6 @@
         "GET /views/user/:userId/perspectives",
         "POST /rings/:id/default",
         "POST /rings/:id/disposition"
-      ]
-    },
-    {
-      "from": "qa-backend:ring-access",
-      "kind": "related",
-      "to": "project:ring-access-model",
-      "via": [
-        "GET /views/ring/:ringId"
       ]
     },
     {
@@ -35021,6 +35060,14 @@
     {
       "from": "qa-backend:ring-members",
       "kind": "related",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-members",
+      "kind": "related",
       "to": "project:spec-map",
       "via": [
         "POST /rings/:ringId/members",
@@ -35498,6 +35545,7 @@
       "kind": "related",
       "to": "project:frontend-api-guide",
       "via": [
+        "E_RING_02",
         "GET /views/ring/:ringId"
       ]
     },
@@ -35508,14 +35556,6 @@
       "via": [
         "GET /views/ring/:ringId",
         "POST /files"
-      ]
-    },
-    {
-      "from": "qa-backend:ring-projection",
-      "kind": "related",
-      "to": "project:ring-access-model",
-      "via": [
-        "GET /views/ring/:ringId"
       ]
     },
     {
@@ -36172,6 +36212,7 @@
       "to": "project:frontend-api-guide",
       "via": [
         "E_RING_01",
+        "E_RING_02",
         "E_RING_09",
         "E_RING_10",
         "GET /rings",
@@ -36194,14 +36235,6 @@
         "POST /rings",
         "POST /rings/:id/default",
         "POST /rings/:id/disposition"
-      ]
-    },
-    {
-      "from": "qa-backend:rings",
-      "kind": "related",
-      "to": "project:ring-access-model",
-      "via": [
-        "GET /views/ring/:ringId"
       ]
     },
     {
@@ -36784,14 +36817,6 @@
       "to": "project:frontend-passwordless-migration",
       "via": [
         "E_AUTH_03"
-      ]
-    },
-    {
-      "from": "qa-backend:view-as",
-      "kind": "related",
-      "to": "project:ring-access-model",
-      "via": [
-        "GET /views/ring/:ringId"
       ]
     },
     {
@@ -37900,7 +37925,10 @@
     {
       "from": "story:badge-qr",
       "kind": "related",
-      "to": "backend-integration:view-as"
+      "to": "backend-integration:view-as",
+      "via": [
+        "GET /views/qr/:token"
+      ]
     },
     {
       "from": "story:badge-qr",
@@ -41741,14 +41769,6 @@
     {
       "from": "task:B-17",
       "kind": "related",
-      "to": "project:ring-access-model",
-      "via": [
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "task:B-17",
-      "kind": "related",
       "to": "project:spec-map",
       "via": [
         "GET /views/ring/:ringId",
@@ -42063,6 +42083,14 @@
       ]
     },
     {
+      "from": "decision:D-11",
+      "kind": "shares",
+      "to": "project:spec-map",
+      "via": [
+        "POST /rings/:ringId/qr"
+      ]
+    },
+    {
       "from": "decision:D-12",
       "kind": "shares",
       "to": "feature:badge-qr",
@@ -42082,8 +42110,41 @@
     {
       "from": "decision:D-12",
       "kind": "shares",
+      "to": "feature:view-as",
+      "via": [
+        "GET /views/qr/:token"
+      ]
+    },
+    {
+      "from": "decision:D-12",
+      "kind": "shares",
       "to": "needs-decision:ND-11",
       "via": [
+        "POST /rings/:ringId/qr"
+      ]
+    },
+    {
+      "from": "decision:D-12",
+      "kind": "shares",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "GET /views/qr/:token"
+      ]
+    },
+    {
+      "from": "decision:D-12",
+      "kind": "shares",
+      "to": "project:ring-access-model",
+      "via": [
+        "GET /views/qr/:token"
+      ]
+    },
+    {
+      "from": "decision:D-12",
+      "kind": "shares",
+      "to": "project:spec-map",
+      "via": [
+        "GET /views/qr/:token",
         "POST /rings/:ringId/qr"
       ]
     },
@@ -44581,6 +44642,7 @@
         "E_AUTH_04",
         "GET /rings",
         "GET /views/pin/:pinName",
+        "GET /views/qr/:token",
         "GET /views/ring/:ringId"
       ]
     },
@@ -44665,8 +44727,12 @@
       "to": "project:frontend-api-guide",
       "via": [
         "E_AUTH_04",
+        "E_BADGE_01",
+        "E_RING_02",
+        "E_RING_03",
         "GET /rings",
         "GET /views/pin/:pinName",
+        "GET /views/qr/:token",
         "GET /views/ring/:ringId"
       ]
     },
@@ -44694,7 +44760,7 @@
       "kind": "shares",
       "to": "project:ring-access-model",
       "via": [
-        "GET /views/ring/:ringId"
+        "GET /views/qr/:token"
       ]
     },
     {
@@ -44703,7 +44769,9 @@
       "to": "project:spec-map",
       "via": [
         "GET /rings",
-        "GET /views/ring/:ringId"
+        "GET /views/qr/:token",
+        "GET /views/ring/:ringId",
+        "POST /rings/:ringId/qr"
       ]
     },
     {
@@ -45011,6 +45079,7 @@
       "kind": "shares",
       "to": "project:frontend-api-guide",
       "via": [
+        "E_RING_02",
         "GET /rings"
       ]
     },
@@ -45592,6 +45661,7 @@
       "to": "project:frontend-api-guide",
       "via": [
         "E_AUTH_04",
+        "E_RING_02",
         "GET /rings",
         "GET /rings/shared-with-me",
         "GET /views/ring/:ringId"
@@ -45615,14 +45685,6 @@
       "to": "project:frontend-passwordless-migration",
       "via": [
         "E_AUTH_04"
-      ]
-    },
-    {
-      "from": "feature:companies",
-      "kind": "shares",
-      "to": "project:ring-access-model",
-      "via": [
-        "GET /views/ring/:ringId"
       ]
     },
     {
@@ -46018,6 +46080,7 @@
         "GET /rings",
         "GET /rings/:ringId/projection",
         "GET /views/pin/:pinName",
+        "GET /views/qr/:token",
         "GET /views/ring/:ringId",
         "GET /views/user/:userId/perspectives",
         "POST /rings"
@@ -46150,9 +46213,11 @@
       "to": "project:frontend-api-guide",
       "via": [
         "E_AUTH_04",
+        "E_RING_02",
         "GET /rings",
         "GET /rings/shared-with-me",
         "GET /views/pin/:pinName",
+        "GET /views/qr/:token",
         "GET /views/ring/:ringId",
         "GET /views/user/:userId/perspectives"
       ]
@@ -46184,7 +46249,7 @@
       "kind": "shares",
       "to": "project:ring-access-model",
       "via": [
-        "GET /views/ring/:ringId"
+        "GET /views/qr/:token"
       ]
     },
     {
@@ -46194,6 +46259,7 @@
       "via": [
         "GET /rings",
         "GET /rings/shared-with-me",
+        "GET /views/qr/:token",
         "GET /views/ring/:ringId",
         "GET /views/user/:userId/perspectives",
         "POST /rings",
@@ -46550,6 +46616,7 @@
       "kind": "shares",
       "to": "project:frontend-api-guide",
       "via": [
+        "E_RING_02",
         "GET /rings",
         "GET /rings/shared-with-me",
         "GET /rings/shared-with-me/count"
@@ -46916,6 +46983,7 @@
       "via": [
         "E_AUTH_04",
         "E_RING_01",
+        "E_RING_02",
         "GET /rings",
         "GET /rings/shared-with-me"
       ]
@@ -47772,6 +47840,7 @@
         "E_AUTH_05",
         "E_AUTH_06",
         "E_RING_01",
+        "E_RING_02",
         "POST /auth/refresh"
       ]
     },
@@ -48073,6 +48142,7 @@
       "to": "project:frontend-api-guide",
       "via": [
         "E_RING_01",
+        "E_RING_02",
         "GET /rings",
         "GET /views/ring/:ringId"
       ]
@@ -48086,14 +48156,6 @@
         "GET /views/ring/:ringId",
         "POST /rings",
         "POST /rings/:id/disposition"
-      ]
-    },
-    {
-      "from": "feature:event-ring-auto",
-      "kind": "shares",
-      "to": "project:ring-access-model",
-      "via": [
-        "GET /views/ring/:ringId"
       ]
     },
     {
@@ -48471,14 +48533,6 @@
     {
       "from": "feature:events-during",
       "kind": "shares",
-      "to": "project:ring-access-model",
-      "via": [
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "feature:events-during",
-      "kind": "shares",
       "to": "project:spec-map",
       "via": [
         "GET /views/ring/:ringId"
@@ -48680,6 +48734,7 @@
       "to": "project:frontend-api-guide",
       "via": [
         "E_RING_01",
+        "E_RING_02",
         "GET /views/ring/:ringId"
       ]
     },
@@ -48690,14 +48745,6 @@
       "via": [
         "GET /views/ring/:ringId",
         "POST /rings"
-      ]
-    },
-    {
-      "from": "feature:exhibitor",
-      "kind": "shares",
-      "to": "project:ring-access-model",
-      "via": [
-        "GET /views/ring/:ringId"
       ]
     },
     {
@@ -49021,6 +49068,7 @@
       "to": "project:frontend-api-guide",
       "via": [
         "E_FILE_01",
+        "E_RING_02",
         "GET /views/pin/:pinName",
         "GET /views/ring/:ringId"
       ]
@@ -49034,14 +49082,6 @@
         "GET /views/ring/:ringId",
         "POST /files",
         "POST /rings"
-      ]
-    },
-    {
-      "from": "feature:files",
-      "kind": "shares",
-      "to": "project:ring-access-model",
-      "via": [
-        "GET /views/ring/:ringId"
       ]
     },
     {
@@ -49645,6 +49685,7 @@
       "to": "project:frontend-api-guide",
       "via": [
         "E_RING_01",
+        "E_RING_02",
         "GET /rings/shared-with-me",
         "GET /views/ring/:ringId"
       ]
@@ -49658,14 +49699,6 @@
         "GET /views/ring/:ringId",
         "POST /rings",
         "POST /rings/:id/disposition"
-      ]
-    },
-    {
-      "from": "feature:meetings",
-      "kind": "shares",
-      "to": "project:ring-access-model",
-      "via": [
-        "GET /views/ring/:ringId"
       ]
     },
     {
@@ -50196,7 +50229,8 @@
       "kind": "shares",
       "to": "project:frontend-api-guide",
       "via": [
-        "E_FILE_01"
+        "E_FILE_01",
+        "E_RING_02"
       ]
     },
     {
@@ -50440,6 +50474,7 @@
       "to": "project:frontend-api-guide",
       "via": [
         "E_AUTH_04",
+        "E_RING_02",
         "GET /rings",
         "GET /rings/shared-with-me",
         "GET /views/user/:userId/perspectives"
@@ -50661,6 +50696,7 @@
       "to": "project:frontend-api-guide",
       "via": [
         "E_AUTH_04",
+        "E_RING_02",
         "GET /rings",
         "GET /views/ring/:ringId"
       ]
@@ -50682,14 +50718,6 @@
       "to": "project:frontend-passwordless-migration",
       "via": [
         "E_AUTH_04"
-      ]
-    },
-    {
-      "from": "feature:post-event",
-      "kind": "shares",
-      "to": "project:ring-access-model",
-      "via": [
-        "GET /views/ring/:ringId"
       ]
     },
     {
@@ -51145,6 +51173,7 @@
       "kind": "shares",
       "to": "project:frontend-api-guide",
       "via": [
+        "E_RING_02",
         "GET /rings",
         "GET /rings/shared-with-me",
         "GET /rings/shared-with-me/count",
@@ -51166,14 +51195,6 @@
         "GET /views/user/:userId/perspectives",
         "POST /rings/:id/default",
         "POST /rings/:id/disposition"
-      ]
-    },
-    {
-      "from": "feature:ring-access",
-      "kind": "shares",
-      "to": "project:ring-access-model",
-      "via": [
-        "GET /views/ring/:ringId"
       ]
     },
     {
@@ -51388,6 +51409,7 @@
       "to": "project:frontend-api-guide",
       "via": [
         "E_AUTH_04",
+        "E_RING_03",
         "GET /rings",
         "GET /rings/shared-with-me",
         "GET /views/ring/:ringId"
@@ -51410,14 +51432,6 @@
       "to": "project:frontend-passwordless-migration",
       "via": [
         "E_AUTH_04"
-      ]
-    },
-    {
-      "from": "feature:ring-invitations",
-      "kind": "shares",
-      "to": "project:ring-access-model",
-      "via": [
-        "GET /views/ring/:ringId"
       ]
     },
     {
@@ -51619,6 +51633,7 @@
       "kind": "shares",
       "to": "project:frontend-api-guide",
       "via": [
+        "E_RING_02",
         "GET /rings",
         "GET /views/pin/:pinName",
         "GET /views/user/:userId/perspectives"
@@ -51816,6 +51831,7 @@
       "kind": "shares",
       "to": "project:frontend-api-guide",
       "via": [
+        "E_RING_02",
         "GET /rings",
         "GET /views/ring/:ringId",
         "POST /rings/:id/copy"
@@ -51830,14 +51846,6 @@
         "GET /views/ring/:ringId",
         "POST /files",
         "POST /rings"
-      ]
-    },
-    {
-      "from": "feature:ring-projection",
-      "kind": "shares",
-      "to": "project:ring-access-model",
-      "via": [
-        "GET /views/ring/:ringId"
       ]
     },
     {
@@ -52060,6 +52068,7 @@
       "to": "project:frontend-api-guide",
       "via": [
         "E_RING_01",
+        "E_RING_02",
         "E_RING_09",
         "E_RING_10",
         "GET /rings",
@@ -52090,14 +52099,6 @@
       "to": "project:frontend-passwordless-migration",
       "via": [
         "POST /auth/login"
-      ]
-    },
-    {
-      "from": "feature:rings",
-      "kind": "shares",
-      "to": "project:ring-access-model",
-      "via": [
-        "GET /views/ring/:ringId"
       ]
     },
     {
@@ -52361,6 +52362,7 @@
         "E_FILE_01",
         "GET /rings",
         "GET /views/pin/:pinName",
+        "GET /views/qr/:token",
         "GET /views/ring/:ringId",
         "GET /views/user/:userId/perspectives"
       ]
@@ -52393,7 +52395,7 @@
       "kind": "shares",
       "to": "project:ring-access-model",
       "via": [
-        "GET /views/ring/:ringId"
+        "GET /views/qr/:token"
       ]
     },
     {
@@ -52403,6 +52405,7 @@
       "via": [
         "GET /files/content/:token",
         "GET /rings",
+        "GET /views/qr/:token",
         "GET /views/ring/:ringId",
         "GET /views/user/:userId/perspectives",
         "POST /rings",
@@ -52546,6 +52549,7 @@
       "kind": "shares",
       "to": "project:frontend-api-guide",
       "via": [
+        "E_RING_02",
         "GET /views/ring/:ringId"
       ]
     },
@@ -52553,14 +52557,6 @@
       "from": "feature:widgets",
       "kind": "shares",
       "to": "project:frontend-contract",
-      "via": [
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "feature:widgets",
-      "kind": "shares",
-      "to": "project:ring-access-model",
       "via": [
         "GET /views/ring/:ringId"
       ]
@@ -52725,14 +52721,6 @@
     {
       "from": "needs-decision:ND-10",
       "kind": "shares",
-      "to": "project:ring-access-model",
-      "via": [
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "needs-decision:ND-10",
-      "kind": "shares",
       "to": "project:spec-map",
       "via": [
         "GET /views/ring/:ringId",
@@ -52772,6 +52760,14 @@
       "via": [
         "GET /views/ring/:ringId",
         "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "needs-decision:ND-11",
+      "kind": "shares",
+      "to": "project:spec-map",
+      "via": [
+        "POST /rings/:ringId/qr"
       ]
     },
     {
@@ -53158,6 +53154,14 @@
     {
       "from": "project:agent-rules",
       "kind": "shares",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "project:agent-rules",
+      "kind": "shares",
       "to": "task:B-15",
       "via": [
         "E_RING_02"
@@ -53175,6 +53179,14 @@
       "from": "project:api-conventions",
       "kind": "shares",
       "to": "project:frontend-agent-prompt",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "project:api-conventions",
+      "kind": "shares",
+      "to": "project:frontend-api-guide",
       "via": [
         "E_RING_02"
       ]
@@ -53267,6 +53279,14 @@
     {
       "from": "project:docs-tree",
       "kind": "shares",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "project:docs-tree",
+      "kind": "shares",
       "to": "task:B-15",
       "via": [
         "E_RING_02"
@@ -53277,6 +53297,7 @@
       "kind": "shares",
       "to": "project:frontend-api-guide",
       "via": [
+        "E_RING_02",
         "POST /auth/refresh"
       ]
     },
@@ -53339,7 +53360,7 @@
       "kind": "shares",
       "to": "project:ring-access-model",
       "via": [
-        "GET /views/ring/:ringId"
+        "GET /views/qr/:token"
       ]
     },
     {
@@ -53351,6 +53372,7 @@
         "GET /profiles/pin-name/:pinName/availability",
         "GET /rings",
         "GET /rings/shared-with-me",
+        "GET /views/qr/:token",
         "GET /views/ring/:ringId",
         "GET /views/user/:userId/perspectives"
       ]
@@ -53431,6 +53453,7 @@
       "kind": "shares",
       "to": "task:B-15",
       "via": [
+        "E_RING_02",
         "E_RING_10"
       ]
     },
@@ -53459,14 +53482,6 @@
         "E_AUTH_04",
         "GET /profiles/pin-name/:pinName/availability",
         "POST /auth/sign-up"
-      ]
-    },
-    {
-      "from": "project:frontend-contract",
-      "kind": "shares",
-      "to": "project:ring-access-model",
-      "via": [
-        "GET /views/ring/:ringId"
       ]
     },
     {
@@ -53663,31 +53678,7 @@
       "kind": "shares",
       "to": "project:spec-map",
       "via": [
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "project:ring-access-model",
-      "kind": "shares",
-      "to": "project:status-report-2026-10-15",
-      "via": [
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "project:ring-access-model",
-      "kind": "shares",
-      "to": "task:B-11",
-      "via": [
-        "GET /views/ring/:ringId"
-      ]
-    },
-    {
-      "from": "project:ring-access-model",
-      "kind": "shares",
-      "to": "task:B-17",
-      "via": [
-        "GET /views/ring/:ringId"
+        "GET /views/qr/:token"
       ]
     },
     {
@@ -56637,11 +56628,6 @@
     {
       "from": "backend-delivery:ring-projection",
       "kind": "wikilink",
-      "to": "project:frontend-api-guide"
-    },
-    {
-      "from": "backend-delivery:ring-projection",
-      "kind": "wikilink",
       "to": "project:frontend-contract"
     },
     {
@@ -56963,11 +56949,6 @@
       "from": "backend-integration:view-as",
       "kind": "wikilink",
       "to": "project:frontend-contract"
-    },
-    {
-      "from": "backend-integration:view-as",
-      "kind": "wikilink",
-      "to": "project:ring-access-model"
     },
     {
       "from": "backend-integration:view-as",
@@ -60910,6 +60891,11 @@
       "to": "decision:D-18"
     },
     {
+      "from": "project:ring-access-model",
+      "kind": "wikilink",
+      "to": "decision:D-28"
+    },
+    {
       "from": "project:spec-map",
       "kind": "wikilink",
       "to": "decision:D-16"
@@ -61338,11 +61324,6 @@
       "from": "story:connections",
       "kind": "wikilink",
       "to": "backend-integration:ring-members"
-    },
-    {
-      "from": "story:connections",
-      "kind": "wikilink",
-      "to": "backend-integration:view-as"
     },
     {
       "from": "story:connections",
@@ -63985,7 +63966,7 @@
         "backend-delivery:ring-access",
         "backend-delivery:view-as"
       ],
-      "effectiveStatus": "in-progress",
+      "effectiveStatus": "done",
       "effort": null,
       "feature": "badge-qr",
       "foundOn": null,
@@ -64019,7 +64000,11 @@
         "backend-integration:badge-qr",
         "frontend-requirements:badge-qr",
         "story:badge-qr",
+        "project:spec-map",
         "story:connections",
+        "backend-integration:view-as",
+        "project:ring-access-model",
+        "project:frontend-api-guide",
         "task:B-11",
         "needs-decision:ND-10",
         "frontend-requirements:event-ring-auto",
@@ -64043,7 +64028,6 @@
         "frontend-requirements:rings",
         "qa-backend:rings",
         "backend-delivery:view-as",
-        "backend-integration:view-as",
         "frontend-requirements:view-as",
         "qa-backend:view-as",
         "story:view-as",
@@ -64053,10 +64037,7 @@
         "story:companies",
         "backend-integration:ring-invitations",
         "frontend-requirements:ring-invitations",
-        "project:ring-access-model",
-        "project:spec-map",
         "project:status-report-2026-10-15",
-        "project:frontend-api-guide",
         "project:frontend-contract",
         "task:B-15",
         "frontend-requirements:pincast",
@@ -64095,11 +64076,11 @@
         "s44",
         "s56"
       ],
-      "status": "in-progress",
-      "summary": "What the backend built for this feature and how it works. Not on main yet: everything below is on the code branch FR-18/badge/qr-token-issue-resolve (a566a2e, from main cb95a39), waiting for…",
+      "status": "done",
+      "summary": "What the backend shipped for this feature and how it works. On backend main since 1c460b0 (2026-11-08): the code branch FR-18/badge/qr-token-issue-resolve (a566a2e) merged first, then F-14 and…",
       "tags": [
         "backend-delivery",
-        "backend-delivery/in-progress",
+        "backend-delivery/done",
         "module/discovery",
         "layer/backend"
       ],
@@ -64399,6 +64380,7 @@
         "backend-integration:connections",
         "frontend-requirements:connections",
         "story:connections",
+        "backend-delivery:badge-qr",
         "frontend-requirements:badge-qr",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -64416,7 +64398,6 @@
         "project:spec-map",
         "task:B-08",
         "needs-decision:ND-22",
-        "backend-delivery:badge-qr",
         "backend-integration:badge-qr",
         "story:badge-qr",
         "frontend-requirements:discover-hub",
@@ -66185,7 +66166,6 @@
         "frontend-requirements:companies",
         "backend-integration:ring-invitations",
         "frontend-requirements:ring-invitations",
-        "project:ring-access-model",
         "project:spec-map",
         "project:status-report-2026-10-15",
         "project:frontend-api-guide",
@@ -66536,6 +66516,7 @@
         "project:docs-tree",
         "project:api-conventions",
         "project:frontend-agent-prompt",
+        "project:frontend-api-guide",
         "frontend-delivery:photo-library",
         "story:photo-library",
         "backend-integration:view-as",
@@ -67177,13 +67158,7 @@
       "affects": [
         "frontend-requirements:badge-qr"
       ],
-      "blockedBy": [
-        {
-          "id": "backend-delivery:badge-qr",
-          "title": "BD-18 Badge & QR Backend Delivery",
-          "why": "BD-18 Badge & QR Backend Delivery is in progress"
-        }
-      ],
+      "blockedBy": [],
       "card": "BI-15",
       "children": [],
       "code": "badge-qr",
@@ -67194,7 +67169,7 @@
         "frontend-requirements:badge-qr",
         "story:badge-qr"
       ],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "badge-qr",
       "foundOn": null,
@@ -67230,7 +67205,11 @@
         "decision:D-12",
         "frontend-requirements:badge-qr",
         "story:badge-qr",
+        "project:spec-map",
         "story:connections",
+        "backend-integration:view-as",
+        "project:ring-access-model",
+        "project:frontend-api-guide",
         "task:B-11",
         "needs-decision:ND-10",
         "frontend-requirements:event-ring-auto",
@@ -67254,7 +67233,6 @@
         "frontend-requirements:rings",
         "qa-backend:rings",
         "backend-delivery:view-as",
-        "backend-integration:view-as",
         "frontend-requirements:view-as",
         "qa-backend:view-as",
         "story:view-as",
@@ -67264,10 +67242,7 @@
         "story:companies",
         "backend-integration:ring-invitations",
         "frontend-requirements:ring-invitations",
-        "project:ring-access-model",
-        "project:spec-map",
         "project:status-report-2026-10-15",
-        "project:frontend-api-guide",
         "project:frontend-contract",
         "task:B-08",
         "needs-decision:ND-22",
@@ -67581,13 +67556,13 @@
         "needs-decision:ND-10",
         "needs-decision:ND-24",
         "frontend-requirements:connections",
+        "backend-delivery:badge-qr",
         "frontend-requirements:badge-qr",
         "backend-delivery:counts",
         "backend-integration:counts",
         "frontend-requirements:counts",
         "needs-decision:ND-29",
         "needs-decision:ND-22",
-        "backend-delivery:badge-qr",
         "backend-integration:badge-qr",
         "story:badge-qr",
         "frontend-requirements:discover-hub",
@@ -69742,6 +69717,10 @@
         "frontend-requirements:view-as",
         "qa-backend:view-as",
         "project:spec-map",
+        "decision:D-12",
+        "story:connections",
+        "project:ring-access-model",
+        "project:frontend-api-guide",
         "frontend-requirements:companies"
       ],
       "release": "mvp",
@@ -70566,7 +70545,8 @@
         "backend-delivery:badge-qr",
         "backend-integration:badge-qr",
         "frontend-requirements:badge-qr",
-        "story:badge-qr"
+        "story:badge-qr",
+        "backend-integration:view-as"
       ],
       "release": null,
       "resolution": null,
@@ -72654,9 +72634,9 @@
       "resolution": null,
       "rollup": {
         "approved": 2,
-        "blocked": 1,
         "decided": 3,
-        "in-progress": 1,
+        "done": 1,
+        "draft": 1,
         "missing": 3,
         "verified": 3
       },
@@ -75914,7 +75894,7 @@
         {
           "id": "backend-integration:badge-qr",
           "title": "BI-15 Badge & QR Backend Integration",
-          "why": "BI-15 Badge & QR Backend Integration is blocked"
+          "why": "BI-15 Badge & QR Backend Integration is draft"
         }
       ],
       "card": null,
@@ -78698,7 +78678,6 @@
         "backend-delivery:view-as",
         "story:view-as",
         "frontend-requirements:widgets",
-        "project:ring-access-model",
         "backend-delivery:ring-members",
         "frontend-delivery:profiles",
         "frontend-delivery:ring-projection",
@@ -81362,7 +81341,6 @@
         "story:companies",
         "backend-integration:ring-invitations",
         "frontend-requirements:ring-invitations",
-        "project:ring-access-model",
         "project:frontend-api-guide",
         "project:frontend-contract",
         "task:B-02",
@@ -81729,7 +81707,6 @@
         "story:companies",
         "backend-integration:ring-invitations",
         "frontend-requirements:ring-invitations",
-        "project:ring-access-model",
         "project:spec-map",
         "needs-decision:ND-14",
         "needs-decision:ND-15",
@@ -82219,10 +82196,11 @@
       "resolution": null,
       "rollup": {
         "approved": 4,
-        "blocked": 3,
+        "blocked": 2,
         "decided": 3,
-        "draft": 2,
-        "in-progress": 4,
+        "done": 1,
+        "draft": 3,
+        "in-progress": 3,
         "missing": 11,
         "verified": 3
       },
@@ -85972,12 +85950,15 @@
         "frontend-requirements:ring-access",
         "qa-backend:ring-access",
         "frontend-requirements:ring-members",
+        "qa-backend:ring-members",
+        "backend-delivery:ring-projection",
         "frontend-requirements:ring-projection",
         "qa-backend:ring-projection",
         "backend-delivery:rings",
         "backend-integration:rings",
         "frontend-requirements:rings",
         "qa-backend:rings",
+        "backend-integration:view-as",
         "frontend-requirements:view-as",
         "qa-backend:view-as",
         "frontend-requirements:error-contract",
@@ -86560,21 +86541,13 @@
         "feature:companies",
         "feature:delegated-admins",
         "feature:ring-invitations",
-        "task:B-17",
         "decision:D-04",
         "backend-delivery:connections",
         "story:connections",
         "backend-delivery:badge-qr",
         "backend-integration:badge-qr",
-        "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
-        "qa-backend:ring-access",
-        "frontend-requirements:ring-projection",
-        "qa-backend:ring-projection",
-        "qa-backend:rings",
-        "frontend-requirements:view-as",
-        "qa-backend:view-as",
-        "frontend-requirements:companies",
+        "backend-integration:view-as",
         "story:companies",
         "story:delegated-admins",
         "project:backend-agent"
@@ -86592,7 +86565,7 @@
       "task": null,
       "title": "Ring Access Model",
       "unmet": [],
-      "updated": "2026-11-05"
+      "updated": "2026-11-08"
     },
     "project:spec-map": {
       "affects": [],
@@ -87166,13 +87139,7 @@
     },
     "qa-backend:badge-qr": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "backend-delivery:badge-qr",
-          "title": "BD-18 Badge & QR Backend Delivery",
-          "why": "BD-18 Badge & QR Backend Delivery is in progress"
-        }
-      ],
+      "blockedBy": [],
       "card": null,
       "children": [],
       "code": "badge-qr",
@@ -89082,7 +89049,6 @@
         "frontend-requirements:companies",
         "backend-integration:ring-invitations",
         "frontend-requirements:ring-invitations",
-        "project:ring-access-model",
         "project:spec-map",
         "needs-decision:ND-14",
         "needs-decision:ND-15",
@@ -89281,6 +89247,7 @@
         "project:docs-tree",
         "project:api-conventions",
         "project:frontend-agent-prompt",
+        "project:frontend-api-guide",
         "backend-integration:ring-access",
         "story:ring-access",
         "backend-delivery:ring-projection",
@@ -89427,7 +89394,6 @@
         "story:companies",
         "backend-integration:ring-invitations",
         "frontend-requirements:ring-invitations",
-        "project:ring-access-model",
         "project:frontend-api-guide",
         "project:frontend-contract",
         "needs-decision:ND-16",
@@ -89617,7 +89583,6 @@
         "story:ring-projection",
         "story:view-as",
         "frontend-requirements:widgets",
-        "project:ring-access-model",
         "feature:error-contract",
         "backend-delivery:error-contract",
         "frontend-requirements:error-contract",
@@ -89828,7 +89793,6 @@
         "story:companies",
         "backend-integration:ring-invitations",
         "frontend-requirements:ring-invitations",
-        "project:ring-access-model",
         "project:spec-map",
         "needs-decision:ND-14",
         "needs-decision:ND-15",
@@ -92066,14 +92030,14 @@
       ],
       "rollup": {
         "approved": 42,
-        "blocked": 28,
+        "blocked": 27,
         "current": 7,
         "decided": 33,
         "delivered": 12,
-        "done": 32,
-        "draft": 27,
+        "done": 33,
+        "draft": 28,
         "failing": 1,
-        "in-progress": 48,
+        "in-progress": 47,
         "missing": 130,
         "needs-decision": 1,
         "partial": 12,
@@ -92870,6 +92834,7 @@
         "frontend-requirements:rings",
         "qa-backend:rings",
         "story:rings",
+        "backend-integration:view-as",
         "frontend-requirements:view-as",
         "qa-backend:view-as",
         "story:view-as",
@@ -96735,7 +96700,6 @@
         "story:companies",
         "backend-integration:ring-invitations",
         "frontend-requirements:ring-invitations",
-        "project:ring-access-model",
         "project:spec-map",
         "project:status-report-2026-10-15",
         "project:frontend-api-guide",

@@ -17,6 +17,8 @@ tags: [story, story/approved, module/discovery, layer/business]
 
 # Badge & QR · User Story
 
+> ⚠ Affected by [[BD-18 Badge & QR Backend Delivery]] (2026-11-08): backend main 1c460b0 shipped the code, reset, scan count and resolve: POST /rings/:ringId/qr (+ /reset, GET …/qr/scans) and GET /views/qr/:token; 'What exists today' and the 'Not available yet' lines of S1, S2, S6, S10, S13 are out of date. Connect by qrToken is still not built (BD-14)
+
 **Feature:** [[F-18 Badge & QR]] · **Status:** Approved (2026-11-08 by Omar Fostok) · **Frontend Requirements:** [[FR-18 Badge & QR Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 > **Rewritten 2026-11-08** as one set of parts, in the order the moment happens, with [[D-10 Connect sends what the requester already has|D-10]], [[D-11 The badge code stays the same for its day|D-11]], [[D-12 The badge QR is a socialpin.me link|D-12]], [[D-22 The public page only says the Pin exists|D-22]], [[D-28 Scan someone in is not in the MVP|D-28]] and [[D-35 A join code can be shown as a QR|D-35]]. It replaces the old S1–S20, where S1–S6 and the merged tasks T-007 to T-010 (S7–S20) said the same things twice. The story was approved on 2026-10-25 (khaled) and goes back to draft for approval of the rewrite.

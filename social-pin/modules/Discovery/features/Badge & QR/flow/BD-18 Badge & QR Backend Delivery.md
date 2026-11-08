@@ -3,7 +3,7 @@ id: BD-18
 type: backend-delivery
 module: discovery
 feature: badge-qr
-status: in-progress
+status: done
 scope: feature
 screens: [s34, s43, s44, s56]
 depends: ["FR-18 Badge & QR Frontend Requirements", "S-37 Badge & QR Story", "D-10 Connect sends what the requester already has", "D-11 The badge code stays the same for its day", "D-12 The badge QR is a socialpin.me link", "D-28 Scan someone in is not in the MVP", "BD-08 Ring Access Engine Backend Delivery", "BD-12 View As & Pin Views Backend Delivery"]
@@ -11,18 +11,18 @@ affects: ["FR-18 Badge & QR Frontend Requirements", "BD-14 Connections Backend D
 related: ["POST /rings/:ringId/qr", "POST /rings/:ringId/qr/reset", "GET /rings/:ringId/qr/scans", "GET /views/qr/:token", "GET /views/ring/:ringId", "E_RING_02", "E_RING_03", "E_BADGE_01", "D-22 The public page only says the Pin exists", "D-35 A join code can be shown as a QR", "Ring Access Model", "F-28 Subscription (Free vs Pro)", "F-23 Events During"]
 created: 2026-10-18
 updated: 2026-11-08
-tags: [backend-delivery, backend-delivery/in-progress, module/discovery, layer/backend]
+tags: [backend-delivery, backend-delivery/done, module/discovery, layer/backend]
 ---
 
-# 🟡 Badge & QR · Backend Delivery
+# ✅ Badge & QR · Backend Delivery
 
-**Feature:** [[F-18 Badge & QR]] · **Status:** In progress · **Integration guide:** [[BI-15 Badge & QR Backend Integration]] · **Requirements:** [[FR-18 Badge & QR Frontend Requirements]] · **QA:** [[Badge & QR QA Backend]]
+**Feature:** [[F-18 Badge & QR]] · **Status:** Done · **Integration guide:** [[BI-15 Badge & QR Backend Integration]] · **Requirements:** [[FR-18 Badge & QR Frontend Requirements]] · **QA:** [[Badge & QR QA Backend]]
 
-What the backend built for this feature and how it works. **Not on `main` yet:** everything below is on the code branch `FR-18/badge/qr-token-issue-resolve` (`a566a2e`, from `main` `cb95a39`), waiting for review and merge. Until it merges, `main` has the `RingQrToken` table and no route that issues or resolves a code.
+What the backend shipped for this feature and how it works. **On backend `main` since `1c460b0`** (2026-11-08): the code branch `FR-18/badge/qr-token-issue-resolve` (`a566a2e`) merged first, then F-14 and F-17; 981 unit tests green on the combination.
 
 ## Endpoints, tables and code
 
-**Endpoints** (all signed in; on the branch)
+**Endpoints** (all signed in; on `main`)
 
 | Method and path | Who | What | Story |
 |---|---|---|---|
@@ -54,11 +54,11 @@ What the backend built for this feature and how it works. **Not on `main` yet:**
 
 **One refusal.** A malformed, unknown, forged, expired, reset or rotated code, an ended or deleted Ring, and a block either way all answer **404 `E_RING_ACCESS_01`, "This profile is not shared with you"**: the same body as `GET /views/pin/:pinName`'s not-found, and no sooner than **300 ms** after the request began, so the answer time does not tell them apart (checked live: 303–313 ms for all eight). A Ring that ends between the decision and the card (`E_RING_ACCESS_02` from the renderer) is folded into the same body.
 
-**Connect by scanned code (D-10).** `BadgeModule` exports `BadgeService.resolveCode(token, viewer)`: the lookup and the access decision without the card, the count, the limit or the floor, throwing the same 404. [[BD-14 Connections Backend Delivery]] calls it for `POST /connections/requests { qrToken }`; `access.ownerUserId` is who to address.
+**Connect by scanned code (D-10).** `BadgeModule` exports `BadgeService.resolveCode(token, viewer)`: the lookup and the access decision without the card, the count, the limit or the floor, throwing the same 404, for [[BD-14 Connections Backend Delivery]] to call on `POST /connections/requests { qrToken }`; `access.ownerUserId` is who to address. **Not wired yet:** on `main` that route accepts `{ pinName }` and not `{ qrToken }` (see *Gaps*).
 
 ### What exists
 
-On the branch `FR-18/badge/qr-token-issue-resolve`, not on `main`:
+On backend `main` (`1c460b0`):
 
 - The code route with the 24 h window and `url`, the reset, the scan count, the resolve with `expiresAt`, the 429, the even-timed single 404, and `resolveCode` for Connect.
 - `RingQrToken`: opaque, hashed at rest, revocable (on `main`).
@@ -66,7 +66,9 @@ On the branch `FR-18/badge/qr-token-issue-resolve`, not on `main`:
 
 ### Gaps
 
-- **Not merged:** nothing above is on `main` until the branch is reviewed and merged.
+- **Connect by scanned code** ([[D-10 Connect sends what the requester already has|D-10]]): `POST /connections/requests` does not accept `{ qrToken }` yet; `BadgeService.resolveCode` is there for it. BD-14's to wire ([[BD-14 Connections Backend Delivery]]); until then Connect from a scanned card has no route.
+- **Scan someone in** is not built, by decision: not in the MVP ([[D-28 Scan someone in is not in the MVP|D-28]]); a scan never adds anyone to a Ring.
+- **No QA Backend card yet** ([[Badge & QR QA Backend]] is not written): QA writes it.
 - The 429 limit is kept in the process's memory: behind several instances each counts alone.
 - A deleted Ring's codes are not revoked on delete (`RingService.remove` is F-11's); they are refused because the engine requires a live Ring. The same holds for an ended Ring.
 - The 429 carries no `Retry-After`; the window is one minute.
@@ -79,3 +81,9 @@ On the branch `FR-18/badge/qr-token-issue-resolve`, not on `main`:
 - 2026-10-18 · split out of [[F-18 Badge & QR]] when the vault moved to layers
 - 2026-11-08 · FR-18 approved by the backend on `tickets/backend/M-04-discovery/F-18-badge-qr/FR-18-accepted`; stays `in-progress`
 - 2026-11-08 · code branch `FR-18/badge/qr-token-issue-resolve` (`a566a2e`, not merged) · S-37 S1–S4, S6, S10, S13 · `POST /rings/:ringId/qr`, `POST /rings/:ringId/qr/reset`, `GET /rings/:ringId/qr/scans`, `GET /views/qr/:token`; new `E_BADGE_01`; `E_RING_03` now used; `RingAccessService.assertRingPresented`; no migration · the four flags (S-37, D-12, D-11, D-10) settled by this note and cleared
+- 2026-11-08 · backend main `1c460b0` (merge of `FR-18/badge/qr-token-issue-resolve`, `a566a2e`) · S-37 S1–S4, S6, S10, S13 shipped: `POST /rings/:ringId/qr`, `POST /rings/:ringId/qr/reset`, `GET /rings/:ringId/qr/scans`, `GET /views/qr/:token`; `E_BADGE_01`, `E_RING_03`; token 32 chars, 24 h; `done`. Open: Connect by `{ qrToken }` (BD-14), scan someone in (D-28, not MVP), the domain routes, Pro and event-pass codes, no QA Backend card yet
+- 2026-11-08 · flagged [[S-37 Badge & QR Story]]: backend main 1c460b0 shipped the code, reset, scan count and resolve: POST /rings/:ringId/qr (+ /reset, GET …/qr/scans) and GET /views/qr/:token; 'What exists today' and the 'Not available yet' lines of S1, S2, S6, S10, S13 are out of date. Connect by qrToken is still not built (BD-14)
+- 2026-11-08 · flagged [[S-19 View As & Pin Views Story]]: S3: a scanned badge now resolves with GET /views/qr/:token (backend main 1c460b0), not GET /views/ring/:ringId; the QR carries https://socialpin.me/q/<token>, never a Ring id
+- 2026-11-08 · flagged [[S-23 Connections Story]]: GET /views/qr/:token exists on backend main 1c460b0 ('What exists today' and S1 By scan); Connect by { qrToken } is still not accepted by POST /connections/requests
+- 2026-11-08 · flagged [[FR-14 Connections Frontend Requirements]]: GET /views/qr/:token is on backend main 1c460b0: the 'By scan' and 'The card by scanned code' rows can read ✅ (BI-15); Connect by { qrToken } is still ❌
+- 2026-11-08 · flagged [[BD-14 Connections Backend Delivery]]: BadgeService.resolveCode (BadgeModule export, main 1c460b0) is the token lookup and access decision for POST /connections/requests { qrToken }; the 'By scan waits on the QR resolve' gap can now be built

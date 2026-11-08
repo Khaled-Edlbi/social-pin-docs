@@ -3,7 +3,7 @@ id: P-16
 type: project
 layer: backend
 created: 2026-10-15
-updated: 2026-11-05
+updated: 2026-11-08
 tags: [project, core]
 ---
 
@@ -34,7 +34,7 @@ The part of the codebase most likely to be broken by a well-meaning change. Read
 | Feature | The access question it must ask the engine |
 |---|---|
 | [[F-14 Connections]] | A request to a blocked user, or from one, gets the same 404 as views. Accepting adds a member; the engine then answers everything else. |
-| [[F-18 Badge & QR]] | Resolving a token renders `GET /views/ring/:ringId` through the engine; the token never reveals the ring id. |
+| [[F-18 Badge & QR]] | **Shipped** (main `1c460b0`): `GET /views/qr/:token` asks `assertRingPresented`, since a valid badge code is its owner presenting that Ring: live Ring and no block either way, membership neither asked nor made ([[D-28 Scan someone in is not in the MVP\|D-28]]). Every refusal is the one `E_RING_ACCESS_01` body; the token never reveals the Ring id ([[BD-18 Badge & QR Backend Delivery]]). |
 | [[F-20 PinCast & Nearby]] | "Nearby by Ring" lists only people whose Ring the viewer is a live member of. Coordinates never reach a recipient. |
 | [[F-23 Events During]] | Exhibitor lists, the floor map and the catalogue are scoped by Event Ring membership. |
 | [[F-26 Meetings]] | The meeting Ring makes both parties visible to each other for the meeting window only. |
