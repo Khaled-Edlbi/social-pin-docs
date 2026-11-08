@@ -8,10 +8,10 @@ scope: feature
 screens: [s11, s12, s14, s16, s17, s68]
 depends: ["BD-03 Counts Backend Delivery"]
 affects: ["FR-03 Counts Frontend Requirements"]
-related: ["S-03 Counts Story", "BI-08 Rings Backend Integration", "D-14 Shared with me lists people, never the Ring", "D-04 Ring settings at launch and their defaults", "GET /rings", "GET /rings/:id", "GET /rings/shared-with-me", "GET /rings/shared-with-me/count", E_RING_02]
+related: ["S-03 Counts Story", "BI-08 Rings Backend Integration", "D-14 Shared with me lists people, never the Ring", "D-04 Ring settings at launch and their defaults", "GET /rings", "GET /rings/:id", "GET /rings/shared-with-me", "GET /rings/shared-with-me/count", "GET /connections/count", "BI-16 Connections Backend Integration", E_RING_02]
 pending: []
 created: 2026-11-05
-updated: 2026-11-05
+updated: 2026-11-08
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---
 
@@ -25,7 +25,7 @@ tags: [backend-integration, backend-integration/current, module/identity, layer/
 
 Written by the **backend** team for the frontend: how to call what was delivered. `status: current` once it matches the code on `main`.
 
-**On `main` since 2026-11-05 (`f186ba1`):** `memberCount` on `GET /rings` and `GET /rings/:id`, and `GET /rings/shared-with-me/count`. Calls to the Rings endpoints themselves are in [[BI-08 Rings Backend Integration]]; this note covers only the counts. The connection count on Me is not available yet (below).
+**On `main` since 2026-11-05 (`f186ba1`):** `memberCount` on `GET /rings` and `GET /rings/:id`, and `GET /rings/shared-with-me/count`. Calls to the Rings endpoints themselves are in [[BI-08 Rings Backend Integration]]; this note covers only the counts. **On `main` since 2026-11-08 (`1c460b0`, with F-14):** `GET /connections/count`, the connection count on Me; the Connections routes themselves are in [[BI-16 Connections Backend Integration]].
 
 ## Screens → calls
 
@@ -37,7 +37,7 @@ Written by the **backend** team for the frontend: how to call what was delivered
 | [[Screen Index#s16|s16]] My Rings | sees "My Rings · N" and "N people" per row | `GET /rings` → `meta.total`, `data[].memberCount` |
 | [[Screen Index#s16|s16]] / [[Screen Index#s17|s17]] tab chips | reads "Shared with me · N", N people | `GET /rings/shared-with-me/count` → `people` |
 | [[Screen Index#s17|s17]] Shared with me | sees the people; **no member count on any row** | `GET /rings/shared-with-me` (`memberCount` is `null` on every row today) |
-| [[Screen Index#s68|s68]] Me | "N Rings": `meta.total` of `GET /rings`; the connections part stays hidden | `GET /rings` |
+| [[Screen Index#s68|s68]] Me | "N Rings · N connections": `meta.total` of `GET /rings`, and `connections` from the count route | `GET /rings`, `GET /connections/count` |
 
 ## Flow
 
@@ -90,6 +90,14 @@ Written by the **backend** team for the frontend: how to call what was delivered
 
 `people` is an integer ≥ 0: how many people share at least one Ring with me right now, one per person. `0` is a real zero ("No Rings shared with you yet"). It is the only field; the body names no Ring.
 
+`GET /connections/count`:
+
+```json
+{ "connections": 12 }
+```
+
+`connections` is an integer ≥ 0: my accepted connections, each person once. A contact with *No access* (in none of my Rings) counts; disconnected, blocked and deleted people and every request (pending, declined, expired) do not. It always equals `meta.total` of `GET /connections`. `0` is a real zero now that connections exist ("No connections yet").
+
 ## State to keep on the client
 
 - No cache of its own: the count lives on the list response (`rings:<userId>`) and on the Ring detail, and expires with them.
@@ -114,7 +122,6 @@ Written by the **backend** team for the frontend: how to call what was delivered
 
 ## Not available yet
 
-- "N connections" on Me → [[S-03 Counts Story|Counts · S11]] (waits on connections). Keep the connections part **hidden**, never "0 connections".
 - "N added today" on Home → an open question of [[S-03 Counts Story]].
 
 ## Checklist
