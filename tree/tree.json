@@ -2073,7 +2073,8 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:connections",
-        "backend-integration:connections"
+        "backend-integration:connections",
+        "frontend-requirements:connections"
       ],
       "owner": "feature:connections"
     },
@@ -2094,7 +2095,8 @@
       ],
       "kind": "endpoint",
       "notes": [
-        "backend-delivery:connections"
+        "backend-delivery:connections",
+        "frontend-requirements:connections"
       ],
       "owner": null
     },
@@ -11764,6 +11766,7 @@
         "GET /blocks",
         "GET /connections",
         "GET /connections/:userId",
+        "GET /connections/count",
         "GET /views/pin/:pinName",
         "POST /connections/requests",
         "POST /connections/requests/:id/decline"
@@ -16833,6 +16836,7 @@
         "GET /blocks",
         "GET /connections",
         "GET /connections/:userId",
+        "GET /connections/count",
         "GET /rings",
         "GET /rings/:ringId/projection",
         "GET /rings/shared-with-me",
