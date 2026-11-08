@@ -901,6 +901,7 @@
     "DELETE /users/me": {
       "containers": [
         "feature:account",
+        "feature:ring-members",
         "task:B-02"
       ],
       "kind": "endpoint",
@@ -910,6 +911,7 @@
         "frontend-delivery:account",
         "frontend-requirements:account",
         "qa-backend:account",
+        "qa-backend:ring-members",
         "story:account",
         "task:B-02"
       ],
@@ -6150,7 +6152,7 @@
     },
     "concepts": 291,
     "decisions": 34,
-    "edges": 6868,
+    "edges": 6869,
     "features": 41,
     "layerNotes": 151,
     "modules": 8,
@@ -9657,16 +9659,6 @@
       "to": "frontend-requirements:ring-access"
     },
     {
-      "from": "qa-backend:ring-members",
-      "kind": "pending",
-      "to": "task:B-09"
-    },
-    {
-      "from": "qa-backend:ring-members",
-      "kind": "pending",
-      "to": "task:B-10"
-    },
-    {
       "from": "qa-backend:ring-projection",
       "kind": "pending",
       "to": "task:B-11"
@@ -9981,6 +9973,14 @@
         "E_USER_01",
         "POST /auth/login",
         "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "backend-delivery:account",
+      "kind": "related",
+      "to": "qa-backend:ring-members",
+      "via": [
+        "DELETE /users/me"
       ]
     },
     {
@@ -13146,6 +13146,14 @@
         "GET /users/me",
         "POST /auth/login",
         "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "backend-integration:account",
+      "kind": "related",
+      "to": "qa-backend:ring-members",
+      "via": [
+        "DELETE /users/me"
       ]
     },
     {
@@ -36847,6 +36855,7 @@
       "kind": "shares",
       "to": "feature:ring-members",
       "via": [
+        "DELETE /users/me",
         "GET /rings"
       ]
     },
@@ -45108,6 +45117,7 @@
       "kind": "shares",
       "to": "task:B-02",
       "via": [
+        "DELETE /users/me",
         "GET /rings"
       ]
     },
@@ -54653,6 +54663,11 @@
       "to": "story:ring-invitations"
     },
     {
+      "from": "qa-backend:ring-members",
+      "kind": "wikilink",
+      "to": "task:B-17"
+    },
+    {
       "from": "qa-backend:ring-projection",
       "kind": "wikilink",
       "to": "feature:widgets"
@@ -57232,6 +57247,7 @@
         "frontend-requirements:account",
         "qa-backend:account",
         "story:account",
+        "qa-backend:ring-members",
         "needs-decision:ND-20",
         "project:spec-map",
         "backend-delivery:auth",
@@ -60230,6 +60246,7 @@
         "qa-frontend:account",
         "story:counts",
         "frontend-requirements:ring-projection",
+        "qa-backend:ring-members",
         "feature:account",
         "backend-delivery:view-as",
         "frontend-requirements:view-as",
@@ -67710,8 +67727,8 @@
         "current": 1,
         "decided": 1,
         "done": 1,
-        "failing": 1,
         "missing": 2,
+        "passing": 1,
         "ready": 3,
         "verified": 1
       },
@@ -74729,12 +74746,12 @@
         "delivered": 6,
         "done": 18,
         "draft": 3,
-        "failing": 5,
+        "failing": 4,
         "in-progress": 13,
         "missing": 20,
         "needs-decision": 1,
         "partial": 13,
-        "passing": 4,
+        "passing": 5,
         "ready": 11,
         "verified": 10
       },
@@ -81448,7 +81465,7 @@
         "backend-delivery:ring-members",
         "story:ring-members"
       ],
-      "effectiveStatus": "failing",
+      "effectiveStatus": "passing",
       "effort": null,
       "feature": "ring-members",
       "foundOn": null,
@@ -81469,23 +81486,14 @@
         "feature:ring-members"
       ],
       "path": "social-pin/modules/Identity Core/features/Ring Members/flow/QB-11 Ring Members QA Backend.md",
-      "pending": [
-        {
-          "person": null,
-          "text": "row B10, re-run when the fix ships",
-          "to": "task:B-09"
-        },
-        {
-          "person": null,
-          "text": "row B15, re-run when the fix ships",
-          "to": "task:B-10"
-        }
-      ],
+      "pending": [],
       "priority": "critical",
       "related": [
         "task:B-09",
         "task:B-10",
         "frontend-requirements:connections",
+        "backend-delivery:account",
+        "backend-integration:account",
         "backend-delivery:counts",
         "backend-integration:counts",
         "qa-backend:counts",
@@ -81554,18 +81562,18 @@
         "s46",
         "s47"
       ],
-      "status": "failing",
+      "status": "passing",
       "summary": "Expected behaviour of the API, as artefacts a person can check a build against: tables and diagrams, not test code (the specs live in the backend repo). status: passing or failing after a run; the…",
       "tags": [
         "qa-backend",
-        "qa-backend/failing",
+        "qa-backend/passing",
         "module/identity",
         "layer/qa"
       ],
       "task": null,
       "title": "QB-11 Ring Members QA Backend",
       "unmet": [],
-      "updated": "2026-11-05"
+      "updated": "2026-11-08"
     },
     "qa-backend:ring-projection": {
       "affects": [
@@ -84234,12 +84242,12 @@
         "delivered": 6,
         "done": 19,
         "draft": 28,
-        "failing": 5,
+        "failing": 4,
         "in-progress": 47,
         "missing": 134,
         "needs-decision": 3,
         "partial": 13,
-        "passing": 4,
+        "passing": 5,
         "ready": 13,
         "reference": 32,
         "todo": 3,
