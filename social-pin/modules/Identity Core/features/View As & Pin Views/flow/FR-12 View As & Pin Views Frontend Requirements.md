@@ -17,6 +17,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/identity, laye
 
 # View As & Pin Views · Frontend Requirements
 
+> ⚠ Affected by [[BD-12 View As & Pin Views Backend Delivery]] (2026-11-08): backend main 1c460b0: the QR rows are delivered: POST /rings/:ringId/qr issues the badge code, GET /views/qr/:token resolves it into RingProfileViewEntity plus expiresAt (BI-15). 'Source today' (a Ring id in the QR, temporary) is out of date: the QR carries https://socialpin.me/q/<token>, never a Ring id; for /frontend
+
 > ⚠ Affected by [[BD-12 View As & Pin Views Backend Delivery]] (2026-11-08): backend main cb95a39: point 3 of the backend note is resolved: a viewer now gets no file id on any /views/* route (avatarFileId left the view; the owner's projection keeps it, D-16); read avatarUrl and attachments[].url; for /frontend
 
 > ⚠ Affected by [[BD-10 Ring Projection Backend Delivery]] (2026-11-05): links and custom fields are one library per account on main a249ab2 (S-17 S9): the view's links[] / infoBlocks[] shapes are unchanged, but a value is now the same in every Ring that shows it; the owner's GET /rings/:ringId/projection gives each item's isVisible per Ring, which 'where each field goes' can read
@@ -98,8 +100,8 @@ What the client needs from the backend for every screen that renders another per
 | All perspectives of one person | `GET /views/user/:userId/perspectives` | ✅ | S5 |
 | My live Rings for the selector and the owner face | `GET /rings`, `GET /rings/:ringId/projection` | ✅ | S2 (listed under [[F-11 Rings]], [[F-10 Ring Projection]]) |
 | **The photo and files on the view**: `avatarUrl` and a `url` per attachment, signed, valid 15 minutes, no file id | `GET /views/*` | ✅ `avatarUrl`, `attachments[].url`, served by `GET /files/content/:token` (2026-11-05) | [[D-16 Files load from signed links that expire in 15 minutes]] (decided; the backend builds it) |
-| Issue a rotating QR token for a Ring | — | ❌ | [[S-37 Badge & QR Story\|Badge & QR · S7–S12]], [[ND-12 What the badge QR encodes]] |
-| Resolve a scanned token to a view | — | ❌ | [[S-37 Badge & QR Story\|Badge & QR · S13–S18]] |
+| Issue a rotating QR token for a Ring | `POST /rings/:ringId/qr` | ✅ (2026-11-08, [[BI-15 Badge & QR Backend Integration\|BI-15]]) | [[S-37 Badge & QR Story\|Badge & QR · S1–S2]], [[D-12 The badge QR is a socialpin.me link]] |
+| Resolve a scanned token to a view | `GET /views/qr/:token` | ✅ (2026-11-08, this view + `expiresAt`) | [[S-37 Badge & QR Story\|Badge & QR · S6]] |
 | Connect after a scan | — | ❌ | [[S-23 Connections Story\|Connections · S8–S12]] |
 | Block a person | — | ❌ | [[S-23 Connections Story\|Connections · S25]] |
 | A `userId` to call `/perspectives` with | — | ❌ | [[S-23 Connections Story\|Connections · S19–S24]] |

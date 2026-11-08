@@ -3451,16 +3451,19 @@
       "containers": [
         "decision:D-12",
         "feature:badge-qr",
-        "feature:connections"
+        "feature:connections",
+        "feature:view-as"
       ],
       "kind": "endpoint",
       "notes": [
         "backend-delivery:badge-qr",
         "backend-delivery:connections",
+        "backend-delivery:view-as",
         "backend-integration:badge-qr",
         "decision:D-12",
         "frontend-requirements:badge-qr",
         "frontend-requirements:connections",
+        "frontend-requirements:view-as",
         "story:badge-qr",
         "story:connections"
       ],
@@ -4619,15 +4622,18 @@
         "decision:D-11",
         "decision:D-12",
         "feature:badge-qr",
+        "feature:view-as",
         "needs-decision:ND-11"
       ],
       "kind": "endpoint",
       "notes": [
         "backend-delivery:badge-qr",
+        "backend-delivery:view-as",
         "backend-integration:badge-qr",
         "decision:D-11",
         "decision:D-12",
         "frontend-requirements:badge-qr",
+        "frontend-requirements:view-as",
         "needs-decision:ND-11",
         "story:badge-qr"
       ],
@@ -6601,7 +6607,7 @@
     },
     "concepts": 318,
     "decisions": 34,
-    "edges": 7554,
+    "edges": 7558,
     "features": 41,
     "layerNotes": 155,
     "modules": 8,
@@ -10890,7 +10896,9 @@
       "kind": "related",
       "to": "backend-delivery:view-as",
       "via": [
-        "GET /views/ring/:ringId"
+        "GET /views/qr/:token",
+        "GET /views/ring/:ringId",
+        "POST /rings/:ringId/qr"
       ]
     },
     {
@@ -11175,7 +11183,9 @@
       "to": "frontend-requirements:view-as",
       "via": [
         "GET /views/pin/:pinName",
-        "GET /views/ring/:ringId"
+        "GET /views/qr/:token",
+        "GET /views/ring/:ringId",
+        "POST /rings/:ringId/qr"
       ]
     },
     {
@@ -15889,7 +15899,9 @@
       "to": "backend-delivery:view-as",
       "via": [
         "GET /views/pin/:pinName",
-        "GET /views/ring/:ringId"
+        "GET /views/qr/:token",
+        "GET /views/ring/:ringId",
+        "POST /rings/:ringId/qr"
       ]
     },
     {
@@ -16187,7 +16199,9 @@
       "via": [
         "GET /rings",
         "GET /views/pin/:pinName",
-        "GET /views/ring/:ringId"
+        "GET /views/qr/:token",
+        "GET /views/ring/:ringId",
+        "POST /rings/:ringId/qr"
       ]
     },
     {
@@ -42000,6 +42014,14 @@
       ]
     },
     {
+      "from": "decision:D-11",
+      "kind": "shares",
+      "to": "feature:view-as",
+      "via": [
+        "POST /rings/:ringId/qr"
+      ]
+    },
+    {
       "from": "decision:D-12",
       "kind": "shares",
       "to": "feature:badge-qr",
@@ -42014,6 +42036,15 @@
       "to": "feature:connections",
       "via": [
         "GET /views/qr/:token"
+      ]
+    },
+    {
+      "from": "decision:D-12",
+      "kind": "shares",
+      "to": "feature:view-as",
+      "via": [
+        "GET /views/qr/:token",
+        "POST /rings/:ringId/qr"
       ]
     },
     {
@@ -44518,7 +44549,9 @@
         "E_AUTH_04",
         "GET /rings",
         "GET /views/pin/:pinName",
-        "GET /views/ring/:ringId"
+        "GET /views/qr/:token",
+        "GET /views/ring/:ringId",
+        "POST /rings/:ringId/qr"
       ]
     },
     {
@@ -45951,6 +45984,7 @@
         "GET /rings",
         "GET /rings/:ringId/projection",
         "GET /views/pin/:pinName",
+        "GET /views/qr/:token",
         "GET /views/ring/:ringId",
         "GET /views/user/:userId/perspectives",
         "POST /rings"
@@ -52223,6 +52257,14 @@
     {
       "from": "feature:view-as",
       "kind": "shares",
+      "to": "needs-decision:ND-11",
+      "via": [
+        "POST /rings/:ringId/qr"
+      ]
+    },
+    {
+      "from": "feature:view-as",
+      "kind": "shares",
       "to": "needs-decision:ND-14",
       "via": [
         "GET /views/ring/:id",
@@ -58440,6 +58482,11 @@
     {
       "from": "frontend-requirements:view-as",
       "kind": "wikilink",
+      "to": "decision:D-12"
+    },
+    {
+      "from": "frontend-requirements:view-as",
+      "kind": "wikilink",
       "to": "feature:badge-qr"
     },
     {
@@ -63912,6 +63959,8 @@
         "backend-integration:badge-qr",
         "frontend-requirements:badge-qr",
         "story:badge-qr",
+        "backend-delivery:view-as",
+        "frontend-requirements:view-as",
         "story:connections",
         "task:B-11",
         "needs-decision:ND-10",
@@ -63935,9 +63984,7 @@
         "backend-integration:rings",
         "frontend-requirements:rings",
         "qa-backend:rings",
-        "backend-delivery:view-as",
         "backend-integration:view-as",
-        "frontend-requirements:view-as",
         "qa-backend:view-as",
         "story:view-as",
         "frontend-requirements:widgets",
@@ -67103,6 +67150,8 @@
         "decision:D-12",
         "frontend-requirements:badge-qr",
         "story:badge-qr",
+        "backend-delivery:view-as",
+        "frontend-requirements:view-as",
         "story:connections",
         "task:B-11",
         "needs-decision:ND-10",
@@ -67126,9 +67175,7 @@
         "backend-integration:rings",
         "frontend-requirements:rings",
         "qa-backend:rings",
-        "backend-delivery:view-as",
         "backend-integration:view-as",
-        "frontend-requirements:view-as",
         "qa-backend:view-as",
         "story:view-as",
         "frontend-requirements:widgets",
