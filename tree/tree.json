@@ -6162,7 +6162,7 @@
     }
   },
   "counts": {
-    "blocked": 30,
+    "blocked": 29,
     "bugs": 17,
     "byKind": {
       "backend-delivery": 39,
@@ -6188,7 +6188,7 @@
     },
     "concepts": 291,
     "decisions": 34,
-    "edges": 7002,
+    "edges": 7001,
     "features": 41,
     "layerNotes": 151,
     "modules": 8,
@@ -8308,11 +8308,6 @@
       "from": "frontend-requirements:post-event",
       "kind": "blocks",
       "to": "backend-delivery:post-event"
-    },
-    {
-      "from": "frontend-requirements:ring-invitations",
-      "kind": "blocks",
-      "to": "backend-delivery:ring-invitations"
     },
     {
       "from": "frontend-requirements:subscription",
@@ -60620,20 +60615,14 @@
     },
     "backend-delivery:ring-invitations": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "frontend-requirements:ring-invitations",
-          "title": "FR-17 Ring Invitations & Join Frontend Requirements",
-          "why": "FR-17 Ring Invitations & Join Frontend Requirements is ready"
-        }
-      ],
+      "blockedBy": [],
       "card": "BD-17",
       "children": [],
       "code": "ring-invitations",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "ring-invitations",
       "foundOn": null,
@@ -60664,18 +60653,18 @@
         "s17",
         "s74"
       ],
-      "status": "todo",
+      "status": "in-progress",
       "summary": "What the backend shipped for this feature and how it works. The sum of this feature's task-level Backend Delivery notes (see the Tasks table below).",
       "tags": [
         "backend-delivery",
-        "backend-delivery/todo",
+        "backend-delivery/in-progress",
         "module/shared-rings",
         "layer/backend"
       ],
       "task": null,
       "title": "BD-17 Ring Invitations & Join Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-08"
     },
     "backend-delivery:ring-members": {
       "affects": [],
@@ -63206,7 +63195,7 @@
         {
           "id": "backend-delivery:ring-invitations",
           "title": "BD-17 Ring Invitations & Join Backend Delivery",
-          "why": "BD-17 Ring Invitations & Join Backend Delivery is blocked"
+          "why": "BD-17 Ring Invitations & Join Backend Delivery is in progress"
         }
       ],
       "card": null,
@@ -68953,11 +68942,10 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "approved": 1,
-        "blocked": 1,
+        "approved": 2,
         "decided": 8,
+        "in-progress": 1,
         "missing": 4,
-        "ready": 1,
         "verified": 8
       },
       "scope": null,
@@ -74793,7 +74781,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "ready",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "ring-invitations",
       "foundOn": null,
@@ -74868,11 +74856,11 @@
         "s43",
         "s74"
       ],
-      "status": "ready",
+      "status": "approved",
       "summary": "What the client needs from the backend to build S-33 Ring Invitations & Join Story S1–S12, and whether each need is met today. Rewritten 2026-11-08 against the approved story, D-31 to D-36, and…",
       "tags": [
         "frontend-requirements",
-        "frontend-requirements/ready",
+        "frontend-requirements/approved",
         "module/shared-rings",
         "layer/frontend"
       ],
@@ -76306,13 +76294,13 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 2,
-        "blocked": 4,
+        "approved": 3,
+        "blocked": 3,
         "decided": 8,
         "draft": 1,
-        "in-progress": 3,
+        "in-progress": 4,
         "missing": 12,
-        "ready": 2,
+        "ready": 1,
         "verified": 8
       },
       "scope": null,
@@ -82804,7 +82792,7 @@
         {
           "id": "backend-delivery:ring-invitations",
           "title": "BD-17 Ring Invitations & Join Backend Delivery",
-          "why": "BD-17 Ring Invitations & Join Backend Delivery is blocked"
+          "why": "BD-17 Ring Invitations & Join Backend Delivery is in progress"
         }
       ],
       "card": null,
@@ -85592,20 +85580,20 @@
         }
       ],
       "rollup": {
-        "approved": 40,
-        "blocked": 30,
+        "approved": 41,
+        "blocked": 29,
         "current": 5,
         "decided": 33,
         "delivered": 11,
         "done": 31,
         "draft": 26,
         "failing": 1,
-        "in-progress": 47,
+        "in-progress": 48,
         "missing": 134,
         "needs-decision": 1,
         "partial": 11,
         "passing": 7,
-        "ready": 5,
+        "ready": 4,
         "reference": 32,
         "todo": 3,
         "verified": 33
