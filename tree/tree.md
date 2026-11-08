@@ -117,7 +117,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
       - 🔵 [BI-07 Ring Projection Backend Integration](social-pin/modules/Identity%20Core/features/Ring%20Projection/flow/BI-07%20Ring%20Projection%20Backend%20Integration.md) (Backend Integration, open bugs B-11, B-12, Critical)
         - ✅ [B-08 Owner projection drops each attachment's file details](social-pin/bugs/B-08%20Owner%20projection%20drops%20each%20attachment's%20file%20details.md) (bug, Fixed, High)
         - ⬜ [B-11 Projection switches read any string as true](social-pin/bugs/B-11%20Projection%20switches%20read%20any%20string%20as%20true.md) (bug, High)
-        - ⬜ [B-12 Null on a link or custom field's required field answers 500](social-pin/bugs/B-12%20Null%20on%20a%20link%20or%20custom%20field's%20required%20field%20answers%20500.md) (bug, Medium)
+        - 📨 [B-12 Null on a link or custom field's required field answers 500](social-pin/bugs/B-12%20Null%20on%20a%20link%20or%20custom%20field's%20required%20field%20answers%20500.md) (bug, Medium)
       - 🔴 [QB-13 Ring Projection QA Backend](social-pin/modules/Identity%20Core/features/Ring%20Projection/flow/QB-13%20Ring%20Projection%20QA%20Backend.md) (QA Backend, 2 pending notes, Critical)
       - ✅ [FD-11 Ring Projection Frontend Delivery](social-pin/modules/Identity%20Core/features/Ring%20Projection/flow/FD-11%20Ring%20Projection%20Frontend%20Delivery.md) (Frontend Delivery, Critical)
       - ∅ _Ring Projection QA Frontend_ (QA Frontend)

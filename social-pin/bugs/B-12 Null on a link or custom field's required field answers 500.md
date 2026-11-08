@@ -3,7 +3,7 @@ id: B-12
 type: bug
 module: identity
 feature: ring-projection
-status: todo
+status: ready
 priority: medium
 effort: S
 foundOn: "BI-07 Ring Projection Backend Integration"
@@ -13,13 +13,15 @@ affects: ["BI-07 Ring Projection Backend Integration", "QB-13 Ring Projection QA
 related: ["BI-07 Ring Projection Backend Integration", "QB-13 Ring Projection QA Backend", "BD-10 Ring Projection Backend Delivery", "PATCH /rings/:ringId/projection/links/:linkId"]
 pending: []
 created: 2026-11-05
-updated: 2026-11-05
-tags: [bug, bug/todo, module/identity, priority/medium]
+updated: 2026-11-08
+tags: [bug, bug/ready, module/identity, priority/medium]
 ---
 
-# ⬜ B-12 · Null on a link or custom field's required field answers 500
+# 📨 B-12 · Null on a link or custom field's required field answers 500
 
-**Found against:** [[BI-07 Ring Projection Backend Integration]] · **Feature:** [[F-10 Ring Projection]] · **Status:** To do · **Priority:** Medium (`critical | high | medium | low`, from `docs.config.json`) · **Deadline:** — · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
+> ⚠ Affected by [[BD-10 Ring Projection Backend Delivery]] (2026-11-08): fixed on backend main e483d49, ready for re-test
+
+**Found against:** [[BI-07 Ring Projection Backend Integration]] · **Feature:** [[F-10 Ring Projection]] · **Status:** Ready · **Priority:** Medium (`critical | high | medium | low`, from `docs.config.json`) · **Deadline:** — · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
 
 **Found by:** [[QB-13 Ring Projection QA Backend]] rows B64, B65, B67 and B90, on build `main @ 12172c6 · localhost:3110, Node 22.22.2`.
 
