@@ -14,7 +14,7 @@ affects: ["S-16 Ring Members Story", "S-18 Rings Story", "S-19 View As & Pin Vie
 related: ["D-04 Ring settings at launch and their defaults", "D-13 The requester sees a declined request", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-17 Requests expire after 30 days, optional note, ask again at once", "D-18 Ring names shown when joined knowingly", "ND-10 How Connect addresses the scanned person", "ND-23 Mutual connections and events in common", "D-10 Connect sends what the requester already has", "D-23 A count of mutual connections, events where both were visible", "D-24 One pending request per pair", "D-25 A deleted account's connections, requests and blocks end silently", "D-26 A disconnect is not announced", "D-27 Sent keeps declined and expired requests for 30 days", "D-28 Scan someone in is not in the MVP", "D-29 Connection detail opens a member who is not a connection", "Ring Access Model"]
 pending: []
 created: 2026-10-18
-updated: 2026-11-04
+updated: 2026-11-08
 tags: [story, story/approved, module/connections, layer/business]
 ---
 
@@ -74,7 +74,7 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] `GET /connections/requests?direction=incoming` lists **pending** requests, newest first, paged (`limit` ≤ 50, `meta.total`). Not available yet.
-- [ ] Each row: the person's `displayName`, `pinName`, photo (initials until photos load, [[D-16 Files load from signed links that expire in 15 minutes]]), when it was sent, **where from** when known (scan, Pin name, PinCast, an event), and the **note**.
+- [ ] Each row: the person's `displayName`, `pinName`, photo (`avatarUrl`, initials when there is none, [[D-16 Files load from signed links that expire in 15 minutes]]), when it was sent, **where from** when known (scan, Pin name, PinCast, an event), and the **note**.
 - [ ] The *Incoming* tab reads "Incoming · N" from `meta.total`.
 - [ ] *Accept* opens S5. *Decline* (✕) is S6. Tapping the row opens what they share with me, if anything (S10).
 - [ ] A request unanswered for **30 days expires** and leaves the list.
@@ -130,8 +130,8 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] The request leaves my Sent list; the card's button reads *Connected*.
-- [ ] They appear on **Shared with me** (s17) as a **person** ("Maya Fadel", `!mayafadel`, initials), never with the Ring's name, colour or type ([[D-14 Shared with me lists people, never the Ring]]). Exists in the app today; the API still returns the Ring's name, which [[F-11 Rings]] has to stop.
-- [ ] Their card shows **the version from the Ring they put me in first** when I'm in several ([[D-15 Several Rings per connection, remove or disconnect]]). Not available yet on the server: `/views/pin` and the perspectives put the owner's default Ring first; the app stands in with the oldest membership.
+- [ ] They appear on **Shared with me** (s17) as a **person** ("Maya Fadel", `!mayafadel`, their photo or initials), never with the Ring's name, colour or type ([[D-14 Shared with me lists people, never the Ring]]). Exists: `GET /rings/shared-with-me` returns one row per person since backend `main` @ `12172c6`, and the app shows it.
+- [ ] Their card shows **the version from the Ring they put me in first** when I'm in several ([[D-15 Several Rings per connection, remove or disconnect]]). From Shared with me this exists: the row carries that Ring's `ringId`, which opens their card (`GET /views/ring/:ringId`) and is never shown. Not available yet elsewhere: `GET /views/pin/:pinName` and `GET /views/user/:userId/perspectives` still put the owner's default Ring first.
 - [ ] `grantedRingId` reaches me in no response.
 - [ ] A notification "Maya accepted your request" opens her card. Not available yet ([[S-96 Notifications Story]]).
 
@@ -207,7 +207,7 @@ Acceptance criteria:
 **As a** user **I want** honest numbers **so that** I trust them.
 
 Acceptance criteria:
-- [ ] Me shows **N connections**: accepted, each person once; *Remove from Rings* still counts, *Disconnect* doesn't; pending, declined and expired requests don't ([[S-03 Counts Story|Counts · S11]]). **Hidden, not "0" and not a sample**, until the backend has connections. Today Me shows a sample "218".
+- [ ] Me shows **N connections**: accepted, each person once; *Remove from Rings* still counts, *Disconnect* doesn't; pending, declined and expired requests don't ([[S-03 Counts Story|Counts · S11]]). **Hidden, not "0" and not a sample**, until the backend has connections. The app already shows no connections count on Me (the sample "218" is gone).
 - [ ] Home shows no connection count ([[S-03 Counts Story|Counts · S4]]).
 - [ ] The pending incoming count (S3) on the People tile.
 
@@ -237,7 +237,7 @@ Acceptance criteria:
 - **s47:** loading; the checklist with windows; the last-Ring choice; "What they see just changed"; what they share with me; *No access*.
 - **Contacts:** list, search with no results, empty, *No access* marker.
 - **Me:** the connections count hidden until real; Blocked people.
-- No photos until files load (D-16): initials everywhere.
+- Photos come as `avatarUrl`, a signed link that lives 15 minutes, never as `avatarFileId` ([[D-16 Files load from signed links that expire in 15 minutes]]); initials when there is no photo.
 - Reduced motion: every slide becomes a fade.
 
 ## Where the design disagrees (for the designer)
@@ -267,12 +267,13 @@ Not available yet, in the order the journey needs them:
 4. **Contacts:** `GET /connections?q=` with the person and *no access*; one call for which of my Rings a person is in.
 5. **Disconnect:** a route; and whether the other person is told.
 6. **Blocks:** `POST/DELETE /blocks/:userId`, `GET /blocks`; ending memberships both ways and pending requests.
-7. **Names on the roster:** `displayName`, `pinName`, photo per `RingMemberEntity`, or one join call.
-8. **First-Ring order:** `/views/pin` and the perspectives return the oldest membership first (D-15), not the default Ring.
-9. **Shared with me without Ring names** (D-14, on [[F-11 Rings]]).
-10. **Counts:** connections on Me; pending incoming.
-11. **Notifications:** request received, accepted (push carries no profile fields or Ring names).
-12. **Request error codes** (none defined yet): not found, already connected, already pending, no longer open.
+7. **Names on the roster:** `displayName`, `pinName`, `avatarUrl` per `RingMemberEntity`, or one join call.
+8. **First-Ring order:** `/views/pin` and the perspectives return the oldest membership first (D-15), not the default Ring (Shared with me already does, through the row's `ringId`).
+9. **Counts:** connections on Me; pending incoming.
+10. **Notifications:** request received, accepted (push carries no profile fields or Ring names).
+11. **Request error codes** (none defined yet): not found, already connected, already pending, no longer open.
+
+Shipped since the rewrite: **Shared with me as people** (D-14), backend `main` @ `12172c6`.
 
 ## Rules the backend already enforces
 
@@ -293,6 +294,7 @@ Not available yet, in the order the journey needs them:
 
 ## Log
 
+- 2026-11-08 · `tickets/pm/M-02-connections/F-14-connections/S-23-backend-12172c6` · updated for backend `main` @ `12172c6`: Shared with me returns people (S7), its first-Ring card from the row's `ringId` while `/views/pin` and the perspectives still put the default Ring first; photos as `avatarUrl` (D-16); the sample "218" already gone from the app; the story stays approved (records what shipped)
 - 2026-11-04 · flagged [[BD-09 Ring Members Backend Delivery]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
 - 2026-11-04 · flagged [[BI-05 Ring Access Engine Backend Integration]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
 - 2026-11-04 · flagged [[BI-06 Ring Members Backend Integration]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
@@ -333,3 +335,4 @@ Not available yet, in the order the journey needs them:
 - 2026-11-04 · flagged [[Status Report 2026-10-15]]: S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
 - 2026-11-04 · flagged [[FR-14 Connections Frontend Requirements]]: S-23's open questions are decided (D-24 to D-29): one pending request per pair, a crossing request answers 409 with the other request's id (D-24); a deleted account's connections, requests and blocks end silently (D-25); a disconnect is not announced (D-26); Sent keeps declined and expired rows 30 days, no reminder (D-27); Scan someone in stays disabled, not in the MVP (D-28); s47 opens a member who isn't a connection, connectedAt null, no Disconnect (D-29). Move these rows out of Blocked by.
 - 2026-11-04 · flagged [[BD-14 Connections Backend Delivery]]: S-23's open questions are decided (D-24 to D-29): one pending request per pair, a crossing request answers 409 with the other request's id (D-24); account deletion ends connections, requests and blocks silently (D-25); DELETE /connections/:userId sends no notification (D-26); the Sent list drops declined and expired requests 30 days after they ended (D-27); no POST /rings/:ringId/members { qrToken } in the MVP (D-28); GET /connections/:userId answers a member who isn't a connection with connectedAt null (D-29).
+- 2026-11-08 · flagged [[FR-14 Connections Frontend Requirements]]: S-23 updated for backend main 12172c6: GET /rings/shared-with-me returns people (S7), the card opening from the row's ringId; photos are avatarUrl, a signed link (D-16), never avatarFileId: the request, contact and blocked rows should ask for avatarUrl; /views/pin and the perspectives still put the default Ring first

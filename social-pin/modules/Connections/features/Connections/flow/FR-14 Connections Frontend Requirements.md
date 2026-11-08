@@ -18,6 +18,8 @@ tags: [frontend-requirements, frontend-requirements/ready, module/connections, l
 
 # 📨 Connections · Frontend Requirements
 
+> ⚠ Affected by [[S-23 Connections Story]] (2026-11-08): S-23 updated for backend main 12172c6: GET /rings/shared-with-me returns people (S7), the card opening from the row's ringId; photos are avatarUrl, a signed link (D-16), never avatarFileId: the request, contact and blocked rows should ask for avatarUrl; /views/pin and the perspectives still put the default Ring first
+
 > ⚠ Affected by [[BD-11 Rings Backend Delivery]] (2026-11-05): backend main 12172c6: GET /rings/shared-with-me returns the person, never the Ring's name, colour or type; the line saying the API still returns the Ring's name is stale (/frontend)
 
 **Feature:** [[F-14 Connections]] · **Status:** Ready (waiting on the backend's review) · **Story:** [[S-23 Connections Story]] (approved 2026-11-04) · **Backend Integration:** not yet (no routes: [[BD-14 Connections Backend Delivery]])
