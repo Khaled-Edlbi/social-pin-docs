@@ -3,7 +3,8 @@ id: B-13
 type: bug
 module: identity
 feature: rings
-status: ready
+status: done
+resolution: fixed
 priority: high
 effort: S
 foundOn: "BI-08 Rings Backend Integration"
@@ -14,14 +15,12 @@ related: ["BI-08 Rings Backend Integration", "QB-12 Rings QA Backend", "BD-11 Ri
 pending: []
 created: 2026-11-05
 updated: 2026-11-08
-tags: [bug, bug/ready, module/identity, priority/high]
+tags: [bug, bug/done, module/identity, priority/high, resolution/fixed]
 ---
 
-# 📨 B-13 · The string false is read as true on Ring filters and settings
+# ✅ B-13 · The string false is read as true on Ring filters and settings
 
-> ⚠ Affected by [[BD-11 Rings Backend Delivery]] (2026-11-08): fixed on backend main e483d49 (562368b: a shared `@ToBoolean()` on every boolean of `GET` / `POST` / `PATCH /rings`, so `?isTemporary=false` lists the permanent Rings and any value other than true/false is a 400), ready for re-test
-
-**Found against:** [[BI-08 Rings Backend Integration]] · **Feature:** [[F-11 Rings]] · **Status:** Ready · **Priority:** High (`critical | high | medium | low`, from `docs.config.json`) · **Deadline:** — · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
+**Found against:** [[BI-08 Rings Backend Integration]] · **Feature:** [[F-11 Rings]] · **Status:** Done · **Priority:** High (`critical | high | medium | low`, from `docs.config.json`) · **Deadline:** — · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
 
 **Found by:** [[QB-12 Rings QA Backend]] rows B4 and B37, on build backend `main @ 12172c6` (2026-11-05).
 
@@ -54,12 +53,13 @@ Output of `node scripts/build-tree.mjs --impact B-13` when the bug was filed: th
 
 ## Definition of done
 
-- [ ] The behaviour is fixed, or the notes are corrected, as the decision says (`resolution:` set, the tag `resolution/<id>` with it)
-- [ ] The QA row that found it re-run against the fix, on a named build
-- [ ] `depends` / `affects` / `related` declared; notes listed by `--impact` updated or flagged
-- [ ] `node scripts/build-tree.mjs` run; tree, board and backlog committed
+- [x] The behaviour is fixed, or the notes are corrected, as the decision says (`resolution:` set, the tag `resolution/<id>` with it)
+- [x] The QA row that found it re-run against the fix, on a named build
+- [x] `depends` / `affects` / `related` declared; notes listed by `--impact` updated or flagged
+- [x] `node scripts/build-tree.mjs` run; tree, board and backlog committed
 
 ## Log
 
 - 2026-11-05 · filed with --scaffold bug, found against BI-08 Rings Backend Integration
 - 2026-11-05 · filled from [[QB-12 Rings QA Backend]] B4 and B37 on backend `main @ 12172c6`
+- 2026-11-08 · backend main e483d49 · re-test passed: `?isTemporary=false` lists the permanent Rings only, `true` the temporary one; `0`, `1`, `maybe`, `TRUE` and an empty value are 400 "isTemporary must be a boolean value". In a body, the strings `"false"` / `"true"` are read as false / true (`membersCanSeeEachOther: "false"` stays off); `"yes"`, `0`, `1` and `null` are 400; JSON booleans unchanged. Closed `done`, `resolution: fixed`, on the user's word relayed by the session that asked for the re-test
