@@ -16,6 +16,8 @@ tags: [story, story/approved, module/discovery, layer/business]
 
 # Badge & QR · User Story
 
+> ⚠ Affected by [[D-12 The badge QR is a socialpin.me link]] (2026-11-08): ND-12 decided, option 1: the badge QR is https://socialpin.me/q/<token> (opaque token); the token response adds url; the app's scanner reads the token from the link, so it works without the domain; the phone's camera, deep links and the D-22 page come with the domain; Pro and printed codes wait for it
+
 > ⚠ Affected by [[D-35 A join code can be shown as a QR]] (2026-11-08): the scanner tells a Ring's join QR (opens the join review) from a badge; a badge only ever opens a person's card, never a Ring to join
 
 > ⚠ Affected by [[D-11 The badge code stays the same for its day]] (2026-11-04): ND-11 decided, option 2: POST /rings/:ringId/qr returns the valid token inside its 24 h window and issues a new one only past it; the owner can reset a code. S7–S12 no longer wait on ND-11.
