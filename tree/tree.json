@@ -66896,8 +66896,8 @@
         "done": 1,
         "failing": 1,
         "missing": 2,
-        "ready": 1,
-        "todo": 2,
+        "ready": 2,
+        "todo": 1,
         "verified": 1
       },
       "scope": null,
@@ -73911,8 +73911,8 @@
         "needs-decision": 1,
         "partial": 13,
         "passing": 4,
-        "ready": 2,
-        "todo": 9,
+        "ready": 3,
+        "todo": 8,
         "verified": 10
       },
       "scope": null,
@@ -83404,9 +83404,9 @@
         "needs-decision": 6,
         "partial": 13,
         "passing": 4,
-        "ready": 4,
+        "ready": 5,
         "reference": 32,
-        "todo": 12,
+        "todo": 11,
         "verified": 27
       },
       "scope": null,
@@ -87248,7 +87248,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "todo",
+      "effectiveStatus": "ready",
       "effort": "S",
       "feature": "ring-members",
       "foundOn": "BI-06 Ring Members Backend Integration",
@@ -87301,18 +87301,18 @@
         "s46",
         "s47"
       ],
-      "status": "todo",
+      "status": "ready",
       "summary": "The fix is the backend's (/backend). That agent sets in-progress when it starts and ready when the fix ships (status, tag, H1 and the Status segment only; the fix itself is recorded in its own…",
       "tags": [
         "bug",
-        "bug/todo",
+        "bug/ready",
         "module/identity",
         "priority/high"
       ],
       "task": null,
       "title": "B-10 Adding an unknown userId answers 500",
       "unmet": [],
-      "updated": "2026-11-05"
+      "updated": "2026-11-08"
     },
     "task:B-11": {
       "affects": [
