@@ -49614,6 +49614,11 @@
     {
       "from": "backend-delivery:ring-projection",
       "kind": "wikilink",
+      "to": "backend-delivery:view-as"
+    },
+    {
+      "from": "backend-delivery:ring-projection",
+      "kind": "wikilink",
       "to": "backend-delivery:widgets"
     },
     {
@@ -49670,11 +49675,6 @@
       "from": "backend-delivery:subscription",
       "kind": "wikilink",
       "to": "frontend-requirements:subscription"
-    },
-    {
-      "from": "backend-delivery:view-as",
-      "kind": "wikilink",
-      "to": "backend-delivery:ring-projection"
     },
     {
       "from": "backend-delivery:view-as",
@@ -59320,7 +59320,7 @@
       "task": null,
       "title": "BD-10 Ring Projection Backend Delivery",
       "unmet": [],
-      "updated": "2026-11-05"
+      "updated": "2026-11-08"
     },
     "backend-delivery:rings": {
       "affects": [],
@@ -61881,7 +61881,7 @@
       "task": null,
       "title": "BI-07 Ring Projection Backend Integration",
       "unmet": [],
-      "updated": "2026-11-05"
+      "updated": "2026-11-08"
     },
     "backend-integration:rings": {
       "affects": [],

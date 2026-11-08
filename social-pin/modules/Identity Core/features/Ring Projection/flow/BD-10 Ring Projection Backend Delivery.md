@@ -11,7 +11,7 @@ affects: ["BI-07 Ring Projection Backend Integration"]
 related: ["S-17 Ring Projection Story", "D-02 One main profile every Ring starts from", "D-05 Inherit per field, copy without members", "D-16 Files load from signed links that expire in 15 minutes", "GET /rings/:ringId/projection", "PATCH /rings/:ringId/projection", "POST /rings/:ringId/projection/links", E_RING_05, E_RING_02, E_FILE_04, E_PROFILE_01]
 pending: ["[[FR-10 Ring Projection Frontend Requirements]]: S10 per field, per Ring: off / follow the Pin / own value for headline, role, company, location; follow / own for photo and bio (D-05, D-02; the main profile fields are on main since a249ab2, BD-07, so it can be built now)"]
 created: 2026-10-15
-updated: 2026-11-05
+updated: 2026-11-08
 tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 ---
 
@@ -95,3 +95,4 @@ The viewer shape is produced in exactly one place, `toView`: `displayName` falls
 - 2026-11-05 · flagged [[Frontend Contract]]: LINK_TYPE has 20 values on main a249ab2: BOOKING, BEHANCE, DRIBBBLE, GITHUB, YOUTUBE added (S-17 S5)
 - 2026-11-05 · flagged [[FR-12 View As & Pin Views Frontend Requirements]]: links and custom fields are one library per account on main a249ab2 (S-17 S9): the view's links[] / infoBlocks[] shapes are unchanged, but a value is now the same in every Ring that shows it; the owner's GET /rings/:ringId/projection gives each item's isVisible per Ring, which 'where each field goes' can read
 - 2026-11-05 · flagged [[FR-10 Ring Projection Frontend Requirements]]: S5 and S9 are on main a249ab2: the prose that still says 15 LINK_TYPE values, per-Ring copies and the phone-side imitation (s25, Blocked by) is the frontend's to update
+- 2026-11-08 · branch `B-17/ring-profile/new-ring-view-and-null-fields` (`52bb683`), merged to `main @ e483d49` · fixes [[B-12 Null on a link or custom field's required field answers 500]]. `UpdateRingProfileLinkDto` and `UpdateRingInfoBlockDto` are now `PartialType(…, { skipNullProperties: false })`, the same fix as `UpdateProfileDto`. `null` on a link's `type`, `value`, `isVisible` or `sortOrder`, or on a field's `title`, `isVisible` or `sortOrder`, answers 400 (validation) on `PATCH` and `POST` instead of reaching Prisma as a 500. `label: null` and `body: null` still clear. Specs in `dto/ring-profile-link-and-field.dto.spec.ts`; checked live on a throwaway database. [[BI-07 Ring Projection Backend Integration]] now states the rule. B-12 is `ready` for QA's re-test. The same merge carries [[B-17 A new Ring answers 404 to its own owner until its projection is opened]] (`90fc7b3`, `RingProfileService`'s viewer paths), logged on [[BD-12 View As & Pin Views Backend Delivery]].
