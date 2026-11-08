@@ -7,13 +7,13 @@ status: current
 scope: feature
 screens: [s15, s47]
 created: 2026-10-15
-updated: 2026-10-29
+updated: 2026-11-08
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---
 
 # 🔌 Ring Members · Backend Integration
 
-> ⚠ Affected by [[QB-11 Ring Members QA Backend]] (2026-11-05): QA run on main 12172c6: RING_MEMBER_STATUS has a fifth value LEFT that Shapes that matter does not list; re-adding a lapsed member answers 409 (B-09); an unknown userId on add answers 500, not in Errors to handle (B-10)
+> ⚠ Affected by [[QB-11 Ring Members QA Backend]] (2026-11-05): QA run on main 12172c6: RING_MEMBER_STATUS has a fifth value LEFT that Shapes that matter does not list (the B-09 and B-10 parts of this flag were fixed on backend main e483d49, 2026-11-08: see [[BD-09 Ring Members Backend Delivery]] Log)
 
 > ⚠ Affected by [[S-31 Delegated Admins Story]] (2026-11-05): S-31 was rewritten (2026-11-05) to match the app's one Edit Ring screen, with rules A1–A7 decided inside the story (no decision cards): company Rings only; an admin must be a member of the Ring; two levels (edit what it shows / also manage who's in it), owner-only appointing; member-managers change the joining settings, who it's for, delete and default stay owner-only; Rings you manage on My Rings and Company detail; rights end on removal, leaving the Ring or the company, silently. The old Delegated Admins · S6 (T-006, the admin routes) is now its 'What the backend has to build'; the levels are S3/A3. Repoint the links that name Delegated Admins · S6.
 
@@ -44,7 +44,7 @@ What the client builds: the owner's "Ring people" roster: list who is in a Ring,
 ## Flow
 
 1. **Roster.** `GET /rings/:ringId/members?status=ACTIVE` → `{ data: RingMemberEntity[], meta: { total } }`, newest first. Without the `status` filter the list includes `REMOVED` rows (the row is kept as the record that this person was once in the Ring). Filter by `ACTIVE` for the people screen.
-2. **Add.** `POST /rings/:ringId/members` with `{ userId, startsAt?, expiresAt? }` → 201 `RingMemberEntity`. Re-adding someone whose row is `REMOVED` or lapsed reactivates it with the new window. 400 `E_RING_MEMBER_03` for the owner themselves; 409 `E_RING_MEMBER_04` when a block exists in either direction; 409 `E_RING_MEMBER_01` when already active.
+2. **Add.** `POST /rings/:ringId/members` with `{ userId, startsAt?, expiresAt? }` → 201 `RingMemberEntity`. Re-adding someone whose row is `REMOVED` or lapsed (an `ACTIVE` row whose window has closed) reactivates it with the new window and answers 201. 400 `E_RING_MEMBER_03` for the owner themselves; 409 `E_RING_MEMBER_04` when the `userId` names no user, a deleted one, or a block exists in either direction (one body for all three); 409 `E_RING_MEMBER_01` only when the person is a live member right now.
 3. **Window.** `PATCH …/members/:userId` with `{ startsAt?: iso | null, expiresAt?: iso | null }`. `null` removes a bound ("until removed"). The membership's window is checked **together with** the Ring's; whichever closes first ends access.
 4. **Reassign.** `POST …/members/:userId/reassign` with `{ toRingId }` → 201 with the new row. Both Rings must have the same owner (400 `E_RING_07`). The window travels with the person. Both writes are one transaction, so the person is never in both or neither; what they see changes on their very next request.
 5. **Revoke.** `DELETE …/members/:userId` → 200. The row becomes `REMOVED`.
@@ -67,8 +67,8 @@ The roster per Ring, refetched after every write. Do not keep a member's "what t
 | 403 | `E_RING_05` | caller is neither owner nor a `MEMBER_MANAGER`+ admin | hide the roster |
 | 404 | `E_RING_02` | Ring not found / not administrable | treat as missing |
 | 400 | `E_RING_MEMBER_03` | adding the owner to their own Ring | validation |
-| 409 | `E_RING_MEMBER_04` | a block exists either way | "Cannot add this user" (do not say "blocked") |
-| 409 | `E_RING_MEMBER_01` | already an active member | no-op, refresh the list |
+| 409 | `E_RING_MEMBER_04` | a block exists either way, or the `userId` names no user or a deleted one: one body, "This user cannot be added", so the owner cannot probe which ids exist | "Cannot add this user" (do not say "blocked" or "not found") |
+| 409 | `E_RING_MEMBER_01` | already a live member right now (a lapsed member is reactivated instead) | no-op, refresh the list |
 | 404 | `E_RING_MEMBER_02` | no membership row for that user in that Ring | refresh the list |
 | 400 | `E_RING_07` | reassign across owners | validation |
 
