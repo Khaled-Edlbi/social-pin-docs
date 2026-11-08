@@ -20,6 +20,8 @@ tags: [story, story/draft, module/shared-rings, layer/business]
 
 # Delegated Admins · User Story
 
+> ⚠ Affected by [[D-32 Several join codes per Ring]] (2026-11-08): ND-32 decided 2026-11-08 by Omar Fostok, option 2: several join codes per Ring, managed under Edit Ring → Joining → Join codes; managing them (make, turn off) is part of "can also manage who's in it", alongside the owner
+
 **Feature:** [[F-16 Delegated Admins]] · **Status:** Draft (awaiting product sign-off; first approved 2026-10-25 by khaled, rewritten 2026-11-05) · **Frontend Requirements:** [[FR-16 Delegated Admins Frontend Requirements]] · **Backend Integration:** not yet · **Verified by:** [[Delegated Admins QA Backend]], [[Delegated Admins QA Frontend]]
 
 > **Rewritten 2026-11-05.** The earlier story (S1–S6, approved 2026-10-25) was built on two design screens, Edit · access (s26) and Edit · permissions (s27), that the app has since merged into one **Edit Ring** screen; admins and joining sit behind its *Joining and permissions* row, shown as *Soon* today. It also reached a managed Ring "from the shared-Rings list", which [[D-14 Shared with me lists people, never the Ring]] rules out, and picked admins among connections, which the Companies rules ([[S-29 Companies Story|S-29 P1]]) no longer fit. This version follows the app, the backend as it is ([[BD-16 Delegated Admins Backend Delivery]]: `RingAdmin` and its levels enforced, no routes), and seven rules decided by Omar Fostok on 2026-11-05, recorded **in this story** under *Decided in this story* (A1–A7), on purpose without decision cards. The old S6 (the merged task T-006, four routes) is now *What the backend has to build*.
