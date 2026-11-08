@@ -16,8 +16,6 @@ tags: [backend-integration, backend-integration/current, module/identity, layer/
 
 # 🔌 Ring Projection · Backend Integration
 
-> ⚠ Affected by [[QB-13 Ring Projection QA Backend]] (2026-11-05): failing on main 12172c6: a string for show* / isVisible is stored as true, so "false" turns sharing on (B-11); null on a link's type, value, isVisible or a field's title answers 500, not 400 (B-12); for /backend
-
 > ⚠ Affected by [[D-02 One main profile every Ring starts from]] (2026-10-25): ND-02 decided, one main profile (headline, role, company, location, photo, bio) every Ring starts from; a Ring may change all of them but the full name and keeps its own value when the main one changes.
 
 > ⚠ Affected by [[D-05 Inherit per field, copy without members]] (2026-10-25): ND-05 decided, a Ring inherits the main profile field by field until it changes that field; copying a Ring copies fields, bio, photo, colour and settings, never members.
@@ -77,7 +75,7 @@ What the client builds: the owner's "what this Ring shows" editor: display name,
 
 The five in bold are D-03's (S5): detect them from the pasted link (a booking page such as Calendly or cal.com, behance.net, dribbble.com, github.com, youtube.com / youtu.be) and send them as their own type rather than as labelled custom links. A mismatch is a 400 `E_RING_PROFILE_03` with a human message, also when only `type` changes (the stored value is checked against the new type). Validate on the client with the same rules so the user sees it before submitting.
 
-- **`show*` all default to `false`.** A new Ring shares no birthdate, gender, marital status, phone or email until the owner turns each on, for that Ring. The values themselves live on the profile ([[BI-04 Profiles & Pin Name Backend Integration]]) and on the account (phone, email). If the base value is empty, turning the flag on shows `null` to the viewer.
+- **`show*` all default to `false`.** A new Ring shares no birthdate, gender, marital status, phone or email until the owner turns each on, for that Ring. Every `show*` and `isVisible` takes `true` / `false` only (the strings `"true"` / `"false"` are read the same); any other value is a 400, never a share. The values themselves live on the profile ([[BI-04 Profiles & Pin Name Backend Integration]]) and on the account (phone, email). If the base value is empty, turning the flag on shows `null` to the viewer.
 - `isVisible: false` on a link, field or attachment hides it from **every viewer of this Ring**: the query excludes it. The owner entity still lists it (with the flag) so the editor can show it as off; s14 does not render it.
 - `widgets[]` is read-only today: there are no widget endpoints ([[S-20 Widgets Story|Widgets · S7]]).
 
@@ -93,6 +91,7 @@ One editor state per Ring, refetched after every write (every write but `DELETE`
 | 403 | `E_RING_05` | a delegated admin sends `type`, `value`, `label` (`title`, `body`) or a `DELETE` on a link or field: that would change the owner's other Rings | hide edit and delete for delegated admins; offer the switch |
 | 404 | `E_RING_02` | Ring not found | missing |
 | 400 | `E_RING_PROFILE_03` | link `value` does not match `type` | inline, message from the server |
+| 400 | — (validation) | a `show*` or `isVisible` that is not `true` / `false` (`"yes"`, `"0"`, `null`) | a client bug: send a boolean |
 | 400 | — (validation) | `null` on a link's `type`, `value`, `isVisible` or `sortOrder`, or on a field's `title`, `isVisible` or `sortOrder` (only `label` and `body` take `null`) | a client bug: leave the field out instead |
 | 404 | `E_RING_PROFILE_03` | link or field is not in the owner's library (or, for a delegated admin, not on this Ring); also an id taken from a viewer response | refresh the editor |
 | 404 | `E_RING_PROFILE_04` | attachment not in this projection | refresh the editor |
@@ -129,3 +128,4 @@ One editor state per Ring, refetched after every write (every write but `DELETE`
 - 2026-11-05 · describes backend branch `FR-10/ring-profile/library-and-link-types` (`b0c14f2`), **not merged**: [[S-17 Ring Projection Story|Ring Projection · S5, S9]] (the library, the five link types), as [[BD-10 Ring Projection Backend Delivery]] logs it. The routes and shapes did not change; what `:linkId` / `:blockId` name, what an edit reaches, and the delegated admin's 403 did. The [[D-03 Links entered once, switched on or off per Ring]] flag is cleared: this note now describes its work.
 - 2026-11-05 · matches backend `main` `a249ab2`: the branch above is merged; S5 and S9 are live. With F-07's main profile fields merged before it, a viewer's `bio` and `avatarUrl` follow the main profile while the Ring's own are `null` ([[BI-04 Profiles & Pin Name Backend Integration]]).
 - 2026-11-08 · matches backend `main` `e483d49`: [[B-12 Null on a link or custom field's required field answers 500]] is fixed (`52bb683`). `null` on a required field of a link or a custom field answers 400 (validation), not 500; `label` and `body` still take `null`. The rule is written in *Flow* 3 and 4, the *Errors* table and the *Checklist*. Routes and shapes are unchanged.
+- 2026-11-08 · `docs/backend/M-01-identity/F-10-ring-projection/BD-10-b-11-fixed` · matches backend `main` `e483d49`: [[B-11 Projection switches read any string as true]] is fixed (`562368b`). `show*` and `isVisible` take `true` / `false` only, anything else a 400 (*Shapes that matter*, *Errors*). Routes and shapes unchanged. The [[QB-13 Ring Projection QA Backend]] flag under the H1 is cleared: B-11 and B-12 are both fixed on that build.
