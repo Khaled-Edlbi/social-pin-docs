@@ -3,7 +3,7 @@ id: FR-18
 type: frontend-requirements
 module: discovery
 feature: badge-qr
-status: draft
+status: ready
 scope: feature
 screens: [s34, s43, s44, s56]
 owner: "Omar Fostok"
@@ -11,12 +11,12 @@ affects: ["BD-18 Badge & QR Backend Delivery"]
 related: ["S-37 Badge & QR Story", "BI-09 View As & Pin Views Backend Integration", "FR-14 Connections Frontend Requirements", "FR-17 Ring Invitations & Join Frontend Requirements", "D-10 Connect sends what the requester already has", "D-11 The badge code stays the same for its day", "D-12 The badge QR is a socialpin.me link", "D-22 The public page only says the Pin exists", "D-28 Scan someone in is not in the MVP", "D-35 A join code can be shown as a QR", "S-53 Events During Story", "S-71 Subscription (Free vs Pro) Story", "S-82 Devices & NFC Story", "S-87 Error Contract Story", "Frontend Contract"]
 created: 2026-10-18
 updated: 2026-11-08
-tags: [frontend-requirements, frontend-requirements/draft, module/discovery, layer/frontend]
+tags: [frontend-requirements, frontend-requirements/ready, module/discovery, layer/frontend]
 ---
 
-# Badge & QR · Frontend Requirements
+# 📨 Badge & QR · Frontend Requirements
 
-**Feature:** [[F-18 Badge & QR]] · **Status:** Draft · **Story:** [[S-37 Badge & QR Story]] (approved 2026-11-08) · **API Integration:** not yet (backend not built)
+**Feature:** [[F-18 Badge & QR]] · **Status:** Ready · **Story:** [[S-37 Badge & QR Story]] (approved 2026-11-08) · **API Integration:** not yet (backend not built)
 
 What the client needs from the backend to build [[S-37 Badge & QR Story]] S1–S15, and whether each need is met today. **Rewritten 2026-11-08** against the approved story and [[D-10 Connect sends what the requester already has|D-10]], [[D-11 The badge code stays the same for its day|D-11]], [[D-12 The badge QR is a socialpin.me link|D-12]], [[D-35 A join code can be shown as a QR|D-35]]. The route names come from the story and the decisions; anything they don't name is asked as a need, for the backend to name in [[BD-18 Badge & QR Backend Delivery]].
 
@@ -129,3 +129,4 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
 ## Log
 
 - 2026-11-08 · `tickets/frontend/M-04-discovery/F-18-badge-qr/FR-18-draft` · rewritten against the approved S-37 (S1–S15) and D-10, D-11, D-12, D-35: per screen s34, s43, s44, s56 with **What changes in the app** under each; the code route with `url` and reset, the resolve with `expiresAt` and a 429, Connect by code or Pin name, the Pin name lookup (exists), Saved scans until the code expires, the join QR routed to FR-17; removed: auto-accept, "They will land in", the browser caption; Share link not available until the domain; the five ⚠ flags settled and cleared (D-10, D-11, D-12, S-23's renumbering, S-37); stays draft
+- 2026-11-08 · `tickets/frontend/M-04-discovery/F-18-badge-qr/FR-18-ready` · set ready on Omar Fostok's word: handed to `/backend` to review, approve or send back

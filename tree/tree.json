@@ -58272,7 +58272,7 @@
         {
           "id": "frontend-requirements:badge-qr",
           "title": "FR-18 Badge & QR Frontend Requirements",
-          "why": "FR-18 Badge & QR Frontend Requirements is draft"
+          "why": "FR-18 Badge & QR Frontend Requirements is ready"
         }
       ],
       "card": "BD-18",
@@ -66267,8 +66267,8 @@
         "approved": 1,
         "blocked": 1,
         "decided": 3,
-        "draft": 1,
         "missing": 4,
+        "ready": 1,
         "verified": 3
       },
       "scope": null,
@@ -71875,7 +71875,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "ready",
       "effort": null,
       "feature": "badge-qr",
       "foundOn": null,
@@ -71949,11 +71949,11 @@
         "s44",
         "s56"
       ],
-      "status": "draft",
+      "status": "ready",
       "summary": "What the client needs from the backend to build S-37 Badge & QR Story S1–S15, and whether each need is met today. Rewritten 2026-11-08 against the approved story and D-10, D-11, D-12, D-35. The…",
       "tags": [
         "frontend-requirements",
-        "frontend-requirements/draft",
+        "frontend-requirements/ready",
         "module/discovery",
         "layer/frontend"
       ],
@@ -75658,9 +75658,10 @@
         "approved": 3,
         "blocked": 3,
         "decided": 3,
-        "draft": 3,
+        "draft": 2,
         "in-progress": 3,
         "missing": 12,
+        "ready": 1,
         "verified": 3
       },
       "scope": null,
@@ -85274,14 +85275,14 @@
         "decided": 33,
         "delivered": 8,
         "done": 28,
-        "draft": 27,
+        "draft": 26,
         "failing": 1,
         "in-progress": 47,
         "missing": 134,
         "needs-decision": 1,
         "partial": 14,
         "passing": 7,
-        "ready": 4,
+        "ready": 5,
         "reference": 32,
         "todo": 3,
         "verified": 33
