@@ -64,6 +64,7 @@
     "B-18 Sign-in Verify overflows when the not-active message shows": "task:B-18",
     "B-19 Claim your Pin shows the prefix @ instead of !": "task:B-19",
     "B-20 In Arabic the code boxes fill right to left": "task:B-20",
+    "B-21 A failed resend restarts the countdown": "task:B-21",
     "BD-01 Account Backend Delivery": "backend-delivery:account",
     "BD-02 Auth & Sign-up Backend Delivery": "backend-delivery:auth",
     "BD-03 Counts Backend Delivery": "backend-delivery:counts",
@@ -394,6 +395,7 @@
     "B-18": "task:B-18",
     "B-19": "task:B-19",
     "B-20": "task:B-20",
+    "B-21": "task:B-21",
     "BD-01": "backend-delivery:account",
     "BD-02": "backend-delivery:auth",
     "BD-03": "backend-delivery:counts",
@@ -4134,7 +4136,8 @@
       "containers": [
         "feature:auth",
         "feature:code-delivery",
-        "project:frontend-passwordless-migration"
+        "project:frontend-passwordless-migration",
+        "task:B-21"
       ],
       "kind": "endpoint",
       "notes": [
@@ -4145,7 +4148,8 @@
         "frontend-requirements:code-delivery",
         "project:frontend-passwordless-migration",
         "qa-backend:auth",
-        "story:code-delivery"
+        "story:code-delivery",
+        "task:B-21"
       ],
       "owner": "feature:auth"
     },
@@ -4876,7 +4880,8 @@
         "needs-decision:ND-01",
         "needs-decision:ND-30",
         "task:B-18",
-        "task:B-20"
+        "task:B-20",
+        "task:B-21"
       ],
       "kind": "screen",
       "notes": [
@@ -4896,7 +4901,8 @@
         "story:auth",
         "story:code-delivery",
         "task:B-18",
-        "task:B-20"
+        "task:B-20",
+        "task:B-21"
       ],
       "owner": null
     },
@@ -6657,7 +6663,7 @@
   },
   "counts": {
     "blocked": 27,
-    "bugs": 20,
+    "bugs": 21,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 14,
@@ -6671,22 +6677,22 @@
       "qa-backend": 11,
       "qa-frontend": 2,
       "story": 41,
-      "task": 20
+      "task": 21
     },
     "byLayer": {
       "backend": 61,
-      "business": 175,
+      "business": 176,
       "frontend": 52,
       "qa": 13,
       "shared": 10
     },
     "concepts": 318,
     "decisions": 34,
-    "edges": 7599,
+    "edges": 7614,
     "features": 41,
     "layerNotes": 155,
     "modules": 8,
-    "notes": 342,
+    "notes": 343,
     "partial": 12,
     "placeholders": 130,
     "records": 33
@@ -42252,6 +42258,83 @@
       "to": "story:auth"
     },
     {
+      "from": "task:B-21",
+      "kind": "related",
+      "to": "backend-delivery:auth",
+      "via": [
+        "POST /auth/request-code"
+      ]
+    },
+    {
+      "from": "task:B-21",
+      "kind": "related",
+      "to": "backend-integration:auth",
+      "via": [
+        "POST /auth/request-code"
+      ]
+    },
+    {
+      "from": "task:B-21",
+      "kind": "related",
+      "to": "frontend-delivery:auth",
+      "via": [
+        "POST /auth/request-code"
+      ]
+    },
+    {
+      "from": "task:B-21",
+      "kind": "related",
+      "to": "frontend-requirements:auth",
+      "via": [
+        "POST /auth/request-code"
+      ]
+    },
+    {
+      "from": "task:B-21",
+      "kind": "related",
+      "to": "frontend-requirements:code-delivery",
+      "via": [
+        "POST /auth/request-code"
+      ]
+    },
+    {
+      "from": "task:B-21",
+      "kind": "related",
+      "to": "project:frontend-passwordless-migration",
+      "via": [
+        "POST /auth/request-code"
+      ]
+    },
+    {
+      "from": "task:B-21",
+      "kind": "related",
+      "to": "qa-backend:auth",
+      "via": [
+        "POST /auth/request-code"
+      ]
+    },
+    {
+      "from": "task:B-21",
+      "kind": "related",
+      "to": "qa-frontend:auth",
+      "via": [
+        "POST /auth/request-code"
+      ]
+    },
+    {
+      "from": "task:B-21",
+      "kind": "related",
+      "to": "story:auth"
+    },
+    {
+      "from": "task:B-21",
+      "kind": "related",
+      "to": "story:code-delivery",
+      "via": [
+        "POST /auth/request-code"
+      ]
+    },
+    {
       "from": "decision:D-10",
       "kind": "shares",
       "to": "decision:D-17",
@@ -44735,6 +44818,14 @@
       ]
     },
     {
+      "from": "feature:auth",
+      "kind": "shares",
+      "to": "task:B-21",
+      "via": [
+        "POST /auth/request-code"
+      ]
+    },
+    {
       "from": "feature:badge-qr",
       "kind": "shares",
       "to": "feature:cleanup-jobs",
@@ -45645,6 +45736,14 @@
       "to": "task:B-05",
       "via": [
         "E_AUTH_05"
+      ]
+    },
+    {
+      "from": "feature:code-delivery",
+      "kind": "shares",
+      "to": "task:B-21",
+      "via": [
+        "POST /auth/request-code"
       ]
     },
     {
@@ -54144,6 +54243,14 @@
       ]
     },
     {
+      "from": "project:frontend-passwordless-migration",
+      "kind": "shares",
+      "to": "task:B-21",
+      "via": [
+        "POST /auth/request-code"
+      ]
+    },
+    {
       "from": "project:ring-access-model",
       "kind": "shares",
       "to": "project:spec-map",
@@ -55974,6 +56081,11 @@
       "from": "frontend-delivery:auth",
       "kind": "tree",
       "to": "task:B-20"
+    },
+    {
+      "from": "frontend-delivery:auth",
+      "kind": "tree",
+      "to": "task:B-21"
     },
     {
       "from": "group:backend",
@@ -62479,6 +62591,11 @@
       "from": "task:B-20",
       "kind": "wikilink",
       "to": "feature:auth"
+    },
+    {
+      "from": "task:B-21",
+      "kind": "wikilink",
+      "to": "feature:auth"
     }
   ],
   "emoji": {
@@ -62693,6 +62810,10 @@
     },
     "social-pin/bugs/B-20 In Arabic the code boxes fill right to left.md": {
       "name": "B-20 In Arabic the code boxes fill right to left",
+      "type": "bug"
+    },
+    "social-pin/bugs/B-21 A failed resend restarts the countdown.md": {
+      "name": "B-21 A failed resend restarts the countdown",
       "type": "bug"
     },
     "social-pin/business/Feature Graph.md": {
@@ -64408,6 +64529,7 @@
         "task:B-05",
         "task:B-06",
         "task:B-18",
+        "task:B-21",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-delivery:account",
@@ -67623,6 +67745,7 @@
         "task:B-04",
         "task:B-05",
         "task:B-18",
+        "task:B-21",
         "needs-decision:ND-20",
         "needs-decision:ND-30",
         "decision:D-20",
@@ -73062,7 +73185,7 @@
         "done": 6,
         "draft": 1,
         "passing": 1,
-        "todo": 3,
+        "todo": 4,
         "verified": 2
       },
       "scope": null,
@@ -76320,7 +76443,8 @@
       "children": [
         "task:B-18",
         "task:B-19",
-        "task:B-20"
+        "task:B-20",
+        "task:B-21"
       ],
       "code": "auth",
       "created": "2026-11-05",
@@ -76347,7 +76471,8 @@
       "openBugs": [
         "task:B-18",
         "task:B-19",
-        "task:B-20"
+        "task:B-20",
+        "task:B-21"
       ],
       "parentTask": null,
       "parents": [
@@ -76364,6 +76489,7 @@
         "task:B-18",
         "task:B-19",
         "task:B-20",
+        "task:B-21",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-integration:connections",
@@ -78730,6 +78856,7 @@
         "task:B-13",
         "task:B-16",
         "task:B-18",
+        "task:B-21",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-integration:connections",
@@ -79049,6 +79176,7 @@
       "related": [
         "task:B-04",
         "task:B-05",
+        "task:B-21",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-delivery:account",
@@ -82882,7 +83010,7 @@
         "partial": 10,
         "passing": 7,
         "ready": 1,
-        "todo": 3,
+        "todo": 4,
         "verified": 10
       },
       "scope": null,
@@ -86656,6 +86784,7 @@
         "task:B-04",
         "task:B-05",
         "task:B-18",
+        "task:B-21",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-delivery:account",
@@ -87581,6 +87710,7 @@
         "task:B-06",
         "task:B-13",
         "task:B-18",
+        "task:B-21",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-integration:connections",
@@ -90660,6 +90790,7 @@
         "task:B-18",
         "task:B-19",
         "task:B-20",
+        "task:B-21",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-integration:connections",
@@ -92596,7 +92727,7 @@
         "passing": 7,
         "ready": 2,
         "reference": 32,
-        "todo": 6,
+        "todo": 7,
         "verified": 33
       },
       "scope": null,
@@ -92829,6 +92960,7 @@
         "task:B-18",
         "task:B-19",
         "task:B-20",
+        "task:B-21",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-integration:connections",
@@ -93124,6 +93256,7 @@
         "task:B-01",
         "task:B-04",
         "task:B-05",
+        "task:B-21",
         "needs-decision:ND-20",
         "needs-decision:ND-30",
         "needs-decision:ND-33",
@@ -97507,6 +97640,73 @@
       ],
       "task": null,
       "title": "B-20 In Arabic the code boxes fill right to left",
+      "unmet": [],
+      "updated": "2026-11-08"
+    },
+    "task:B-21": {
+      "affects": [],
+      "blockedBy": [],
+      "card": "B-21",
+      "children": [],
+      "code": "B-21",
+      "created": "2026-11-08",
+      "deadline": null,
+      "decision": null,
+      "depends": [],
+      "dir": null,
+      "effectiveStatus": "todo",
+      "effort": "S",
+      "feature": "auth",
+      "foundOn": "FD-05 Auth & Sign-up Frontend Delivery",
+      "frontendOnly": false,
+      "id": "task:B-21",
+      "inherits": {
+        "release": "feature:auth"
+      },
+      "kind": "task",
+      "label": "Bug",
+      "labels": [
+        "bug"
+      ],
+      "layer": "business",
+      "module": "identity",
+      "openBugs": [],
+      "parentTask": null,
+      "parents": [
+        "frontend-delivery:auth"
+      ],
+      "path": "social-pin/bugs/B-21 A failed resend restarts the countdown.md",
+      "pending": [],
+      "priority": "high",
+      "related": [
+        "frontend-delivery:auth",
+        "qa-frontend:auth",
+        "story:auth",
+        "backend-delivery:auth",
+        "backend-integration:auth",
+        "frontend-requirements:auth",
+        "qa-backend:auth",
+        "frontend-requirements:code-delivery",
+        "story:code-delivery",
+        "project:frontend-passwordless-migration"
+      ],
+      "release": "mvp",
+      "resolution": null,
+      "rollup": {},
+      "scope": null,
+      "screens": [
+        "s02"
+      ],
+      "status": "todo",
+      "summary": "The fix is /frontend's. It sets in-progress when it starts and ready when the fix ships; QA re-runs AU-55 and closes or reopens it.",
+      "tags": [
+        "bug",
+        "bug/todo",
+        "module/identity",
+        "priority/high"
+      ],
+      "task": null,
+      "title": "B-21 A failed resend restarts the countdown",
       "unmet": [],
       "updated": "2026-11-08"
     }
