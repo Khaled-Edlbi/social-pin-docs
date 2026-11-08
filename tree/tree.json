@@ -1262,7 +1262,8 @@
       "kind": "error",
       "notes": [
         "backend-delivery:badge-qr",
-        "backend-integration:badge-qr"
+        "backend-integration:badge-qr",
+        "frontend-requirements:badge-qr"
       ],
       "owner": null
     },
@@ -1626,7 +1627,8 @@
       "notes": [
         "backend-delivery:badge-qr",
         "backend-integration:badge-qr",
-        "backend-integration:ring-invitations"
+        "backend-integration:ring-invitations",
+        "frontend-requirements:badge-qr"
       ],
       "owner": null
     },
@@ -2913,7 +2915,8 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:badge-qr",
-        "backend-integration:badge-qr"
+        "backend-integration:badge-qr",
+        "frontend-requirements:badge-qr"
       ],
       "owner": "feature:badge-qr"
     },
@@ -4640,7 +4643,8 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:badge-qr",
-        "backend-integration:badge-qr"
+        "backend-integration:badge-qr",
+        "frontend-requirements:badge-qr"
       ],
       "owner": "feature:badge-qr"
     },
@@ -4690,12 +4694,14 @@
     },
     "POST /rings/join-codes/resolve": {
       "containers": [
+        "feature:badge-qr",
         "feature:ring-invitations"
       ],
       "kind": "endpoint",
       "notes": [
         "backend-delivery:ring-invitations",
-        "backend-integration:ring-invitations"
+        "backend-integration:ring-invitations",
+        "frontend-requirements:badge-qr"
       ],
       "owner": "feature:ring-invitations"
     },
@@ -6601,7 +6607,7 @@
     },
     "concepts": 318,
     "decisions": 34,
-    "edges": 7554,
+    "edges": 7555,
     "features": 41,
     "layerNotes": 155,
     "modules": 8,
@@ -11018,10 +11024,14 @@
       "kind": "related",
       "to": "frontend-requirements:badge-qr",
       "via": [
+        "E_BADGE_01",
         "E_RING_02",
+        "E_RING_03",
+        "GET /rings/:ringId/qr/scans",
         "GET /views/qr/:token",
         "GET /views/ring/:ringId",
-        "POST /rings/:ringId/qr"
+        "POST /rings/:ringId/qr",
+        "POST /rings/:ringId/qr/reset"
       ]
     },
     {
@@ -14347,6 +14357,14 @@
     {
       "from": "backend-delivery:ring-invitations",
       "kind": "related",
+      "to": "frontend-requirements:badge-qr",
+      "via": [
+        "POST /rings/join-codes/resolve"
+      ]
+    },
+    {
+      "from": "backend-delivery:ring-invitations",
+      "kind": "related",
       "to": "frontend-requirements:counts",
       "via": [
         "GET /rings/shared-with-me"
@@ -16010,11 +16028,15 @@
       "kind": "related",
       "to": "frontend-requirements:badge-qr",
       "via": [
+        "E_BADGE_01",
         "E_RING_02",
+        "E_RING_03",
+        "GET /rings/:ringId/qr/scans",
         "GET /views/pin/:pinName",
         "GET /views/qr/:token",
         "GET /views/ring/:ringId",
-        "POST /rings/:ringId/qr"
+        "POST /rings/:ringId/qr",
+        "POST /rings/:ringId/qr/reset"
       ]
     },
     {
@@ -19182,6 +19204,14 @@
       "to": "frontend-delivery:rings",
       "via": [
         "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "backend-integration:ring-invitations",
+      "kind": "related",
+      "to": "frontend-requirements:badge-qr",
+      "via": [
+        "POST /rings/join-codes/resolve"
       ]
     },
     {
@@ -44468,7 +44498,8 @@
         "E_AUTH_04",
         "E_RING_03",
         "GET /rings",
-        "GET /views/ring/:ringId"
+        "GET /views/ring/:ringId",
+        "POST /rings/join-codes/resolve"
       ]
     },
     {
@@ -57678,11 +57709,6 @@
       "to": "story:linked-accounts"
     },
     {
-      "from": "frontend-requirements:badge-qr",
-      "kind": "wikilink",
-      "to": "backend-delivery:ring-invitations"
-    },
-    {
       "from": "frontend-requirements:cleanup-jobs",
       "kind": "wikilink",
       "to": "feature:pincast"
@@ -66199,7 +66225,8 @@
         "project:spec-map",
         "project:status-report-2026-10-15",
         "project:frontend-api-guide",
-        "project:frontend-contract"
+        "project:frontend-contract",
+        "frontend-requirements:badge-qr"
       ],
       "release": "mvp",
       "resolution": null,
@@ -69116,7 +69143,8 @@
         "project:spec-map",
         "project:status-report-2026-10-15",
         "project:frontend-api-guide",
-        "project:frontend-contract"
+        "project:frontend-contract",
+        "frontend-requirements:badge-qr"
       ],
       "release": "mvp",
       "resolution": null,
@@ -78251,7 +78279,9 @@
         "frontend-requirements:view-as",
         "qa-backend:view-as",
         "frontend-requirements:error-contract",
-        "frontend-requirements:companies"
+        "frontend-requirements:companies",
+        "backend-delivery:ring-invitations",
+        "backend-integration:ring-invitations"
       ],
       "release": "mvp",
       "resolution": null,

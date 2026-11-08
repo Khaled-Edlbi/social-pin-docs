@@ -85,13 +85,13 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
 | My Rings (the badge's picker) | `GET /rings` | ✅ | S1 |
 | My Pro state | `GET /users/me` (`accountType`) | ✅ | S14 |
 | A card by Pin name | `GET /views/pin/:pinName` | ✅ | S9 |
-| The picked Ring's code `{ token, issuedAt, expiresAt, url }`, same while valid | `POST /rings/:ringId/qr` | ❌ | S1, D-11, D-12 |
-| Reset the code | `{ reset: true }` or a reset route | ❌ | S2, D-11 |
-| Resolve a scanned code → the card + `expiresAt`, one neutral 404, even timing | `GET /views/qr/:token` | ❌ | S6, S8 |
-| Rate limit on resolving (429) | on `GET /views/qr/:token` | ❌ | S6 |
-| Tell a join QR from a badge | in BD-17 | ❌ | S6, D-35 |
-| Connect by scanned code / by Pin name | `POST /connections/requests` | ❌ | S8, S9, D-10, FR-14 |
-| Scan count for a Ring | — | ❌ | S13 |
+| The picked Ring's code `{ token, issuedAt, expiresAt, url }`, same while valid | `POST /rings/:ringId/qr` (404 `E_RING_02` not mine, 409 `E_RING_03` ended) | ✅ | S1, D-11, D-12 |
+| Reset the code | `POST /rings/:ringId/qr/reset` | ✅ | S2, D-11 |
+| Resolve a scanned code → the card + `expiresAt`, one neutral 404, even timing | `GET /views/qr/:token` (404 `E_RING_ACCESS_01` for every refusal, ≥ 300 ms) | ✅ | S6, S8 |
+| Rate limit on resolving (429) | on `GET /views/qr/:token`: 20 a minute per account, then 429 `E_BADGE_01` | ✅ | S6 |
+| Tell a join QR from a badge | a join QR is `socialpin://join/<CODE>` → `POST /rings/join-codes/resolve` ([[BD-17 Ring Invitations & Join Backend Delivery\|BD-17]]) | ✅ | S6, D-35 |
+| Connect by scanned code / by Pin name | `POST /connections/requests`: `{ pinName }` ✅, `{ qrToken }` not accepted yet | 🟡 | S8, S9, D-10, FR-14 |
+| Scan count for a Ring | `GET /rings/:ringId/qr/scans` → `{ scanCount }` | ✅ | S13 |
 | Permanent code (Pro) | — | ❌ | S14, [[S-71 Subscription (Free vs Pro) Story|S-71]] |
 | The `/q/<token>` web page, app links (deep links), Share link | the domain | later | S12, D-12, D-22 |
 
@@ -113,9 +113,9 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
 | 404 | `E_RING_ACCESS_01` | resolve or Pin name: "This profile isn't available"; keep scanning |
 | 404 | `E_RING_ACCESS_02` | the same to a scanner; on my own code, "This Ring has ended" |
 | 404 | `E_RING_02` | asking a code for a Ring that isn't mine: read `GET /rings` again and reset the picked Ring |
-| 429 | — (named in BD-18) | "Slow down", keep the camera open |
+| 429 | `E_BADGE_01` | "Slow down", keep the camera open |
 | 401 | `E_AUTH_04` | sign in again |
-| — | an ended Ring, the reset, the count | named by the backend in BD-18; branch on `statusCode` until [[S-87 Error Contract Story|Error Contract · S4–S8]] |
+| 409 | `E_RING_03` | a code or reset asked for my Ring that has ended: pick another live Ring, or *No Ring*. The reset and the count add no code of their own; branch on `statusCode` until [[S-87 Error Contract Story|Error Contract · S4–S8]] |
 | client | camera permission denied | inline, *Open settings* |
 | client | not a Social Pin code | "Not a Social Pin code", keep scanning |
 | client | a saved scan past `expiresAt` | "This code has expired. Scan {name} again to connect." |
@@ -133,3 +133,4 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
 - 2026-11-08 · `tickets/frontend/M-04-discovery/F-18-badge-qr/FR-18-draft` · rewritten against the approved S-37 (S1–S15) and D-10, D-11, D-12, D-35: per screen s34, s43, s44, s56 with **What changes in the app** under each; the code route with `url` and reset, the resolve with `expiresAt` and a 429, Connect by code or Pin name, the Pin name lookup (exists), Saved scans until the code expires, the join QR routed to FR-17; removed: auto-accept, "They will land in", the browser caption; Share link not available until the domain; the five ⚠ flags settled and cleared (D-10, D-11, D-12, S-23's renumbering, S-37); stays draft
 - 2026-11-08 · `tickets/frontend/M-04-discovery/F-18-badge-qr/FR-18-ready` · set ready on Omar Fostok's word: handed to `/backend` to review, approve or send back
 - 2026-11-08 · `tickets/backend/M-04-discovery/F-18-badge-qr/FR-18-accepted` · approved by the backend (khaled): the ✅ rows hold on backend `main` `cb95a39` (`GET /rings`, `GET /users/me` `accountType`, `GET /views/pin/:pinName`); the ❌ asks match S-37 and D-10, D-11, D-12, D-28, D-35. The backend names the reset, the ended-Ring and the 429 codes and the scan count route in [[BD-18 Badge & QR Backend Delivery]]; the join-QR form stays BD-17's. BD-18 stays `in-progress`
+- 2026-11-08 · `tickets/backend/M-04-discovery/F-18-badge-qr/FR-18-delivered-rows` · backend `main` `1c460b0`: rows ✅ with their endpoints for the code (`POST /rings/:ringId/qr`), the reset (`POST /rings/:ringId/qr/reset`), the resolve (`GET /views/qr/:token`), its 429 (`E_BADGE_01`), the scan count (`GET /rings/:ringId/qr/scans`) and the join QR (BD-17, `POST /rings/join-codes/resolve`); Connect 🟡 (`{ pinName }` yes, `{ qrToken }` not yet); the 429 and ended-Ring codes filled in the error table. How to call them: [[BI-15 Badge & QR Backend Integration]]. *Blocked by* and the *Source today* lines are the frontend's to update
