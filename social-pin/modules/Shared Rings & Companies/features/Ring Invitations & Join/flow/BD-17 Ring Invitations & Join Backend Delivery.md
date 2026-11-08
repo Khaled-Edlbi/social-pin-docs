@@ -16,7 +16,7 @@ tags: [backend-delivery, backend-delivery/in-progress, module/shared-rings, laye
 
 # 🟡 Ring Invitations & Join · Backend Delivery
 
-**Feature:** [[F-17 Ring Invitations & Join]] · **Status:** In progress · **Integration guide:** [[Ring Invitations & Join Backend Integration]] · **Requirements:** [[FR-17 Ring Invitations & Join Frontend Requirements]] · **QA:** [[Ring Invitations & Join QA Backend]]
+**Feature:** [[F-17 Ring Invitations & Join]] · **Status:** In progress · **Integration guide:** [[BI-17 Ring Invitations & Join Backend Integration]] · **Requirements:** [[FR-17 Ring Invitations & Join Frontend Requirements]] · **QA:** [[Ring Invitations & Join QA Backend]]
 
 What the backend built for [[S-33 Ring Invitations & Join Story]] S1–S3 and S5–S9 and how it works. **Not on `main` yet:** everything below is on the backend branch `FR-17/ring-invitation/invitations-codes-origin` @ `21899a6` (from `main` `cb95a39`), pushed, not merged. Until the merge, `main` has none of it, and `ringName` / `memberCount` on Shared with me stay `null`.
 
