@@ -59878,7 +59878,7 @@
         {
           "id": "frontend-requirements:ring-invitations",
           "title": "FR-17 Ring Invitations & Join Frontend Requirements",
-          "why": "FR-17 Ring Invitations & Join Frontend Requirements is draft"
+          "why": "FR-17 Ring Invitations & Join Frontend Requirements is ready"
         }
       ],
       "card": "BD-17",
@@ -68117,8 +68117,8 @@
         "approved": 1,
         "blocked": 1,
         "decided": 8,
-        "draft": 1,
         "missing": 4,
+        "ready": 1,
         "verified": 8
       },
       "scope": null,
@@ -73921,7 +73921,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "ready",
       "effort": null,
       "feature": "ring-invitations",
       "foundOn": null,
@@ -73995,11 +73995,11 @@
         "s43",
         "s74"
       ],
-      "status": "draft",
+      "status": "ready",
       "summary": "What the client needs from the backend to build S-33 Ring Invitations & Join Story S1–S12, and whether each need is met today. Rewritten 2026-11-08 against the approved story, D-31 to D-36, and…",
       "tags": [
         "frontend-requirements",
-        "frontend-requirements/draft",
+        "frontend-requirements/ready",
         "module/shared-rings",
         "layer/frontend"
       ],
@@ -75433,10 +75433,10 @@
         "approved": 2,
         "blocked": 4,
         "decided": 8,
-        "draft": 2,
+        "draft": 1,
         "in-progress": 3,
         "missing": 12,
-        "ready": 1,
+        "ready": 2,
         "verified": 8
       },
       "scope": null,
@@ -84753,14 +84753,14 @@
         "decided": 32,
         "delivered": 6,
         "done": 19,
-        "draft": 29,
+        "draft": 28,
         "failing": 5,
         "in-progress": 47,
         "missing": 134,
         "needs-decision": 1,
         "partial": 13,
         "passing": 4,
-        "ready": 13,
+        "ready": 14,
         "reference": 32,
         "todo": 3,
         "verified": 32
