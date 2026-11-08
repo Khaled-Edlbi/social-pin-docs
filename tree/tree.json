@@ -278,6 +278,7 @@
     "ND-30 When five wrong code tries lock the code": "needs-decision:ND-30",
     "ND-31 What an invitation is": "needs-decision:ND-31",
     "ND-32 How a Ring's join code works": "needs-decision:ND-32",
+    "ND-33 When a work email is checked": "needs-decision:ND-33",
     "Owner Agent": "project:owner-agent",
     "PM Agent": "project:pm-agent",
     "Project Overview": "project:project-overview",
@@ -576,6 +577,7 @@
     "ND-30": "needs-decision:ND-30",
     "ND-31": "needs-decision:ND-31",
     "ND-32": "needs-decision:ND-32",
+    "ND-33": "needs-decision:ND-33",
     "P-01": "project:feature-graph",
     "P-02": "project:feature-tree",
     "P-03": "project:glossary",
@@ -5001,6 +5003,7 @@
         "feature:rings",
         "needs-decision:ND-04",
         "needs-decision:ND-32",
+        "needs-decision:ND-33",
         "task:B-13",
         "task:B-14",
         "task:B-15"
@@ -5020,6 +5023,7 @@
         "frontend-requirements:rings",
         "needs-decision:ND-04",
         "needs-decision:ND-32",
+        "needs-decision:ND-33",
         "qa-backend:ring-access",
         "qa-backend:rings",
         "story:companies",
@@ -5987,7 +5991,8 @@
       "containers": [
         "feature:companies",
         "feature:delegated-admins",
-        "needs-decision:ND-18"
+        "needs-decision:ND-18",
+        "needs-decision:ND-33"
       ],
       "kind": "screen",
       "notes": [
@@ -5995,6 +6000,7 @@
         "feature:companies",
         "frontend-requirements:companies",
         "needs-decision:ND-18",
+        "needs-decision:ND-33",
         "story:companies",
         "story:delegated-admins"
       ],
@@ -6006,7 +6012,8 @@
         "feature:ring-invitations",
         "needs-decision:ND-18",
         "needs-decision:ND-31",
-        "needs-decision:ND-32"
+        "needs-decision:ND-32",
+        "needs-decision:ND-33"
       ],
       "kind": "screen",
       "notes": [
@@ -6017,6 +6024,7 @@
         "needs-decision:ND-18",
         "needs-decision:ND-31",
         "needs-decision:ND-32",
+        "needs-decision:ND-33",
         "story:companies",
         "story:ring-invitations"
       ],
@@ -6052,7 +6060,7 @@
       "frontend-delivery": 9,
       "frontend-requirements": 39,
       "module": 8,
-      "needs-decision": 30,
+      "needs-decision": 31,
       "project": 28,
       "qa-backend": 11,
       "qa-frontend": 1,
@@ -6061,18 +6069,18 @@
     },
     "byLayer": {
       "backend": 58,
-      "business": 161,
+      "business": 162,
       "frontend": 52,
       "qa": 12,
       "shared": 10
     },
     "concepts": 290,
-    "decisions": 30,
-    "edges": 6723,
+    "decisions": 31,
+    "edges": 6733,
     "features": 41,
     "layerNotes": 151,
     "modules": 8,
-    "notes": 324,
+    "notes": 325,
     "partial": 13,
     "placeholders": 134,
     "records": 26
@@ -8050,6 +8058,11 @@
       "to": "story:ring-invitations"
     },
     {
+      "from": "needs-decision:ND-33",
+      "kind": "blocks",
+      "to": "story:ring-invitations"
+    },
+    {
       "from": "story:build-deploy",
       "kind": "blocks",
       "to": "frontend-requirements:build-deploy"
@@ -8446,6 +8459,16 @@
     },
     {
       "from": "needs-decision:ND-32",
+      "kind": "decision",
+      "to": "story:ring-invitations"
+    },
+    {
+      "from": "needs-decision:ND-33",
+      "kind": "decision",
+      "to": "feature:ring-invitations"
+    },
+    {
+      "from": "needs-decision:ND-33",
       "kind": "decision",
       "to": "story:ring-invitations"
     },
@@ -24737,6 +24760,36 @@
       "from": "needs-decision:ND-32",
       "kind": "related",
       "to": "story:delegated-admins"
+    },
+    {
+      "from": "needs-decision:ND-33",
+      "kind": "related",
+      "to": "decision:D-04"
+    },
+    {
+      "from": "needs-decision:ND-33",
+      "kind": "related",
+      "to": "decision:D-18"
+    },
+    {
+      "from": "needs-decision:ND-33",
+      "kind": "related",
+      "to": "feature:companies"
+    },
+    {
+      "from": "needs-decision:ND-33",
+      "kind": "related",
+      "to": "feature:ring-invitations"
+    },
+    {
+      "from": "needs-decision:ND-33",
+      "kind": "related",
+      "to": "story:code-delivery"
+    },
+    {
+      "from": "needs-decision:ND-33",
+      "kind": "related",
+      "to": "story:companies"
     },
     {
       "from": "project:admin-agent",
@@ -48812,6 +48865,11 @@
       "to": "needs-decision:ND-32"
     },
     {
+      "from": "story:ring-invitations",
+      "kind": "tree",
+      "to": "needs-decision:ND-33"
+    },
+    {
       "from": "story:subscription",
       "kind": "tree",
       "to": "needs-decision:ND-07"
@@ -55922,6 +55980,10 @@
       "name": "ND-32 How a Ring's join code works",
       "type": "needs-decision"
     },
+    "social-pin/needs-decisions/ND-33 When a work email is checked.md": {
+      "name": "ND-33 When a work email is checked",
+      "type": "needs-decision"
+    },
     "templates/Backend Delivery Template.md": {
       "name": "Backend Delivery Template",
       "type": "backend-delivery"
@@ -62001,6 +62063,7 @@
         "needs-decision:ND-23",
         "needs-decision:ND-31",
         "needs-decision:ND-32",
+        "needs-decision:ND-33",
         "needs-decision:ND-04",
         "project:ring-access-model",
         "decision:D-05",
@@ -62828,6 +62891,7 @@
       "related": [
         "needs-decision:ND-31",
         "needs-decision:ND-32",
+        "needs-decision:ND-33",
         "needs-decision:ND-18",
         "decision:D-14",
         "decision:D-04",
@@ -64265,7 +64329,8 @@
         "project:architecture",
         "project:api-conventions",
         "project:spec-map",
-        "needs-decision:ND-18"
+        "needs-decision:ND-18",
+        "needs-decision:ND-33"
       ],
       "release": "mvp",
       "resolution": null,
@@ -66346,6 +66411,7 @@
         "needs-decision:ND-29",
         "needs-decision:ND-31",
         "needs-decision:ND-32",
+        "needs-decision:ND-33",
         "decision:D-29"
       ],
       "release": "mvp",
@@ -66354,7 +66420,7 @@
         "blocked": 3,
         "decided": 2,
         "missing": 4,
-        "needs-decision": 2,
+        "needs-decision": 3,
         "verified": 2
       },
       "scope": null,
@@ -73647,7 +73713,7 @@
         "draft": 1,
         "in-progress": 3,
         "missing": 12,
-        "needs-decision": 2,
+        "needs-decision": 3,
         "ready": 1,
         "verified": 2
       },
@@ -75714,6 +75780,69 @@
       ],
       "task": null,
       "title": "ND-32 How a Ring's join code works",
+      "unmet": [],
+      "updated": "2026-11-08"
+    },
+    "needs-decision:ND-33": {
+      "affects": [],
+      "blockedBy": [],
+      "blocks": [
+        "story:ring-invitations"
+      ],
+      "card": "ND-33",
+      "children": [],
+      "code": "ND-33",
+      "created": "2026-11-08",
+      "deadline": null,
+      "decider": "owner",
+      "depends": [],
+      "effectiveStatus": "needs-decision",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "ring-invitations"
+      ],
+      "foundOn": null,
+      "frontendOnly": false,
+      "id": "needs-decision:ND-33",
+      "inherits": {},
+      "kind": "needs-decision",
+      "label": "Needs decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "openBugs": [],
+      "parentTask": null,
+      "parents": [
+        "story:ring-invitations"
+      ],
+      "path": "social-pin/needs-decisions/ND-33 When a work email is checked.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "feature:ring-invitations",
+        "feature:companies",
+        "story:companies",
+        "decision:D-04",
+        "decision:D-18",
+        "story:code-delivery"
+      ],
+      "release": null,
+      "resolution": null,
+      "scope": null,
+      "screens": [
+        "s74",
+        "s73",
+        "s26"
+      ],
+      "status": "needs-decision",
+      "summary": "When the work address someone joins with is checked, and what happens to their place when it stops being true. Joining a company Ring with a verified work email (S4) proves the address once; the…",
+      "tags": [
+        "needs-decision",
+        "needs-decision/open"
+      ],
+      "task": null,
+      "title": "ND-33 When a work email is checked",
       "unmet": [],
       "updated": "2026-11-08"
     },
@@ -82685,7 +82814,7 @@
         "failing": 5,
         "in-progress": 47,
         "missing": 134,
-        "needs-decision": 3,
+        "needs-decision": 4,
         "partial": 13,
         "passing": 4,
         "ready": 4,
@@ -83190,6 +83319,7 @@
         "task:B-05",
         "needs-decision:ND-20",
         "needs-decision:ND-30",
+        "needs-decision:ND-33",
         "decision:D-20",
         "decision:D-30",
         "backend-delivery:account",
@@ -83263,6 +83393,7 @@
         "task:B-17",
         "needs-decision:ND-31",
         "needs-decision:ND-32",
+        "needs-decision:ND-33",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -85134,13 +85265,19 @@
           "id": "needs-decision:ND-32",
           "title": "ND-32 How a Ring's join code works",
           "why": "needs decision ND-32 (open)"
+        },
+        {
+          "id": "needs-decision:ND-33",
+          "title": "ND-33 When a work email is checked",
+          "why": "needs decision ND-33 (open)"
         }
       ],
       "card": "S-33",
       "children": [
         "needs-decision:ND-18",
         "needs-decision:ND-31",
-        "needs-decision:ND-32"
+        "needs-decision:ND-32",
+        "needs-decision:ND-33"
       ],
       "code": "ring-invitations",
       "created": "2026-10-18",
