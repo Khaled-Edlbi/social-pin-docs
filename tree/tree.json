@@ -1689,6 +1689,16 @@
       ],
       "owner": null
     },
+    "E_RING_10": {
+      "containers": [
+        "task:B-15"
+      ],
+      "kind": "error",
+      "notes": [
+        "task:B-15"
+      ],
+      "owner": null
+    },
     "E_USER_01": {
       "containers": [
         "feature:account",
@@ -6119,7 +6129,7 @@
       "qa": 12,
       "shared": 10
     },
-    "concepts": 290,
+    "concepts": 291,
     "decisions": 34,
     "edges": 6804,
     "features": 41,
@@ -67279,7 +67289,8 @@
         "failing": 1,
         "missing": 1,
         "partial": 1,
-        "todo": 4,
+        "ready": 1,
+        "todo": 3,
         "verified": 2
       },
       "scope": null,
@@ -74077,8 +74088,8 @@
         "needs-decision": 1,
         "partial": 13,
         "passing": 4,
-        "ready": 2,
-        "todo": 9,
+        "ready": 3,
+        "todo": 8,
         "verified": 10
       },
       "scope": null,
@@ -83574,9 +83585,9 @@
         "needs-decision": 5,
         "partial": 13,
         "passing": 4,
-        "ready": 4,
+        "ready": 5,
         "reference": 32,
-        "todo": 12,
+        "todo": 11,
         "verified": 28
       },
       "scope": null,
@@ -87844,7 +87855,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "todo",
+      "effectiveStatus": "ready",
       "effort": "S",
       "feature": "rings",
       "foundOn": "BI-08 Rings Backend Integration",
@@ -87904,18 +87915,18 @@
         "s26",
         "s62"
       ],
-      "status": "todo",
+      "status": "ready",
       "summary": "The fix is /backend's. That agent sets in-progress when it starts and ready when the fix ships (status, tag, H1 and the Status segment only; the fix itself is recorded in its own delivery note,…",
       "tags": [
         "bug",
-        "bug/todo",
+        "bug/ready",
         "module/identity",
         "priority/medium"
       ],
       "task": null,
       "title": "B-15 Disposition runs on a permanent Ring, the default included",
       "unmet": [],
-      "updated": "2026-11-05"
+      "updated": "2026-11-08"
     },
     "task:B-16": {
       "affects": [],
