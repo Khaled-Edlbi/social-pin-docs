@@ -6154,7 +6154,7 @@
     },
     "concepts": 291,
     "decisions": 34,
-    "edges": 6902,
+    "edges": 6903,
     "features": 41,
     "layerNotes": 151,
     "modules": 8,
@@ -32458,7 +32458,42 @@
     {
       "from": "story:ring-invitations",
       "kind": "related",
+      "to": "decision:D-17"
+    },
+    {
+      "from": "story:ring-invitations",
+      "kind": "related",
       "to": "decision:D-18"
+    },
+    {
+      "from": "story:ring-invitations",
+      "kind": "related",
+      "to": "decision:D-31"
+    },
+    {
+      "from": "story:ring-invitations",
+      "kind": "related",
+      "to": "decision:D-32"
+    },
+    {
+      "from": "story:ring-invitations",
+      "kind": "related",
+      "to": "decision:D-33"
+    },
+    {
+      "from": "story:ring-invitations",
+      "kind": "related",
+      "to": "decision:D-34"
+    },
+    {
+      "from": "story:ring-invitations",
+      "kind": "related",
+      "to": "decision:D-35"
+    },
+    {
+      "from": "story:ring-invitations",
+      "kind": "related",
+      "to": "decision:D-36"
     },
     {
       "from": "story:ring-invitations",
@@ -32494,6 +32529,11 @@
       "from": "story:ring-invitations",
       "kind": "related",
       "to": "story:badge-qr"
+    },
+    {
+      "from": "story:ring-invitations",
+      "kind": "related",
+      "to": "story:code-delivery"
     },
     {
       "from": "story:ring-invitations",
@@ -50684,11 +50724,6 @@
     {
       "from": "decision:D-31",
       "kind": "wikilink",
-      "to": "story:ring-invitations"
-    },
-    {
-      "from": "decision:D-31",
-      "kind": "wikilink",
       "to": "story:ring-members"
     },
     {
@@ -50714,11 +50749,6 @@
     {
       "from": "decision:D-32",
       "kind": "wikilink",
-      "to": "story:ring-invitations"
-    },
-    {
-      "from": "decision:D-32",
-      "kind": "wikilink",
       "to": "story:ring-members"
     },
     {
@@ -50737,11 +50767,6 @@
       "to": "story:companies"
     },
     {
-      "from": "decision:D-33",
-      "kind": "wikilink",
-      "to": "story:ring-invitations"
-    },
-    {
       "from": "decision:D-34",
       "kind": "wikilink",
       "to": "backend-delivery:ring-invitations"
@@ -50755,11 +50780,6 @@
       "from": "decision:D-34",
       "kind": "wikilink",
       "to": "story:companies"
-    },
-    {
-      "from": "decision:D-34",
-      "kind": "wikilink",
-      "to": "story:ring-invitations"
     },
     {
       "from": "decision:D-34",
@@ -50792,11 +50812,6 @@
       "to": "story:companies"
     },
     {
-      "from": "decision:D-35",
-      "kind": "wikilink",
-      "to": "story:ring-invitations"
-    },
-    {
       "from": "decision:D-36",
       "kind": "wikilink",
       "to": "backend-delivery:ring-invitations"
@@ -50810,11 +50825,6 @@
       "from": "decision:D-36",
       "kind": "wikilink",
       "to": "story:companies"
-    },
-    {
-      "from": "decision:D-36",
-      "kind": "wikilink",
-      "to": "story:ring-invitations"
     },
     {
       "from": "feature:account",
@@ -55530,11 +55540,6 @@
       "from": "story:ring-invitations",
       "kind": "wikilink",
       "to": "feature:notifications"
-    },
-    {
-      "from": "story:ring-invitations",
-      "kind": "wikilink",
-      "to": "story:code-delivery"
     },
     {
       "from": "story:ring-members",
@@ -63937,7 +63942,8 @@
         "decision:D-27",
         "decision:D-31",
         "frontend-requirements:connections",
-        "story:connections"
+        "story:connections",
+        "story:ring-invitations"
       ],
       "release": null,
       "resolution": null,
@@ -64817,7 +64823,8 @@
         "decision:D-32",
         "decision:D-33",
         "decision:D-34",
-        "decision:D-36"
+        "decision:D-36",
+        "story:ring-invitations"
       ],
       "release": null,
       "resolution": null,
@@ -64885,7 +64892,8 @@
         "story:companies",
         "decision:D-33",
         "decision:D-34",
-        "decision:D-35"
+        "decision:D-35",
+        "story:ring-invitations"
       ],
       "release": null,
       "resolution": null,
@@ -64950,7 +64958,8 @@
         "decision:D-04",
         "decision:D-18",
         "decision:D-31",
-        "decision:D-32"
+        "decision:D-32",
+        "story:ring-invitations"
       ],
       "release": null,
       "resolution": null,
@@ -65017,7 +65026,8 @@
         "decision:D-18",
         "decision:D-31",
         "decision:D-32",
-        "backend-integration:rings"
+        "backend-integration:rings",
+        "story:ring-invitations"
       ],
       "release": null,
       "resolution": null,
@@ -65083,7 +65093,8 @@
         "decision:D-11",
         "decision:D-28",
         "decision:D-18",
-        "decision:D-04"
+        "decision:D-04",
+        "story:ring-invitations"
       ],
       "release": null,
       "resolution": null,
@@ -65147,7 +65158,8 @@
         "decision:D-04",
         "decision:D-31",
         "backend-integration:rings",
-        "story:rings"
+        "story:rings",
+        "story:ring-invitations"
       ],
       "release": null,
       "resolution": null,
@@ -67968,7 +67980,7 @@
       "task": null,
       "title": "F-17 Ring Invitations & Join",
       "unmet": [],
-      "updated": "2026-11-01"
+      "updated": "2026-11-08"
     },
     "feature:ring-members": {
       "affects": [],
@@ -85082,7 +85094,8 @@
         "backend-delivery:account",
         "frontend-delivery:auth",
         "qa-backend:auth",
-        "frontend-requirements:error-contract"
+        "frontend-requirements:error-contract",
+        "story:ring-invitations"
       ],
       "release": "mvp",
       "resolution": null,
@@ -87081,7 +87094,14 @@
         "decision:D-04",
         "decision:D-14",
         "decision:D-15",
+        "decision:D-17",
         "decision:D-18",
+        "decision:D-31",
+        "decision:D-32",
+        "decision:D-33",
+        "decision:D-34",
+        "decision:D-35",
+        "decision:D-36",
         "needs-decision:ND-31",
         "needs-decision:ND-32",
         "needs-decision:ND-33",
@@ -87089,7 +87109,8 @@
         "needs-decision:ND-35",
         "needs-decision:ND-36",
         "story:companies",
-        "story:badge-qr"
+        "story:badge-qr",
+        "story:code-delivery"
       ],
       "release": "mvp",
       "resolution": null,
@@ -87105,7 +87126,7 @@
         "s74"
       ],
       "status": "draft",
-      "summary": "Being let into someone else's Ring knowingly. A company invites its new hire into \"Acme Team\"; an organizer invites a speaker into \"TechSummit Speakers\"; a colleague hands over a join code; an…",
+      "summary": "Being let into someone else's Ring knowingly. A company invites its new hire into \"Acme Team\"; an organizer invites a speaker into \"TechSummit Speakers\"; a company hands out a join code, or shows…",
       "tags": [
         "story",
         "story/draft",

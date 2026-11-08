@@ -13,6 +13,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/shared-rings, 
 
 # Ring Invitations & Join · Frontend Requirements
 
+> ⚠ Affected by [[S-33 Ring Invitations & Join Story]] (2026-11-08): S-33 updated with D-31 to D-36: invitation statuses and 30-day expiry, a Join codes list (labels, end date, use limit, Show as QR), no work email, the "Your card in <Ring>" step and the colleagues' cards, no purpose on the review
+
 > ⚠ Affected by [[D-36 Who it's for stays the owner's alone]] (2026-11-08): no purpose ("who it's for") on s74 or s72; only the owner's own screens show it
 
 > ⚠ Affected by [[D-35 A join code can be shown as a QR]] (2026-11-08): Show as QR on each active join code; the scanner recognises a join QR and opens the s74 review with the code's rules and errors; a badge never offers a Ring

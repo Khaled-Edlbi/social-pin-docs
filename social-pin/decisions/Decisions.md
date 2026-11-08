@@ -1,6 +1,6 @@
 ---
 type: map
-updated: 2026-11-05
+updated: 2026-11-08
 tags: [map]
 ---
 
@@ -38,11 +38,11 @@ Where the design and the backend disagree, and every other decision a card needs
 | [[ND-28 Scanning someone straight into a Ring]] | fulfilled (1, not in the MVP) | [[D-28 Scan someone in is not in the MVP]] | [[F-14 Connections]] | s15 |
 | [[ND-29 Connection detail for a member who is not a connection]] | fulfilled (1, s47 opens them) | [[D-29 Connection detail opens a member who is not a connection]] | [[F-14 Connections]] | s15, s47 |
 | [[ND-31 What an invitation is]] | fulfilled (1, its own record) | [[D-31 An invitation is its own record]] | [[F-17 Ring Invitations & Join]] | s15, s17, s72, s74 |
-| [[ND-32 How a Ring's join code works]] | open (recommended 1, one code per Ring) | — | [[F-17 Ring Invitations & Join]] | s26, s72, s74 |
-| [[ND-33 When a work email is checked]] | open (recommended 1, once at joining) | — | [[F-17 Ring Invitations & Join]], [[F-15 Companies]] | s26, s73, s74 |
-| [[ND-34 What a member contributes to a shared Ring]] | open (recommended 1, one of my own Rings) | — | [[F-17 Ring Invitations & Join]], [[F-09 Ring Members]] | s17, s73, s74 |
-| [[ND-35 A colleague's QR offering their company Ring]] | open (recommended 2, the Ring's join QR) | — | [[F-17 Ring Invitations & Join]], [[F-18 Badge & QR]] | s34, s43, s44, s74 |
-| [[ND-36 Whether an invitee sees who a Ring is for]] | open (recommended 1, owner-only as built) | — | [[F-17 Ring Invitations & Join]], [[F-11 Rings]] | s22, s72, s74 |
+| [[ND-32 How a Ring's join code works]] | fulfilled (2, several labelled codes) | [[D-32 Several join codes per Ring]] | [[F-17 Ring Invitations & Join]] | s26, s72, s74 |
+| [[ND-33 When a work email is checked]] | fulfilled (not now, waits for real emails and the domain) | [[D-33 Work email joining waits for real emails and Companies]] | [[F-17 Ring Invitations & Join]], [[F-15 Companies]] | s26, s73, s74 |
+| [[ND-34 What a member contributes to a shared Ring]] | fulfilled (1, one of my own Rings) | [[D-34 A member shows one of their own Rings]] | [[F-17 Ring Invitations & Join]], [[F-09 Ring Members]] | s17, s73, s74 |
+| [[ND-35 A colleague's QR offering their company Ring]] | fulfilled (2, a join code shown as a QR) | [[D-35 A join code can be shown as a QR]] | [[F-17 Ring Invitations & Join]], [[F-18 Badge & QR]] | s34, s43, s44, s74 |
+| [[ND-36 Whether an invitee sees who a Ring is for]] | fulfilled (1, owner-only as built) | [[D-36 Who it's for stays the owner's alone]] | [[F-17 Ring Invitations & Join]], [[F-11 Rings]] | s22, s72, s74 |
 
 ```dataview
 TABLE status, features FROM #needs-decision
