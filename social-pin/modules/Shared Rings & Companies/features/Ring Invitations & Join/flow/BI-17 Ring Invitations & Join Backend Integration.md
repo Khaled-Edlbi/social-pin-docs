@@ -3,7 +3,7 @@ id: BI-17
 type: backend-integration
 module: shared-rings
 feature: ring-invitations
-status: draft
+status: current
 scope: feature
 screens: [s15, s17, s19, s26, s43, s74]
 depends: ["BD-17 Ring Invitations & Join Backend Delivery"]
@@ -12,7 +12,7 @@ related: ["S-33 Ring Invitations & Join Story", "BI-08 Rings Backend Integration
 pending: []
 created: 2026-11-08
 updated: 2026-11-08
-tags: [backend-integration, backend-integration/draft, module/shared-rings, layer/backend]
+tags: [backend-integration, backend-integration/current, module/shared-rings, layer/backend]
 ---
 
 # 🔌 Ring Invitations & Join · Backend Integration
@@ -21,7 +21,7 @@ tags: [backend-integration, backend-integration/draft, module/shared-rings, laye
 
 **Feature:** [[F-17 Ring Invitations & Join]] · **Backend:** [[BD-17 Ring Invitations & Join Backend Delivery]] · **Read first:** [[Frontend Contract]], [[Frontend API Guide]]
 
-How the app calls invitations, join codes and join requests. **Draft:** it describes the backend branch `FR-17/ring-invitation/invitations-codes-origin` @ `21899a6`, **not `main`**. None of these routes exist on `main` until that branch is merged; then this note goes `current`. All routes are under `/api/v1`, signed in (`Authorization: Bearer <access token>`).
+How the app calls invitations, join codes and join requests, as on backend `main` `1c460b0`. All routes are under `/api/v1`, signed in (`Authorization: Bearer <access token>`).
 
 ## Screens → calls
 
@@ -129,7 +129,6 @@ The body has no `ErrorCode` yet ([[S-87 Error Contract Story|Error Contract]]); 
 
 ## Not available yet
 
-- On `main`: everything above, until `FR-17/ring-invitation/invitations-codes-origin` is merged.
 - "Your card in <Ring>" (the picked Ring): → [[S-33 Ring Invitations & Join Story|S-33 S10]].
 - The members' roster inside a Ring, and *Leave this Ring*: → [[S-33 Ring Invitations & Join Story|S-33 S11]].
 - Notifications: → [[S-33 Ring Invitations & Join Story|S-33 S12]].
@@ -141,6 +140,11 @@ The body has no `ErrorCode` yet ([[S-87 Error Contract Story|Error Contract]]); 
 - [ ] a joined-knowingly row shows "Acme Team · Shared by …"; "· N people" only when `memberCount` is not null
 - [ ] accept opens `GET /views/ring/:ringId`, then s17
 - [ ] code entry: any case, dash optional; one neutral message; 429 has its own message
-- [ ] the scanner routes `socialpin://join/` to the code review, everything else to the badge flow
+- [ ] the scanner routes `socialpin://join/` to the code review, and a badge (`https://socialpin.me/q/<token>`, [[F-18 Badge & QR]]) to the badge flow; a badge never offers a Ring to join
 - [ ] s15 shows Invited (with Withdraw) and Waiting on you (code label, Add, Decline), never as members
 - [ ] s26 Join codes: list, make (label ≤ 40, end date, limit), turn off, Share (`displayCode`), Show as QR (`qrPayload`)
+
+## Log
+
+- 2026-11-08 · `docs/backend/M-03-shared-rings/F-17-ring-invitations/BI-17-draft` · written as a draft against the backend branch `FR-17/ring-invitation/invitations-codes-origin` @ `21899a6`
+- 2026-11-08 · backend `main` `1c460b0` (the merge of that branch) · matches `main`: the routes, shapes, errors and rules above, unchanged by the merge; → current. The badge payload F-18 shipped (`https://socialpin.me/q/<token>`) added to the scanner checklist line

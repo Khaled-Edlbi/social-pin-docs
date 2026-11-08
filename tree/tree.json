@@ -6664,9 +6664,7 @@
   ],
   "diagnostics": {
     "errors": [],
-    "warnings": [
-      "social-pin/modules/Shared Rings & Companies/features/Ring Invitations & Join/flow/BD-17 Ring Invitations & Join Backend Delivery.md: status: done, but its Backend Integration is `draft`: the requirements of this scope cannot reach `delivered` until it is `current`"
-    ]
+    "warnings": []
   },
   "edges": [
     {
@@ -8458,11 +8456,6 @@
       "from": "backend-integration:post-event",
       "kind": "blocks",
       "to": "frontend-delivery:post-event"
-    },
-    {
-      "from": "backend-integration:ring-invitations",
-      "kind": "blocks",
-      "to": "frontend-delivery:ring-invitations"
     },
     {
       "from": "backend-integration:subscription",
@@ -56787,6 +56780,11 @@
     {
       "from": "backend-integration:ring-invitations",
       "kind": "wikilink",
+      "to": "feature:badge-qr"
+    },
+    {
+      "from": "backend-integration:ring-invitations",
+      "kind": "wikilink",
       "to": "story:error-contract"
     },
     {
@@ -69065,7 +69063,7 @@
       "depends": [
         "backend-delivery:ring-invitations"
       ],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "current",
       "effort": null,
       "feature": "ring-invitations",
       "foundOn": null,
@@ -69156,11 +69154,11 @@
         "s43",
         "s74"
       ],
-      "status": "draft",
-      "summary": "How the app calls invitations, join codes and join requests. Draft: it describes the backend branch FR-17/ring-invitation/invitations-codes-origin @ 21899a6, not main. None of these routes exist…",
+      "status": "current",
+      "summary": "How the app calls invitations, join codes and join requests, as on backend main 1c460b0. All routes are under /api/v1, signed in (Authorization: Bearer <access token>).",
       "tags": [
         "backend-integration",
-        "backend-integration/draft",
+        "backend-integration/current",
         "module/shared-rings",
         "layer/backend"
       ],
@@ -74953,8 +74951,8 @@
       "resolution": null,
       "rollup": {
         "approved": 2,
+        "current": 1,
         "decided": 8,
-        "draft": 1,
         "missing": 3,
         "partial": 1,
         "verified": 8
@@ -77476,13 +77474,7 @@
     },
     "frontend-delivery:ring-invitations": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "backend-integration:ring-invitations",
-          "title": "BI-17 Ring Invitations & Join Backend Integration",
-          "why": "BI-17 Ring Invitations & Join Backend Integration is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": null,
       "children": [],
       "code": "ring-invitations",
@@ -82470,8 +82462,9 @@
       "rollup": {
         "approved": 3,
         "blocked": 3,
+        "current": 1,
         "decided": 8,
-        "draft": 2,
+        "draft": 1,
         "in-progress": 3,
         "missing": 11,
         "partial": 1,
@@ -91993,11 +91986,11 @@
       "rollup": {
         "approved": 43,
         "blocked": 29,
-        "current": 5,
+        "current": 6,
         "decided": 33,
         "delivered": 11,
         "done": 31,
-        "draft": 28,
+        "draft": 27,
         "failing": 1,
         "in-progress": 49,
         "missing": 130,
