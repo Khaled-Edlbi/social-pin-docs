@@ -12,15 +12,11 @@ affects: ["BD-14 Connections Backend Delivery"]
 related: ["S-23 Connections Story", "D-04 Ring settings at launch and their defaults", "D-06 Yearly rename, old name freed, case-insensitive", "D-10 Connect sends what the requester already has", "D-13 The requester sees a declined request", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-16 Files load from signed links that expire in 15 minutes", "D-17 Requests expire after 30 days, optional note, ask again at once", "D-18 Ring names shown when joined knowingly", "D-23 A count of mutual connections, events where both were visible", "D-24 One pending request per pair", "D-25 A deleted account's connections, requests and blocks end silently", "D-26 A disconnect is not announced", "D-27 Sent keeps declined and expired requests for 30 days", "D-28 Scan someone in is not in the MVP", "D-29 Connection detail opens a member who is not a connection", "BI-06 Ring Members Backend Integration", "BI-08 Rings Backend Integration", "BI-09 View As & Pin Views Backend Integration", "FR-03 Counts Frontend Requirements", "FR-09 Ring Members Frontend Requirements", "FR-11 Rings Frontend Requirements", "FR-12 View As & Pin Views Frontend Requirements", "FR-16 Delegated Admins Frontend Requirements", "FR-18 Badge & QR Frontend Requirements", "FR-39 Notifications Frontend Requirements", "S-87 Error Contract Story", "Frontend Contract", "GET /views/pin/:pinName", "GET /views/user/:userId/perspectives", "GET /rings", "GET /rings/shared-with-me", "POST /rings/:ringId/members", "PATCH /rings/:ringId/members/:userId", "DELETE /rings/:ringId/members/:userId", "POST /rings/:ringId/members/:userId/reassign", "GET /rings/:ringId/projection", "E_RING_02", "E_RING_05"]
 pending: []
 created: 2026-10-18
-updated: 2026-11-04
+updated: 2026-11-08
 tags: [frontend-requirements, frontend-requirements/ready, module/connections, layer/frontend]
 ---
 
 # 📨 Connections · Frontend Requirements
-
-> ⚠ Affected by [[S-23 Connections Story]] (2026-11-08): S-23 updated for backend main 12172c6: GET /rings/shared-with-me returns people (S7), the card opening from the row's ringId; photos are avatarUrl, a signed link (D-16), never avatarFileId: the request, contact and blocked rows should ask for avatarUrl; /views/pin and the perspectives still put the default Ring first
-
-> ⚠ Affected by [[BD-11 Rings Backend Delivery]] (2026-11-05): backend main 12172c6: GET /rings/shared-with-me returns the person, never the Ring's name, colour or type; the line saying the API still returns the Ring's name is stale (/frontend)
 
 **Feature:** [[F-14 Connections]] · **Status:** Ready (waiting on the backend's review) · **Story:** [[S-23 Connections Story]] (approved 2026-11-04) · **Backend Integration:** not yet (no routes: [[BD-14 Connections Backend Delivery]])
 
@@ -88,13 +84,13 @@ What the client needs from the backend to build every part of [[S-23 Connections
 
   | Shown | Field | Notes |
   |---|---|---|
-  | Who | `from.userId`, `from.displayName`, `from.pinName`, `from.avatarFileId` | the requester chose to ask, so the receiver may know who: their main profile's name and Pin name. The `userId` is needed to open what they share with me (S10) and to add them later |
+  | Who | `from.userId`, `from.displayName`, `from.pinName`, `from.avatarUrl` | the requester chose to ask, so the receiver may know who: their main profile's name and Pin name. The `userId` is needed to open what they share with me (S10) and to add them later |
   | When | `createdAt` | "2 h ago" |
   | Where from | `source`: `SCAN` / `PIN_NAME` / `PINCAST` / `EVENT`, and `eventName` for `EVENT` | "Scanned your badge", "Found you by Pin name"; hidden when absent |
   | Their note | `note` | up to 200 characters, quoted; hidden when null |
   | Expires | `expiresAt` | not shown on the row; used for nothing else in the MVP |
 
-- Tab label "Incoming · N" from `meta.total`. Photos: initials until files load (D-16).
+- Tab label "Incoming · N" from `meta.total`. Photos: `avatarUrl` (D-16), initials when there is none.
 - *Accept* → s46. *Decline* (✕) → S6. The row → what they share with me, `GET /views/user/:userId/perspectives` ✅ (empty: "Nothing shared with you right now").
 - **Expired** requests are simply not returned (the 30 days are the server's job, D-17).
 - Empty: "No requests yet. Share your badge to get found."
@@ -103,7 +99,7 @@ What the client needs from the backend to build every part of [[S-23 Connections
 ### [[Screen Index#s45|s45]] Requests · Sent (S4)
 
 - **List:** `GET /connections/requests?direction=sent&limit=&skip=` ❌. Statuses returned: `PENDING`, `DECLINED`, `EXPIRED`. **Accepted and cancelled are not returned.** Newest first.
-- **A row needs** (sent): `id`, `status`, `createdAt`, `note`, and the person **as I found them**: `to.displayName`, `to.pinName`, `to.avatarFileId` as the card showed them. **No `to.userId`** (D-10); no Ring.
+- **A row needs** (sent): `id`, `status`, `createdAt`, `note`, and the person **as I found them**: `to.displayName`, `to.pinName`, `to.avatarUrl` as the card showed them. **No `to.userId`** (D-10); no Ring.
 - **A block reads as `PENDING`** until the 30 days are up, then `EXPIRED`, or the row is dropped. Never `DECLINED`, never a status of its own.
 - *Cancel* on a pending row: `DELETE /connections/requests/:id` ❌ → 204. Optimistic: the row leaves at once and comes back with "Couldn't cancel" if the call fails. Gone from their inbox too.
   - Already answered or expired a moment ago: 409 `E_CONNECTION_REQUEST_02` (proposed) → refetch, no error.
@@ -145,7 +141,7 @@ What the client needs from the backend to build every part of [[S-23 Connections
 
 ### [[Screen Index#s17|s17]] Shared with me, and their card (S7, S10)
 
-- `GET /rings/shared-with-me` ✅, **as people**, never with the Ring's name, colour or type (D-14). Today the API still returns the Ring's name; the app hides it. Asked in [[FR-11 Rings Frontend Requirements|FR-11]].
+- `GET /rings/shared-with-me` ✅, **as people**, never with the Ring's name, colour or type (D-14): one row per person since backend `main` @ `12172c6`, with the `ringId` of the Ring I was put in first, which opens their card (`GET /views/ring/:ringId`, D-15) and is never shown. `GET /views/pin/:pinName` and `GET /views/user/:userId/perspectives` still put the owner's default Ring first ([[S-23 Connections Story|Connections · S7]]).
 - One row per person, however many of their Rings I'm in (S10).
 - Their card shows **the Ring they put me in first** (D-15): `GET /views/pin/:pinName` and `GET /views/user/:userId/perspectives` must put the **oldest membership first**, not the owner's default Ring ❌ (asked in [[FR-12 View As & Pin Views Frontend Requirements|FR-12]]). The app uses the oldest membership until then.
 - The card's button reads *Connected* (`relationship.state`, s44).
@@ -154,7 +150,7 @@ What the client needs from the backend to build every part of [[S-23 Connections
 ### Contacts, from People ([[Screen Index#s38|s38]]) and Me ([[Screen Index#s68|s68]]) (S8)
 
 - **List:** `GET /connections?q=&noAccess=&limit=&skip=` ❌ → `{ data: ConnectionEntity[], meta: { total } }`, by display name A→Z, `limit` ≤ 50.
-- **`ConnectionEntity`** needs: `userId`, `displayName`, `pinName`, `avatarFileId`, `connectedAt`, `source` (as on a request), `ringCount` (how many of **my** Rings they're in; 0 shows **No access**).
+- **`ConnectionEntity`** needs: `userId`, `displayName`, `pinName`, `avatarUrl`, `connectedAt`, `source` (as on a request), `ringCount` (how many of **my** Rings they're in; 0 shows **No access**).
 - **Search** `q`: name or Pin name, **among my connections only**, never strangers; debounced, sent to the server, never filtered on the loaded page. No match: "No one by that name."
 - `noAccess=true`: only connections in none of my Rings (s19's *No Ring yet* filter, S12).
 - **Not listed:** people I disconnected; anyone in a block with me, either way; deleted accounts (D-25).
@@ -166,7 +162,7 @@ What the client needs from the backend to build every part of [[S-23 Connections
 
 - **The person and where they are, in one call:** `GET /connections/:userId` ❌ →
   ```
-  { userId, displayName, pinName, avatarFileId, connectedAt, source,
+  { userId, displayName, pinName, avatarUrl, connectedAt, source,
     mutualCount,                       // D-23
     memberships: [{ ringId, status, startsAt, expiresAt, createdAt }] }  // my Rings only
   ```
@@ -208,7 +204,7 @@ What the client needs from the backend to build every part of [[S-23 Connections
   - → 201. In one transaction: their memberships in my Rings and mine in theirs end, the connection closes, pending requests both ways close.
   - Blocking someone already blocked: 200, not an error.
 - After a block, the app drops: the contacts list, both request lists, that connection's detail, Shared with me, and every cached view of that person. Then back to where I came from (s44 → back; s47 → Contacts).
-- **Blocked people** (Me → s68): `GET /blocks?limit=&skip=` ❌ → `{ data: [{ id, displayName, pinName, avatarFileId, blockedAt }], meta: { total } }`: the name and Pin name **as I saw them** when I blocked. No user id needed: unblock by the block's id.
+- **Blocked people** (Me → s68): `GET /blocks?limit=&skip=` ❌ → `{ data: [{ id, displayName, pinName, avatarUrl, blockedAt }], meta: { total } }`: the name and Pin name **as I saw them** when I blocked. No user id needed: unblock by the block's id.
 - **Unblock:** `DELETE /blocks/:id` ❌ → 204. **Restores nothing**: no connection, no membership, no request. The row leaves.
 - Empty: "You haven't blocked anyone."
 
@@ -246,16 +242,16 @@ What the client needs from the backend to build every part of [[S-23 Connections
 |---|---|---|
 | The card | `RingProfileViewEntity` from `/views/qr/:token`, `/views/pin/:pinName` | 🟡 pin ✅, qr ❌ |
 | The card's button | `relationship { state, requestId }` on the views | ❌ |
-| A request row (incoming) | `id`, `status`, `createdAt`, `expiresAt`, `note`, `source`, `eventName`, `eventRingId`, `from { userId, displayName, pinName, avatarFileId }` | ❌ |
-| A request row (sent) | the same, with `to { displayName, pinName, avatarFileId }`, **no userId** | ❌ |
+| A request row (incoming) | `id`, `status`, `createdAt`, `expiresAt`, `note`, `source`, `eventName`, `eventRingId`, `from { userId, displayName, pinName, avatarUrl }` | ❌ |
+| A request row (sent) | the same, with `to { displayName, pinName, avatarUrl }`, **no userId** | ❌ |
 | Tab counts, badge counts | `meta.total` | ❌ |
 | The Ring list on s46 | `GET /rings`: `id`, `name`, `colour`, `type`, `status`, `expiresAt`, `isDefault`, `memberCount` | 🟡 `memberCount` ❌ |
-| A contact | `userId`, `displayName`, `pinName`, `avatarFileId`, `connectedAt`, `source`, `ringCount` | ❌ |
+| A contact | `userId`, `displayName`, `pinName`, `avatarUrl`, `connectedAt`, `source`, `ringCount` | ❌ |
 | Connection detail | the contact plus `mutualCount`, `memberships[]`; `connectedAt: null` for a member who isn't a connection | ❌ |
 | What they can see | `GET /rings/:ringId/projection` of the oldest live membership | ✅ |
 | What they share with me | `GET /views/user/:userId/perspectives` | ✅ (order ❌, FR-12) |
-| Blocked people | `id`, `displayName`, `pinName`, `avatarFileId`, `blockedAt` | ❌ |
-| Photos everywhere | `avatarFileId` → signed link (D-16) | ❌ initials until then |
+| Blocked people | `id`, `displayName`, `pinName`, `avatarUrl`, `blockedAt` | ❌ |
+| Photos everywhere | `avatarUrl`, a signed link that lives 15 minutes, never the file id (D-16) | ❌ on these rows; initials when there is no photo |
 
 ## Endpoints required
 
