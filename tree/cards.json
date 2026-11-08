@@ -77,6 +77,7 @@
     "decision:D-29": "D-29",
     "decision:D-30": "D-30",
     "decision:D-31": "D-31",
+    "decision:D-32": "D-32",
     "feature:account": "F-01",
     "feature:app-shell": "F-29",
     "feature:audit-log": "F-30",

@@ -17,6 +17,8 @@ tags: [story, story/approved, module/identity, layer/business]
 
 # Ring Members · User Story
 
+> ⚠ Affected by [[D-32 Several join codes per Ring]] (2026-11-08): ND-32 decided 2026-11-08 by Omar Fostok, option 2: several join codes per Ring; with approve-each-one on, a code makes a join request on s15 ("Waiting on you · N") that shows which code the person used (its owner-only label, e.g. "asked with Onboarding week")
+
 > ⚠ Affected by [[D-31 An invitation is its own record]] (2026-11-08): ND-31 decided 2026-11-08 by Omar Fostok, option 1: an invitation is its own record (Ring, invitee, inviter, optional window, PENDING/ACCEPTED/DECLINED/WITHDRAWN), never a membership while pending; accept creates the membership recorded as joined knowingly; decline, withdraw, 30-day expiry, valid:false on an ended Ring
 
 > ⚠ Affected by [[BD-11 Rings Backend Delivery]] (2026-11-05): backend main 12172c6: Shared with me no longer returns the Ring's name to members; only the membership's origin (F-09) is still missing (/pm)
