@@ -2773,7 +2773,8 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:ring-invitations",
-        "backend-integration:ring-invitations"
+        "backend-integration:ring-invitations",
+        "frontend-requirements:ring-invitations"
       ],
       "owner": "feature:ring-invitations"
     },
@@ -2784,7 +2785,8 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:ring-invitations",
-        "backend-integration:ring-invitations"
+        "backend-integration:ring-invitations",
+        "frontend-requirements:ring-invitations"
       ],
       "owner": "feature:ring-invitations"
     },
@@ -2795,7 +2797,8 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:ring-invitations",
-        "backend-integration:ring-invitations"
+        "backend-integration:ring-invitations",
+        "frontend-requirements:ring-invitations"
       ],
       "owner": "feature:ring-invitations"
     },
@@ -2954,7 +2957,8 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:ring-invitations",
-        "backend-integration:ring-invitations"
+        "backend-integration:ring-invitations",
+        "frontend-requirements:ring-invitations"
       ],
       "owner": "feature:ring-invitations"
     },
@@ -4478,7 +4482,8 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:ring-invitations",
-        "backend-integration:ring-invitations"
+        "backend-integration:ring-invitations",
+        "frontend-requirements:ring-invitations"
       ],
       "owner": "feature:ring-invitations"
     },
@@ -4489,7 +4494,8 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:ring-invitations",
-        "backend-integration:ring-invitations"
+        "backend-integration:ring-invitations",
+        "frontend-requirements:ring-invitations"
       ],
       "owner": "feature:ring-invitations"
     },
@@ -4500,7 +4506,8 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:ring-invitations",
-        "backend-integration:ring-invitations"
+        "backend-integration:ring-invitations",
+        "frontend-requirements:ring-invitations"
       ],
       "owner": "feature:ring-invitations"
     },
@@ -4511,7 +4518,8 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:ring-invitations",
-        "backend-integration:ring-invitations"
+        "backend-integration:ring-invitations",
+        "frontend-requirements:ring-invitations"
       ],
       "owner": "feature:ring-invitations"
     },
@@ -4522,7 +4530,8 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:ring-invitations",
-        "backend-integration:ring-invitations"
+        "backend-integration:ring-invitations",
+        "frontend-requirements:ring-invitations"
       ],
       "owner": "feature:ring-invitations"
     },
@@ -4533,7 +4542,8 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:ring-invitations",
-        "backend-integration:ring-invitations"
+        "backend-integration:ring-invitations",
+        "frontend-requirements:ring-invitations"
       ],
       "owner": "feature:ring-invitations"
     },
@@ -4651,7 +4661,8 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:ring-invitations",
-        "backend-integration:ring-invitations"
+        "backend-integration:ring-invitations",
+        "frontend-requirements:ring-invitations"
       ],
       "owner": "feature:ring-invitations"
     },
@@ -4662,7 +4673,8 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:ring-invitations",
-        "backend-integration:ring-invitations"
+        "backend-integration:ring-invitations",
+        "frontend-requirements:ring-invitations"
       ],
       "owner": "feature:ring-invitations"
     },
@@ -4673,7 +4685,8 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:ring-invitations",
-        "backend-integration:ring-invitations"
+        "backend-integration:ring-invitations",
+        "frontend-requirements:ring-invitations"
       ],
       "owner": "feature:ring-invitations"
     },
@@ -4684,7 +4697,8 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:ring-invitations",
-        "backend-integration:ring-invitations"
+        "backend-integration:ring-invitations",
+        "frontend-requirements:ring-invitations"
       ],
       "owner": "feature:ring-invitations"
     },
@@ -4695,7 +4709,8 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:ring-invitations",
-        "backend-integration:ring-invitations"
+        "backend-integration:ring-invitations",
+        "frontend-requirements:ring-invitations"
       ],
       "owner": "feature:ring-invitations"
     },
@@ -14382,8 +14397,23 @@
       "to": "frontend-requirements:ring-invitations",
       "via": [
         "DELETE /rings/join-requests/:id",
+        "GET /rings/:ringId/invitations",
+        "GET /rings/:ringId/join-codes",
+        "GET /rings/:ringId/join-requests",
+        "GET /rings/invitations/mine",
         "GET /rings/join-requests/mine",
-        "GET /rings/shared-with-me"
+        "GET /rings/shared-with-me",
+        "POST /rings/:ringId/invitations",
+        "POST /rings/:ringId/invitations/:id/withdraw",
+        "POST /rings/:ringId/join-codes",
+        "POST /rings/:ringId/join-codes/:codeId/turn-off",
+        "POST /rings/:ringId/join-requests/:id/approve",
+        "POST /rings/:ringId/join-requests/:id/decline",
+        "POST /rings/invitations/:id/accept",
+        "POST /rings/invitations/:id/decline",
+        "POST /rings/invitations/:id/dismiss",
+        "POST /rings/join-codes/join",
+        "POST /rings/join-codes/resolve"
       ]
     },
     {
@@ -19222,8 +19252,12 @@
       "to": "frontend-requirements:ring-invitations",
       "via": [
         "DELETE /rings/join-requests/:id",
+        "GET /rings/invitations/mine",
         "GET /rings/join-requests/mine",
-        "GET /rings/shared-with-me"
+        "GET /rings/shared-with-me",
+        "POST /rings/invitations/:id/accept",
+        "POST /rings/join-codes/join",
+        "POST /rings/join-codes/resolve"
       ]
     },
     {
