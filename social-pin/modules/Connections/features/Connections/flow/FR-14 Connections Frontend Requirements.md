@@ -22,7 +22,7 @@ tags: [frontend-requirements, frontend-requirements/approved, module/connections
 
 > ⚠ Affected by [[D-12 The badge QR is a socialpin.me link]] (2026-11-08): "By scan" reads the token from the link https://socialpin.me/q/<token> before GET /views/qr/:token; Connect still sends { qrToken } (D-10)
 
-**Feature:** [[F-14 Connections]] · **Status:** Approved by the backend 2026-11-08 · **Story:** [[S-23 Connections Story]] (approved 2026-11-04) · **Backend Integration:** not yet (no routes: [[BD-14 Connections Backend Delivery]])
+**Feature:** [[F-14 Connections]] · **Status:** Approved by the backend 2026-11-08 · **Story:** [[S-23 Connections Story]] (approved 2026-11-04) · **Backend Integration:** [[BI-16 Connections Backend Integration]] (backend `main` `1c460b0`)
 
 What the client needs from the backend to build every part of [[S-23 Connections Story]], S1 to S16, and whether each need is met today. **Rewritten 2026-11-04** against the approved story and the decisions D-10, D-23 and D-24 to D-29: every link names the story's current parts, *Connect* sends `{ qrToken }` or `{ pinName }`, s47 shows the mutual count, and the questions the story left open are answered below.
 
@@ -39,7 +39,7 @@ What the client needs from the backend to build every part of [[S-23 Connections
 ### [[Screen Index#s43|s43]] Scan → [[Screen Index#s44|s44]] Scanned Pin: the card (S1)
 
 - Needs: the person's card from a scanned code; from a `!pinname`; from a PinCast row. The same card for all three.
-- **By scan:** `GET /views/qr/:token` → `RingProfileViewEntity` ❌ ([[FR-18 Badge & QR Frontend Requirements|FR-18]], [[S-37 Badge & QR Story|Badge & QR · S13–S18]]). Today the reader is a timer that opens a sample card.
+- **By scan:** `GET /views/qr/:token` → `RingProfileViewEntity` ✅ ([[BD-18 Badge & QR Backend Delivery|BD-18]], [[FR-18 Badge & QR Frontend Requirements|FR-18]], [[S-37 Badge & QR Story|Badge & QR · S13–S18]]). Today the reader is a timer that opens a sample card.
 - **By Pin name:** `GET /views/pin/:pinName` ✅.
 - **From PinCast:** ❌ ([[S-45 PinCast & Nearby Story]]).
 - The app **keeps what it opened the card with**, `{ qrToken }` or `{ pinName }`, for as long as the card is open; it is what *Connect* and *Block* send (D-10).
@@ -71,7 +71,7 @@ What the client needs from the backend to build every part of [[S-23 Connections
   | `CONNECTED` | *Connected* | opens Connection detail (s47) once the contacts list exists |
   | `THEY_ASKED` | *Accept* | opens the accept sheet (s46) for `requestId` |
 
-- **Send:** `POST /connections/requests` ❌ with **exactly one** of `{ qrToken }` / `{ pinName }`, plus `note?`:
+- **Send:** `POST /connections/requests` ✅ for `{ pinName }`, ❌ for `{ qrToken }` ([[BD-14 Connections Backend Delivery|BD-14]] `pending`), with **exactly one** of `{ qrToken }` / `{ pinName }`, plus `note?`:
   - `note`: optional, **≤ 200 characters**, trimmed; empty means no note. The sheet counts as you type and won't send over 200; the server refuses over 200 too (400).
   - → 201 `{ id, status: PENDING, note, createdAt, expiresAt }`. No user id, no Ring.
   - **Already pending from me:** 200 with **that same request**, not a new one and not an error.
@@ -83,7 +83,7 @@ What the client needs from the backend to build every part of [[S-23 Connections
 
 ### [[Screen Index#s45|s45]] Requests · Incoming (S3)
 
-- **List:** `GET /connections/requests?direction=incoming&limit=&skip=` ❌ → `{ data: ConnectionRequestEntity[], meta: { total } }`. Pending only, newest first, `limit` ≤ 50.
+- **List:** `GET /connections/requests?direction=incoming&limit=&skip=` ✅ → `{ data: ConnectionRequestEntity[], meta: { total } }`. Pending only, newest first, `limit` ≤ 50.
 - **A row needs** (incoming):
 
   | Shown | Field | Notes |
@@ -102,10 +102,10 @@ What the client needs from the backend to build every part of [[S-23 Connections
 
 ### [[Screen Index#s45|s45]] Requests · Sent (S4)
 
-- **List:** `GET /connections/requests?direction=sent&limit=&skip=` ❌. Statuses returned: `PENDING`, `DECLINED`, `EXPIRED`. **Accepted and cancelled are not returned.** Newest first.
+- **List:** `GET /connections/requests?direction=sent&limit=&skip=` ✅. Statuses returned: `PENDING`, `DECLINED`, `EXPIRED`. **Accepted and cancelled are not returned.** Newest first.
 - **A row needs** (sent): `id`, `status`, `createdAt`, `note`, and the person **as I found them**: `to.displayName`, `to.pinName`, `to.avatarUrl` as the card showed them. **No `to.userId`** (D-10); no Ring.
 - **A block reads as `PENDING`** until the 30 days are up, then `EXPIRED`, or the row is dropped. Never `DECLINED`, never a status of its own.
-- *Cancel* on a pending row: `DELETE /connections/requests/:id` ❌ → 204. Optimistic: the row leaves at once and comes back with "Couldn't cancel" if the call fails. Gone from their inbox too.
+- *Cancel* on a pending row: `DELETE /connections/requests/:id` ✅ → 204. Optimistic: the row leaves at once and comes back with "Couldn't cancel" if the call fails. Gone from their inbox too.
   - Already answered or expired a moment ago: 409 `E_CONNECTION_REQUEST_02` (proposed) → refetch, no error.
 - *Declined* and *Expired* rows: *Connect* again → a new request to the same person; the row has no token, no Pin name of mine and no user id, so it is addressed by the old request. **Asked:** `POST /connections/requests { againFor: requestId, note? }`, which sends a new request to the same person, after the same access checks (a block is the 404).
 - **Declined and expired rows stay 30 days** after they ended, then the server stops returning them; no reminder before a request expires ([[D-27 Sent keeps declined and expired requests for 30 days]]). The app shows what the server returns and counts nothing itself.
@@ -122,7 +122,7 @@ What the client needs from the backend to build every part of [[S-23 Connections
 - **Picked to start:** my default Ring (`isDefault` ✅). Gemma's suggestion: not yet ([[S-89 Gemma AI Story|Gemma AI · S7]]).
 - *+ New Ring for this person*: the New Ring wizard (s19), back to the sheet with the new Ring picked. App only.
 - **Access window:** *Starts* and *Expires*, both optional (none = until removed). *Expires* must be after *Starts* and after now; checked on the phone before sending. The Ring's own *Expires* is shown next to them ("This Ring ends 12 Nov"): whichever comes first ends access.
-- **Accept:** `POST /connections/requests/:id/accept { ringId, startsAt?, expiresAt? }` ❌. **One transaction**: the connection, the membership, `grantedRingId`. All three or none.
+- **Accept:** `POST /connections/requests/:id/accept { ringId, startsAt?, expiresAt? }` ✅. **One transaction**: the connection, the membership, `grantedRingId`. All three or none.
   - → 201 `{ connection: ConnectionEntity, membership: RingMemberEntity }`, so the app can open s47 without another call.
   - Already a member of that Ring: **treat as success** (create the connection, keep the membership, 201). If the server answers 409 `E_RING_MEMBER_01` instead, the app refreshes and goes on as if accepted.
 - **No optimistic accept:** *Adding…* until the answer, then the card slides into the Ring (a fade with reduced motion) and s47 opens.
@@ -139,7 +139,7 @@ What the client needs from the backend to build every part of [[S-23 Connections
 
 ### [[Screen Index#s45|s45]] / [[Screen Index#s46|s46]] Decline (S6)
 
-- `POST /connections/requests/:id/decline` ❌ → 200. No body.
+- `POST /connections/requests/:id/decline` ✅ → 200. No body.
 - **No confirmation; *Undo* for 5 seconds, and the undo is on the phone:** the row leaves at once, the call is sent when the 5 seconds end. *Undo* cancels the call; nothing reached the server. If the app is closed inside the 5 seconds, nothing was sent and the request is still pending next time. No server undo needed.
 - Already no longer open: 409 `E_CONNECTION_REQUEST_02` → nothing shown, the row stays gone.
 
@@ -153,7 +153,7 @@ What the client needs from the backend to build every part of [[S-23 Connections
 
 ### Contacts, from People ([[Screen Index#s38|s38]]) and Me ([[Screen Index#s68|s68]]) (S8)
 
-- **List:** `GET /connections?q=&noAccess=&limit=&skip=` ❌ → `{ data: ConnectionEntity[], meta: { total } }`, by display name A→Z, `limit` ≤ 50.
+- **List:** `GET /connections?q=&noAccess=&limit=&skip=` ✅ → `{ data: ConnectionEntity[], meta: { total } }`, by display name A→Z, `limit` ≤ 50.
 - **`ConnectionEntity`** needs: `userId`, `displayName`, `pinName`, `avatarUrl`, `connectedAt`, `source` (as on a request), `ringCount` (how many of **my** Rings they're in; 0 shows **No access**).
 - **Search** `q`: name or Pin name, **among my connections only**, never strangers; debounced, sent to the server, never filtered on the loaded page. No match: "No one by that name."
 - `noAccess=true`: only connections in none of my Rings (s19's *No Ring yet* filter, S12).
@@ -164,7 +164,7 @@ What the client needs from the backend to build every part of [[S-23 Connections
 
 ### [[Screen Index#s47|s47]] Connection detail (S9, S10, S11)
 
-- **The person and where they are, in one call:** `GET /connections/:userId` ❌ →
+- **The person and where they are, in one call:** `GET /connections/:userId` ✅ →
   ```
   { userId, displayName, pinName, avatarUrl, connectedAt, source,
     mutualCount,                       // D-23
@@ -183,7 +183,7 @@ What the client needs from the backend to build every part of [[S-23 Connections
 - **Events in common:** hidden in the MVP (D-23: Events aren't in the MVP).
 - *Request meeting*: hidden (Meetings is v1). *Introduce*: shown disabled, "Not available yet".
 - **The last Ring** (S11): unticking it asks **Remove from Rings** (they stay; *No access*; a tick later needs no new request) or **Disconnect**.
-- **Disconnect** (also in ⋯ for someone in several Rings): `DELETE /connections/:userId` ❌, which **in one transaction** ends every membership of theirs in my Rings and the connection. The app does not loop over the Rings itself. → 204, back to Contacts. **Nothing is sent to them** ([[D-26 A disconnect is not announced]]).
+- **Disconnect** (also in ⋯ for someone in several Rings): `DELETE /connections/:userId` ✅, which **in one transaction** ends every membership of theirs in my Rings and the connection. The app does not loop over the Rings itself. → 204, back to Contacts. **Nothing is sent to them** ([[D-26 A disconnect is not announced]]).
 - ⋯ → *Block* (S13).
 - **Errors:**
   - 404 `E_CONNECTION_02` (proposed) on load: they disconnected, blocked me or deleted their account since. "This person isn't in your contacts any more", back to Contacts. One message for all three.
@@ -204,12 +204,12 @@ What the client needs from the backend to build every part of [[S-23 Connections
 ### Block and unblock: [[Screen Index#s44|s44]], [[Screen Index#s47|s47]], Blocked people on [[Screen Index#s68|s68]] (S13)
 
 - Confirmation: "Block {name}? They stop seeing every Ring of yours and can't ask to connect. They aren't told."
-- **From the card (s44)** there is no user id (D-10), so block takes what *Connect* takes: `POST /blocks { qrToken } | { pinName }` ❌. **From s47:** `POST /blocks { userId }` ❌. One route, exactly one of the three.
+- **From the card (s44)** there is no user id (D-10), so block takes what *Connect* takes: `POST /blocks { qrToken } | { pinName }`: `{ pinName }` ✅, `{ qrToken }` ❌. **From s47:** `POST /blocks { userId }` ✅. One route, exactly one of the three.
   - → 201. In one transaction: their memberships in my Rings and mine in theirs end, the connection closes, pending requests both ways close.
   - Blocking someone already blocked: 200, not an error.
 - After a block, the app drops: the contacts list, both request lists, that connection's detail, Shared with me, and every cached view of that person. Then back to where I came from (s44 → back; s47 → Contacts).
-- **Blocked people** (Me → s68): `GET /blocks?limit=&skip=` ❌ → `{ data: [{ id, displayName, pinName, avatarUrl, blockedAt }], meta: { total } }`: the name and Pin name **as I saw them** when I blocked. No user id needed: unblock by the block's id.
-- **Unblock:** `DELETE /blocks/:id` ❌ → 204. **Restores nothing**: no connection, no membership, no request. The row leaves.
+- **Blocked people** (Me → s68): `GET /blocks?limit=&skip=` ✅ (`avatarUrl` always null) → `{ data: [{ id, displayName, pinName, avatarUrl, blockedAt }], meta: { total } }`: the name and Pin name **as I saw them** when I blocked. No user id needed: unblock by the block's id.
+- **Unblock:** `DELETE /blocks/:id` ✅ → 204. **Restores nothing**: no connection, no membership, no request. The row leaves.
 - Empty: "You haven't blocked anyone."
 
 ### Counts: Me ([[Screen Index#s68|s68]]), People ([[Screen Index#s38|s38]]), Home ([[Screen Index#s11|s11]]) (S14, S3)
@@ -244,52 +244,52 @@ What the client needs from the backend to build every part of [[S-23 Connections
 
 | Shown | Source | Available |
 |---|---|---|
-| The card | `RingProfileViewEntity` from `/views/qr/:token`, `/views/pin/:pinName` | 🟡 pin ✅, qr ❌ |
-| The card's button | `relationship { state, requestId }` on the views | ❌ |
-| A request row (incoming) | `id`, `status`, `createdAt`, `expiresAt`, `note`, `source`, `eventName`, `eventRingId`, `from { userId, displayName, pinName, avatarUrl }` | ❌ |
-| A request row (sent) | the same, with `to { displayName, pinName, avatarUrl }`, **no userId** | ❌ |
-| Tab counts, badge counts | `meta.total` | ❌ |
+| The card | `RingProfileViewEntity` from `/views/qr/:token`, `/views/pin/:pinName` | ✅ |
+| The card's button | `relationship { state, requestId }` on the views | 🟡 its own call, `GET /connections/relationship?pinName=` ✅; not on the views, not by token |
+| A request row (incoming) | `id`, `status`, `createdAt`, `expiresAt`, `note`, `source`, `eventName`, `eventRingId`, `from { userId, displayName, pinName, avatarUrl }` | 🟡 all ✅ but `eventName`, `eventRingId` ❌ (S15, v1) |
+| A request row (sent) | the same, with `to { displayName, pinName, avatarUrl }`, **no userId** | ✅ |
+| Tab counts, badge counts | `meta.total` | ✅ |
 | The Ring list on s46 | `GET /rings`: `id`, `name`, `colour`, `type`, `status`, `expiresAt`, `isDefault`, `memberCount` | ✅ |
-| A contact | `userId`, `displayName`, `pinName`, `avatarUrl`, `connectedAt`, `source`, `ringCount` | ❌ |
-| Connection detail | the contact plus `mutualCount`, `memberships[]`; `connectedAt: null` for a member who isn't a connection | ❌ |
+| A contact | `userId`, `displayName`, `pinName`, `avatarUrl`, `connectedAt`, `source`, `ringCount` | ✅ |
+| Connection detail | the contact plus `mutualCount`, `memberships[]`; `connectedAt: null` for a member who isn't a connection | ✅ |
 | What they can see | `GET /rings/:ringId/projection` of the oldest live membership | ✅ |
 | What they share with me | `GET /views/user/:userId/perspectives` | ✅ (order ❌, FR-12) |
-| Blocked people | `id`, `displayName`, `pinName`, `avatarUrl`, `blockedAt` | ❌ |
-| Photos everywhere | `avatarUrl`, a signed link that lives 15 minutes, never the file id (D-16) | ❌ on these rows; initials when there is no photo |
+| Blocked people | `id`, `displayName`, `pinName`, `avatarUrl`, `blockedAt` | 🟡 ✅, `avatarUrl` always null |
+| Photos everywhere | `avatarUrl`, a signed link that lives 15 minutes, never the file id (D-16) | ✅ on request, contact and detail rows (not on Blocked people); initials when there is no photo |
 
 ## Endpoints required
 
 | Need | Endpoint | Available | Story part / decision |
 |---|---|---|---|
 | The card by Pin name | `GET /views/pin/:pinName` | ✅ | [[S-23 Connections Story\|S1]] |
-| The card by scanned code | `GET /views/qr/:token` | ❌ | S1 · [[FR-18 Badge & QR Frontend Requirements\|FR-18]] |
-| **Where I stand with the person on the card** | `relationship` on both views | ❌ | S2 · D-10 *Still open* |
-| Send, with the token or the Pin name, and a note; one pending request per pair | `POST /connections/requests { qrToken \| pinName, note? }` | ❌ | S2 · D-10, D-17, D-24 |
-| Ask again from a Sent row | `POST /connections/requests { againFor, note? }` | ❌ | S4 · D-17 |
-| Incoming list, paged, with `meta.total` | `GET /connections/requests?direction=incoming` | ❌ | S3 |
-| Sent list with status; declined and expired kept 30 days | `GET /connections/requests?direction=sent` | ❌ | S4 · D-13, D-27 |
-| Cancel | `DELETE /connections/requests/:id` | ❌ | S2, S4 |
-| Accept into a Ring with a window, one transaction | `POST /connections/requests/:id/accept { ringId, startsAt?, expiresAt? }` | ❌ | S5 |
-| Decline | `POST /connections/requests/:id/decline` | ❌ | S6 · D-13 |
+| The card by scanned code | `GET /views/qr/:token` | ✅ | S1 · [[FR-18 Badge & QR Frontend Requirements\|FR-18]] |
+| **Where I stand with the person on the card** | `relationship` on both views | 🟡 `GET /connections/relationship?pinName=` ✅; not on the views, not by token | S2 · D-10 *Still open* |
+| Send, with the token or the Pin name, and a note; one pending request per pair | `POST /connections/requests { qrToken \| pinName, note? }` | 🟡 `{ pinName }` ✅, `{ qrToken }` ❌ | S2 · D-10, D-17, D-24 |
+| Ask again from a Sent row | `POST /connections/requests { againFor, note? }` | ✅ | S4 · D-17 |
+| Incoming list, paged, with `meta.total` | `GET /connections/requests?direction=incoming` | ✅ | S3 |
+| Sent list with status; declined and expired kept 30 days | `GET /connections/requests?direction=sent` | ✅ | S4 · D-13, D-27 |
+| Cancel | `DELETE /connections/requests/:id` | ✅ | S2, S4 |
+| Accept into a Ring with a window, one transaction | `POST /connections/requests/:id/accept { ringId, startsAt?, expiresAt? }` | ✅ | S5 |
+| Decline | `POST /connections/requests/:id/decline` | ✅ | S6 · D-13 |
 | The picker | `GET /rings` | ✅ | S5 |
 | Member count on the picker | `memberCount` on `GET /rings` | ✅ | S5 · [[FR-11 Rings Frontend Requirements\|FR-11]] |
 | Rings I administer, under their owner | — | ❌ | S5 · [[FR-16 Delegated Admins Frontend Requirements\|FR-16]] |
 | Shared with me as people | `GET /rings/shared-with-me` without Ring names | 🟡 | S7 · D-14 · [[FR-11 Rings Frontend Requirements\|FR-11]] |
 | First Ring first | `/views/pin`, `/perspectives` ordered by oldest membership | ❌ | S7 · D-15 · [[FR-12 View As & Pin Views Frontend Requirements\|FR-12]] |
 | What they share with me | `GET /views/user/:userId/perspectives` | ✅ | S9, S10 |
-| Contacts, search, *No access* filter | `GET /connections?q=&noAccess=` | ❌ | S8, S12 |
-| Connection detail, with my Rings for them and the mutual count; members who aren't connections too | `GET /connections/:userId` | ❌ | S9 · D-23, D-29 · [[FR-09 Ring Members Frontend Requirements\|FR-09]] |
+| Contacts, search, *No access* filter | `GET /connections?q=&noAccess=` | ✅ | S8, S12 |
+| Connection detail, with my Rings for them and the mutual count; members who aren't connections too | `GET /connections/:userId` | ✅ | S9 · D-23, D-29 · [[FR-09 Ring Members Frontend Requirements\|FR-09]] |
 | Add to a Ring, window, remove, move | `POST`, `PATCH`, `DELETE /rings/:ringId/members…`, `…/reassign` | ✅ | S9, S11, S12 |
 | What they can see | `GET /rings/:ringId/projection` | ✅ | S9 |
-| Disconnect, one transaction, not announced | `DELETE /connections/:userId` | ❌ | S11 · D-15, D-26 |
+| Disconnect, one transaction, not announced | `DELETE /connections/:userId` | ✅ | S11 · D-15, D-26 |
 | Names and photos on the roster | — | ❌ | S12 · [[FR-09 Ring Members Frontend Requirements\|FR-09]] |
-| Block from the card or from detail | `POST /blocks { qrToken \| pinName \| userId }` | ❌ | S13 |
-| Blocked people, unblock | `GET /blocks`, `DELETE /blocks/:id` | ❌ | S13 |
-| Connections count on Me | `meta.total` of `GET /connections`, or [[FR-03 Counts Frontend Requirements\|FR-03]] | ❌ | S14 |
-| A deleted account leaves every list | the deletion ends connections, requests and blocks | ❌ | S16 · D-25 |
+| Block from the card or from detail | `POST /blocks { qrToken \| pinName \| userId }` | 🟡 `{ pinName }`, `{ userId }` ✅, `{ qrToken }` ❌ | S13 |
+| Blocked people, unblock | `GET /blocks`, `DELETE /blocks/:id` | ✅ | S13 |
+| Connections count on Me | `meta.total` of `GET /connections`, or [[FR-03 Counts Frontend Requirements\|FR-03]] | ✅ also `GET /connections/count` | S14 |
+| A deleted account leaves every list | the deletion ends connections, requests and blocks | 🟡 every list and the detail leave it out ✅; the rows are not ended yet | S16 · D-25 |
 | Requests during an event | `eventRingId` filter on the incoming list | ❌ | S15 (v1) |
 | Push on request and accept | — | ❌ | S3, S7 · [[FR-39 Notifications Frontend Requirements\|FR-39]] |
-| Photos | signed links | ❌ | D-16 |
+| Photos | signed links | ✅ (not on Blocked people) | D-16 |
 
 ## Behaviour expectations
 
