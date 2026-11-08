@@ -149,7 +149,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
       - 🟡 [BD-12 View As & Pin Views Backend Delivery](social-pin/modules/Identity%20Core/features/View%20As%20%26%20Pin%20Views/flow/BD-12%20View%20As%20%26%20Pin%20Views%20Backend%20Delivery.md) (Backend Delivery, 2 pending notes, Critical)
       - 🔵 [BI-09 View As & Pin Views Backend Integration](social-pin/modules/Identity%20Core/features/View%20As%20%26%20Pin%20Views/flow/BI-09%20View%20As%20%26%20Pin%20Views%20Backend%20Integration.md) (Backend Integration, Critical)
         - ✅ [B-17 A new Ring answers 404 to its own owner until its projection is opened](social-pin/bugs/B-17%20A%20new%20Ring%20answers%20404%20to%20its%20own%20owner%20until%20its%20projection%20is%20opened.md) (bug, Fixed, High)
-      - 🔴 [QB-14 View As & Pin Views QA Backend](social-pin/modules/Identity%20Core/features/View%20As%20%26%20Pin%20Views/flow/QB-14%20View%20As%20%26%20Pin%20Views%20QA%20Backend.md) (QA Backend, 3 pending notes, Critical)
+      - 🟡 [QB-14 View As & Pin Views QA Backend](social-pin/modules/Identity%20Core/features/View%20As%20%26%20Pin%20Views/flow/QB-14%20View%20As%20%26%20Pin%20Views%20QA%20Backend.md) (QA Backend, 2 pending notes, Critical)
       - ∅ _View As & Pin Views Frontend Delivery_ (Frontend Delivery)
       - ∅ _View As & Pin Views QA Frontend_ (QA Frontend, blocked by View As & Pin Views Frontend Delivery)
     - 🔵 [F-13 Widgets](social-pin/modules/Identity%20Core/features/Widgets/F-13%20Widgets.md) (release MVP, Critical)

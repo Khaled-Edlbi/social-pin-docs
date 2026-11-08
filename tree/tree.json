@@ -2608,8 +2608,7 @@
       "containers": [
         "feature:auth",
         "feature:ring-projection",
-        "feature:rings",
-        "feature:view-as"
+        "feature:rings"
       ],
       "kind": "endpoint",
       "notes": [
@@ -2617,7 +2616,6 @@
         "frontend-requirements:ring-projection",
         "qa-backend:auth",
         "qa-backend:rings",
-        "qa-backend:view-as",
         "story:auth"
       ],
       "owner": null
@@ -6166,12 +6164,12 @@
     },
     "concepts": 291,
     "decisions": 34,
-    "edges": 6935,
+    "edges": 6934,
     "features": 41,
     "layerNotes": 151,
     "modules": 8,
     "notes": 334,
-    "partial": 13,
+    "partial": 14,
     "placeholders": 134,
     "records": 32
   },
@@ -9711,11 +9709,6 @@
       "from": "qa-backend:view-as",
       "kind": "pending",
       "to": "backend-delivery:view-as"
-    },
-    {
-      "from": "qa-backend:view-as",
-      "kind": "pending",
-      "to": "task:B-17"
     },
     {
       "from": "qa-frontend:account",
@@ -38101,7 +38094,6 @@
         "E_AUTH_04",
         "E_USER_01",
         "GET /rings",
-        "GET /rings/:id/projection",
         "POST /rings"
       ]
     },
@@ -45676,7 +45668,6 @@
         "DELETE /rings/:id",
         "GET /files/content/:token",
         "GET /rings",
-        "GET /rings/:id/projection",
         "GET /rings/:ringId/projection",
         "GET /views/ring/:ringId",
         "POST /rings"
@@ -45890,7 +45881,6 @@
       "via": [
         "DELETE /rings/:id",
         "GET /rings",
-        "GET /rings/:id/projection",
         "GET /rings/:ringId/projection",
         "GET /views/ring/:id",
         "GET /views/ring/:ringId",
@@ -68790,9 +68780,8 @@
         "current": 1,
         "done": 1,
         "draft": 1,
-        "failing": 1,
         "missing": 2,
-        "partial": 1
+        "partial": 2
       },
       "scope": null,
       "screens": [
@@ -75430,11 +75419,11 @@
         "delivered": 8,
         "done": 27,
         "draft": 3,
-        "failing": 2,
+        "failing": 1,
         "in-progress": 13,
         "missing": 20,
         "needs-decision": 1,
-        "partial": 13,
+        "partial": 14,
         "passing": 7,
         "ready": 2,
         "verified": 10
@@ -82667,7 +82656,7 @@
         "backend-delivery:view-as",
         "story:view-as"
       ],
-      "effectiveStatus": "failing",
+      "effectiveStatus": "partial",
       "effort": null,
       "feature": "view-as",
       "foundOn": null,
@@ -82689,11 +82678,6 @@
       ],
       "path": "social-pin/modules/Identity Core/features/View As & Pin Views/flow/QB-14 View As & Pin Views QA Backend.md",
       "pending": [
-        {
-          "person": null,
-          "text": "rows B33, B34 and B45 re-run once the fix ships",
-          "to": "task:B-17"
-        },
         {
           "person": null,
           "text": "row B56 re-run once avatarFileId leaves the viewer's view (D-16)",
@@ -82812,18 +82796,18 @@
         "s44",
         "s62"
       ],
-      "status": "failing",
+      "status": "passing",
       "summary": "Expected behaviour of the API, as artefacts a person can check a build against: tables and diagrams, not test code (the specs live in the backend repo). status: passing or failing after a run; the…",
       "tags": [
         "qa-backend",
-        "qa-backend/failing",
+        "qa-backend/passing",
         "module/identity",
         "layer/qa"
       ],
       "task": null,
       "title": "QB-14 View As & Pin Views QA Backend",
       "unmet": [],
-      "updated": "2026-11-05"
+      "updated": "2026-11-08"
     },
     "qa-backend:widgets": {
       "affects": [],
@@ -84904,11 +84888,11 @@
         "delivered": 8,
         "done": 28,
         "draft": 29,
-        "failing": 2,
+        "failing": 1,
         "in-progress": 47,
         "missing": 134,
         "needs-decision": 1,
-        "partial": 13,
+        "partial": 14,
         "passing": 7,
         "ready": 4,
         "reference": 32,
