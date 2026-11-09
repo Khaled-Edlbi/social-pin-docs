@@ -6847,7 +6847,7 @@
     },
     "concepts": 323,
     "decisions": 34,
-    "edges": 8025,
+    "edges": 8024,
     "features": 41,
     "layerNotes": 157,
     "modules": 8,
@@ -10577,11 +10577,6 @@
       "from": "qa-frontend:auth",
       "kind": "pending",
       "to": "task:B-22"
-    },
-    {
-      "from": "task:B-01",
-      "kind": "pending",
-      "to": "qa-frontend:account"
     },
     {
       "from": "backend-delivery:account",
@@ -100303,11 +100298,6 @@
       "path": "social-pin/bugs/B-01 An unverified changed email still signs in.md",
       "pending": [
         {
-          "person": null,
-          "text": "re-run row F10 against the corrected notes (/qa)",
-          "to": "qa-frontend:account"
-        },
-        {
           "person": "khaled",
           "text": "re-approve [[S-01 Account Story]] after the S2 and S3 copy change (/owner)",
           "to": null
@@ -100359,7 +100349,7 @@
       "task": null,
       "title": "B-01 An unverified changed email still signs in",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-09"
     },
     "task:B-02": {
       "affects": [

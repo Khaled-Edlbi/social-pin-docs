@@ -9,19 +9,17 @@ priority: high
 effort: S
 foundOn: BI-01 Account Backend Integration
 screens: [s68]
-owner: "khaled"
+owner: "Omar Fostok"
 depends: []
 affects: ["BD-01 Account Backend Delivery", "S-01 Account Story", "QB-04 Account QA Backend"]
 related: ["BI-01 Account Backend Integration", "QB-04 Account QA Backend", "QF-04 Account QA Frontend", "BI-02 Auth & Sign-up Backend Integration", "ND-01 Passwordless login", "S-78 Code Delivery Story", "ND-20 Whether an unverified new address may sign in", "D-20 The changed address still signs in, the words are corrected"]
-pending: ["[[QF-04 Account QA Frontend]]: re-run row F10 against the corrected notes (/qa)", "@khaled: re-approve [[S-01 Account Story]] after the S2 and S3 copy change (/owner)"]
+pending: ["@khaled: re-approve [[S-01 Account Story]] after the S2 and S3 copy change (/owner)"]
 created: 2026-10-26
-updated: 2026-10-29
+updated: 2026-11-09
 tags: [bug, bug/done, module/identity, priority/high, resolution/by-design]
 ---
 
 # ✅ B-01 · An unverified changed email still signs in
-
-> ⚠ Affected by [[QF-04 Account QA Frontend]] (2026-11-05): the row F10 asked for is QF-04's F6 and its 'something unverified' state, passing on 2026-10-26 and again 2026-11-05: your QF-04 pending item is settled; /pm clears it
 
 **Found against:** [[BI-01 Account Backend Integration]] · **Feature:** [[F-01 Account]] · **Status:** Done · **Resolution:** By design ([[D-20 The changed address still signs in, the words are corrected]]) · **Priority:** High · **Deadline:** — · **Effort:** S
 
@@ -68,11 +66,12 @@ Output of `node scripts/build-tree.mjs --impact B-01` when the bug was filed: th
 - [x] [[S-01 Account Story]] S2 and S3 corrected: the copy no longer promises verification before sign-in (2026-10-26, `/pm`) — the owner re-approves the story, it is `approved` against the 2026-10-25 wording
 - [x] [[BD-01 Account Backend Delivery]] and [[BI-01 Account Backend Integration]] corrected and the flag line cleared (`/backend`, 2026-10-26)
 - [x] `depends` / `affects` / `related` declared; notes listed by `--impact` updated or flagged
-- [ ] [[QB-04 Account QA Backend]] row B9 ✅ on `main @ b4984d6` and cleared; [[QF-04 Account QA Frontend]] row F10 still to re-run (`/qa`, in `pending`)
+- [x] [[QB-04 Account QA Backend]] row B9 ✅ on `main @ b4984d6` and cleared; [[QF-04 Account QA Frontend]]'s old row F10 ✅ (2026-10-26, 2026-11-05), now AC-04 and AC-31 ✅ on social_pin `0aaca9e`
 - [x] `node scripts/build-tree.mjs` run; tree, board and backlog committed
 
 ## Log
 
+- 2026-11-09 · branch `tickets/pm/M-01-identity/F-01-account/B-01-pending-cleared` · `/pm` cleared the QF-04 F10 item, on Omar Fostok's word: F10 passed on 2026-10-26 and 2026-11-05, and its Patrol rows AC-04 and AC-31 pass on social_pin `0aaca9e`. One item left: the owner's re-approval of [[S-01 Account Story]] (`/owner`).
 - 2026-10-26 · branch `tickets/qa/M-01-identity/F-01-account/B-02-fixed` · `/backend` corrected [[BD-01 Account Backend Delivery]] and [[BI-01 Account Backend Integration]] (a changed destination is unverified and still signs in) and cleared their B-01 flags; `/qa` re-ran B9 on `main @ b4984d6` (localhost:3001, Node 22.22.2): ✅, the new email and the new phone both sign in at once. Three `pending` items cleared; F10 (`/qa`) and the owner's re-approval of [[S-01 Account Story]] remain.
 
 - 2026-10-26 · branch `docs/admin/project/bug-type` · retyped by `/admin`: `type: bug` (tags `bug`, `bug/<status>`) instead of a task with `labels: [bug]`, as every bug card now is. Nothing else changed: same code, same place in the tree, same status.
