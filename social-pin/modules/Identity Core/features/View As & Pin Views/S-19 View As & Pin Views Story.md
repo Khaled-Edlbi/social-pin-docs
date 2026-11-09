@@ -104,10 +104,10 @@ Acceptance criteria:
 **As a** viewer **I want** to ask for access or keep the person in my phone **so that** the encounter is not lost.
 
 Acceptance criteria:
-- [ ] **Save contact** (replacing "Save for later") opens the phone's own "new contact" screen, pre-filled with **only what this card shows me**: the name (the nickname as the contact's nickname), the headline and company, email, phone, the links (as URLs), and the photo (from `avatarUrl`, while its link is valid). No Ring, no owner id, no hidden field. I can edit it before saving.
+- [ ] **Save contact** sits **next to** *Save for later* ([[S-37 Badge & QR Story|Badge & QR · S8]]), not instead of it, and is shown **only when the card shares a phone number** (decided by Omar Fostok, 2026-11-09). It opens the phone's own "new contact" screen, pre-filled with **only what this card shows me**: the name (the nickname as the contact's nickname), the headline and company, email, phone, the links (as URLs), and the photo (from `avatarUrl`, while its link is valid). No Ring, no owner id, no hidden field. I can edit it before saving.
 - [ ] The app asks for the **contacts permission** the first time; denied: a short message with a link to the phone's settings, and nothing saved.
 - [ ] "Connect" waits on [[S-23 Connections Story|Connections · S8–S12]].
-- [ ] **For the designer:** s44's "Save for later" becomes "Save contact".
+- [ ] **For the designer:** s44 keeps "Save for later" and gains "Save contact" beside it, only when the card shares a phone number.
 
 ## States and motion the design asks for
 
@@ -135,3 +135,5 @@ Acceptance criteria:
 - 2026-11-09 · flagged [[FR-12 View As & Pin Views Frontend Requirements]]: S-19 S4/S5 now follow D-15 (2026-11-09, khaled): GET /views/pin and the perspectives list start from the Ring the viewer was put in first (oldest live membership), then the others in the order they were added; the owner's own lookup keeps their default Ring first; for /frontend: View 1 is the Ring the viewer was put in first
 - 2026-11-09 · flagged [[QB-14 View As & Pin Views QA Backend]]: S-19 S4/S5 now follow D-15 (2026-11-09, khaled): GET /views/pin and the perspectives list start from the Ring the viewer was put in first (oldest live membership), then the others in the order they were added; the owner's own lookup keeps their default Ring first; the perspectives-order rows change, for /qa after the backend change ships
 - 2026-11-09 · flagged [[QB-09 Ring Access Engine QA Backend]]: S-19 S4/S5 now follow D-15 (2026-11-09, khaled): GET /views/pin and the perspectives list start from the Ring the viewer was put in first (oldest live membership), then the others in the order they were added; the owner's own lookup keeps their default Ring first; B58's expectation (D-15) is now also the story's, re-run after the backend change ships, for /qa
+- 2026-11-09 · `tickets/pm/M-01-identity/F-12-view-as/S-19-save-contact` · S7 Save contact sits next to Save for later (S-37 S8), not instead of it, only when the card shares a phone number; decided by Omar Fostok, the story stays approved
+- 2026-11-09 · flagged [[FR-12 View As & Pin Views Frontend Requirements]]: S7 Save contact sits next to Save for later, not instead of it, only when the card shares a phone number
