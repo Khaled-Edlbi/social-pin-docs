@@ -3,7 +3,7 @@ id: B-18
 type: bug
 module: identity
 feature: auth
-status: todo
+status: ready
 priority: high
 effort: S
 foundOn: "FD-05 Auth & Sign-up Frontend Delivery"
@@ -13,15 +13,17 @@ affects: []
 related: ["FD-05 Auth & Sign-up Frontend Delivery", "QF-05 Auth & Sign-up QA Frontend", "S-02 Auth & Sign-up Story", E_AUTH_03]
 pending: []
 created: 2026-11-08
-updated: 2026-11-08
-tags: [bug, bug/todo, module/identity, priority/high]
+updated: 2026-11-09
+tags: [bug, bug/ready, module/identity, priority/high]
 ---
 
-# ⬜ B-18 · Sign-in Verify overflows when the not-active message shows
+# 📨 B-18 · Sign-in Verify overflows when the not-active message shows
+
+> ⚠ Affected by [[FD-05 Auth & Sign-up Frontend Delivery]] (2026-11-09): fixed in social_pin f9c19e3, ready for re-test
 
 > ⚠ Affected by [[S-02 Auth & Sign-up Story]] (2026-11-09): decided by Omar Fostok, the fix is the Verify screen's buttons pinned at the bottom while the content above them scrolls (S-02 S2)
 
-**Found against:** [[FD-05 Auth & Sign-up Frontend Delivery]] · **Feature:** [[F-02 Auth & Sign-up]] · **Status:** To do · **Priority:** High · **Deadline:** — · **Effort:** S
+**Found against:** [[FD-05 Auth & Sign-up Frontend Delivery]] · **Feature:** [[F-02 Auth & Sign-up]] · **Status:** Ready · **Priority:** High · **Deadline:** — · **Effort:** S
 
 **Found by:** [[QF-05 Auth & Sign-up QA Frontend]] row AU-23, on build `social_pin` `28d4ee7` (emulator Medium_Phone, Android 16), 2026-11-08.
 

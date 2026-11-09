@@ -3,7 +3,7 @@ id: B-22
 type: bug
 module: identity
 feature: auth
-status: todo
+status: ready
 priority: high
 effort: S
 foundOn: "FD-05 Auth & Sign-up Frontend Delivery"
@@ -13,13 +13,15 @@ affects: []
 related: ["FD-05 Auth & Sign-up Frontend Delivery", "QF-05 Auth & Sign-up QA Frontend", "S-02 Auth & Sign-up Story", "POST /auth/sign-up", "POST /auth/login", "POST /auth/request-code"]
 pending: []
 created: 2026-11-08
-updated: 2026-11-08
-tags: [bug, bug/todo, module/identity, priority/high]
+updated: 2026-11-09
+tags: [bug, bug/ready, module/identity, priority/high]
 ---
 
-# ⬜ B-22 · The code's expiry counts with the phone clock
+# 📨 B-22 · The code's expiry counts with the phone clock
 
-**Found against:** [[FD-05 Auth & Sign-up Frontend Delivery]] · **Feature:** [[F-02 Auth & Sign-up]] · **Status:** To do · **Priority:** High · **Deadline:** — · **Effort:** S
+> ⚠ Affected by [[FD-05 Auth & Sign-up Frontend Delivery]] (2026-11-09): fixed in social_pin f801aaa (on rings/F-11/honest-rings @ f9c19e3), ready for re-test
+
+**Found against:** [[FD-05 Auth & Sign-up Frontend Delivery]] · **Feature:** [[F-02 Auth & Sign-up]] · **Status:** Ready · **Priority:** High · **Deadline:** — · **Effort:** S
 
 **Found by:** [[QF-05 Auth & Sign-up QA Frontend]] row AU-60, on build `social_pin` `28d4ee7` (emulator Medium_Phone, Android 16), 2026-11-08.
 

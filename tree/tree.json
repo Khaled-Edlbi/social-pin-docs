@@ -7091,12 +7091,12 @@
     },
     "concepts": 333,
     "decisions": 34,
-    "edges": 8356,
+    "edges": 8357,
     "features": 41,
     "layerNotes": 159,
     "modules": 8,
     "notes": 353,
-    "partial": 8,
+    "partial": 9,
     "placeholders": 126,
     "records": 33
   },
@@ -10826,6 +10826,11 @@
       "from": "backend-delivery:view-as",
       "kind": "pending",
       "to": "frontend-requirements:view-as"
+    },
+    {
+      "from": "frontend-delivery:auth",
+      "kind": "pending",
+      "to": "story:auth"
     },
     {
       "from": "qa-backend:ring-access",
@@ -75307,7 +75312,6 @@
     },
     "backend-integration:auth": {
       "affects": [],
-      "autoDelivered": true,
       "blockedBy": [],
       "card": "BI-02",
       "children": [
@@ -75319,7 +75323,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "delivered",
+      "effectiveStatus": "current",
       "effort": null,
       "feature": "auth",
       "foundOn": null,
@@ -80959,12 +80963,14 @@
       "resolution": null,
       "rollup": {
         "approved": 1,
+        "current": 1,
         "decided": 2,
-        "delivered": 2,
-        "done": 6,
+        "delivered": 1,
+        "done": 5,
         "failing": 1,
+        "partial": 1,
         "passing": 1,
-        "todo": 5,
+        "ready": 5,
         "verified": 2
       },
       "scope": null,
@@ -84257,7 +84263,7 @@
         "backend-integration:auth"
       ],
       "deployedTo": [],
-      "effectiveStatus": "done",
+      "effectiveStatus": "partial",
       "effort": null,
       "feature": "auth",
       "foundOn": null,
@@ -84284,7 +84290,13 @@
         "feature:auth"
       ],
       "path": "social-pin/modules/Identity Core/features/Auth & Sign-up/flow/FD-05 Auth & Sign-up Frontend Delivery.md",
-      "pending": [],
+      "pending": [
+        {
+          "person": null,
+          "text": "S2 layout, Resend and Start sign-up again pinned at the bottom with Verify (they still scroll with the content)",
+          "to": "story:auth"
+        }
+      ],
       "priority": "critical",
       "related": [
         "task:B-03",
@@ -84358,7 +84370,7 @@
       "task": null,
       "title": "FD-05 Auth & Sign-up Frontend Delivery",
       "unmet": [],
-      "updated": "2026-11-05"
+      "updated": "2026-11-09"
     },
     "frontend-delivery:badge-qr": {
       "affects": [],
@@ -91127,18 +91139,18 @@
       "rollup": {
         "approved": 14,
         "blocked": 3,
-        "current": 2,
+        "current": 3,
         "decided": 10,
-        "delivered": 16,
-        "done": 40,
+        "delivered": 15,
+        "done": 39,
         "draft": 3,
         "failing": 1,
         "in-progress": 12,
         "missing": 18,
         "needs-decision": 1,
-        "partial": 6,
+        "partial": 7,
         "passing": 10,
-        "todo": 5,
+        "ready": 5,
         "verified": 11
       },
       "scope": null,
@@ -101329,20 +101341,20 @@
       "rollup": {
         "approved": 40,
         "blocked": 27,
-        "current": 4,
+        "current": 5,
         "decided": 33,
-        "delivered": 18,
-        "done": 43,
+        "delivered": 17,
+        "done": 42,
         "draft": 26,
         "failing": 1,
         "in-progress": 46,
         "missing": 126,
         "needs-decision": 1,
-        "partial": 8,
+        "partial": 9,
         "passing": 12,
-        "ready": 1,
+        "ready": 6,
         "reference": 32,
-        "todo": 8,
+        "todo": 3,
         "verified": 34
       },
       "scope": null,
@@ -106161,7 +106173,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "todo",
+      "effectiveStatus": "ready",
       "effort": "S",
       "feature": "auth",
       "foundOn": "FD-05 Auth & Sign-up Frontend Delivery",
@@ -106224,18 +106236,18 @@
       "screens": [
         "s02"
       ],
-      "status": "todo",
+      "status": "ready",
       "summary": "The fix is /frontend's. It sets in-progress when it starts and ready when the fix ships; QA re-runs AU-23 and closes or reopens it.",
       "tags": [
         "bug",
-        "bug/todo",
+        "bug/ready",
         "module/identity",
         "priority/high"
       ],
       "task": null,
       "title": "B-18 Sign-in Verify overflows when the not-active message shows",
       "unmet": [],
-      "updated": "2026-11-08"
+      "updated": "2026-11-09"
     },
     "task:B-19": {
       "affects": [],
@@ -106248,7 +106260,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "todo",
+      "effectiveStatus": "ready",
       "effort": "S",
       "feature": "auth",
       "foundOn": "FD-05 Auth & Sign-up Frontend Delivery",
@@ -106284,18 +106296,18 @@
       "screens": [
         "s06"
       ],
-      "status": "todo",
+      "status": "ready",
       "summary": "The fix is /frontend's. It sets in-progress when it starts and ready when the fix ships; QA re-runs AU-26 and closes or reopens it.",
       "tags": [
         "bug",
-        "bug/todo",
+        "bug/ready",
         "module/identity",
         "priority/high"
       ],
       "task": null,
       "title": "B-19 Claim your Pin shows the prefix @ instead of !",
       "unmet": [],
-      "updated": "2026-11-08"
+      "updated": "2026-11-09"
     },
     "task:B-20": {
       "affects": [],
@@ -106308,7 +106320,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "todo",
+      "effectiveStatus": "ready",
       "effort": "S",
       "feature": "auth",
       "foundOn": "FD-05 Auth & Sign-up Frontend Delivery",
@@ -106344,18 +106356,18 @@
       "screens": [
         "s02"
       ],
-      "status": "todo",
+      "status": "ready",
       "summary": "The fix is /frontend's. It sets in-progress when it starts and ready when the fix ships; QA re-runs AU-47 and closes or reopens it.",
       "tags": [
         "bug",
-        "bug/todo",
+        "bug/ready",
         "module/identity",
         "priority/high"
       ],
       "task": null,
       "title": "B-20 In Arabic the code boxes fill right to left",
       "unmet": [],
-      "updated": "2026-11-08"
+      "updated": "2026-11-09"
     },
     "task:B-21": {
       "affects": [],
@@ -106368,7 +106380,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "todo",
+      "effectiveStatus": "ready",
       "effort": "S",
       "feature": "auth",
       "foundOn": "FD-05 Auth & Sign-up Frontend Delivery",
@@ -106412,18 +106424,18 @@
       "screens": [
         "s02"
       ],
-      "status": "todo",
+      "status": "ready",
       "summary": "The fix is /frontend's. It sets in-progress when it starts and ready when the fix ships; QA re-runs AU-55 and closes or reopens it.",
       "tags": [
         "bug",
-        "bug/todo",
+        "bug/ready",
         "module/identity",
         "priority/high"
       ],
       "task": null,
       "title": "B-21 A failed resend restarts the countdown",
       "unmet": [],
-      "updated": "2026-11-08"
+      "updated": "2026-11-09"
     },
     "task:B-22": {
       "affects": [],
@@ -106436,7 +106448,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "todo",
+      "effectiveStatus": "ready",
       "effort": "S",
       "feature": "auth",
       "foundOn": "FD-05 Auth & Sign-up Frontend Delivery",
@@ -106494,18 +106506,18 @@
       "screens": [
         "s02"
       ],
-      "status": "todo",
+      "status": "ready",
       "summary": "The fix is /frontend's. It sets in-progress when it starts and ready when the fix ships; QA re-runs AU-60 and closes or reopens it.",
       "tags": [
         "bug",
-        "bug/todo",
+        "bug/ready",
         "module/identity",
         "priority/high"
       ],
       "task": null,
       "title": "B-22 The code's expiry counts with the phone clock",
       "unmet": [],
-      "updated": "2026-11-08"
+      "updated": "2026-11-09"
     },
     "task:B-23": {
       "affects": [],
