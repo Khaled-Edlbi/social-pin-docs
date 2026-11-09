@@ -11,7 +11,7 @@ approvedAt: 2026-10-29
 owner: "Omar Fostok"
 related: ["D-02 One main profile every Ring starts from", "D-05 Inherit per field, copy without members", "D-06 Yearly rename, old name freed, case-insensitive", "ND-22 Public web page by Pin name", "D-22 The public page only says the Pin exists", "S-01 Account Story", "S-08 Onboarding Imports Story", "S-17 Ring Projection Story", "S-19 View As & Pin Views Story", "S-89 Gemma AI Story", "F-18 Badge & QR"]
 created: 2026-10-18
-updated: 2026-11-05
+updated: 2026-11-09
 tags: [story, story/approved, module/identity, layer/business]
 ---
 
@@ -77,6 +77,7 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] Each field is labelled "shared only with Rings you choose" and has an explicit Clear action that sends `null`.
+- [ ] **Clear hides first, then clears** (decided by Omar Fostok, 2026-11-09): Clear on a private field first turns that field off on **every Ring** that shows it (each Ring's `show…` flag, [[S-17 Ring Projection Story]]), then sends `null` for the value. So a value I add again later is shown by no Ring until I switch it on again. If hiding fails on any Ring, the value is not cleared and the field says so.
 - [ ] `birthdate` is an ISO date; `gender` and `maritalStatus` are enum pickers from `/docs`.
 - [ ] No switch on this screen makes a value public; the opt-in lives on each Ring's "what it shows" ([[S-17 Ring Projection Story]]).
 
@@ -188,3 +189,8 @@ Acceptance criteria:
 - **Several profiles per account** (Personal, Professional, Business) and choosing the default: later, not in v1. The backend supports it (`POST /profiles`, `POST /profiles/:id/default`, `DELETE /profiles/:id`, 409 `E_PROFILE_03`); the app uses the default profile only. A business identity is a company ([[F-15 Companies]], s63), not a second profile.
 - **The nickname on Rings**: shown to every Ring by default, or only to Rings that switch it on (like the sensitive fields)? Until product says otherwise, it follows the main profile like the bio: shown unless a Ring changes it. For the designer, with S3.
 - What a printed badge or saved link does after its name is released: [[F-18 Badge & QR]], [[ND-12 What the badge QR encodes]].
+
+## Log
+
+- 2026-11-09 · `tickets/pm/M-01-identity/F-07-profiles/S-14-clear-hides-first` · S4: Clear on a private field first hides it on every Ring, then clears the value; decided by Omar Fostok, the story stays approved
+- 2026-11-09 · flagged [[FR-07 Profiles & Pin Name Frontend Requirements]] and [[FD-09 Profiles & Pin Name Frontend Delivery]]: S4 Clear on a private field first turns it off on every Ring that shows it, then sends null

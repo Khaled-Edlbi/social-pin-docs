@@ -19,6 +19,8 @@ tags: [frontend-requirements, frontend-requirements/approved, module/identity, l
 
 # Profiles & Pin Name · Frontend Requirements
 
+> ⚠ Affected by [[S-14 Profiles & Pin Name Story]] (2026-11-09): S4 Clear on a private field (birthdate, gender, marital status) first turns it off on every Ring that shows it, then sends null for the value; if hiding fails, the value is not cleared
+
 > ⚠ Affected by [[BD-07 Profiles & Pin Name Backend Delivery]] (2026-11-05): backend main a249ab2 shipped S3, S4, S9-S12 and D-16's avatarUrl; the rows are ticked ✅; for /frontend: the prose still reads as before (Source today on s05b and the editor, Behaviour expectations 'until then', Blocked by S9-S11, S12-S13, D-16)
 
 > ⚠ Affected by [[D-22 The public page only says the Pin exists]] (2026-11-05): ND-22 decided: socialpin.me/<pinName> is a public page showing only the name, the Pin name and Open in Social Pin, built by the frontend on socialpin.me with the app links; add the page and the public look-up it reads; for /frontend
