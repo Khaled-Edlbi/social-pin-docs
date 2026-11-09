@@ -3,7 +3,7 @@ id: S-01
 type: story
 module: identity
 feature: account
-status: approved
+status: verified
 scope: feature
 screens: [s68]
 approvedBy: "Omar Fostok"
@@ -12,12 +12,12 @@ owner: "Omar Fostok"
 related: ["ND-20 Whether an unverified new address may sign in", "D-20 The changed address still signs in, the words are corrected", "B-01 An unverified changed email still signs in", "FD-04 Account Frontend Delivery", "QF-04 Account QA Frontend", "F-07 Profiles & Pin Name"]
 created: 2026-10-18
 updated: 2026-11-09
-tags: [story, story/approved, module/identity, layer/business]
+tags: [story, story/verified, module/identity, layer/business]
 ---
 
 # Account · User Story
 
-**Feature:** [[F-01 Account]] · **Status:** Approved 2026-11-09 by Omar Fostok · **Frontend Requirements:** [[FR-01 Account Frontend Requirements]] · **Backend Integration:** [[BI-01 Account Backend Integration]]
+**Feature:** [[F-01 Account]] · **Status:** Fulfilled 2026-11-09 (approved 2026-11-09 by Omar Fostok; QB-04 and QF-04 passing, nothing pending) · **Frontend Requirements:** [[FR-01 Account Frontend Requirements]] · **Backend Integration:** [[BI-01 Account Backend Integration]]
 
 A signed-in person opens Me to check which email and phone their account is on, to change one of them, and, rarely, to leave. The account is the thin layer under the profile: it holds the sign-in identity, the verified state of each destination and the Free / Pro type. Everything that describes the person (name, photo, bio) lives on the profile and on Ring projections, so the Me header is composed from three sources, never fetched from one.
 

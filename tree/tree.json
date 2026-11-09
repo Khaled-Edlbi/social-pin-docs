@@ -6852,7 +6852,7 @@
     "layerNotes": 157,
     "modules": 8,
     "notes": 351,
-    "partial": 12,
+    "partial": 13,
     "placeholders": 128,
     "records": 33
   },
@@ -76834,7 +76834,7 @@
       "deadline": null,
       "depends": [],
       "dir": "social-pin/modules/Identity Core/features/Account",
-      "effectiveStatus": "in-progress",
+      "effectiveStatus": "partial",
       "effort": null,
       "feature": "account",
       "foundOn": null,
@@ -76885,13 +76885,12 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "approved": 1,
         "decided": 1,
         "delivered": 2,
         "done": 8,
         "partial": 1,
         "passing": 2,
-        "verified": 1
+        "verified": 2
       },
       "scope": null,
       "screens": [
@@ -87208,7 +87207,7 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 16,
+        "approved": 15,
         "blocked": 3,
         "current": 4,
         "decided": 10,
@@ -87216,13 +87215,13 @@
         "done": 37,
         "draft": 3,
         "failing": 1,
-        "in-progress": 13,
+        "in-progress": 12,
         "missing": 18,
         "needs-decision": 1,
-        "partial": 10,
+        "partial": 11,
         "passing": 8,
         "todo": 5,
-        "verified": 10
+        "verified": 11
       },
       "scope": null,
       "screens": [],
@@ -97035,7 +97034,7 @@
         {
           "done": 0,
           "id": "mvp",
-          "partial": 0,
+          "partial": 1,
           "total": 26
         },
         {
@@ -97058,7 +97057,7 @@
         }
       ],
       "rollup": {
-        "approved": 42,
+        "approved": 41,
         "blocked": 27,
         "current": 7,
         "decided": 33,
@@ -97066,15 +97065,15 @@
         "done": 40,
         "draft": 26,
         "failing": 1,
-        "in-progress": 47,
+        "in-progress": 46,
         "missing": 128,
         "needs-decision": 1,
-        "partial": 12,
+        "partial": 13,
         "passing": 8,
         "ready": 1,
         "reference": 32,
         "todo": 8,
-        "verified": 33
+        "verified": 34
       },
       "scope": null,
       "screens": [],
@@ -97096,7 +97095,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "approved",
+      "effectiveStatus": "verified",
       "effort": null,
       "feature": "account",
       "foundOn": null,
@@ -97158,11 +97157,11 @@
       "screens": [
         "s68"
       ],
-      "status": "approved",
+      "status": "verified",
       "summary": "A signed-in person opens Me to check which email and phone their account is on, to change one of them, and, rarely, to leave. The account is the thin layer under the profile: it holds the sign-in…",
       "tags": [
         "story",
-        "story/approved",
+        "story/verified",
         "module/identity",
         "layer/business"
       ],
