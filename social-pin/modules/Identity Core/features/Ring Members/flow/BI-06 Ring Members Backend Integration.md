@@ -13,6 +13,8 @@ tags: [backend-integration, backend-integration/current, module/identity, layer/
 
 # 🔌 Ring Members · Backend Integration
 
+> ⚠ Affected by [[FD-14 Ring Members Frontend Delivery]] (2026-11-09): social_pin 0005f00 reads names, Pin names and photos from the roster rows (no GET /connections/:userId per member any more) and sends the search as ?name=, debounced 350 ms, every page; the earlier FD-14 flag's names line no longer holds; the Checklist row for names and name= can be ticked (/backend)
+
 > ⚠ Affected by [[FD-14 Ring Members Frontend Delivery]] (2026-11-09): the client follows every Checklist row on social_pin b646053: the roster filtered to ACTIVE, lapsed from expiresAt; add, reassign and revoke read the roster again, no 'what they see' cache; the window editor sends null to clear a bound; a 403 hides the roster quietly. Names come from GET /connections/:userId per member (D-29), which 'Not available yet' still says has no source. Tick the Checklist and refresh 'Not available yet' (/backend)
 
 > ⚠ Affected by [[QB-11 Ring Members QA Backend]] (2026-11-05): QA run on main 12172c6: RING_MEMBER_STATUS has a fifth value LEFT that Shapes that matter does not list (the B-09 and B-10 parts of this flag were fixed on backend main e483d49, 2026-11-08: see [[BD-09 Ring Members Backend Delivery]] Log)
