@@ -6,9 +6,9 @@ feature: view-as
 status: current
 scope: feature
 screens: [s10, s31, s44]
-related: ["D-02 One main profile every Ring starts from", "D-05 Inherit per field, copy without members", "BI-07 Ring Projection Backend Integration", "D-16 Files load from signed links that expire in 15 minutes", "BI-03 Files Upload Backend Integration", "GET /files/content/:token", "BI-15 Badge & QR Backend Integration", "GET /views/qr/:token"]
+related: ["D-02 One main profile every Ring starts from", "D-05 Inherit per field, copy without members", "BI-07 Ring Projection Backend Integration", "D-16 Files load from signed links that expire in 15 minutes", "BI-03 Files Upload Backend Integration", "GET /files/content/:token", "BI-15 Badge & QR Backend Integration", "GET /views/qr/:token", "D-15 Several Rings per connection, remove or disconnect", "S-19 View As & Pin Views Story", "GET /views/pin/:pinName", "GET /views/user/:userId/perspectives", "GET /rings/shared-with-me"]
 created: 2026-10-15
-updated: 2026-11-08
+updated: 2026-11-09
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---
 
@@ -31,10 +31,10 @@ What the client builds: every screen that shows **another person**: the scanned 
 
 ## Flow
 
-1. **By Pin name.** `GET /views/pin/:pinName` (without the `!`) → 200 `RingProfileViewEntity`: the perspective of the person's **default Ring if the viewer is in it, else the oldest Ring they can see**. 404 `E_RING_ACCESS_01` otherwise, see below.
+1. **By Pin name.** `GET /views/pin/:pinName` (without the `!`) → 200 `RingProfileViewEntity`: the perspective of the person's Ring the viewer was **put in first** (their oldest live membership in that person's Rings), whatever the person's default Ring is ([[D-15 Several Rings per connection, remove or disconnect]], S-19 S4). Being added to another of their Rings later does not change it. Your **own** handle renders your default Ring. 404 `E_RING_ACCESS_01` otherwise, see below.
 2. **By Ring.** `GET /views/ring/:ringId` → the projection of that one Ring, if the viewer may see it: the owner always, a member while the Ring and the membership are both live and no block exists. 404 `E_RING_ACCESS_02` when the Ring is not live (expired, archived, deleted, not started), 404 `E_RING_ACCESS_01` when the viewer is not in it or is blocked.
    - **A Ring just made renders from its first moment.** A Ring nobody has edited yet (made with `POST /rings`, its projection never opened) answers 200 with the empty projection, to its owner and to its members. That view has the Pin name, the name, the nickname, and the headline, role, company, location, bio and photo of the profile the Ring presents (a new Ring follows all six); every sensitive field `null`; and empty `links[]`, `infoBlocks[]`, `widgets[]` and `attachments[]`. It is the same view the Ring gives once its projection is opened and before anything is switched on (S-19 S1). It is never a 404.
-3. **All perspectives.** `GET /views/user/:userId/perspectives` → 200 `RingProfileViewEntity[]`, default Ring first then oldest first; **empty** when nothing is shared (not a 404). A viewer in several Rings of one person gets several entries; the switcher indexes by position because the entries carry no identifier. A Ring just made is one of them, as its empty projection.
+3. **All perspectives.** `GET /views/user/:userId/perspectives` → 200 `RingProfileViewEntity[]` in the order the viewer was put in the person's Rings: the first one put in first, then the others in the order they were added, so **View 1 is always what `GET /views/pin` shows**, and the Ring a Shared with me row opens is that same one (S-19 S5). Your **own** perspectives: your default Ring first, then the oldest; **empty** when nothing is shared (not a 404). A viewer in several Rings of one person gets several entries; the switcher indexes by position because the entries carry no identifier. A Ring just made is one of them, as its empty projection.
 4. **View as (owner).** The owner calls `GET /views/ring/:ringId` on their own Ring and gets byte for byte what that audience gets: same code path, same gates. An **expired** Ring 404s here even for the owner (`E_RING_ACCESS_02`): "View as" is for live Rings.
 
 ## Shapes that matter
@@ -52,7 +52,7 @@ What the client builds: every screen that shows **another person**: the scanned 
 
 ## State to keep on the client
 
-Cache a view by **(viewer, person or Ring)**, never by the person alone: the same handle returns different bodies to different viewers, and to the same viewer after a reassign. Keep the cache short-lived and refetch on screen focus: access is resolved per request against `now`, and the backend has nothing to invalidate.
+Cache a view by **(viewer, person or Ring)**, never by the person alone: the same handle returns different bodies to different viewers, and to the same viewer after a reassign or after they leave the Ring they were put in first (the next one moves up). Keep the cache short-lived and refetch on screen focus: access is resolved per request against `now`, and the backend has nothing to invalidate.
 
 ## Errors to handle
 
@@ -82,7 +82,7 @@ The QR payload is no longer a Ring id: since backend `main` `1c460b0` a badge ca
 - [ ] `null` rendered as "not shared", sensitive rows hidden when `null`.
 - [ ] One 404 message; no differentiation by cause.
 - [ ] Cache keyed by (viewer, target); refetch on focus.
-- [ ] Switcher indexes by position; no Ring names.
+- [ ] Switcher indexes by position; no Ring names; View 1 is the Pin lookup's view.
 - [ ] Owner's View as calls the same route with their own Ring id.
 
 ## Log
@@ -92,3 +92,4 @@ The QR payload is no longer a Ring id: since backend `main` `1c460b0` a badge ca
 - 2026-11-08 · matches backend `main` `cb95a39`: `FR-12/ring-profile/view-without-file-id` (`35fe046`) took `avatarFileId` off `RingProfileViewEntity`, so no `/views/*` response carries a file id (D-16). *Shapes that matter* updated: the view has `avatarUrl` and `attachments[].url` only; the owner's projection keeps `avatarFileId`. Logged on [[BD-12 View As & Pin Views Backend Delivery]], which flags FR-12 and QB-14.
 - 2026-11-08 · `docs/backend/M-01-identity/F-12-view-as/BI-09-s10-resolved-fields` · matches backend `main` `cb95a39`: [[S-17 Ring Projection Story|Ring Projection · S10]] (`ffb05c8`, `7e99942`, logged on [[BD-10 Ring Projection Backend Delivery]]) adds `headline`, `role`, `company` and `location` to `RingProfileViewEntity` on every `/views/*` route, each resolved for the Ring (own, else the main profile's, `null` when hidden). *Shapes that matter* and *Flow* 2 updated. No route or error changed. This branch is stacked on `BI-09-view-without-file-id` (`73323e6`), which edits the same shape line.
 - 2026-11-08 · `docs/backend/M-04-discovery/F-18-badge-qr/BD-18-shipped` · matches backend `main` `1c460b0`: a scanned badge now resolves with `GET /views/qr/:token` ([[BI-15 Badge & QR Backend Integration]], F-18), not `GET /views/ring/:ringId`; *Screens → calls* and *Not available yet* updated. No route or shape of this note changed.
+- 2026-11-09 · `docs/backend/M-01-identity/F-12-view-as/BI-09-d-15-first-ring` · matches backend `main` `d8267d3` (`D-15/ring-access/first-ring-order` @ `537e8f8`): the order rule of [[D-15 Several Rings per connection, remove or disconnect]] (S-19 S4, S5). `GET /views/pin/:pinName` renders the Ring the viewer was put in first, `GET /views/user/:userId/perspectives` lists in the order they were put in, View 1 = the Pin lookup = the Shared with me row; the owner's own keep the default first. No shape, route or error changed. Delivery on [[BD-12 View As & Pin Views Backend Delivery]].
