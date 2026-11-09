@@ -18,6 +18,8 @@ tags: [frontend-requirements, frontend-requirements/approved, module/shared-ring
 
 # 📨 Ring Invitations & Join · Frontend Requirements
 
+> ⚠ Affected by [[S-33 Ring Invitations & Join Story]] (2026-11-09): S6 a member invites from the owner's card inside the Ring, "+ Invite someone to <Ring>", with no access window, shown only while the Ring lets members invite (membersCanInvite)
+
 **Feature:** [[F-17 Ring Invitations & Join]] · **Status:** Approved 2026-11-08 by khaled · **Story:** [[S-33 Ring Invitations & Join Story]] (approved 2026-11-08) · **API Integration:** [[BI-17 Ring Invitations & Join Backend Integration]] (backend `main` `1c460b0`)
 
 What the client needs from the backend to build [[S-33 Ring Invitations & Join Story]] S1–S12, and whether each need is met today. **Rewritten 2026-11-08** against the approved story, [[D-31 An invitation is its own record|D-31]] to [[D-36 Who it's for stays the owner's alone|D-36]], and backend `main` @ `12172c6` ([[BI-08 Rings Backend Integration]]). Routes that don't exist yet are asked for as needs, not names: the backend names them in [[BD-17 Ring Invitations & Join Backend Delivery]]; the two join-request routes keep the names [[FR-15 Companies Frontend Requirements|FR-15]] already asked for.
