@@ -165,7 +165,7 @@ Acceptance criteria:
 - [ ] **Mutual connections** as a count only, "4 mutual connections", never names, never counting a blocked pair, hidden at zero; **events in common** only where we were both visible, hidden until the Events features ship ([[D-23 A count of mutual connections, events where both were visible]]).
 - [ ] A member of my Rings who isn't a connection (joined by invitation or code) opens here too, as a member, with no *Disconnect* ([[D-29 Connection detail opens a member who is not a connection]]).
 - [ ] *Request meeting* is hidden in the MVP (Meetings is v1). *Introduce* is shown disabled, "Not available yet" ([[#Open questions]]).
-- [ ] The ⋯ menu: *Block* (S13).
+- [ ] The ⋯ menu: *Disconnect* (S11) and *Block* (S13).
 - [ ] The screen refetches after every change; a 409 `E_RING_MEMBER_04` on a tick (they blocked me since) reads "Can't add this person".
 
 ### S10 · Someone I'm connected with, from the other side ([[Screen Index#s17|s17]], [[Screen Index#s47|s47]])
@@ -183,7 +183,7 @@ Acceptance criteria:
 Acceptance criteria:
 - [ ] Unticking a Ring that isn't their last asks nothing.
 - [ ] Unticking the **last** Ring asks: **Remove from Rings** (they stay a connection with no access, listed as *No access*; I can tick a Ring again without a new request) or **Disconnect** (the connection ends, they leave my contacts, getting back in takes a new request) ([[D-15 Several Rings per connection, remove or disconnect]]).
-- [ ] *Disconnect* is also in the ⋯ menu for someone in several Rings: it removes them from all of them first.
+- [ ] *Disconnect* **lives in the ⋯ menu** of Connection detail, beside *Block*, for every connection (one Ring or several), never as a button on the page; it removes them from all of my Rings first, then ends the connection. A member who isn't a connection has none (D-29) (decided by Omar Fostok, 2026-11-09).
 - [ ] Not available yet: the disconnect route. The other person is not told ([[D-26 A disconnect is not announced]]).
 - [ ] Either way, nothing reaches the other person beyond losing access: no notification "you were removed".
 
@@ -253,7 +253,7 @@ Acceptance criteria:
 | s44 | Only the resolved card | *Requested*, *Not accepted*, *Request expired*, *Connected*, *Accept*, not available, my own card |
 | s45 | *Sent · 5* goes nowhere; no note; no *Undo* | A Sent list with *Pending* / *Not accepted* / *Request expired*, *Cancel*, *Connect* again (D-13, D-17); the note on incoming rows |
 | s46 | A full screen | The brief asks for a bottom sheet; either is fine, but one is needed. Plus the note, the window, *Decline* |
-| s47 | Only *Revoke access* | The checklist, windows, *Remove from Rings* / *Disconnect* (D-15), *Block* in ⋯ |
+| s47 | Only *Revoke access* | The checklist, windows, *Remove from Rings* / *Disconnect* (D-15), *Disconnect* and *Block* in ⋯ |
 | s47 | "2 events in common", "4 mutual connections · Omar, Lina…" | A count, no names; events hidden until Events ship (D-23) |
 | s17 | Ring names ("Acme Team") | People, never the Ring (D-14) |
 | s15 | "Waiting on you" shows scans of my badge in a Ring | Join requests to that Ring only (S12) |
@@ -342,3 +342,5 @@ Shipped since the rewrite: **Shared with me as people** (D-14), backend `main` @
 - 2026-11-08 · flagged [[FR-14 Connections Frontend Requirements]]: S-23 updated for backend main 12172c6: GET /rings/shared-with-me returns people (S7), the card opening from the row's ringId; photos are avatarUrl, a signed link (D-16), never avatarFileId: the request, contact and blocked rows should ask for avatarUrl; /views/pin and the perspectives still put the default Ring first
 - 2026-11-09 · `tickets/pm/M-02-connections/F-14-connections/S-23-request-states-and-rings` · decided by Omar Fostok: the request states read "Not accepted" and "Request expired" (S2, S4, states, design table); Connection detail lists my live Rings only (S9); *Scan someone in* is not shown on the People tab, hidden rather than disabled (S12, D-28). The story stays approved
 - 2026-11-09 · flagged [[D-28 Scan someone in is not in the MVP]]: Scan someone in is now hidden on the People tab, not shown disabled
+- 2026-11-09 · `tickets/pm/M-02-connections/F-14-connections/S-23-disconnect-in-menu` · S9, S11: Disconnect lives in the ⋯ menu of Connection detail beside Block, for every connection, never a button on the page; decided by Omar Fostok, the story stays approved. The other three decisions of the same message are already recorded (previous entry)
+- 2026-11-09 · flagged [[FR-14 Connections Frontend Requirements]]: s47 Disconnect lives in the ⋯ menu beside Block, for every connection, never a button on the page
