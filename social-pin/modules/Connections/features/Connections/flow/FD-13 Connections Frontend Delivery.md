@@ -19,6 +19,8 @@ tags: [frontend-delivery, frontend-delivery/done, module/connections, layer/fron
 
 # ✅ Connections · Frontend Delivery
 
+> ⚠ Affected by [[BD-14 Connections Backend Delivery]] (2026-11-09): Connect, Block and the card's button after a scan exist on backend main ebdca36 (local, not pushed yet): POST /connections/requests { qrToken }, POST /blocks { qrToken }, GET /connections/relationship?qrToken= (s44); every refusal is the views' 404 E_RING_ACCESS_01, 429 E_BADGE_01 past 20 a minute; shapes in BI-16. A deleted account now leaves contacts, Sent, Incoming and Blocked people (D-25)
+
 **Feature:** [[F-14 Connections]] · **Status:** Done · **Built from:** [[BI-16 Connections Backend Integration]] · **Against:** [[S-23 Connections Story]] · **Requirements:** [[FR-14 Connections Frontend Requirements]] · **QA:** [[Connections QA Frontend]]
 
 What the client shipped for asking, answering and keeping connections, on `social_pin` `rings/F-11/honest-rings` @ `f70c791` (2026-11-09), not on `main` yet, against backend `main` `1c460b0`. The work and what is left are tracked in the client's `docs/gap-reviews/BI-16 Connections gap review.md` (CN1–CN13). Unit and widget tests only so far (59 new); not yet tried on a device.
