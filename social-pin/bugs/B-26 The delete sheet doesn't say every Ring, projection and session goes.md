@@ -3,7 +3,8 @@ id: B-26
 type: bug
 module: identity
 feature: account
-status: todo
+status: done
+resolution: fixed
 priority: medium
 effort: S
 foundOn: "FD-04 Account Frontend Delivery"
@@ -14,12 +15,12 @@ related: ["FD-04 Account Frontend Delivery", "QF-04 Account QA Frontend", "S-01 
 pending: []
 created: 2026-11-09
 updated: 2026-11-09
-tags: [bug, bug/todo, module/identity, priority/medium]
+tags: [bug, bug/done, module/identity, priority/medium, resolution/fixed]
 ---
 
-# ⬜ B-26 · The delete sheet doesn't say every Ring, projection and session goes
+# ✅ B-26 · The delete sheet doesn't say every Ring, projection and session goes
 
-**Found against:** [[FD-04 Account Frontend Delivery]] · **Feature:** [[F-01 Account]] · **Status:** To do · **Priority:** Medium · **Deadline:** — · **Effort:** S
+**Found against:** [[FD-04 Account Frontend Delivery]] · **Feature:** [[F-01 Account]] · **Status:** Done · **Resolution:** fixed · **Priority:** Medium · **Deadline:** — · **Effort:** S
 
 **Found by:** [[QF-04 Account QA Frontend]] row DA-02b (F13), on build `social_pin` `b646053` (emulator-5554, Medium_Phone), 2026-11-09.
 
@@ -52,4 +53,5 @@ The fix is `/frontend`'s. It sets `in-progress` when it starts and `ready` when 
 
 ## Log
 
+- 2026-11-09 · re-run on social_pin `0aaca9e` (emulator-5554, fake backend) · DA-02b ✅: the delete sheet's body (`deleteAccount.confirmBody`, English and Arabic) now names the Rings and what they show going away, besides the sign-out and the freed email and phone. Closed `done`, `resolution: fixed`, on Omar Fostok's word.
 - 2026-11-09 · filed from QF-04 DA-02b, found against FD-04 Account Frontend Delivery
