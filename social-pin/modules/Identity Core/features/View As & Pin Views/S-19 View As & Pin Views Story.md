@@ -6,12 +6,12 @@ feature: view-as
 status: approved
 scope: feature
 screens: [s10, s31, s44, s62]
-approvedBy: "Omar Fostok"
-approvedAt: 2026-10-29
+approvedBy: "khaled"
+approvedAt: 2026-11-09
 owner: "Omar Fostok"
-related: ["D-14 Shared with me lists people, never the Ring", "D-16 Files load from signed links that expire in 15 minutes", "D-18 Ring names shown when joined knowingly", "ND-12 What the badge QR encodes", "ND-22 Public web page by Pin name", "S-14 Profiles & Pin Name Story", "S-17 Ring Projection Story", "S-23 Connections Story", "F-03 Counts"]
+related: ["D-15 Several Rings per connection, remove or disconnect", "D-14 Shared with me lists people, never the Ring", "D-16 Files load from signed links that expire in 15 minutes", "D-18 Ring names shown when joined knowingly", "ND-12 What the badge QR encodes", "ND-22 Public web page by Pin name", "S-14 Profiles & Pin Name Story", "S-17 Ring Projection Story", "S-23 Connections Story", "F-03 Counts"]
 created: 2026-10-18
-updated: 2026-10-29
+updated: 2026-11-09
 tags: [story, story/approved, module/identity, layer/business]
 ---
 
@@ -21,7 +21,7 @@ tags: [story, story/approved, module/identity, layer/business]
 
 > ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
 
-**Feature:** [[F-12 View As & Pin Views]] · **Status:** Approved 2026-10-29 by Omar Fostok (first approved 2026-10-25 by khaled; reworked 2026-10-29 by the design review: S1, S2, S3, S7 changed) · **Frontend Requirements:** [[FR-12 View As & Pin Views Frontend Requirements]] · **Backend Integration:** [[BI-09 View As & Pin Views Backend Integration]]
+**Feature:** [[F-12 View As & Pin Views]] · **Status:** Approved 2026-11-09 by khaled (S4 and S5 now follow D-15: the Ring the viewer was put in first; before: approved 2026-10-29 by Omar Fostok, first approved 2026-10-25 by khaled; reworked 2026-10-29 by the design review: S1, S2, S3, S7 changed) · **Frontend Requirements:** [[FR-12 View As & Pin Views Frontend Requirements]] · **Backend Integration:** [[BI-09 View As & Pin Views Backend Integration]]
 
 Two people, one screen component. The owner flips to "View as" to see a Ring exactly as its members do: the "aha" that teaches the whole model. A viewer scans a badge or types a `!pinname` and gets the one perspective they are allowed, with no hint of which Ring that is or whether other Rings exist. Both render the same shape from the same route, which is what makes the preview trustworthy. Photos and files load from signed links that expire in 15 minutes ([[D-16 Files load from signed links that expire in 15 minutes]]).
 
@@ -77,7 +77,7 @@ Acceptance criteria:
 **As a** viewer **I want** to type `!sara` and get her profile **so that** I can find someone I met without a scan.
 
 Acceptance criteria:
-- [ ] `GET /views/pin/:pinName` without the `!`; the answer is the perspective of her default Ring if I am in it, else the oldest Ring of hers I can see.
+- [ ] `GET /views/pin/:pinName` without the `!`; the answer is the perspective of the Ring of hers I was **put in first** (my oldest live membership), whatever her default Ring is ([[D-15 Several Rings per connection, remove or disconnect]]). Adding me to another of her Rings later doesn't change what I see first. *Changed 2026-11-09 on khaled's word; it was "her default Ring if I am in it, else the oldest Ring".*
 - [ ] The same one-message 404 for "no such name", "not shared" and "blocked"; no retry hint differs by cause.
 - [ ] My own handle renders my default Ring's view, which doubles as a quick self-check.
 - [ ] A public web page by Pin name is a separate question: [[ND-22 Public web page by Pin name]].
@@ -87,7 +87,7 @@ Acceptance criteria:
 **As a** viewer in several of one person's Rings **I want** to flip between them **so that** I see each side they gave me.
 
 Acceptance criteria:
-- [ ] `GET /views/user/:userId/perspectives` returns an array in a stable order (default Ring first, then oldest); the switcher labels them "View 1 / View 2" or by `themeConfig`, never by a Ring name.
+- [ ] `GET /views/user/:userId/perspectives` returns an array in a stable order: the Ring I was put in first, then the others in the order I was put in them ([[D-15 Several Rings per connection, remove or disconnect]]), so View 1 is always the one `GET /views/pin` shows; the switcher labels them "View 1 / View 2" or by `themeConfig`, never by a Ring name. *Changed 2026-11-09 on khaled's word; it was "default Ring first, then oldest".* The owner's own perspectives keep their default Ring first.
 - [ ] An empty array renders "Nothing shared with you", not an error.
 - [ ] The person's `userId` comes from a connection or a scan payload, never from a view.
 
@@ -117,7 +117,7 @@ Acceptance criteria:
 ## Rules the backend already enforces
 
 - All three routes return `RingProfileViewEntity` and resolve access **first** through `RingAccessService`.
-- `GET /views/pin/:pinName` looks up the normalised handle then `resolveDefaultAccess`: the owner's own Rings for the owner; otherwise, after the mutual-block check, the live Rings the viewer is a live member of, default first then oldest; the first is rendered. No profile, no live Ring or a block throw the **same** 404 `E_RING_ACCESS_01`, asserted by specs.
+- `GET /views/pin/:pinName` looks up the normalised handle then `resolveDefaultAccess`: the owner's own Rings for the owner; otherwise, after the mutual-block check, the live Rings the viewer is a live member of, default first then oldest; the first is rendered. **Not yet D-15's order:** S4 and S5 now ask for the Ring the viewer was put in first (backend work, BD-12). No profile, no live Ring or a block throw the **same** 404 `E_RING_ACCESS_01`, asserted by specs.
 - `GET /views/ring/:ringId` uses `assertRingReadable`: not live is 404 `E_RING_ACCESS_02` (owner included); the owner passes; blocked or non-member gets the not-shared 404.
 - `GET /views/user/:userId/perspectives` returns one projection per accessible Ring in order, an empty array when nothing is shared.
 - Rendering goes through `selectRingProfileProjection` (hidden rows excluded) and `toView` (sensitive fields gated by `show*`). Nothing in the entity names the Ring, the owner's user id or the membership.
@@ -127,3 +127,11 @@ Acceptance criteria:
 - No decision blocks the read path. What the badge QR carries is [[ND-12 What the badge QR encodes]] ([[S-37 Badge & QR Story|Badge & QR · S7–S12]], [[S-37 Badge & QR Story|Badge & QR · S13–S18]]); until then a Ring id in the QR is temporary.
 - Decided: [[D-16 Files load from signed links that expire in 15 minutes]] (S3, S7: the photo and the files); building it is the backend's.
 - Later, not in v1: a list of saved cards inside the app (S7 saves to the phone's contacts instead).
+
+## Log
+
+- 2026-11-09 · flagged [[BD-12 View As & Pin Views Backend Delivery]]: S-19 S4/S5 now follow D-15 (2026-11-09, khaled): GET /views/pin and the perspectives list start from the Ring the viewer was put in first (oldest live membership), then the others in the order they were added; the owner's own lookup keeps their default Ring first; backend work for /backend
+- 2026-11-09 · flagged [[BD-08 Ring Access Engine Backend Delivery]]: S-19 S4/S5 now follow D-15 (2026-11-09, khaled): GET /views/pin and the perspectives list start from the Ring the viewer was put in first (oldest live membership), then the others in the order they were added; the owner's own lookup keeps their default Ring first; resolveAccessibleRings orders by the viewer's membership, for /backend
+- 2026-11-09 · flagged [[FR-12 View As & Pin Views Frontend Requirements]]: S-19 S4/S5 now follow D-15 (2026-11-09, khaled): GET /views/pin and the perspectives list start from the Ring the viewer was put in first (oldest live membership), then the others in the order they were added; the owner's own lookup keeps their default Ring first; for /frontend: View 1 is the Ring the viewer was put in first
+- 2026-11-09 · flagged [[QB-14 View As & Pin Views QA Backend]]: S-19 S4/S5 now follow D-15 (2026-11-09, khaled): GET /views/pin and the perspectives list start from the Ring the viewer was put in first (oldest live membership), then the others in the order they were added; the owner's own lookup keeps their default Ring first; the perspectives-order rows change, for /qa after the backend change ships
+- 2026-11-09 · flagged [[QB-09 Ring Access Engine QA Backend]]: S-19 S4/S5 now follow D-15 (2026-11-09, khaled): GET /views/pin and the perspectives list start from the Ring the viewer was put in first (oldest live membership), then the others in the order they were added; the owner's own lookup keeps their default Ring first; B58's expectation (D-15) is now also the story's, re-run after the backend change ships, for /qa

@@ -3332,11 +3332,13 @@
     },
     "GET /views/pin": {
       "containers": [
-        "feature:discover-hub"
+        "feature:discover-hub",
+        "feature:view-as"
       ],
       "kind": "endpoint",
       "notes": [
-        "story:discover-hub"
+        "story:discover-hub",
+        "story:view-as"
       ],
       "owner": null
     },
@@ -6724,7 +6726,7 @@
     },
     "concepts": 319,
     "decisions": 34,
-    "edges": 7691,
+    "edges": 7693,
     "features": 41,
     "layerNotes": 156,
     "modules": 8,
@@ -39097,6 +39099,11 @@
     {
       "from": "story:view-as",
       "kind": "related",
+      "to": "decision:D-15"
+    },
+    {
+      "from": "story:view-as",
+      "kind": "related",
       "to": "decision:D-16"
     },
     {
@@ -48496,6 +48503,7 @@
       "to": "feature:view-as",
       "via": [
         "E_AUTH_04",
+        "GET /views/pin",
         "GET /views/pin/:pinName"
       ]
     },
@@ -57906,6 +57914,11 @@
       "from": "backend-delivery:view-as",
       "kind": "wikilink",
       "to": "story:connections"
+    },
+    {
+      "from": "backend-delivery:view-as",
+      "kind": "wikilink",
+      "to": "story:view-as"
     },
     {
       "from": "backend-delivery:view-as",
@@ -72090,6 +72103,7 @@
         "story:rings",
         "frontend-requirements:view-as",
         "qa-backend:view-as",
+        "story:view-as",
         "story:companies",
         "backend-delivery:ring-invitations",
         "story:ring-invitations"
@@ -96551,6 +96565,7 @@
         "qa-backend:rings",
         "frontend-requirements:view-as",
         "qa-backend:view-as",
+        "decision:D-15",
         "decision:D-14",
         "decision:D-16",
         "decision:D-18",
@@ -96579,7 +96594,7 @@
       "task": null,
       "title": "S-19 View As & Pin Views Story",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-09"
     },
     "story:widgets": {
       "affects": [],

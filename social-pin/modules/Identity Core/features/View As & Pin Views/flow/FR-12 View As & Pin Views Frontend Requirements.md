@@ -17,6 +17,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/identity, laye
 
 # View As & Pin Views · Frontend Requirements
 
+> ⚠ Affected by [[S-19 View As & Pin Views Story]] (2026-11-09): S-19 S4/S5 now follow D-15 (2026-11-09, khaled): GET /views/pin and the perspectives list start from the Ring the viewer was put in first (oldest live membership), then the others in the order they were added; the owner's own lookup keeps their default Ring first; for /frontend: View 1 is the Ring the viewer was put in first
+
 > ⚠ Affected by [[BD-14 Connections Backend Delivery]] (2026-11-08): F-14 shipped on backend main 1c460b0: Connect by Pin name (POST /connections/requests { pinName }, the button from GET /connections/relationship) and Block (POST /blocks { pinName }) exist on s44, and contacts give a userId for /perspectives (GET /connections); Connect and Block after a scan ({ qrToken }) are still not available
 
 > ⚠ Affected by [[BD-12 View As & Pin Views Backend Delivery]] (2026-11-08): backend main cb95a39: point 3 of the backend note is resolved: a viewer now gets no file id on any /views/* route (avatarFileId left the view; the owner's projection keeps it, D-16); read avatarUrl and attachments[].url; for /frontend

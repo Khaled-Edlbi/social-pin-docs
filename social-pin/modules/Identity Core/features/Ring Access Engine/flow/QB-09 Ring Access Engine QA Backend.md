@@ -18,6 +18,8 @@ tags: [qa-backend, qa-backend/failing, module/identity, layer/qa]
 
 # 🧪 Ring Access Engine · QA Backend
 
+> ⚠ Affected by [[S-19 View As & Pin Views Story]] (2026-11-09): S-19 S4/S5 now follow D-15 (2026-11-09, khaled): GET /views/pin and the perspectives list start from the Ring the viewer was put in first (oldest live membership), then the others in the order they were added; the owner's own lookup keeps their default Ring first; B58's expectation (D-15) is now also the story's, re-run after the backend change ships, for /qa
+
 > Blocked by default until [[BD-08 Ring Access Engine Backend Delivery]] is `done` (the hand-off order in `docs.config.json`); `blockedBy: []` opts out, `blockedBy: [...]` names other blockers.
 
 **Feature:** [[F-08 Ring Access Engine]] · **Verifies:** [[BD-08 Ring Access Engine Backend Delivery]] against [[S-15 Ring Access Engine Story]] and [[FR-08 Ring Access Engine Frontend Requirements]], with the contract of [[BI-05 Ring Access Engine Backend Integration]] · **Verdict:** 🔴 Failing · 2026-11-05 · backend `main @ 12172c6` · 57 of 57 delivered rows as expected; failing only on 1 story part unmet (S1 · D-15 on `/views/pin`, B58); 2 rows waiting on a decision, 1 not built
