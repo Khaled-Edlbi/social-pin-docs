@@ -14,7 +14,7 @@ affects: ["BD-14 Connections Backend Delivery"]
 related: ["S-23 Connections Story", "D-04 Ring settings at launch and their defaults", "D-06 Yearly rename, old name freed, case-insensitive", "D-10 Connect sends what the requester already has", "D-13 The requester sees a declined request", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-16 Files load from signed links that expire in 15 minutes", "D-17 Requests expire after 30 days, optional note, ask again at once", "D-18 Ring names shown when joined knowingly", "D-23 A count of mutual connections, events where both were visible", "D-24 One pending request per pair", "D-25 A deleted account's connections, requests and blocks end silently", "D-26 A disconnect is not announced", "D-27 Sent keeps declined and expired requests for 30 days", "D-28 Scan someone in is not in the MVP", "D-29 Connection detail opens a member who is not a connection", "BI-06 Ring Members Backend Integration", "BI-08 Rings Backend Integration", "BI-09 View As & Pin Views Backend Integration", "FR-03 Counts Frontend Requirements", "FR-09 Ring Members Frontend Requirements", "FR-11 Rings Frontend Requirements", "FR-12 View As & Pin Views Frontend Requirements", "FR-16 Delegated Admins Frontend Requirements", "FR-18 Badge & QR Frontend Requirements", "FR-39 Notifications Frontend Requirements", "S-87 Error Contract Story", "Frontend Contract", "GET /views/pin/:pinName", "GET /views/user/:userId/perspectives", "GET /rings", "GET /rings/shared-with-me", "POST /rings/:ringId/members", "PATCH /rings/:ringId/members/:userId", "DELETE /rings/:ringId/members/:userId", "POST /rings/:ringId/members/:userId/reassign", "GET /rings/:ringId/projection", "E_RING_02", "E_RING_05"]
 pending: []
 created: 2026-10-18
-updated: 2026-11-08
+updated: 2026-11-09
 tags: [frontend-requirements, frontend-requirements/approved, module/connections, layer/frontend]
 ---
 
@@ -73,7 +73,7 @@ What the client needs from the backend to build every part of [[S-23 Connections
   | `CONNECTED` | *Connected* | opens Connection detail (s47) once the contacts list exists |
   | `THEY_ASKED` | *Accept* | opens the accept sheet (s46) for `requestId` |
 
-- **Send:** `POST /connections/requests` ✅ for `{ pinName }`, ❌ for `{ qrToken }` ([[BD-14 Connections Backend Delivery|BD-14]] `pending`), with **exactly one** of `{ qrToken }` / `{ pinName }`, plus `note?`:
+- **Send:** `POST /connections/requests` ✅ for `{ pinName }` and `{ qrToken }` ([[BD-14 Connections Backend Delivery|BD-14]], [[BI-16 Connections Backend Integration|BI-16]]), with **exactly one** of `{ qrToken }` / `{ pinName }`, plus `note?`:
   - `note`: optional, **≤ 200 characters**, trimmed; empty means no note. The sheet counts as you type and won't send over 200; the server refuses over 200 too (400).
   - → 201 `{ id, status: PENDING, note, createdAt, expiresAt }`. No user id, no Ring.
   - **Already pending from me:** 200 with **that same request**, not a new one and not an error.
@@ -206,7 +206,7 @@ What the client needs from the backend to build every part of [[S-23 Connections
 ### Block and unblock: [[Screen Index#s44|s44]], [[Screen Index#s47|s47]], Blocked people on [[Screen Index#s68|s68]] (S13)
 
 - Confirmation: "Block {name}? They stop seeing every Ring of yours and can't ask to connect. They aren't told."
-- **From the card (s44)** there is no user id (D-10), so block takes what *Connect* takes: `POST /blocks { qrToken } | { pinName }`: `{ pinName }` ✅, `{ qrToken }` ❌. **From s47:** `POST /blocks { userId }` ✅. One route, exactly one of the three.
+- **From the card (s44)** there is no user id (D-10), so block takes what *Connect* takes: `POST /blocks { qrToken } | { pinName }`: `{ pinName }` ✅, `{ qrToken }` ✅. **From s47:** `POST /blocks { userId }` ✅. One route, exactly one of the three.
   - → 201. In one transaction: their memberships in my Rings and mine in theirs end, the connection closes, pending requests both ways close.
   - Blocking someone already blocked: 200, not an error.
 - After a block, the app drops: the contacts list, both request lists, that connection's detail, Shared with me, and every cached view of that person. Then back to where I came from (s44 → back; s47 → Contacts).
@@ -247,7 +247,7 @@ What the client needs from the backend to build every part of [[S-23 Connections
 | Shown | Source | Available |
 |---|---|---|
 | The card | `RingProfileViewEntity` from `/views/qr/:token`, `/views/pin/:pinName` | ✅ |
-| The card's button | `relationship { state, requestId }` on the views | 🟡 its own call, `GET /connections/relationship?pinName=` ✅; not on the views, not by token |
+| The card's button | `relationship { state, requestId }` on the views | 🟡 its own call, `GET /connections/relationship?pinName=` or `?qrToken=` ✅; not on the views |
 | A request row (incoming) | `id`, `status`, `createdAt`, `expiresAt`, `note`, `source`, `eventName`, `eventRingId`, `from { userId, displayName, pinName, avatarUrl }` | 🟡 all ✅ but `eventName`, `eventRingId` ❌ (S15, v1) |
 | A request row (sent) | the same, with `to { displayName, pinName, avatarUrl }`, **no userId** | ✅ |
 | Tab counts, badge counts | `meta.total` | ✅ |
@@ -265,8 +265,8 @@ What the client needs from the backend to build every part of [[S-23 Connections
 |---|---|---|---|
 | The card by Pin name | `GET /views/pin/:pinName` | ✅ | [[S-23 Connections Story\|S1]] |
 | The card by scanned code | `GET /views/qr/:token` | ✅ | S1 · [[FR-18 Badge & QR Frontend Requirements\|FR-18]] |
-| **Where I stand with the person on the card** | `relationship` on both views | 🟡 `GET /connections/relationship?pinName=` ✅; not on the views, not by token | S2 · D-10 *Still open* |
-| Send, with the token or the Pin name, and a note; one pending request per pair | `POST /connections/requests { qrToken \| pinName, note? }` | 🟡 `{ pinName }` ✅, `{ qrToken }` ❌ | S2 · D-10, D-17, D-24 |
+| **Where I stand with the person on the card** | `relationship` on both views | 🟡 `GET /connections/relationship?pinName=` or `?qrToken=` ✅; not on the views | S2 · D-10 *Still open* |
+| Send, with the token or the Pin name, and a note; one pending request per pair | `POST /connections/requests { qrToken \| pinName, note? }` | ✅ | S2 · D-10, D-17, D-24 |
 | Ask again from a Sent row | `POST /connections/requests { againFor, note? }` | ✅ | S4 · D-17 |
 | Incoming list, paged, with `meta.total` | `GET /connections/requests?direction=incoming` | ✅ | S3 |
 | Sent list with status; declined and expired kept 30 days | `GET /connections/requests?direction=sent` | ✅ | S4 · D-13, D-27 |
@@ -285,10 +285,10 @@ What the client needs from the backend to build every part of [[S-23 Connections
 | What they can see | `GET /rings/:ringId/projection` | ✅ | S9 |
 | Disconnect, one transaction, not announced | `DELETE /connections/:userId` | ✅ | S11 · D-15, D-26 |
 | Names and photos on the roster | — | ❌ | S12 · [[FR-09 Ring Members Frontend Requirements\|FR-09]] |
-| Block from the card or from detail | `POST /blocks { qrToken \| pinName \| userId }` | 🟡 `{ pinName }`, `{ userId }` ✅, `{ qrToken }` ❌ | S13 |
+| Block from the card or from detail | `POST /blocks { qrToken \| pinName \| userId }` | ✅ | S13 |
 | Blocked people, unblock | `GET /blocks`, `DELETE /blocks/:id` | ✅ | S13 |
 | Connections count on Me | `meta.total` of `GET /connections`, or [[FR-03 Counts Frontend Requirements\|FR-03]] | ✅ also `GET /connections/count` | S14 |
-| A deleted account leaves every list | the deletion ends connections, requests and blocks | 🟡 every list and the detail leave it out ✅; the rows are not ended yet | S16 · D-25 |
+| A deleted account leaves every list | the deletion ends connections, requests and blocks | ✅ `DELETE /users/me` ends them in the same transaction; every list and the detail leave it out | S16 · D-25 |
 | Requests during an event | `eventRingId` filter on the incoming list | ❌ | S15 (v1) |
 | Push on request and accept | — | ❌ | S3, S7 · [[FR-39 Notifications Frontend Requirements\|FR-39]] |
 | Photos | signed links | ✅ (not on Blocked people) | D-16 |
