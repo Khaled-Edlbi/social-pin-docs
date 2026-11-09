@@ -18,6 +18,8 @@ tags: [frontend-delivery, frontend-delivery/done, module/identity, layer/fronten
 
 # ✅ Account · Frontend Delivery
 
+> ⚠ Affected by [[QF-04 Account QA Frontend]] (2026-11-09): re-run on social_pin 0aaca9e, 36 of 36: the AC-14 point of the flag below is withdrawn (a test fault, B-23 cannot-reproduce: a 404 does end the session at startup). Record 0aaca9e here: a fresh GET /users/me saying SUSPENDED or DELETED now ends the session (B-24), the change sheet focuses the field on an error (B-25), the delete sheet names the Rings and what they show (B-26), the country-code button is one semantics node (B-27). The card-opens-the-editor and not-active-message points still stand (/frontend)
+
 > ⚠ Affected by [[QF-04 Account QA Frontend]] (2026-11-09): the Patrol run on social_pin b646053 differs from this note: the profile card opens the profile editor (AC-21 passes; 'The profile card opens nothing' is out of date); a deleted account is not signed out on a cold start to Home, because the app doesn't read GET /users/me then (AC-14, B-23; this note says a 404 ends the session 'at startup too'); the not-active message shows on a 401 E_AUTH_03 mid-session (AC-15 passes; 'Not done yet' still says 'Your session has expired'). B-23 to B-27 filed against this note (/frontend)
 
 > ⚠ Affected by [[BI-02 Auth & Sign-up Backend Integration]] (2026-11-05): the 403 noted on 2026-11-05 is fixed on backend main @ 8997be1: POST /auth/refresh for a SUSPENDED account now answers 401 E_AUTH_03 'Account is not active', the same as every other route, so the refused-refresh path ends the session with no 403 case
