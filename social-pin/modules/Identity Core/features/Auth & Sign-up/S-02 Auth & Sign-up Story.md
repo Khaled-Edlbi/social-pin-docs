@@ -17,6 +17,8 @@ tags: [story, story/approved, module/identity, layer/business]
 
 # Auth & Sign-up · User Story
 
+> ⚠ Affected by [[FD-05 Auth & Sign-up Frontend Delivery]] (2026-11-09): S2's layout is shipped in part on social_pin f9c19e3: Verify and "Use a different …" are pinned at the bottom and the content scrolls (B-18 no longer overflows), but Resend and Start sign-up again still sit in the scrolling part; FD-05 keeps them in pending. S3: the s06 suggestions are built on the client and then each checked with the availability call, so only free ones show
+
 > ⚠ Affected by [[QB-05 Auth & Sign-up QA Backend]] (2026-10-27): S2 says the 429 comes "after five wrong tries", and *Rules* says "five wrong tries burn the code". The build answers five wrong guesses with 400 and the **sixth** submission with 429 `E_AUTH_06`, even when that sixth code is right; [[BI-02 Auth & Sign-up Backend Integration]] says "sixth wrong guess". The client sees the lock on the sixth submit. `/pm`: confirm which the story means.
 
 
