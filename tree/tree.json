@@ -3337,6 +3337,7 @@
       ],
       "kind": "endpoint",
       "notes": [
+        "backend-delivery:view-as",
         "story:discover-hub",
         "story:view-as"
       ],
@@ -6726,7 +6727,7 @@
     },
     "concepts": 319,
     "decisions": 34,
-    "edges": 7700,
+    "edges": 7701,
     "features": 41,
     "layerNotes": 156,
     "modules": 8,
@@ -57893,6 +57894,11 @@
     {
       "from": "backend-delivery:view-as",
       "kind": "wikilink",
+      "to": "decision:D-15"
+    },
+    {
+      "from": "backend-delivery:view-as",
+      "kind": "wikilink",
       "to": "decision:D-16"
     },
     {
@@ -57914,11 +57920,6 @@
       "from": "backend-delivery:view-as",
       "kind": "wikilink",
       "to": "story:connections"
-    },
-    {
-      "from": "backend-delivery:view-as",
-      "kind": "wikilink",
-      "to": "story:view-as"
     },
     {
       "from": "backend-delivery:view-as",
@@ -63163,6 +63164,11 @@
     {
       "from": "story:view-as",
       "kind": "wikilink",
+      "to": "backend-delivery:view-as"
+    },
+    {
+      "from": "story:view-as",
+      "kind": "wikilink",
       "to": "backend-integration:view-as"
     },
     {
@@ -68176,7 +68182,7 @@
       "task": null,
       "title": "BD-12 View As & Pin Views Backend Delivery",
       "unmet": [],
-      "updated": "2026-11-08"
+      "updated": "2026-11-09"
     },
     "backend-delivery:widgets": {
       "affects": [],
