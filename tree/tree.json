@@ -6726,7 +6726,7 @@
     },
     "concepts": 319,
     "decisions": 34,
-    "edges": 7699,
+    "edges": 7700,
     "features": 41,
     "layerNotes": 156,
     "modules": 8,
@@ -61634,6 +61634,11 @@
       "from": "project:frontend-api-guide",
       "kind": "wikilink",
       "to": "backend-integration:ring-projection"
+    },
+    {
+      "from": "project:frontend-api-guide",
+      "kind": "wikilink",
+      "to": "feature:ring-invitations"
     },
     {
       "from": "project:frontend-api-guide",
