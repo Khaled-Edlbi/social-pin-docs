@@ -17,6 +17,8 @@ tags: [story, story/approved, module/identity, layer/business]
 
 # Photo Library · User Story
 
+> ⚠ Affected by [[FD-08 Photo Library Frontend Delivery]] (2026-11-09): app f801aaa / 0005f00 ships S1-S6 with the main photo; S3 deviates: Camera is offered even on a device with no camera (the pick then fails with a message), and a denied camera's message links to Settings on iOS only (Android says where to go); for /pm
+
 > ⚠ Affected by [[D-16 Files load from signed links that expire in 15 minutes]] (2026-10-29): library photos load from the same signed links, valid 15 minutes. For `/pm`.
 
 **Feature:** [[F-06 Photo Library]] · **Status:** Approved 2026-10-29 by Omar Fostok (first approved 2026-10-25 by khaled; reworked 2026-10-29 by the design review: S1–S8 changed) · **Frontend Requirements:** [[FR-06 Photo Library Frontend Requirements]] · **API Integration:** not yet (backend not built)
