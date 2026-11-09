@@ -17,7 +17,9 @@ tags: [backend-delivery, backend-delivery/done, module/shared-rings, layer/backe
 
 # ✅ Ring Invitations & Join · Backend Delivery
 
-**Feature:** [[F-17 Ring Invitations & Join]] · **Status:** Done · **Integration guide:** [[BI-17 Ring Invitations & Join Backend Integration]] · **Requirements:** [[FR-17 Ring Invitations & Join Frontend Requirements]] · **QA:** [[Ring Invitations & Join QA Backend]]
+> ⚠ Affected by [[QB-17 Ring Invitations & Join QA Backend]] (2026-11-09): QB-17 Ring Invitations & Join QA Backend written and passing on backend main 14c6916 (B1-B98, S1-S3 and S5-S11): the line in the Log saying no QA Backend card exists yet is answered. B84, B91 and B95 pin the placed-member reading still waiting on the PM; blocking a colleague gets rows when it merges
+
+**Feature:** [[F-17 Ring Invitations & Join]] · **Status:** Done · **Integration guide:** [[BI-17 Ring Invitations & Join Backend Integration]] · **Requirements:** [[FR-17 Ring Invitations & Join Frontend Requirements]] · **QA:** [[QB-17 Ring Invitations & Join QA Backend]]
 
 What the backend shipped for [[S-33 Ring Invitations & Join Story]] S1–S3 and S5–S11 and how it works, as on backend `main` `14c6916`: S1–S3 and S5–S9 from `1c460b0` (the merge of `FR-17/ring-invitation/invitations-codes-origin` @ `21899a6`), S10 and S11 from `14c6916` (the merge of `FR-17/ring-invitation/picked-ring-and-roster` @ `75fdabd`). What S-33 asks that is not there is in *Gaps* and in `pending`.
 

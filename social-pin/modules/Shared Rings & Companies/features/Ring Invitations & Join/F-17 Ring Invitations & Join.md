@@ -21,7 +21,7 @@ tags: [feature, module/shared-rings, priority/critical, release/mvp]
 
 **Backend:** Partial (S-33 S1–S3, S5–S9 on backend `main` `1c460b0`; S10–S12 not built, S4 not in this version) · **Priority:** Critical · **Release:** MVP · **Module:** [[M-03 Shared Rings & Companies Module|Shared Rings & Companies]]
 
-**Layers:** [[S-33 Ring Invitations & Join Story|Story]] · [[FR-17 Ring Invitations & Join Frontend Requirements|Frontend Requirements]] · [[BD-17 Ring Invitations & Join Backend Delivery|Backend Delivery]] · [[BI-17 Ring Invitations & Join Backend Integration|Backend Integration]] · [[Ring Invitations & Join Frontend Delivery|Frontend Delivery]] · [[Ring Invitations & Join QA Backend|QA Backend]] · [[Ring Invitations & Join QA Frontend|QA Frontend]]
+**Layers:** [[S-33 Ring Invitations & Join Story|Story]] · [[FR-17 Ring Invitations & Join Frontend Requirements|Frontend Requirements]] · [[BD-17 Ring Invitations & Join Backend Delivery|Backend Delivery]] · [[BI-17 Ring Invitations & Join Backend Integration|Backend Integration]] · [[Ring Invitations & Join Frontend Delivery|Frontend Delivery]] · [[QB-17 Ring Invitations & Join QA Backend|QA Backend]] · [[Ring Invitations & Join QA Frontend|QA Frontend]]
 
 Being invited into someone else's Ring: review or decline an invite (s17), join with a code, a verified work email or a colleague's QR (s74), and "what you contribute" to a shared Ring.
 
