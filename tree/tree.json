@@ -2183,7 +2183,8 @@
       "notes": [
         "backend-delivery:badge-qr",
         "backend-delivery:connections",
-        "backend-integration:connections"
+        "backend-integration:connections",
+        "frontend-requirements:badge-qr"
       ],
       "owner": "feature:connections"
     },
@@ -4379,7 +4380,8 @@
         "backend-delivery:badge-qr",
         "backend-delivery:connections",
         "backend-integration:connections",
-        "frontend-delivery:connections"
+        "frontend-delivery:connections",
+        "frontend-requirements:badge-qr"
       ],
       "owner": "feature:connections"
     },
@@ -11368,9 +11370,11 @@
         "E_BADGE_01",
         "E_RING_02",
         "E_RING_03",
+        "GET /connections/relationship",
         "GET /rings/:ringId/qr/scans",
         "GET /views/qr/:token",
         "GET /views/ring/:ringId",
+        "POST /blocks",
         "POST /connections/requests",
         "POST /rings/:ringId/qr",
         "POST /rings/:ringId/qr/reset"
@@ -12227,8 +12231,10 @@
       "via": [
         "E_BADGE_01",
         "E_RING_02",
+        "GET /connections/relationship",
         "GET /views/pin/:pinName",
         "GET /views/qr/:token",
+        "POST /blocks",
         "POST /connections/requests"
       ]
     },
@@ -17252,10 +17258,12 @@
         "E_BADGE_01",
         "E_RING_02",
         "E_RING_03",
+        "GET /connections/relationship",
         "GET /rings/:ringId/qr/scans",
         "GET /views/pin/:pinName",
         "GET /views/qr/:token",
         "GET /views/ring/:ringId",
+        "POST /blocks",
         "POST /connections/requests",
         "POST /rings/:ringId/qr",
         "POST /rings/:ringId/qr/reset"
@@ -18151,9 +18159,11 @@
       "via": [
         "E_BADGE_01",
         "E_RING_02",
+        "GET /connections/relationship",
         "GET /rings",
         "GET /views/pin/:pinName",
         "GET /views/qr/:token",
+        "POST /blocks",
         "POST /connections/requests"
       ]
     },
@@ -34198,6 +34208,7 @@
       "via": [
         "E_RING_02",
         "GET /rings",
+        "POST /blocks",
         "POST /connections/requests"
       ]
     },
@@ -84024,7 +84035,7 @@
       "task": null,
       "title": "FR-18 Badge & QR Frontend Requirements",
       "unmet": [],
-      "updated": "2026-11-08"
+      "updated": "2026-11-09"
     },
     "frontend-requirements:build-deploy": {
       "affects": [],
