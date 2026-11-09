@@ -11,15 +11,11 @@ approvedAt: 2026-11-08
 owner: "Omar Fostok"
 related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-17 Requests expire after 30 days, optional note, ask again at once", "D-18 Ring names shown when joined knowingly", "D-31 An invitation is its own record", "D-32 Several join codes per Ring", "D-33 Work email joining waits for real emails and Companies", "D-34 A member shows one of their own Rings", "D-35 A join code can be shown as a QR", "D-36 Who it's for stays the owner's alone", "ND-31 What an invitation is", "ND-32 How a Ring's join code works", "ND-33 When a work email is checked", "ND-34 What a member contributes to a shared Ring", "ND-35 A colleague's QR offering their company Ring", "ND-36 Whether an invitee sees who a Ring is for", "S-16 Ring Members Story", "S-18 Rings Story", "S-29 Companies Story", "S-31 Delegated Admins Story", "S-37 Badge & QR Story", "S-78 Code Delivery Story", "BI-08 Rings Backend Integration", "FR-15 Companies Frontend Requirements"]
 created: 2026-10-18
-updated: 2026-11-08
+updated: 2026-11-09
 tags: [story, story/approved, module/shared-rings, layer/business]
 ---
 
 # Ring Invitations & Join · User Story
-
-> ⚠ Affected by [[BD-17 Ring Invitations & Join Backend Delivery]] (2026-11-09): backend main 14c6916 shipped S10 (Your card in this Ring: GET and PUT /rings/:ringId/my-card, the card on the Shared with me row) and S11 (GET /rings/:ringId/colleagues while members can see each other, POST /rings/:ringId/leave): their Not available yet lines no longer hold. Read as built, for the PM to confirm (BD-17 pending): a placed member sees the roster and is listed with their default card, but has no card step and no Leave. Blocking a colleague met only in the roster is not possible yet
-
-> ⚠ Affected by [[BD-17 Ring Invitations & Join Backend Delivery]] (2026-11-09): backend main d8267d3 (D-15): a Shared with me row now opens the Ring the viewer was put in first, however it was made, as GET /views/pin and View 1 do; it no longer prefers a Ring joined knowingly over an older placed one (the 2026-11-08 flag's line no longer holds), so after Join Ring the row stays on the older placed Ring, unnamed. Waits on the PM's confirmation (BD-17 pending)
 
 > ⚠ Affected by [[BD-17 Ring Invitations & Join Backend Delivery]] (2026-11-08): backend main 1c460b0 shipped S1-S3 and S5-S9 (invitations, join codes and the join QR, join requests, Ring names on Shared with me for Rings joined knowingly, joinPolicy / requireApproval / membersCanInvite enforced); the Not available yet lines of those parts and What exists today no longer hold. S10, S11, S12 not built; a Shared with me row now opens the oldest Ring joined knowingly before an older placed one (D-15, to confirm)
 
@@ -47,6 +43,7 @@ Acceptance criteria:
 - [ ] An invitation to a company Ring also carries the company (`business { id, name, logoFileId }`), so s72 can list it **by company** ([[S-29 Companies Story|Companies · S3]], [[FR-15 Companies Frontend Requirements|FR-15]]).
 - [ ] A pending invitation **expires after 30 days** and leaves the section ([[D-17 Requests expire after 30 days, optional note, ask again at once|D-17]]).
 - [ ] The people list is `GET /rings/shared-with-me` as it is: one row per person (exists). On a row I **joined knowingly**, `ringName` is shown with the person ("Acme Team · Shared by Acme Studio"), and "· N people" only when `memberCount` is not `null` (the Ring lets members see each other). Never its colour or type. Not available yet: `ringName` and `memberCount` are always `null` until joining records how it was made (S2, S3).
+- [ ] A row keeps opening **the first Ring the person put me in**, however it was made, the same Ring `GET /views/pin` shows ([[D-15 Several Rings per connection, remove or disconnect|D-15]] stands). A Ring I join later is that person's next view, not the row's: after *Join Ring*, a row that already opened a Ring I was placed in stays on it, unnamed (decided by Omar Fostok, 2026-11-09).
 - [ ] On a row I joined knowingly: "**Your card here: <my Ring> ›**" to change what I show its members (S10).
 - [ ] *Join with a code* opens s74 with the code field ready.
 - [ ] An invitation to a Ring that ended or was deleted reads "This invitation is no longer valid" with *Dismiss* only (`valid: false`, FR-15).
@@ -59,7 +56,7 @@ Acceptance criteria:
 Acceptance criteria:
 - [ ] Shows the Ring's **name**, the owner (name, Pin name, photo), who invited me (the owner, an admin, or a member when the Ring lets members invite others), and the access window if the invitation carries one. Never the Ring's colour or type.
 - [ ] Never the Ring's "who it's for" line (`purpose`): it is the owner's alone ("Only you see this", [[D-36 Who it's for stays the owner's alone]]). A company that wants to say what its Ring is for writes it in the Ring's **bio**, which members see once they join.
-- [ ] **Join Ring** accepts: the invitation becomes `ACCEPTED` and, in the same step, I become a member with the invitation's window, recorded as **joined knowingly**; then the "Your card in <Ring>" step (S10); then the owner is on Shared with me with the Ring's name and their card opens. The design's path to s16 (My Rings) is a slip: the destination is s17.
+- [ ] **Join Ring** accepts: the invitation becomes `ACCEPTED` and, in the same step, I become a member with the invitation's window, recorded as **joined knowingly**; then the "Your card in <Ring>" step (S10); then the owner is on Shared with me with the Ring's name and their card opens; when the owner had already put me in another Ring, the row stays on that first one (S1, D-15). The design's path to s16 (My Rings) is a slip: the destination is s17.
 - [ ] **Decline** makes it `DECLINED`; the owner may invite me again; back to where I came from (s17 or s72).
 - [ ] An invitation that is no longer valid (S1) offers only *Dismiss*.
 - [ ] Not available yet: invitations.
@@ -149,7 +146,8 @@ Acceptance criteria:
 - [ ] Members see what that Ring shows **as it is now**; never its name, and never that I have other Rings.
 - [ ] If the picked Ring is deleted, the card falls back to my default Ring, and I can pick again.
 - [ ] The choice ends with the membership (leaving, removal, the Ring ending). One choice per membership; there is no card to build or edit for the Ring.
-- [ ] Not available yet. **For the designer:** the step is not drawn.
+- [ ] Only for a Ring I **joined knowingly** (an invitation or a join code). A member the owner **placed** gets no "Your card in <Ring>" step and no *Your card here*: their colleagues see their default Ring's card. `GET` / `PUT /rings/:ringId/my-card` answer them 404 `E_RING_ACCESS_01`, and that is intended (decided by Omar Fostok, 2026-11-09).
+- [ ] Backend: `GET` and `PUT /rings/:ringId/my-card` `{ shownRingId | null }`, and `myCardRingId` / `myCardRingName` on a named Shared with me row ([[BD-17 Ring Invitations & Join Backend Delivery]]). The app: not available yet. **For the designer:** the step is not drawn.
 
 ### S11 · Inside the Ring ([[Screen Index#s17|s17]] → the person's card)
 
@@ -161,7 +159,8 @@ Acceptance criteria:
 - [ ] **On**: "Members · N" on the card, then each member's card: the Ring that member picked (S10), never its name ([[S-16 Ring Members Story|Ring Members · S8]]).
 - [ ] A member who is also my connection opens **the card they picked for this Ring** from the Ring's members, and **the card they share with me** everywhere else (Shared with me, Connections). The two are never merged.
 - [ ] Leaving: *Leave this Ring* on the card ends my membership and my card choice; the owner isn't told. For a company, leaving the company ends all of it at once ([[S-29 Companies Story|Companies · P5]]).
-- [ ] Not available yet: the member-facing roster route.
+- [ ] A member the owner **placed** sees the members while the Ring lets them see each other, but has **no *Leave this Ring***: the owner put them there, and only the owner removes them. `POST /rings/:ringId/leave` answers them 404 `E_RING_ACCESS_01`, and that is intended (decided by Omar Fostok, 2026-11-09).
+- [ ] Backend: `GET /rings/:ringId/colleagues` while members can see each other (`?name=`, `meta.total` the "Members · N") and `POST /rings/:ringId/leave` ([[BD-17 Ring Invitations & Join Backend Delivery]]). The app: not available yet. Blocking a colleague met only in the roster: not available yet.
 
 ### S12 · Being told
 
@@ -237,3 +236,5 @@ Left by those decisions, none blocking:
 - 2026-11-08 · flagged [[FR-17 Ring Invitations & Join Frontend Requirements]]: S-33 updated with D-31 to D-36: invitation statuses and 30-day expiry, a Join codes list (labels, end date, use limit, Show as QR), no work email, the "Your card in <Ring>" step and the colleagues' cards, no purpose on the review
 - 2026-11-08 · flagged [[BD-17 Ring Invitations & Join Backend Delivery]]: S-33 updated with D-31 to D-36: "What the backend has to build" now reads the invitation record, several join codes with QR, no work email, the member's card pointer and the member-facing roster
 - 2026-11-08 · `tickets/pm/M-03-shared-rings/F-17-ring-invitations/S-33-approved` · approved by Omar Fostok; FR-17 continues
+- 2026-11-09 · `tickets/pm/M-03-shared-rings/F-17-ring-invitations/S-33-placed-members-and-shared-rows` · recorded, decided by Omar Fostok: a Shared with me row keeps opening the first Ring the person put me in (D-15 stands), a Ring joined later is the next view (S1, S2); a placed member gets no "Your card in <Ring>" step and no Leave, the 404 on my-card and leave is intended (S10, S11); S10 and S11 now name the routes BD-17 shipped, the app not yet. The two 2026-11-09 BD-17 flags are answered and cleared. The story stays approved
+- 2026-11-09 · flagged [[BD-17 Ring Invitations & Join Backend Delivery]]: the PM confirms both readings it asked about: a Shared with me row opens the first Ring the person put me in (D-15 stands), and a placed member has no my-card and no leave (the 404 is intended); the two @pm pending entries can leave

@@ -17,6 +17,8 @@ tags: [backend-delivery, backend-delivery/done, module/shared-rings, layer/backe
 
 # ✅ Ring Invitations & Join · Backend Delivery
 
+> ⚠ Affected by [[S-33 Ring Invitations & Join Story]] (2026-11-09): the PM confirms both readings asked in pending, decided by Omar Fostok: a Shared with me row opens the first Ring the person put me in (D-15 stands, as built on d8267d3); a placed member has no my-card and no leave, the 404 is intended (as built on 14c6916). The two @pm pending entries can leave
+
 > ⚠ Affected by [[QB-17 Ring Invitations & Join QA Backend]] (2026-11-09): QB-17 Ring Invitations & Join QA Backend written and passing on backend main 14c6916 (B1-B98, S1-S3 and S5-S11): the line in the Log saying no QA Backend card exists yet is answered. B84, B91 and B95 pin the placed-member reading still waiting on the PM; blocking a colleague gets rows when it merges
 
 **Feature:** [[F-17 Ring Invitations & Join]] · **Status:** Done · **Integration guide:** [[BI-17 Ring Invitations & Join Backend Integration]] · **Requirements:** [[FR-17 Ring Invitations & Join Frontend Requirements]] · **QA:** [[QB-17 Ring Invitations & Join QA Backend]]

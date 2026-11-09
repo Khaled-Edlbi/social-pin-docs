@@ -2981,7 +2981,8 @@
         "frontend-requirements:ring-members",
         "project:frontend-api-guide",
         "qa-backend:connections",
-        "qa-backend:ring-invitations"
+        "qa-backend:ring-invitations",
+        "story:ring-invitations"
       ],
       "owner": "feature:ring-invitations"
     },
@@ -3552,6 +3553,7 @@
         "backend-integration:view-as",
         "project:frontend-api-guide",
         "story:discover-hub",
+        "story:ring-invitations",
         "story:view-as"
       ],
       "owner": null
@@ -4916,7 +4918,8 @@
         "backend-integration:ring-invitations",
         "frontend-requirements:ring-invitations",
         "project:frontend-api-guide",
-        "qa-backend:ring-invitations"
+        "qa-backend:ring-invitations",
+        "story:ring-invitations"
       ],
       "owner": "feature:ring-invitations"
     },
@@ -5123,7 +5126,8 @@
         "backend-delivery:ring-invitations",
         "backend-integration:ring-invitations",
         "frontend-requirements:ring-invitations",
-        "project:frontend-api-guide"
+        "project:frontend-api-guide",
+        "story:ring-invitations"
       ],
       "owner": "feature:ring-invitations"
     },
@@ -13092,7 +13096,10 @@
     {
       "from": "backend-delivery:connections",
       "kind": "related",
-      "to": "story:ring-invitations"
+      "to": "story:ring-invitations",
+      "via": [
+        "GET /rings/:ringId/colleagues"
+      ]
     },
     {
       "from": "backend-delivery:connections",
@@ -15555,8 +15562,11 @@
       "to": "story:ring-invitations",
       "via": [
         "DELETE /rings/join-requests/:id",
+        "GET /rings/:ringId/colleagues",
         "GET /rings/join-requests/mine",
-        "GET /rings/shared-with-me"
+        "GET /rings/shared-with-me",
+        "POST /rings/:ringId/leave",
+        "PUT /rings/:ringId/my-card"
       ]
     },
     {
@@ -21422,8 +21432,11 @@
       "to": "story:ring-invitations",
       "via": [
         "DELETE /rings/join-requests/:id",
+        "GET /rings/:ringId/colleagues",
         "GET /rings/join-requests/mine",
-        "GET /rings/shared-with-me"
+        "GET /rings/shared-with-me",
+        "POST /rings/:ringId/leave",
+        "PUT /rings/:ringId/my-card"
       ]
     },
     {
@@ -40048,8 +40061,11 @@
       "to": "story:ring-invitations",
       "via": [
         "DELETE /rings/join-requests/:id",
+        "GET /rings/:ringId/colleagues",
         "GET /rings/join-requests/mine",
-        "GET /rings/shared-with-me"
+        "GET /rings/shared-with-me",
+        "POST /rings/:ringId/leave",
+        "PUT /rings/:ringId/my-card"
       ]
     },
     {
@@ -104027,7 +104043,7 @@
       "task": null,
       "title": "S-33 Ring Invitations & Join Story",
       "unmet": [],
-      "updated": "2026-11-08"
+      "updated": "2026-11-09"
     },
     "story:ring-members": {
       "affects": [],
