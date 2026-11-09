@@ -33,7 +33,7 @@ database/business concept."*
 | `users` | Critical | `User` | `user.prisma` | **schema + API** | `modules/user/` |
 | `profiles` | Critical | `Profile` | `profile.prisma` | **schema + API** | `modules/profile/` |
 | `rings` | Critical | `Ring` | `ring.prisma` | **schema + API** | `modules/ring/` |
-| `ring_members` | Critical | `RingMember` | `ring.prisma` | **schema + API** | `modules/ring/ring-member.service.ts`; `origin` records how a membership was made (D-18) |
+| `ring_members` | Critical | `RingMember` | `ring.prisma` | **schema + API** | `modules/ring/ring-member.service.ts` (owner side), `modules/ring/ring-membership.service.ts` (member side: my card, leave, colleagues); `origin` records how a membership was made (D-18), `shownRingId` the member's card there (D-34) |
 | `ring_profiles` | Critical | `RingProfile` | `ring.prisma` | **schema + API** | `modules/ring-profile/` |
 | `ring_profile_links` | Critical | `RingProfileLink` | `ring.prisma` | **schema + API** | `modules/ring-profile/` |
 | `connections` | Critical | `Connection` | `connection.prisma` | schema | — |
@@ -165,7 +165,7 @@ model instead of turning Social Pin into a generic social network."*
 | 5 | Ring expiry dates | **API** | Enforced in `RingAccessService`, both windows |
 | 5 | Shared Rings vs My Rings | **API** | `GET /rings` and `GET /rings/shared-with-me` |
 | 5 | QR / badge bound to the selected ring | **API** | `src/modules/badge`: `POST /rings/:ringId/qr` (+ `/reset`, `GET …/qr/scans`), `GET /views/qr/:token` through `RingAccessService.assertRingPresented`; the web page waits on the domain |
-| 5 | Join a Ring knowingly: invitations, join codes (typed or as a join QR), join requests, enforced by `joinPolicy`, `requireApproval`, `membersCanInvite` | **API** | `src/modules/ring-invitation` ([[F-17 Ring Invitations & Join]], [[BD-17 Ring Invitations & Join Backend Delivery]]): `/rings/invitations/*`, `/rings/:ringId/invitations`, `/rings/join-codes/{resolve,join}`, `/rings/:ringId/join-codes`, `/rings/join-requests/*`, `/rings/:ringId/join-requests`; a Ring joined this way is named to its member on `GET /rings/shared-with-me`. Work email not in this version (D-33) |
+| 5 | Join a Ring knowingly: invitations, join codes (typed or as a join QR), join requests, enforced by `joinPolicy`, `requireApproval`, `membersCanInvite` | **API** | `src/modules/ring-invitation` ([[F-17 Ring Invitations & Join]], [[BD-17 Ring Invitations & Join Backend Delivery]]): `/rings/invitations/*`, `/rings/:ringId/invitations`, `/rings/join-codes/{resolve,join}`, `/rings/:ringId/join-codes`, `/rings/join-requests/*`, `/rings/:ringId/join-requests`; a Ring joined this way is named to its member on `GET /rings/shared-with-me`. Inside it (S-33 S10, S11, D-34): `/rings/:ringId/my-card`, `/rings/:ringId/leave`, `/rings/:ringId/colleagues` (`src/modules/ring/ring-membership.*`). Work email not in this version (D-33) |
 | 5 | Corporate rings (public/employees/c-suite), delegated admins | partial | `RING_TYPE.CORPORATE`, `parentRingId`, `RingAdmin` + `assertCanAdminister` enforce it; no corporate-specific endpoints |
 | 5 | MiniRings for sub-events | schema | `Ring.parentRingId`, `MiniEvent.ringId` |
 | 5 | Temporary rings → keep / merge / auto-delete | **API** | `POST /rings/:id/disposition` |

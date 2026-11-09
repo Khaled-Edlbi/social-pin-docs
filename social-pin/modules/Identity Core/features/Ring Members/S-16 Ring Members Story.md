@@ -17,6 +17,8 @@ tags: [story, story/approved, module/identity, layer/business]
 
 # Ring Members · User Story
 
+> ⚠ Affected by [[BD-17 Ring Invitations & Join Backend Delivery]] (2026-11-09): backend main 14c6916: S8's member-facing roster exists, GET /rings/:ringId/colleagues (BD-17, S-33 S11): any live member while members can see each other, newest first, searchable, each colleague as the Ring they picked (D-34), never the owner, never a blocked pair; the Not available yet line no longer holds
+
 > ⚠ Affected by [[D-34 A member shows one of their own Rings]] (2026-11-08): in S8, "each member's card for that Ring" is the Ring that member picked to show there
 
 > ⚠ Affected by [[D-32 Several join codes per Ring]] (2026-11-08): ND-32 decided 2026-11-08 by Omar Fostok, option 2: several join codes per Ring; with approve-each-one on, a code makes a join request on s15 ("Waiting on you · N") that shows which code the person used (its owner-only label, e.g. "asked with Onboarding week")

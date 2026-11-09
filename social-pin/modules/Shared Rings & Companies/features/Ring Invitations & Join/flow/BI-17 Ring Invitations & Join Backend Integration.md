@@ -8,7 +8,7 @@ scope: feature
 screens: [s15, s17, s19, s26, s43, s74]
 depends: ["BD-17 Ring Invitations & Join Backend Delivery"]
 affects: ["FR-17 Ring Invitations & Join Frontend Requirements"]
-related: ["S-33 Ring Invitations & Join Story", "BI-08 Rings Backend Integration", "FR-15 Companies Frontend Requirements", "D-18 Ring names shown when joined knowingly", "D-31 An invitation is its own record", "D-32 Several join codes per Ring", "D-35 A join code can be shown as a QR", "D-36 Who it's for stays the owner's alone", "GET /rings/shared-with-me", "GET /rings/invitations/mine", "POST /rings/invitations/:id/accept", "POST /rings/join-codes/resolve", "POST /rings/join-codes/join", "GET /rings/join-requests/mine", "DELETE /rings/join-requests/:id"]
+related: ["S-33 Ring Invitations & Join Story", "BI-08 Rings Backend Integration", "FR-15 Companies Frontend Requirements", "D-18 Ring names shown when joined knowingly", "D-31 An invitation is its own record", "D-32 Several join codes per Ring", "D-35 A join code can be shown as a QR", "D-36 Who it's for stays the owner's alone", "GET /rings/shared-with-me", "GET /rings/invitations/mine", "POST /rings/invitations/:id/accept", "POST /rings/join-codes/resolve", "POST /rings/join-codes/join", "GET /rings/join-requests/mine", "DELETE /rings/join-requests/:id", "GET /rings/:ringId/my-card", "PUT /rings/:ringId/my-card", "POST /rings/:ringId/leave", "GET /rings/:ringId/colleagues", "D-34 A member shows one of their own Rings"]
 pending: []
 created: 2026-11-08
 updated: 2026-11-09
@@ -21,7 +21,7 @@ tags: [backend-integration, backend-integration/current, module/shared-rings, la
 
 **Feature:** [[F-17 Ring Invitations & Join]] · **Backend:** [[BD-17 Ring Invitations & Join Backend Delivery]] · **Read first:** [[Frontend Contract]], [[Frontend API Guide]]
 
-How the app calls invitations, join codes and join requests, as on backend `main` `1c460b0`. All routes are under `/api/v1`, signed in (`Authorization: Bearer <access token>`).
+How the app calls invitations, join codes and join requests, and a member's side of a Ring they are in, as on backend `main` `14c6916`. All routes are under `/api/v1`, signed in (`Authorization: Bearer <access token>`).
 
 ## Screens → calls
 
@@ -41,6 +41,10 @@ How the app calls invitations, join codes and join requests, as on backend `main
 | [[Screen Index#s15|s15]] | Waiting on you · N, *Add*, *Decline* | `GET /rings/:ringId/join-requests` · `POST /rings/:ringId/join-requests/:id/approve` · `POST /rings/:ringId/join-requests/:id/decline` |
 | [[Screen Index#s26|s26]] Joining → Join codes | the list, *Make a new code*, *Turn off* | `GET /rings/:ringId/join-codes` · `POST /rings/:ringId/join-codes` · `POST /rings/:ringId/join-codes/:codeId/turn-off` |
 | [[Screen Index#s26|s26]] | *Show as QR* | draw the code's `qrPayload`, with `displayCode` under it |
+| [[Screen Index#s74|s74]] → "Your card in <Ring>" | after *Join Ring* (and the first open of a Ring whose request was approved): the picker | `GET /rings` (my Rings) · `GET /rings/:ringId/my-card` (pre-selects `shownRingId`) · *Done* = `PUT /rings/:ringId/my-card` `{ shownRingId }` |
+| [[Screen Index#s17|s17]] | "Your card here: <name> ›" on a named row | the row's `myCardRingName`; tap → the same picker |
+| the person's card from s17 | Members · N, a colleague's card | `GET /rings/:ringId/colleagues` (404 → no section) |
+| the person's card from s17 | *Leave this Ring* | `POST /rings/:ringId/leave` → refetch s17 |
 
 ## Flow
 
@@ -48,6 +52,8 @@ How the app calls invitations, join codes and join requests, as on backend `main
 2. **Code, approval on (the default):** resolve → review ("Join Acme Team?", `requireApproval: true`) → join → `{ outcome: "REQUESTED", requestId }` → "Request sent: {owner} will approve it" → the request is in `GET /rings/join-requests/mine` as `PENDING` → the owner approves on s15 → it leaves my list and the Ring is on Shared with me, named.
 3. **Code, approval off:** resolve → review (`requireApproval: false`) → join → `{ outcome: "JOINED", ringId }` → open the card.
 4. After accept, decline, dismiss, cancel or join: refetch the three s17 lists (and s72).
+5. **Your card (S10):** right after *Join Ring* (`JOINED`, or an accepted invitation), `GET /rings/:ringId/my-card` → the picker pre-selects `shownRingId` (`picked: false` means it is my default) and shows "Members see this card" when `seenByMembers`, else "Nobody sees it unless the owner lets members see each other" → *Done* sends `PUT` with the choice (or `null` for the default). Changed later from the s17 row.
+6. **Inside the Ring (S11):** opening the person's card from a row, `GET /rings/:ringId/colleagues`: 200 → "Members · N" (`meta.total`) and each colleague's `card`; 404 → no section at all. *Leave this Ring* → `POST /rings/:ringId/leave` → back to s17, refetched; the row is gone (or shows the owner's other Ring).
 
 ## Shapes that matter
 
@@ -73,6 +79,14 @@ No `ringId`, colour, type or purpose. `invitedBy` is `null` when that account is
 `GET /rings/join-requests/mine` → rows `{ "id", "status": "PENDING" | "DECLINED", "createdAt", "ringName", "business" }`.
 
 `GET /rings/shared-with-me` (changed): a row I joined knowingly has `ringName` set, and `memberCount` set when the Ring lets members see each other; a Ring I was placed in keeps both `null`. Each row is the Ring I was put in first of that person's (D-15), so these are set only when that first Ring was joined knowingly.
+
+`GET /rings/shared-with-me` also carries, on a named row, `myCardRingId` and `myCardRingName`: the one of **my own** Rings the members see there (my pick, else my default). Both `null` on a placed row.
+
+`GET` / `PUT /rings/:ringId/my-card` → `{ "shownRingId": "uuid", "shownRingName": "Work", "picked": true, "seenByMembers": true }`; `PUT` body `{ "shownRingId": "uuid" | null }` (required; `null` = my default Ring).
+
+`GET /rings/:ringId/colleagues` (`skip`, `limit` ≤ 50, `name` ≤ 100; newest first) → `{ "data": [{ "userId": "uuid", "card": { …the RingProfileViewEntity of `GET /views/ring/:ringId`… } }], "meta": { "total": 3 } }`. The card has no Ring id or name.
+
+`POST /rings/:ringId/leave` → 201, no body.
 
 Owner side:
 
@@ -117,6 +131,8 @@ The body has no `ErrorCode` yet ([[S-87 Error Contract Story|Error Contract]]); 
 | 404 | `E_RING_JOIN_CODE_05` · `E_RING_JOIN_REQUEST_01` | no such code / request | refetch |
 | 409 | `E_RING_MEMBER_04` | approve across a block | drop the request on refetch |
 | 403 | `E_RING_05` | not the owner or an admin (lists, codes, decisions) | hide the owner's sections |
+| 400 | `E_RING_MEMBER_05` | the picked Ring is not one of my own live Rings (deleted, ended, someone else's) | refetch `GET /rings`, pick again |
+| 404 | `E_RING_ACCESS_01` | my-card, leave or colleagues on a Ring I can't use that way: placed in it, not in it, blocked, my own Ring, the Ring ended; colleagues also while members can't see each other | no card step / no section / drop the row on refetch |
 
 ## Rules the UI must respect
 
@@ -125,12 +141,14 @@ The body has no `ErrorCode` yet ([[S-87 Error Contract Story|Error Contract]]); 
 - Uppercase and strip spaces and the dash before showing the code back grouped (K7QM-4RXT); the server takes any form, so don't validate the shape.
 - A pending invitation or request is never a member: don't count or list it as one.
 - The owner's *Invite* works under every "who can request to join"; *Join codes* is hidden under "only by invitation" (the codes are kept).
-- After *Join Ring* go to Shared with me (s17), not My Rings.
+- After *Join Ring* go to Shared with me (s17), not My Rings: through the "Your card in <Ring>" step first.
+- A colleague opens **their card for this Ring** from the members list, and the card they share with me everywhere else (Shared with me, Connections); never merge the two, and never show which of their Rings it is.
+- Leaving tells the owner nothing; don't say it does.
 
 ## Not available yet
 
-- "Your card in <Ring>" (the picked Ring): → [[S-33 Ring Invitations & Join Story|S-33 S10]].
-- The members' roster inside a Ring, and *Leave this Ring*: → [[S-33 Ring Invitations & Join Story|S-33 S11]].
+- A placed member (the owner added them) has no card step and no *Leave*: the routes answer 404 for them, awaiting the PM ([[BD-17 Ring Invitations & Join Backend Delivery]]). They do see the members list.
+- Blocking a colleague met only in the members list: `POST /blocks` can't reach them yet.
 - Notifications: → [[S-33 Ring Invitations & Join Story|S-33 S12]].
 - Work email: not in this version ([[S-33 Ring Invitations & Join Story|S-33 S4]]).
 
@@ -143,9 +161,14 @@ The body has no `ErrorCode` yet ([[S-87 Error Contract Story|Error Contract]]); 
 - [ ] the scanner routes `socialpin://join/` to the code review, and a badge (`https://socialpin.me/q/<token>`, [[F-18 Badge & QR]]) to the badge flow; a badge never offers a Ring to join
 - [ ] s15 shows Invited (with Withdraw) and Waiting on you (code label, Add, Decline), never as members
 - [ ] s26 Join codes: list, make (label ≤ 40, end date, limit), turn off, Share (`displayCode`), Show as QR (`qrPayload`)
+- [ ] after *Join Ring*, the "Your card in <Ring>" step: my Rings, `shownRingId` pre-selected, the who-sees-it line from `seenByMembers`, *Done* = `PUT`
+- [ ] a named s17 row shows "Your card here: `myCardRingName` ›"
+- [ ] Members · N only on a 200 from colleagues; nothing at all on a 404; each colleague opens `card`
+- [ ] *Leave this Ring* → `POST …/leave` → s17 refetched
 
 ## Log
 
 - 2026-11-08 · `docs/backend/M-03-shared-rings/F-17-ring-invitations/BI-17-draft` · written as a draft against the backend branch `FR-17/ring-invitation/invitations-codes-origin` @ `21899a6`
 - 2026-11-08 · backend `main` `1c460b0` (the merge of that branch) · matches `main`: the routes, shapes, errors and rules above, unchanged by the merge; → current. The badge payload F-18 shipped (`https://socialpin.me/q/<token>`) added to the scanner checklist line
 - 2026-11-09 · `docs/backend/M-03-shared-rings/F-17-ring-invitations/BI-17-d-15-first-ring` · matches backend `main` `d8267d3`: after *Join Ring* the Shared with me row names the Ring only when it is the invitee's first Ring of that owner; the row opens the oldest membership however it was made (D-15), no longer a Ring joined knowingly first. No shape changed.
+- 2026-11-09 · `docs/backend/M-03-shared-rings/F-17-ring-invitations/BD-17-picked-ring-and-roster` · matches backend `main` `14c6916`: S10 (`GET` / `PUT /rings/:ringId/my-card`, `myCardRingId` / `myCardRingName` on Shared with me) and S11 (`GET /rings/:ringId/colleagues`, `POST /rings/:ringId/leave`) in *Screens → calls*, *Flow* 5–6, *Shapes*, *Errors* (`E_RING_MEMBER_05`, the 404 cases), *Rules*, *Not available yet* and the checklist. Stays current.

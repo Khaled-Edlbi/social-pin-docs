@@ -16,6 +16,8 @@ tags: [decision, decision/decided]
 
 # ✅ D-34 · A member shows one of their own Rings
 
+> ⚠ Affected by [[BD-17 Ring Invitations & Join Backend Delivery]] (2026-11-09): backend main 14c6916 built what this decision asks of BD-17: ring_members.shown_ring_id (the member's own live Ring, else their default), GET and PUT /rings/:ringId/my-card, and GET /rings/:ringId/colleagues gated by membersCanSeeEachOther, each colleague rendered from their pick without its name or id
+
 **Answers:** [[ND-34 What a member contributes to a shared Ring]] · **Decided by:** Omar Fostok · **On:** 2026-11-08 · **Feature:** [[F-17 Ring Invitations & Join]]
 
 > This card is the answer to [[ND-34 What a member contributes to a shared Ring]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. `draft` while the answer is prepared; `decided` only by the PM or the owner, on the user's word, with `decidedBy` and `decidedAt`: then [[ND-34 What a member contributes to a shared Ring]] shows Fulfilled by itself and the cards it blocked continue.

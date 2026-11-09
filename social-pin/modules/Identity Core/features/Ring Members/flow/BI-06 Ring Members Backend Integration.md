@@ -86,7 +86,7 @@ The roster per Ring, refetched after every write. Do not keep a member's "what t
 ## Not available yet
 
 - "Scan someone in" (s15): not in the MVP ([[D-28 Scan someone in is not in the MVP]]).
-- The members a member may see when "members can see each other" is on ([[FR-09 Ring Members Frontend Requirements|FR-09]] S8): no member-facing route yet. Each colleague will show the Ring they picked ([[D-34 A member shows one of their own Rings]]); the route comes with [[BD-17 Ring Invitations & Join Backend Delivery]] (S-33 S10, S11).
+- The members a member may see ([[FR-09 Ring Members Frontend Requirements|FR-09]] S8) are not on this owner's surface: they are `GET /rings/:ringId/colleagues` since backend `main` `14c6916` (each colleague as the Ring they picked, [[D-34 A member shows one of their own Rings]]); how to call it is [[BI-17 Ring Invitations & Join Backend Integration]].
 - Adding or removing delegated admins: [[S-31 Delegated Admins Story|Delegated Admins · S6]].
 
 ## Checklist
@@ -96,3 +96,4 @@ The roster per Ring, refetched after every write. Do not keep a member's "what t
 - [ ] Add / reassign / revoke refetch the roster; no local "what they see" cache.
 - [ ] Access-window editor sends `null` to clear a bound.
 - [ ] 403 hides the screen quietly.
+- 2026-11-09 · backend `main` `14c6916` · *Not available yet*: the member-facing roster shipped under [[BD-17 Ring Invitations & Join Backend Delivery]] and is called as [[BI-17 Ring Invitations & Join Backend Integration]] says. Nothing on the owner's routes changed shape.

@@ -34,7 +34,7 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
   - on that row, **my picked Ring** for my card there (its id and name: it is my own Ring, so I may see its name) (S10, D-34);
   - my **pending invitations**: invitation id, Ring name, owner (display name, Pin name, photo), inviter (display name), sent at, optional access window, `valid` (false once the Ring ended or was deleted), and `business { id, name, logoFileId }` on a company Ring (D-31, FR-15);
   - my **join requests**: `id`, `status` (`PENDING` | `DECLINED`), `createdAt`, `ringName`, `business` (FR-15).
-- **Source today:** `GET /rings/shared-with-me` ✅ (`ringName` on a row I joined knowingly, `memberCount` when the Ring lets members see each other); `GET /rings/invitations/mine` ✅; `GET /rings/join-requests/mine` ✅. The picked Ring: not yet.
+- **Source today:** `GET /rings/shared-with-me` ✅ (`ringName` on a row I joined knowingly, `memberCount` when the Ring lets members see each other); `GET /rings/invitations/mine` ✅; `GET /rings/join-requests/mine` ✅. The picked Ring: `myCardRingId` / `myCardRingName` on each named row ✅.
 - **What changes in the app:** today the tab lists people only. It gains an **Invitations** section and a **My requests** section above the people (each hidden while empty, each loading on its own); a joined-knowingly row shows "Acme Team · Shared by …" and **"Your card here: <my Ring> ›"**, which opens the picker (s74 step below). *Join with a code* opens s74.
 
 ### [[Screen Index#s74|s74]] Review an invitation, join with a code (S2, S3, S4)
@@ -56,7 +56,7 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
 ### s74 → "Your card in <Ring>" (S10, D-34)
 
 - **Needs:** my own Rings (exists, `GET /rings`); **set** the picked Ring on my membership in that Ring, and **read** it back; a picked Ring that is not one of my live Rings refused; when the picked Ring is deleted, the read answers my default Ring.
-- **Source today:** `GET /rings` ✅; the pointer: not yet.
+- **Source today:** `GET /rings` ✅; the pointer: `GET` / `PUT /rings/:ringId/my-card` ✅ (`picked: false` on the default; 400 `E_RING_MEMBER_05` on a Ring that is not mine and live).
 - **What changes in the app:** a **new step** after *Join Ring* (and the first time I open a Ring whose request was approved): "Your card in Acme Team", my Rings with the default pre-selected, one line on who sees it ("Members see this card" / "Nobody sees it unless the owner lets members see each other"), *Done*. Not drawn: the app's own list style.
 
 ### [[Screen Index#s43|s43]] Scanner (S9, D-35)
@@ -93,7 +93,7 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
 ### Inside a Ring I joined (S11, D-34)
 
 - **Needs:** when `membersCanSeeEachOther` is on: **Members · N** and each member's card rendered from **the Ring they picked**, never that Ring's name or id; nothing at all while it's off. **Leave this Ring** as a member.
-- **Source today:** the owner's card `GET /views/ring/:ringId` ✅; the member-facing roster and leave: not yet.
+- **Source today:** the owner's card `GET /views/ring/:ringId` ✅; the roster `GET /rings/:ringId/colleagues` ✅ (404 while members can't see each other); leave `POST /rings/:ringId/leave` ✅.
 - **What changes in the app:** the owner's card gains **Members · N** (only when allowed), each colleague opening their picked card; a colleague who is also my connection opens that card here and the card they share with me everywhere else. **Leave this Ring** at the bottom.
 
 ### [[Screen Index#s72|s72]] My companies (FR-15)
@@ -119,13 +119,13 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
 | Resolve a scanned join QR to a review | `POST /rings/join-codes/resolve` (the scanned `socialpin://join/…` text as `code`) | ✅ | S9, D-35 |
 | My join requests | `GET /rings/join-requests/mine` | ✅ | S5, FR-15 |
 | Cancel or dismiss my join request | `DELETE /rings/join-requests/:id` | ✅ | S5, FR-15 |
-| Set / read my picked Ring in a Ring I joined | — | ❌ | S10, D-34 |
+| Set / read my picked Ring in a Ring I joined | `GET` / `PUT /rings/:ringId/my-card`; `myCardRingId` / `myCardRingName` on `GET /rings/shared-with-me` | ✅ | S10, D-34 |
 | Invite a person (connection or Pin name, window) | `POST /rings/:ringId/invitations` | ✅ | S6, D-31 |
 | The Ring's invitations (Invited · N), withdraw | `GET /rings/:ringId/invitations`, `POST /rings/:ringId/invitations/:id/withdraw` | ✅ | S6, D-31 |
 | The Ring's join requests with the code label, approve, decline | `GET /rings/:ringId/join-requests`, `POST /rings/:ringId/join-requests/:id/approve`, `POST /rings/:ringId/join-requests/:id/decline` | ✅ | S8, D-32 |
 | The Ring's join codes: list, make, turn off | `GET /rings/:ringId/join-codes`, `POST /rings/:ringId/join-codes`, `POST /rings/:ringId/join-codes/:codeId/turn-off` | ✅ | S7, D-32 |
-| The member-facing roster (picked cards) | — | ❌ | S11, D-34 |
-| Leave a Ring as a member | — | ❌ | S11 |
+| The member-facing roster (picked cards) | `GET /rings/:ringId/colleagues` | ✅ | S11, D-34 |
+| Leave a Ring as a member | `POST /rings/:ringId/leave` | ✅ | S11 |
 | Notifications: invitation received, request approved, request waiting | — | ❌ | S12, [[S-96 Notifications Story|Notifications]] |
 | Join with a verified work email | — | not in this version | S4, D-33 |
 
@@ -162,3 +162,4 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
 - 2026-11-08 · `tickets/frontend/M-03-shared-rings/F-17-ring-invitations/FR-17-ready` · set ready on Omar Fostok's word: handed to `/backend` to review, approve or send back
 - 2026-11-08 · `tickets/backend/M-03-shared-rings/F-17-ring-invitations/FR-17-accepted` · reviewed by `/backend` against backend `main` @ `cb95a39` and approved (khaled): every ✅ row holds (`GET /rings/shared-with-me` and its fields, `GET /views/ring/:ringId`, `GET /rings`, `PATCH /rings/:id` with `joinPolicy` / `requireApproval`, `E_RING_ACCESS_01` / `02`, `E_AUTH_04`); the ❌ asks match S-33 S1–S12. [[BD-17 Ring Invitations & Join Backend Delivery]] → in progress; the ❌ rows stay until the backend branch is merged
 - 2026-11-08 · `tickets/backend/M-03-shared-rings/F-17-ring-invitations/FR-17-rows-delivered` · backend `main` `1c460b0` shipped S-33 S1–S3, S5–S9: 14 rows → ✅ with their endpoints (`ringName` / `memberCount` on Shared with me, invitations, join codes, the join QR, join requests); the *Source today* lines and the API Integration link ([[BI-17 Ring Invitations & Join Backend Integration]]) updated. Still ❌: the picked Ring (S10), the member roster and leave (S11), notifications (S12); work email is not in this version. The error codes are named in BI-17 (on the wire once [[S-87 Error Contract Story|Error Contract]] ships)
+- 2026-11-09 · `docs/backend/M-03-shared-rings/F-17-ring-invitations/BD-17-picked-ring-and-roster` · backend `main` `14c6916` shipped S-33 S10 and S11: three rows → ✅ with their endpoints (picked Ring, roster, leave) and the s17, s74 "Your card" and *Inside a Ring* *Source today* lines updated ([[BD-17 Ring Invitations & Join Backend Delivery]], [[BI-17 Ring Invitations & Join Backend Integration]]). Still ❌: notifications (S12); work email is not in this version.
