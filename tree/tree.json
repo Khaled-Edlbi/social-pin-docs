@@ -750,6 +750,7 @@
       "containers": [
         "decision:D-26",
         "feature:connections",
+        "feature:counts",
         "feature:ring-members"
       ],
       "kind": "endpoint",
@@ -760,7 +761,8 @@
         "frontend-delivery:connections",
         "frontend-delivery:ring-members",
         "frontend-requirements:connections",
-        "frontend-requirements:ring-members"
+        "frontend-requirements:ring-members",
+        "qa-backend:counts"
       ],
       "owner": "feature:connections"
     },
@@ -957,6 +959,7 @@
     "DELETE /users/me": {
       "containers": [
         "feature:account",
+        "feature:counts",
         "feature:ring-members",
         "task:B-02"
       ],
@@ -967,6 +970,7 @@
         "frontend-delivery:account",
         "frontend-requirements:account",
         "qa-backend:account",
+        "qa-backend:counts",
         "qa-backend:ring-members",
         "qa-frontend:account",
         "story:account",
@@ -2105,7 +2109,8 @@
         "frontend-delivery:ring-members",
         "frontend-requirements:connections",
         "frontend-requirements:counts",
-        "frontend-requirements:ring-members"
+        "frontend-requirements:ring-members",
+        "qa-backend:counts"
       ],
       "owner": "feature:connections"
     },
@@ -2144,9 +2149,20 @@
         "backend-integration:counts",
         "frontend-delivery:connections",
         "frontend-requirements:connections",
-        "frontend-requirements:counts"
+        "frontend-requirements:counts",
+        "qa-backend:counts"
       ],
       "owner": "feature:connections"
+    },
+    "GET /connections/count?userId=<Sara>": {
+      "containers": [
+        "feature:counts"
+      ],
+      "kind": "endpoint",
+      "notes": [
+        "qa-backend:counts"
+      ],
+      "owner": null
     },
     "GET /connections/relationship": {
       "containers": [
@@ -6845,14 +6861,14 @@
       "qa": 13,
       "shared": 10
     },
-    "concepts": 323,
+    "concepts": 324,
     "decisions": 34,
-    "edges": 8024,
+    "edges": 8036,
     "features": 41,
     "layerNotes": 157,
     "modules": 8,
     "notes": 351,
-    "partial": 11,
+    "partial": 10,
     "placeholders": 128,
     "records": 33
   },
@@ -10529,11 +10545,6 @@
       "to": "frontend-requirements:view-as"
     },
     {
-      "from": "qa-backend:counts",
-      "kind": "pending",
-      "to": "backend-delivery:counts"
-    },
-    {
       "from": "qa-backend:photo-library",
       "kind": "pending",
       "to": "backend-delivery:photo-library"
@@ -10828,6 +10839,14 @@
         "E_USER_01",
         "POST /auth/login",
         "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "backend-delivery:account",
+      "kind": "related",
+      "to": "qa-backend:counts",
+      "via": [
+        "DELETE /users/me"
       ]
     },
     {
@@ -11534,7 +11553,8 @@
       "kind": "related",
       "to": "qa-backend:counts",
       "via": [
-        "E_RING_02"
+        "E_RING_02",
+        "POST /connections/requests"
       ]
     },
     {
@@ -12341,7 +12361,15 @@
       "kind": "related",
       "to": "qa-backend:counts",
       "via": [
-        "E_RING_02"
+        "DELETE /connections/:userId",
+        "DELETE /connections/requests/:id",
+        "E_RING_02",
+        "GET /connections",
+        "GET /connections/count",
+        "POST /blocks",
+        "POST /connections/requests",
+        "POST /connections/requests/:id/accept",
+        "POST /connections/requests/:id/decline"
       ]
     },
     {
@@ -13027,6 +13055,8 @@
       "to": "qa-backend:counts",
       "via": [
         "E_RING_02",
+        "GET /connections",
+        "GET /connections/count",
         "GET /rings",
         "GET /rings/:id",
         "GET /rings/shared-with-me",
@@ -16533,6 +16563,14 @@
     {
       "from": "backend-integration:account",
       "kind": "related",
+      "to": "qa-backend:counts",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "backend-integration:account",
+      "kind": "related",
       "to": "qa-backend:ring-members",
       "via": [
         "DELETE /users/me"
@@ -17250,7 +17288,8 @@
       "to": "qa-backend:counts",
       "via": [
         "E_RING_02",
-        "GET /rings"
+        "GET /rings",
+        "POST /connections/requests"
       ]
     },
     {
@@ -18161,10 +18200,18 @@
       "kind": "related",
       "to": "qa-backend:counts",
       "via": [
+        "DELETE /connections/:userId",
+        "DELETE /connections/requests/:id",
         "DELETE /rings/:ringId/members/:userId",
         "E_RING_02",
+        "GET /connections",
+        "GET /connections/count",
         "GET /rings",
         "GET /rings/shared-with-me",
+        "POST /blocks",
+        "POST /connections/requests",
+        "POST /connections/requests/:id/accept",
+        "POST /connections/requests/:id/decline",
         "POST /rings/:ringId/members"
       ]
     },
@@ -18881,6 +18928,8 @@
       "to": "qa-backend:counts",
       "via": [
         "E_RING_02",
+        "GET /connections",
+        "GET /connections/count",
         "GET /rings",
         "GET /rings/:id",
         "GET /rings/shared-with-me",
@@ -26429,10 +26478,16 @@
       "kind": "related",
       "to": "qa-backend:counts",
       "via": [
+        "DELETE /connections/:userId",
+        "DELETE /connections/requests/:id",
         "DELETE /rings/:ringId/members/:userId",
         "E_RING_02",
+        "GET /connections",
+        "GET /connections/count",
         "GET /rings",
         "GET /rings/shared-with-me",
+        "POST /connections/requests",
+        "POST /connections/requests/:id/decline",
         "POST /rings/:ringId/members/:userId/reassign"
       ]
     },
@@ -33529,6 +33584,7 @@
       "via": [
         "DELETE /rings/:ringId/members/:userId",
         "E_RING_02",
+        "GET /connections",
         "POST /rings/:ringId/members",
         "POST /rings/:ringId/members/:userId/reassign"
       ]
@@ -33595,6 +33651,14 @@
     {
       "from": "qa-backend:counts",
       "kind": "related",
+      "to": "decision:D-10",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "qa-backend:counts",
+      "kind": "related",
       "to": "decision:D-14",
       "via": [
         "GET /rings/shared-with-me",
@@ -33612,9 +33676,33 @@
     {
       "from": "qa-backend:counts",
       "kind": "related",
+      "to": "decision:D-17",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "qa-backend:counts",
+      "kind": "related",
       "to": "decision:D-18",
       "via": [
         "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "qa-backend:counts",
+      "kind": "related",
+      "to": "decision:D-24",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "qa-backend:counts",
+      "kind": "related",
+      "to": "decision:D-26",
+      "via": [
+        "DELETE /connections/:userId"
       ]
     },
     {
@@ -33628,9 +33716,31 @@
     {
       "from": "qa-backend:counts",
       "kind": "related",
+      "to": "frontend-delivery:account",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "qa-backend:counts",
+      "kind": "related",
       "to": "frontend-delivery:auth",
       "via": [
         "GET /rings"
+      ]
+    },
+    {
+      "from": "qa-backend:counts",
+      "kind": "related",
+      "to": "frontend-delivery:connections",
+      "via": [
+        "DELETE /connections/:userId",
+        "DELETE /connections/requests/:id",
+        "GET /connections/count",
+        "POST /blocks",
+        "POST /connections/requests",
+        "POST /connections/requests/:id/accept",
+        "POST /connections/requests/:id/decline"
       ]
     },
     {
@@ -33658,7 +33768,9 @@
       "kind": "related",
       "to": "frontend-delivery:ring-members",
       "via": [
+        "DELETE /connections/:userId",
         "DELETE /rings/:ringId/members/:userId",
+        "GET /connections",
         "GET /rings",
         "POST /rings/:ringId/members",
         "POST /rings/:ringId/members/:userId/reassign"
@@ -33678,6 +33790,7 @@
       "kind": "related",
       "to": "frontend-requirements:account",
       "via": [
+        "DELETE /users/me",
         "GET /rings"
       ]
     },
@@ -33703,7 +33816,8 @@
       "to": "frontend-requirements:badge-qr",
       "via": [
         "E_RING_02",
-        "GET /rings"
+        "GET /rings",
+        "POST /connections/requests"
       ]
     },
     {
@@ -33733,6 +33847,8 @@
       "to": "frontend-requirements:counts",
       "via": [
         "E_RING_02",
+        "GET /connections",
+        "GET /connections/count",
         "GET /rings",
         "GET /rings/:id",
         "GET /rings/shared-with-me",
@@ -33844,8 +33960,10 @@
       "kind": "related",
       "to": "frontend-requirements:ring-members",
       "via": [
+        "DELETE /connections/:userId",
         "DELETE /rings/:ringId/members/:userId",
         "E_RING_02",
+        "GET /connections",
         "GET /rings",
         "POST /rings/:ringId/members",
         "POST /rings/:ringId/members/:userId/reassign"
@@ -33892,6 +34010,14 @@
     {
       "from": "qa-backend:counts",
       "kind": "related",
+      "to": "needs-decision:ND-10",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "qa-backend:counts",
+      "kind": "related",
       "to": "needs-decision:ND-14",
       "via": [
         "GET /rings/shared-with-me",
@@ -33912,6 +34038,14 @@
       "to": "needs-decision:ND-18",
       "via": [
         "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "qa-backend:counts",
+      "kind": "related",
+      "to": "needs-decision:ND-24",
+      "via": [
+        "POST /connections/requests"
       ]
     },
     {
@@ -33991,6 +34125,7 @@
       "kind": "related",
       "to": "qa-backend:account",
       "via": [
+        "DELETE /users/me",
         "GET /rings"
       ]
     },
@@ -34047,6 +34182,7 @@
       "to": "qa-backend:ring-members",
       "via": [
         "DELETE /rings/:ringId/members/:userId",
+        "DELETE /users/me",
         "E_RING_02",
         "POST /rings/:ringId/members",
         "POST /rings/:ringId/members/:userId/reassign"
@@ -34070,6 +34206,14 @@
         "GET /rings/:id",
         "GET /rings/shared-with-me",
         "GET /rings/shared-with-me/count"
+      ]
+    },
+    {
+      "from": "qa-backend:counts",
+      "kind": "related",
+      "to": "story:account",
+      "via": [
+        "DELETE /users/me"
       ]
     },
     {
@@ -34101,9 +34245,11 @@
       "kind": "related",
       "to": "story:connections",
       "via": [
+        "DELETE /connections/requests/:id",
         "E_RING_02",
         "GET /rings",
         "GET /rings/shared-with-me",
+        "POST /connections/requests",
         "POST /rings/:ringId/members"
       ]
     },
@@ -34174,6 +34320,7 @@
       "kind": "related",
       "to": "task:B-02",
       "via": [
+        "DELETE /users/me",
         "GET /rings"
       ]
     },
@@ -39490,6 +39637,14 @@
         "GET /users/me",
         "POST /auth/logout",
         "POST /auth/refresh"
+      ]
+    },
+    {
+      "from": "qa-frontend:account",
+      "kind": "related",
+      "to": "qa-backend:counts",
+      "via": [
+        "DELETE /users/me"
       ]
     },
     {
@@ -45676,6 +45831,14 @@
     {
       "from": "task:B-26",
       "kind": "related",
+      "to": "qa-backend:counts",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "task:B-26",
+      "kind": "related",
       "to": "qa-backend:ring-members",
       "via": [
         "DELETE /users/me"
@@ -46637,6 +46800,14 @@
     {
       "from": "decision:D-26",
       "kind": "shares",
+      "to": "feature:counts",
+      "via": [
+        "DELETE /connections/:userId"
+      ]
+    },
+    {
+      "from": "decision:D-26",
+      "kind": "shares",
       "to": "feature:ring-members",
       "via": [
         "DELETE /connections/:userId"
@@ -46887,6 +47058,7 @@
       "kind": "shares",
       "to": "feature:counts",
       "via": [
+        "DELETE /users/me",
         "GET /rings",
         "GET /users/me"
       ]
@@ -49759,6 +49931,7 @@
       "kind": "shares",
       "to": "feature:counts",
       "via": [
+        "DELETE /connections/:userId",
         "DELETE /rings/:ringId/members/:userId",
         "E_RING_02",
         "GET /connections",
@@ -50484,7 +50657,9 @@
       "kind": "shares",
       "to": "feature:ring-members",
       "via": [
+        "DELETE /connections/:userId",
         "DELETE /rings/:ringId/members/:userId",
+        "DELETE /users/me",
         "E_RING_02",
         "GET /connections",
         "GET /rings",
@@ -50624,6 +50799,7 @@
       "kind": "shares",
       "to": "task:B-02",
       "via": [
+        "DELETE /users/me",
         "GET /rings",
         "GET /users/me"
       ]
@@ -65370,11 +65546,6 @@
     {
       "from": "qa-backend:counts",
       "kind": "wikilink",
-      "to": "feature:connections"
-    },
-    {
-      "from": "qa-backend:counts",
-      "kind": "wikilink",
       "to": "story:error-contract"
     },
     {
@@ -68075,6 +68246,7 @@
         "qa-backend:account",
         "qa-frontend:account",
         "story:account",
+        "qa-backend:counts",
         "qa-backend:ring-members",
         "needs-decision:ND-20",
         "project:spec-map",
@@ -68770,6 +68942,7 @@
         "backend-delivery:counts",
         "backend-integration:counts",
         "frontend-requirements:counts",
+        "qa-backend:counts",
         "frontend-delivery:ring-members",
         "frontend-requirements:ring-members",
         "needs-decision:ND-29",
@@ -68805,7 +68978,6 @@
         "frontend-requirements:exhibitor",
         "frontend-requirements:post-event",
         "frontend-delivery:counts",
-        "qa-backend:counts",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
         "backend-integration:ring-projection",
@@ -71467,6 +71639,7 @@
         "qa-frontend:auth",
         "story:counts",
         "frontend-requirements:ring-projection",
+        "qa-backend:counts",
         "qa-backend:ring-members",
         "feature:account",
         "backend-delivery:view-as",
@@ -72058,6 +72231,7 @@
         "backend-delivery:counts",
         "backend-integration:counts",
         "frontend-requirements:counts",
+        "qa-backend:counts",
         "backend-delivery:ring-members",
         "frontend-delivery:ring-members",
         "frontend-requirements:ring-members",
@@ -72094,7 +72268,6 @@
         "qa-frontend:auth",
         "story:auth",
         "frontend-delivery:counts",
-        "qa-backend:counts",
         "story:counts",
         "backend-delivery:profiles",
         "qa-backend:profiles",
@@ -72168,6 +72341,7 @@
       "affects": [
         "frontend-requirements:counts"
       ],
+      "autoDelivered": true,
       "blockedBy": [],
       "card": "BI-14",
       "children": [],
@@ -72177,7 +72351,7 @@
       "depends": [
         "backend-delivery:counts"
       ],
-      "effectiveStatus": "current",
+      "effectiveStatus": "delivered",
       "effort": null,
       "feature": "counts",
       "foundOn": null,
@@ -74954,6 +75128,7 @@
         "backend-integration:badge-qr",
         "frontend-requirements:badge-qr",
         "story:badge-qr",
+        "qa-backend:counts",
         "qa-backend:files",
         "qa-backend:photo-library",
         "qa-backend:profiles",
@@ -75518,6 +75693,7 @@
         "frontend-delivery:connections",
         "frontend-requirements:connections",
         "story:connections",
+        "qa-backend:counts",
         "story:ring-invitations"
       ],
       "release": null,
@@ -75957,7 +76133,8 @@
         "backend-integration:connections",
         "frontend-delivery:connections",
         "frontend-requirements:connections",
-        "story:connections"
+        "story:connections",
+        "qa-backend:counts"
       ],
       "release": null,
       "resolution": null,
@@ -76084,6 +76261,7 @@
         "frontend-delivery:connections",
         "frontend-requirements:connections",
         "story:connections",
+        "qa-backend:counts",
         "frontend-delivery:ring-members",
         "frontend-requirements:ring-members"
       ],
@@ -77701,11 +77879,10 @@
       "resolution": null,
       "rollup": {
         "approved": 1,
-        "current": 1,
-        "delivered": 1,
+        "delivered": 2,
         "done": 2,
         "missing": 1,
-        "partial": 1
+        "passing": 1
       },
       "scope": null,
       "screens": [
@@ -80267,6 +80444,7 @@
         "qa-backend:auth",
         "qa-frontend:auth",
         "frontend-delivery:counts",
+        "qa-backend:counts",
         "backend-delivery:photo-library",
         "backend-integration:photo-library",
         "frontend-requirements:photo-library",
@@ -80820,6 +80998,7 @@
         "project:frontend-contract",
         "backend-delivery:counts",
         "backend-integration:counts",
+        "qa-backend:counts",
         "qa-backend:photo-library",
         "qa-backend:profiles",
         "backend-delivery:ring-members",
@@ -87208,17 +87387,17 @@
       "rollup": {
         "approved": 15,
         "blocked": 3,
-        "current": 4,
+        "current": 3,
         "decided": 10,
-        "delivered": 13,
+        "delivered": 14,
         "done": 39,
         "draft": 3,
         "failing": 1,
         "in-progress": 12,
         "missing": 18,
         "needs-decision": 1,
-        "partial": 9,
-        "passing": 8,
+        "partial": 8,
+        "passing": 9,
         "todo": 5,
         "verified": 11
       },
@@ -87935,6 +88114,7 @@
         "backend-delivery:badge-qr",
         "backend-integration:badge-qr",
         "story:badge-qr",
+        "qa-backend:counts",
         "qa-backend:files",
         "qa-backend:photo-library",
         "qa-backend:profiles",
@@ -88978,7 +89158,8 @@
         "decision:D-17",
         "decision:D-24",
         "backend-delivery:connections",
-        "backend-integration:connections"
+        "backend-integration:connections",
+        "qa-backend:counts"
       ],
       "release": null,
       "resolution": null,
@@ -92371,7 +92552,7 @@
         "backend-integration:counts",
         "story:counts"
       ],
-      "effectiveStatus": "partial",
+      "effectiveStatus": "passing",
       "effort": null,
       "feature": "counts",
       "foundOn": null,
@@ -92392,21 +92573,19 @@
         "feature:counts"
       ],
       "path": "social-pin/modules/Identity Core/features/Counts/flow/QB-07 Counts QA Backend.md",
-      "pending": [
-        {
-          "person": null,
-          "text": "Counts · S11 (the connection count on Me) is not delivered yet; row B20 is not run and runs when it ships",
-          "to": "backend-delivery:counts"
-        }
-      ],
+      "pending": [],
       "priority": "critical",
       "related": [
         "task:B-13",
+        "task:B-26",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:badge-qr",
         "backend-integration:badge-qr",
+        "backend-delivery:account",
+        "backend-integration:account",
+        "qa-frontend:account",
         "qa-frontend:auth",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -92475,6 +92654,15 @@
         "backend-integration:ring-members",
         "qa-backend:ring-members",
         "story:ring-members",
+        "decision:D-10",
+        "decision:D-17",
+        "frontend-delivery:connections",
+        "needs-decision:ND-10",
+        "needs-decision:ND-24",
+        "decision:D-24",
+        "decision:D-26",
+        "frontend-delivery:account",
+        "story:account",
         "task:B-15",
         "story:badge-qr",
         "frontend-requirements:exhibitor",
@@ -92513,7 +92701,7 @@
       "task": null,
       "title": "QB-07 Counts QA Backend",
       "unmet": [],
-      "updated": "2026-11-05"
+      "updated": "2026-11-09"
     },
     "qa-backend:delegated-admins": {
       "affects": [],
@@ -94916,6 +95104,7 @@
         "frontend-requirements:linked-accounts",
         "needs-decision:ND-20",
         "project:spec-map",
+        "qa-backend:counts",
         "qa-backend:ring-members",
         "backend-delivery:photo-library",
         "frontend-requirements:photo-library",
@@ -97058,17 +97247,17 @@
       "rollup": {
         "approved": 41,
         "blocked": 27,
-        "current": 7,
+        "current": 6,
         "decided": 33,
-        "delivered": 14,
+        "delivered": 15,
         "done": 42,
         "draft": 26,
         "failing": 1,
         "in-progress": 46,
         "missing": 128,
         "needs-decision": 1,
-        "partial": 11,
-        "passing": 8,
+        "partial": 10,
+        "passing": 9,
         "ready": 1,
         "reference": 32,
         "todo": 8,
@@ -97137,6 +97326,7 @@
         "feature:profiles",
         "qa-backend:auth",
         "qa-frontend:auth",
+        "qa-backend:counts",
         "backend-delivery:photo-library",
         "backend-integration:photo-library",
         "frontend-requirements:photo-library",
@@ -102467,6 +102657,7 @@
         "backend-integration:account",
         "frontend-requirements:account",
         "qa-backend:account",
+        "qa-backend:counts",
         "qa-backend:ring-members"
       ],
       "release": "mvp",
