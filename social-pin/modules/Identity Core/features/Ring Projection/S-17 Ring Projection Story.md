@@ -17,6 +17,8 @@ tags: [story, story/approved, module/identity, layer/business]
 
 # Ring Projection · User Story
 
+> ⚠ Affected by [[FD-11 Ring Projection Frontend Delivery]] (2026-11-09): app f801aaa ships S10 and s28: headline, role, company and location per Ring (follows / own / hidden, Reset to Pin) are a section of s24 saved with its Save, not rows on s23; the bio has no Inherit or Reset to Pin yet (pending on FD-11); s28 lists only Rings with a bio or photo of their own; for /pm
+
 **Feature:** [[F-10 Ring Projection]] · **Status:** Approved 2026-10-29 by Omar Fostok (first approved 2026-10-25 by khaled; reworked 2026-10-29 by the design review: S1, S3, S4, S5, S7 changed, S9 and S10 added) · **Frontend Requirements:** [[FR-10 Ring Projection Frontend Requirements]] · **Backend Integration:** [[BI-07 Ring Projection Backend Integration]]
 
 A Ring owner decides what one audience sees: the headline, role, company and location they go by there (or none of them), the nickname, the bio, the photo, which social and contact links, which custom fields, which files, and whether this Ring may see their birthdate, gender, marital status, phone and email. The projection is the Ring's perspective of the one profile; editing it and then checking it with "View as" is the core loop of the product. Decided, built in this story's S9 and S10: links, custom fields and files are one library each Ring switches on or off ([[D-03 Links entered once, switched on or off per Ring]]), and each main-profile field follows the main profile until the Ring changes or hides it ([[D-02 One main profile every Ring starts from]], [[D-05 Inherit per field, copy without members]]).
