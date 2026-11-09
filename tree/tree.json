@@ -6852,7 +6852,7 @@
     "layerNotes": 157,
     "modules": 8,
     "notes": 351,
-    "partial": 13,
+    "partial": 11,
     "placeholders": 128,
     "records": 33
   },
@@ -76834,7 +76834,7 @@
       "deadline": null,
       "depends": [],
       "dir": "social-pin/modules/Identity Core/features/Account",
-      "effectiveStatus": "partial",
+      "effectiveStatus": "done",
       "effort": null,
       "feature": "account",
       "foundOn": null,
@@ -76887,8 +76887,7 @@
       "rollup": {
         "decided": 1,
         "delivered": 2,
-        "done": 8,
-        "partial": 1,
+        "done": 9,
         "passing": 2,
         "verified": 2
       },
@@ -87212,13 +87211,13 @@
         "current": 4,
         "decided": 10,
         "delivered": 13,
-        "done": 37,
+        "done": 39,
         "draft": 3,
         "failing": 1,
         "in-progress": 12,
         "missing": 18,
         "needs-decision": 1,
-        "partial": 11,
+        "partial": 9,
         "passing": 8,
         "todo": 5,
         "verified": 11
@@ -97032,9 +97031,9 @@
       "release": null,
       "releases": [
         {
-          "done": 0,
+          "done": 1,
           "id": "mvp",
-          "partial": 1,
+          "partial": 0,
           "total": 26
         },
         {
@@ -97062,13 +97061,13 @@
         "current": 7,
         "decided": 33,
         "delivered": 14,
-        "done": 40,
+        "done": 42,
         "draft": 26,
         "failing": 1,
         "in-progress": 46,
         "missing": 128,
         "needs-decision": 1,
-        "partial": 13,
+        "partial": 11,
         "passing": 8,
         "ready": 1,
         "reference": 32,
@@ -100273,7 +100272,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "partial",
+      "effectiveStatus": "done",
       "effort": "S",
       "feature": "account",
       "foundOn": "BI-01 Account Backend Integration",
@@ -100295,13 +100294,7 @@
         "backend-integration:account"
       ],
       "path": "social-pin/bugs/B-01 An unverified changed email still signs in.md",
-      "pending": [
-        {
-          "person": "khaled",
-          "text": "re-approve [[S-01 Account Story]] after the S2 and S3 copy change (/owner)",
-          "to": null
-        }
-      ],
+      "pending": [],
       "priority": "high",
       "related": [
         "backend-integration:account",

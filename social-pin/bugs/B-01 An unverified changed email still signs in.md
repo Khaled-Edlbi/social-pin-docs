@@ -13,7 +13,7 @@ owner: "Omar Fostok"
 depends: []
 affects: ["BD-01 Account Backend Delivery", "S-01 Account Story", "QB-04 Account QA Backend"]
 related: ["BI-01 Account Backend Integration", "QB-04 Account QA Backend", "QF-04 Account QA Frontend", "BI-02 Auth & Sign-up Backend Integration", "ND-01 Passwordless login", "S-78 Code Delivery Story", "ND-20 Whether an unverified new address may sign in", "D-20 The changed address still signs in, the words are corrected"]
-pending: ["@khaled: re-approve [[S-01 Account Story]] after the S2 and S3 copy change (/owner)"]
+pending: []
 created: 2026-10-26
 updated: 2026-11-09
 tags: [bug, bug/done, module/identity, priority/high, resolution/by-design]
@@ -71,6 +71,7 @@ Output of `node scripts/build-tree.mjs --impact B-01` when the bug was filed: th
 
 ## Log
 
+- 2026-11-09 · branch `tickets/pm/M-01-identity/F-01-account/B-01-reapproved` · the last `pending` item cleared: [[S-01 Account Story]] was re-approved on 2026-11-09 by Omar Fostok (`/owner`) against the corrected S2 and S3 copy, and fulfilled the same day. Nothing is left.
 - 2026-11-09 · branch `tickets/pm/M-01-identity/F-01-account/B-01-pending-cleared` · `/pm` cleared the QF-04 F10 item, on Omar Fostok's word: F10 passed on 2026-10-26 and 2026-11-05, and its Patrol rows AC-04 and AC-31 pass on social_pin `0aaca9e`. One item left: the owner's re-approval of [[S-01 Account Story]] (`/owner`).
 - 2026-10-26 · branch `tickets/qa/M-01-identity/F-01-account/B-02-fixed` · `/backend` corrected [[BD-01 Account Backend Delivery]] and [[BI-01 Account Backend Integration]] (a changed destination is unverified and still signs in) and cleared their B-01 flags; `/qa` re-ran B9 on `main @ b4984d6` (localhost:3001, Node 22.22.2): ✅, the new email and the new phone both sign in at once. Three `pending` items cleared; F10 (`/qa`) and the owner's re-approval of [[S-01 Account Story]] remain.
 
