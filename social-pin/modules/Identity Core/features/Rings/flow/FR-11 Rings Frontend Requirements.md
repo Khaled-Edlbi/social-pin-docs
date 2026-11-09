@@ -13,19 +13,11 @@ depends: ["S-18 Rings Story"]
 affects: ["BD-11 Rings Backend Delivery"]
 related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-18 Ring names shown when joined knowingly", "S-15 Ring Access Engine Story", "FR-08 Ring Access Engine Frontend Requirements", "GET /rings/shared-with-me", "PATCH /rings/:id", "POST /rings"]
 created: 2026-10-18
-updated: 2026-11-05
+updated: 2026-11-09
 tags: [frontend-requirements, frontend-requirements/approved, module/identity, layer/frontend]
 ---
 
 # Rings · Frontend Requirements
-
-> ⚠ Affected by [[BD-14 Connections Backend Delivery]] (2026-11-08): F-14 shipped on backend main 1c460b0: 'My connections, searchable, each with whether they are in any of my Rings' for s19 step 2 is GET /connections?q=&noAccess=true (ringCount 0 is No Ring yet); the row and Blocked by read not available
-
-> ⚠ Affected by [[BD-11 Rings Backend Delivery]] (2026-11-05): backend main 12172c6: the four rows are now ✅ (per-person Shared with me, the six settings, POST /rings/:id/copy, 409 E_RING_09); the 'Source today' lines for s16 purpose, s17, s18 copy, s22/s26 settings and default, and the settings section still say not yet (/frontend)
-
-> ⚠ Affected by [[S-31 Delegated Admins Story]] (2026-11-05): S-31 was rewritten (2026-11-05) to match the app's one Edit Ring screen, with rules A1–A7 decided inside the story (no decision cards): company Rings only; an admin must be a member of the Ring; two levels (edit what it shows / also manage who's in it), owner-only appointing; member-managers change the joining settings, who it's for, delete and default stay owner-only; Rings you manage on My Rings and Company detail; rights end on removal, leaving the Ring or the company, silently. The old Delegated Admins · S6 (T-006, the admin routes) is now its 'What the backend has to build'; the levels are S3/A3. Repoint the links that name Delegated Admins · S6.
-
-> ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
 
 **Feature:** [[F-11 Rings]] · **Status:** Approved 2026-11-05 by khaled · **Story:** [[S-18 Rings Story]] · **Backend Integration:** [[BI-08 Rings Backend Integration]]
 
@@ -46,7 +38,7 @@ What the client needs from the backend to build the Ring lists, the create wizar
 - A row: name, colour, the purpose or what it shows in a few words, "DEFAULT" on the default, "EVENT" and "expires <date>" on a temporary Ring, "expired" chip; "**N people**" (not "connections") once counts exist.
 - **No make-default or delete on the list** (both on s26).
 - States: list, empty, expired chip, temporary badge, default mark.
-- Source today: `GET /rings`. Member count: `memberCount` on each owned Ring ✅. Purpose: not yet (S9).
+- Source today: `GET /rings`. Member count: `memberCount` on each owned Ring ✅. Purpose: `purpose` on each Ring ✅.
 
 ### [[Screen Index#s17|s17]] Shared with me
 
@@ -59,23 +51,23 @@ What the client needs from the backend to build the Ring lists, the create wizar
 - **Until memberships record how they were made:** every row is shown as the person, with no Ring name and no count.
 - Tap: opens the person's card (`GET /views/ring/:ringId`), never the owner's Ring data (s14).
 - Also on the screen: invite review and join with a code ([[S-33 Ring Invitations & Join Story]]); an invitation names its Ring (D-18).
-- Source today: `GET /rings/shared-with-me` returns Rings with their `name` to every member, and no owner card or count; then `GET /views/ring/:id`. Invites and join: not yet.
+- Source today: `GET /rings/shared-with-me` returns one row per person (`ringId`, `pinName`, `displayName`, `avatarUrl`, `expiresAt`, `ringName` only when joined knowingly, `memberCount` only when members see each other) ✅; then `GET /views/ring/:id`. Invites and join: ✅ ([[BI-17 Ring Invitations & Join Backend Integration|BI-17]]).
 
 ### [[Screen Index#s18|s18]] – [[Screen Index#s21|s21]] New Ring wizard (S4)
 
-- **Step 1 · Name it (s18):** name (1–24 in the app; the server allows 80), suggestion chips ("Gemma: suggest" hidden); **colour & icon** (`colorHex`, the icon in `style`); **who is it for** (the purpose, S9); **Start from**: Blank Ring · **Copy an existing Ring** (❌ until a copy endpoint exists; shown "coming soon") · **Event Ring** (temporary: start / end pickers, end required). **No type picker**: always `PERSONAL` (or `type` left out). "Next" calls `POST /rings { name, colorHex, style?, isTemporary?, startsAt?, expiresAt? }`.
-- **Step 2 · Who is in it (s19):** search **my connections**, chips, filters **All** and **No Ring yet**; each picked person added with `POST /rings/:ringId/members { userId }` ✅. Needs: my connections, searchable, each with whether they're in any of my Rings ❌ ([[S-23 Connections Story|Connections · S19–S24]]); until then only "You can create the Ring empty and add people later" and Next. "Met this month" and Gemma's suggestions hidden; "Invite" is [[S-33 Ring Invitations & Join Story]]'s.
+- **Step 1 · Name it (s18):** name (1–24 in the app; the server allows 80), suggestion chips ("Gemma: suggest" hidden); **colour & icon** (`colorHex`, the icon in `style`); **who is it for** (the purpose, S9); **Start from**: Blank Ring · **Copy an existing Ring** (`POST /rings/:id/copy` ✅) · **Event Ring** (temporary: start / end pickers, end required). **No type picker**: always `PERSONAL` (or `type` left out). "Next" calls `POST /rings { name, colorHex, style?, isTemporary?, startsAt?, expiresAt? }`.
+- **Step 2 · Who is in it (s19):** search **my connections**, chips, filters **All** and **No Ring yet**; each picked person added with `POST /rings/:ringId/members { userId }` ✅. Needs: my connections, searchable, each with whether they're in any of my Rings: `GET /connections?q=&noAccess=true` (`ringCount` 0 is *No Ring yet*) ✅ ([[S-23 Connections Story|Connections · S8–S12]]); "You can create the Ring empty and add people later" stays under the list. "Met this month" and Gemma's suggestions hidden; "Invite" is [[S-33 Ring Invitations & Join Story]]'s.
 - **Step 3 · What it shows (s20):** [[FR-10 Ring Projection Frontend Requirements|FR-10]].
 - **Step 4 · How you appear (s21):** photo and bio ([[FR-10 Ring Projection Frontend Requirements|FR-10]]); **Access**: Expiry, Who can request to join, Members see each other (S9's settings); **Summary**: people added, what it exposes, photo & bio inherited or own. "Create Ring" → s14.
 - Cancel deletes the Ring created in step 1.
-- Source today: `POST /rings`, `POST …/members`, projection routes ✅. Copy, my connections and the settings: not yet.
+- Source today: `POST /rings` (the settings included), `POST /rings/:id/copy`, `GET /connections`, `POST …/members`, projection routes ✅.
 
 ### [[Screen Index#s22|s22]] Edit · name & purpose · [[Screen Index#s26|s26]] Edit · access (S5, S6, S7)
 
 - s22: name (1–24), "Only you see this name, unless someone joins it with an invitation or a code.", **who this Ring is for** as a short description ("Gemma: rewrite" hidden), colour; `PATCH /rings/:id { name?, colorHex?, style? }`.
 - s26: window (`PATCH /rings/:id { startsAt?, expiresAt?, isTemporary? }`), the settings (below), delegated admins, Delete Ring.
 - s26, **default**: on a Ring that isn't the default, "**Make this my default Ring**" with "This is what someone sees when they scan you and they're in no other Ring of yours.", a confirmation, then `POST /rings/:id/default`; on the default, "**This is your default Ring**" and no action, and Delete disabled ("Choose another default first"). **A temporary Ring can't be the default** (the row disabled: "A temporary Ring can't be your default.").
-- Source today: `PATCH /rings/:id`, `POST /rings/:id/default`, `DELETE /rings/:id` ✅. Settings and admins: not yet. Refusing a temporary default on the server: not yet.
+- Source today: `PATCH /rings/:id`, `POST /rings/:id/default`, `DELETE /rings/:id` ✅. Settings ✅. Refusing a temporary default on the server: 409 `E_RING_09` ✅. Admins: not yet ([[S-31 Delegated Admins Story]], company Rings only).
 
 ### Ring settings: [[Screen Index#s21|s21]] (wizard step 4), [[Screen Index#s22|s22]] (purpose), [[Screen Index#s26|s26]] (access), [[Screen Index#s27|s27]] (permissions) ([[S-18 Rings Story|Rings · S9]])
 
@@ -95,7 +87,7 @@ What the client needs from the backend to build the Ring lists, the create wizar
 - **Not in v1, not asked:** "Contacts of members" as a join choice; the three later settings (members can message me, see when I'm at an event, required work email domain), each with its feature.
 - s26's summary shows the chosen values in the same words ("Only with a code"); "Permissions · N set" counts only the settings shown.
 - The engine enforces them ([[S-15 Ring Access Engine Story|Ring Access Engine · S8]], [[FR-08 Ring Access Engine Frontend Requirements|FR-08]]).
-- Source today: none of the settings exist on a Ring.
+- Source today: all six are saved and read on a Ring ✅ ([[BI-08 Rings Backend Integration]]).
 
 ### [[Screen Index#s62|s62]] Post-event summary
 
@@ -120,10 +112,10 @@ What the client needs from the backend to build the Ring lists, the create wizar
 | **The six launch settings** (who it's for, who can request to join, approve each one, members can see each other, members can invite, members can save attachments): save and read each on a Ring, D-04's defaults on a new Ring, owner and admins may change them (s19, s22, s26, s27) | `POST /rings`, `PATCH /rings/:id`, `GET /rings/:id`, `GET /rings` → `purpose`, `joinPolicy`, `requireApproval`, `membersCanSeeEachOther`, `membersCanInvite`, `membersCanSaveAttachments` | ✅ | [[S-18 Rings Story\|Rings · S9]] ([[D-04 Ring settings at launch and their defaults]]) |
 | **Copy a Ring** (s18 "Copy an existing Ring"): a new Ring with the source's settings, what it shows (the same library items switched on, [[S-17 Ring Projection Story\|Ring Projection · S9]]), bio, photo and colour, **never its members**, in one call | `POST /rings/:id/copy { name, colorHex?, style?, purpose? }` | ✅ | [[S-18 Rings Story\|Rings · S4]] ([[D-05 Inherit per field, copy without members]]) |
 | **Refuse a temporary Ring as the default** (`POST /rings/:id/default` on an `isTemporary` Ring) | `POST /rings/:id/default` → 409 `E_RING_09` | ✅ | [[S-18 Rings Story\|Rings · S7]] |
-| **My connections**, searchable, each with whether they're in any of my Rings (s19, "No Ring yet") | — | ❌ | [[S-18 Rings Story\|Rings · S4]] ([[S-23 Connections Story\|Connections · S19–S24]]) |
+| **My connections**, searchable, each with whether they're in any of my Rings (s19, "No Ring yet") | `GET /connections?q=&noAccess=true` | ✅ | [[S-18 Rings Story\|Rings · S4]] ([[S-23 Connections Story\|Connections · S8–S12]]) |
 | Add a picked person to the new Ring | `POST /rings/:ringId/members` | ✅ | [[S-18 Rings Story\|Rings · S4]] (listed under [[F-09 Ring Members]]) |
 | Review / decline an invite, join with a code (s17) | `GET /rings/invitations/mine`, `POST /rings/invitations/:id/accept`, `POST /rings/invitations/:id/decline`, `POST /rings/join-codes/resolve`, `POST /rings/join-codes/join` ([[BI-17 Ring Invitations & Join Backend Integration\|BI-17]]) | ✅ | [[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S1–S3]] |
-| Delegated admins (s26, s27) | — | ❌ | [[S-31 Delegated Admins Story|Delegated Admins · S6]] |
+| Delegated admins (s26, s27; company Rings only) | — | ❌ | [[S-31 Delegated Admins Story]] |
 | Purge of AUTO_DELETE Rings | — | ❌ | [[S-76 Cleanup Jobs Story|Cleanup Jobs · S4]] |
 
 ## Behaviour expectations
@@ -159,8 +151,6 @@ Until [[S-87 Error Contract Story|Error Contract · S4–S8]] ships, branch on s
 
 ## Blocked by
 
-- [[S-18 Rings Story|Rings · S9]] — the six settings: step 4 of the wizard (s21), Purpose on s22, Access on s26, Permissions on s27.
-- [[S-15 Ring Access Engine Story|Ring Access Engine · S1]] — Shared with me per person (the owner's card, the Ring's name only when joined knowingly, the count only when members can see each other).
-- [[S-18 Rings Story|Rings · S4]] — "Copy an existing Ring" on s18 (a copy endpoint, D-05).
-- [[S-23 Connections Story|Connections · S19–S24]] — my connections for the wizard's step 2 (s19).
-- [[S-03 Counts Story|Counts · S6–S10]] — "N people" on every row.
+- [[S-31 Delegated Admins Story]] — admins on a company Ring (s26, s27).
+- [[S-76 Cleanup Jobs Story|Cleanup Jobs · S4]] — the purge of `AUTO_DELETE` Rings.
+- Met by the backend since: the six settings (S9), Shared with me per person ([[S-15 Ring Access Engine Story|Ring Access Engine · S1]]), Copy a Ring (S4), my connections for step 2 ([[S-23 Connections Story|Connections · S8–S12]]), "N people" ([[S-03 Counts Story|Counts · S6–S10]]).
