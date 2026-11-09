@@ -13,6 +13,8 @@ tags: [backend-integration, backend-integration/current, module/identity, layer/
 
 # 🔌 Ring Members · Backend Integration
 
+> ⚠ Affected by [[FD-14 Ring Members Frontend Delivery]] (2026-11-09): the client follows every Checklist row on social_pin b646053: the roster filtered to ACTIVE, lapsed from expiresAt; add, reassign and revoke read the roster again, no 'what they see' cache; the window editor sends null to clear a bound; a 403 hides the roster quietly. Names come from GET /connections/:userId per member (D-29), which 'Not available yet' still says has no source. Tick the Checklist and refresh 'Not available yet' (/backend)
+
 > ⚠ Affected by [[QB-11 Ring Members QA Backend]] (2026-11-05): QA run on main 12172c6: RING_MEMBER_STATUS has a fifth value LEFT that Shapes that matter does not list (the B-09 and B-10 parts of this flag were fixed on backend main e483d49, 2026-11-08: see [[BD-09 Ring Members Backend Delivery]] Log)
 
 > ⚠ Affected by [[S-31 Delegated Admins Story]] (2026-11-05): S-31 was rewritten (2026-11-05) to match the app's one Edit Ring screen, with rules A1–A7 decided inside the story (no decision cards): company Rings only; an admin must be a member of the Ring; two levels (edit what it shows / also manage who's in it), owner-only appointing; member-managers change the joining settings, who it's for, delete and default stay owner-only; Rings you manage on My Rings and Company detail; rights end on removal, leaving the Ring or the company, silently. The old Delegated Admins · S6 (T-006, the admin routes) is now its 'What the backend has to build'; the levels are S3/A3. Repoint the links that name Delegated Admins · S6.
