@@ -22,7 +22,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
         - ⬜ [B-25 The change sheet doesn't focus the field after a taken error](social-pin/bugs/B-25%20The%20change%20sheet%20doesn't%20focus%20the%20field%20after%20a%20taken%20error.md) (bug, Low)
         - ⬜ [B-26 The delete sheet doesn't say every Ring, projection and session goes](social-pin/bugs/B-26%20The%20delete%20sheet%20doesn't%20say%20every%20Ring%2C%20projection%20and%20session%20goes.md) (bug, Medium)
         - ⬜ [B-27 Opening the phone sheet throws an invisible semantics node error](social-pin/bugs/B-27%20Opening%20the%20phone%20sheet%20throws%20an%20invisible%20semantics%20node%20error.md) (bug, Low)
-      - 🟡 [QF-04 Account QA Frontend](social-pin/modules/Identity%20Core/features/Account/flow/QF-04%20Account%20QA%20Frontend.md) (QA Frontend, 2 pending notes, Critical)
+      - 🔴 [QF-04 Account QA Frontend](social-pin/modules/Identity%20Core/features/Account/flow/QF-04%20Account%20QA%20Frontend.md) (QA Frontend, 5 pending notes, Critical)
     - 🔵 [F-02 Auth & Sign-up](social-pin/modules/Identity%20Core/features/Auth%20%26%20Sign-up/F-02%20Auth%20%26%20Sign-up.md) (release MVP, Critical)
       - 👍 [S-02 Auth & Sign-up Story](social-pin/modules/Identity%20Core/features/Auth%20%26%20Sign-up/S-02%20Auth%20%26%20Sign-up%20Story.md) (User Story, Critical)
         - ✅ [ND-30 When five wrong code tries lock the code](social-pin/needs-decisions/ND-30%20When%20five%20wrong%20code%20tries%20lock%20the%20code.md) (Needs decision)
