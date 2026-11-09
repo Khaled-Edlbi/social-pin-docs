@@ -9,18 +9,17 @@ priority: medium
 effort: S
 foundOn: BI-01 Account Backend Integration
 screens: [s68]
+owner: "Omar Fostok"
 depends: []
 affects: ["BI-01 Account Backend Integration", "S-01 Account Story", "QB-04 Account QA Backend"]
 related: ["QB-04 Account QA Backend", "QF-04 Account QA Frontend", "BD-01 Account Backend Delivery", "BD-35 Error Contract Backend Delivery", "Auth Model", "S-87 Error Contract Story", "F-11 Rings", "F-07 Profiles & Pin Name"]
-pending: ["[[FD-04 Account Frontend Delivery]]: keep the 404 branch on GET /users/me deliberately, and decide whether a 404 from any other authenticated route also ends the session (/frontend)", "[[QF-04 Account QA Frontend]]: run F15 on a build with main @ b4984d6; needs a second phone (/qa)"]
+pending: []
 created: 2026-10-26
-updated: 2026-10-29
+updated: 2026-11-09
 tags: [bug, bug/done, module/identity, priority/medium, resolution/fixed]
 ---
 
 # ✅ B-02 · Deleted account answers 401, not the documented 404 E_USER_01
-
-> ⚠ Affected by [[QF-04 Account QA Frontend]] (2026-11-05): F15 ran by hand on two phones on social_pin f462a28 against the dev API: phone A lands on Welcome with 'Your account has been deleted.' Your QF-04 pending item is settled; /pm clears it
 
 **Found against:** [[BI-01 Account Backend Integration]] · **Feature:** [[F-01 Account]] · **Status:** Done · **Resolution:** fixed · **Priority:** Medium · **Deadline:** — · **Effort:** S
 
@@ -70,6 +69,7 @@ Output of `node scripts/build-tree.mjs --impact B-02` when the bug was filed: th
 
 ## Log
 
+- 2026-11-09 · branch `tickets/pm/M-01-identity/F-01-account/B-02-pending-cleared` · `/pm` cleared both `pending` items, on Omar Fostok's word: QF-04's F15 passed by hand on 2026-11-05 (f462a28, two phones) and again as AC-13 / AC-14 on 0aaca9e; FD-04 keeps the 404 branch on `GET /users/me`, at startup and on resume. The open half, whether a 404 from another authenticated route also ends the session, is no longer tracked here: flagged on [[FD-04 Account Frontend Delivery]] for `/frontend`.
 - 2026-10-26 · branch `tickets/qa/M-01-identity/F-01-account/B-02-fixed` · `/qa` re-ran B14 on `main @ b4984d6` (localhost:3001, Node 22.22.2): a deleted account's old token answers `404 "User not found"` on `/users/me`, `/rings` and `/profiles`; a suspended one keeps 401 (B21 ✅). Closed `done`, `resolution: fixed`, on @khaled's word. Partial until the two `pending` items clear: [[FD-04 Account Frontend Delivery]] (`/frontend`) and [[QF-04 Account QA Frontend]] F15 (`/qa`, needs a second phone).
 - 2026-10-26 · backend `B-02/auth/deleted-account-404`, merged to `main` as `b4984d6` · `JwtStrategy` answers a DELETED account (or a missing row) 404 `E_USER_01`; SUSPENDED and PENDING keep 401 `E_AUTH_03`. Backend notes updated; this card, both QA notes and [[FD-04 Account Frontend Delivery]] flagged.
 

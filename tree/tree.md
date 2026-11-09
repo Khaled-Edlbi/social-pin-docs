@@ -14,7 +14,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
         - 🟡 [B-01 An unverified changed email still signs in](social-pin/bugs/B-01%20An%20unverified%20changed%20email%20still%20signs%20in.md) (bug, By design, 2 pending notes, High)
           - ✅ [ND-20 Whether an unverified new address may sign in](social-pin/needs-decisions/ND-20%20Whether%20an%20unverified%20new%20address%20may%20sign%20in.md) (Needs decision, High)
             - ⚖️ [D-20 The changed address still signs in, the words are corrected](social-pin/decisions/D-20%20The%20changed%20address%20still%20signs%20in%2C%20the%20words%20are%20corrected.md) (Decision)
-        - 🟡 [B-02 Deleted account answers 401, not the documented 404 E_USER_01](social-pin/bugs/B-02%20Deleted%20account%20answers%20401%2C%20not%20the%20documented%20404%20E_USER_01.md) (bug, Fixed, 2 pending notes, Medium)
+        - ✅ [B-02 Deleted account answers 401, not the documented 404 E_USER_01](social-pin/bugs/B-02%20Deleted%20account%20answers%20401%2C%20not%20the%20documented%20404%20E_USER_01.md) (bug, Fixed, Medium)
       - 🟢 [QB-04 Account QA Backend](social-pin/modules/Identity%20Core/features/Account/flow/QB-04%20Account%20QA%20Backend.md) (QA Backend, Critical)
       - ✅ [FD-04 Account Frontend Delivery](social-pin/modules/Identity%20Core/features/Account/flow/FD-04%20Account%20Frontend%20Delivery.md) (Frontend Delivery, Critical)
         - ✅ [B-23 A deleted account opened cold lands on Home, not Welcome](social-pin/bugs/B-23%20A%20deleted%20account%20opened%20cold%20lands%20on%20Home%2C%20not%20Welcome.md) (bug, Cannot reproduce, High)

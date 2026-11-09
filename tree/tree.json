@@ -6847,12 +6847,12 @@
     },
     "concepts": 323,
     "decisions": 34,
-    "edges": 8027,
+    "edges": 8025,
     "features": 41,
     "layerNotes": 157,
     "modules": 8,
     "notes": 351,
-    "partial": 13,
+    "partial": 12,
     "placeholders": 128,
     "records": 33
   },
@@ -10580,16 +10580,6 @@
     },
     {
       "from": "task:B-01",
-      "kind": "pending",
-      "to": "qa-frontend:account"
-    },
-    {
-      "from": "task:B-02",
-      "kind": "pending",
-      "to": "frontend-delivery:account"
-    },
-    {
-      "from": "task:B-02",
       "kind": "pending",
       "to": "qa-frontend:account"
     },
@@ -76903,8 +76893,8 @@
         "approved": 1,
         "decided": 1,
         "delivered": 2,
-        "done": 7,
-        "partial": 2,
+        "done": 8,
+        "partial": 1,
         "passing": 2,
         "verified": 1
       },
@@ -87228,13 +87218,13 @@
         "current": 4,
         "decided": 10,
         "delivered": 13,
-        "done": 36,
+        "done": 37,
         "draft": 3,
         "failing": 1,
         "in-progress": 13,
         "missing": 18,
         "needs-decision": 1,
-        "partial": 11,
+        "partial": 10,
         "passing": 8,
         "todo": 5,
         "verified": 10
@@ -97078,13 +97068,13 @@
         "current": 7,
         "decided": 33,
         "delivered": 14,
-        "done": 39,
+        "done": 40,
         "draft": 26,
         "failing": 1,
         "in-progress": 47,
         "missing": 128,
         "needs-decision": 1,
-        "partial": 13,
+        "partial": 12,
         "passing": 8,
         "ready": 1,
         "reference": 32,
@@ -100386,7 +100376,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "partial",
+      "effectiveStatus": "done",
       "effort": "S",
       "feature": "account",
       "foundOn": "BI-01 Account Backend Integration",
@@ -100408,18 +100398,7 @@
         "backend-integration:account"
       ],
       "path": "social-pin/bugs/B-02 Deleted account answers 401, not the documented 404 E_USER_01.md",
-      "pending": [
-        {
-          "person": null,
-          "text": "keep the 404 branch on GET /users/me deliberately, and decide whether a 404 from any other authenticated route also ends the session (/frontend)",
-          "to": "frontend-delivery:account"
-        },
-        {
-          "person": null,
-          "text": "run F15 on a build with main @ b4984d6; needs a second phone (/qa)",
-          "to": "qa-frontend:account"
-        }
-      ],
+      "pending": [],
       "priority": "medium",
       "related": [
         "qa-backend:account",
@@ -100478,7 +100457,7 @@
       "task": null,
       "title": "B-02 Deleted account answers 401, not the documented 404 E_USER_01",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-09"
     },
     "task:B-03": {
       "affects": [
