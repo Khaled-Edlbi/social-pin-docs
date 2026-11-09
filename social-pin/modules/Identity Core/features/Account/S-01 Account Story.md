@@ -17,6 +17,8 @@ tags: [story, story/verified, module/identity, layer/business]
 
 # Account · User Story
 
+> ⚠ Affected by [[BD-01 Account Backend Delivery]] (2026-11-09): S4 says deleting an account makes every Ring, projection and session go; DELETE /users/me (backend local main ebdca36) ends the sessions and, since D-25, the connections, requests and blocks, but leaves the account's Rings, memberships and badge codes untouched: a badge code issued before the deletion still opens the card (GET /views/qr/:token) until it expires. Written down as a gap in BD-01 and BD-18; nothing decided
+
 **Feature:** [[F-01 Account]] · **Status:** Fulfilled 2026-11-09 (approved 2026-11-09 by Omar Fostok; QB-04 and QF-04 passing, nothing pending) · **Frontend Requirements:** [[FR-01 Account Frontend Requirements]] · **Backend Integration:** [[BI-01 Account Backend Integration]]
 
 A signed-in person opens Me to check which email and phone their account is on, to change one of them, and, rarely, to leave. The account is the thin layer under the profile: it holds the sign-in identity, the verified state of each destination and the Free / Pro type. Everything that describes the person (name, photo, bio) lives on the profile and on Ring projections, so the Me header is composed from three sources, never fetched from one.
