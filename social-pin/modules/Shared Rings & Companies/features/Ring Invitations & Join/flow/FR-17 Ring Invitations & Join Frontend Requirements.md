@@ -12,7 +12,7 @@ owner: "Omar Fostok"
 affects: ["BD-17 Ring Invitations & Join Backend Delivery"]
 related: ["S-33 Ring Invitations & Join Story", "BI-08 Rings Backend Integration", "FR-15 Companies Frontend Requirements", "D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-18 Ring names shown when joined knowingly", "D-31 An invitation is its own record", "D-32 Several join codes per Ring", "D-33 Work email joining waits for real emails and Companies", "D-34 A member shows one of their own Rings", "D-35 A join code can be shown as a QR", "D-36 Who it's for stays the owner's alone", "S-37 Badge & QR Story", "S-87 Error Contract Story", "S-96 Notifications Story", "Frontend Contract"]
 created: 2026-10-18
-updated: 2026-11-08
+updated: 2026-11-09
 tags: [frontend-requirements, frontend-requirements/approved, module/shared-rings, layer/frontend]
 ---
 
@@ -36,6 +36,7 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
   - my **join requests**: `id`, `status` (`PENDING` | `DECLINED`), `createdAt`, `ringName`, `business` (FR-15).
 - **Source today:** `GET /rings/shared-with-me` ✅ (`ringName` on a row I joined knowingly, `memberCount` when the Ring lets members see each other); `GET /rings/invitations/mine` ✅; `GET /rings/join-requests/mine` ✅. The picked Ring: `myCardRingId` / `myCardRingName` on each named row ✅.
 - **What changes in the app:** today the tab lists people only. It gains an **Invitations** section and a **My requests** section above the people (each hidden while empty, each loading on its own); a joined-knowingly row shows "Acme Team · Shared by …" and **"Your card here: <my Ring> ›"**, which opens the picker (s74 step below). *Join with a code* opens s74.
+- **Which Ring a row opens (2026-11-09, [[S-33 Ring Invitations & Join Story|S-33 S1]], D-15 stands):** the row's `ringId` as the server gives it, the first Ring the person put me in, however it was made; the app never picks another. After *Join Ring*, a row that already opened a Ring I was placed in stays on it, unnamed (`ringName` null, no "Your card here"); the Ring joined later is that person's next view. A row with `myCardRingId` null shows no *Your card here*.
 
 ### [[Screen Index#s74|s74]] Review an invitation, join with a code (S2, S3, S4)
 
@@ -58,6 +59,7 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
 - **Needs:** my own Rings (exists, `GET /rings`); **set** the picked Ring on my membership in that Ring, and **read** it back; a picked Ring that is not one of my live Rings refused; when the picked Ring is deleted, the read answers my default Ring.
 - **Source today:** `GET /rings` ✅; the pointer: `GET` / `PUT /rings/:ringId/my-card` ✅ (`picked: false` on the default; 400 `E_RING_MEMBER_05` on a Ring that is not mine and live).
 - **What changes in the app:** a **new step** after *Join Ring* (and the first time I open a Ring whose request was approved): "Your card in Acme Team", my Rings with the default pre-selected, one line on who sees it ("Members see this card" / "Nobody sees it unless the owner lets members see each other"), *Done*. Not drawn: the app's own list style.
+- **Only for a Ring I joined knowingly (2026-11-09, [[S-33 Ring Invitations & Join Story|S-33 S10]]):** a member the owner **placed** gets no step and no *Your card here*; the app never calls `my-card` for them. If it is reached anyway, the 404 `E_RING_ACCESS_01` is intended: the step closes quietly, no error shown.
 
 ### [[Screen Index#s43|s43]] Scanner (S9, D-35)
 
@@ -94,11 +96,12 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
 
 - **Needs:** when `membersCanSeeEachOther` is on: **Members · N** and each member's card rendered from **the Ring they picked**, never that Ring's name or id; nothing at all while it's off. **Leave this Ring** as a member.
 - **Source today:** the owner's card `GET /views/ring/:ringId` ✅; the roster `GET /rings/:ringId/colleagues` ✅ (404 while members can't see each other); leave `POST /rings/:ringId/leave` ✅.
-- **What changes in the app:** the owner's card gains **Members · N** (only when allowed), each colleague opening their picked card; a colleague who is also my connection opens that card here and the card they share with me everywhere else. **Leave this Ring** at the bottom.
+- **What changes in the app:** the owner's card gains **Members · N** (only when allowed), each colleague opening their picked card; a colleague who is also my connection opens that card here and the card they share with me everywhere else. **Leave this Ring** at the bottom, only on a Ring I joined knowingly (a named row).
+- **A placed member (2026-11-09, [[S-33 Ring Invitations & Join Story|S-33 S11]]):** sees **Members · N** while allowed (the roster answers any live member), but has **no *Leave this Ring***: the owner placed them and only the owner removes them. The 404 `E_RING_ACCESS_01` on `POST /rings/:ringId/leave` for them is intended; the app never shows the button, so never meets it.
 
 ### [[Screen Index#s72|s72]] My companies (FR-15)
 
-- Owned by [[FR-15 Companies Frontend Requirements]]; FR-17 brings it `business` on invitations and my join requests (rows below).
+- Owned by [[FR-15 Companies Frontend Requirements]], and it stays there (2026-11-09): nothing about s72 is asked here. FR-17 brings it `business` on invitations and my join requests (rows below).
 - **What changes in the app:** "Invite code, work email or a QR from a colleague" reads "Invitation, code or a join QR" (D-33, D-35); the invitation row ("Company Ring · brand kit, directory, support line") shows no purpose (D-36). FR-15 takes the copy.
 
 ## Endpoints required
@@ -138,6 +141,7 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
 - **One neutral message** for every failed code or QR ("This code doesn't work"); a separate one only for too many tries. Never branch the copy on the cause.
 - **Never shown:** a Ring's colour or type to a member or invitee; `purpose` anywhere outside the owner's own screens (D-36); the picked Ring's name to anyone but me (D-34); which Ring a badge's holder is in (D-14).
 - **After *Join Ring*:** the "Your card" step, then s17 (not My Rings).
+- **Placed or joined knowingly:** told apart only by the Shared with me row (`ringName` / `myCardRingId` set on a Ring I joined knowingly, null on a placed one); never by trying `my-card` or `leave` and reading the 404.
 
 ## Error states the UI must handle
 
@@ -163,3 +167,4 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
 - 2026-11-08 · `tickets/backend/M-03-shared-rings/F-17-ring-invitations/FR-17-accepted` · reviewed by `/backend` against backend `main` @ `cb95a39` and approved (khaled): every ✅ row holds (`GET /rings/shared-with-me` and its fields, `GET /views/ring/:ringId`, `GET /rings`, `PATCH /rings/:id` with `joinPolicy` / `requireApproval`, `E_RING_ACCESS_01` / `02`, `E_AUTH_04`); the ❌ asks match S-33 S1–S12. [[BD-17 Ring Invitations & Join Backend Delivery]] → in progress; the ❌ rows stay until the backend branch is merged
 - 2026-11-08 · `tickets/backend/M-03-shared-rings/F-17-ring-invitations/FR-17-rows-delivered` · backend `main` `1c460b0` shipped S-33 S1–S3, S5–S9: 14 rows → ✅ with their endpoints (`ringName` / `memberCount` on Shared with me, invitations, join codes, the join QR, join requests); the *Source today* lines and the API Integration link ([[BI-17 Ring Invitations & Join Backend Integration]]) updated. Still ❌: the picked Ring (S10), the member roster and leave (S11), notifications (S12); work email is not in this version. The error codes are named in BI-17 (on the wire once [[S-87 Error Contract Story|Error Contract]] ships)
 - 2026-11-09 · `docs/backend/M-03-shared-rings/F-17-ring-invitations/BD-17-picked-ring-and-roster` · backend `main` `14c6916` shipped S-33 S10 and S11: three rows → ✅ with their endpoints (picked Ring, roster, leave) and the s17, s74 "Your card" and *Inside a Ring* *Source today* lines updated ([[BD-17 Ring Invitations & Join Backend Delivery]], [[BI-17 Ring Invitations & Join Backend Integration]]). Still ❌: notifications (S12); work email is not in this version.
+- 2026-11-09 · `tickets/frontend/M-03-shared-rings/F-17-ring-invitations/FR-17-decisions-2026-11-09` · Omar Fostok's decisions on [[S-33 Ring Invitations & Join Story]]: a Shared with me row opens the server's `ringId`, the first Ring (D-15 stands), the Ring joined later is the next view (s17); a placed member gets no "Your card in <Ring>" step and no *Leave*, the 404 on `my-card` / `leave` is intended (s74 step, inside a Ring); placed and knowing told apart by the row only; s72 stays with [[FR-15 Companies Frontend Requirements|FR-15]]. No new endpoint or field: the backend's approval stands
