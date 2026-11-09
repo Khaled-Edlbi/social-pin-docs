@@ -3333,10 +3333,12 @@
     "GET /views/pin": {
       "containers": [
         "feature:discover-hub",
+        "feature:ring-access",
         "feature:view-as"
       ],
       "kind": "endpoint",
       "notes": [
+        "backend-delivery:ring-access",
         "story:discover-hub",
         "story:view-as"
       ],
@@ -48470,6 +48472,7 @@
       "kind": "shares",
       "to": "feature:ring-access",
       "via": [
+        "GET /views/pin",
         "GET /views/pin/:pinName"
       ]
     },
@@ -52190,6 +52193,7 @@
         "DELETE /rings/:id",
         "GET /rings",
         "GET /rings/:ringId/projection",
+        "GET /views/pin",
         "GET /views/pin/:pinName",
         "GET /views/pin/SaraAz",
         "GET /views/ring/:ringId",
@@ -67493,7 +67497,7 @@
       "task": null,
       "title": "BD-08 Ring Access Engine Backend Delivery",
       "unmet": [],
-      "updated": "2026-11-05"
+      "updated": "2026-11-09"
     },
     "backend-delivery:ring-invitations": {
       "affects": [
