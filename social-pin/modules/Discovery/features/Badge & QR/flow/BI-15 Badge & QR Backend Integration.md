@@ -8,10 +8,10 @@ scope: feature
 screens: [s34, s43, s44, s56]
 depends: ["BD-18 Badge & QR Backend Delivery", "FR-18 Badge & QR Frontend Requirements", "S-37 Badge & QR Story"]
 affects: ["FR-18 Badge & QR Frontend Requirements"]
-related: ["POST /rings/:ringId/qr", "POST /rings/:ringId/qr/reset", "GET /rings/:ringId/qr/scans", "GET /views/qr/:token", "GET /views/ring/:ringId", "GET /views/pin/:pinName", "E_RING_02", "E_RING_03", "E_BADGE_01", "BI-09 View As & Pin Views Backend Integration", "D-10 Connect sends what the requester already has", "D-11 The badge code stays the same for its day", "D-12 The badge QR is a socialpin.me link", "D-28 Scan someone in is not in the MVP", "D-35 A join code can be shown as a QR", "FR-14 Connections Frontend Requirements"]
+related: ["POST /rings/:ringId/qr", "POST /rings/:ringId/qr/reset", "GET /rings/:ringId/qr/scans", "GET /views/qr/:token", "GET /views/ring/:ringId", "GET /views/pin/:pinName", "E_RING_02", "E_RING_03", "E_BADGE_01", "BI-09 View As & Pin Views Backend Integration", "D-10 Connect sends what the requester already has", "D-11 The badge code stays the same for its day", "D-12 The badge QR is a socialpin.me link", "D-28 Scan someone in is not in the MVP", "D-35 A join code can be shown as a QR", "FR-14 Connections Frontend Requirements", "BI-16 Connections Backend Integration", "POST /connections/requests", "POST /blocks", "GET /connections/relationship"]
 pending: []
 created: 2026-11-08
-updated: 2026-11-08
+updated: 2026-11-09
 tags: [backend-integration, backend-integration/current, module/discovery, layer/backend]
 ---
 
@@ -19,7 +19,7 @@ tags: [backend-integration, backend-integration/current, module/discovery, layer
 
 **Feature:** [[F-18 Badge & QR]] · **Backend:** ✅ [[BD-18 Badge & QR Backend Delivery]] · **Read first:** [[Frontend Contract]], [[Frontend API Guide]], [[BI-09 View As & Pin Views Backend Integration]]
 
-Written by the **backend** team for the frontend: how to call what was delivered. **`current`:** matches backend `main` `1c460b0` (the badge module from `FR-18/badge/qr-token-issue-resolve`, `a566a2e`).
+Written by the **backend** team for the frontend: how to call what was delivered. **`current`:** matches backend `main` `ebdca36` (local, not pushed yet): the badge module from `FR-18/badge/qr-token-issue-resolve` (`a566a2e`, in `1c460b0`), and since 2026-11-09 Connect, Block and the relationship by the scanned token (`FR-14/connection/scan-token`, `2a1821b`).
 
 ## Screens → calls
 
@@ -30,7 +30,7 @@ Written by the **backend** team for the frontend: how to call what was delivered
 | s34 | sees the scan count | `GET /rings/:ringId/qr/scans` on badge open, no polling |
 | [[Screen Index#s43\|s43]] Scanner | reads a `https://socialpin.me/q/<token>` code, camera or *From photos* | `GET /views/qr/:token` → s44 |
 | s43 | *Enter a Pin name* | `GET /views/pin/:pinName` (exists, [[BI-09 View As & Pin Views Backend Integration\|BI-09]]) |
-| [[Screen Index#s44\|s44]] Scanned card | *Connect* | `POST /connections/requests { qrToken }` ([[FR-14 Connections Frontend Requirements\|FR-14]]): **not accepted yet** on `main`; `{ pinName }` is |
+| [[Screen Index#s44\|s44]] Scanned card | the button, *Connect*, *Block* | `GET /connections/relationship?qrToken=`, `POST /connections/requests { qrToken, note? }`, `POST /blocks { qrToken }` with the token the card was opened with ([[BI-16 Connections Backend Integration\|BI-16]]) |
 
 ## Flow
 
@@ -86,7 +86,7 @@ Written by the **backend** team for the frontend: how to call what was delivered
 | Status | ErrorCode | Meaning | Show |
 |---|---|---|---|
 | 404 | `E_RING_ACCESS_01` | resolve refused: a malformed, unknown, forged, expired, reset or rotated code, an ended or deleted Ring, or a block either way. One body, "This profile is not shared with you", and the same answer time for all | "This profile isn't available"; keep scanning |
-| 429 | `E_BADGE_01` | more than 20 resolves in a minute by this account | "Slow down"; keep the camera open, try again after a minute |
+| 429 | `E_BADGE_01` | more than 20 in a minute by this account: every resolve counts, and so does every refused token sent to relationship, *Connect* or *Block* (a successful one does not) | "Slow down"; keep the camera open, try again after a minute |
 | 404 | `E_RING_02` | code, reset or count for a Ring that isn't mine (or doesn't exist) | read `GET /rings` again, reset the picked Ring |
 | 409 | `E_RING_03` | code or reset for a Ring of mine that has ended (window over, or archived) | pick another live Ring, or *No Ring* |
 | 401 | `E_AUTH_04` | session over | sign in again |
@@ -102,7 +102,7 @@ The error body carries no `ErrorCode` field today: branch on `statusCode` (and t
 
 ## Not available yet
 
-- *Connect* by scanned code: `POST /connections/requests` takes `{ pinName }` but not `{ qrToken }` yet ([[FR-14 Connections Frontend Requirements]], [[BD-14 Connections Backend Delivery]]); keep *Connect* off on a scanned card until it does.
+- A deleted account's badge: a code issued before the account was deleted still opens the card until its `expiresAt`; *Connect* and *Block* from it answer the 404 ([[BD-18 Badge & QR Backend Delivery]] *Gaps*).
 - Scanning someone into a Ring: not in the MVP ([[D-28 Scan someone in is not in the MVP|D-28]]).
 - Telling a join QR from a badge: BD-17 ([[D-35 A join code can be shown as a QR|D-35]]).
 - *Share link*, the `/q/<token>` web page, app links: wait on the domain ([[D-12 The badge QR is a socialpin.me link|D-12]], [[S-37 Badge & QR Story|S-37 S12]]).
@@ -122,3 +122,4 @@ The error body carries no `ErrorCode` field today: branch on `statusCode` (and t
 
 - 2026-11-08 · `docs/backend/M-04-discovery/F-18-badge-qr/BI-15-backend-integration` (stacked on `BD-18-qr-code-route`) · written as `draft` against the backend branch `FR-18/badge/qr-token-issue-resolve` (`a566a2e`, not merged): the code, reset, scan count and resolve routes, shapes, errors (`E_BADGE_01` new, `E_RING_03` now used), rules; goes `current` when the branch merges
 - 2026-11-08 · `docs/backend/M-04-discovery/F-18-badge-qr/BI-15-current` (stacked on `BD-18-shipped`) · `current`: checked against backend `main` `1c460b0` (badge module unchanged since `a566a2e`; `assertRingPresented` and the `E_RING_ACCESS_01` body unchanged by the F-14 and F-17 merges): token 32 characters, 24 h from `issuedAt`; the four routes; the one 404 body; 429 `E_BADGE_01` past 20 a minute. Connect by `{ qrToken }` marked not accepted yet
+- 2026-11-09 · `docs/backend/M-04-discovery/F-18-badge-qr/BI-15-scan-presenter` · stays `current`, checked against backend local `main` `ebdca36` (not pushed yet): the scanned card's relationship, *Connect* and *Block* by `{ qrToken }` (shapes in [[BI-16 Connections Backend Integration]]); the 429 now also counts refused tokens on those three; the "not accepted yet" line replaced by the deleted-account badge gap ([[BD-18 Badge & QR Backend Delivery]])
