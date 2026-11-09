@@ -2281,10 +2281,12 @@
     },
     "GET /connections?q=": {
       "containers": [
-        "feature:connections"
+        "feature:connections",
+        "feature:ring-members"
       ],
       "kind": "endpoint",
       "notes": [
+        "backend-delivery:ring-members",
         "frontend-requirements:connections",
         "story:connections"
       ],
@@ -6845,7 +6847,7 @@
     },
     "concepts": 323,
     "decisions": 34,
-    "edges": 8034,
+    "edges": 8035,
     "features": 41,
     "layerNotes": 157,
     "modules": 8,
@@ -50032,6 +50034,7 @@
         "E_RING_07",
         "GET /connections",
         "GET /connections/:userId",
+        "GET /connections?q=",
         "GET /rings",
         "GET /views/pin/:pinName",
         "GET /views/user/:userId/perspectives",
@@ -60929,6 +60932,11 @@
       "to": "feature:connections"
     },
     {
+      "from": "backend-delivery:ring-members",
+      "kind": "wikilink",
+      "to": "needs-decision:ND-34"
+    },
+    {
       "from": "backend-delivery:ring-projection",
       "kind": "wikilink",
       "to": "backend-delivery:widgets"
@@ -70835,17 +70843,17 @@
       "pending": [
         {
           "person": null,
-          "text": "names on the roster (M10): displayName, pinName and avatarUrl on each row of GET /rings/:ringId/members (the card the owner may see, as GET /connections/:userId answers it), so s15 is one call, not one per member",
+          "text": "names on the roster (M10): built on backend branch FR-09/ring/roster-names-search (7c35817), not merged: displayName, pinName and avatarUrl on each row of GET /rings/:ringId/members, waits on the merge to main",
           "to": "frontend-requirements:ring-members"
         },
         {
           "person": null,
-          "text": "search the roster by name (M10): GET /rings/:ringId/members?name= over display name and Pin name, with paging",
+          "text": "search the roster by name (M10): built on backend branch FR-09/ring/roster-names-search (7c35817), not merged: GET /rings/:ringId/members?name= over display name and Pin name, with paging, waits on the merge to main",
           "to": "frontend-requirements:ring-members"
         },
         {
           "person": null,
-          "text": "the members a member may see (S8): a member-facing, paginated, searchable roster of each member's card for that Ring, only while the Ring's membersCanSeeEachOther is on, else the same not-shared 404; never the Ring's name (unless joined knowingly), windows, lapsed rows or the owner",
+          "text": "the members a member may see (S8): not built, waits on [[ND-34 What a member contributes to a shared Ring]] (whose card a member sees in another's Ring, D-04 Still open); then a member-facing, paginated, searchable roster only while membersCanSeeEachOther is on, else the same not-shared 404",
           "to": "frontend-requirements:ring-members"
         }
       ],
