@@ -19,6 +19,8 @@ tags: [frontend-delivery, frontend-delivery/done, module/identity, layer/fronten
 
 # ✅ Profiles & Pin Name · Frontend Delivery
 
+> ⚠ Affected by [[S-14 Profiles & Pin Name Story]] (2026-11-09): S4 Clear on a private field first turns it off on every Ring that shows it, then clears the value; record whether the app does this
+
 **Feature:** [[F-07 Profiles & Pin Name]] · **Status:** Done · **Built from:** [[BI-04 Profiles & Pin Name Backend Integration]] · **Against:** [[S-14 Profiles & Pin Name Story]] · **Requirements:** [[FR-07 Profiles & Pin Name Frontend Requirements]] · **QA:** [[Profiles & Pin Name QA Frontend]]
 
 What the client shipped for the main profile, the profile editor, renaming the Pin name and the privacy rows, on `social_pin` `rings/F-11/honest-rings` @ `bf5088d` (2026-11-06), not on `main` yet. Claiming the Pin name at sign-up (s06) shipped with [[FD-05 Auth & Sign-up Frontend Delivery]]; the privacy rows on Me first shipped with [[FD-04 Account Frontend Delivery]]. The QA checklist is PF-01…PF-13 in the client's `docs/TEST_CASES_2026-10-18.md`.
