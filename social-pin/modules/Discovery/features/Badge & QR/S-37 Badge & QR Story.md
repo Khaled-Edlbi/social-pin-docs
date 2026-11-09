@@ -115,6 +115,7 @@ Acceptance criteria:
 - [ ] Renders the card as [[BI-09 View As & Pin Views Backend Integration]] describes: `null` is "not shared", sensitive rows hidden when `null`, no Ring name anywhere.
 - [ ] **Connect** sends the scanned code, `POST /connections/requests { qrToken }` ([[D-10 Connect sends what the requester already has|D-10]], [[S-23 Connections Story|Connections · S2]]).
 - [ ] **Save for later** keeps the card, the scanned code and its `expiresAt` on this phone only (no server call), in a "Saved scans" list. It stays on the card: the message "Saved for later" shows and the button turns into **Remove from saved**, which takes the scan off the list again; it never returns Home (decided by Omar Fostok, 2026-11-09).
+- [ ] **Save contact** sits next to *Save for later*, shown **only when the card shares a phone number**. It opens the phone's own new-contact screen, filled with only what the card shows (name, phone, and the email, role and company when the card shares them); nothing is saved without that screen, and nothing reaches the server ([[S-19 View As & Pin Views Story|View As · S7]], decided by Omar Fostok, 2026-11-09).
 - [ ] From a saved scan, **Connect works until the code expires**; after `expiresAt` the saved card reads "This code has expired. Scan {name} again to connect.", and *Connect* is off. The saved card is the one seen at the scan, marked with its date; it is never read again from the server.
 - [ ] A saved scan can be removed; nothing about it ever leaves the phone.
 - [ ] Not available yet: Connect ([[S-23 Connections Story]]).
@@ -188,6 +189,7 @@ Acceptance criteria:
 | s34 | No *Reset code* | *Reset code* (S2) |
 | s44 | *Save for later* with no limit | Connect from a saved scan until its code expires (S8) |
 | s44 | *Save for later* goes back Home | Stays on the card, "Saved for later", the button turns into *Remove from saved* (S8) |
+| s44 | *Save contact* always shown | Next to *Save for later*, only when the card shares a phone number; the phone's own new-contact screen (S8) |
 
 ## What the backend has to build
 
@@ -231,3 +233,5 @@ Left, none blocking:
 - 2026-11-08 · `tickets/pm/M-04-discovery/F-18-badge-qr/S-37-approved` · approved by Omar Fostok; FR-18 continues
 - 2026-11-09 · `tickets/pm/M-04-discovery/F-18-badge-qr/S-37-save-for-later-stays` · S8 Save for later stays on the card, shows "Saved for later" and turns into "Remove from saved", no return to Home; decided by Omar Fostok, so the story stays approved
 - 2026-11-09 · flagged [[FR-18 Badge & QR Frontend Requirements]]: S8 Save for later stays on the card, "Saved for later", then "Remove from saved"; no return to Home
+- 2026-11-09 · `tickets/pm/M-04-discovery/F-18-badge-qr/S-37-save-contact` · S8 Save contact added next to Save for later, only when the card shares a phone number, opening the phone's own new-contact screen with only what the card shows; decided by Omar Fostok, the story stays approved
+- 2026-11-09 · flagged [[FR-18 Badge & QR Frontend Requirements]]: S8 Save contact next to Save for later, only when the card shares a phone number, the phone's own new-contact screen with only what the card shows

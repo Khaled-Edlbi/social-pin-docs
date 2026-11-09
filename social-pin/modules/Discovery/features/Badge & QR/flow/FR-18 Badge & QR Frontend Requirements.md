@@ -18,6 +18,8 @@ tags: [frontend-requirements, frontend-requirements/approved, module/discovery, 
 
 # 📨 Badge & QR · Frontend Requirements
 
+> ⚠ Affected by [[S-37 Badge & QR Story]] (2026-11-09): S8 Save contact sits next to Save for later, only when the card shares a phone number; it opens the phone's own new-contact screen with only what the card shows (no server call)
+
 > ⚠ Affected by [[S-37 Badge & QR Story]] (2026-11-09): S8 Save for later stays on the card, shows "Saved for later" and the button turns into "Remove from saved"; it no longer returns Home
 
 **Feature:** [[F-18 Badge & QR]] · **Status:** Approved 2026-11-08 by khaled · **Story:** [[S-37 Badge & QR Story]] (approved 2026-11-08) · **API Integration:** not yet (backend not built)
