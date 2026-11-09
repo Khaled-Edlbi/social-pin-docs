@@ -10,6 +10,7 @@ tags: [project]
 # Frontend Contract
 
 > ⚠ Affected by [[Frontend API Guide]] (2026-11-09): the Frontend API Guide now has a Connections section: 13 routes on backend main (F-14, 1c460b0), with qrToken on POST /connections/requests, POST /blocks and GET /connections/relationship since ebdca36 (local, not pushed yet); DELETE /users/me ends the account's connections, requests and blocks (D-25). The endpoint count and 'not yet available: connections' are out of date (/frontend)
+> ⚠ Affected by [[BD-17 Ring Invitations & Join Backend Delivery]] (2026-11-09): backend main 14c6916 (S-33 S10, S11): four new routes, GET and PUT /rings/:ringId/my-card, POST /rings/:ringId/leave, GET /rings/:ringId/colleagues; Shared with me rows gain myCardRingId and myCardRingName; new ErrorCode E_RING_MEMBER_05 (400, the picked Ring is not one of your own live Rings). The endpoint table, its count and the code list need updating (/frontend)
 
 > ⚠ Affected by [[BD-17 Ring Invitations & Join Backend Delivery]] (2026-11-08): backend main 1c460b0 (F-17): 17 new routes under /rings (invitations, join-codes, join-requests, see BI-17) and new ErrorCodes E_RING_INVITATION_01-07, E_RING_JOIN_CODE_01-06, E_RING_JOIN_REQUEST_01-02 (not in the body until Error Contract ships); RingMemberEntity gains origin
 

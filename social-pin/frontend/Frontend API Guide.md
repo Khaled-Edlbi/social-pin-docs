@@ -246,7 +246,7 @@ audience sees them is set per ring, not here.
 | Method | Path | |
 |---|---|---|
 | GET | `/rings` | Rings you own ("My Rings") |
-| GET | `/rings/shared-with-me` | The **people** who share with you, one row each: `{ ringId, pinName, displayName, avatarUrl, expiresAt, ringName, memberCount }`; pagination only (D-14). `ringName` only on a Ring you joined knowingly (an invitation, a code, an approved request, D-18), `memberCount` there only when its members may see each other; both `null` otherwise |
+| GET | `/rings/shared-with-me` | The **people** who share with you, one row each: `{ ringId, pinName, displayName, avatarUrl, expiresAt, ringName, memberCount }`; pagination only (D-14). `ringName` only on a Ring you joined knowingly (an invitation, a code, an approved request, D-18), `memberCount` there only when its members may see each other; both `null` otherwise. On such a row, `myCardRingId` / `myCardRingName`: which of **your own** Rings its members see (D-34) |
 | GET | `/rings/shared-with-me/count` | `{ people }`, equal to the list's `meta.total` |
 | POST | `/rings` | PERSONAL or CORPORATE only; takes the six D-04 settings |
 | GET | `/rings/:id` | |
@@ -306,6 +306,9 @@ MEMBER_MANAGER+).
 | DELETE | `/rings/join-requests/:id` | Cancel a pending one, dismiss a declined one (200, no body) |
 | GET | `/rings/:ringId/join-requests` | Waiting on you · N, with the label of the code each person used |
 | POST | `/rings/:ringId/join-requests/:id/approve` · `/decline` | Approve (a member at once, origin `JOIN_REQUEST`) or decline |
+| GET / PUT | `/rings/:ringId/my-card` | **A member's own side** of a ring joined knowingly: which of your own Rings its members see, `{ shownRingId, shownRingName, picked, seenByMembers }`; `PUT { shownRingId: uuid \| null }` (null = your default; 400 `E_RING_MEMBER_05` if it is not one of your own live Rings) |
+| POST | `/rings/:ringId/leave` | Leave a ring you joined knowingly; the owner is not told |
+| GET | `/rings/:ringId/colleagues` | The other members, as one of them sees them, only while the ring lets members see each other: `{ data: [{ userId, card }], meta: { total } }`, each `card` the ring that member picked, never its id or name; `?name=`, paged |
 
 A code is 8 characters without look-alikes, shown `K7QM-4RXT`; send it in any
 case, dash optional. A **join QR** carries `socialpin://join/<code>`: send the
@@ -313,7 +316,10 @@ scanned text as `code` (a badge carries `https://socialpin.me/q/<token>` and goe
 to `/views/qr/:token`). Every code that doesn't work (wrong, off, ended, used
 up, an invitation-only ring, your own, a block) is one 404,
 `E_RING_JOIN_CODE_01`; 10 such tries in 15 minutes is 429 `E_RING_JOIN_CODE_02`.
-A pending invitation or request grants nothing. Details:
+A pending invitation or request grants nothing. `my-card`, `leave` and `colleagues`
+answer the views' one 404, `E_RING_ACCESS_01`, wherever they don't apply (a ring you
+were placed in has no card step or leave; colleagues while members can't see each
+other), so nothing hints at why. Details:
 [[BI-17 Ring Invitations & Join Backend Integration]].
 
 ### Ring projection — `/rings/:ringId/projection`
@@ -523,3 +529,4 @@ available yet) live in the `social-pin-docs` vault under `frontend/`.
 - 2026-11-09 · backend `main` `d8267d3` ([[BD-12 View As & Pin Views Backend Delivery]], [[D-15 Several Rings per connection, remove or disconnect]]) · *Perspectives*: they come in the order the viewer was put in the person's Rings, View 1 = `GET /views/pin` = the Shared with me row; your own start with your default Ring. No shape changed.
 - 2026-11-09 · backend local `main` `ebdca36` (not pushed yet; [[BD-14 Connections Backend Delivery]], [[D-10 Connect sends what the requester already has]], [[D-25 A deleted account's connections, requests and blocks end silently]]) · new section *Connections*: the 13 routes F-14 shipped on `1c460b0`, now with `qrToken` on send, block and relationship (the badge resolve's 404, floor and 429). `DELETE /users/me` ends the account's connections, requests and blocks. *Not yet available* no longer lists connections or Connect by scanned code. No new error code.
 - 2026-11-09 · flagged [[Frontend Contract]]: the Frontend API Guide now has a Connections section: 13 routes on backend main (F-14, 1c460b0), with qrToken on POST /connections/requests, POST /blocks and GET /connections/relationship since ebdca36 (local, not pushed yet); DELETE /users/me ends the account's connections, requests and blocks (D-25). The endpoint count and 'not yet available: connections' are out of date (/frontend)
+- 2026-11-09 · backend `main` `14c6916` ([[BD-17 Ring Invitations & Join Backend Delivery]], S-33 S10, S11) · *Joining a ring*: `GET` / `PUT /rings/:ringId/my-card`, `POST /rings/:ringId/leave`, `GET /rings/:ringId/colleagues` (four routes); Shared with me rows gain `myCardRingId` / `myCardRingName`. New code `E_RING_MEMBER_05`. Flagged [[Frontend Contract]] (/frontend).

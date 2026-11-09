@@ -16,6 +16,7 @@ tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 # ✅ Ring Access Engine · Backend Delivery
 
 > ⚠ Affected by [[BD-14 Connections Backend Delivery]] (2026-11-09): RingAccessService.resolveColleagueCard on backend branch FR-14/connection/block-a-colleague @ 7af98be (not merged): whether a person is listed to the viewer in a roster they may read (GET /rings/:ringId/colleagues rules, person-level) and with which Ring's card; POST /blocks { userId } uses it to block a colleague
+> ⚠ Affected by [[BD-17 Ring Invitations & Join Backend Delivery]] (2026-11-09): backend main 14c6916 (merge of FR-17/ring-invitation/picked-ring-and-roster) adds to RingAccessService assertKnowingMember (the member side of a Ring joined knowingly), resolveShownRings (D-34: the member's picked Ring while it is theirs and live, else their default) and resolveColleagues (the one member-facing roster, only while membersCanSeeEachOther; never the owner, the viewer or a block with either); resolvePeopleSharingWith also returns named and shownRingId. Every refusal is E_RING_ACCESS_01
 
 **Feature:** [[F-08 Ring Access Engine]] · **Status:** Done · **Integration guide:** [[BI-05 Ring Access Engine Backend Integration]] · **Requirements:** [[FR-08 Ring Access Engine Frontend Requirements]] · **QA:** [[QB-09 Ring Access Engine QA Backend]]
 

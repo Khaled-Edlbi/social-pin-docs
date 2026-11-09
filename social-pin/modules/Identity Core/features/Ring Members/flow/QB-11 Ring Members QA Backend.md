@@ -18,6 +18,8 @@ tags: [qa-backend, qa-backend/passing, module/identity, layer/qa]
 
 # 🧪 Ring Members · QA Backend
 
+> ⚠ Affected by [[BD-17 Ring Invitations & Join Backend Delivery]] (2026-11-09): backend main 14c6916: every owner write that ends or re-makes a membership (add, reassign, remove) now also clears the member's card choice (ring_members.shown_ring_id, D-34), never shown on RingMemberEntity; the member-facing roster is GET /rings/:ringId/colleagues (BD-17) (/qa)
+
 > ⚠ Affected by [[BD-17 Ring Invitations & Join Backend Delivery]] (2026-11-08): backend main 1c460b0: RingMemberEntity carries origin (PLACED, INVITATION, JOIN_CODE, JOIN_REQUEST) on every members route; add and reassign always write PLACED, even on a row first made by joining knowingly (/qa)
 
 **Feature:** [[F-09 Ring Members]] · **Verifies:** [[BD-09 Ring Members Backend Delivery]] against [[S-16 Ring Members Story]] and [[FR-09 Ring Members Frontend Requirements]], on the contract [[BI-06 Ring Members Backend Integration]] · **Verdict:** ✅ Passing · 2026-11-08 · `main @ e483d49 · localhost:3109, Node 22.22.2` · 44 of 44 rows pass; [[B-09 Re-adding a lapsed member answers 409, not a reactivation|B-09]] and [[B-10 Adding an unknown userId answers 500|B-10]] fixed and closed

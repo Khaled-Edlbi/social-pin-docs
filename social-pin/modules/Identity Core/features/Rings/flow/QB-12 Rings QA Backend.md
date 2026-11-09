@@ -18,6 +18,8 @@ tags: [qa-backend, qa-backend/passing, module/identity, layer/qa]
 
 # 🧪 Rings · QA Backend
 
+> ⚠ Affected by [[BD-17 Ring Invitations & Join Backend Delivery]] (2026-11-09): backend main 14c6916: GET /rings/shared-with-me rows gain myCardRingId and myCardRingName on a named row (null on a placed one); four new routes under /rings/:ringId (my-card, leave, colleagues), see BI-17 (/qa)
+
 > ⚠ Affected by [[BD-17 Ring Invitations & Join Backend Delivery]] (2026-11-09): backend main d8267d3 (D-15): a Shared with me row opens the oldest live membership however it was made, no longer the oldest Ring joined knowingly first; a row whose first Ring is placed names nothing even when a later Ring was joined knowingly (/qa)
 
 > ⚠ Affected by [[BD-17 Ring Invitations & Join Backend Delivery]] (2026-11-08): backend main 1c460b0: GET /rings/shared-with-me now names a Ring joined knowingly (ringName) and gives memberCount when members can see each other, and a row opens the oldest Ring joined knowingly first: the Not delivered yet line is delivered and can be run (/qa)

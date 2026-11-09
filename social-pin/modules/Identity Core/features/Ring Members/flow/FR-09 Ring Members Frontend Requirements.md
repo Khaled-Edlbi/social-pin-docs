@@ -61,7 +61,7 @@ What the client needs from the backend to build the owner's roster, the per-pers
 
 - Needs: **only when** the Ring I'm in has "members can see each other" on, the other members' cards (each member's card for that Ring), paginated, with search; refused with the same not-shared 404 when off ([[FR-08 Ring Access Engine Frontend Requirements|FR-08]]).
 - Shows: "**Members · N**" on the card; never the Ring's name (unless joined knowingly), windows, lapsed rows, waiting people, or the owner's actions; the owner isn't listed.
-- Source today: no member-facing route; the setting doesn't exist ([[S-18 Rings Story|Rings · S9]], asked in [[FR-11 Rings Frontend Requirements|FR-11]]).
+- Source today: `GET /rings/:ringId/colleagues` ✅ (backend `main` `14c6916`, [[BI-17 Ring Invitations & Join Backend Integration]]): each colleague as the card of the Ring they picked (D-34), `?name=`, paged, `meta.total` is N; 404 `E_RING_ACCESS_01` while the setting is off.
 
 ### Member side, otherwise (S7)
 
@@ -96,7 +96,7 @@ What the client needs from the backend to build the owner's roster, the per-pers
 | For one person, which of my Rings they're in, with each window, in one call | `GET /connections/:userId` (`memberships`) | ✅ | S5, S3 |
 | Disconnect (end the connection), the D-15 sheet's second choice | `DELETE /connections/:userId` | ✅ | S5 ([[D-15 Several Rings per connection, remove or disconnect\|D-15]]) |
 | **This Ring's pending join requests** (who, how, when), approve and decline | `GET /rings/:ringId/join-requests`, `POST /rings/:ringId/join-requests/:requestId/approve`, `POST /rings/:ringId/join-requests/:requestId/decline` | ✅ | S9 ([[S-33 Ring Invitations & Join Story]], shipped by [[BD-17 Ring Invitations & Join Backend Delivery]]) |
-| **The members a member may see**, when the Ring's "members can see each other" is on (each member's card for that Ring), paginated | — | ❌ | S8 (the setting: [[S-18 Rings Story\|Rings · S9]]) |
+| **The members a member may see**, when the Ring's "members can see each other" is on (each member's card for that Ring), paginated | `GET /rings/:ringId/colleagues` | ✅ | S8 (the setting: [[S-18 Rings Story\|Rings · S9]]) |
 | Scan someone in | — | not in the MVP | [[D-28 Scan someone in is not in the MVP]] |
 | Delegated admins managing the roster | every members route above | ✅ | an admin at `MEMBER_MANAGER` or above already passes the members routes |
 | Appointing a delegated admin | — | ❌ | [[S-31 Delegated Admins Story#What the backend has to build\|Delegated Admins · What the backend has to build]] |
