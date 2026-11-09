@@ -67,6 +67,7 @@
     "B-21 A failed resend restarts the countdown": "task:B-21",
     "B-22 The code's expiry counts with the phone clock": "task:B-22",
     "B-23 A deleted account opened cold lands on Home, not Welcome": "task:B-23",
+    "B-24 A suspended account stays signed in when the account read says SUSPENDED": "task:B-24",
     "BD-01 Account Backend Delivery": "backend-delivery:account",
     "BD-02 Auth & Sign-up Backend Delivery": "backend-delivery:auth",
     "BD-03 Counts Backend Delivery": "backend-delivery:counts",
@@ -402,6 +403,7 @@
     "B-21": "task:B-21",
     "B-22": "task:B-22",
     "B-23": "task:B-23",
+    "B-24": "task:B-24",
     "BD-01": "backend-delivery:account",
     "BD-02": "backend-delivery:auth",
     "BD-03": "backend-delivery:counts",
@@ -1078,7 +1080,8 @@
         "project:frontend-passwordless-migration",
         "task:B-01",
         "task:B-02",
-        "task:B-18"
+        "task:B-18",
+        "task:B-24"
       ],
       "kind": "error",
       "notes": [
@@ -1109,7 +1112,8 @@
         "story:error-contract",
         "task:B-01",
         "task:B-02",
-        "task:B-18"
+        "task:B-18",
+        "task:B-24"
       ],
       "owner": null
     },
@@ -3305,7 +3309,8 @@
         "feature:linked-accounts",
         "feature:ring-projection",
         "task:B-02",
-        "task:B-23"
+        "task:B-23",
+        "task:B-24"
       ],
       "kind": "endpoint",
       "notes": [
@@ -3325,7 +3330,8 @@
         "story:account",
         "story:counts",
         "task:B-02",
-        "task:B-23"
+        "task:B-23",
+        "task:B-24"
       ],
       "owner": "feature:account"
     },
@@ -4955,7 +4961,8 @@
         "feature:onboarding-imports",
         "needs-decision:ND-01",
         "task:B-04",
-        "task:B-23"
+        "task:B-23",
+        "task:B-24"
       ],
       "kind": "screen",
       "notes": [
@@ -4976,7 +4983,8 @@
         "story:auth",
         "story:linked-accounts",
         "task:B-04",
-        "task:B-23"
+        "task:B-23",
+        "task:B-24"
       ],
       "owner": null
     },
@@ -6572,7 +6580,8 @@
         "task:B-02",
         "task:B-03",
         "task:B-11",
-        "task:B-23"
+        "task:B-23",
+        "task:B-24"
       ],
       "kind": "screen",
       "notes": [
@@ -6635,7 +6644,8 @@
         "task:B-02",
         "task:B-03",
         "task:B-11",
-        "task:B-23"
+        "task:B-23",
+        "task:B-24"
       ],
       "owner": null
     },
@@ -6786,7 +6796,7 @@
   },
   "counts": {
     "blocked": 27,
-    "bugs": 23,
+    "bugs": 24,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 14,
@@ -6800,22 +6810,22 @@
       "qa-backend": 11,
       "qa-frontend": 2,
       "story": 41,
-      "task": 23
+      "task": 24
     },
     "byLayer": {
       "backend": 61,
-      "business": 178,
+      "business": 179,
       "frontend": 54,
       "qa": 13,
       "shared": 10
     },
     "concepts": 323,
     "decisions": 34,
-    "edges": 7906,
+    "edges": 7955,
     "features": 41,
     "layerNotes": 157,
     "modules": 8,
-    "notes": 347,
+    "notes": 348,
     "partial": 14,
     "placeholders": 128,
     "records": 33
@@ -44252,6 +44262,14 @@
       ]
     },
     {
+      "from": "task:B-18",
+      "kind": "related",
+      "to": "task:B-24",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
       "from": "task:B-19",
       "kind": "related",
       "to": "frontend-delivery:auth"
@@ -44765,6 +44783,274 @@
       "to": "task:B-02",
       "via": [
         "E_USER_01",
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "task:B-23",
+      "kind": "related",
+      "to": "task:B-24",
+      "via": [
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "task:B-24",
+      "kind": "related",
+      "to": "backend-delivery:account",
+      "via": [
+        "E_AUTH_03",
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "task:B-24",
+      "kind": "related",
+      "to": "backend-delivery:auth",
+      "via": [
+        "E_AUTH_03",
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "task:B-24",
+      "kind": "related",
+      "to": "backend-delivery:view-as",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "task:B-24",
+      "kind": "related",
+      "to": "backend-integration:account",
+      "via": [
+        "E_AUTH_03",
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "task:B-24",
+      "kind": "related",
+      "to": "backend-integration:auth",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "task:B-24",
+      "kind": "related",
+      "to": "decision:D-20",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "task:B-24",
+      "kind": "related",
+      "to": "frontend-delivery:account",
+      "via": [
+        "E_AUTH_03",
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "task:B-24",
+      "kind": "related",
+      "to": "frontend-delivery:auth",
+      "via": [
+        "E_AUTH_03",
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "task:B-24",
+      "kind": "related",
+      "to": "frontend-requirements:account",
+      "via": [
+        "E_AUTH_03",
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "task:B-24",
+      "kind": "related",
+      "to": "frontend-requirements:auth",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "task:B-24",
+      "kind": "related",
+      "to": "frontend-requirements:badge-qr",
+      "via": [
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "task:B-24",
+      "kind": "related",
+      "to": "frontend-requirements:devices",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "task:B-24",
+      "kind": "related",
+      "to": "frontend-requirements:error-contract",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "task:B-24",
+      "kind": "related",
+      "to": "frontend-requirements:linked-accounts",
+      "via": [
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "task:B-24",
+      "kind": "related",
+      "to": "frontend-requirements:ring-projection",
+      "via": [
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "task:B-24",
+      "kind": "related",
+      "to": "frontend-requirements:view-as",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "task:B-24",
+      "kind": "related",
+      "to": "needs-decision:ND-20",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "task:B-24",
+      "kind": "related",
+      "to": "project:auth-model",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "task:B-24",
+      "kind": "related",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "task:B-24",
+      "kind": "related",
+      "to": "project:frontend-passwordless-migration",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "task:B-24",
+      "kind": "related",
+      "to": "qa-backend:account",
+      "via": [
+        "E_AUTH_03",
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "task:B-24",
+      "kind": "related",
+      "to": "qa-backend:auth",
+      "via": [
+        "E_AUTH_03",
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "task:B-24",
+      "kind": "related",
+      "to": "qa-backend:view-as",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "task:B-24",
+      "kind": "related",
+      "to": "qa-frontend:account",
+      "via": [
+        "E_AUTH_03",
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "task:B-24",
+      "kind": "related",
+      "to": "qa-frontend:auth",
+      "via": [
+        "E_AUTH_03",
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "task:B-24",
+      "kind": "related",
+      "to": "story:account",
+      "via": [
+        "E_AUTH_03",
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "task:B-24",
+      "kind": "related",
+      "to": "story:auth",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "task:B-24",
+      "kind": "related",
+      "to": "story:counts",
+      "via": [
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "task:B-24",
+      "kind": "related",
+      "to": "story:error-contract",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "task:B-24",
+      "kind": "related",
+      "to": "task:B-01",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "task:B-24",
+      "kind": "related",
+      "to": "task:B-02",
+      "via": [
+        "E_AUTH_03",
         "GET /users/me"
       ]
     },
@@ -45636,6 +45922,14 @@
       ]
     },
     {
+      "from": "decision:D-20",
+      "kind": "shares",
+      "to": "task:B-24",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
       "from": "decision:D-24",
       "kind": "shares",
       "to": "feature:badge-qr",
@@ -46336,6 +46630,15 @@
       "to": "task:B-23",
       "via": [
         "E_USER_01",
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "feature:account",
+      "kind": "shares",
+      "to": "task:B-24",
+      "via": [
+        "E_AUTH_03",
         "GET /users/me"
       ]
     },
@@ -47302,6 +47605,15 @@
       ]
     },
     {
+      "from": "feature:auth",
+      "kind": "shares",
+      "to": "task:B-24",
+      "via": [
+        "E_AUTH_03",
+        "GET /users/me"
+      ]
+    },
+    {
       "from": "feature:badge-qr",
       "kind": "shares",
       "to": "feature:cleanup-jobs",
@@ -47790,6 +48102,14 @@
       "from": "feature:badge-qr",
       "kind": "shares",
       "to": "task:B-23",
+      "via": [
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "feature:badge-qr",
+      "kind": "shares",
+      "to": "task:B-24",
       "via": [
         "GET /users/me"
       ]
@@ -49650,6 +49970,14 @@
       ]
     },
     {
+      "from": "feature:counts",
+      "kind": "shares",
+      "to": "task:B-24",
+      "via": [
+        "GET /users/me"
+      ]
+    },
+    {
       "from": "feature:delegated-admins",
       "kind": "shares",
       "to": "feature:devices",
@@ -50231,6 +50559,14 @@
       "from": "feature:devices",
       "kind": "shares",
       "to": "task:B-18",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "feature:devices",
+      "kind": "shares",
+      "to": "task:B-24",
       "via": [
         "E_AUTH_03"
       ]
@@ -50926,6 +51262,14 @@
       "to": "task:B-23",
       "via": [
         "E_USER_01"
+      ]
+    },
+    {
+      "from": "feature:error-contract",
+      "kind": "shares",
+      "to": "task:B-24",
+      "via": [
+        "E_AUTH_03"
       ]
     },
     {
@@ -52527,6 +52871,14 @@
       "from": "feature:linked-accounts",
       "kind": "shares",
       "to": "task:B-23",
+      "via": [
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "feature:linked-accounts",
+      "kind": "shares",
+      "to": "task:B-24",
       "via": [
         "GET /users/me"
       ]
@@ -55015,6 +55367,14 @@
       ]
     },
     {
+      "from": "feature:ring-projection",
+      "kind": "shares",
+      "to": "task:B-24",
+      "via": [
+        "GET /users/me"
+      ]
+    },
+    {
       "from": "feature:rings",
       "kind": "shares",
       "to": "feature:view-as",
@@ -55591,6 +55951,14 @@
       ]
     },
     {
+      "from": "feature:view-as",
+      "kind": "shares",
+      "to": "task:B-24",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
       "from": "feature:widgets",
       "kind": "shares",
       "to": "needs-decision:ND-10",
@@ -56115,6 +56483,14 @@
       ]
     },
     {
+      "from": "needs-decision:ND-20",
+      "kind": "shares",
+      "to": "task:B-24",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
       "from": "needs-decision:ND-21",
       "kind": "shares",
       "to": "project:frontend-contract",
@@ -56353,6 +56729,14 @@
       "to": "task:B-23",
       "via": [
         "E_USER_01"
+      ]
+    },
+    {
+      "from": "project:auth-model",
+      "kind": "shares",
+      "to": "task:B-24",
+      "via": [
+        "E_AUTH_03"
       ]
     },
     {
@@ -56610,6 +56994,14 @@
       ]
     },
     {
+      "from": "project:frontend-api-guide",
+      "kind": "shares",
+      "to": "task:B-24",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
       "from": "project:frontend-contract",
       "kind": "shares",
       "to": "project:frontend-passwordless-migration",
@@ -56823,6 +57215,14 @@
       "to": "task:B-21",
       "via": [
         "POST /auth/request-code"
+      ]
+    },
+    {
+      "from": "project:frontend-passwordless-migration",
+      "kind": "shares",
+      "to": "task:B-24",
+      "via": [
+        "E_AUTH_03"
       ]
     },
     {
@@ -58646,6 +59046,11 @@
       "from": "frontend-delivery:account",
       "kind": "tree",
       "to": "task:B-23"
+    },
+    {
+      "from": "frontend-delivery:account",
+      "kind": "tree",
+      "to": "task:B-24"
     },
     {
       "from": "frontend-delivery:auth",
@@ -65206,6 +65611,11 @@
       "from": "task:B-22",
       "kind": "wikilink",
       "to": "feature:auth"
+    },
+    {
+      "from": "task:B-24",
+      "kind": "wikilink",
+      "to": "feature:account"
     }
   ],
   "emoji": {
@@ -65432,6 +65842,10 @@
     },
     "social-pin/bugs/B-23 A deleted account opened cold lands on Home, not Welcome.md": {
       "name": "B-23 A deleted account opened cold lands on Home, not Welcome",
+      "type": "bug"
+    },
+    "social-pin/bugs/B-24 A suspended account stays signed in when the account read says SUSPENDED.md": {
+      "name": "B-24 A suspended account stays signed in when the account read says SUSPENDED",
       "type": "bug"
     },
     "social-pin/business/Feature Graph.md": {
@@ -66950,6 +67364,7 @@
         "task:B-18",
         "task:B-22",
         "task:B-23",
+        "task:B-24",
         "needs-decision:ND-30",
         "decision:D-30",
         "task:B-01",
@@ -67160,6 +67575,7 @@
         "task:B-21",
         "task:B-22",
         "task:B-23",
+        "task:B-24",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-delivery:account",
@@ -70158,6 +70574,7 @@
         "task:B-17",
         "task:B-18",
         "task:B-23",
+        "task:B-24",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -70321,6 +70738,7 @@
         "task:B-18",
         "task:B-22",
         "task:B-23",
+        "task:B-24",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-delivery:account",
@@ -70481,6 +70899,7 @@
         "task:B-21",
         "task:B-22",
         "task:B-23",
+        "task:B-24",
         "needs-decision:ND-20",
         "needs-decision:ND-30",
         "decision:D-20",
@@ -74627,6 +75046,7 @@
         "task:B-01",
         "task:B-18",
         "task:B-22",
+        "task:B-24",
         "needs-decision:ND-20",
         "needs-decision:ND-30",
         "backend-integration:auth",
@@ -75772,7 +76192,7 @@
         "done": 2,
         "partial": 3,
         "passing": 1,
-        "todo": 1,
+        "todo": 2,
         "verified": 1
       },
       "scope": null,
@@ -79088,7 +79508,8 @@
       "blockedBy": [],
       "card": "FD-04",
       "children": [
-        "task:B-23"
+        "task:B-23",
+        "task:B-24"
       ],
       "code": "account",
       "created": "2026-10-26",
@@ -79111,7 +79532,8 @@
       "layer": "frontend",
       "module": "identity",
       "openBugs": [
-        "task:B-23"
+        "task:B-23",
+        "task:B-24"
       ],
       "parentTask": null,
       "parents": [
@@ -79124,6 +79546,7 @@
         "task:B-03",
         "task:B-18",
         "task:B-23",
+        "task:B-24",
         "needs-decision:ND-20",
         "decision:D-20",
         "backend-delivery:account",
@@ -79322,6 +79745,7 @@
         "task:B-21",
         "task:B-22",
         "task:B-23",
+        "task:B-24",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-integration:connections",
@@ -81631,6 +82055,7 @@
         "task:B-17",
         "task:B-18",
         "task:B-23",
+        "task:B-24",
         "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:account",
@@ -81851,6 +82276,7 @@
         "task:B-18",
         "task:B-21",
         "task:B-22",
+        "task:B-24",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-integration:connections",
@@ -81949,6 +82375,7 @@
         "task:B-13",
         "task:B-17",
         "task:B-23",
+        "task:B-24",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -82811,6 +83238,7 @@
       "related": [
         "task:B-03",
         "task:B-18",
+        "task:B-24",
         "backend-delivery:account",
         "backend-integration:account",
         "qa-backend:auth",
@@ -83005,6 +83433,7 @@
         "task:B-05",
         "task:B-18",
         "task:B-23",
+        "task:B-24",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-delivery:account",
@@ -83688,6 +84117,7 @@
         "task:B-04",
         "task:B-22",
         "task:B-23",
+        "task:B-24",
         "backend-delivery:account",
         "backend-integration:account",
         "qa-backend:auth",
@@ -84973,6 +85403,7 @@
         "task:B-15",
         "task:B-17",
         "task:B-23",
+        "task:B-24",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-requirements:connections",
@@ -85345,6 +85776,7 @@
         "task:B-17",
         "task:B-18",
         "task:B-23",
+        "task:B-24",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -86060,7 +86492,7 @@
         "needs-decision": 1,
         "partial": 12,
         "passing": 7,
-        "todo": 6,
+        "todo": 7,
         "verified": 10
       },
       "scope": null,
@@ -87513,6 +87945,7 @@
         "task:B-01",
         "task:B-18",
         "task:B-22",
+        "task:B-24",
         "backend-integration:auth",
         "frontend-delivery:account",
         "project:auth-model",
@@ -89081,6 +89514,7 @@
         "task:B-03",
         "task:B-18",
         "task:B-23",
+        "task:B-24",
         "needs-decision:ND-20",
         "needs-decision:ND-30",
         "decision:D-30",
@@ -89663,6 +90097,7 @@
         "task:B-16",
         "task:B-17",
         "task:B-18",
+        "task:B-24",
         "needs-decision:ND-30",
         "decision:D-16",
         "decision:D-30",
@@ -89864,6 +90299,7 @@
         "task:B-18",
         "task:B-21",
         "task:B-22",
+        "task:B-24",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-delivery:account",
@@ -90657,6 +91093,7 @@
         "task:B-18",
         "task:B-22",
         "task:B-23",
+        "task:B-24",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-integration:connections",
@@ -90802,6 +91239,7 @@
         "task:B-21",
         "task:B-22",
         "task:B-23",
+        "task:B-24",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-integration:connections",
@@ -93503,6 +93941,7 @@
         "task:B-17",
         "task:B-18",
         "task:B-23",
+        "task:B-24",
         "decision:D-16",
         "backend-delivery:connections",
         "backend-integration:connections",
@@ -93723,6 +94162,7 @@
         "task:B-03",
         "task:B-18",
         "task:B-23",
+        "task:B-24",
         "backend-delivery:account",
         "backend-integration:account",
         "frontend-requirements:account",
@@ -93925,6 +94365,7 @@
         "task:B-21",
         "task:B-22",
         "task:B-23",
+        "task:B-24",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-integration:connections",
@@ -95850,7 +96291,7 @@
         "passing": 7,
         "ready": 1,
         "reference": 32,
-        "todo": 9,
+        "todo": 10,
         "verified": 33
       },
       "scope": null,
@@ -95900,6 +96341,7 @@
         "task:B-18",
         "task:B-22",
         "task:B-23",
+        "task:B-24",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-delivery:account",
@@ -96087,6 +96529,7 @@
         "task:B-20",
         "task:B-21",
         "task:B-22",
+        "task:B-24",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-integration:connections",
@@ -96735,6 +97178,7 @@
       "related": [
         "task:B-13",
         "task:B-23",
+        "task:B-24",
         "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-integration:account",
@@ -97110,6 +97554,7 @@
         "task:B-05",
         "task:B-15",
         "task:B-18",
+        "task:B-24",
         "needs-decision:ND-19",
         "needs-decision:ND-30",
         "decision:D-19",
@@ -99083,6 +99528,7 @@
         "decision:D-20",
         "task:B-18",
         "task:B-22",
+        "task:B-24",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-delivery:account",
@@ -99179,6 +99625,7 @@
         "task:B-13",
         "task:B-18",
         "task:B-23",
+        "task:B-24",
         "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-integration:account",
@@ -100646,6 +101093,7 @@
         "story:auth",
         "task:B-01",
         "task:B-02",
+        "task:B-24",
         "needs-decision:ND-20",
         "decision:D-20",
         "backend-delivery:account",
@@ -101001,6 +101449,7 @@
         "qa-frontend:account",
         "story:account",
         "task:B-02",
+        "task:B-24",
         "frontend-requirements:badge-qr",
         "backend-delivery:account",
         "backend-integration:account",
@@ -101040,6 +101489,97 @@
       ],
       "task": null,
       "title": "B-23 A deleted account opened cold lands on Home, not Welcome",
+      "unmet": [],
+      "updated": "2026-11-09"
+    },
+    "task:B-24": {
+      "affects": [],
+      "blockedBy": [],
+      "card": "B-24",
+      "children": [],
+      "code": "B-24",
+      "created": "2026-11-09",
+      "deadline": null,
+      "decision": null,
+      "depends": [],
+      "dir": null,
+      "effectiveStatus": "todo",
+      "effort": "S",
+      "feature": "account",
+      "foundOn": "FD-04 Account Frontend Delivery",
+      "frontendOnly": false,
+      "id": "task:B-24",
+      "inherits": {
+        "release": "feature:account"
+      },
+      "kind": "task",
+      "label": "Bug",
+      "labels": [
+        "bug"
+      ],
+      "layer": "business",
+      "module": "identity",
+      "openBugs": [],
+      "parentTask": null,
+      "parents": [
+        "frontend-delivery:account"
+      ],
+      "path": "social-pin/bugs/B-24 A suspended account stays signed in when the account read says SUSPENDED.md",
+      "pending": [],
+      "priority": "medium",
+      "related": [
+        "task:B-18",
+        "task:B-23",
+        "frontend-delivery:account",
+        "qa-frontend:account",
+        "story:account",
+        "task:B-02",
+        "frontend-requirements:badge-qr",
+        "backend-delivery:account",
+        "backend-integration:account",
+        "frontend-requirements:account",
+        "qa-backend:account",
+        "backend-delivery:auth",
+        "frontend-delivery:auth",
+        "qa-backend:auth",
+        "qa-frontend:auth",
+        "story:counts",
+        "frontend-requirements:ring-projection",
+        "frontend-requirements:linked-accounts",
+        "task:B-01",
+        "needs-decision:ND-20",
+        "decision:D-20",
+        "backend-integration:auth",
+        "frontend-requirements:auth",
+        "story:auth",
+        "backend-delivery:view-as",
+        "frontend-requirements:view-as",
+        "qa-backend:view-as",
+        "frontend-requirements:devices",
+        "frontend-requirements:error-contract",
+        "story:error-contract",
+        "project:auth-model",
+        "project:frontend-api-guide",
+        "project:frontend-passwordless-migration"
+      ],
+      "release": "mvp",
+      "resolution": null,
+      "rollup": {},
+      "scope": null,
+      "screens": [
+        "s68",
+        "s01"
+      ],
+      "status": "todo",
+      "summary": "The fix is /frontend's. It sets in-progress when it starts and ready when the fix ships; QA re-runs AC-33 and closes or reopens it.",
+      "tags": [
+        "bug",
+        "bug/todo",
+        "module/identity",
+        "priority/medium"
+      ],
+      "task": null,
+      "title": "B-24 A suspended account stays signed in when the account read says SUSPENDED",
       "unmet": [],
       "updated": "2026-11-09"
     }
