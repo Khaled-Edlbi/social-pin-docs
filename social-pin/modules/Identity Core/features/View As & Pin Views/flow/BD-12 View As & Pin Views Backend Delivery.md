@@ -14,6 +14,8 @@ tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 
 # ✅ View As & Pin Views · Backend Delivery
 
+> ⚠ Affected by [[S-19 View As & Pin Views Story]] (2026-11-09): S-19 S4/S5 now follow D-15 (2026-11-09, khaled): GET /views/pin and the perspectives list start from the Ring the viewer was put in first (oldest live membership), then the others in the order they were added; the owner's own lookup keeps their default Ring first; backend work for /backend
+
 > ⚠ Affected by [[BD-07 Profiles & Pin Name Backend Delivery]] (2026-11-05): backend main a249ab2: a Ring's viewer view now shows the main profile's bio, and its photo as avatarUrl, while the Ring sets none (S-14 S11); the main photo's file id never reaches the viewer (avatarFileId stays the Ring's own); for /backend
 
 **Feature:** [[F-12 View As & Pin Views]] · **Status:** Done · **Integration guide:** [[BI-09 View As & Pin Views Backend Integration]] · **Requirements:** [[FR-12 View As & Pin Views Frontend Requirements]] · **QA:** [[QB-14 View As & Pin Views QA Backend]]

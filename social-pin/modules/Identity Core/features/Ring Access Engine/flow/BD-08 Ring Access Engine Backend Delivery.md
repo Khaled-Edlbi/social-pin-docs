@@ -15,6 +15,8 @@ tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 
 # ✅ Ring Access Engine · Backend Delivery
 
+> ⚠ Affected by [[S-19 View As & Pin Views Story]] (2026-11-09): S-19 S4/S5 now follow D-15 (2026-11-09, khaled): GET /views/pin and the perspectives list start from the Ring the viewer was put in first (oldest live membership), then the others in the order they were added; the owner's own lookup keeps their default Ring first; resolveAccessibleRings orders by the viewer's membership, for /backend
+
 > ⚠ Affected by [[BD-17 Ring Invitations & Join Backend Delivery]] (2026-11-08): RingAccessService on FR-17/ring-invitation/invitations-codes-origin (not merged): isRingNamedToMember reads RingMember.origin; new ringOpenFilter, isRingOpen, joinPolicyAllowsCodes, assertCanInvite, ownerNotBlockedWithFilter; the Shared with me row prefers a Ring joined knowingly
 
 **Feature:** [[F-08 Ring Access Engine]] · **Status:** Done · **Integration guide:** [[BI-05 Ring Access Engine Backend Integration]] · **Requirements:** [[FR-08 Ring Access Engine Frontend Requirements]] · **QA:** [[QB-09 Ring Access Engine QA Backend]]
