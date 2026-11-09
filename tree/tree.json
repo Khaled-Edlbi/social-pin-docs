@@ -76903,11 +76903,10 @@
         "approved": 1,
         "decided": 1,
         "delivered": 2,
-        "done": 6,
+        "done": 7,
         "failing": 1,
         "partial": 2,
         "passing": 1,
-        "todo": 1,
         "verified": 1
       },
       "scope": null,
@@ -80249,9 +80248,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "identity",
-      "openBugs": [
-        "task:B-27"
-      ],
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:account"
@@ -87230,7 +87227,7 @@
         "current": 4,
         "decided": 10,
         "delivered": 13,
-        "done": 35,
+        "done": 36,
         "draft": 3,
         "failing": 2,
         "in-progress": 13,
@@ -87238,7 +87235,7 @@
         "needs-decision": 1,
         "partial": 11,
         "passing": 7,
-        "todo": 6,
+        "todo": 5,
         "verified": 10
       },
       "scope": null,
@@ -97106,7 +97103,7 @@
         "current": 7,
         "decided": 33,
         "delivered": 14,
-        "done": 38,
+        "done": 39,
         "draft": 26,
         "failing": 2,
         "in-progress": 47,
@@ -97116,7 +97113,7 @@
         "passing": 7,
         "ready": 1,
         "reference": 32,
-        "todo": 9,
+        "todo": 8,
         "verified": 33
       },
       "scope": null,
@@ -102564,7 +102561,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "todo",
+      "effectiveStatus": "done",
       "effort": "S",
       "feature": "account",
       "foundOn": "FD-04 Account Frontend Delivery",
@@ -102594,19 +102591,20 @@
         "story:account"
       ],
       "release": "mvp",
-      "resolution": null,
+      "resolution": "fixed",
       "rollup": {},
       "scope": null,
       "screens": [
         "s68"
       ],
-      "status": "todo",
+      "status": "done",
       "summary": "The fix is /frontend's. It sets in-progress when it starts and ready when the fix ships; QA re-runs AC-40 and closes or reopens it.",
       "tags": [
         "bug",
-        "bug/todo",
+        "bug/done",
         "module/identity",
-        "priority/low"
+        "priority/low",
+        "resolution/fixed"
       ],
       "task": null,
       "title": "B-27 Opening the phone sheet throws an invisible semantics node error",
