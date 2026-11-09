@@ -4353,6 +4353,7 @@
     },
     "POST /auth/logout-everywhere": {
       "containers": [
+        "feature:account",
         "feature:audit-log",
         "feature:auth",
         "feature:devices",
@@ -4364,6 +4365,7 @@
         "backend-delivery:auth",
         "backend-delivery:devices",
         "backend-integration:auth",
+        "frontend-delivery:account",
         "frontend-delivery:auth",
         "frontend-requirements:audit-log",
         "frontend-requirements:auth",
@@ -6941,6 +6943,7 @@
       "notes": [
         "backend-delivery:subscription",
         "feature:subscription",
+        "frontend-delivery:account",
         "frontend-requirements:subscription",
         "needs-decision:ND-07",
         "qa-frontend:account",
@@ -7041,6 +7044,7 @@
     },
     "s75": {
       "containers": [
+        "feature:account",
         "feature:auth",
         "feature:devices"
       ],
@@ -7048,6 +7052,7 @@
       "notes": [
         "backend-delivery:devices",
         "feature:devices",
+        "frontend-delivery:account",
         "frontend-delivery:auth",
         "frontend-requirements:auth",
         "frontend-requirements:devices",
@@ -34235,7 +34240,8 @@
         "E_AUTH_03",
         "E_AUTH_04",
         "E_USER_01",
-        "POST /auth/logout"
+        "POST /auth/logout",
+        "POST /auth/logout-everywhere"
       ]
     },
     {
@@ -43074,7 +43080,8 @@
         "E_AUTH_04",
         "E_USER_01",
         "GET /users/me",
-        "POST /auth/logout"
+        "POST /auth/logout",
+        "POST /auth/logout-everywhere"
       ]
     },
     {
@@ -50312,7 +50319,8 @@
       "kind": "shares",
       "to": "feature:audit-log",
       "via": [
-        "POST /auth/login/verify"
+        "POST /auth/login/verify",
+        "POST /auth/logout-everywhere"
       ]
     },
     {
@@ -50330,6 +50338,7 @@
         "POST /auth/login",
         "POST /auth/login/verify",
         "POST /auth/logout",
+        "POST /auth/logout-everywhere",
         "POST /auth/refresh",
         "POST /auth/sign-up"
       ]
@@ -50414,6 +50423,7 @@
       "via": [
         "E_AUTH_03",
         "E_AUTH_04",
+        "POST /auth/logout-everywhere",
         "POST /auth/refresh"
       ]
     },
@@ -50688,6 +50698,7 @@
         "GET /rings",
         "GET /users/:id",
         "GET /views/qr/:token",
+        "POST /auth/logout-everywhere",
         "POST /auth/refresh"
       ]
     },
@@ -50711,6 +50722,7 @@
         "POST /auth/login",
         "POST /auth/login/verify",
         "POST /auth/logout",
+        "POST /auth/logout-everywhere",
         "POST /auth/refresh",
         "POST /auth/sign-up"
       ]
@@ -84120,7 +84132,9 @@
       "resolution": null,
       "scope": "feature",
       "screens": [
-        "s68"
+        "s68",
+        "s70",
+        "s75"
       ],
       "status": "done",
       "summary": "What the client shipped for the account section of Me, on socialpin main @ 47ce960 (s68 in 99b97e7, the account kept current and the sign-out states in e032a48, the Privacy rows in 47ce960; delete…",
@@ -84133,7 +84147,7 @@
       "task": null,
       "title": "FD-04 Account Frontend Delivery",
       "unmet": [],
-      "updated": "2026-11-05"
+      "updated": "2026-11-09"
     },
     "frontend-delivery:app-shell": {
       "affects": [],
