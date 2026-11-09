@@ -8,7 +8,7 @@ scope: feature
 screens: [s10, s31, s44, s62]
 depends: ["BD-12 View As & Pin Views Backend Delivery", "S-19 View As & Pin Views Story"]
 affects: ["BI-09 View As & Pin Views Backend Integration"]
-related: ["BI-09 View As & Pin Views Backend Integration", "FR-12 View As & Pin Views Frontend Requirements", "D-16 Files load from signed links that expire in 15 minutes", "BD-08 Ring Access Engine Backend Delivery", "BD-10 Ring Projection Backend Delivery", "BI-07 Ring Projection Backend Integration", "S-17 Ring Projection Story", "D-02 One main profile every Ring starts from", "D-05 Inherit per field, copy without members", "BI-03 Files Upload Backend Integration", "QB-06 Files Upload QA Backend", "S-87 Error Contract Story", "B-17 A new Ring answers 404 to its own owner until its projection is opened", "GET /views/pin/:pinName", "GET /views/ring/:ringId", "GET /views/user/:userId/perspectives", "GET /files/content/:token", E_AUTH_03, E_USER_01, E_FILE_01]
+related: ["BI-09 View As & Pin Views Backend Integration", "FR-12 View As & Pin Views Frontend Requirements", "D-16 Files load from signed links that expire in 15 minutes", "BD-08 Ring Access Engine Backend Delivery", "BD-10 Ring Projection Backend Delivery", "BI-07 Ring Projection Backend Integration", "S-17 Ring Projection Story", "D-02 One main profile every Ring starts from", "D-05 Inherit per field, copy without members", "D-15 Several Rings per connection, remove or disconnect", "BI-03 Files Upload Backend Integration", "QB-06 Files Upload QA Backend", "S-87 Error Contract Story", "B-17 A new Ring answers 404 to its own owner until its projection is opened", "GET /views/pin/:pinName", "GET /views/ring/:ringId", "GET /views/user/:userId/perspectives", "GET /files/content/:token", E_AUTH_03, E_USER_01, E_FILE_01]
 pending: ["[[BD-12 View As & Pin Views Backend Delivery]]: row B32 re-run once BD-08 decides what a non-member gets for an expired Ring"]
 unmet: []
 created: 2026-11-05
@@ -18,11 +18,9 @@ tags: [qa-backend, qa-backend/passing, module/identity, layer/qa]
 
 # 🧪 View As & Pin Views · QA Backend
 
-> ⚠ Affected by [[S-19 View As & Pin Views Story]] (2026-11-09): S-19 S4/S5 now follow D-15 (2026-11-09, khaled): GET /views/pin and the perspectives list start from the Ring the viewer was put in first (oldest live membership), then the others in the order they were added; the owner's own lookup keeps their default Ring first; the perspectives-order rows change, for /qa after the backend change ships
-
 > Blocked by default until [[BD-12 View As & Pin Views Backend Delivery]] is `done` (the hand-off order in `docs.config.json`); `blockedBy: []` opts out, `blockedBy: [...]` names other blockers.
 
-**Feature:** [[F-12 View As & Pin Views]] · **Verifies:** [[BD-12 View As & Pin Views Backend Delivery]] against [[S-19 View As & Pin Views Story]] and [[FR-12 View As & Pin Views Frontend Requirements]], with the shapes and errors of [[BI-09 View As & Pin Views Backend Integration]] · **Verdict:** 🟢 Passing · 2026-11-08 · `main @ cb95a39 · localhost:3112, Node 22.22.2` · 72 of 72 delivered rows as expected, 1 not delivered yet (B32, BD-12 pending)
+**Feature:** [[F-12 View As & Pin Views]] · **Verifies:** [[BD-12 View As & Pin Views Backend Delivery]] against [[S-19 View As & Pin Views Story]] and [[FR-12 View As & Pin Views Frontend Requirements]], with the shapes and errors of [[BI-09 View As & Pin Views Backend Integration]] · **Verdict:** 🟢 Passing · 2026-11-09 · `main @ d8267d3 · localhost:3112, Node 22.22.2` · 74 of 74 delivered rows as expected, 1 not delivered yet (B32, BD-12 pending)
 
 Expected behaviour of the API, as artefacts a person can check a build against: tables and diagrams, **not test code** (the specs live in the backend repo). `status: passing` or `failing` after a run; the verdict tells the PM whether the story can be fulfilled (passing with nothing pending or unmet). A failing row is one of two things: a story part the delivery does not fulfil (not built, or built other than the story says) goes in `unmet` and turns the story's badge ✕; a bug (built as asked, but it breaks) is filed against the Backend Integration and goes in `pending`, and leaves the story alone.
 
@@ -32,9 +30,9 @@ Expected behaviour of the API, as artefacts a person can check a build against: 
 
 **Not covered.** S2's owner face ("where each field goes") is worked out on the phone. S3's scan context, S7's Save contact and the screens' copy and motion are client work: the QA Frontend covers them. Connect, Block as a feature and the QR token are other features ([[S-23 Connections Story|Connections]], [[F-18 Badge & QR]]); the block rows here insert the block row directly, as below. `widgets[]` is on the view but no route writes a widget yet ([[BD-13 Widgets Backend Delivery]]), so it is checked only as an empty list.
 
-**Accounts.** Seeded demo accounts, signed in with the one-time code from `devCode`: **Sara** (`SaraAz`, the owner), **Omar** (`OmarK`, a member of Sara's *My Ring* (her default), *E-commerce Clients* and *Family*, and of the Rings the run creates), the **organizer** (`GulfExpo`, a member of *E-commerce Clients* and *Family*, not of her default) and the **admin** (`SPAdmin`, in no Ring of Sara's: the stranger). Two accounts were signed up for the auth rows, **dina** and **eli**; on 2026-11-08 dina was also added to *Fresh* alone for B64. Memberships, files, attachments, custom fields and the run's Rings (*TechSummit*, *FutureLaunch* starting 2027-01-01, *ToDelete*, *Fresh*) were made through the API. On *E-commerce Clients*: a hidden Telegram link (seeded), a hidden custom field "Private note", a hidden attachment "Internal margins", a visible custom field "Terms", a visible attachment "Price list" and a Ring photo. Sara's profile got `gender` and `maritalStatus` so that every sensitive field has a value.
+**Accounts.** Seeded demo accounts, signed in with the one-time code from `devCode`: **Sara** (`SaraAz`, the owner), **Omar** (`OmarK`, put in Sara's *E-commerce Clients* first (by the seed), then *My Ring* (her default), *Family* and the Rings the run creates, in that order), the **organizer** (`GulfExpo`, put in *Family* first (by the seed), then *E-commerce Clients*, which is the older Ring; added to *My Ring* last, in B75) and the **admin** (`SPAdmin`, in no Ring of Sara's: the stranger). Two accounts were signed up for the auth rows, **dina** and **eli**; on 2026-11-08 dina was also added to *Fresh* alone for B64. Memberships, files, attachments, custom fields and the run's Rings (*TechSummit*, *FutureLaunch* starting 2027-01-01, *ToDelete*, *Fresh*) were made through the API. On *E-commerce Clients*: a hidden Telegram link (seeded), a hidden custom field "Private note", a hidden attachment "Internal margins", a visible custom field "Terms", a visible attachment "Price list" and a Ring photo. Sara's profile got `gender` and `maritalStatus` so that every sensitive field has a value.
 
-**Set in the database.** These states have no route yet, so they were written with SQL through the project's `pg` package, in the throwaway database `social_pin_qa_f12` only (never `social_pin`): a `user_blocks` row in each direction between Sara and the organizer (then deleted), `rings.expires_at` in the past on *TechSummit*, `ring_members.expires_at` in the past on the organizer's *E-commerce Clients* membership (then cleared), `users.status` `SUSPENDED` on dina and `DELETED` on eli.
+**Set in the database.** These states have no route yet, so they were written with SQL through the project's `pg` package, in the throwaway database `social_pin_qa_f12` only (never `social_pin`): a `user_blocks` row in each direction between Sara and the organizer (then deleted), `rings.expires_at` in the past on *TechSummit*, `ring_members.expires_at` in the past on the organizer's *Family* membership, their first (then cleared), `users.status` `SUSPENDED` on dina and `DELETED` on eli.
 
 ## Expected behaviour
 
@@ -56,17 +54,19 @@ Expected behaviour of the API, as artefacts a person can check a build against: 
 | # | Given | When | Then | Checked |
 |---|---|---|---|---|
 | B7 | Sara | `GET /views/pin/SaraAz` (her own handle) | 200, her **default** Ring's view (*My Ring*) | ✅ |
-| B8 | Omar, in Sara's default Ring and five others | `GET /views/pin/SaraAz` | 200, the default Ring's view (*My Ring*) | ✅ |
-| B9 | the organizer, in *E-commerce Clients* and *Family*, not the default | `GET /views/pin/SaraAz` | 200, the **oldest** Ring they can see (*E-commerce Clients*) | ✅ |
-| B10 | the organizer | `GET /views/pin/saraaz` | 200, the same view as B9: the handle is matched normalised | ✅ |
+| B8 | Omar, in Sara's default *My Ring*, but put in *E-commerce Clients* first ([[D-15 Several Rings per connection, remove or disconnect]]) | `GET /views/pin/SaraAz` | 200, the Ring he was **put in first** (*E-commerce Clients*), **not the default** | ✅ |
+| B9 | the organizer, put in *Family* first, then *E-commerce Clients* (the older Ring) | `GET /views/pin/SaraAz` | 200, the Ring they were put in first (*Family*), not the oldest Ring | ✅ |
+| B10 | the organizer | `GET /views/pin/saraaz` | 200, the same view as B9 (*Family*): the handle is matched normalised | ✅ |
 | B11 | the admin, in none of Sara's Rings | `GET /views/pin/SaraAz` | 404 `E_RING_ACCESS_01` "This profile is not shared with you" | ✅ |
 | B12 | the admin | `GET /views/pin/NoSuchPinXyz` | 404, **the same body as B11** apart from `path` and `timestamp` | ✅ |
 | B13 | the admin | `GET /views/pin/!!bad%20name` | 404, the same body as B11 apart from `path` and `timestamp` (no route validates a Pin name) | ✅ |
 | B14 | Sara blocked the organizer | the organizer: `GET /views/pin/SaraAz` | 404, the same body as B11 apart from `path` and `timestamp` | ✅ |
 | B15 | the organizer blocked Sara (the other direction) | the organizer: `GET /views/pin/SaraAz` | 404, the same body as B11 apart from `path` and `timestamp` | ✅ |
-| B16 | Sara makes *Family* her default (`POST /rings/:id/default`) | Omar: `GET /views/pin/SaraAz` | 200, now the *Family* view: resolved per request | ✅ |
-| B17 | the organizer's *E-commerce Clients* membership has expired, the Ring is live | the organizer: `GET /views/pin/SaraAz` | 200, the next Ring they can see (*Family*) | ✅ |
-| B18 | the block of B14 removed | the organizer: `GET /views/pin/SaraAz` | 200, the *E-commerce Clients* view again on the next read | ✅ |
+| B16 | Sara makes *Family* her default (`POST /rings/:id/default`) | Omar: `GET /views/pin/SaraAz` | 200, still *E-commerce Clients*: the owner's default does not decide what a viewer sees | ✅ |
+| B17 | the organizer's *Family* membership (their first) has expired, the Ring is live | the organizer: `GET /views/pin/SaraAz` | 200, the next Ring they were put in (*E-commerce Clients*) | ✅ |
+| B18 | the block of B14 removed | the organizer: `GET /views/pin/SaraAz` | 200, the *Family* view again on the next read | ✅ |
+| B74 | Sara makes *Family* her default (as in B16) | Sara: `GET /views/pin/SaraAz` and her own `GET /views/user/<Sara>/perspectives` | the owner's own lookup follows her default: the Pin renders *Family*, her own perspectives start with *Family* | ✅ |
+| B75 | Sara adds the organizer to *My Ring* after the others (her default, and her oldest Ring) | the organizer: `GET /views/pin/SaraAz`, then `GET /views/user/<Sara>/perspectives` | the later membership changes nothing first: the Pin is still *Family*; perspectives *Family*, *E-commerce Clients*, *My Ring*, the new membership last | ✅ |
 
 ### `GET /views/ring/:ringId` — S1, S2, S3, S6
 
@@ -78,7 +78,7 @@ Expected behaviour of the API, as artefacts a person can check a build against: 
 | B22 | the admin | the same call | 404 `E_RING_ACCESS_01`, the same body as B11 apart from `path` and `timestamp` | ✅ |
 | B23 | a block either way between Sara and the organizer | the organizer: the same call | 404 `E_RING_ACCESS_01`, the same body as B22 apart from `path` and `timestamp` | ✅ |
 | B24 | that block in place | Sara: the same call (View as) | 200: the block does not touch the owner's own read | ✅ |
-| B25 | the organizer's membership has expired, the Ring is live | the organizer: the same call | 404 `E_RING_ACCESS_01`, the same body as B22 apart from `path` and `timestamp` | ✅ |
+| B25 | the organizer's *Family* membership has expired, the Ring is live | the organizer: `GET /views/ring/<Family>` | 404 `E_RING_ACCESS_01`, the same body as B22 apart from `path` and `timestamp` | ✅ |
 | B26 | Omar, a member of *TechSummit*: 200 before | `rings.expires_at` set a minute in the past, then the same call | 404 `E_RING_ACCESS_02` "Ring is not available" | ✅ |
 | B27 | *TechSummit* expired | Sara: View as on it | 404 `E_RING_ACCESS_02`: View as is for live Rings ("This Ring has expired" on s31) | ✅ |
 | B28 | *FutureLaunch*, `startsAt` 2027-01-01 | Omar, then Sara | 404 `E_RING_ACCESS_02` for both | ✅ |
@@ -96,13 +96,13 @@ Expected behaviour of the API, as artefacts a person can check a build against: 
 
 | # | Given | When | Then | Checked |
 |---|---|---|---|---|
-| B36 | Omar, in *My Ring* (default), *E-commerce Clients*, *Family*, *TechSummit*, *ToDelete*, *Fresh* and the not-started *FutureLaunch* | `GET /views/user/<Sara>/perspectives` | 200, six entries: the default first, then oldest first (*My Ring*, *E-commerce Clients*, *Family*, then the three run Rings); *FutureLaunch* left out | ✅ |
+| B36 | Omar, put in *E-commerce Clients*, *My Ring* (default), *Family*, *TechSummit*, *FutureLaunch* (not started), *ToDelete*, *Fresh*, in that order | `GET /views/user/<Sara>/perspectives` | 200, six entries in the order he was put in them: *E-commerce Clients*, *My Ring*, *Family*, then the three run Rings; *FutureLaunch* left out. View 1 is what `/views/pin` shows him (B8) | ✅ |
 | B37 | B36 | the entries' keys | no `ringId`, `id`, `userId`, owner id or `profileId` on any entry; the switcher indexes by position | ✅ |
 | B38 | the admin | the same call | 200 `[]`, not a 404 | ✅ |
 | B39 | — | a well-formed uuid no user has | 200 `[]` | ✅ |
 | B40 | — | `…/user/not-a-uuid/perspectives` | 400 "Validation failed (uuid is expected)" | ✅ |
 | B41 | Sara | her own user id | 200, every live Ring of hers, the default first | ✅ |
-| B42 | Sara makes *Family* the default | Omar: the same call | *Family* first, then *My Ring*, *E-commerce Clients*, … in creation order | ✅ |
+| B42 | Sara makes *Family* the default | Omar: the same call | unchanged: *E-commerce Clients*, *My Ring*, *Family*, …; the owner's default does not reorder a viewer's perspectives (her own do follow it, B74) | ✅ |
 | B43 | a block either way between Sara and the organizer | the organizer: the same call | 200 `[]` | ✅ |
 | B44 | *TechSummit* expired | Omar: the same call | five entries, *TechSummit* gone | ✅ |
 | B45 | *Fresh* as in B33 | Omar: the same call, before and after Sara opens its projection | *Fresh* among the entries from the start, as its empty projection: six entries before and six after. Failed on 12172c6 (left out until the projection was opened, B-17); passes on e483d49 | ✅ |
@@ -132,7 +132,7 @@ Expected behaviour of the API, as artefacts a person can check a build against: 
 | B66 | both Rings untouched: they follow | Omar reads *E-commerce Clients*, the organizer reads *Family* | both: `headline` "Operations lead, GCC logistics", `role` "Head of Operations", `company` "Azzam Trading", `location` "Dubai, UAE": the main profile's values | ✅ |
 | B67 | Sara sets `headline` "Wholesale desk lead" on *E-commerce Clients* (`PATCH /rings/:id/projection`) | the same two reads | *E-commerce Clients* (own): "Wholesale desk lead"; *Family* (follow): still the main headline | ✅ |
 | B68 | Sara changes her main headline to "Head of GCC operations" (`PATCH /profiles/:id`) | the same two reads | *Family* (follow): "Head of GCC operations" at once; *E-commerce Clients* (own): still "Wholesale desk lead" | ✅ |
-| B69 | B68 | Omar: `GET /views/user/<Sara>/perspectives`; the organizer: `GET /views/pin/SaraAz` | perspectives: *My Ring* and *Family* the new main value, *E-commerce Clients* its own, so one person's perspectives show different values; the organizer's Pin view (oldest Ring, *E-commerce Clients*): "Wholesale desk lead" | ✅ |
+| B69 | B68 | Omar: `GET /views/user/<Sara>/perspectives`; the organizer: `GET /views/pin/SaraAz` | perspectives, in Omar's membership order: *E-commerce Clients* its own value, then *My Ring* and *Family* the new main value, so one person's perspectives show different values; the organizer's Pin view (their first Ring, *Family*): "Head of GCC operations" | ✅ |
 | B70 | Sara sets `showHeadline: false` on both Rings (off) | the same two reads | `headline` `null` on both; neither "Wholesale desk lead" nor "Head of GCC operations" appears anywhere in either body | ✅ |
 | B71 | Sara sets `showHeadline: true` on both again | the same two reads | *E-commerce Clients*: "Wholesale desk lead" again (the own value was kept while off); *Family*: follows "Head of GCC operations" again | ✅ |
 | B72 | B71 | the view's keys; Sara's `GET /rings/<E-commerce Clients>/projection` | the view has no `show*`, mode or follow key: nothing tells a viewer whether a value is the Ring's own or the main one. The owner's projection carries `showHeadline: true`, its own `headline` and the `headlineMode`, `roleMode`, `companyMode`, `locationMode`, `bioMode`, `photoMode` keys | ✅ |
@@ -152,7 +152,7 @@ Expected behaviour of the API, as artefacts a person can check a build against: 
 
 ## State diagram
 
-What one viewer gets from `GET /views/ring/:ringId` for one Ring, resolved per request against `now`; `/views/pin` renders the first Ring in the *Shown* state (default first, then oldest), and `/perspectives` lists all of them.
+What one viewer gets from `GET /views/ring/:ringId` for one Ring, resolved per request against `now`; `/views/pin` renders the first Ring in the *Shown* state, and `/perspectives` lists all of them, both in the order the viewer was put in them ([[D-15 Several Rings per connection, remove or disconnect]]); the owner's own lookup puts her default Ring first.
 
 ```mermaid
 stateDiagram-v2
@@ -200,9 +200,10 @@ stateDiagram-v2
 
 ## Verdict
 
-- Run on: 2026-11-08 · build: `main @ cb95a39 · localhost:3112, Node 22.22.2`, a fresh throwaway database `social_pin_qa_f12` (seeded, then dropped) · result: 🟢 passing, 72 of 72 delivered rows as expected · failing rows: none · not delivered yet: B32 (BD-12 pending, not a failure) · story parts unmet: none · bugs: none open.
-- 70 rows were re-run on `cb95a39`: every `/views/*` row, auth, shape, links B57–B61, B64 and B65, B56 (now delivered: no file id on any view), and the new S10 rows B66–B73. B62 and B63 (the 15-minute link expiry) were not waited out again and stand from the 2026-11-05 run. `file-link.service.ts`, which signs the links and sets their 15-minute lifetime, did not change between `12172c6` and `cb95a39`.
-- Previous runs: 2026-11-08 on `e483d49`, 🟢 passing, 63 of 63 (B-17 closed); 2026-11-05 on `12172c6`, 🔴 failing, 58 of 61 (B-17).
+- Run on: 2026-11-09 · build: `main @ d8267d3 · localhost:3112, Node 22.22.2`, a fresh throwaway database `social_pin_qa_f12` (seeded, then dropped) · result: 🟢 passing, 74 of 74 delivered rows as expected · failing rows: none · not delivered yet: B32 (BD-12 pending, not a failure) · story parts unmet: none · bugs: none open.
+- The order rows follow S-19 S4/S5 as changed on 2026-11-09 by [[D-15 Several Rings per connection, remove or disconnect]]: a viewer's `/views/pin` and perspectives go by the order they were put in a Ring. B8, B9, B10, B16, B17, B18, B25, B36, B42 and B69 were rewritten. B74 (the owner's own lookup follows her default) and B75 (a later membership goes last) are new.
+- 72 rows were re-run on `d8267d3`: every `/views/*` row, auth, shape, the S10 rows and links B57–B61. B62 and B63 (the 15-minute link expiry) were not waited out again and stand from the 2026-11-05 run. `file-link.service.ts`, which signs the links and sets their 15-minute lifetime, has not changed since `12172c6`.
+- Previous runs: 2026-11-08 on `cb95a39`, 🟢 passing, 72 of 72 (no file id on views, S10); 2026-11-08 on `e483d49`, 🟢 passing, 63 of 63 (B-17 closed); 2026-11-05 on `12172c6`, 🔴 failing, 58 of 61 (B-17).
 - The backend half of S-19 holds on this build. What is left is BD-12's one pending item (row B32); the QA Frontend is still to be run.
 
 ## Log
@@ -211,3 +212,4 @@ stateDiagram-v2
 - 2026-11-05 · flagged [[BI-09 View As & Pin Views Backend Integration]]: on main 12172c6, GET /views/ring/:ringId answers 404 E_RING_ACCESS_01 to the owner and to live members of a Ring made with POST /rings until the owner first opens GET /rings/:id/projection, and /perspectives leaves it out: B-17 (/backend)
 - 2026-11-08 · re-run on `main @ e483d49` (localhost:3112, fresh throwaway database `social_pin_qa_f12`): 63 of 63 delivered rows as expected. B33, B34 and B45 now pass; B64 and B65 added (a viewer in the new Ring alone; reads write no projection row). B-17 closed on its own branch. Status → passing. B32 and B56 stay not delivered yet (BD-12 pending)
 - 2026-11-08 · re-run on `main @ cb95a39` (localhost:3112, fresh throwaway database `social_pin_qa_f12`): 72 of 72 delivered rows as expected. B56 is now a real row and passes (no file id on any `/views/*` route; the owner's projection keeps `avatarFileId`). B46's key list now has `headline`, `role`, `company`, `location` and no `avatarFileId`. S-17 S10 rows B66–B73 added: follow, own and off for `headline` on two Rings, each read by its own member, plus the main photo. B56 removed from `pending`. Cleared the [[BD-10 Ring Projection Backend Delivery]] and [[BD-12 View As & Pin Views Backend Delivery]] flags. B32 stays not delivered yet (BD-12 pending)
+- 2026-11-09 · re-run on `main @ d8267d3` (localhost:3112, fresh throwaway database `social_pin_qa_f12`): 74 of 74 delivered rows as expected. The order rows follow D-15 (S-19 S4/S5, 2026-11-09): B8, B9, B10, B16, B17, B18, B25, B36, B42 and B69 rewritten to the order the viewer was put in a Ring. Added B74 (the owner's own lookup follows her default) and B75 (a later membership goes last). Cleared the [[S-19 View As & Pin Views Story]] flag. B32 stays not delivered yet (BD-12 pending)

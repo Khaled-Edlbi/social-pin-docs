@@ -3668,6 +3668,16 @@
       ],
       "owner": null
     },
+    "GET /views/ring/<Family>": {
+      "containers": [
+        "feature:view-as"
+      ],
+      "kind": "endpoint",
+      "notes": [
+        "qa-backend:view-as"
+      ],
+      "owner": null
+    },
     "GET /views/ring/<Fresh>": {
       "containers": [
         "feature:view-as"
@@ -6735,7 +6745,7 @@
       "qa": 13,
       "shared": 10
     },
-    "concepts": 319,
+    "concepts": 320,
     "decisions": 34,
     "edges": 7736,
     "features": 41,
@@ -91680,6 +91690,7 @@
         "story:ring-projection",
         "decision:D-02",
         "decision:D-05",
+        "decision:D-15",
         "story:error-contract",
         "task:B-08",
         "needs-decision:ND-10",
@@ -91715,7 +91726,6 @@
         "project:spec-map",
         "needs-decision:ND-14",
         "needs-decision:ND-15",
-        "decision:D-15",
         "frontend-requirements:pincast",
         "story:pincast",
         "backend-integration:ring-members",
