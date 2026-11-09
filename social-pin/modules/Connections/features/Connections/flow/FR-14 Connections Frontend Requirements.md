@@ -26,7 +26,7 @@ tags: [frontend-requirements, frontend-requirements/approved, module/connections
 
 **Feature:** [[F-14 Connections]] · **Status:** Approved by the backend 2026-11-08 · **Story:** [[S-23 Connections Story]] (approved 2026-11-04) · **Backend Integration:** [[BI-16 Connections Backend Integration]] (backend `main` `1c460b0`)
 
-What the client needs from the backend to build every part of [[S-23 Connections Story]], S1 to S16, and whether each need is met today. **Rewritten 2026-11-04** against the approved story and the decisions D-10, D-23 and D-24 to D-29: every link names the story's current parts, *Connect* sends `{ qrToken }` or `{ pinName }`, s47 shows the mutual count, and the questions the story left open are answered below.
+What the client needs from the backend to build every part of [[S-23 Connections Story]], S1 to S16, and whether each need is met today. **Rewritten 2026-11-04** against the approved story and the decisions D-10, D-23 and D-24 to D-29: every link names the story's current parts, *Connect* sends `{ qrToken }` or `{ pinName }`, s47 shows the mutual count, and the questions the story left open are answered below. **Updated 2026-11-09** with Omar Fostok's decisions on [[S-23 Connections Story]]: the request states read "Not accepted" and "Request expired" (s44, s45 Sent), s47 lists my live Rings only, *Scan someone in* is not shown on s15 (D-28). All three are copy or phone-side filtering: no new endpoint or field is asked, so the backend's approval stands.
 
 **What exists today.** Showing the other person (`/views`), the Ring members routes (add, window, move, remove), `GET /rings` and `GET /rings/shared-with-me`. Everything that creates, lists, answers or closes a request, the contacts list, the connection detail, disconnect and blocks: **no route**. In the app every connection screen is sample data except the person card on Shared with me.
 
@@ -68,8 +68,8 @@ What the client needs from the backend to build every part of [[S-23 Connections
   | `NONE` | *Connect* | the note sheet, then send |
   | (sending) | *Sending…*, disabled | — |
   | `REQUESTED` | *Requested* | *Cancel request* → `DELETE /connections/requests/:requestId` |
-  | `DECLINED` | "Declined" + *Connect* | a **new** request at once (D-17) |
-  | `EXPIRED` | "Expired" + *Connect* | a new request at once |
+  | `DECLINED` | "Not accepted" + *Connect* | a **new** request at once (D-17) |
+  | `EXPIRED` | "Request expired" + *Connect* | a new request at once |
   | `CONNECTED` | *Connected* | opens Connection detail (s47) once the contacts list exists |
   | `THEY_ASKED` | *Accept* | opens the accept sheet (s46) for `requestId` |
 
@@ -109,7 +109,8 @@ What the client needs from the backend to build every part of [[S-23 Connections
 - **A block reads as `PENDING`** until the 30 days are up, then `EXPIRED`, or the row is dropped. Never `DECLINED`, never a status of its own.
 - *Cancel* on a pending row: `DELETE /connections/requests/:id` ✅ → 204. Optimistic: the row leaves at once and comes back with "Couldn't cancel" if the call fails. Gone from their inbox too.
   - Already answered or expired a moment ago: 409 `E_CONNECTION_REQUEST_02` (proposed) → refetch, no error.
-- *Declined* and *Expired* rows: *Connect* again → a new request to the same person; the row has no token, no Pin name of mine and no user id, so it is addressed by the old request. **Asked:** `POST /connections/requests { againFor: requestId, note? }`, which sends a new request to the same person, after the same access checks (a block is the 404).
+- Row labels: `PENDING` "Pending", `DECLINED` **"Not accepted"**, `EXPIRED` **"Request expired"**, never "Declined" ([[S-23 Connections Story|S-23 S2, S4]], 2026-11-09). The wire statuses stay as they are; only the copy changes.
+- *Not accepted* and *Request expired* rows: *Connect* again → a new request to the same person; the row has no token, no Pin name of mine and no user id, so it is addressed by the old request. **Asked:** `POST /connections/requests { againFor: requestId, note? }`, which sends a new request to the same person, after the same access checks (a block is the 404).
 - **Declined and expired rows stay 30 days** after they ended, then the server stops returning them; no reminder before a request expires ([[D-27 Sent keeps declined and expired requests for 30 days]]). The app shows what the server returns and counts nothing itself.
 - Tab label "Sent · N"; empty: "You haven't asked anyone yet."
 
@@ -174,7 +175,7 @@ What the client needs from the backend to build every part of [[S-23 Connections
   ```
   `memberships` is the "which of my Rings" call that [[FR-09 Ring Members Frontend Requirements|FR-09]] also asks for: one ask, two screens.
 - **Header:** name, Pin name, initials, "Connected 4 Nov", how we met (`source`).
-- **IN RING · VISIBLE TO YOU ONLY:** every Ring of mine (`GET /rings` ✅) as a checklist, ticked from `memberships`, each with its window ("Until removed ›", "Until 12 Nov ›", "Lapsed 12 Nov ›"):
+- **IN RING · VISIBLE TO YOU ONLY:** my **live** Rings only (`GET /rings` ✅, kept on the phone where `startsAt` is past or null and `expiresAt` is future or null; an ended or not-started Ring is not listed, [[S-23 Connections Story|S-23 S9]], 2026-11-09; no new route asked) as a checklist, ticked from `memberships`, each with its window ("Until removed ›", "Until 12 Nov ›", "Lapsed 12 Nov ›"):
   - tick: `POST /rings/:ringId/members { userId }` ✅; untick: `DELETE …/members/:userId` ✅; the window: `PATCH …/members/:userId` ✅;
   - **a move is add, then remove**, so they're never in none by accident;
   - a failed call reverts the tick and refetches;
@@ -201,7 +202,7 @@ What the client needs from the backend to build every part of [[S-23 Connections
   - Today the step says people come later; it switches when the contacts list exists.
 - **s15:** names, Pin names and photos for the roster in one call ❌ (asked in [[FR-09 Ring Members Frontend Requirements|FR-09]]); every row → s47 (`userId` ✅ on the roster), connections and members alike (D-29). *Move from a Ring*: reassign ✅.
 - **Waiting on you:** join requests to that Ring only ([[S-33 Ring Invitations & Join Story]]), **never** connection requests: those have no Ring yet.
-- *Scan someone in*: shown disabled, "Not available yet". **Not in the MVP** ([[D-28 Scan someone in is not in the MVP]]): no route is asked for it.
+- *Scan someone in*: **not shown** on the People tab (hidden, not disabled; [[S-23 Connections Story|S-23 S12]], 2026-11-09). **Not in the MVP** ([[D-28 Scan someone in is not in the MVP]]): no route is asked for it.
 
 ### Block and unblock: [[Screen Index#s44|s44]], [[Screen Index#s47|s47]], Blocked people on [[Screen Index#s68|s68]] (S13)
 
