@@ -69,6 +69,7 @@
     "B-23 A deleted account opened cold lands on Home, not Welcome": "task:B-23",
     "B-24 A suspended account stays signed in when the account read says SUSPENDED": "task:B-24",
     "B-25 The change sheet doesn't focus the field after a taken error": "task:B-25",
+    "B-26 The delete sheet doesn't say every Ring, projection and session goes": "task:B-26",
     "BD-01 Account Backend Delivery": "backend-delivery:account",
     "BD-02 Auth & Sign-up Backend Delivery": "backend-delivery:auth",
     "BD-03 Counts Backend Delivery": "backend-delivery:counts",
@@ -406,6 +407,7 @@
     "B-23": "task:B-23",
     "B-24": "task:B-24",
     "B-25": "task:B-25",
+    "B-26": "task:B-26",
     "BD-01": "backend-delivery:account",
     "BD-02": "backend-delivery:auth",
     "BD-03": "backend-delivery:counts",
@@ -6590,7 +6592,8 @@
         "task:B-11",
         "task:B-23",
         "task:B-24",
-        "task:B-25"
+        "task:B-25",
+        "task:B-26"
       ],
       "kind": "screen",
       "notes": [
@@ -6655,7 +6658,8 @@
         "task:B-11",
         "task:B-23",
         "task:B-24",
-        "task:B-25"
+        "task:B-25",
+        "task:B-26"
       ],
       "owner": null
     },
@@ -6806,7 +6810,7 @@
   },
   "counts": {
     "blocked": 27,
-    "bugs": 25,
+    "bugs": 26,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 14,
@@ -6820,22 +6824,22 @@
       "qa-backend": 11,
       "qa-frontend": 2,
       "story": 41,
-      "task": 25
+      "task": 26
     },
     "byLayer": {
       "backend": 61,
-      "business": 180,
+      "business": 181,
       "frontend": 54,
       "qa": 13,
       "shared": 10
     },
     "concepts": 323,
     "decisions": 34,
-    "edges": 7972,
+    "edges": 7983,
     "features": 41,
     "layerNotes": 157,
     "modules": 8,
-    "notes": 349,
+    "notes": 350,
     "partial": 14,
     "placeholders": 128,
     "records": 33
@@ -45166,6 +45170,75 @@
       ]
     },
     {
+      "from": "task:B-26",
+      "kind": "related",
+      "to": "backend-delivery:account",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "task:B-26",
+      "kind": "related",
+      "to": "backend-integration:account",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "task:B-26",
+      "kind": "related",
+      "to": "frontend-delivery:account",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "task:B-26",
+      "kind": "related",
+      "to": "frontend-requirements:account",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "task:B-26",
+      "kind": "related",
+      "to": "qa-backend:account",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "task:B-26",
+      "kind": "related",
+      "to": "qa-backend:ring-members",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "task:B-26",
+      "kind": "related",
+      "to": "qa-frontend:account"
+    },
+    {
+      "from": "task:B-26",
+      "kind": "related",
+      "to": "story:account",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "task:B-26",
+      "kind": "related",
+      "to": "task:B-02",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
       "from": "decision:D-10",
       "kind": "shares",
       "to": "decision:D-17",
@@ -59203,6 +59276,11 @@
       "to": "task:B-25"
     },
     {
+      "from": "frontend-delivery:account",
+      "kind": "tree",
+      "to": "task:B-26"
+    },
+    {
       "from": "frontend-delivery:auth",
       "kind": "tree",
       "to": "task:B-18"
@@ -65771,6 +65849,11 @@
       "from": "task:B-25",
       "kind": "wikilink",
       "to": "feature:account"
+    },
+    {
+      "from": "task:B-26",
+      "kind": "wikilink",
+      "to": "feature:account"
     }
   ],
   "emoji": {
@@ -66005,6 +66088,10 @@
     },
     "social-pin/bugs/B-25 The change sheet doesn't focus the field after a taken error.md": {
       "name": "B-25 The change sheet doesn't focus the field after a taken error",
+      "type": "bug"
+    },
+    "social-pin/bugs/B-26 The delete sheet doesn't say every Ring, projection and session goes.md": {
+      "name": "B-26 The delete sheet doesn't say every Ring, projection and session goes",
       "type": "bug"
     },
     "social-pin/business/Feature Graph.md": {
@@ -67525,6 +67612,7 @@
         "task:B-23",
         "task:B-24",
         "task:B-25",
+        "task:B-26",
         "needs-decision:ND-30",
         "decision:D-30",
         "task:B-01",
@@ -70900,6 +70988,7 @@
         "task:B-23",
         "task:B-24",
         "task:B-25",
+        "task:B-26",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-delivery:account",
@@ -76354,7 +76443,7 @@
         "done": 2,
         "partial": 3,
         "passing": 1,
-        "todo": 3,
+        "todo": 4,
         "verified": 1
       },
       "scope": null,
@@ -79672,7 +79761,8 @@
       "children": [
         "task:B-23",
         "task:B-24",
-        "task:B-25"
+        "task:B-25",
+        "task:B-26"
       ],
       "code": "account",
       "created": "2026-10-26",
@@ -79697,7 +79787,8 @@
       "openBugs": [
         "task:B-23",
         "task:B-24",
-        "task:B-25"
+        "task:B-25",
+        "task:B-26"
       ],
       "parentTask": null,
       "parents": [
@@ -79712,6 +79803,7 @@
         "task:B-23",
         "task:B-24",
         "task:B-25",
+        "task:B-26",
         "needs-decision:ND-20",
         "decision:D-20",
         "backend-delivery:account",
@@ -82222,6 +82314,7 @@
         "task:B-23",
         "task:B-24",
         "task:B-25",
+        "task:B-26",
         "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:account",
@@ -86658,7 +86751,7 @@
         "needs-decision": 1,
         "partial": 12,
         "passing": 7,
-        "todo": 8,
+        "todo": 9,
         "verified": 10
       },
       "scope": null,
@@ -91263,6 +91356,7 @@
         "task:B-23",
         "task:B-24",
         "task:B-25",
+        "task:B-26",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-integration:connections",
@@ -93570,6 +93664,7 @@
       "related": [
         "task:B-09",
         "task:B-10",
+        "task:B-26",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -94333,6 +94428,7 @@
         "task:B-23",
         "task:B-24",
         "task:B-25",
+        "task:B-26",
         "backend-delivery:account",
         "backend-integration:account",
         "frontend-requirements:account",
@@ -96461,7 +96557,7 @@
         "passing": 7,
         "ready": 1,
         "reference": 32,
-        "todo": 11,
+        "todo": 12,
         "verified": 33
       },
       "scope": null,
@@ -96513,6 +96609,7 @@
         "task:B-23",
         "task:B-24",
         "task:B-25",
+        "task:B-26",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-delivery:account",
@@ -99798,6 +99895,7 @@
         "task:B-18",
         "task:B-23",
         "task:B-24",
+        "task:B-26",
         "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-integration:account",
@@ -101820,6 +101918,72 @@
       ],
       "task": null,
       "title": "B-25 The change sheet doesn't focus the field after a taken error",
+      "unmet": [],
+      "updated": "2026-11-09"
+    },
+    "task:B-26": {
+      "affects": [],
+      "blockedBy": [],
+      "card": "B-26",
+      "children": [],
+      "code": "B-26",
+      "created": "2026-11-09",
+      "deadline": null,
+      "decision": null,
+      "depends": [],
+      "dir": null,
+      "effectiveStatus": "todo",
+      "effort": "S",
+      "feature": "account",
+      "foundOn": "FD-04 Account Frontend Delivery",
+      "frontendOnly": false,
+      "id": "task:B-26",
+      "inherits": {
+        "release": "feature:account"
+      },
+      "kind": "task",
+      "label": "Bug",
+      "labels": [
+        "bug"
+      ],
+      "layer": "business",
+      "module": "identity",
+      "openBugs": [],
+      "parentTask": null,
+      "parents": [
+        "frontend-delivery:account"
+      ],
+      "path": "social-pin/bugs/B-26 The delete sheet doesn't say every Ring, projection and session goes.md",
+      "pending": [],
+      "priority": "medium",
+      "related": [
+        "frontend-delivery:account",
+        "qa-frontend:account",
+        "story:account",
+        "task:B-02",
+        "backend-delivery:account",
+        "backend-integration:account",
+        "frontend-requirements:account",
+        "qa-backend:account",
+        "qa-backend:ring-members"
+      ],
+      "release": "mvp",
+      "resolution": null,
+      "rollup": {},
+      "scope": null,
+      "screens": [
+        "s68"
+      ],
+      "status": "todo",
+      "summary": "The fix is /frontend's. It sets in-progress when it starts and ready when the fix ships; QA re-runs DA-02b and closes or reopens it.",
+      "tags": [
+        "bug",
+        "bug/todo",
+        "module/identity",
+        "priority/medium"
+      ],
+      "task": null,
+      "title": "B-26 The delete sheet doesn't say every Ring, projection and session goes",
       "unmet": [],
       "updated": "2026-11-09"
     }
