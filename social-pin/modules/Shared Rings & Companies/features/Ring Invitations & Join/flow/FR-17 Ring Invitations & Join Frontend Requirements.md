@@ -18,8 +18,6 @@ tags: [frontend-requirements, frontend-requirements/approved, module/shared-ring
 
 # 📨 Ring Invitations & Join · Frontend Requirements
 
-> ⚠ Affected by [[S-33 Ring Invitations & Join Story]] (2026-11-09): S6 a member invites from the owner's card inside the Ring, "+ Invite someone to <Ring>", with no access window, shown only while the Ring lets members invite (membersCanInvite)
-
 **Feature:** [[F-17 Ring Invitations & Join]] · **Status:** Approved 2026-11-08 by khaled · **Story:** [[S-33 Ring Invitations & Join Story]] (approved 2026-11-08) · **API Integration:** [[BI-17 Ring Invitations & Join Backend Integration]] (backend `main` `1c460b0`)
 
 What the client needs from the backend to build [[S-33 Ring Invitations & Join Story]] S1–S12, and whether each need is met today. **Rewritten 2026-11-08** against the approved story, [[D-31 An invitation is its own record|D-31]] to [[D-36 Who it's for stays the owner's alone|D-36]], and backend `main` @ `12172c6` ([[BI-08 Rings Backend Integration]]). Routes that don't exist yet are asked for as needs, not names: the backend names them in [[BD-17 Ring Invitations & Join Backend Delivery]]; the two join-request routes keep the names [[FR-15 Companies Frontend Requirements|FR-15]] already asked for.
@@ -100,6 +98,7 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
 - **Source today:** the owner's card `GET /views/ring/:ringId` ✅; the roster `GET /rings/:ringId/colleagues` ✅ (404 while members can't see each other); leave `POST /rings/:ringId/leave` ✅.
 - **What changes in the app:** the owner's card gains **Members · N** (only when allowed), each colleague opening their picked card; a colleague who is also my connection opens that card here and the card they share with me everywhere else. **Leave this Ring** at the bottom, only on a Ring I joined knowingly (a named row).
 - **A placed member (2026-11-09, [[S-33 Ring Invitations & Join Story|S-33 S11]]):** sees **Members · N** while allowed (the roster answers any live member), but has **no *Leave this Ring***: the owner placed them and only the owner removes them. The 404 `E_RING_ACCESS_01` on `POST /rings/:ringId/leave` for them is intended; the app never shows the button, so never meets it.
+- **A member invites (2026-11-09, [[S-33 Ring Invitations & Join Story|S-33 S6]]):** "+ Invite someone to <Ring>" on the owner's card, a connection or a Pin name, **no access window**, only while the Ring lets members invite. Needs: `POST /rings/:ringId/invitations` ✅ (403 `E_RING_INVITATION_04` when members may not); **whether this Ring lets members invite**, readable by a member ❌ (today the app offers it on every Ring joined knowingly and hides it after a 403); **the invitations I sent** to this Ring, and *Withdraw* on mine ❌ (the Ring's list is the owner's and admins'). Shipped as far as the routes allow: [[FD-15 Ring Invitations & Join Frontend Delivery|FD-15]].
 
 ### [[Screen Index#s72|s72]] My companies (FR-15)
 
@@ -131,6 +130,8 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
 | The Ring's join codes: list, make, turn off | `GET /rings/:ringId/join-codes`, `POST /rings/:ringId/join-codes`, `POST /rings/:ringId/join-codes/:codeId/turn-off` | ✅ | S7, D-32 |
 | The member-facing roster (picked cards) | `GET /rings/:ringId/colleagues` | ✅ | S11, D-34 |
 | Leave a Ring as a member | `POST /rings/:ringId/leave` | ✅ | S11 |
+| A member invites (no window) | `POST /rings/:ringId/invitations` | ✅ | S6 |
+| Whether members may invite, told to a member; a member's own sent invitations, withdraw | — | ❌ | S6 |
 | Notifications: invitation received, request approved, request waiting | — | ❌ | S12, [[S-96 Notifications Story|Notifications]] |
 | Join with a verified work email | — | not in this version | S4, D-33 |
 
@@ -170,3 +171,4 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
 - 2026-11-08 · `tickets/backend/M-03-shared-rings/F-17-ring-invitations/FR-17-rows-delivered` · backend `main` `1c460b0` shipped S-33 S1–S3, S5–S9: 14 rows → ✅ with their endpoints (`ringName` / `memberCount` on Shared with me, invitations, join codes, the join QR, join requests); the *Source today* lines and the API Integration link ([[BI-17 Ring Invitations & Join Backend Integration]]) updated. Still ❌: the picked Ring (S10), the member roster and leave (S11), notifications (S12); work email is not in this version. The error codes are named in BI-17 (on the wire once [[S-87 Error Contract Story|Error Contract]] ships)
 - 2026-11-09 · `docs/backend/M-03-shared-rings/F-17-ring-invitations/BD-17-picked-ring-and-roster` · backend `main` `14c6916` shipped S-33 S10 and S11: three rows → ✅ with their endpoints (picked Ring, roster, leave) and the s17, s74 "Your card" and *Inside a Ring* *Source today* lines updated ([[BD-17 Ring Invitations & Join Backend Delivery]], [[BI-17 Ring Invitations & Join Backend Integration]]). Still ❌: notifications (S12); work email is not in this version.
 - 2026-11-09 · `tickets/frontend/M-03-shared-rings/F-17-ring-invitations/FR-17-decisions-2026-11-09` · Omar Fostok's decisions on [[S-33 Ring Invitations & Join Story]]: a Shared with me row opens the server's `ringId`, the first Ring (D-15 stands), the Ring joined later is the next view (s17); a placed member gets no "Your card in <Ring>" step and no *Leave*, the 404 on `my-card` / `leave` is intended (s74 step, inside a Ring); placed and knowing told apart by the row only; s72 stays with [[FR-15 Companies Frontend Requirements|FR-15]]. No new endpoint or field: the backend's approval stands
+- 2026-11-09 · `docs/frontend/M-03-shared-rings/F-17-ring-invitations/FD-15-shipped` · the S-33 S6 flag settled and cleared: the member's invite added under *Inside a Ring I joined* and to the endpoints table, with two ❌ needs the app met while shipping [[FD-15 Ring Invitations & Join Frontend Delivery|FD-15]] (whether members may invite, told to a member; a member's own sent invitations and withdraw); status unchanged

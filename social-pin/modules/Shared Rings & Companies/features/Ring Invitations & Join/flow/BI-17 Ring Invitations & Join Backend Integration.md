@@ -17,6 +17,8 @@ tags: [backend-integration, backend-integration/current, module/shared-rings, la
 
 # 🔌 Ring Invitations & Join · Backend Integration
 
+> ⚠ Affected by [[FD-15 Ring Invitations & Join Frontend Delivery]] (2026-11-09): the app calls every route here (app rings/F-11/honest-rings @ 0005f00). Two gaps for a member's invite (S-33 S6): no route tells a member whether the Ring lets members invite (membersCanInvite), so the app offers it on every Ring joined knowingly and hides it after a 403; and a member can't list or withdraw what they sent (GET /rings/:ringId/invitations is the owner's and admins'). Flow 5's step on the first open of an approved request's Ring is not built in the app
+
 > Blocked by default until [[BD-17 Ring Invitations & Join Backend Delivery]] is `done` (the hand-off order in `docs.config.json`); `blockedBy: []` opts out, `blockedBy: [...]` names other blockers.
 
 **Feature:** [[F-17 Ring Invitations & Join]] · **Backend:** [[BD-17 Ring Invitations & Join Backend Delivery]] · **Read first:** [[Frontend Contract]], [[Frontend API Guide]]
