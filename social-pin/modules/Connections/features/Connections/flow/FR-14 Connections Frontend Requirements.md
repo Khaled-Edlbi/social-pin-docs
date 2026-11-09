@@ -20,6 +20,8 @@ tags: [frontend-requirements, frontend-requirements/approved, module/connections
 
 # 📨 Connections · Frontend Requirements
 
+> ⚠ Affected by [[S-23 Connections Story]] (2026-11-09): s47 Disconnect lives in the ⋯ menu beside Block, for every connection (one Ring or several), never as a button on the page; the last-Ring question still offers it
+
 > ⚠ Affected by [[BD-18 Badge & QR Backend Delivery]] (2026-11-08): GET /views/qr/:token is on backend main 1c460b0: the 'By scan' and 'The card by scanned code' rows can read ✅ (BI-15); Connect by { qrToken } is still ❌
 
 > ⚠ Affected by [[D-12 The badge QR is a socialpin.me link]] (2026-11-08): "By scan" reads the token from the link https://socialpin.me/q/<token> before GET /views/qr/:token; Connect still sends { qrToken } (D-10)
