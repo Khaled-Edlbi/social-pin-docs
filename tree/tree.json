@@ -6846,7 +6846,7 @@
     },
     "concepts": 323,
     "decisions": 34,
-    "edges": 8030,
+    "edges": 8025,
     "features": 41,
     "layerNotes": 157,
     "modules": 8,
@@ -10551,31 +10551,6 @@
       "from": "qa-backend:view-as",
       "kind": "pending",
       "to": "backend-delivery:view-as"
-    },
-    {
-      "from": "qa-frontend:account",
-      "kind": "pending",
-      "to": "task:B-23"
-    },
-    {
-      "from": "qa-frontend:account",
-      "kind": "pending",
-      "to": "task:B-24"
-    },
-    {
-      "from": "qa-frontend:account",
-      "kind": "pending",
-      "to": "task:B-25"
-    },
-    {
-      "from": "qa-frontend:account",
-      "kind": "pending",
-      "to": "task:B-26"
-    },
-    {
-      "from": "qa-frontend:account",
-      "kind": "pending",
-      "to": "task:B-27"
     },
     {
       "from": "qa-frontend:auth",
@@ -76904,9 +76879,8 @@
         "decided": 1,
         "delivered": 2,
         "done": 7,
-        "failing": 1,
         "partial": 2,
-        "passing": 1,
+        "passing": 2,
         "verified": 1
       },
       "scope": null,
@@ -87229,12 +87203,12 @@
         "delivered": 13,
         "done": 36,
         "draft": 3,
-        "failing": 2,
+        "failing": 1,
         "in-progress": 13,
         "missing": 18,
         "needs-decision": 1,
         "partial": 11,
-        "passing": 7,
+        "passing": 8,
         "todo": 5,
         "verified": 10
       },
@@ -94879,7 +94853,7 @@
       "depends": [
         "frontend-delivery:account"
       ],
-      "effectiveStatus": "failing",
+      "effectiveStatus": "passing",
       "effort": null,
       "feature": "account",
       "foundOn": null,
@@ -94900,33 +94874,7 @@
         "feature:account"
       ],
       "path": "social-pin/modules/Identity Core/features/Account/flow/QF-04 Account QA Frontend.md",
-      "pending": [
-        {
-          "person": null,
-          "text": "AC-14 (/frontend)",
-          "to": "task:B-23"
-        },
-        {
-          "person": null,
-          "text": "AC-33 (/frontend)",
-          "to": "task:B-24"
-        },
-        {
-          "person": null,
-          "text": "AC-27 (/frontend)",
-          "to": "task:B-25"
-        },
-        {
-          "person": null,
-          "text": "DA-02b (/frontend)",
-          "to": "task:B-26"
-        },
-        {
-          "person": null,
-          "text": "AC-40 (/frontend)",
-          "to": "task:B-27"
-        }
-      ],
+      "pending": [],
       "priority": "critical",
       "related": [
         "task:B-01",
@@ -95008,11 +94956,11 @@
         "s11",
         "s70"
       ],
-      "status": "failing",
+      "status": "passing",
       "summary": "Expected behaviour of the screens, as artefacts: journeys, states and copy to check a build against, not test code. status: passing or failing after a run; the verdict tells the PM whether the…",
       "tags": [
         "qa-frontend",
-        "qa-frontend/failing",
+        "qa-frontend/passing",
         "module/identity",
         "layer/qa"
       ],
@@ -97105,12 +97053,12 @@
         "delivered": 14,
         "done": 39,
         "draft": 26,
-        "failing": 2,
+        "failing": 1,
         "in-progress": 47,
         "missing": 128,
         "needs-decision": 1,
         "partial": 13,
-        "passing": 7,
+        "passing": 8,
         "ready": 1,
         "reference": 32,
         "todo": 8,
