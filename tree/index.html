@@ -600,6 +600,11 @@ const inactive = (n) => n.effectiveStatus === 'blocked' || (n.effectiveStatus ==
 // It is never drawn dim, whatever filter, search or hover is active: the dimmed cards cannot be worked on
 // until it is decided, so it must always read as the live card next to them (2026-11-05).
 const waitedOn = (n) => !!n && n.kind === 'needs-decision' && (n.effectiveStatus === 'needs-decision' || n.effectiveStatus === 'draft');
+// a needs-decision card, open or Fulfilled, and its decision card are never faded by a filter or a search: when the card they hang
+// under is shown, they read at full strength, and the decision card (D-NN) is shown with its needs-decision card even when neither
+// matches the filter, so a Fulfilled card always shows its answer (2026-11-09)
+const unfaded = (n) => !!n && (n.kind === 'needs-decision' || n.kind === 'decision');
+const answerOf = (it) => it.node.kind === 'decision' && !!it.parent && it.parent.node.kind === 'needs-decision';
 const legend = (s) => (S.D && S.D.legend[s]) || s;
 // a story is fulfilled when the PM set it `verified` (✅); its flow then folds under it until the reader expands it
 const isFulfilled = (n) => !!n && n.kind === 'story' && n.status === 'verified';
@@ -751,7 +756,7 @@ function buildTree() {
   const mark = (it) => { it.match = matches(it.node); let any = it.match; for (const c of it.children) any = mark(c) || any; it.keep = any; return any; };
   mark(root);
   const vis = (it, shown) => {
-    it.visible = shown && (!active || it.keep || (it.parent && it.parent.match));
+    it.visible = shown && (!active || it.keep || (it.parent && it.parent.match) || answerOf(it));
     it.open = !collapsed.has(it.id) && !flowFolded(it.id);
     // a fulfilled story folds its flow: the cards after it in its container hide with its own children, and its caret counts them
     const folded = CONTAINER.has(it.node.kind) ? it.children.find((c) => flowFolded(c.id)) : null;
@@ -1004,7 +1009,7 @@ function renderCards(list) {
     }
     rec.item = it;
     rec.g.style.transform = `translate(${it.x}px, ${it.y}px)`;
-    rec.faded = active && !it.match;
+    rec.faded = active && !it.match && !unfaded(n);
     rec.inactive = inactive(n);
     if (rec.caretT) { rec.caretT.textContent = it.open ? '−' : String(flowFolded(it.id) && it.foldCount !== undefined ? it.foldCount : countDesc(n)); rec.caretC.setAttribute('r', it.open ? 7 : 9); }
   }
@@ -1048,7 +1053,7 @@ function drawStructure(list) {
         : it.stacked ? `M ${p.x + T.STACK / 2} ${p.y + T.H} V ${it.y} H ${it.x}`
         : vertical ? `M ${p.x + p.w / 2} ${p.y + T.H} C ${p.x + p.w / 2} ${p.y + T.LEVEL / 2}, ${it.x + it.w / 2} ${it.y - T.LEVEL / 2}, ${it.x + it.w / 2} ${it.y - T.H}`
         : `M ${p.x + p.w + (p.caret ? 9 : 0)} ${p.y} C ${p.x + p.w + T.COLGAP / 2} ${p.y}, ${it.x - T.COLGAP / 2} ${it.y}, ${it.x} ${it.y}`;
-      sel('path', { d }, gTree, { fill: 'none', stroke: 'var(--color-neutral-600)', strokeWidth: 1.8, opacity: active && !it.match && !it.keep ? 0.15 : 0.85 });
+      sel('path', { d }, gTree, { fill: 'none', stroke: 'var(--color-neutral-600)', strokeWidth: 1.8, opacity: active && !it.match && !it.keep && !unfaded(it.node) ? 0.15 : 0.85 });
     }
     return;
   }
@@ -1385,7 +1390,7 @@ function renderOutline() {
   const frag = document.createDocumentFragment();
   for (const it of flat) {
     const n = it.node, has = n.children.length > 0, big = n.kind === 'root' || n.kind === 'module';
-    const row = document.createElement('div'); row.className = `orow k-${n.kind}${big ? ' big' : ''}${S.selected === it.id ? ' sel' : ''}${active && !it.match && !waitedOn(n) ? ' faded' : ''}${inactive(n) ? ' inactive' : ''}`;
+    const row = document.createElement('div'); row.className = `orow k-${n.kind}${big ? ' big' : ''}${S.selected === it.id ? ' sel' : ''}${active && !it.match && !unfaded(n) ? ' faded' : ''}${inactive(n) ? ' inactive' : ''}`;
     row.setAttribute('role', 'treeitem'); row.tabIndex = 0; row.dataset.row = it.iid; if (has) row.setAttribute('aria-expanded', String(!!it.open));
     row.style.paddingLeft = (10 + it.depth * 24) + 'px';
     row.innerHTML = `<button class="car" aria-label="Toggle" style="visibility:${has ? 'visible' : 'hidden'}"><i class="ph-duotone ${it.open ? 'ph-caret-down' : 'ph-caret-right'}"></i></button><i class="ki ph-duotone ${kindOf(displayKind(n)).icon}"></i><span class="t" title="${esc(n.path || n.title)}">${esc(shown(n))}</span><span class="kick">${n.kind === 'root' ? '' : esc(kicker(n))}</span>${marksHtml(n)}${tagsHtml(n)}${(n.labels || []).map((l) => `<span class="stchip" style="--bg:${labelStyle(l).bg};--ink:${labelStyle(l).ink};--bd:${labelStyle(l).c};text-transform:uppercase;letter-spacing:.06em;font-weight:700;font-size:10px">${esc(l)}</span>`).join('')}${n.kind === 'root' ? '' : chipHtml(n)}`;

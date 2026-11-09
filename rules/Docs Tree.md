@@ -4,7 +4,7 @@ type: project
 layer: shared
 related: ["Agent Rules", "Workflow", "Project Overview"]
 created: 2026-10-18
-updated: 2026-11-05
+updated: 2026-11-09
 tags: [project, layer/shared, map]
 ---
 
@@ -68,7 +68,7 @@ On disk the story sits beside the feature card and the six other layer notes in 
 | `S-18 · STORY · Business layer` | how a card is named on the page: every card's file name starts with its code, so the code and the kind go in the kicker and the title drops the code (`S-18 Rings Story.md` reads **Rings Story** under `S-18 · STORY`), and the layer after it in the pane. The file name keeps the code: only the card's title drops it |
 | `B-01 · BUG · Business layer` | a **bug**, a note of its own type, `type: bug`: its own `B` prefix and number sequence, its own name and icon on the page, and it hangs under the card it was found against rather than under the feature's story — the card named in `foundOn:` ([[Agent Rules#2 · Codes, scopes and the "sum of" rule]]). The Card Index *Under* column shows that card, `BI-01` for a bug found testing a Backend Integration note |
 | `ND-NN · NEEDS DECISION` / `D-NN · DECISION` | how the two decision cards are named on the page and in the index: the ND-NN card (the needs-decision card) holds the question and always reads NEEDS DECISION, its kind, with a chip saying **Draft**, **Open** or **Fulfilled** (computed once its answer is decided); its D-NN card (the decision card) holds the answer (DECISION), with a chip saying **Draft** or **Decided**; the types (`decision`, `decision`) and the codes do not change |
-| Blocked · ND-NN | the card needs a decision: the needs-decision card (`draft` or `open`) hangs under it (`blocks:` on the D card) and everything after it waits; the card returns to its own status on the build after its decision card is `decided` (the D card then shows Fulfilled) ([[Agent Rules#4 · Statuses, blocking and sign-off]]). The blocked card is drawn dim; its needs-decision card, while `draft` or `open`, is **never** drawn dim (not by a filter, a search or a hover): it is the live card the dimmed ones wait on. Once Fulfilled it fades like any other card |
+| Blocked · ND-NN | the card needs a decision: the needs-decision card (`draft` or `open`) hangs under it (`blocks:` on the D card) and everything after it waits; the card returns to its own status on the build after its decision card is `decided` (the D card then shows Fulfilled) ([[Agent Rules#4 · Statuses, blocking and sign-off]]). The blocked card is drawn dim; its needs-decision card, while `draft` or `open`, is **never** drawn dim (not by a filter, a search or a hover): it is the live card the dimmed ones wait on. Once Fulfilled it still never fades under a filter or a search, and its decision card (D-NN) is always shown under it, at full strength, even when neither card matches the filter (a hover dims a Fulfilled card like any other) |
 | Not written yet | a placeholder for a missing layer note: under every feature |
 | *Frontend only* (kicker) | a feature with `frontendOnly: true`: no backend part, so the backend and QA-backend cards are neither required nor counted |
 | Reference | project docs and module notes |
