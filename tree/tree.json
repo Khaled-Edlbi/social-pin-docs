@@ -68,6 +68,7 @@
     "B-22 The code's expiry counts with the phone clock": "task:B-22",
     "B-23 A deleted account opened cold lands on Home, not Welcome": "task:B-23",
     "B-24 A suspended account stays signed in when the account read says SUSPENDED": "task:B-24",
+    "B-25 The change sheet doesn't focus the field after a taken error": "task:B-25",
     "BD-01 Account Backend Delivery": "backend-delivery:account",
     "BD-02 Auth & Sign-up Backend Delivery": "backend-delivery:auth",
     "BD-03 Counts Backend Delivery": "backend-delivery:counts",
@@ -404,6 +405,7 @@
     "B-22": "task:B-22",
     "B-23": "task:B-23",
     "B-24": "task:B-24",
+    "B-25": "task:B-25",
     "BD-01": "backend-delivery:account",
     "BD-02": "backend-delivery:auth",
     "BD-03": "backend-delivery:counts",
@@ -1868,7 +1870,8 @@
     },
     "E_USER_02": {
       "containers": [
-        "feature:account"
+        "feature:account",
+        "task:B-25"
       ],
       "kind": "error",
       "notes": [
@@ -1878,13 +1881,15 @@
         "frontend-requirements:account",
         "qa-backend:account",
         "qa-frontend:account",
-        "story:account"
+        "story:account",
+        "task:B-25"
       ],
       "owner": null
     },
     "E_USER_03": {
       "containers": [
-        "feature:account"
+        "feature:account",
+        "task:B-25"
       ],
       "kind": "error",
       "notes": [
@@ -1894,7 +1899,8 @@
         "frontend-requirements:account",
         "qa-backend:account",
         "qa-frontend:account",
-        "story:account"
+        "story:account",
+        "task:B-25"
       ],
       "owner": null
     },
@@ -3986,7 +3992,8 @@
         "feature:account",
         "needs-decision:ND-20",
         "project:spec-map",
-        "task:B-01"
+        "task:B-01",
+        "task:B-25"
       ],
       "kind": "endpoint",
       "notes": [
@@ -3999,7 +4006,8 @@
         "project:spec-map",
         "qa-backend:account",
         "story:account",
-        "task:B-01"
+        "task:B-01",
+        "task:B-25"
       ],
       "owner": "feature:account"
     },
@@ -6581,7 +6589,8 @@
         "task:B-03",
         "task:B-11",
         "task:B-23",
-        "task:B-24"
+        "task:B-24",
+        "task:B-25"
       ],
       "kind": "screen",
       "notes": [
@@ -6645,7 +6654,8 @@
         "task:B-03",
         "task:B-11",
         "task:B-23",
-        "task:B-24"
+        "task:B-24",
+        "task:B-25"
       ],
       "owner": null
     },
@@ -6796,7 +6806,7 @@
   },
   "counts": {
     "blocked": 27,
-    "bugs": 24,
+    "bugs": 25,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 14,
@@ -6810,22 +6820,22 @@
       "qa-backend": 11,
       "qa-frontend": 2,
       "story": 41,
-      "task": 24
+      "task": 25
     },
     "byLayer": {
       "backend": 61,
-      "business": 179,
+      "business": 180,
       "frontend": 54,
       "qa": 13,
       "shared": 10
     },
     "concepts": 323,
     "decisions": 34,
-    "edges": 7955,
+    "edges": 7972,
     "features": 41,
     "layerNotes": 157,
     "modules": 8,
-    "notes": 348,
+    "notes": 349,
     "partial": 14,
     "placeholders": 128,
     "records": 33
@@ -45055,6 +45065,107 @@
       ]
     },
     {
+      "from": "task:B-25",
+      "kind": "related",
+      "to": "backend-delivery:account",
+      "via": [
+        "E_USER_02",
+        "E_USER_03",
+        "PATCH /users/me"
+      ]
+    },
+    {
+      "from": "task:B-25",
+      "kind": "related",
+      "to": "backend-integration:account",
+      "via": [
+        "E_USER_02",
+        "E_USER_03",
+        "PATCH /users/me"
+      ]
+    },
+    {
+      "from": "task:B-25",
+      "kind": "related",
+      "to": "decision:D-20",
+      "via": [
+        "PATCH /users/me"
+      ]
+    },
+    {
+      "from": "task:B-25",
+      "kind": "related",
+      "to": "frontend-delivery:account",
+      "via": [
+        "E_USER_02",
+        "E_USER_03",
+        "PATCH /users/me"
+      ]
+    },
+    {
+      "from": "task:B-25",
+      "kind": "related",
+      "to": "frontend-requirements:account",
+      "via": [
+        "E_USER_02",
+        "E_USER_03",
+        "PATCH /users/me"
+      ]
+    },
+    {
+      "from": "task:B-25",
+      "kind": "related",
+      "to": "needs-decision:ND-20",
+      "via": [
+        "PATCH /users/me"
+      ]
+    },
+    {
+      "from": "task:B-25",
+      "kind": "related",
+      "to": "project:spec-map",
+      "via": [
+        "PATCH /users/me"
+      ]
+    },
+    {
+      "from": "task:B-25",
+      "kind": "related",
+      "to": "qa-backend:account",
+      "via": [
+        "E_USER_02",
+        "E_USER_03",
+        "PATCH /users/me"
+      ]
+    },
+    {
+      "from": "task:B-25",
+      "kind": "related",
+      "to": "qa-frontend:account",
+      "via": [
+        "E_USER_02",
+        "E_USER_03"
+      ]
+    },
+    {
+      "from": "task:B-25",
+      "kind": "related",
+      "to": "story:account",
+      "via": [
+        "E_USER_02",
+        "E_USER_03",
+        "PATCH /users/me"
+      ]
+    },
+    {
+      "from": "task:B-25",
+      "kind": "related",
+      "to": "task:B-01",
+      "via": [
+        "PATCH /users/me"
+      ]
+    },
+    {
       "from": "decision:D-10",
       "kind": "shares",
       "to": "decision:D-17",
@@ -45930,6 +46041,14 @@
       ]
     },
     {
+      "from": "decision:D-20",
+      "kind": "shares",
+      "to": "task:B-25",
+      "via": [
+        "PATCH /users/me"
+      ]
+    },
+    {
       "from": "decision:D-24",
       "kind": "shares",
       "to": "feature:badge-qr",
@@ -46640,6 +46759,16 @@
       "via": [
         "E_AUTH_03",
         "GET /users/me"
+      ]
+    },
+    {
+      "from": "feature:account",
+      "kind": "shares",
+      "to": "task:B-25",
+      "via": [
+        "E_USER_02",
+        "E_USER_03",
+        "PATCH /users/me"
       ]
     },
     {
@@ -56491,6 +56620,14 @@
       ]
     },
     {
+      "from": "needs-decision:ND-20",
+      "kind": "shares",
+      "to": "task:B-25",
+      "via": [
+        "PATCH /users/me"
+      ]
+    },
+    {
       "from": "needs-decision:ND-21",
       "kind": "shares",
       "to": "project:frontend-contract",
@@ -57347,6 +57484,14 @@
         "GET /views/ring/:ringId",
         "GET /views/user/:userId/perspectives",
         "POST /rings"
+      ]
+    },
+    {
+      "from": "project:spec-map",
+      "kind": "shares",
+      "to": "task:B-25",
+      "via": [
+        "PATCH /users/me"
       ]
     },
     {
@@ -59051,6 +59196,11 @@
       "from": "frontend-delivery:account",
       "kind": "tree",
       "to": "task:B-24"
+    },
+    {
+      "from": "frontend-delivery:account",
+      "kind": "tree",
+      "to": "task:B-25"
     },
     {
       "from": "frontend-delivery:auth",
@@ -65616,6 +65766,11 @@
       "from": "task:B-24",
       "kind": "wikilink",
       "to": "feature:account"
+    },
+    {
+      "from": "task:B-25",
+      "kind": "wikilink",
+      "to": "feature:account"
     }
   ],
   "emoji": {
@@ -65846,6 +66001,10 @@
     },
     "social-pin/bugs/B-24 A suspended account stays signed in when the account read says SUSPENDED.md": {
       "name": "B-24 A suspended account stays signed in when the account read says SUSPENDED",
+      "type": "bug"
+    },
+    "social-pin/bugs/B-25 The change sheet doesn't focus the field after a taken error.md": {
+      "name": "B-25 The change sheet doesn't focus the field after a taken error",
       "type": "bug"
     },
     "social-pin/business/Feature Graph.md": {
@@ -67365,6 +67524,7 @@
         "task:B-22",
         "task:B-23",
         "task:B-24",
+        "task:B-25",
         "needs-decision:ND-30",
         "decision:D-30",
         "task:B-01",
@@ -70739,6 +70899,7 @@
         "task:B-22",
         "task:B-23",
         "task:B-24",
+        "task:B-25",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-delivery:account",
@@ -75047,6 +75208,7 @@
         "task:B-18",
         "task:B-22",
         "task:B-24",
+        "task:B-25",
         "needs-decision:ND-20",
         "needs-decision:ND-30",
         "backend-integration:auth",
@@ -76192,7 +76354,7 @@
         "done": 2,
         "partial": 3,
         "passing": 1,
-        "todo": 2,
+        "todo": 3,
         "verified": 1
       },
       "scope": null,
@@ -79509,7 +79671,8 @@
       "card": "FD-04",
       "children": [
         "task:B-23",
-        "task:B-24"
+        "task:B-24",
+        "task:B-25"
       ],
       "code": "account",
       "created": "2026-10-26",
@@ -79533,7 +79696,8 @@
       "module": "identity",
       "openBugs": [
         "task:B-23",
-        "task:B-24"
+        "task:B-24",
+        "task:B-25"
       ],
       "parentTask": null,
       "parents": [
@@ -79547,6 +79711,7 @@
         "task:B-18",
         "task:B-23",
         "task:B-24",
+        "task:B-25",
         "needs-decision:ND-20",
         "decision:D-20",
         "backend-delivery:account",
@@ -82056,6 +82221,7 @@
         "task:B-18",
         "task:B-23",
         "task:B-24",
+        "task:B-25",
         "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:account",
@@ -86492,7 +86658,7 @@
         "needs-decision": 1,
         "partial": 12,
         "passing": 7,
-        "todo": 7,
+        "todo": 8,
         "verified": 10
       },
       "scope": null,
@@ -87946,6 +88112,7 @@
         "task:B-18",
         "task:B-22",
         "task:B-24",
+        "task:B-25",
         "backend-integration:auth",
         "frontend-delivery:account",
         "project:auth-model",
@@ -90837,6 +91004,7 @@
         "task:B-16",
         "task:B-17",
         "task:B-22",
+        "task:B-25",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-requirements:connections",
@@ -91094,6 +91262,7 @@
         "task:B-22",
         "task:B-23",
         "task:B-24",
+        "task:B-25",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-integration:connections",
@@ -94163,6 +94332,7 @@
         "task:B-18",
         "task:B-23",
         "task:B-24",
+        "task:B-25",
         "backend-delivery:account",
         "backend-integration:account",
         "frontend-requirements:account",
@@ -96291,7 +96461,7 @@
         "passing": 7,
         "ready": 1,
         "reference": 32,
-        "todo": 10,
+        "todo": 11,
         "verified": 33
       },
       "scope": null,
@@ -96342,6 +96512,7 @@
         "task:B-22",
         "task:B-23",
         "task:B-24",
+        "task:B-25",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-delivery:account",
@@ -99529,6 +99700,7 @@
         "task:B-18",
         "task:B-22",
         "task:B-24",
+        "task:B-25",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-delivery:account",
@@ -101580,6 +101752,74 @@
       ],
       "task": null,
       "title": "B-24 A suspended account stays signed in when the account read says SUSPENDED",
+      "unmet": [],
+      "updated": "2026-11-09"
+    },
+    "task:B-25": {
+      "affects": [],
+      "blockedBy": [],
+      "card": "B-25",
+      "children": [],
+      "code": "B-25",
+      "created": "2026-11-09",
+      "deadline": null,
+      "decision": null,
+      "depends": [],
+      "dir": null,
+      "effectiveStatus": "todo",
+      "effort": "S",
+      "feature": "account",
+      "foundOn": "FD-04 Account Frontend Delivery",
+      "frontendOnly": false,
+      "id": "task:B-25",
+      "inherits": {
+        "release": "feature:account"
+      },
+      "kind": "task",
+      "label": "Bug",
+      "labels": [
+        "bug"
+      ],
+      "layer": "business",
+      "module": "identity",
+      "openBugs": [],
+      "parentTask": null,
+      "parents": [
+        "frontend-delivery:account"
+      ],
+      "path": "social-pin/bugs/B-25 The change sheet doesn't focus the field after a taken error.md",
+      "pending": [],
+      "priority": "low",
+      "related": [
+        "frontend-delivery:account",
+        "qa-frontend:account",
+        "story:account",
+        "task:B-01",
+        "needs-decision:ND-20",
+        "decision:D-20",
+        "backend-delivery:account",
+        "backend-integration:account",
+        "frontend-requirements:account",
+        "qa-backend:account",
+        "project:spec-map"
+      ],
+      "release": "mvp",
+      "resolution": null,
+      "rollup": {},
+      "scope": null,
+      "screens": [
+        "s68"
+      ],
+      "status": "todo",
+      "summary": "The fix is /frontend's. It sets in-progress when it starts and ready when the fix ships; QA re-runs AC-27 and closes or reopens it.",
+      "tags": [
+        "bug",
+        "bug/todo",
+        "module/identity",
+        "priority/low"
+      ],
+      "task": null,
+      "title": "B-25 The change sheet doesn't focus the field after a taken error",
       "unmet": [],
       "updated": "2026-11-09"
     }
