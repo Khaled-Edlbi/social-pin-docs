@@ -7093,7 +7093,7 @@
     },
     "concepts": 333,
     "decisions": 34,
-    "edges": 8358,
+    "edges": 8359,
     "features": 41,
     "layerNotes": 159,
     "modules": 8,
@@ -25506,6 +25506,11 @@
     {
       "from": "frontend-delivery:profiles",
       "kind": "related",
+      "to": "frontend-delivery:ring-projection"
+    },
+    {
+      "from": "frontend-delivery:profiles",
+      "kind": "related",
       "to": "frontend-requirements:profiles",
       "via": [
         "E_PROFILE_02",
@@ -26094,11 +26099,6 @@
       "from": "frontend-delivery:ring-projection",
       "kind": "related",
       "to": "frontend-delivery:photo-library"
-    },
-    {
-      "from": "frontend-delivery:ring-projection",
-      "kind": "related",
-      "to": "frontend-delivery:profiles"
     },
     {
       "from": "frontend-delivery:ring-projection",
@@ -65540,6 +65540,11 @@
       "to": "feature:rings"
     },
     {
+      "from": "frontend-delivery:profiles",
+      "kind": "wikilink",
+      "to": "story:ring-projection"
+    },
+    {
       "from": "frontend-delivery:ring-access",
       "kind": "wikilink",
       "to": "backend-integration:ring-access"
@@ -85993,11 +85998,11 @@
         "frontend-delivery:account",
         "frontend-delivery:auth",
         "frontend-delivery:photo-library",
+        "frontend-delivery:ring-projection",
         "feature:ring-projection",
         "qa-backend:profiles",
         "backend-delivery:ring-projection",
         "backend-integration:ring-projection",
-        "frontend-delivery:ring-projection",
         "frontend-requirements:ring-projection",
         "qa-backend:ring-projection",
         "frontend-requirements:companies"
@@ -86011,7 +86016,7 @@
         "s68"
       ],
       "status": "done",
-      "summary": "What the client shipped for the main profile, the profile editor, renaming the Pin name and the privacy rows, on socialpin rings/F-11/honest-rings @ bf5088d (2026-11-06), not on main yet. Claiming…",
+      "summary": "What the client shipped for the main profile, the profile editor, renaming the Pin name and the privacy rows, on socialpin rings/F-11/honest-rings @ bf5088d (2026-11-06), the per-Ring privacy…",
       "tags": [
         "frontend-delivery",
         "frontend-delivery/done",
@@ -86021,7 +86026,7 @@
       "task": null,
       "title": "FD-09 Profiles & Pin Name Frontend Delivery",
       "unmet": [],
-      "updated": "2026-11-06"
+      "updated": "2026-11-09"
     },
     "frontend-delivery:ring-access": {
       "affects": [],
@@ -86341,6 +86346,7 @@
         "qa-backend:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
+        "frontend-delivery:profiles",
         "qa-backend:profiles",
         "backend-delivery:ring-projection",
         "backend-integration:ring-projection",
@@ -86350,7 +86356,6 @@
         "decision:D-05",
         "frontend-delivery:files",
         "frontend-delivery:photo-library",
-        "frontend-delivery:profiles",
         "story:widgets",
         "story:gemma",
         "qa-backend:ring-projection",

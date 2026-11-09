@@ -17,6 +17,8 @@ tags: [story, story/approved, module/identity, layer/business]
 
 # Profiles & Pin Name · User Story
 
+> ⚠ Affected by [[FD-09 Profiles & Pin Name Frontend Delivery]] (2026-11-09): app 0005f00 ships S4 Clear hides first (every Ring switched off, then null; the value kept if a Ring fails), but a failed Clear says why as the app's error message over the sheet, not as a line under the field; for /pm
+
 > ⚠ Affected by [[BD-07 Profiles & Pin Name Backend Delivery]] (2026-11-05): backend main a249ab2 shipped S3, S4, S9-S12: the main profile fields and photo (signed avatarUrl), the yearly rename (429 E_PROFILE_05, nextPinNameChangeAt), nickname: null, GET /profiles/ring-privacy; for /pm: S10's and S12's 'Not available yet' lines and S9's photo line no longer hold; the year counts from the first rename, the natural reading of D-06
 
 > ⚠ Affected by [[BD-07 Profiles & Pin Name Backend Delivery]] (2026-11-05): backend review of FR-07 (approved): for /pm: S9 still says the photo shows as initials until ND-16 is decided; ND-16 is decided as D-16 (files load from signed links that expire in 15 minutes), and FR-07 asks for a signed avatarUrl on GET /profiles, now pending on BD-07. S9's photo line should follow D-16.
