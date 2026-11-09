@@ -76903,11 +76903,11 @@
         "approved": 1,
         "decided": 1,
         "delivered": 2,
-        "done": 3,
+        "done": 4,
         "failing": 1,
         "partial": 2,
         "passing": 1,
-        "todo": 4,
+        "todo": 3,
         "verified": 1
       },
       "scope": null,
@@ -80250,7 +80250,6 @@
       "layer": "frontend",
       "module": "identity",
       "openBugs": [
-        "task:B-24",
         "task:B-25",
         "task:B-26",
         "task:B-27"
@@ -87233,7 +87232,7 @@
         "current": 4,
         "decided": 10,
         "delivered": 13,
-        "done": 32,
+        "done": 33,
         "draft": 3,
         "failing": 2,
         "in-progress": 13,
@@ -87241,7 +87240,7 @@
         "needs-decision": 1,
         "partial": 11,
         "passing": 7,
-        "todo": 9,
+        "todo": 8,
         "verified": 10
       },
       "scope": null,
@@ -97109,7 +97108,7 @@
         "current": 7,
         "decided": 33,
         "delivered": 14,
-        "done": 35,
+        "done": 36,
         "draft": 26,
         "failing": 2,
         "in-progress": 47,
@@ -97119,7 +97118,7 @@
         "passing": 7,
         "ready": 1,
         "reference": 32,
-        "todo": 12,
+        "todo": 11,
         "verified": 33
       },
       "scope": null,
@@ -102339,7 +102338,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "todo",
+      "effectiveStatus": "done",
       "effort": "S",
       "feature": "account",
       "foundOn": "FD-04 Account Frontend Delivery",
@@ -102399,20 +102398,21 @@
         "project:frontend-passwordless-migration"
       ],
       "release": "mvp",
-      "resolution": null,
+      "resolution": "fixed",
       "rollup": {},
       "scope": null,
       "screens": [
         "s68",
         "s01"
       ],
-      "status": "todo",
+      "status": "done",
       "summary": "The fix is /frontend's. It sets in-progress when it starts and ready when the fix ships; QA re-runs AC-33 and closes or reopens it.",
       "tags": [
         "bug",
-        "bug/todo",
+        "bug/done",
         "module/identity",
-        "priority/medium"
+        "priority/medium",
+        "resolution/fixed"
       ],
       "task": null,
       "title": "B-24 A suspended account stays signed in when the account read says SUSPENDED",
