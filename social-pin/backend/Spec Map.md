@@ -3,7 +3,7 @@ id: P-17
 type: project
 layer: backend
 created: 2026-10-15
-updated: 2026-11-08
+updated: 2026-11-09
 tags: [project]
 ---
 # Spec → code map
@@ -36,8 +36,8 @@ database/business concept."*
 | `ring_members` | Critical | `RingMember` | `ring.prisma` | **schema + API** | `modules/ring/ring-member.service.ts`; `origin` records how a membership was made (D-18) |
 | `ring_profiles` | Critical | `RingProfile` | `ring.prisma` | **schema + API** | `modules/ring-profile/` |
 | `ring_profile_links` | Critical | `RingProfileLink` | `ring.prisma` | **schema + API** | `modules/ring-profile/` |
-| `connections` | Critical | `Connection` | `connection.prisma` | schema | — |
-| `connection_requests` | Critical | `ConnectionRequest` | `connection.prisma` | schema | — |
+| `connections` | Critical | `Connection` | `connection.prisma` | **schema + API** | `modules/connection/` ([[BD-14 Connections Backend Delivery]]); `source`, `connected_at`; a deleted account's end with it (D-25) |
+| `connection_requests` | Critical | `ConnectionRequest` | `connection.prisma` | **schema + API** | `modules/connection/connection-request.service.ts`; addressed by `qrToken`, `pinName` or `againFor`, never a user id (D-10); one pending per pair (D-24, partial unique index) |
 | `businesses` | High | `Business` | `business.prisma` | schema | — |
 | `business_members` | High | `BusinessMember` | `business.prisma` | schema | — |
 | `events` | Critical | `Event` | `event.prisma` | schema | — |
@@ -81,7 +81,7 @@ feature in the features list needs it.
 | `VerificationCode` | The email/phone OTP in features §8. |
 | `SocialIdentity` | "or via social providers" (§8). |
 | `UserDevice` | "Devices (linked-device management)" (§6). |
-| `UserBlock` | `connections` says "Respect blocks/privacy" but defines no block table. Its own table so a block survives connection and ring churn. |
+| `UserBlock` | `connections` says "Respect blocks/privacy" but defines no block table. Its own table so a block survives connection and ring churn. Made and removed by `POST /blocks`, `GET /blocks`, `DELETE /blocks/:id` (`modules/connection/block.service.ts`). |
 | `Interest`, `UserInterest` | §4 interests, "used for search & matchmaking; **not shown to others**". |
 | `RingAdmin` | "delegated ring admins at different permission levels" (§5). |
 | `RingInfoBlock` | "Add information to your ring / Added info" (§4). |
@@ -158,7 +158,7 @@ model instead of turning Social Pin into a generic social network."*
 | 4 | File attachments on profile | **API** | `.../projection/attachments`; opened from each attachment's signed `url` |
 | 4 | Photo library (my files, which Rings use each) | **API** | `GET /files?kind=image\|document` with `usedBy`, `isMainPhoto` and `followerCount` (the main photo's live followers, `RingAccessService.countMainPhotoFollowers`) |
 | 4 | Interests, not shown to others | schema | `Interest`, `UserInterest`, seeded vocabulary |
-| 4 | Connections counter | — | Derived; not yet exposed |
+| 4 | Connections counter | **API** | `GET /connections/count` (equals `meta.total` of `GET /connections`) |
 | 5 | Multiple rings + a default ring | **API** | `POST /rings`, `POST /rings/:id/default` |
 | 5 | Add users to a ring → they see that perspective | **API** | `POST /rings/:ringId/members` |
 | 5 | Switch modes across several rings of one user | **API** | `GET /views/user/:userId/perspectives` |
@@ -169,7 +169,7 @@ model instead of turning Social Pin into a generic social network."*
 | 5 | Corporate rings (public/employees/c-suite), delegated admins | partial | `RING_TYPE.CORPORATE`, `parentRingId`, `RingAdmin` + `assertCanAdminister` enforce it; no corporate-specific endpoints |
 | 5 | MiniRings for sub-events | schema | `Ring.parentRingId`, `MiniEvent.ringId` |
 | 5 | Temporary rings → keep / merge / auto-delete | **API** | `POST /rings/:id/disposition` |
-| 6 | Connect / follow as an access request | schema | `ConnectionRequest.grantedRingId` |
+| 6 | Connect / follow as an access request | **API** | `POST /connections/requests` (by scanned `qrToken`, `pinName` or `againFor`), accepted into a Ring with `POST /connections/requests/:id/accept`, which writes `ConnectionRequest.grantedRingId`; contacts, detail, disconnect and blocks under `/connections` and `/blocks` ([[BD-14 Connections Backend Delivery]]) |
 | 6 | Re-assignment is live | **API** | `POST /rings/:ringId/members/:userId/reassign` |
 | 6 | Ring membership private to the owner | **API** | Enforced; see the privacy section of `CLAUDE.md` |
 | 6 | PinCast, nearby discovery, search by ring | schema | `Pincast`, `PincastRecipient`, PostGIS index |
@@ -253,7 +253,7 @@ Stated plainly, because a gap described as done is worse than a gap.
    Expiry is evaluated live from the timestamps on every access resolution,
    which is correct and race-free; those enum values are for a sweeper that
    would materialise the state for reporting.
-5. **Phases 3–8 are schema-only.** Connections, events, meetings, PinCast,
+5. **Phases 3–8 are schema-only**, apart from connections (API since F-14). Events, meetings, PinCast,
    businesses, commerce, chat, posts and Gemma have tables, constraints,
    indexes and documented intent — and no services or endpoints.
 6. **e2e specs need a seeded, disposable database.** They are written and
