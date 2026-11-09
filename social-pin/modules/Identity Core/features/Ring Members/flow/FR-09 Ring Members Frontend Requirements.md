@@ -3,21 +3,21 @@ id: FR-09
 type: frontend-requirements
 module: identity
 feature: ring-members
-status: ready
+status: draft
 scope: feature
 screens: [s15, s16, s35, s46, s47]
 owner: "Omar Fostok"
 depends: ["S-16 Ring Members Story"]
 affects: ["BD-09 Ring Members Backend Delivery"]
-related: ["BI-06 Ring Members Backend Integration", "D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-18 Ring names shown when joined knowingly", "FR-08 Ring Access Engine Frontend Requirements", "FR-11 Rings Frontend Requirements", "S-18 Rings Story", "S-23 Connections Story", "S-33 Ring Invitations & Join Story", "S-87 Error Contract Story", "S-31 Delegated Admins Story", "D-28 Scan someone in is not in the MVP", "GET /rings/:ringId/members", "POST /rings/:ringId/members", "PATCH /rings/:ringId/members/:userId", "DELETE /rings/:ringId/members/:userId", "POST /rings/:ringId/members/:userId/reassign", "GET /rings", E_RING_05, E_RING_02]
+related: ["BI-06 Ring Members Backend Integration", "D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-18 Ring names shown when joined knowingly", "FR-08 Ring Access Engine Frontend Requirements", "FR-11 Rings Frontend Requirements", "S-18 Rings Story", "S-23 Connections Story", "S-33 Ring Invitations & Join Story", "S-87 Error Contract Story", "S-31 Delegated Admins Story", "D-28 Scan someone in is not in the MVP", "D-29 Connection detail opens a member who is not a connection", "BI-16 Connections Backend Integration", "GET /connections/:userId", "GET /connections", "DELETE /connections/:userId", "GET /rings/:ringId/members", "POST /rings/:ringId/members", "PATCH /rings/:ringId/members/:userId", "DELETE /rings/:ringId/members/:userId", "POST /rings/:ringId/members/:userId/reassign", "GET /rings", E_RING_05, E_RING_02]
 created: 2026-10-18
-updated: 2026-11-05
-tags: [frontend-requirements, frontend-requirements/ready, module/identity, layer/frontend]
+updated: 2026-11-09
+tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
 ---
 
 # Ring Members · Frontend Requirements
 
-**Feature:** [[F-09 Ring Members]] · **Status:** Ready (waiting for the backend; the 2026-11-05 review answered) · **Story:** [[S-16 Ring Members Story]] · **Backend Integration:** [[BI-06 Ring Members Backend Integration]]
+**Feature:** [[F-09 Ring Members]] · **Status:** Draft (s15 and s47 rewritten 2026-11-09 to what the client builds on Connections; names on the roster and `?name=` asked, M10) · **Story:** [[S-16 Ring Members Story]] · **Backend Integration:** [[BI-06 Ring Members Backend Integration]]
 
 What the client needs from the backend to build the owner's roster, the per-person checklist of Rings, the "bring people in" flow, join approvals and the members a member may see, and whether each need is met today. Shapes, the `status` filter and the window semantics are in [[BI-06 Ring Members Backend Integration]].
 
@@ -25,31 +25,31 @@ What the client needs from the backend to build the owner's roster, the per-pers
 
 ### [[Screen Index#s15|s15]] Ring people (S1, S2, S4, S6, S9)
 
-- Needs: the active roster with `userId`, `status`, `startsAt`, `expiresAt`, `addedById`, `createdAt`; `meta.total` for the header; the person's name, headline and photo per row; **search by name**; this Ring's **pending join requests**; this Ring's "members can see each other" value (for the footnote).
-- Header: "**N people**" (`meta.total`), not "connections".
-- A row: **always** name, headline, when added ("Today", from `createdAt`); **only when set** the window ("until 12 Nov"); **only when passed** a "lapsed" chip. Until names exist: "Member" with the added date and the window.
-- **Search** "Search N people": by name and Pin name over the whole roster, sent to the backend (works with paging); "No one here matches that search."
-- **Filters: All · Pending · N.** Pending is hidden while nobody waits; the filter row is hidden until join requests exist. Not "Recent" or "Never met" (later).
-- **Waiting on you · N** (S9): this Ring's join requests: the person, how they asked ("with your code", "from your public card"), when; **Add** (approve, recorded as joined knowingly) and **Decline**. People who only scanned my badge are not here. Hidden while empty.
-- **Move from a Ring** (S4): my other Rings ([[Screen Index#s16|s16]]-like list, without this one) → that Ring's roster, tick several (with search) → "Move N people to <Ring>": `POST /rings/:ringId/members/:userId/reassign { toRingId }` for each, where `:ringId` is the Ring picked from the list (the one they leave) and `toRingId` is this Ring (the one they go to). Someone already here is ticked and can't be picked.
-- Add → [[Screen Index#s46|s46]], once accepting a request ships ([[S-23 Connections Story|Connections · S5–S7]]). **Scan someone in** ([[Screen Index#s35|s35]]) is not in the MVP ([[D-28 Scan someone in is not in the MVP]]): not offered.
+- Needs: the active roster with `userId`, `status`, `origin`, `startsAt`, `expiresAt`, newest first; each member's **`displayName`, `pinName` and `avatarUrl`**; the Ring's `memberCount` for the header; my connections, for + Add; my other live Rings, for a move; this Ring's "members can see each other" value (for the footnote).
+- Header: "**People · N**" (`memberCount`), "Newest first".
+- **Names today** come from `GET /connections/:userId`, one call per member: it answers for a connection **and** for a member of my Rings who isn't one ([[D-29 Connection detail opens a member who is not a connection|D-29]]). Read once per person and kept for the session; forgotten when my connections change. Until a name is read the row says "Someone". This is one call per member, slow on a big Ring: **asked below** as names on the roster (M10).
+- A row: photo (or initials), name, `!pinName`; **only when set** the window ("Until 16 Mar", "From 3 Nov", "3 Nov to 12 Nov"); **only when passed** the row is dimmed and reads "**Ended <date>**"; **only when `origin` is not `PLACED`** how they joined ("Joined with a code", "Joined by invitation", "Asked to join"). No added date and no headline. Tap → [[Screen Index#s47|s47]], re-read on return.
+- **Search** "Search N people": by display name and Pin name, **on the phone over the names loaded**; "No one here matches that search." Asked below: `?name=` on the roster with paging (M10), so a big Ring needn't load every page and every name first.
+- **+ Add** (S2): a sheet of my connections (`GET /connections`), people already in this Ring marked "In this Ring" and not pickable; one person per add → `POST /rings/:ringId/members { userId }`; the window is set afterwards from ⋯. "Can't add this person" on `E_RING_MEMBER_04`, never why.
+- **⋯ per row:** *When they're in* (S3): the Ring dates sheet for that person → `PATCH …/members/:userId`, `null` clears a bound · *Move to another Ring* (S4): my other live Rings → `POST /rings/:ringId/members/:userId/reassign { toRingId }`, where `:ringId` is this Ring (the one they leave) and `toRingId` the Ring picked · *Remove from this Ring* (S5): "Remove <name> from <Ring>?" → `DELETE …/members/:userId`; at a connection's **last** of my Rings the [[D-15 Several Rings per connection, remove or disconnect|D-15]] sheet instead (see s47).
+- Not on s15: "Waiting on you" and the Pending filter (join requests, S9, wait on [[S-33 Ring Invitations & Join Story]]); Recent / Never met filters (no "last met" anywhere); "Move from a Ring" (moving is per row now); **Scan someone in** ([[Screen Index#s35|s35]]), not in the MVP ([[D-28 Scan someone in is not in the MVP]]).
 - Footnote: "Members never see who else is in this Ring — only you do." (setting off, and every Ring until it exists) / "Members of this Ring can see each other." (on).
-- States: list, empty, loading, search with no match, waiting requests, lapsed, read-only (403), placeholder identity.
-- Source today: `GET /rings/:ringId/members?status=ACTIVE&limit=…&skip=…`, `POST /rings/:ringId/members`, `POST …/members/:userId/reassign`, `GET /rings`. Names, search, join requests, the setting, scan and connect: not yet.
+- States: loading, list, empty ("No one in this Ring yet"), search with no match, failed + Try again, gone (404 `E_RING_02`, back), not yours (403 `E_RING_05`, nothing shown), lapsed, a name not read yet.
+- Source today: `GET /rings/:ringId/members?status=ACTIVE&limit=…&skip=…`, `POST`, `PATCH`, `DELETE …/members/:userId`, `POST …/reassign`, `GET /rings`, `GET /connections`, `GET /connections/:userId`. Names on the roster, `?name=` search, join requests and the setting: not yet.
 
 ### [[Screen Index#s47|s47]] Connection detail: which of my Rings (S3, S5)
 
 - Needs: **for one person, which of my Rings they're in, with each membership's window, in one call**; add to and remove from a Ring; edit a window; disconnect.
 - **Checklist** "IN RING — VISIBLE TO YOU ONLY": my Rings, ticked where they're in.
   - Tick: `POST /rings/:ringId/members { userId }` (placed by me, never named to them).
-  - Untick: "Remove <name> from <Ring>?" → `DELETE /rings/:ringId/members/:userId`.
-  - Untick the last Ring: **Remove from Rings** (stay a connection) or **Disconnect** (❌ no route yet, [[S-23 Connections Story|Connections · S11]]).
+  - Untick: `DELETE /rings/:ringId/members/:userId`, no question, **except** at a connection's **last** of my Rings.
+  - Untick a connection's last Ring: the [[D-15 Several Rings per connection, remove or disconnect|D-15]] sheet "<name> isn't in any other Ring": **Remove from Rings** (remove from the Ring, stay a connection) or **Disconnect** (remove from the Ring, then `DELETE /connections/:userId`). A member who isn't a connection ([[D-29 Connection detail opens a member who is not a connection|D-29]]) is just removed. Whether it is the last Ring is read fresh, not from the session's copy.
   - Moving: tick the new, then untick the old; **always add first**.
   - "Revoke access": remove from all my Rings, ending with the last-Ring question; then back to s15.
   - A failed call reverts the tick and refetches.
 - **Window line** under each ticked Ring: "Until removed ›", "Until 12 Nov ›", "From 3 Nov ›", "3 Nov – 12 Nov ›", "Lapsed 12 Nov ›" → start / end pickers with "No start" / "Until removed" (`null`) → `PATCH /rings/:ringId/members/:userId`; the Ring's own `expiresAt` shown beside the pickers.
-- States: ticked / unticked, saving, untick confirmation, last-Ring question, window editor, lapsed.
-- Source today: `POST`, `DELETE`, `PATCH …/members/:userId` per Ring. One person's Rings in one call and disconnect: not yet. The person's detail (name, mutuals, events): other features ([[S-23 Connections Story]], [[ND-23 Mutual connections and events in common]]).
+- States: ticked / unticked, saving, last-Ring sheet, window editor, lapsed.
+- Source today: `GET /connections/:userId` (`memberships`: my Rings they're in, oldest first, with each window, in one call), `POST`, `DELETE`, `PATCH …/members/:userId` per Ring, `DELETE /connections/:userId`. The rest of the person's detail (mutuals, events): other features ([[S-23 Connections Story]], [[ND-23 Mutual connections and events in common]]).
 
 ### A person's card, the member's side (opened from [[Screen Index#s17|s17]]) (S8)
 
@@ -65,12 +65,12 @@ What the client needs from the backend to build the owner's roster, the per-pers
 
 | Shown | Source | Notes |
 |---|---|---|
-| Name, headline, photo | — | ❌ until [[S-23 Connections Story\|Connections · S8–S12]]; placeholder "Member" until then |
-| Added | `createdAt` | relative time |
+| Name, Pin name, photo | `GET /connections/:userId` → `displayName`, `pinName`, `avatarUrl` | one call per member today, kept for the session; "Someone" until read; ❌ on the roster itself (M10) |
 | Window | `startsAt`, `expiresAt` | shown only when set; `null` = open-ended |
-| Lapsed | `expiresAt < now` on an `ACTIVE` row | `EXPIRED` is never set server-side |
-| Count | `meta.total` of the `ACTIVE` list | header "N people" |
-| Which of my Rings (s47) | — | ❌ one call per person, with each window |
+| Lapsed | `expiresAt < now` on an `ACTIVE` row | `EXPIRED` is never set server-side; row dimmed, "Ended <date>" |
+| How they joined | `origin` | shown only when not `PLACED`: `JOIN_CODE` "Joined with a code", `INVITATION` "Joined by invitation", `JOIN_REQUEST` "Asked to join"; an unknown value reads as `PLACED` |
+| Count | `memberCount` of the Ring | header "People · N" |
+| Which of my Rings (s47) | `GET /connections/:userId` → `memberships` | one call, each with its window |
 | Waiting on you | — | ❌ this Ring's join requests ([[S-33 Ring Invitations & Join Story]]) |
 
 ## Endpoints required
@@ -78,18 +78,19 @@ What the client needs from the backend to build the owner's roster, the per-pers
 | Need | Endpoint | Available | Story part / decision |
 |---|---|---|---|
 | Roster, newest first, filter by status | `GET /rings/:ringId/members` | ✅ | S1 |
-| **Search the roster by name** (name and Pin name the person shares with me), with paging | `GET /rings/:ringId/members?name=` | ❌ | S1 (needs names: [[S-23 Connections Story\|Connections · S8–S12]]) |
+| **Names on the roster:** `displayName`, `pinName` and `avatarUrl` on each member (the card the owner may see, as `GET /connections/:userId` answers it), so s15 is one call, not one per member | `GET /rings/:ringId/members` | ❌ | S1 (M10) |
+| **Search the roster by name** (display name and Pin name), with paging | `GET /rings/:ringId/members?name=` | ❌ | S1 (M10); until then the phone searches the names it has loaded |
+| A member's name, Pin name and photo, one at a time (today's source for s15) | `GET /connections/:userId` | ✅ | S1 ([[D-29 Connection detail opens a member who is not a connection\|D-29]]) |
+| My connections, for + Add | `GET /connections` | ✅ | S2 ([[BI-16 Connections Backend Integration\|BI-16]]) |
 | Add a member with an optional window | `POST /rings/:ringId/members` | ✅ | S2, S5 |
 | Edit the window | `PATCH /rings/:ringId/members/:userId` | ✅ | S3 |
-| Move into this Ring from another of mine | `POST /rings/:ringId/members/:userId/reassign { toRingId }`: `:ringId` the Ring they leave (picked from the list), `toRingId` this Ring | ✅ | S4 |
+| Move to another of my Rings | `POST /rings/:ringId/members/:userId/reassign { toRingId }`: `:ringId` this Ring (the one they leave), `toRingId` the Ring picked | ✅ | S4 |
 | Remove from a Ring | `DELETE /rings/:ringId/members/:userId` | ✅ | S5 |
 | Picker of my other Rings | `GET /rings` | ✅ | S4 (listed under [[F-11 Rings]]) |
-| **For one person, which of my Rings they're in, with each window**, in one call | — | ❌ | S5, S3 |
-| Disconnect (end the connection) | — | ❌ | S5 ([[S-23 Connections Story\|Connections · S11]]) |
+| For one person, which of my Rings they're in, with each window, in one call | `GET /connections/:userId` (`memberships`) | ✅ | S5, S3 |
+| Disconnect (end the connection), the D-15 sheet's second choice | `DELETE /connections/:userId` | ✅ | S5 ([[D-15 Several Rings per connection, remove or disconnect\|D-15]]) |
 | **This Ring's pending join requests** (who, how, when), approve and decline | — | ❌ | S9 ([[S-33 Ring Invitations & Join Story]]) |
 | **The members a member may see**, when the Ring's "members can see each other" is on (each member's card for that Ring), paginated | — | ❌ | S8 (the setting: [[S-18 Rings Story\|Rings · S9]]) |
-| Name, Pin name and photo per row | — | ❌ | [[S-23 Connections Story\|Connections · S8–S12]] |
-| A `userId` to add (connect request accepted) | — | ❌ | [[S-23 Connections Story\|Connections · S2–S4]], [[S-23 Connections Story\|Connections · S5–S7]] |
 | Scan someone in | — | not in the MVP | [[D-28 Scan someone in is not in the MVP]] |
 | Delegated admins managing the roster | every members route above | ✅ | an admin at `MEMBER_MANAGER` or above already passes the members routes |
 | Appointing a delegated admin | — | ❌ | [[S-31 Delegated Admins Story#What the backend has to build\|Delegated Admins · What the backend has to build]] |
@@ -97,12 +98,12 @@ What the client needs from the backend to build the owner's roster, the per-pers
 ## Behaviour expectations
 
 - Refetch / realtime: refetch the roster after every add, window edit, move and removal, and on screen focus. After a move, refetch both Rings' rosters; after a checklist change, refetch the person's Rings. No push.
-- Caching keys: `members:<ringId>:ACTIVE`, `member-rings:<userId>` (one person's Rings); never cache a member's "what they see"; the next `/views` call already reflects the change.
+- Caching keys: `members:<ringId>:ACTIVE`, `member-name:<userId>` (from `GET /connections/:userId`, for the session, dropped when my connections change), `member-rings:<userId>` (one person's Rings); never cache a member's "what they see"; the next `/views` call already reflects the change.
 - Pagination / ordering: newest first; `limit` ≤ 50; `meta.total` unpaginated; infinite scroll on `skip`. Always send `status=ACTIVE` on the people screen; omit it only on an audit view that wants `REMOVED` rows.
-- Search: debounce, send to the backend, never filter only the loaded page.
-- Checklist: add before remove when moving; revert a tick on failure.
+- Search: today on the phone, over every page of the roster and the names read so far (display name and Pin name); once `?name=` exists, debounce and send it to the backend, never filter only the loaded page.
+- Checklist: add before remove when moving; revert a tick on failure; ask only at a connection's last Ring (D-15), checked against a fresh read.
 - Window editor: send ISO datetimes; send `null` to clear a bound; omit a key to leave it unchanged. Show the Ring's own `expiresAt` next to the editor so the owner sees which closes first.
-- Move picker: only Rings with the same `ownerUserId` (the owner's own list); exclude the current Ring; the backend refuses the rest with 400 `E_RING_07`.
+- Move picker: only my other live Rings (same `ownerUserId`); exclude the current Ring; the backend refuses the rest with 400 `E_RING_07`.
 - 403: hide the roster and the actions; no toast. 404 `E_RING_MEMBER_02` on a row action: refetch the list.
 - Privacy: no member-side request except the members list when the setting is on; no copy on the member's side names the Ring they are in.
 
@@ -123,7 +124,6 @@ Until [[S-87 Error Contract Story|Error Contract · S4–S8]] ships, branch on s
 
 ## Blocked by
 
-- [[S-23 Connections Story|Connections · S8–S12]] — names and photos on every row, and search by name.
-- [[S-23 Connections Story|Connections · S2–S4]] and [[S-23 Connections Story|Connections · S5–S7]] — the only in-app sources of a `userId` to add; [[S-23 Connections Story|Connections · S11]] — the disconnect route.
+- Names on the roster and `?name=` search (M10, above) — s15 works without them, one detail call per member and search on the phone.
 - [[S-33 Ring Invitations & Join Story]] — join requests for "Waiting on you".
 - [[S-18 Rings Story|Rings · S9]] — "members can see each other" (the footnote and the members section) and "approve each one".
