@@ -17,6 +17,8 @@ tags: [backend-integration, backend-integration/current, module/connections, lay
 
 # 🔌 Connections · Backend Integration
 
+> ⚠ Affected by [[FD-13 Connections Frontend Delivery]] (2026-11-09): the client follows every Checklist row on social_pin f70c791: relationship after the view picks the button; 201 and 200 both sent, a 409 re-reads; Connect again with againFor, no 30-day count on the phone; one accept call then s47 from its answer; decline after the 5-second Undo; Contacts search on the server, debounced; a block drops the Connections caches; no Ring name, colour or type to the person in it. Tick the Checklist (/backend)
+
 > Blocked by default until [[BD-14 Connections Backend Delivery]] is `done` (the hand-off order in `docs.config.json`); `blockedBy: []` opts out, `blockedBy: [...]` names other blockers.
 
 **Feature:** [[F-14 Connections]] · **Backend:** [[BD-14 Connections Backend Delivery]] · **Read first:** [[Frontend Contract]], [[Frontend API Guide]]
