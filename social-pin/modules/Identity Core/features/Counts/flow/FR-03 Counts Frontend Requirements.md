@@ -13,7 +13,7 @@ depends: []
 affects: ["S-03 Counts Story"]
 related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "F-11 Rings", "F-14 Connections", "S-23 Connections Story", "S-87 Error Contract Story"]
 created: 2026-10-18
-updated: 2026-11-08
+updated: 2026-11-09
 tags: [frontend-requirements, frontend-requirements/approved, module/identity, layer/frontend]
 ---
 
@@ -56,7 +56,7 @@ Every count here is **owner-facing**: a person only ever sees how many people ar
 ### [[Screen Index#s68|s68]] Me / Account
 
 - Needs: "N Rings · N connections" under the name on the profile card. The Rings part from `meta.total` of `GET /rings` ✅; the connections part **hidden, not zero,** until connections exist.
-- Source today: connections: not yet ([[S-03 Counts Story|Counts · S11]], which waits on connections themselves, [[S-23 Connections Story|Connections · S2–S7]]).
+- Source today: `GET /connections/count` ✅ ([[S-03 Counts Story|Counts · S11]]); shipped in [[FD-06 Counts Frontend Delivery]] (2026-11-09).
 
 ## Endpoints required
 
