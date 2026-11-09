@@ -972,6 +972,7 @@
         "backend-integration:connections",
         "frontend-delivery:account",
         "frontend-requirements:account",
+        "frontend-requirements:connections",
         "qa-backend:account",
         "qa-backend:counts",
         "qa-backend:ring-members",
@@ -6883,7 +6884,7 @@
     },
     "concepts": 325,
     "decisions": 34,
-    "edges": 8072,
+    "edges": 8075,
     "features": 41,
     "layerNotes": 157,
     "modules": 8,
@@ -10728,6 +10729,14 @@
     {
       "from": "backend-delivery:account",
       "kind": "related",
+      "to": "frontend-requirements:connections",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "backend-delivery:account",
+      "kind": "related",
       "to": "frontend-requirements:devices",
       "via": [
         "E_AUTH_03"
@@ -12125,6 +12134,7 @@
         "DELETE /blocks/:id",
         "DELETE /connections/:userId",
         "DELETE /connections/requests/:id",
+        "DELETE /users/me",
         "E_BLOCK_01",
         "E_CONNECTION_01",
         "E_CONNECTION_02",
@@ -16538,6 +16548,14 @@
     {
       "from": "backend-integration:account",
       "kind": "related",
+      "to": "frontend-requirements:connections",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "backend-integration:account",
+      "kind": "related",
       "to": "frontend-requirements:devices",
       "via": [
         "E_AUTH_03"
@@ -18013,6 +18031,7 @@
         "DELETE /connections/:userId",
         "DELETE /connections/requests/:id",
         "DELETE /rings/:ringId/members/:userId",
+        "DELETE /users/me",
         "E_BLOCK_01",
         "E_CONNECTION_01",
         "E_CONNECTION_02",
@@ -26677,6 +26696,7 @@
         "DELETE /connections/:userId",
         "DELETE /connections/requests/:id",
         "DELETE /rings/:ringId/members/:userId",
+        "DELETE /users/me",
         "E_RING_02",
         "GET /connections",
         "GET /connections/count",
@@ -39804,6 +39824,7 @@
       "kind": "related",
       "to": "frontend-requirements:connections",
       "via": [
+        "DELETE /users/me",
         "E_AUTH_04"
       ]
     },
@@ -46243,6 +46264,14 @@
       "from": "task:B-26",
       "kind": "related",
       "to": "frontend-requirements:account",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "task:B-26",
+      "kind": "related",
+      "to": "frontend-requirements:connections",
       "via": [
         "DELETE /users/me"
       ]
@@ -68678,6 +68707,7 @@
         "task:B-01",
         "decision:D-20",
         "story:code-delivery",
+        "frontend-requirements:connections",
         "backend-integration:account",
         "frontend-delivery:account",
         "frontend-requirements:account",
@@ -72079,6 +72109,7 @@
         "qa-frontend:auth",
         "story:counts",
         "frontend-requirements:ring-projection",
+        "frontend-requirements:connections",
         "qa-backend:counts",
         "qa-backend:ring-members",
         "feature:account",
@@ -84201,6 +84232,7 @@
         "task:B-13",
         "task:B-16",
         "task:B-17",
+        "task:B-26",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -84322,6 +84354,8 @@
         "project:frontend-agent-prompt",
         "backend-integration:ring-access",
         "story:ring-access",
+        "backend-delivery:account",
+        "backend-integration:account",
         "qa-frontend:account",
         "frontend-requirements:error-contract"
       ],
@@ -84356,7 +84390,7 @@
       "task": null,
       "title": "FR-14 Connections Frontend Requirements",
       "unmet": [],
-      "updated": "2026-11-08"
+      "updated": "2026-11-09"
     },
     "frontend-requirements:counts": {
       "affects": [
@@ -95588,6 +95622,7 @@
         "frontend-requirements:linked-accounts",
         "needs-decision:ND-20",
         "project:spec-map",
+        "frontend-requirements:connections",
         "qa-backend:counts",
         "qa-backend:ring-members",
         "backend-delivery:photo-library",
@@ -95618,7 +95653,6 @@
         "project:frontend-passwordless-migration",
         "frontend-requirements:payments",
         "frontend-requirements:subscription",
-        "frontend-requirements:connections",
         "backend-integration:badge-qr",
         "frontend-requirements:discover-hub",
         "frontend-requirements:pincast",
@@ -103153,6 +103187,7 @@
         "task:B-02",
         "backend-delivery:connections",
         "backend-integration:connections",
+        "frontend-requirements:connections",
         "backend-delivery:account",
         "backend-integration:account",
         "frontend-requirements:account",
