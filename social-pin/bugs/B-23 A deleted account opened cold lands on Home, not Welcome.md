@@ -3,7 +3,8 @@ id: B-23
 type: bug
 module: identity
 feature: account
-status: todo
+status: done
+resolution: cannot-reproduce
 priority: high
 effort: S
 foundOn: "FD-04 Account Frontend Delivery"
@@ -14,12 +15,12 @@ related: ["FD-04 Account Frontend Delivery", "QF-04 Account QA Frontend", "S-01 
 pending: []
 created: 2026-11-09
 updated: 2026-11-09
-tags: [bug, bug/todo, module/identity, priority/high]
+tags: [bug, bug/done, module/identity, priority/high, resolution/cannot-reproduce]
 ---
 
-# ⬜ B-23 · A deleted account opened cold lands on Home, not Welcome
+# ✅ B-23 · A deleted account opened cold lands on Home, not Welcome
 
-**Found against:** [[FD-04 Account Frontend Delivery]] · **Feature:** [[F-01 Account]] · **Status:** To do · **Priority:** High · **Deadline:** — · **Effort:** S
+**Found against:** [[FD-04 Account Frontend Delivery]] · **Feature:** [[F-01 Account]] · **Status:** Done · **Resolution:** cannot-reproduce (a test fault, not the app) · **Priority:** High · **Deadline:** — · **Effort:** S
 
 **Found by:** [[QF-04 Account QA Frontend]] row AC-14 (F15), on build `social_pin` `b646053` (emulator-5554, Medium_Phone), 2026-11-09.
 
@@ -52,4 +53,5 @@ The fix is `/frontend`'s. It sets `in-progress` when it starts and `ready` when 
 
 ## Log
 
+- 2026-11-09 · re-run on social_pin `0aaca9e` (emulator-5554) · AC-14 ✅: the cold start lands on Welcome with "Your account has been deleted." (2.5 s). The first run's failure was the test, not the app: its restart kept the shared `appRouter` stack, so the app reopened Home without the splash or `GET /users/me`; `startApp(restart: true)` now empties the stack. Closed `done`, `resolution: cannot-reproduce`, on Omar Fostok's word; no app change was needed.
 - 2026-11-09 · filed from QF-04 AC-14, found against FD-04 Account Frontend Delivery
