@@ -7,7 +7,7 @@ status: current
 scope: feature
 screens: [s15, s47]
 created: 2026-10-15
-updated: 2026-11-08
+updated: 2026-11-09
 tags: [backend-integration, backend-integration/current, module/identity, layer/backend]
 ---
 
@@ -45,7 +45,8 @@ What the client builds: the owner's "Ring people" roster: list who is in a Ring,
 
 ## Flow
 
-1. **Roster.** `GET /rings/:ringId/members?status=ACTIVE` → `{ data: RingMemberEntity[], meta: { total } }`, newest first. Without the `status` filter the list includes `REMOVED` rows (the row is kept as the record that this person was once in the Ring). Filter by `ACTIVE` for the people screen.
+1. **Roster.** `GET /rings/:ringId/members?status=ACTIVE&limit=…&skip=…` → `{ data: RingRosterMemberEntity[], meta: { total } }`, newest first (`createdAt` desc, then `id`). Each row carries the member's `displayName`, `pinName` and `avatarUrl` **as you see them**, the same card `GET /connections/:userId` answers, so s15 is one call. Without the `status` filter the list includes `REMOVED` rows (the row is kept as the record that this person was once in the Ring). Filter by `ACTIVE` for the people screen.
+   - **Search:** add `name=<text>` (up to 100 characters, trimmed): part of the display name or the Pin name (without `!`), any case, matched on that same card, so it never finds a name the member has not shown you. It pages like the plain list, and `meta.total` is the number of matches. Debounce it and send it to the backend; do not filter only the loaded page.
 2. **Add.** `POST /rings/:ringId/members` with `{ userId, startsAt?, expiresAt? }` → 201 `RingMemberEntity`. Re-adding someone whose row is `REMOVED` or lapsed (an `ACTIVE` row whose window has closed) reactivates it with the new window and answers 201. 400 `E_RING_MEMBER_03` for the owner themselves; 409 `E_RING_MEMBER_04` when the `userId` names no user, a deleted one, or a block exists in either direction (one body for all three); 409 `E_RING_MEMBER_01` only when the person is a live member right now.
 3. **Window.** `PATCH …/members/:userId` with `{ startsAt?: iso | null, expiresAt?: iso | null }`. `null` removes a bound ("until removed"). The membership's window is checked **together with** the Ring's; whichever closes first ends access.
 4. **Reassign.** `POST …/members/:userId/reassign` with `{ toRingId }` → 201 with the new row. Both Rings must have the same owner (400 `E_RING_07`). The window travels with the person. Both writes are one transaction, so the person is never in both or neither; what they see changes on their very next request.
@@ -53,12 +54,13 @@ What the client builds: the owner's "Ring people" roster: list who is in a Ring,
 
 ## Shapes that matter
 
-`RingMemberEntity`: `id`, `ringId`, `userId`, `status` (`PENDING` / `ACTIVE` / `EXPIRED` / `REMOVED`), `origin`, `addedById`, `startsAt`, `expiresAt`, `createdAt`, `updatedAt`.
+`RingMemberEntity` (add, window, reassign): `id`, `ringId`, `userId`, `status` (`PENDING` / `ACTIVE` / `EXPIRED` / `REMOVED`), `origin`, `addedById`, `startsAt`, `expiresAt`, `createdAt`, `updatedAt`.
+
+`RingRosterMemberEntity` (the roster, since backend `main` `516a78f`): every `RingMemberEntity` field plus `displayName`, `pinName`, `avatarUrl`, all nullable. Which card it is: someone you are connected to who asked you shows their public card; someone who shares a Ring with you shows the card they share; anyone else only their Pin name (`displayName` and `avatarUrl` null: show initials). `avatarUrl` is a signed link valid 15 minutes (D-16). A delegated admin sees each member as the admin sees them, not as the owner does. The write routes still answer `RingMemberEntity` (no names): refetch the roster after them.
 
 - `origin` (since backend `main` `1c460b0`, [[BD-17 Ring Invitations & Join Backend Delivery|F-17]]) says how the membership was made: `PLACED` (you or an admin added them, a connection accepted into this Ring, a reassign) or joined knowingly through an `INVITATION`, a `JOIN_CODE` or an approved `JOIN_REQUEST`. Read-only: no route takes it. An add or a reassign always makes the row `PLACED`. The owner may show it ("joined with a code"); only a non-`PLACED` member sees the Ring's name on their side.
 
 - `EXPIRED` is never set by the backend today; compute "lapsed" from `expiresAt` on the client.
-- The roster carries **`userId` only**. There is no endpoint that turns a user id into a name or Pin name, and `GET /views/user/:userId/perspectives` returns what *that person shares with the viewer*, which is empty unless they added the owner to a Ring of theirs. A people screen with names needs the contacts work: [[S-23 Connections Story|Connections · S19–S24]]. See [[F-09 Ring Members#Gaps]].
 
 ## State to keep on the client
 
@@ -83,15 +85,14 @@ The roster per Ring, refetched after every write. Do not keep a member's "what t
 
 ## Not available yet
 
-- Where a `userId` comes from: today the only in-app sources would be a scan or a connect request, and neither exists yet. The roster works once [[F-14 Connections]] delivers [[S-23 Connections Story|Connections · S8–S12]] and [[S-23 Connections Story|Connections · S13–S18]].
-- Names and photos on the roster: [[S-23 Connections Story|Connections · S19–S24]].
-- "Scan someone in" (s15): [[S-37 Badge & QR Story|Badge & QR · S13–S18]].
-- "Members can see each other" (s27): [[ND-04 Ring settings]].
+- "Scan someone in" (s15): not in the MVP ([[D-28 Scan someone in is not in the MVP]]).
+- The members a member may see when "members can see each other" is on ([[FR-09 Ring Members Frontend Requirements|FR-09]] S8): no member-facing route yet; whose card a member sees waits on [[ND-34 What a member contributes to a shared Ring]].
 - Adding or removing delegated admins: [[S-31 Delegated Admins Story|Delegated Admins · S6]].
 
 ## Checklist
 
 - [ ] Roster filtered to `ACTIVE`; lapsed computed from `expiresAt`.
+- [ ] Names, Pin names and photos read from the roster rows, not one `GET /connections/:userId` per member; search sent as `name=`, debounced.
 - [ ] Add / reassign / revoke refetch the roster; no local "what they see" cache.
 - [ ] Access-window editor sends `null` to clear a bound.
 - [ ] 403 hides the screen quietly.

@@ -111,7 +111,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
     - 🔵 [F-09 Ring Members](social-pin/modules/Identity%20Core/features/Ring%20Members/F-09%20Ring%20Members.md) (release MVP, Critical)
       - 👍 [S-16 Ring Members Story](social-pin/modules/Identity%20Core/features/Ring%20Members/S-16%20Ring%20Members%20Story.md) (User Story, Critical)
       - 👍 [FR-09 Ring Members Frontend Requirements](social-pin/modules/Identity%20Core/features/Ring%20Members/flow/FR-09%20Ring%20Members%20Frontend%20Requirements.md) (Frontend Requirements, Critical)
-      - 🟡 [BD-09 Ring Members Backend Delivery](social-pin/modules/Identity%20Core/features/Ring%20Members/flow/BD-09%20Ring%20Members%20Backend%20Delivery.md) (Backend Delivery, 3 pending notes, Critical)
+      - 🟡 [BD-09 Ring Members Backend Delivery](social-pin/modules/Identity%20Core/features/Ring%20Members/flow/BD-09%20Ring%20Members%20Backend%20Delivery.md) (Backend Delivery, 1 pending note, Critical)
       - ✅ [BI-06 Ring Members Backend Integration](social-pin/modules/Identity%20Core/features/Ring%20Members/flow/BI-06%20Ring%20Members%20Backend%20Integration.md) (Backend Integration, Critical)
         - ✅ [B-09 Re-adding a lapsed member answers 409, not a reactivation](social-pin/bugs/B-09%20Re-adding%20a%20lapsed%20member%20answers%20409%2C%20not%20a%20reactivation.md) (bug, Fixed, High)
         - ✅ [B-10 Adding an unknown userId answers 500](social-pin/bugs/B-10%20Adding%20an%20unknown%20userId%20answers%20500.md) (bug, Fixed, Medium)

@@ -19,9 +19,11 @@ tags: [frontend-requirements, frontend-requirements/approved, module/identity, l
 
 # Ring Members · Frontend Requirements
 
+> ⚠ Affected by [[BD-09 Ring Members Backend Delivery]] (2026-11-09): backend main 516a78f: GET /rings/:ringId/members rows now carry displayName, pinName, avatarUrl (as GET /connections/:userId answers) and take ?name= with paging, so s15's 'Names today' (one call per member), on-phone search and 'Source today' lines are stale; shapes in BI-06 (/frontend)
+
 > ⚠ Affected by [[BD-09 Ring Members Backend Delivery]] (2026-11-09): membersCanSeeEachOther exists on a Ring since backend main 12172c6 (BD-11), so the 'the setting doesn't exist' lines (s15 footnote, s17 Source today, Blocked by S-18 S9) are stale; only the member-facing roster read is missing, pending on BD-09 (/frontend)
 
-**Feature:** [[F-09 Ring Members]] · **Status:** Approved by the backend 2026-11-09 (names on the roster, `?name=` search and the member-facing roster are pending on [[BD-09 Ring Members Backend Delivery]]) · **Story:** [[S-16 Ring Members Story]] · **Backend Integration:** [[BI-06 Ring Members Backend Integration]]
+**Feature:** [[F-09 Ring Members]] · **Status:** Approved by the backend 2026-11-09 (names on the roster and `?name=` search shipped 2026-11-09; the member-facing roster is pending on [[BD-09 Ring Members Backend Delivery]]) · **Story:** [[S-16 Ring Members Story]] · **Backend Integration:** [[BI-06 Ring Members Backend Integration]]
 
 What the client needs from the backend to build the owner's roster, the per-person checklist of Rings, the "bring people in" flow, join approvals and the members a member may see, and whether each need is met today. Shapes, the `status` filter and the window semantics are in [[BI-06 Ring Members Backend Integration]].
 
@@ -69,7 +71,7 @@ What the client needs from the backend to build the owner's roster, the per-pers
 
 | Shown | Source | Notes |
 |---|---|---|
-| Name, Pin name, photo | `GET /connections/:userId` → `displayName`, `pinName`, `avatarUrl` | one call per member today, kept for the session; "Someone" until read; ❌ on the roster itself (M10) |
+| Name, Pin name, photo | `GET /connections/:userId` → `displayName`, `pinName`, `avatarUrl` | one call per member today, kept for the session; "Someone" until read; ✅ on the roster itself (M10): `GET /rings/:ringId/members` rows carry the same three fields |
 | Window | `startsAt`, `expiresAt` | shown only when set; `null` = open-ended |
 | Lapsed | `expiresAt < now` on an `ACTIVE` row | `EXPIRED` is never set server-side; row dimmed, "Ended <date>" |
 | How they joined | `origin` | shown only when not `PLACED`: `JOIN_CODE` "Joined with a code", `INVITATION` "Joined by invitation", `JOIN_REQUEST` "Asked to join"; an unknown value reads as `PLACED` |
@@ -82,8 +84,8 @@ What the client needs from the backend to build the owner's roster, the per-pers
 | Need | Endpoint | Available | Story part / decision |
 |---|---|---|---|
 | Roster, newest first, filter by status | `GET /rings/:ringId/members` | ✅ | S1 |
-| **Names on the roster:** `displayName`, `pinName` and `avatarUrl` on each member (the card the owner may see, as `GET /connections/:userId` answers it), so s15 is one call, not one per member | `GET /rings/:ringId/members` | ❌ | S1 (M10) |
-| **Search the roster by name** (display name and Pin name), with paging | `GET /rings/:ringId/members?name=` | ❌ | S1 (M10); until then the phone searches the names it has loaded |
+| **Names on the roster:** `displayName`, `pinName` and `avatarUrl` on each member (the card the owner may see, as `GET /connections/:userId` answers it), so s15 is one call, not one per member | `GET /rings/:ringId/members` | ✅ | S1 (M10, backend `main` `516a78f`) |
+| **Search the roster by name** (display name and Pin name), with paging | `GET /rings/:ringId/members?name=` | ✅ | S1 (M10, backend `main` `516a78f`) |
 | A member's name, Pin name and photo, one at a time (today's source for s15) | `GET /connections/:userId` | ✅ | S1 ([[D-29 Connection detail opens a member who is not a connection\|D-29]]) |
 | My connections, for + Add | `GET /connections` | ✅ | S2 ([[BI-16 Connections Backend Integration\|BI-16]]) |
 | Add a member with an optional window | `POST /rings/:ringId/members` | ✅ | S2, S5 |
