@@ -16,7 +16,7 @@ tags: [feature, module/discovery, priority/critical, release/mvp]
 
 **Backend:** Done (main `1c460b0`: the code, reset, scan count and resolve; the domain routes later) · **Priority:** Critical · **Release:** MVP · **Module:** [[M-04 Discovery Module|Discovery]]
 
-**Layers:** [[S-37 Badge & QR Story|Story]] · [[FR-18 Badge & QR Frontend Requirements|Frontend Requirements]] · [[BD-18 Badge & QR Backend Delivery|Backend Delivery]] · [[BI-15 Badge & QR Backend Integration|Backend Integration]] · [[Badge & QR Frontend Delivery|Frontend Delivery]] · [[Badge & QR QA Backend|QA Backend]] · [[Badge & QR QA Frontend|QA Frontend]]
+**Layers:** [[S-37 Badge & QR Story|Story]] · [[FR-18 Badge & QR Frontend Requirements|Frontend Requirements]] · [[BD-18 Badge & QR Backend Delivery|Backend Delivery]] · [[BI-15 Badge & QR Backend Integration|Backend Integration]] · [[FD-16 Badge & QR Frontend Delivery|Frontend Delivery]] · [[Badge & QR QA Backend|QA Backend]] · [[Badge & QR QA Frontend|QA Frontend]]
 
 The centre-tab badge: a QR bound to the active Ring, rotated every 24 h, a share link, a scan counter, and a browser page for people without the app. Scanning resolves the token into that Ring's view.
 

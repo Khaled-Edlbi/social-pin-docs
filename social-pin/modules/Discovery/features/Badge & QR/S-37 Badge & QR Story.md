@@ -17,6 +17,7 @@ tags: [story, story/approved, module/discovery, layer/business]
 
 # Badge & QR · User Story
 
+> ⚠ Affected by [[FD-16 Badge & QR Frontend Delivery]] (2026-11-09): shipped on app 0005f00 with deviations: S5 Android camera denied shows Try again (iOS Open settings), reduced motion is a fade-through; S8 Save contact sits under the card, also takes web links, photo and headline as job title, and Remove from saved asks first; extra states "No code found in this photo", "Couldn't check this code", camera unavailable, "Scanned N min ago"; S14 note reads "This code is temporary — it rotates every 24 h…"; Saved scans also on Me; Connect by qrToken waits on backend ebdca36 being deployed
 > ⚠ Affected by [[BD-18 Badge & QR Backend Delivery]] (2026-11-08): backend main 1c460b0 shipped the code, reset, scan count and resolve: POST /rings/:ringId/qr (+ /reset, GET …/qr/scans) and GET /views/qr/:token; 'What exists today' and the 'Not available yet' lines of S1, S2, S6, S10, S13 are out of date. Connect by qrToken is still not built (BD-14)
 
 **Feature:** [[F-18 Badge & QR]] · **Status:** Approved (2026-11-08 by Omar Fostok) · **Frontend Requirements:** [[FR-18 Badge & QR Frontend Requirements]] · **API Integration:** not yet (backend not built)
