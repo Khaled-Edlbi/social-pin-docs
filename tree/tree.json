@@ -2885,6 +2885,16 @@
       ],
       "owner": null
     },
+    "GET /rings/:ringId/colleagues": {
+      "containers": [
+        "feature:connections"
+      ],
+      "kind": "endpoint",
+      "notes": [
+        "backend-delivery:connections"
+      ],
+      "owner": null
+    },
     "GET /rings/:ringId/invitations": {
       "containers": [
         "feature:ring-invitations"
@@ -6878,14 +6888,14 @@
       "qa": 13,
       "shared": 10
     },
-    "concepts": 325,
+    "concepts": 326,
     "decisions": 34,
-    "edges": 8063,
+    "edges": 8067,
     "features": 41,
     "layerNotes": 157,
     "modules": 8,
     "notes": 351,
-    "partial": 8,
+    "partial": 9,
     "placeholders": 128,
     "records": 33
   },
@@ -10517,6 +10527,11 @@
       "to": "frontend-requirements:widgets"
     },
     {
+      "from": "backend-delivery:connections",
+      "kind": "pending",
+      "to": "story:ring-invitations"
+    },
+    {
       "from": "backend-delivery:profiles",
       "kind": "pending",
       "to": "decision:D-22"
@@ -11765,6 +11780,11 @@
     {
       "from": "backend-delivery:connections",
       "kind": "related",
+      "to": "backend-delivery:ring-invitations"
+    },
+    {
+      "from": "backend-delivery:connections",
+      "kind": "related",
       "to": "backend-delivery:ring-members",
       "via": [
         "E_RING_02",
@@ -12014,6 +12034,11 @@
       "via": [
         "GET /connections/:userId"
       ]
+    },
+    {
+      "from": "backend-delivery:connections",
+      "kind": "related",
+      "to": "decision:D-34"
     },
     {
       "from": "backend-delivery:connections",
@@ -12579,6 +12604,11 @@
       "via": [
         "E_RING_05"
       ]
+    },
+    {
+      "from": "backend-delivery:connections",
+      "kind": "related",
+      "to": "story:ring-invitations"
     },
     {
       "from": "backend-delivery:connections",
@@ -69219,7 +69249,7 @@
         "frontend-requirements:connections",
         "story:connections"
       ],
-      "effectiveStatus": "done",
+      "effectiveStatus": "partial",
       "effort": null,
       "feature": "connections",
       "foundOn": null,
@@ -69240,7 +69270,13 @@
         "feature:connections"
       ],
       "path": "social-pin/modules/Connections/features/Connections/flow/BD-14 Connections Backend Delivery.md",
-      "pending": [],
+      "pending": [
+        {
+          "person": null,
+          "text": "S11 (S-23 S13), blocking a colleague met only in a Ring's roster; built on backend branch FR-14/connection/block-a-colleague @ 7af98be (on FR-17/ring-invitation/picked-ring-and-roster 75fdabd, with main ebdca36 merged in), not pushed, not merged: POST /blocks { userId } also takes a colleague listed by GET /rings/:ringId/colleagues (RingAccessService.resolveColleagueCard), the block keeps the card the roster showed, anyone else keeps the one 404 E_BLOCK_02; leaves on the merge, with BI-16 and the FR-14 Block row",
+          "to": "story:ring-invitations"
+        }
+      ],
       "priority": "critical",
       "related": [
         "task:B-26",
@@ -69313,6 +69349,9 @@
         "qa-backend:account",
         "qa-frontend:account",
         "story:account",
+        "story:ring-invitations",
+        "backend-delivery:ring-invitations",
+        "decision:D-34",
         "task:B-15",
         "frontend-requirements:pincast",
         "frontend-requirements:event-ring-auto",
@@ -71176,6 +71215,7 @@
       ],
       "priority": "critical",
       "related": [
+        "backend-delivery:connections",
         "frontend-requirements:connections",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -77179,6 +77219,7 @@
         "decision:D-31",
         "decision:D-32",
         "backend-integration:rings",
+        "backend-delivery:connections",
         "backend-delivery:ring-invitations",
         "frontend-requirements:ring-invitations",
         "story:ring-invitations"
@@ -78144,12 +78185,12 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "approved": 1,
+        "approved": 2,
         "current": 1,
         "decided": 12,
-        "delivered": 1,
-        "done": 2,
+        "done": 1,
         "missing": 2,
+        "partial": 1,
         "verified": 12
       },
       "scope": null,
@@ -84052,7 +84093,6 @@
       "affects": [
         "backend-delivery:connections"
       ],
-      "autoDelivered": true,
       "blockedBy": [],
       "card": "FR-14",
       "children": [],
@@ -84062,7 +84102,7 @@
       "depends": [
         "story:connections"
       ],
-      "effectiveStatus": "delivered",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "connections",
       "foundOn": null,
@@ -87540,13 +87580,13 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 1,
+        "approved": 2,
         "current": 1,
         "decided": 12,
-        "delivered": 1,
-        "done": 2,
+        "done": 1,
         "in-progress": 1,
         "missing": 2,
+        "partial": 1,
         "verified": 12
       },
       "scope": null,
@@ -97618,18 +97658,18 @@
         }
       ],
       "rollup": {
-        "approved": 40,
+        "approved": 41,
         "blocked": 27,
         "current": 5,
         "decided": 33,
-        "delivered": 17,
-        "done": 43,
+        "delivered": 16,
+        "done": 42,
         "draft": 26,
         "failing": 1,
         "in-progress": 46,
         "missing": 128,
         "needs-decision": 1,
-        "partial": 8,
+        "partial": 9,
         "passing": 10,
         "ready": 1,
         "reference": 32,
@@ -100255,6 +100295,7 @@
       "pending": [],
       "priority": "critical",
       "related": [
+        "backend-delivery:connections",
         "frontend-requirements:connections",
         "story:badge-qr",
         "backend-delivery:counts",
