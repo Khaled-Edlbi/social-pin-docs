@@ -11,7 +11,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
       - ✅ [FR-01 Account Frontend Requirements](social-pin/modules/Identity%20Core/features/Account/flow/FR-01%20Account%20Frontend%20Requirements.md) (Frontend Requirements, Critical)
       - ✅ [BD-01 Account Backend Delivery](social-pin/modules/Identity%20Core/features/Account/flow/BD-01%20Account%20Backend%20Delivery.md) (Backend Delivery, Critical)
       - ✅ [BI-01 Account Backend Integration](social-pin/modules/Identity%20Core/features/Account/flow/BI-01%20Account%20Backend%20Integration.md) (Backend Integration, Critical)
-        - 🟡 [B-01 An unverified changed email still signs in](social-pin/bugs/B-01%20An%20unverified%20changed%20email%20still%20signs%20in.md) (bug, By design, 2 pending notes, High)
+        - 🟡 [B-01 An unverified changed email still signs in](social-pin/bugs/B-01%20An%20unverified%20changed%20email%20still%20signs%20in.md) (bug, By design, 1 pending note, High)
           - ✅ [ND-20 Whether an unverified new address may sign in](social-pin/needs-decisions/ND-20%20Whether%20an%20unverified%20new%20address%20may%20sign%20in.md) (Needs decision, High)
             - ⚖️ [D-20 The changed address still signs in, the words are corrected](social-pin/decisions/D-20%20The%20changed%20address%20still%20signs%20in%2C%20the%20words%20are%20corrected.md) (Decision)
         - ✅ [B-02 Deleted account answers 401, not the documented 404 E_USER_01](social-pin/bugs/B-02%20Deleted%20account%20answers%20401%2C%20not%20the%20documented%20404%20E_USER_01.md) (bug, Fixed, Medium)
