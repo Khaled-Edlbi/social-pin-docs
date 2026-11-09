@@ -11,7 +11,7 @@ approvedAt: 2026-11-08
 owner: "Omar Fostok"
 related: ["D-10 Connect sends what the requester already has", "D-11 The badge code stays the same for its day", "D-12 The badge QR is a socialpin.me link", "D-22 The public page only says the Pin exists", "D-28 Scan someone in is not in the MVP", "D-35 A join code can be shown as a QR", "ND-10 How Connect addresses the scanned person", "ND-11 Get or rotate the badge token", "ND-12 What the badge QR encodes", "S-19 View As & Pin Views Story", "S-23 Connections Story", "S-33 Ring Invitations & Join Story", "S-53 Events During Story", "S-71 Subscription (Free vs Pro) Story", "S-82 Devices & NFC Story", "BI-09 View As & Pin Views Backend Integration", "F-12 View As & Pin Views", "F-28 Subscription (Free vs Pro)"]
 created: 2026-10-18
-updated: 2026-11-08
+updated: 2026-11-09
 tags: [story, story/approved, module/discovery, layer/business]
 ---
 
@@ -114,7 +114,7 @@ Acceptance criteria:
 Acceptance criteria:
 - [ ] Renders the card as [[BI-09 View As & Pin Views Backend Integration]] describes: `null` is "not shared", sensitive rows hidden when `null`, no Ring name anywhere.
 - [ ] **Connect** sends the scanned code, `POST /connections/requests { qrToken }` ([[D-10 Connect sends what the requester already has|D-10]], [[S-23 Connections Story|Connections · S2]]).
-- [ ] **Save for later** keeps the card, the scanned code and its `expiresAt` on this phone only (no server call), in a "Saved scans" list, and returns Home.
+- [ ] **Save for later** keeps the card, the scanned code and its `expiresAt` on this phone only (no server call), in a "Saved scans" list. It stays on the card: the message "Saved for later" shows and the button turns into **Remove from saved**, which takes the scan off the list again; it never returns Home (decided by Omar Fostok, 2026-11-09).
 - [ ] From a saved scan, **Connect works until the code expires**; after `expiresAt` the saved card reads "This code has expired. Scan {name} again to connect.", and *Connect* is off. The saved card is the one seen at the scan, marked with its date; it is never read again from the server.
 - [ ] A saved scan can be removed; nothing about it ever leaves the phone.
 - [ ] Not available yet: Connect ([[S-23 Connections Story]]).
@@ -187,6 +187,7 @@ Acceptance criteria:
 | s34 | A fixed sample code "A-2213-7741" | The QR from `url`, with "Changes in {time}" (S1) |
 | s34 | No *Reset code* | *Reset code* (S2) |
 | s44 | *Save for later* with no limit | Connect from a saved scan until its code expires (S8) |
+| s44 | *Save for later* goes back Home | Stays on the card, "Saved for later", the button turns into *Remove from saved* (S8) |
 
 ## What the backend has to build
 
@@ -228,3 +229,5 @@ Left, none blocking:
 - 2026-11-08 · flagged [[FR-18 Badge & QR Frontend Requirements]]: S-37 rewritten (S1–S15): the code with url, reset, offline, the link read on the phone with join QR to S-33, own badge by the app, Save for later until expiresAt, Pin name lookup, no auto-accept or "land in", Share link not available until the domain, Save image kept
 - 2026-11-08 · flagged [[BD-18 Badge & QR Backend Delivery]]: S-37 rewritten (S1–S15): "What the backend has to build" lists the code route with url and reset, the resolve with expiresAt, a 429 rate limit and the scan count, Connect sharing the token lookup, and the domain routes later
 - 2026-11-08 · `tickets/pm/M-04-discovery/F-18-badge-qr/S-37-approved` · approved by Omar Fostok; FR-18 continues
+- 2026-11-09 · `tickets/pm/M-04-discovery/F-18-badge-qr/S-37-save-for-later-stays` · S8 Save for later stays on the card, shows "Saved for later" and turns into "Remove from saved", no return to Home; decided by Omar Fostok, so the story stays approved
+- 2026-11-09 · flagged [[FR-18 Badge & QR Frontend Requirements]]: S8 Save for later stays on the card, "Saved for later", then "Remove from saved"; no return to Home

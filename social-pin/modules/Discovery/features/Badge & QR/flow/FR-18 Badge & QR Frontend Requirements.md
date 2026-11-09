@@ -18,6 +18,8 @@ tags: [frontend-requirements, frontend-requirements/approved, module/discovery, 
 
 # 📨 Badge & QR · Frontend Requirements
 
+> ⚠ Affected by [[S-37 Badge & QR Story]] (2026-11-09): S8 Save for later stays on the card, shows "Saved for later" and the button turns into "Remove from saved"; it no longer returns Home
+
 **Feature:** [[F-18 Badge & QR]] · **Status:** Approved 2026-11-08 by khaled · **Story:** [[S-37 Badge & QR Story]] (approved 2026-11-08) · **API Integration:** not yet (backend not built)
 
 What the client needs from the backend to build [[S-37 Badge & QR Story]] S1–S15, and whether each need is met today. **Rewritten 2026-11-08** against the approved story and [[D-10 Connect sends what the requester already has|D-10]], [[D-11 The badge code stays the same for its day|D-11]], [[D-12 The badge QR is a socialpin.me link|D-12]], [[D-35 A join code can be shown as a QR|D-35]]. The route names come from the story and the decisions; anything they don't name is asked as a need, for the backend to name in [[BD-18 Badge & QR Backend Delivery]].
