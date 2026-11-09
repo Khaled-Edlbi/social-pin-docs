@@ -725,14 +725,16 @@
     },
     "DELETE /blocks/:id": {
       "containers": [
-        "feature:connections"
+        "feature:connections",
+        "project:spec-map"
       ],
       "kind": "endpoint",
       "notes": [
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
-        "frontend-requirements:connections"
+        "frontend-requirements:connections",
+        "project:spec-map"
       ],
       "owner": "feature:connections"
     },
@@ -2041,7 +2043,8 @@
     },
     "GET /blocks": {
       "containers": [
-        "feature:connections"
+        "feature:connections",
+        "project:spec-map"
       ],
       "kind": "endpoint",
       "notes": [
@@ -2049,6 +2052,7 @@
         "backend-integration:connections",
         "frontend-delivery:connections",
         "frontend-requirements:connections",
+        "project:spec-map",
         "story:connections"
       ],
       "owner": "feature:connections"
@@ -2109,7 +2113,8 @@
       "containers": [
         "feature:connections",
         "feature:counts",
-        "feature:ring-members"
+        "feature:ring-members",
+        "project:spec-map"
       ],
       "kind": "endpoint",
       "notes": [
@@ -2122,6 +2127,7 @@
         "frontend-requirements:connections",
         "frontend-requirements:counts",
         "frontend-requirements:ring-members",
+        "project:spec-map",
         "qa-backend:counts"
       ],
       "owner": "feature:connections"
@@ -2152,7 +2158,8 @@
       "containers": [
         "feature:account",
         "feature:connections",
-        "feature:counts"
+        "feature:counts",
+        "project:spec-map"
       ],
       "kind": "endpoint",
       "notes": [
@@ -2164,6 +2171,7 @@
         "frontend-delivery:connections",
         "frontend-requirements:connections",
         "frontend-requirements:counts",
+        "project:spec-map",
         "qa-backend:counts"
       ],
       "owner": "feature:connections"
@@ -4379,7 +4387,8 @@
     "POST /blocks": {
       "containers": [
         "feature:badge-qr",
-        "feature:connections"
+        "feature:connections",
+        "project:spec-map"
       ],
       "kind": "endpoint",
       "notes": [
@@ -4387,7 +4396,8 @@
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
-        "frontend-requirements:badge-qr"
+        "frontend-requirements:badge-qr",
+        "project:spec-map"
       ],
       "owner": "feature:connections"
     },
@@ -4419,7 +4429,8 @@
         "feature:badge-qr",
         "feature:connections",
         "needs-decision:ND-10",
-        "needs-decision:ND-24"
+        "needs-decision:ND-24",
+        "project:spec-map"
       ],
       "kind": "endpoint",
       "notes": [
@@ -4434,19 +4445,22 @@
         "frontend-requirements:connections",
         "needs-decision:ND-10",
         "needs-decision:ND-24",
+        "project:spec-map",
         "story:connections"
       ],
       "owner": "feature:connections"
     },
     "POST /connections/requests/:id/accept": {
       "containers": [
-        "feature:connections"
+        "feature:connections",
+        "project:spec-map"
       ],
       "kind": "endpoint",
       "notes": [
         "backend-delivery:connections",
         "backend-integration:connections",
-        "frontend-delivery:connections"
+        "frontend-delivery:connections",
+        "project:spec-map"
       ],
       "owner": "feature:connections"
     },
@@ -6900,7 +6914,7 @@
     },
     "concepts": 325,
     "decisions": 34,
-    "edges": 8101,
+    "edges": 8105,
     "features": 41,
     "layerNotes": 157,
     "modules": 8,
@@ -11652,6 +11666,8 @@
       "via": [
         "GET /views/qr/:token",
         "GET /views/ring/:ringId",
+        "POST /blocks",
+        "POST /connections/requests",
         "POST /rings/:ringId/qr"
       ]
     },
@@ -12563,7 +12579,14 @@
       "kind": "related",
       "to": "project:spec-map",
       "via": [
+        "DELETE /blocks/:id",
+        "GET /blocks",
+        "GET /connections",
+        "GET /connections/count",
         "GET /views/qr/:token",
+        "POST /blocks",
+        "POST /connections/requests",
+        "POST /connections/requests/:id/accept",
         "POST /rings/:ringId/members"
       ]
     },
@@ -13283,6 +13306,8 @@
       "kind": "related",
       "to": "project:spec-map",
       "via": [
+        "GET /connections",
+        "GET /connections/count",
         "GET /rings",
         "GET /rings/shared-with-me"
       ]
@@ -17591,6 +17616,8 @@
       "via": [
         "GET /views/qr/:token",
         "GET /views/ring/:ringId",
+        "POST /blocks",
+        "POST /connections/requests",
         "POST /rings/:ringId/qr"
       ]
     },
@@ -18557,8 +18584,15 @@
       "kind": "related",
       "to": "project:spec-map",
       "via": [
+        "DELETE /blocks/:id",
+        "GET /blocks",
+        "GET /connections",
+        "GET /connections/count",
         "GET /rings",
         "GET /views/qr/:token",
+        "POST /blocks",
+        "POST /connections/requests",
+        "POST /connections/requests/:id/accept",
         "POST /rings/:ringId/members"
       ]
     },
@@ -19315,6 +19349,7 @@
       "kind": "related",
       "to": "project:spec-map",
       "via": [
+        "GET /connections/count",
         "GET /rings",
         "GET /rings/shared-with-me"
       ]
@@ -25208,6 +25243,7 @@
       "kind": "related",
       "to": "project:spec-map",
       "via": [
+        "GET /connections",
         "GET /rings",
         "POST /rings/:ringId/members",
         "POST /rings/:ringId/members/:userId/reassign"
@@ -30490,6 +30526,7 @@
       "kind": "related",
       "to": "project:spec-map",
       "via": [
+        "GET /connections",
         "GET /rings",
         "POST /rings/:ringId/members",
         "POST /rings/:ringId/members/:userId/reassign"
@@ -34552,8 +34589,13 @@
       "kind": "related",
       "to": "project:spec-map",
       "via": [
+        "GET /connections",
+        "GET /connections/count",
         "GET /rings",
         "GET /rings/shared-with-me",
+        "POST /blocks",
+        "POST /connections/requests",
+        "POST /connections/requests/:id/accept",
         "POST /rings/:ringId/members",
         "POST /rings/:ringId/members/:userId/reassign"
       ]
@@ -46709,6 +46751,14 @@
     {
       "from": "decision:D-10",
       "kind": "shares",
+      "to": "project:spec-map",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
       "to": "project:status-report-2026-10-15",
       "via": [
         "GET /views/pin/:pinName"
@@ -47174,6 +47224,14 @@
       ]
     },
     {
+      "from": "decision:D-17",
+      "kind": "shares",
+      "to": "project:spec-map",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
       "from": "decision:D-18",
       "kind": "shares",
       "to": "feature:companies",
@@ -47494,6 +47552,14 @@
       "from": "decision:D-24",
       "kind": "shares",
       "to": "needs-decision:ND-10",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "decision:D-24",
+      "kind": "shares",
+      "to": "project:spec-map",
       "via": [
         "POST /connections/requests"
       ]
@@ -48108,6 +48174,7 @@
       "kind": "shares",
       "to": "project:spec-map",
       "via": [
+        "GET /connections/count",
         "GET /rings",
         "GET /views/qr/:token",
         "PATCH /users/me",
@@ -49620,6 +49687,8 @@
         "GET /rings",
         "GET /views/qr/:token",
         "GET /views/ring/:ringId",
+        "POST /blocks",
+        "POST /connections/requests",
         "POST /rings/:ringId/qr"
       ]
     },
@@ -51141,11 +51210,18 @@
       "kind": "shares",
       "to": "project:spec-map",
       "via": [
+        "DELETE /blocks/:id",
+        "GET /blocks",
+        "GET /connections",
+        "GET /connections/count",
         "GET /rings",
         "GET /rings/shared-with-me",
         "GET /views/qr/:token",
         "GET /views/ring/:ringId",
         "GET /views/user/:userId/perspectives",
+        "POST /blocks",
+        "POST /connections/requests",
+        "POST /connections/requests/:id/accept",
         "POST /rings",
         "POST /rings/:ringId/members"
       ]
@@ -51525,6 +51601,8 @@
       "kind": "shares",
       "to": "project:spec-map",
       "via": [
+        "GET /connections",
+        "GET /connections/count",
         "GET /rings",
         "GET /rings/shared-with-me",
         "POST /rings/:ringId/members/:userId/reassign"
@@ -56659,6 +56737,7 @@
       "kind": "shares",
       "to": "project:spec-map",
       "via": [
+        "GET /connections",
         "GET /rings",
         "POST /rings/:ringId/members",
         "POST /rings/:ringId/members/:userId/reassign"
@@ -57769,7 +57848,8 @@
       "to": "project:spec-map",
       "via": [
         "GET /views/ring/:ringId",
-        "GET /views/user/:userId/perspectives"
+        "GET /views/user/:userId/perspectives",
+        "POST /connections/requests"
       ]
     },
     {
@@ -58143,6 +58223,14 @@
       "to": "task:B-08",
       "via": [
         "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "needs-decision:ND-24",
+      "kind": "shares",
+      "to": "project:spec-map",
+      "via": [
+        "POST /connections/requests"
       ]
     },
     {
@@ -69704,6 +69792,7 @@
         "story:connections",
         "backend-delivery:badge-qr",
         "frontend-requirements:badge-qr",
+        "project:spec-map",
         "backend-delivery:account",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -69720,7 +69809,6 @@
         "qa-backend:ring-access",
         "qa-backend:ring-members",
         "frontend-requirements:rings",
-        "project:spec-map",
         "task:B-08",
         "needs-decision:ND-22",
         "backend-integration:badge-qr",
@@ -87000,6 +87088,7 @@
         "needs-decision:ND-29",
         "frontend-delivery:connections",
         "frontend-requirements:counts",
+        "project:spec-map",
         "decision:D-26",
         "story:counts",
         "qa-backend:ring-members",
@@ -87007,7 +87096,6 @@
         "story:companies",
         "needs-decision:ND-14",
         "needs-decision:ND-15",
-        "project:spec-map",
         "story:ring-members",
         "task:B-02",
         "frontend-requirements:badge-qr",
@@ -92635,7 +92723,7 @@
       "task": null,
       "title": "Spec Map",
       "unmet": [],
-      "updated": "2026-11-08"
+      "updated": "2026-11-09"
     },
     "project:status-report-2026-10-15": {
       "affects": [],
