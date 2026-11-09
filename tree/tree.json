@@ -3333,10 +3333,12 @@
     "GET /views/pin": {
       "containers": [
         "feature:discover-hub",
-        "feature:view-as"
+        "feature:view-as",
+        "project:frontend-api-guide"
       ],
       "kind": "endpoint",
       "notes": [
+        "project:frontend-api-guide",
         "story:discover-hub",
         "story:view-as"
       ],
@@ -6726,7 +6728,7 @@
     },
     "concepts": 319,
     "decisions": 34,
-    "edges": 7693,
+    "edges": 7695,
     "features": 41,
     "layerNotes": 156,
     "modules": 8,
@@ -48530,6 +48532,7 @@
       "via": [
         "E_AUTH_04",
         "GET /profiles/pin-name/:pinName/availability",
+        "GET /views/pin",
         "GET /views/pin/:pinName"
       ]
     },
@@ -53494,6 +53497,7 @@
         "E_AUTH_04",
         "E_FILE_01",
         "GET /rings",
+        "GET /views/pin",
         "GET /views/pin/:pinName",
         "GET /views/qr/:token",
         "GET /views/ring/:ringId",
@@ -61623,7 +61627,17 @@
     {
       "from": "project:frontend-api-guide",
       "kind": "wikilink",
+      "to": "backend-delivery:view-as"
+    },
+    {
+      "from": "project:frontend-api-guide",
+      "kind": "wikilink",
       "to": "backend-integration:ring-projection"
+    },
+    {
+      "from": "project:frontend-api-guide",
+      "kind": "wikilink",
+      "to": "decision:D-15"
     },
     {
       "from": "project:frontend-api-guide",
@@ -87414,7 +87428,7 @@
       "task": null,
       "title": "Frontend API Guide",
       "unmet": [],
-      "updated": "2026-11-08"
+      "updated": "2026-11-09"
     },
     "project:frontend-contract": {
       "affects": [],

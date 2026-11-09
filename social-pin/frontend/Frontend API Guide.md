@@ -3,7 +3,7 @@ id: P-07
 type: project
 layer: frontend
 created: 2026-10-15
-updated: 2026-11-08
+updated: 2026-11-09
 tags: [project]
 ---
 # Frontend API guide
@@ -34,9 +34,12 @@ the client:
 
 A viewer may hold several perspectives of one person (they were added to more
 than one of their rings). `GET /views/user/:userId/perspectives` returns them
-all, which is what the "switch modes" UI is for. They arrive in a stable order —
-the person's default ring first, if the viewer is in it — but carry no
-identifier, so the switcher must index by position.
+all, which is what the "switch modes" UI is for. They arrive in a stable order:
+the ring the viewer was put in first, then the others in the order they were
+added (D-15), whatever the person's default ring is. The first one is what
+`GET /views/pin/:pinName` renders and the ring a Shared with me row opens, so
+View 1 always matches both. Your own perspectives start with your default
+ring. They carry no identifier, so the switcher must index by position.
 
 ### 404 is not always "missing"
 
@@ -447,3 +450,4 @@ available yet) live in the `social-pin-docs` vault under `frontend/`.
 
 - 2026-11-05 · flagged [[Frontend Contract]]: new endpoints on backend main @ 80e7fa2: GET /files (the library, with usedBy) and the public GET /files/content/:token behind every signed link; url on files, avatarUrl and attachments[].url on the projection and the view (D-16). The F-04 row and the endpoint count (48) need updating (/frontend)
 - 2026-11-08 · backend `main` `e483d49` ([[BD-11 Rings Backend Delivery]]) · *Errors*: booleans are `true` / `false` only, anything else 400 ([[B-11 Projection switches read any string as true]], [[B-13 The string false is read as true on Ring filters and settings]]); `null` on a `PATCH` only where it clears ([[B-12 Null on a link or custom field's required field answers 500]], [[B-14 PATCH a Ring with null on a required field answers 500]]). Rings table: disposition only on a lapsed temporary Ring, 409 `E_RING_10` (new, [[B-15 Disposition runs on a permanent Ring, the default included]]).
+- 2026-11-09 · backend `main` `d8267d3` ([[BD-12 View As & Pin Views Backend Delivery]], [[D-15 Several Rings per connection, remove or disconnect]]) · *Perspectives*: they come in the order the viewer was put in the person's Rings, View 1 = `GET /views/pin` = the Shared with me row; your own start with your default Ring. No shape changed.
