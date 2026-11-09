@@ -14,6 +14,8 @@ tags: [backend-integration, backend-integration/current, module/identity, layer/
 
 # 🔌 Rings · Backend Integration
 
+> ⚠ Affected by [[FD-12 Rings Frontend Delivery]] (2026-11-09): app @ 0005f00 shows named Shared with me rows from ringName / memberCount and the invitation and join-code flows; 'Rules the UI must respect' still says ringName is set 'never today', and 'Not available yet' still lists a Ring's name on Shared with me and joining by code, approvals and member invitations, all shipped since main 1c460b0 (/backend)
+
 **Feature:** [[F-11 Rings]] · **Backend:** ✅ Done · **Read first:** [[Frontend Contract]], [[Ring Access Model]]
 
 Matches backend `main` `e483d49` ([[BD-11 Rings Backend Delivery]]).
