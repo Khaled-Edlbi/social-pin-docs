@@ -269,7 +269,7 @@ even their own row, because the row names the ring.
 
 | Method | Path | |
 |---|---|---|
-| GET | `/rings/:ringId/members` | The roster |
+| GET | `/rings/:ringId/members` | The roster, newest first; each row with the member's `displayName`, `pinName`, `avatarUrl` as you see them; `?status=`, `?name=` (search on that card), paged |
 | POST | `/rings/:ringId/members` | Grant this ring's perspective |
 | PATCH | `/rings/:ringId/members/:userId` | Adjust the access window |
 | POST | `/rings/:ringId/members/:userId/reassign` | Move to another of your rings |
