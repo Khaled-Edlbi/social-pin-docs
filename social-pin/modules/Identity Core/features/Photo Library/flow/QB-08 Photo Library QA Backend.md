@@ -8,21 +8,19 @@ scope: feature
 screens: [s23, s29, s30, s68]
 depends: ["BD-06 Photo Library Backend Delivery", "S-11 Photo Library Story"]
 affects: []
-related: ["BI-13 Photo Library Backend Integration", "FR-06 Photo Library Frontend Requirements", "BI-03 Files Upload Backend Integration", "BI-07 Ring Projection Backend Integration", "BI-09 View As & Pin Views Backend Integration", "QB-06 Files Upload QA Backend", "D-16 Files load from signed links that expire in 15 minutes", "POST /files", "GET /files", "GET /files/:id", "GET /files/content/:token", "DELETE /files/:id", "GET /rings/:ringId/projection", "PATCH /rings/:ringId/projection", "GET /views/pin/:pinName", E_FILE_01, E_FILE_02, E_FILE_03, E_FILE_04, E_RING_02, E_RING_05]
-pending: ["[[BD-06 Photo Library Backend Delivery]]: B22 · followerCount on the main photo (S8) is not delivered yet; it waits on the main photo, which BD-07 builds in S-14 S9–S11; the row runs when it ships"]
+related: ["BI-13 Photo Library Backend Integration", "FR-06 Photo Library Frontend Requirements", "BI-03 Files Upload Backend Integration", "BI-07 Ring Projection Backend Integration", "BI-09 View As & Pin Views Backend Integration", "QB-06 Files Upload QA Backend", "D-16 Files load from signed links that expire in 15 minutes", "POST /files", "GET /files", "GET /files/:id", "GET /files/content/:token", "DELETE /files/:id", "GET /rings/:ringId/projection", "PATCH /rings/:ringId/projection", "GET /views/pin/:pinName", "BD-07 Profiles & Pin Name Backend Delivery", "D-02 One main profile every Ring starts from", "D-05 Inherit per field, copy without members", "GET /profiles", "PATCH /profiles/:id", "POST /profiles", "POST /rings", "DELETE /rings/:id", E_FILE_01, E_FILE_02, E_FILE_03, E_FILE_04, E_RING_02, E_RING_05]
+pending: []
 unmet: []
 created: 2026-11-05
-updated: 2026-11-05
+updated: 2026-11-09
 tags: [qa-backend, qa-backend/passing, module/identity, layer/qa]
 ---
 
 # 🧪 Photo Library · QA Backend
 
-> ⚠ Affected by [[BD-06 Photo Library Backend Delivery]] (2026-11-08): followerCount and isMainPhoto shipped on backend main cb95a39: GET /files?kind=image marks the main photo (isMainPhoto true) with followerCount = live Rings with no photo of their own; every other item isMainPhoto false, followerCount null. The main photo is read and set with GET /profiles and PATCH /profiles/:id { avatarFileId }, so B22, S4 Make main and S6 Reset to Pin can run now; for /qa
-
 > Blocked by default until [[BD-06 Photo Library Backend Delivery]] is `done` (the hand-off order in `docs.config.json`); `blockedBy: []` opts out, `blockedBy: [...]` names other blockers.
 
-**Feature:** [[F-06 Photo Library]] · **Verifies:** [[BD-06 Photo Library Backend Delivery]] against [[S-11 Photo Library Story]] and [[FR-06 Photo Library Frontend Requirements]], with the shapes and errors of [[BI-13 Photo Library Backend Integration]] (and the shared endpoints of [[BI-03 Files Upload Backend Integration]] and [[BI-07 Ring Projection Backend Integration]] it points to) · **Verdict:** 🟢 Passing · 2026-11-05 · `main @ f186ba1 · localhost:3100, Node 22.22.2` · 40 of 40 delivered cases as expected; B22 (`followerCount`) not delivered yet
+**Feature:** [[F-06 Photo Library]] · **Verifies:** [[BD-06 Photo Library Backend Delivery]] against [[S-11 Photo Library Story]] and [[FR-06 Photo Library Frontend Requirements]], with the shapes and errors of [[BI-13 Photo Library Backend Integration]] (and the shared endpoints of [[BI-03 Files Upload Backend Integration]] and [[BI-07 Ring Projection Backend Integration]] it points to) · **Verdict:** 🟢 Passing · 2026-11-05 · `main @ f186ba1 · localhost:3100, Node 22.22.2` · 40 of 40 delivered cases as expected · re-run 2026-11-09 · `main @ 516a78f · localhost:3100, Node 22.22.2` · B22 and B42–B49 (`isMainPhoto`, `followerCount`) as expected
 
 Expected behaviour of the API, as artefacts a person can check a build against: tables and diagrams, **not test code** (the specs live in the backend repo). `status: passing` or `failing` after a run; the verdict tells the PM whether the story can be fulfilled (passing with nothing pending or unmet). A failing row is one of two things: a story part the delivery does not fulfil (not built, or built other than the story says) goes in `unmet` and turns the story's badge ✕; a bug (built as asked, but it breaks) is filed against the Backend Integration and goes in `pending`, and leaves the story alone.
 
@@ -30,7 +28,7 @@ Expected behaviour of the API, as artefacts a person can check a build against: 
 
 **Covered.** The parts of [[S-11 Photo Library Story]] the backend delivers, as [[BI-13 Photo Library Backend Integration]] documents them: S3 upload a photo (`POST /files`, image types), S7 the library (`GET /files?kind=image|document`, owner only, newest first, paginated, `meta.total` as the count on Me), S8 `usedBy` on every list item, S1 / S5 / S6 the Ring's photo on the projection (`avatarFileId` set and cleared, `avatarUrl`), S5 delete (the client's clear-then-delete flow, and what happens when it does not clear), and the signed links of [[D-16 Files load from signed links that expire in 15 minutes]] (the list's `url`, the projection's and the view's `avatarUrl`). Each row names the story part or the BI-13 rule it comes from.
 
-**Not delivered yet, not a failure.** `followerCount` on the main photo (S8's other half), reading or setting the main photo (S4 "Make this my main photo"), and "Reset to Pin" following it (S6): there is no main photo until the main profile ships ([[BD-07 Profiles & Pin Name Backend Delivery]], S-14 S9–S11), as [[BD-06 Photo Library Backend Delivery]] lists in its `pending`. B22 holds the place; it runs when they ship. Resized thumbnails are not part of D-16.
+**Since 2026-11-09, the main photo.** S8's other half, `isMainPhoto` and `followerCount` on every list item (B22, B42–B49), shipped on backend `main` `cb95a39` ([[BD-06 Photo Library Backend Delivery]]); the main photo is the default profile's `avatarFileId`, set and cleared with `PATCH /profiles/:id` ([[BD-07 Profiles & Pin Name Backend Delivery]]). As far as the list shows them, this covers S4 "Make this my main photo" (the mark moves to that photo) and S6 "Reset to Pin" (a Ring that clears its own photo counts as a follower again). **Not run in this re-run:** what a following Ring itself shows after either action (its projection's and its view's `avatarUrl`); that is a row to add. Resized thumbnails are not part of D-16.
 
 **Not covered here.** The type and size checks the client does before uploading, the copy, the grid, the usage line's wording and every screen state: the QA Frontend's. Attachments and documents beyond the `kind=document` filter: [[QB-06 Files Upload QA Backend]].
 
@@ -75,7 +73,22 @@ Expected behaviour of the API, as artefacts a person can check a build against: 
 | B19 | `me.png` also set on *E-commerce Clients* | Sara lists `kind=image` | `me.png` has `usedBy: [{ ringId, name: "E-commerce Clients" }, { ringId, name: "Family" }]`, by name, alphabetically; every other photo `[]` | ✅ |
 | B20 | `work.jpg` attached to *E-commerce Clients* as an attachment, not as its photo | Sara lists `kind=image` | `work.jpg` still `usedBy: []` (attachments are not counted) | ✅ |
 | B21 | a new *QA Temp* Ring whose photo is `casual.webp` | Sara lists; then deletes the Ring (`DELETE /rings/:id`) and lists again | first `casual.webp` `usedBy: [{ name: "QA Temp" }]`; after the delete `[]` (live Rings only) | ✅ |
-| B22 | the main photo | Sara lists `kind=image` | `followerCount` on the main photo: the live Rings with no photo of their own. **Not delivered yet** ([[BD-06 Photo Library Backend Delivery]] `pending`; no main photo until S-14 S9–S11) | ⬜ not delivered yet |
+| B22 | Sara sets `me.png` as her main photo (`PATCH /profiles/<default> { avatarFileId }`, 200); her three live Rings have no photo of their own | Sara lists `kind=image` | `me.png` has `isMainPhoto: true` and `followerCount: 3`; every other image `isMainPhoto: false`, `followerCount: null` | ✅ 2026-11-09 |
+
+### The main photo — S8 `isMainPhoto` / `followerCount`, S4 Make main, S6 Reset to Pin
+
+Run on `516a78f`, 2026-11-09, on the fresh throwaway database `social_pin_qa_rerun`. "Count" is `followerCount` on `me.png` as Sara lists `kind=image`.
+
+| # | Given | When | Then | Checked |
+|---|---|---|---|---|
+| B42 | Sara has photos but no main photo | Sara lists `kind=image` | no item is marked: every item `isMainPhoto: false`, `followerCount: null`, both keys present | ✅ |
+| B43 | the main photo, count 3 | *Family* picks `work.png` as its own photo | the count drops to 2 | ✅ |
+| B44 | the same | *E-commerce Clients* picks the main photo itself (`avatarFileId: <me.png>`) | it is in `me.png`'s `usedBy`, not in the count (1): it picked the photo, it does not follow it | ✅ |
+| B45 | *Family* shows `work.png` | Reset to Pin (S6): `PATCH /rings/<Family>/projection { avatarFileId: null }` | the count is back up by one (2): the Ring follows the main photo again | ✅ |
+| B46 | the count is 2 | a new Ring (no projection row yet); then one starting tomorrow; then one expiring in 4 seconds | the new Ring counts (3); the not-yet-started one does not; the expiring one counts (4) and leaves once it has expired (3) | ✅ |
+| B47 | the new Ring | it is deleted (`DELETE /rings/:id`) | it leaves the count (2) | ✅ |
+| B48 | Sara makes a second profile and a Ring that presents it (`profileId`) | Sara lists `kind=image` | the count is unchanged: a Ring that presents another profile does not follow the main photo | ✅ |
+| B49 | the main photo is set | Omar lists `kind=image`; Sara lists `limit=1` (the newest photo, not the main one), then `kind=document`, then with no `kind`; then she clears the main photo (`PATCH /profiles/<default> { avatarFileId: null }`) | Omar: none of Sara's files, nothing marked; a page without the main photo marks nothing; documents are never marked; with no `kind` the main photo is marked with the same count as with `kind=image`; once cleared, no item is marked | ✅ |
 
 ### The Ring's photo on the projection — S1, S5, S6 `avatarFileId` / `avatarUrl`
 
@@ -157,15 +170,18 @@ stateDiagram-v2
 - **A link is the credential and names no file**: it loads with no bearer (B23, B28, B30) and carries no file id (B31); it is `private` in caches for no longer than it lives (B30).
 - **An altered, made-up, expired or dead link gets one answer** (B32–B35), so a link tells nothing about whether a file exists.
 - **Editing someone else's Ring is a 403** (B24), as [[BI-07 Ring Projection Backend Integration]] documents; a Ring that is gone is a 404 (B27).
+- **The main photo is marked on the owner's list only**: Omar's list carries none of Sara's files and no mark, and another user's Rings are never in the count (B49).
 
 ## Verdict
 
 - Run on: 2026-11-05 · build: backend `main @ f186ba1` (Photo Library and Counts merged), run from a detached worktree of its own on `localhost:3100`, Node 22.22.2, against the throwaway database `social_pin_qa_photo` (migrated and seeded for the run, dropped after it) · result: 🟢 passing, 40 of 40 delivered cases as expected · failing rows: none · story parts unmet: none · bugs: none
-- **Not delivered yet, not a failure:** B22, `followerCount` on the main photo (S8), with reading and setting the main photo (S4) and Reset to Pin (S6). In `pending`, addressed to [[BD-06 Photo Library Backend Delivery]], which lists the same gap; the note stays Partial until it ships and B22 runs.
+- Re-run on: 2026-11-09 · build: backend `main @ 516a78f` (the main photo shipped in `cb95a39`), built with `nest build` and started on `localhost:3100`, Node 22.22.2, against the fresh throwaway database `social_pin_qa_rerun` (migrated and seeded for the run, dropped after it) · result: 🟢 passing, B22 and B42–B49 as expected (16 checks) · failing rows: none · story parts unmet: none · bugs: none · `pending` cleared: the B22 entry is gone and nothing is left in this note. B1–B21 and B23–B41 were not re-run; their verdict stands on `f186ba1`.
+- **Not run:** what a following Ring shows after Make main (S4) or Reset to Pin (S6), on its projection and on its view (`avatarUrl`). This re-run checked the list's mark and count only.
 - B35 ran on a link issued at 13:03:42 UTC and loaded at 13:19:06 UTC (15 min 24 s later): 404 `E_FILE_01`; a fresh link to the same file 200.
 - Seen in passing, not a row here: Omar's `GET /views/pin/SaraAz` (B28) still carries `avatarFileId`, the gap [[BD-12 View As & Pin Views Backend Delivery]] and [[BI-09 View As & Pin Views Backend Integration]] already document (removed once [[FR-12 View As & Pin Views Frontend Requirements|FR-12]] stops reading it). Nothing to flag: both notes say so.
-- **For the PM:** [[S-11 Photo Library Story]] is not ready to fulfil: this note is Partial on B22, and there is no QA Frontend note yet.
+- **For the PM:** this note is no longer Partial. [[S-11 Photo Library Story]] is still not ready to fulfil: it has no QA Frontend note yet.
 
 ## Log
 
 - 2026-11-05 · written from [[S-11 Photo Library Story]] S1, S3, S5–S8, [[BI-13 Photo Library Backend Integration]], [[BD-06 Photo Library Backend Delivery]] and [[FR-06 Photo Library Frontend Requirements]]; run on backend `main @ f186ba1`: 40 of 40 delivered cases as expected, `status: passing`, B22 (`followerCount`) not delivered yet and in `pending`.
+- 2026-11-09 · vault branch `docs/qa/M-01-identity/F-06-photo-library/QB-08-rerun-b22` · re-ran S8's main photo on backend `main @ 516a78f` (fresh throwaway database): B22 run and B42–B49 added (`isMainPhoto` and `followerCount`: no mark without a main photo; own photo, picked main photo, Reset to Pin, new, not-yet-started, expiring and deleted Rings, another profile's Ring; other users, other pages, documents, no `kind`, cleared). The B22 entry leaves `pending`, which is now empty, so this note reads Passing; the flag from [[BD-06 Photo Library Backend Delivery]] (2026-11-08) is handled and removed. Flagged nothing.
