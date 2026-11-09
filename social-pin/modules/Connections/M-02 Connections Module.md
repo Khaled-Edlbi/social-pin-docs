@@ -17,7 +17,7 @@ A module is the sum of its features; a feature is the sum of its tasks. Each fea
 
 | Feature | Backend | Story | Frontend req. | Backend | Frontend | QA |
 |---|---|---|---|---|---|---|
-| [[F-14 Connections]] | ⬜ To do | [[S-23 Connections Story\|Story]] | [[FR-14 Connections Frontend Requirements\|Req.]] | [[BD-14 Connections Backend Delivery\|Delivery]] · [[BI-16 Connections Backend Integration\|Integration]] | [[Connections Frontend Delivery\|Delivery]] | [[Connections QA Backend\|Backend]] · [[Connections QA Frontend\|Frontend]] |
+| [[F-14 Connections]] | ⬜ To do | [[S-23 Connections Story\|Story]] | [[FR-14 Connections Frontend Requirements\|Req.]] | [[BD-14 Connections Backend Delivery\|Delivery]] · [[BI-16 Connections Backend Integration\|Integration]] | [[FD-13 Connections Frontend Delivery\|Delivery]] | [[Connections QA Backend\|Backend]] · [[Connections QA Frontend\|Frontend]] |
 
 ## Cross-cutting rules
 
