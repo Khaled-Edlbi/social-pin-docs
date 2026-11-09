@@ -11,7 +11,7 @@ affects: ["FR-17 Ring Invitations & Join Frontend Requirements"]
 related: ["S-33 Ring Invitations & Join Story", "BI-08 Rings Backend Integration", "FR-15 Companies Frontend Requirements", "D-18 Ring names shown when joined knowingly", "D-31 An invitation is its own record", "D-32 Several join codes per Ring", "D-35 A join code can be shown as a QR", "D-36 Who it's for stays the owner's alone", "GET /rings/shared-with-me", "GET /rings/invitations/mine", "POST /rings/invitations/:id/accept", "POST /rings/join-codes/resolve", "POST /rings/join-codes/join", "GET /rings/join-requests/mine", "DELETE /rings/join-requests/:id"]
 pending: []
 created: 2026-11-08
-updated: 2026-11-08
+updated: 2026-11-09
 tags: [backend-integration, backend-integration/current, module/shared-rings, layer/backend]
 ---
 
@@ -44,7 +44,7 @@ How the app calls invitations, join codes and join requests, as on backend `main
 
 ## Flow
 
-1. **Invitation:** the owner (or an admin, or a member while the Ring lets members invite) sends one → it shows in the invitee's `GET /rings/invitations/mine` → *Join Ring* = accept → the answer's `ringId` opens the card → refetch s17: the owner's row now carries `ringName`.
+1. **Invitation:** the owner (or an admin, or a member while the Ring lets members invite) sends one → it shows in the invitee's `GET /rings/invitations/mine` → *Join Ring* = accept → the answer's `ringId` opens the card → refetch s17: the owner's row carries `ringName` when this is the first of their Rings the invitee is in. A row opens the Ring the viewer was put in **first**, however it was made (D-15, the same Ring as `GET /views/pin`): if the owner had already placed them in an older Ring, the row stays on that one, with no `ringName`, and the joined Ring is the next perspective (`GET /views/user/:userId/perspectives`). Awaiting the PM's confirmation ([[BD-17 Ring Invitations & Join Backend Delivery]]).
 2. **Code, approval on (the default):** resolve → review ("Join Acme Team?", `requireApproval: true`) → join → `{ outcome: "REQUESTED", requestId }` → "Request sent: {owner} will approve it" → the request is in `GET /rings/join-requests/mine` as `PENDING` → the owner approves on s15 → it leaves my list and the Ring is on Shared with me, named.
 3. **Code, approval off:** resolve → review (`requireApproval: false`) → join → `{ outcome: "JOINED", ringId }` → open the card.
 4. After accept, decline, dismiss, cancel or join: refetch the three s17 lists (and s72).
@@ -72,7 +72,7 @@ No `ringId`, colour, type or purpose. `invitedBy` is `null` when that account is
 
 `GET /rings/join-requests/mine` → rows `{ "id", "status": "PENDING" | "DECLINED", "createdAt", "ringName", "business" }`.
 
-`GET /rings/shared-with-me` (changed): a row I joined knowingly has `ringName` set, and `memberCount` set when the Ring lets members see each other; a Ring I was placed in keeps both `null`.
+`GET /rings/shared-with-me` (changed): a row I joined knowingly has `ringName` set, and `memberCount` set when the Ring lets members see each other; a Ring I was placed in keeps both `null`. Each row is the Ring I was put in first of that person's (D-15), so these are set only when that first Ring was joined knowingly.
 
 Owner side:
 
@@ -148,3 +148,4 @@ The body has no `ErrorCode` yet ([[S-87 Error Contract Story|Error Contract]]); 
 
 - 2026-11-08 · `docs/backend/M-03-shared-rings/F-17-ring-invitations/BI-17-draft` · written as a draft against the backend branch `FR-17/ring-invitation/invitations-codes-origin` @ `21899a6`
 - 2026-11-08 · backend `main` `1c460b0` (the merge of that branch) · matches `main`: the routes, shapes, errors and rules above, unchanged by the merge; → current. The badge payload F-18 shipped (`https://socialpin.me/q/<token>`) added to the scanner checklist line
+- 2026-11-09 · `docs/backend/M-03-shared-rings/F-17-ring-invitations/BI-17-d-15-first-ring` · matches backend `main` `d8267d3`: after *Join Ring* the Shared with me row names the Ring only when it is the invitee's first Ring of that owner; the row opens the oldest membership however it was made (D-15), no longer a Ring joined knowingly first. No shape changed.

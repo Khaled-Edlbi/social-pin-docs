@@ -3333,10 +3333,12 @@
     "GET /views/pin": {
       "containers": [
         "feature:discover-hub",
+        "feature:ring-invitations",
         "feature:view-as"
       ],
       "kind": "endpoint",
       "notes": [
+        "backend-integration:ring-invitations",
         "story:discover-hub",
         "story:view-as"
       ],
@@ -3695,6 +3697,7 @@
         "feature:connections",
         "feature:pincast",
         "feature:ring-access",
+        "feature:ring-invitations",
         "feature:ring-members",
         "feature:view-as",
         "needs-decision:ND-10",
@@ -3710,6 +3713,7 @@
       "notes": [
         "backend-delivery:view-as",
         "backend-integration:connections",
+        "backend-integration:ring-invitations",
         "backend-integration:ring-members",
         "backend-integration:view-as",
         "decision:D-15",
@@ -6726,7 +6730,7 @@
     },
     "concepts": 319,
     "decisions": 34,
-    "edges": 7693,
+    "edges": 7695,
     "features": 41,
     "layerNotes": 156,
     "modules": 8,
@@ -24248,7 +24252,8 @@
       "to": "backend-integration:ring-invitations",
       "via": [
         "E_RING_05",
-        "GET /rings/shared-with-me"
+        "GET /rings/shared-with-me",
+        "GET /views/user/:userId/perspectives"
       ]
     },
     {
@@ -27280,7 +27285,8 @@
       "via": [
         "E_RING_05",
         "GET /rings/shared-with-me",
-        "GET /views/ring/:ringId"
+        "GET /views/ring/:ringId",
+        "GET /views/user/:userId/perspectives"
       ]
     },
     {
@@ -29548,7 +29554,8 @@
       "kind": "related",
       "to": "backend-integration:ring-invitations",
       "via": [
-        "GET /views/ring/:ringId"
+        "GET /views/ring/:ringId",
+        "GET /views/user/:userId/perspectives"
       ]
     },
     {
@@ -34587,7 +34594,8 @@
       "via": [
         "E_RING_05",
         "GET /rings/shared-with-me",
-        "GET /views/ring/:ringId"
+        "GET /views/ring/:ringId",
+        "GET /views/user/:userId/perspectives"
       ]
     },
     {
@@ -36999,7 +37007,8 @@
       "kind": "related",
       "to": "backend-integration:ring-invitations",
       "via": [
-        "GET /views/ring/:ringId"
+        "GET /views/ring/:ringId",
+        "GET /views/user/:userId/perspectives"
       ]
     },
     {
@@ -41987,7 +41996,8 @@
       "kind": "related",
       "to": "backend-integration:ring-invitations",
       "via": [
-        "GET /views/ring/:ringId"
+        "GET /views/ring/:ringId",
+        "GET /views/user/:userId/perspectives"
       ]
     },
     {
@@ -43389,6 +43399,14 @@
       "via": [
         "GET /views/user/:userId/perspectives",
         "POST /rings/:ringId/members"
+      ]
+    },
+    {
+      "from": "decision:D-15",
+      "kind": "shares",
+      "to": "feature:ring-invitations",
+      "via": [
+        "GET /views/user/:userId/perspectives"
       ]
     },
     {
@@ -47114,7 +47132,8 @@
         "E_RING_05",
         "GET /rings",
         "GET /rings/shared-with-me",
-        "GET /views/ring/:ringId"
+        "GET /views/ring/:ringId",
+        "GET /views/user/:userId/perspectives"
       ]
     },
     {
@@ -48478,7 +48497,8 @@
       "kind": "shares",
       "to": "feature:ring-invitations",
       "via": [
-        "E_AUTH_04"
+        "E_AUTH_04",
+        "GET /views/pin"
       ]
     },
     {
@@ -51470,7 +51490,8 @@
       "via": [
         "E_AUTH_04",
         "GET /rings",
-        "GET /rings/shared-with-me"
+        "GET /rings/shared-with-me",
+        "GET /views/user/:userId/perspectives"
       ]
     },
     {
@@ -52125,6 +52146,7 @@
         "GET /rings",
         "GET /rings/shared-with-me",
         "GET /views/ring/:ringId",
+        "GET /views/user/:userId/perspectives",
         "PATCH /rings/:id"
       ]
     },
@@ -52447,7 +52469,8 @@
       "to": "feature:ring-members",
       "via": [
         "E_RING_05",
-        "GET /rings"
+        "GET /rings",
+        "GET /views/user/:userId/perspectives"
       ]
     },
     {
@@ -52492,7 +52515,9 @@
       "via": [
         "E_AUTH_04",
         "GET /rings",
-        "GET /views/ring/:ringId"
+        "GET /views/pin",
+        "GET /views/ring/:ringId",
+        "GET /views/user/:userId/perspectives"
       ]
     },
     {
@@ -52509,7 +52534,8 @@
       "kind": "shares",
       "to": "needs-decision:ND-10",
       "via": [
-        "GET /views/ring/:ringId"
+        "GET /views/ring/:ringId",
+        "GET /views/user/:userId/perspectives"
       ]
     },
     {
@@ -52517,7 +52543,16 @@
       "kind": "shares",
       "to": "needs-decision:ND-14",
       "via": [
-        "GET /rings/shared-with-me"
+        "GET /rings/shared-with-me",
+        "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "feature:ring-invitations",
+      "kind": "shares",
+      "to": "needs-decision:ND-15",
+      "via": [
+        "GET /views/user/:userId/perspectives"
       ]
     },
     {
@@ -52537,7 +52572,8 @@
         "E_RING_03",
         "GET /rings",
         "GET /rings/shared-with-me",
-        "GET /views/ring/:ringId"
+        "GET /views/ring/:ringId",
+        "GET /views/user/:userId/perspectives"
       ]
     },
     {
@@ -52548,7 +52584,8 @@
         "E_AUTH_04",
         "GET /rings",
         "GET /rings/shared-with-me",
-        "GET /views/ring/:ringId"
+        "GET /views/ring/:ringId",
+        "GET /views/user/:userId/perspectives"
       ]
     },
     {
@@ -52566,7 +52603,8 @@
       "via": [
         "GET /rings",
         "GET /rings/shared-with-me",
-        "GET /views/ring/:ringId"
+        "GET /views/ring/:ringId",
+        "GET /views/user/:userId/perspectives"
       ]
     },
     {
@@ -52576,7 +52614,8 @@
       "via": [
         "GET /rings",
         "GET /rings/shared-with-me",
-        "GET /views/ring/:ringId"
+        "GET /views/ring/:ringId",
+        "GET /views/user/:userId/perspectives"
       ]
     },
     {
@@ -52633,7 +52672,8 @@
       "kind": "shares",
       "to": "task:B-17",
       "via": [
-        "GET /views/ring/:ringId"
+        "GET /views/ring/:ringId",
+        "GET /views/user/:userId/perspectives"
       ]
     },
     {
@@ -70535,7 +70575,7 @@
       "task": null,
       "title": "BI-17 Ring Invitations & Join Backend Integration",
       "unmet": [],
-      "updated": "2026-11-08"
+      "updated": "2026-11-09"
     },
     "backend-integration:ring-members": {
       "affects": [],
@@ -80223,6 +80263,7 @@
         "needs-decision:ND-15",
         "frontend-requirements:pincast",
         "story:pincast",
+        "backend-integration:ring-invitations",
         "project:spec-map",
         "task:B-02",
         "frontend-requirements:event-ring-auto",
@@ -80260,7 +80301,6 @@
         "frontend-requirements:meetings",
         "story:companies",
         "backend-delivery:ring-invitations",
-        "backend-integration:ring-invitations",
         "story:ring-invitations",
         "task:B-09",
         "task:B-10",
