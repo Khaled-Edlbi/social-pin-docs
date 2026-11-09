@@ -9,29 +9,13 @@ screens: [s10, s31, s44, s62]
 owner: "Omar Fostok"
 depends: ["S-19 View As & Pin Views Story"]
 affects: ["BD-12 View As & Pin Views Backend Delivery"]
-related: ["BI-09 View As & Pin Views Backend Integration", "D-16 Files load from signed links that expire in 15 minutes", "ND-12 What the badge QR encodes", "ND-22 Public web page by Pin name", "ND-10 How Connect addresses the scanned person", "FR-07 Profiles & Pin Name Frontend Requirements", "FR-10 Ring Projection Frontend Requirements", "S-23 Connections Story", "S-37 Badge & QR Story", "S-20 Widgets Story", "S-87 Error Contract Story", "GET /views/pin/:pinName", "GET /views/ring/:ringId", "GET /views/user/:userId/perspectives", "GET /rings"]
+related: ["BI-09 View As & Pin Views Backend Integration", "D-16 Files load from signed links that expire in 15 minutes", "ND-12 What the badge QR encodes", "ND-22 Public web page by Pin name", "ND-10 How Connect addresses the scanned person", "FR-07 Profiles & Pin Name Frontend Requirements", "FR-10 Ring Projection Frontend Requirements", "S-23 Connections Story", "S-37 Badge & QR Story", "S-20 Widgets Story", "S-87 Error Contract Story", "GET /views/pin/:pinName", "GET /views/ring/:ringId", "GET /views/user/:userId/perspectives", "GET /rings", "BD-10 Ring Projection Backend Delivery", "BI-15 Badge & QR Backend Integration", "D-15 Several Rings per connection, remove or disconnect", "FD-17 View As & Pin Views Frontend Delivery", "GET /views/qr/:token"]
 created: 2026-10-18
-updated: 2026-11-05
+updated: 2026-11-09
 tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
 ---
 
 # View As & Pin Views · Frontend Requirements
-
-> ⚠ Affected by [[S-19 View As & Pin Views Story]] (2026-11-09): S7 Save contact sits next to Save for later (S-37 S8), not instead of it, and only when the card shares a phone number
-
-> ⚠ Affected by [[S-19 View As & Pin Views Story]] (2026-11-09): S-19 S4/S5 now follow D-15 (2026-11-09, khaled): GET /views/pin and the perspectives list start from the Ring the viewer was put in first (oldest live membership), then the others in the order they were added; the owner's own lookup keeps their default Ring first; for /frontend: View 1 is the Ring the viewer was put in first
-
-> ⚠ Affected by [[BD-14 Connections Backend Delivery]] (2026-11-08): F-14 shipped on backend main 1c460b0: Connect by Pin name (POST /connections/requests { pinName }, the button from GET /connections/relationship) and Block (POST /blocks { pinName }) exist on s44, and contacts give a userId for /perspectives (GET /connections); Connect and Block after a scan ({ qrToken }) are still not available
-
-> ⚠ Affected by [[BD-12 View As & Pin Views Backend Delivery]] (2026-11-08): backend main cb95a39: point 3 of the backend note is resolved: a viewer now gets no file id on any /views/* route (avatarFileId left the view; the owner's projection keeps it, D-16); read avatarUrl and attachments[].url; for /frontend
-
-> ⚠ Affected by [[BD-10 Ring Projection Backend Delivery]] (2026-11-05): links and custom fields are one library per account on main a249ab2 (S-17 S9): the view's links[] / infoBlocks[] shapes are unchanged, but a value is now the same in every Ring that shows it; the owner's GET /rings/:ringId/projection gives each item's isVisible per Ring, which 'where each field goes' can read
-
-> ⚠ Affected by [[BI-09 View As & Pin Views Backend Integration]] (2026-11-05): avatarUrl and attachments[].url are on every /views/* response on backend main @ 80e7fa2 (rows flipped ✅). avatarFileId is still sent on the view, from before D-16 (viewers never receive a file id): stop reading it, use avatarUrl, then the backend removes it (/frontend)
-
-> ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
-
-> ⚠ Affected by [[BD-12 View As & Pin Views Backend Delivery]] (2026-11-08): backend main 1c460b0: the QR rows are delivered: POST /rings/:ringId/qr issues the badge code, GET /views/qr/:token resolves it into RingProfileViewEntity plus expiresAt (BI-15). 'Source today' (a Ring id in the QR, temporary) is out of date: the QR carries https://socialpin.me/q/<token>, never a Ring id; for /frontend
 
 **Feature:** [[F-12 View As & Pin Views]] · **Status:** Draft, sent back by the backend 2026-11-05 · **Story:** [[S-19 View As & Pin Views Story]] · **Backend Integration:** [[BI-09 View As & Pin Views Backend Integration]]
 
@@ -56,7 +40,7 @@ What the client needs from the backend for every screen that renders another per
 - **Audience face**: the card as the Ring's audience sees it (as s44), with Save contact and Connect **disabled** (it's me).
 - **Owner face** ("YOUR VIEW · OWNER"): my totals ("All N fields · N Rings · N connections"); **where each field goes** (each field, link, custom field and file with the Rings that show it: "Every Ring", a list, "<Ring> only", "Hidden"); the three counts for the chip's Ring (FIELDS n/m, SOCIALS n/m, BIO Own / Inherited); "Edit what <Ring> sees" → s24.
 - The Ring chips (my live Rings) stay put on both faces; an expired Ring reads "This Ring has expired".
-- Needs: the viewer shape of the chip's Ring; for the owner face, **every one of my Rings' projections** (worked out on the phone), or [[FR-07 Profiles & Pin Name Frontend Requirements|FR-07]]'s "my Rings with their switches in one call" once it ships; the counts from [[F-03 Counts]].
+- Needs: the viewer shape of the chip's Ring; for the owner face, **every one of my Rings' projections** (worked out on the phone: links and custom fields are one library per account, each with its `isVisible` per Ring, [[BD-10 Ring Projection Backend Delivery|BD-10]]), or [[FR-07 Profiles & Pin Name Frontend Requirements|FR-07]]'s "my Rings with their switches in one call" once it ships; the counts from [[F-03 Counts]].
 - States: preview frame, flipping, expired, loading.
 - Source today: `GET /views/ring/:ringId`; `GET /rings` and `GET /rings/:ringId/projection` each ✅. Nothing new for the backend.
 
@@ -66,16 +50,16 @@ What the client needs from the backend for every screen that renders another per
 - **My own scan context** ("Scanned just now · TechSummit '26"): kept on the phone by the scan ([[F-18 Badge & QR]]); never sent by the view.
 - "WHAT <NAME> SHARES WITH YOU": the shared fields, links, custom fields, widgets; sensitive rows only when not `null`.
 - **Photo** from `avatarUrl`; **attachments** with name and size (no date), opening (PDF, image) or downloading from each `url`.
-- **Save contact**: the phone's "new contact" screen pre-filled with only what the card shows (name, nickname, headline and company, email, phone, links, the photo while its link is valid); contacts permission asked on first use. Replaces "Save for later".
-- **Connect**: disabled until [[S-23 Connections Story|Connections · S8–S12]] ([[ND-10 How Connect addresses the scanned person]]); not the owner's s46.
-- **⋯**: Block ([[S-23 Connections Story|Connections · S25]]), disabled until it exists.
+- **Save contact**: the phone's "new contact" screen pre-filled with only what the card shows (name, nickname, headline and company, email, phone, links, the photo while its link is valid); contacts permission asked on first use. It sits **next to** "Save for later" ([[S-37 Badge & QR Story|Badge & QR · S8]]), not instead of it, and only when the card shares a phone number (S-19 S7, 2026-11-09).
+- **Connect**: by Pin name `POST /connections/requests { pinName }`, the button from `GET /connections/relationship` ([[S-23 Connections Story|Connections · S2–S4]]); after a scan (`{ qrToken }`) see [[ND-10 How Connect addresses the scanned person]]; not the owner's s46.
+- **⋯**: Block, `POST /blocks { pinName }` ([[S-23 Connections Story|Connections · S13]]).
 - States: scanning, no camera permission, invalid code, resolved, not available, an expired photo or file link (refetched), contacts permission asked / denied.
-- Source today: `GET /views/ring/:ringId` (a Ring id in the QR, temporary: [[ND-12 What the badge QR encodes]]), `GET /views/pin/:pinName`. Signed links, token resolve, Connect: not yet.
+- Source today: a scan resolves with `GET /views/qr/:token` (the QR carries `https://socialpin.me/q/<token>`, never a Ring id; [[BI-15 Badge & QR Backend Integration|BI-15]]), a handle with `GET /views/pin/:pinName`; the photo and files from the view's signed links (no file id on any `/views/*` route).
 
 ### Perspective switcher (S5, no prototype screen)
 
-- Needs: every perspective I hold of one person, in a stable order, with no identifiers.
-- Source today: `GET /views/user/:userId/perspectives`; the `userId` from a connection or a scan payload (not yet available in-app).
+- Needs: every perspective I hold of one person, in a stable order, with no identifiers; View 1 is the Ring I was put in first, the one `GET /views/pin` shows ([[D-15 Several Rings per connection, remove or disconnect|D-15]]).
+- Source today: `GET /views/user/:userId/perspectives`; the `userId` from my connections (`GET /connections`, [[S-23 Connections Story|Connections · S8–S12]]).
 
 ### [[Screen Index#s62|s62]] Post-event (S6)
 
@@ -89,7 +73,7 @@ What the client needs from the backend for every screen that renders another per
 | Nickname | `nickname` | a lighter line under the name, in quotes; only when not empty |
 | Headline · company | the Ring's main-profile fields ([[FR-10 Ring Projection Frontend Requirements\|FR-10]], S10) | when the Ring shows them |
 | `!pinName`, bio | `pinName`, `bio` | |
-| Photo | `avatarUrl` (signed, 15 minutes; D-16) | ✅ `avatarUrl` on `GET /views/*` (2026-11-05); a placeholder when it is `null` |
+| Photo | `avatarUrl` (signed, 15 minutes; D-16) | ✅ `avatarUrl` on `GET /views/*` (2026-11-05); a placeholder when it is `null`; the view carries no `avatarFileId` (backend `main` `cb95a39`) |
 | Theme | `themeConfig` | free-form JSON; also the switcher's label |
 | Sensitive rows | `birthdate`, `gender`, `maritalStatus`, `email`, `phone` | shown only when not `null` |
 | Links, fields | `links[]`, `infoBlocks[]` | visible rows only; no `isVisible` here |
@@ -108,9 +92,10 @@ What the client needs from the backend for every screen that renders another per
 | **The photo and files on the view**: `avatarUrl` and a `url` per attachment, signed, valid 15 minutes, no file id | `GET /views/*` | ✅ `avatarUrl`, `attachments[].url`, served by `GET /files/content/:token` (2026-11-05) | [[D-16 Files load from signed links that expire in 15 minutes]] (decided; the backend builds it) |
 | Issue a rotating QR token for a Ring | `POST /rings/:ringId/qr` | ✅ (2026-11-08, [[BI-15 Badge & QR Backend Integration\|BI-15]]) | [[S-37 Badge & QR Story\|Badge & QR · S1–S2]], [[D-12 The badge QR is a socialpin.me link]] |
 | Resolve a scanned token to a view | `GET /views/qr/:token` | ✅ (2026-11-08, this view + `expiresAt`) | [[S-37 Badge & QR Story\|Badge & QR · S6]] |
-| Connect after a scan | — | ❌ | [[S-23 Connections Story\|Connections · S8–S12]] |
-| Block a person | — | ❌ | [[S-23 Connections Story\|Connections · S25]] |
-| A `userId` to call `/perspectives` with | — | ❌ | [[S-23 Connections Story\|Connections · S19–S24]] |
+| Connect by Pin name | `POST /connections/requests { pinName }`, `GET /connections/relationship` | ✅ (backend `main` `1c460b0`) | [[S-23 Connections Story\|Connections · S2–S4]] |
+| Connect after a scan | `{ qrToken }` | ❌ | [[S-23 Connections Story\|Connections · S2–S4]], [[ND-10 How Connect addresses the scanned person]] |
+| Block a person | `POST /blocks { pinName }` | ✅ (backend `main` `1c460b0`) | [[S-23 Connections Story\|Connections · S13]] |
+| A `userId` to call `/perspectives` with | `GET /connections` | ✅ | [[S-23 Connections Story\|Connections · S8–S12]] |
 | Browser page for viewers without the app | — | ❌ | [[S-37 Badge & QR Story\|Badge & QR · S20]], [[ND-22 Public web page by Pin name]] |
 | Widgets rendered in the view | — | ❌ | [[S-20 Widgets Story\|Widgets · S7]] |
 
@@ -119,13 +104,13 @@ What the client needs from the backend for every screen that renders another per
 - Refetch / realtime: refetch any view on screen focus; the owner's View as refetches after every projection write (invalidate before the flip). No push.
 - **Signed links:** load the photo and files only from `avatarUrl` and `url`; never build a link from an id. A link is valid 15 minutes: when one fails to load (expired) or the view is older than that, read the view again and use the new links. Never store a link beyond the session.
 - Caching keys: `view:<viewerUserId>:pin:<pinName>`, `view:<viewerUserId>:ring:<ringId>`, `perspectives:<viewerUserId>:<targetUserId>`; short TTL (under 15 minutes, so links stay valid); never keyed by the target alone.
-- Pagination / ordering: perspectives are an array, default Ring first then oldest, no identifiers: index by position. No pagination on views.
+- Pagination / ordering: perspectives are an array in the order I was put in the person's Rings, the first one first ([[D-15 Several Rings per connection, remove or disconnect|D-15]]; my own: my default Ring first), no identifiers: index by position. No pagination on views.
 - One component: the same renderer for the three routes, View as and the teaser; the owner's preview adds only a frame, a selector and the owner face.
 - Owner face: worked out on the phone from my own Rings' projections; it never reads another person's data.
 - `null` rendering: "Not shared" or the row hidden; never "none" or "empty". A sensitive row is shown only when its value is not `null`.
 - 404 rendering: one message, one layout, no cause-specific copy, retry or timing; `E_RING_ACCESS_02` differs only on the owner's own View as ("This Ring has expired").
 - Handles: send `pinName` without the `!`; display it with the `!`.
-- QR payload: until a token exists, the QR may carry a Ring id and the scanner calls `/views/ring/:ringId`; treat the encoding as temporary and isolate it behind one resolver function.
+- QR payload: `https://socialpin.me/q/<token>`, resolved with `GET /views/qr/:token`; never a Ring id in a QR ([[BI-15 Badge & QR Backend Integration|BI-15]]).
 - Save contact: through the phone's contacts, with only what the card shows; nothing that identifies the Ring or the owner.
 - Expired Rings: never call `/views/ring/:id` from s62; the owner's selector on s31 lists live Rings only (compute from `expiresAt`, then trust the server).
 
@@ -143,6 +128,5 @@ Until [[S-87 Error Contract Story|Error Contract · S4–S8]] ships, the body ca
 
 ## Blocked by
 
-- [[D-16 Files load from signed links that expire in 15 minutes]] (decided, not built) — the photo and attachment links on s10, s31 and s44.
-- [[S-37 Badge & QR Story|Badge & QR · S7–S12]] and [[S-37 Badge & QR Story|Badge & QR · S13–S18]] — the real QR payload on s44 ([[ND-12 What the badge QR encodes]]); a Ring id in the QR is a stopgap.
-- [[S-23 Connections Story|Connections · S8–S12]] and [[S-23 Connections Story|Connections · S25]] — Connect and Block on s44.
+- Nothing blocks the read path: [[D-16 Files load from signed links that expire in 15 minutes|D-16]]'s links are built, the QR resolves by token ([[BI-15 Badge & QR Backend Integration|BI-15]]), Connect and Block by Pin name exist ([[S-23 Connections Story|Connections · S2–S4]], [[S-23 Connections Story|Connections · S13]]).
+- Still open: Connect after a scan by `{ qrToken }` ([[ND-10 How Connect addresses the scanned person]]).
