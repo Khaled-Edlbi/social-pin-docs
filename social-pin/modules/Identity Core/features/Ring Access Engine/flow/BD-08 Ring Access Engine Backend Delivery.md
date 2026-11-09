@@ -15,6 +15,8 @@ tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 
 # ✅ Ring Access Engine · Backend Delivery
 
+> ⚠ Affected by [[BD-14 Connections Backend Delivery]] (2026-11-09): RingAccessService.resolveColleagueCard on backend branch FR-14/connection/block-a-colleague @ 7af98be (not merged): whether a person is listed to the viewer in a roster they may read (GET /rings/:ringId/colleagues rules, person-level) and with which Ring's card; POST /blocks { userId } uses it to block a colleague
+
 **Feature:** [[F-08 Ring Access Engine]] · **Status:** Done · **Integration guide:** [[BI-05 Ring Access Engine Backend Integration]] · **Requirements:** [[FR-08 Ring Access Engine Frontend Requirements]] · **QA:** [[QB-09 Ring Access Engine QA Backend]]
 
 What the backend shipped for this feature and how it works.
