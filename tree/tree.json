@@ -961,6 +961,7 @@
         "feature:account",
         "feature:counts",
         "feature:ring-members",
+        "project:frontend-api-guide",
         "task:B-02"
       ],
       "kind": "endpoint",
@@ -969,6 +970,7 @@
         "backend-integration:account",
         "frontend-delivery:account",
         "frontend-requirements:account",
+        "project:frontend-api-guide",
         "qa-backend:account",
         "qa-backend:counts",
         "qa-backend:ring-members",
@@ -6865,7 +6867,7 @@
     },
     "concepts": 324,
     "decisions": 34,
-    "edges": 8055,
+    "edges": 8058,
     "features": 41,
     "layerNotes": 157,
     "modules": 8,
@@ -10793,6 +10795,7 @@
       "kind": "related",
       "to": "project:frontend-api-guide",
       "via": [
+        "DELETE /users/me",
         "E_AUTH_03"
       ]
     },
@@ -16521,6 +16524,7 @@
       "kind": "related",
       "to": "project:frontend-api-guide",
       "via": [
+        "DELETE /users/me",
         "E_AUTH_03"
       ]
     },
@@ -34099,6 +34103,7 @@
       "kind": "related",
       "to": "project:frontend-api-guide",
       "via": [
+        "DELETE /users/me",
         "E_RING_02",
         "GET /rings",
         "GET /rings/shared-with-me",
@@ -39797,6 +39802,7 @@
       "kind": "related",
       "to": "project:frontend-api-guide",
       "via": [
+        "DELETE /users/me",
         "E_AUTH_03",
         "E_AUTH_04"
       ]
@@ -46049,6 +46055,14 @@
     {
       "from": "task:B-26",
       "kind": "related",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "task:B-26",
+      "kind": "related",
       "to": "qa-backend:account",
       "via": [
         "DELETE /users/me"
@@ -47572,6 +47586,7 @@
       "kind": "shares",
       "to": "project:frontend-api-guide",
       "via": [
+        "DELETE /users/me",
         "E_AUTH_03",
         "E_AUTH_04",
         "GET /rings",
@@ -50989,6 +51004,7 @@
       "kind": "shares",
       "to": "project:frontend-api-guide",
       "via": [
+        "DELETE /users/me",
         "E_RING_02",
         "GET /rings",
         "GET /rings/shared-with-me",
@@ -56123,6 +56139,7 @@
       "kind": "shares",
       "to": "project:frontend-api-guide",
       "via": [
+        "DELETE /users/me",
         "E_RING_02",
         "GET /rings",
         "GET /views/pin/:pinName"
@@ -57996,6 +58013,7 @@
       "kind": "shares",
       "to": "task:B-02",
       "via": [
+        "DELETE /users/me",
         "E_AUTH_03",
         "GET /rings"
       ]
@@ -65065,7 +65083,17 @@
     {
       "from": "project:frontend-api-guide",
       "kind": "wikilink",
+      "to": "decision:D-10"
+    },
+    {
+      "from": "project:frontend-api-guide",
+      "kind": "wikilink",
       "to": "decision:D-15"
+    },
+    {
+      "from": "project:frontend-api-guide",
+      "kind": "wikilink",
+      "to": "decision:D-25"
     },
     {
       "from": "project:frontend-api-guide",
@@ -68477,6 +68505,7 @@
         "story:account",
         "qa-backend:counts",
         "qa-backend:ring-members",
+        "project:frontend-api-guide",
         "needs-decision:ND-20",
         "project:spec-map",
         "backend-delivery:auth",
@@ -68502,8 +68531,7 @@
         "qa-backend:view-as",
         "project:auth-model",
         "frontend-requirements:devices",
-        "story:error-contract",
-        "project:frontend-api-guide"
+        "story:error-contract"
       ],
       "release": "mvp",
       "resolution": null,
@@ -71871,6 +71899,7 @@
         "frontend-requirements:ring-projection",
         "qa-backend:counts",
         "qa-backend:ring-members",
+        "project:frontend-api-guide",
         "feature:account",
         "backend-delivery:view-as",
         "frontend-requirements:view-as",
@@ -71878,7 +71907,6 @@
         "project:auth-model",
         "frontend-requirements:devices",
         "story:error-contract",
-        "project:frontend-api-guide",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
         "backend-delivery:profiles",
@@ -91245,6 +91273,7 @@
         "task:B-17",
         "task:B-18",
         "task:B-24",
+        "task:B-26",
         "needs-decision:ND-30",
         "decision:D-16",
         "decision:D-30",
@@ -95360,6 +95389,7 @@
         "project:spec-map",
         "qa-backend:counts",
         "qa-backend:ring-members",
+        "project:frontend-api-guide",
         "backend-delivery:photo-library",
         "frontend-requirements:photo-library",
         "backend-delivery:profiles",
@@ -95384,7 +95414,6 @@
         "frontend-requirements:auth",
         "story:auth",
         "frontend-requirements:devices",
-        "project:frontend-api-guide",
         "project:frontend-passwordless-migration",
         "frontend-requirements:payments",
         "frontend-requirements:subscription",
@@ -102923,7 +102952,8 @@
         "frontend-requirements:account",
         "qa-backend:account",
         "qa-backend:counts",
-        "qa-backend:ring-members"
+        "qa-backend:ring-members",
+        "project:frontend-api-guide"
       ],
       "release": "mvp",
       "resolution": "fixed",

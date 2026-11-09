@@ -221,7 +221,7 @@ it.
 |---|---|---|
 | GET | `/users/me` | The authenticated account |
 | PATCH | `/users/me` | Email / phone. Changing either clears its verified flag |
-| DELETE | `/users/me` | Soft-deletes and revokes every session |
+| DELETE | `/users/me` | Soft-deletes and revokes every session; ends the account's connections, closes its pending requests both ways and removes its blocks, silently (D-25) |
 
 There is no `GET /users/:id` and no user search. Another person is reachable
 only through a ring projection.
@@ -364,6 +364,33 @@ with the same answer time; more than 20 scans a minute is 429 `E_BADGE_01`. A
 code for a ring that is not yours is 404 `E_RING_02`; for your ring that has
 ended, 409 `E_RING_03`. Details: BI-15 Badge & QR Backend Integration.
 
+### Connections — `/connections`, `/blocks`
+
+| Method | Path | |
+|---|---|---|
+| POST | `/connections/requests` | Ask the person on a card, with **exactly one of** `qrToken` (the card was opened by scan), `pinName` (opened by Pin name) or `againFor` (one of your own requests), plus `note?` (≤ 200). 201 new, 200 yours already pending |
+| GET | `/connections/requests` | `?direction=incoming` or `sent`, paginated |
+| DELETE | `/connections/requests/:id` | Cancel your pending request (204) |
+| POST | `/connections/requests/:id/accept` | `{ ringId, startsAt?, expiresAt? }`: the membership and the connection in one call (201) |
+| POST | `/connections/requests/:id/decline` | 200, no body |
+| GET | `/connections/relationship` | `?pinName=` or `?qrToken=`, exactly one: the card's button, `{ state, requestId }` |
+| GET | `/connections/count` | Your contacts |
+| GET | `/connections` | Your contacts, `?q=&noAccess=`, paginated |
+| GET | `/connections/:userId` | A contact, or a member of your Rings who is not one |
+| DELETE | `/connections/:userId` | Disconnect (204) |
+| POST | `/blocks` | Block, with exactly one of `qrToken`, `pinName` or `userId`. 201 new, 200 already |
+| GET | `/blocks` | The people you blocked |
+| DELETE | `/blocks/:id` | Unblock (204); restores nothing |
+
+A card sends back **what it was opened with**: the scanned token or the Pin
+name, never a user id (D-10). By either key, every refusal is the views' one 404
+`E_RING_ACCESS_01`; by `qrToken` the call goes through the badge resolve's own
+check, its 300 ms floor and its limit, so a refused token counts toward the 20 a
+minute (429 `E_BADGE_01`) and a successful call does not. Nothing a connection
+does is announced to the other person; a deleted account leaves every list on
+the next fetch. Details, shapes and errors: BI-16 Connections Backend
+Integration.
+
 `GET /views/ring/:ringId` is the same code path for the owner and for a member,
 which is what makes "View as" trustworthy rather than an approximation: the
 owner sees byte-for-byte what that audience sees.
@@ -473,15 +500,15 @@ Worth knowing up front:
 
 ## Not yet available
 
-Schema exists, endpoints do not: connections and connection requests, events and
+Schema exists, endpoints do not: events and
 participation, exhibitors and booths, mini-events, meetings and availability
 slots, PinCast and nearby discovery, businesses, orders and payments,
 notifications, analytics, and Gemma. See `Spec Map.md` for the current state of
 each.
 
-Badge codes are available (see *Badge* above); Connect by a scanned code
-(`POST /connections/requests { qrToken }`), the `socialpin.me/q/<token>` web
-page and the app links are not yet.
+Badge codes are available (see *Badge* above), and so are Connect, Block and
+the relationship by a scanned code (see *Connections*); the
+`socialpin.me/q/<token>` web page and the app links are not yet.
 
 Per-feature client guides (screens → calls, flows, error tables, what is not
 available yet) live in the `social-pin-docs` vault under `frontend/`.
@@ -494,3 +521,5 @@ available yet) live in the `social-pin-docs` vault under `frontend/`.
 - 2026-11-08 · backend `main` `e483d49` ([[BD-11 Rings Backend Delivery]]) · *Errors*: booleans are `true` / `false` only, anything else 400 ([[B-11 Projection switches read any string as true]], [[B-13 The string false is read as true on Ring filters and settings]]); `null` on a `PATCH` only where it clears ([[B-12 Null on a link or custom field's required field answers 500]], [[B-14 PATCH a Ring with null on a required field answers 500]]). Rings table: disposition only on a lapsed temporary Ring, 409 `E_RING_10` (new, [[B-15 Disposition runs on a permanent Ring, the default included]]).
 - 2026-11-08 · backend `main` `1c460b0` ([[BD-17 Ring Invitations & Join Backend Delivery]]) · new section *Joining a ring*: 17 routes for invitations, join codes (and the join QR `socialpin://join/<code>`) and join requests; `ringName` / `memberCount` on Shared with me now filled for a ring joined knowingly; `origin` on the members rows; four enums. New codes `E_RING_INVITATION_01`–`07`, `E_RING_JOIN_CODE_01`–`06`, `E_RING_JOIN_REQUEST_01`–`02` (not on the body until Error Contract). [[Frontend Contract]] already flagged from BD-17
 - 2026-11-09 · backend `main` `d8267d3` ([[BD-12 View As & Pin Views Backend Delivery]], [[D-15 Several Rings per connection, remove or disconnect]]) · *Perspectives*: they come in the order the viewer was put in the person's Rings, View 1 = `GET /views/pin` = the Shared with me row; your own start with your default Ring. No shape changed.
+- 2026-11-09 · backend local `main` `ebdca36` (not pushed yet; [[BD-14 Connections Backend Delivery]], [[D-10 Connect sends what the requester already has]], [[D-25 A deleted account's connections, requests and blocks end silently]]) · new section *Connections*: the 13 routes F-14 shipped on `1c460b0`, now with `qrToken` on send, block and relationship (the badge resolve's 404, floor and 429). `DELETE /users/me` ends the account's connections, requests and blocks. *Not yet available* no longer lists connections or Connect by scanned code. No new error code.
+- 2026-11-09 · flagged [[Frontend Contract]]: the Frontend API Guide now has a Connections section: 13 routes on backend main (F-14, 1c460b0), with qrToken on POST /connections/requests, POST /blocks and GET /connections/relationship since ebdca36 (local, not pushed yet); DELETE /users/me ends the account's connections, requests and blocks (D-25). The endpoint count and 'not yet available: connections' are out of date (/frontend)
