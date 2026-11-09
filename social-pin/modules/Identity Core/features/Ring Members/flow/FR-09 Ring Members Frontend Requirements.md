@@ -3,7 +3,7 @@ id: FR-09
 type: frontend-requirements
 module: identity
 feature: ring-members
-status: draft
+status: ready
 scope: feature
 screens: [s15, s16, s35, s46, s47]
 owner: "Omar Fostok"
@@ -12,12 +12,12 @@ affects: ["BD-09 Ring Members Backend Delivery"]
 related: ["BI-06 Ring Members Backend Integration", "D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-18 Ring names shown when joined knowingly", "FR-08 Ring Access Engine Frontend Requirements", "FR-11 Rings Frontend Requirements", "S-18 Rings Story", "S-23 Connections Story", "S-33 Ring Invitations & Join Story", "S-87 Error Contract Story", "S-31 Delegated Admins Story", "D-28 Scan someone in is not in the MVP", "D-29 Connection detail opens a member who is not a connection", "BI-16 Connections Backend Integration", "GET /connections/:userId", "GET /connections", "DELETE /connections/:userId", "GET /rings/:ringId/members", "POST /rings/:ringId/members", "PATCH /rings/:ringId/members/:userId", "DELETE /rings/:ringId/members/:userId", "POST /rings/:ringId/members/:userId/reassign", "GET /rings", E_RING_05, E_RING_02]
 created: 2026-10-18
 updated: 2026-11-09
-tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
+tags: [frontend-requirements, frontend-requirements/ready, module/identity, layer/frontend]
 ---
 
 # Ring Members · Frontend Requirements
 
-**Feature:** [[F-09 Ring Members]] · **Status:** Draft (s15 and s47 rewritten 2026-11-09 to what the client builds on Connections; names on the roster and `?name=` asked, M10) · **Story:** [[S-16 Ring Members Story]] · **Backend Integration:** [[BI-06 Ring Members Backend Integration]]
+**Feature:** [[F-09 Ring Members]] · **Status:** Ready (waiting for the backend: s15 and s47 rewritten 2026-11-09 to what the client builds on Connections; names on the roster and `?name=` asked, M10) · **Story:** [[S-16 Ring Members Story]] · **Backend Integration:** [[BI-06 Ring Members Backend Integration]]
 
 What the client needs from the backend to build the owner's roster, the per-person checklist of Rings, the "bring people in" flow, join approvals and the members a member may see, and whether each need is met today. Shapes, the `status` filter and the window semantics are in [[BI-06 Ring Members Backend Integration]].
 
