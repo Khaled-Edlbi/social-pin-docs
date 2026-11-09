@@ -7086,12 +7086,12 @@
     },
     "concepts": 333,
     "decisions": 34,
-    "edges": 8356,
+    "edges": 8357,
     "features": 41,
     "layerNotes": 159,
     "modules": 8,
     "notes": 353,
-    "partial": 8,
+    "partial": 9,
     "placeholders": 126,
     "records": 33
   },
@@ -10821,6 +10821,11 @@
       "from": "backend-delivery:view-as",
       "kind": "pending",
       "to": "frontend-requirements:view-as"
+    },
+    {
+      "from": "frontend-delivery:files",
+      "kind": "pending",
+      "to": "story:files"
     },
     {
       "from": "qa-backend:ring-access",
@@ -76513,7 +76518,6 @@
     },
     "backend-integration:files": {
       "affects": [],
-      "autoDelivered": true,
       "blockedBy": [],
       "card": "BI-03",
       "children": [],
@@ -76521,7 +76525,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "delivered",
+      "effectiveStatus": "current",
       "effort": null,
       "feature": "files",
       "foundOn": null,
@@ -82299,10 +82303,12 @@
       "resolution": null,
       "rollup": {
         "approved": 1,
+        "current": 1,
         "decided": 1,
-        "delivered": 2,
-        "done": 3,
+        "delivered": 1,
+        "done": 2,
         "missing": 1,
+        "partial": 1,
         "passing": 1,
         "verified": 1
       },
@@ -85231,7 +85237,7 @@
         "backend-integration:files"
       ],
       "deployedTo": [],
-      "effectiveStatus": "done",
+      "effectiveStatus": "partial",
       "effort": null,
       "feature": "files",
       "foundOn": null,
@@ -85252,7 +85258,13 @@
         "feature:files"
       ],
       "path": "social-pin/modules/Identity Core/features/Files Upload/flow/FD-07 Files Upload Frontend Delivery.md",
-      "pending": [],
+      "pending": [
+        {
+          "person": null,
+          "text": "S9 the size of each file on s31 and s44 (sizeBytes) is not shown yet; each row shows its name only",
+          "to": "story:files"
+        }
+      ],
       "priority": "critical",
       "related": [
         "task:B-07",
@@ -85312,7 +85324,7 @@
       "task": null,
       "title": "FD-07 Files Upload Frontend Delivery",
       "unmet": [],
-      "updated": "2026-11-05"
+      "updated": "2026-11-09"
     },
     "frontend-delivery:gemma": {
       "affects": [],
@@ -91113,16 +91125,16 @@
       "rollup": {
         "approved": 14,
         "blocked": 3,
-        "current": 2,
+        "current": 3,
         "decided": 10,
-        "delivered": 16,
-        "done": 40,
+        "delivered": 15,
+        "done": 39,
         "draft": 3,
         "failing": 1,
         "in-progress": 12,
         "missing": 18,
         "needs-decision": 1,
-        "partial": 6,
+        "partial": 7,
         "passing": 10,
         "todo": 5,
         "verified": 11
@@ -101315,16 +101327,16 @@
       "rollup": {
         "approved": 40,
         "blocked": 27,
-        "current": 4,
+        "current": 5,
         "decided": 33,
-        "delivered": 18,
-        "done": 43,
+        "delivered": 17,
+        "done": 42,
         "draft": 26,
         "failing": 1,
         "in-progress": 46,
         "missing": 126,
         "needs-decision": 1,
-        "partial": 8,
+        "partial": 9,
         "passing": 12,
         "ready": 1,
         "reference": 32,

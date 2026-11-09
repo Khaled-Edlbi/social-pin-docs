@@ -18,6 +18,7 @@ tags: [story, story/approved, module/identity, layer/business]
 # Files Upload · User Story
 
 > ⚠ Affected by [[D-16 Files load from signed links that expire in 15 minutes]] (2026-10-29): ND-16 is decided, option 3. Showing files (S7–S11) uses a signed `url` that lives 15 minutes; the "route or signed `url`" wording becomes the signed `url`, and S11's copied link expires. For `/pm`.
+> ⚠ Affected by [[FD-07 Files Upload Frontend Delivery]] (2026-11-09): deliberate deviation in S9: the scanned card (s44 after a scan or from Saved scans) is never read again for a fresh link, since a re-read would count as another scan; a dead photo link shows the initials and a dead file link does not open, an exception to D-16's read-again rule. Also S9's file size is not shown yet on s31 / s44 (FD-07 pending). For `/pm`.
 
 **Feature:** [[F-04 Files Upload]] · **Status:** Approved 2026-10-29 by Omar Fostok (first approved 2026-10-25 by khaled; reopened 2026-10-29 by the design review: S1–S3, S9 changed, S12 added) · **Frontend Requirements:** [[FR-04 Files Upload Frontend Requirements]] · **Backend Integration:** [[BI-03 Files Upload Backend Integration]]
 
