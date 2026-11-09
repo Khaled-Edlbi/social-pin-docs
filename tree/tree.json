@@ -70,6 +70,7 @@
     "B-24 A suspended account stays signed in when the account read says SUSPENDED": "task:B-24",
     "B-25 The change sheet doesn't focus the field after a taken error": "task:B-25",
     "B-26 The delete sheet doesn't say every Ring, projection and session goes": "task:B-26",
+    "B-27 Opening the phone sheet throws an invisible semantics node error": "task:B-27",
     "BD-01 Account Backend Delivery": "backend-delivery:account",
     "BD-02 Auth & Sign-up Backend Delivery": "backend-delivery:auth",
     "BD-03 Counts Backend Delivery": "backend-delivery:counts",
@@ -408,6 +409,7 @@
     "B-24": "task:B-24",
     "B-25": "task:B-25",
     "B-26": "task:B-26",
+    "B-27": "task:B-27",
     "BD-01": "backend-delivery:account",
     "BD-02": "backend-delivery:auth",
     "BD-03": "backend-delivery:counts",
@@ -6593,7 +6595,8 @@
         "task:B-23",
         "task:B-24",
         "task:B-25",
-        "task:B-26"
+        "task:B-26",
+        "task:B-27"
       ],
       "kind": "screen",
       "notes": [
@@ -6659,7 +6662,8 @@
         "task:B-23",
         "task:B-24",
         "task:B-25",
-        "task:B-26"
+        "task:B-26",
+        "task:B-27"
       ],
       "owner": null
     },
@@ -6810,7 +6814,7 @@
   },
   "counts": {
     "blocked": 27,
-    "bugs": 26,
+    "bugs": 27,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 14,
@@ -6824,22 +6828,22 @@
       "qa-backend": 11,
       "qa-frontend": 2,
       "story": 41,
-      "task": 26
+      "task": 27
     },
     "byLayer": {
       "backend": 61,
-      "business": 181,
+      "business": 182,
       "frontend": 54,
       "qa": 13,
       "shared": 10
     },
     "concepts": 323,
     "decisions": 34,
-    "edges": 7983,
+    "edges": 7988,
     "features": 41,
     "layerNotes": 157,
     "modules": 8,
-    "notes": 350,
+    "notes": 351,
     "partial": 14,
     "placeholders": 128,
     "records": 33
@@ -45239,6 +45243,21 @@
       ]
     },
     {
+      "from": "task:B-27",
+      "kind": "related",
+      "to": "frontend-delivery:account"
+    },
+    {
+      "from": "task:B-27",
+      "kind": "related",
+      "to": "qa-frontend:account"
+    },
+    {
+      "from": "task:B-27",
+      "kind": "related",
+      "to": "story:account"
+    },
+    {
       "from": "decision:D-10",
       "kind": "shares",
       "to": "decision:D-17",
@@ -59281,6 +59300,11 @@
       "to": "task:B-26"
     },
     {
+      "from": "frontend-delivery:account",
+      "kind": "tree",
+      "to": "task:B-27"
+    },
+    {
       "from": "frontend-delivery:auth",
       "kind": "tree",
       "to": "task:B-18"
@@ -65854,6 +65878,11 @@
       "from": "task:B-26",
       "kind": "wikilink",
       "to": "feature:account"
+    },
+    {
+      "from": "task:B-27",
+      "kind": "wikilink",
+      "to": "feature:account"
     }
   ],
   "emoji": {
@@ -66092,6 +66121,10 @@
     },
     "social-pin/bugs/B-26 The delete sheet doesn't say every Ring, projection and session goes.md": {
       "name": "B-26 The delete sheet doesn't say every Ring, projection and session goes",
+      "type": "bug"
+    },
+    "social-pin/bugs/B-27 Opening the phone sheet throws an invisible semantics node error.md": {
+      "name": "B-27 Opening the phone sheet throws an invisible semantics node error",
       "type": "bug"
     },
     "social-pin/business/Feature Graph.md": {
@@ -76443,7 +76476,7 @@
         "done": 2,
         "partial": 3,
         "passing": 1,
-        "todo": 4,
+        "todo": 5,
         "verified": 1
       },
       "scope": null,
@@ -79762,7 +79795,8 @@
         "task:B-23",
         "task:B-24",
         "task:B-25",
-        "task:B-26"
+        "task:B-26",
+        "task:B-27"
       ],
       "code": "account",
       "created": "2026-10-26",
@@ -79788,7 +79822,8 @@
         "task:B-23",
         "task:B-24",
         "task:B-25",
-        "task:B-26"
+        "task:B-26",
+        "task:B-27"
       ],
       "parentTask": null,
       "parents": [
@@ -79804,6 +79839,7 @@
         "task:B-24",
         "task:B-25",
         "task:B-26",
+        "task:B-27",
         "needs-decision:ND-20",
         "decision:D-20",
         "backend-delivery:account",
@@ -86751,7 +86787,7 @@
         "needs-decision": 1,
         "partial": 12,
         "passing": 7,
-        "todo": 9,
+        "todo": 10,
         "verified": 10
       },
       "scope": null,
@@ -94429,6 +94465,7 @@
         "task:B-24",
         "task:B-25",
         "task:B-26",
+        "task:B-27",
         "backend-delivery:account",
         "backend-integration:account",
         "frontend-requirements:account",
@@ -96557,7 +96594,7 @@
         "passing": 7,
         "ready": 1,
         "reference": 32,
-        "todo": 12,
+        "todo": 13,
         "verified": 33
       },
       "scope": null,
@@ -96610,6 +96647,7 @@
         "task:B-24",
         "task:B-25",
         "task:B-26",
+        "task:B-27",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-delivery:account",
@@ -101984,6 +102022,66 @@
       ],
       "task": null,
       "title": "B-26 The delete sheet doesn't say every Ring, projection and session goes",
+      "unmet": [],
+      "updated": "2026-11-09"
+    },
+    "task:B-27": {
+      "affects": [],
+      "blockedBy": [],
+      "card": "B-27",
+      "children": [],
+      "code": "B-27",
+      "created": "2026-11-09",
+      "deadline": null,
+      "decision": null,
+      "depends": [],
+      "dir": null,
+      "effectiveStatus": "todo",
+      "effort": "S",
+      "feature": "account",
+      "foundOn": "FD-04 Account Frontend Delivery",
+      "frontendOnly": false,
+      "id": "task:B-27",
+      "inherits": {
+        "release": "feature:account"
+      },
+      "kind": "task",
+      "label": "Bug",
+      "labels": [
+        "bug"
+      ],
+      "layer": "business",
+      "module": "identity",
+      "openBugs": [],
+      "parentTask": null,
+      "parents": [
+        "frontend-delivery:account"
+      ],
+      "path": "social-pin/bugs/B-27 Opening the phone sheet throws an invisible semantics node error.md",
+      "pending": [],
+      "priority": "low",
+      "related": [
+        "frontend-delivery:account",
+        "qa-frontend:account",
+        "story:account"
+      ],
+      "release": "mvp",
+      "resolution": null,
+      "rollup": {},
+      "scope": null,
+      "screens": [
+        "s68"
+      ],
+      "status": "todo",
+      "summary": "The fix is /frontend's. It sets in-progress when it starts and ready when the fix ships; QA re-runs AC-40 and closes or reopens it.",
+      "tags": [
+        "bug",
+        "bug/todo",
+        "module/identity",
+        "priority/low"
+      ],
+      "task": null,
+      "title": "B-27 Opening the phone sheet throws an invisible semantics node error",
       "unmet": [],
       "updated": "2026-11-09"
     }
