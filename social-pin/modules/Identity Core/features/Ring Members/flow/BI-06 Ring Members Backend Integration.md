@@ -86,7 +86,7 @@ The roster per Ring, refetched after every write. Do not keep a member's "what t
 ## Not available yet
 
 - "Scan someone in" (s15): not in the MVP ([[D-28 Scan someone in is not in the MVP]]).
-- The members a member may see when "members can see each other" is on ([[FR-09 Ring Members Frontend Requirements|FR-09]] S8): no member-facing route yet; whose card a member sees waits on [[ND-34 What a member contributes to a shared Ring]].
+- The members a member may see when "members can see each other" is on ([[FR-09 Ring Members Frontend Requirements|FR-09]] S8): no member-facing route yet. Each colleague will show the Ring they picked ([[D-34 A member shows one of their own Rings]]); the route comes with [[BD-17 Ring Invitations & Join Backend Delivery]] (S-33 S10, S11).
 - Adding or removing delegated admins: [[S-31 Delegated Admins Story|Delegated Admins · S6]].
 
 ## Checklist

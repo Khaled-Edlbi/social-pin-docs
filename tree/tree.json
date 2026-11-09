@@ -6846,7 +6846,7 @@
     },
     "concepts": 323,
     "decisions": 34,
-    "edges": 8029,
+    "edges": 8030,
     "features": 41,
     "layerNotes": 157,
     "modules": 8,
@@ -60877,6 +60877,11 @@
     {
       "from": "backend-delivery:ring-members",
       "kind": "wikilink",
+      "to": "decision:D-34"
+    },
+    {
+      "from": "backend-delivery:ring-members",
+      "kind": "wikilink",
       "to": "feature:connections"
     },
     {
@@ -61172,7 +61177,7 @@
     {
       "from": "backend-integration:ring-members",
       "kind": "wikilink",
-      "to": "needs-decision:ND-34"
+      "to": "decision:D-34"
     },
     {
       "from": "backend-integration:ring-members",
@@ -70786,7 +70791,7 @@
       "pending": [
         {
           "person": null,
-          "text": "the members a member may see (S8): not built, waits on [[ND-34 What a member contributes to a shared Ring]] (whose card a member sees in another's Ring, D-04 Still open); then a member-facing, paginated, searchable roster only while membersCanSeeEachOther is on, else the same not-shared 404",
+          "text": "the members a member may see (S8): not built, nothing left to decide: [[D-34 A member shows one of their own Rings]] says each colleague shows the Ring they picked (default Ring by default). It is built with [[BD-17 Ring Invitations & Join Backend Delivery]]'s S-33 S10 (the picked-Ring pointer on the membership) and S11 (a member-facing, paginated, searchable roster of picked cards, only while membersCanSeeEachOther is on, else the same not-shared 404, never the picked Ring's name or id), both pending there",
           "to": "frontend-requirements:ring-members"
         }
       ],
