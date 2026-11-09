@@ -326,7 +326,8 @@
     "task:B-23": "B-23",
     "task:B-24": "B-24",
     "task:B-25": "B-25",
-    "task:B-26": "B-26"
+    "task:B-26": "B-26",
+    "task:B-27": "B-27"
   },
   "retired": {
     "BD-40": "backend-delivery:T-065-be",
