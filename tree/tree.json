@@ -3870,6 +3870,7 @@
         "frontend-requirements:profiles",
         "qa-backend:ring-projection",
         "qa-backend:view-as",
+        "story:account",
         "story:profiles"
       ],
       "owner": "feature:profiles"
@@ -6846,7 +6847,7 @@
     },
     "concepts": 323,
     "decisions": 34,
-    "edges": 8025,
+    "edges": 8027,
     "features": 41,
     "layerNotes": 157,
     "modules": 8,
@@ -13672,6 +13673,14 @@
     {
       "from": "backend-delivery:photo-library",
       "kind": "related",
+      "to": "story:account",
+      "via": [
+        "PATCH /profiles/:id"
+      ]
+    },
+    {
+      "from": "backend-delivery:photo-library",
+      "kind": "related",
       "to": "story:files",
       "via": [
         "GET /files"
@@ -14037,7 +14046,8 @@
       "kind": "related",
       "to": "story:account",
       "via": [
-        "GET /profiles"
+        "GET /profiles",
+        "PATCH /profiles/:id"
       ]
     },
     {
@@ -19686,6 +19696,14 @@
     {
       "from": "backend-integration:photo-library",
       "kind": "related",
+      "to": "story:account",
+      "via": [
+        "PATCH /profiles/:id"
+      ]
+    },
+    {
+      "from": "backend-integration:photo-library",
+      "kind": "related",
       "to": "story:files",
       "via": [
         "DELETE /files/:id",
@@ -20067,7 +20085,8 @@
       "kind": "related",
       "to": "story:account",
       "via": [
-        "GET /profiles"
+        "GET /profiles",
+        "PATCH /profiles/:id"
       ]
     },
     {
@@ -28275,7 +28294,8 @@
       "kind": "related",
       "to": "story:account",
       "via": [
-        "GET /profiles"
+        "GET /profiles",
+        "PATCH /profiles/:id"
       ]
     },
     {
@@ -28697,7 +28717,8 @@
       "kind": "related",
       "to": "story:account",
       "via": [
-        "GET /profiles"
+        "GET /profiles",
+        "PATCH /profiles/:id"
       ]
     },
     {
@@ -35960,7 +35981,8 @@
       "kind": "related",
       "to": "story:account",
       "via": [
-        "GET /profiles"
+        "GET /profiles",
+        "PATCH /profiles/:id"
       ]
     },
     {
@@ -39543,6 +39565,7 @@
         "E_USER_03",
         "GET /profiles",
         "GET /users/me",
+        "PATCH /profiles/:id",
         "PATCH /users/me"
       ]
     },
@@ -40420,6 +40443,16 @@
       "from": "story:account",
       "kind": "related",
       "to": "decision:D-20"
+    },
+    {
+      "from": "story:account",
+      "kind": "related",
+      "to": "feature:profiles"
+    },
+    {
+      "from": "story:account",
+      "kind": "related",
+      "to": "frontend-delivery:account"
     },
     {
       "from": "story:account",
@@ -61805,11 +61838,6 @@
       "to": "project:status-report-2026-10-15"
     },
     {
-      "from": "frontend-delivery:account",
-      "kind": "wikilink",
-      "to": "story:account"
-    },
-    {
       "from": "frontend-delivery:auth",
       "kind": "wikilink",
       "to": "feature:interests"
@@ -65468,11 +65496,6 @@
       "from": "story:account",
       "kind": "wikilink",
       "to": "feature:linked-accounts"
-    },
-    {
-      "from": "story:account",
-      "kind": "wikilink",
-      "to": "feature:profiles"
     },
     {
       "from": "story:account",
@@ -70161,6 +70184,7 @@
         "qa-backend:view-as",
         "project:spec-map",
         "frontend-delivery:account",
+        "story:account",
         "backend-delivery:auth",
         "frontend-requirements:onboarding-imports",
         "backend-integration:profiles",
@@ -73288,6 +73312,7 @@
         "story:ring-projection",
         "frontend-requirements:companies",
         "frontend-delivery:account",
+        "story:account",
         "backend-delivery:auth",
         "qa-backend:ring-projection",
         "project:frontend-api-guide"
@@ -79403,7 +79428,8 @@
         "project:spec-map",
         "task:B-02",
         "needs-decision:ND-22",
-        "frontend-delivery:account"
+        "frontend-delivery:account",
+        "story:account"
       ],
       "release": "mvp",
       "resolution": null,
@@ -80251,6 +80277,7 @@
         "story:subscription",
         "story:error-contract",
         "qa-frontend:account",
+        "story:account",
         "backend-delivery:auth",
         "backend-integration:auth",
         "frontend-delivery:auth",
@@ -97123,8 +97150,12 @@
         "needs-decision:ND-20",
         "decision:D-20",
         "task:B-01",
+        "frontend-delivery:account",
+        "feature:profiles",
         "qa-backend:auth",
         "qa-frontend:auth",
+        "backend-delivery:photo-library",
+        "backend-integration:photo-library",
         "frontend-requirements:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
@@ -97153,7 +97184,7 @@
       "task": null,
       "title": "S-01 Account Story",
       "unmet": [],
-      "updated": "2026-11-05"
+      "updated": "2026-11-09"
     },
     "story:app-shell": {
       "affects": [],

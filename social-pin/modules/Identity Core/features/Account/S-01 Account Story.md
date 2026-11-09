@@ -9,9 +9,9 @@ screens: [s68]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "Omar Fostok"
-related: ["ND-20 Whether an unverified new address may sign in", "D-20 The changed address still signs in, the words are corrected", "B-01 An unverified changed email still signs in"]
+related: ["ND-20 Whether an unverified new address may sign in", "D-20 The changed address still signs in, the words are corrected", "B-01 An unverified changed email still signs in", "FD-04 Account Frontend Delivery", "QF-04 Account QA Frontend", "F-07 Profiles & Pin Name"]
 created: 2026-10-18
-updated: 2026-11-05
+updated: 2026-11-09
 tags: [story, story/approved, module/identity, layer/business]
 ---
 
@@ -32,10 +32,10 @@ A personal user on the Me tab ([[Wireframe Brief#Account, subscription & setting
 **As a** signed-in user **I want** to see who I am signed in as **so that** I can trust that the account, the Pin name and the Pro state shown are mine.
 
 Acceptance criteria:
-- [ ] The header shows the default profile's full name and `!pinName` and the default Ring's photo, composed from `GET /profiles` (`data[0]`) and the default Ring's projection; `GET /users/me` carries no name and no photo.
+- [ ] The header shows the default profile's full name and `!pinName`, the Ring count, and the profile photo, or initials when there is none, composed from `GET /profiles` (`data[0]`) and the Rings; `GET /users/me` carries no name and no photo.
 - [ ] Email and phone each show a verified / unverified chip derived from `emailVerifiedAt` / `phoneVerifiedAt` (`null` = unverified).
-- [ ] A Pro badge appears when `accountType` is `PRO`; "Upgrade" leads to s70, which has no backend yet.
-- [ ] The header card opens the profile editor ([[S-14 Profiles & Pin Name Story|Profiles & Pin Name · S3]]). Until that editor exists ([[F-07 Profiles & Pin Name]]) the card does nothing: no chevron, no tap.
+- [ ] The plan card reads "Pro plan" when `accountType` is `PRO`, with no Upgrade and no separate badge in the header; on Free it reads "Free plan" with "Upgrade", which leads to s70, which has no backend yet.
+- [ ] The header card opens the profile editor ([[S-14 Profiles & Pin Name Story|Profiles & Pin Name · S3]], [[F-07 Profiles & Pin Name]]).
 - [ ] There is no "Manage account" row. What the brief puts under it is elsewhere: email, phone and delete on Me itself (S2–S4), personal info in the profile editor, no password (sign-in is by code, [[ND-01 Passwordless login]]).
 - [ ] The screen refetches on app resume and after any 401 recovery.
 - [ ] No code or token is ever rendered or logged; there is no password to show.
@@ -45,7 +45,7 @@ Acceptance criteria:
 **As a** user **I want** to replace my sign-in email **so that** codes and the login go to the address I use.
 
 Acceptance criteria:
-- [ ] Inline edit with client-side email validation; the value is sent lower-cased and trimmed to `PATCH /users/me { email }`.
+- [ ] Edit in a sheet from the Email row (one field, Save and Cancel) with client-side email validation; the value is sent lower-cased and trimmed to `PATCH /users/me { email }`.
 - [ ] On 200 the row re-renders from the response with the email marked **unverified**. The copy says only that confirming a new address is not in the app yet; it does **not** promise a verification email, and it does **not** say the address must be verified before it can be used to sign in — the new address signs in straight away, unverified, and that is the behaviour the product accepts for now ([[D-20 The changed address still signs in, the words are corrected]]).
 - [ ] 409 reads "This email is already on another account", inline, field kept focused.
 - [ ] Cancel restores the previous value without a request.
@@ -55,7 +55,7 @@ Acceptance criteria:
 **As a** user **I want** to replace my phone number **so that** SMS codes reach the device I carry.
 
 Acceptance criteria:
-- [ ] Country-code selector plus number, formatted to E.164 before `PATCH /users/me { phone }`.
+- [ ] The same sheet from the Phone row: country-code selector plus number, formatted to E.164 before `PATCH /users/me { phone }`.
 - [ ] On 200 the phone shows as unverified, with the same copy as S2.
 - [ ] 409 reads "This number is already on another account".
 - [ ] Clearing a destination is not offered: the account keeps at least one way to sign in.
@@ -75,7 +75,7 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] The row shows whether each sensitive value is set on the profile (from `GET /profiles`), never whether it is "public".
-- [ ] Tapping it opens the profile editor ([[S-14 Profiles & Pin Name Story]]); the per-Ring opt-in lives on each Ring's "what it shows" screen ([[S-17 Ring Projection Story]]).
+- [ ] Tapping a row opens a picker for that one value (a date picker for the birthdate, a sheet of the API's values for gender and marital status) and saves it with `PATCH /profiles/:id`; under each row's title, which of your Rings show it, or "Hidden from all Rings". The full profile is edited in the profile editor ([[S-14 Profiles & Pin Name Story]]); the per-Ring opt-in lives on each Ring's "what it shows" screen ([[S-17 Ring Projection Story]]).
 
 ### S6 · Lose access while signed in (journey, no prototype screen)
 
@@ -100,6 +100,6 @@ Acceptance criteria:
 
 ## Open questions
 
-- No decision blocks this feature. Re-verifying a changed email or phone has no dedicated route; it is recorded in [[F-01 Account#Gaps]] and needs a task when the Me screen is built.
+- No decision blocks this feature. Re-verifying a changed email or phone has no dedicated route; it is recorded in [[F-01 Account#Gaps]] and is not a part of this story yet.
 - Whether an unverified new address may sign in was answered **for now**, not for good: [[D-20 The changed address still signs in, the words are corrected]] leaves the gate out while `POST /auth/login` still returns `devCode`, and asks for the question again when [[S-78 Code Delivery Story|Code Delivery · S8]] lands. S2's and S3's copy changes back with it.
 - The connection count and linked accounts on s68 belong to [[F-03 Counts]] and [[F-38 Linked Accounts (OAuth)]].
