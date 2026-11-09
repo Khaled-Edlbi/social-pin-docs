@@ -6742,7 +6742,7 @@
     "layerNotes": 156,
     "modules": 8,
     "notes": 345,
-    "partial": 12,
+    "partial": 13,
     "placeholders": 129,
     "records": 33
   },
@@ -76700,9 +76700,8 @@
         "approved": 2,
         "current": 1,
         "done": 1,
-        "failing": 1,
         "missing": 1,
-        "partial": 1
+        "partial": 2
       },
       "scope": null,
       "screens": [
@@ -84222,11 +84221,11 @@
         "delivered": 12,
         "done": 31,
         "draft": 3,
-        "failing": 2,
+        "failing": 1,
         "in-progress": 13,
         "missing": 19,
         "needs-decision": 1,
-        "partial": 10,
+        "partial": 11,
         "passing": 7,
         "ready": 1,
         "todo": 5,
@@ -90859,7 +90858,7 @@
         "backend-delivery:ring-access",
         "story:ring-access"
       ],
-      "effectiveStatus": "failing",
+      "effectiveStatus": "partial",
       "effort": null,
       "feature": "ring-access",
       "foundOn": null,
@@ -90932,6 +90931,7 @@
         "decision:D-14",
         "decision:D-15",
         "decision:D-18",
+        "story:view-as",
         "story:companies",
         "story:error-contract",
         "needs-decision:ND-10",
@@ -90947,7 +90947,6 @@
         "backend-delivery:view-as",
         "frontend-requirements:view-as",
         "qa-backend:view-as",
-        "story:view-as",
         "frontend-requirements:e2e-tests",
         "project:status-report-2026-10-15",
         "project:frontend-api-guide",
@@ -91011,24 +91010,18 @@
         "s47",
         "s62"
       ],
-      "status": "failing",
+      "status": "passing",
       "summary": "Expected behaviour of the API, as artefacts a person can check a build against: tables and diagrams, not test code (the specs live in the backend repo). status: passing or failing after a run; the…",
       "tags": [
         "qa-backend",
-        "qa-backend/failing",
+        "qa-backend/passing",
         "module/identity",
         "layer/qa"
       ],
       "task": null,
       "title": "QB-09 Ring Access Engine QA Backend",
-      "unmet": [
-        {
-          "person": null,
-          "text": "S1 · D-15, the person rendered from the Ring the viewer was put in first: Shared with me follows it (B51), but GET /views/pin/:pinName still renders the owner's default Ring, then the oldest (B58)",
-          "to": "backend-delivery:ring-access"
-        }
-      ],
-      "updated": "2026-11-05"
+      "unmet": [],
+      "updated": "2026-11-09"
     },
     "qa-backend:ring-invitations": {
       "affects": [],
@@ -93988,11 +93981,11 @@
         "delivered": 13,
         "done": 34,
         "draft": 26,
-        "failing": 2,
+        "failing": 1,
         "in-progress": 47,
         "missing": 129,
         "needs-decision": 1,
-        "partial": 12,
+        "partial": 13,
         "passing": 7,
         "ready": 2,
         "reference": 32,
