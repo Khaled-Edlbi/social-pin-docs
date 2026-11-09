@@ -12,7 +12,7 @@ owner: "Omar Fostok"
 affects: ["BD-18 Badge & QR Backend Delivery"]
 related: ["S-37 Badge & QR Story", "BI-09 View As & Pin Views Backend Integration", "FR-14 Connections Frontend Requirements", "FR-17 Ring Invitations & Join Frontend Requirements", "D-10 Connect sends what the requester already has", "D-11 The badge code stays the same for its day", "D-12 The badge QR is a socialpin.me link", "D-22 The public page only says the Pin exists", "D-28 Scan someone in is not in the MVP", "D-35 A join code can be shown as a QR", "S-53 Events During Story", "S-71 Subscription (Free vs Pro) Story", "S-82 Devices & NFC Story", "S-87 Error Contract Story", "Frontend Contract"]
 created: 2026-10-18
-updated: 2026-11-08
+updated: 2026-11-09
 tags: [frontend-requirements, frontend-requirements/approved, module/discovery, layer/frontend]
 ---
 
@@ -90,7 +90,7 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
 | Resolve a scanned code → the card + `expiresAt`, one neutral 404, even timing | `GET /views/qr/:token` (404 `E_RING_ACCESS_01` for every refusal, ≥ 300 ms) | ✅ | S6, S8 |
 | Rate limit on resolving (429) | on `GET /views/qr/:token`: 20 a minute per account, then 429 `E_BADGE_01` | ✅ | S6 |
 | Tell a join QR from a badge | a join QR is `socialpin://join/<CODE>` → `POST /rings/join-codes/resolve` ([[BD-17 Ring Invitations & Join Backend Delivery\|BD-17]]) | ✅ | S6, D-35 |
-| Connect by scanned code / by Pin name | `POST /connections/requests`: `{ pinName }` ✅, `{ qrToken }` not accepted yet | 🟡 | S8, S9, D-10, FR-14 |
+| Connect by scanned code / by Pin name | `POST /connections/requests`: `{ pinName }` ✅, `{ qrToken }` ✅ (and `POST /blocks`, `GET /connections/relationship` by `qrToken`, [[BI-16 Connections Backend Integration\|BI-16]]) | ✅ | S8, S9, D-10, FR-14 |
 | Scan count for a Ring | `GET /rings/:ringId/qr/scans` → `{ scanCount }` | ✅ | S13 |
 | Permanent code (Pro) | — | ❌ | S14, [[S-71 Subscription (Free vs Pro) Story|S-71]] |
 | The `/q/<token>` web page, app links (deep links), Share link | the domain | later | S12, D-12, D-22 |
@@ -134,3 +134,4 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
 - 2026-11-08 · `tickets/frontend/M-04-discovery/F-18-badge-qr/FR-18-ready` · set ready on Omar Fostok's word: handed to `/backend` to review, approve or send back
 - 2026-11-08 · `tickets/backend/M-04-discovery/F-18-badge-qr/FR-18-accepted` · approved by the backend (khaled): the ✅ rows hold on backend `main` `cb95a39` (`GET /rings`, `GET /users/me` `accountType`, `GET /views/pin/:pinName`); the ❌ asks match S-37 and D-10, D-11, D-12, D-28, D-35. The backend names the reset, the ended-Ring and the 429 codes and the scan count route in [[BD-18 Badge & QR Backend Delivery]]; the join-QR form stays BD-17's. BD-18 stays `in-progress`
 - 2026-11-08 · `tickets/backend/M-04-discovery/F-18-badge-qr/FR-18-delivered-rows` · backend `main` `1c460b0`: rows ✅ with their endpoints for the code (`POST /rings/:ringId/qr`), the reset (`POST /rings/:ringId/qr/reset`), the resolve (`GET /views/qr/:token`), its 429 (`E_BADGE_01`), the scan count (`GET /rings/:ringId/qr/scans`) and the join QR (BD-17, `POST /rings/join-codes/resolve`); Connect 🟡 (`{ pinName }` yes, `{ qrToken }` not yet); the 429 and ended-Ring codes filled in the error table. How to call them: [[BI-15 Badge & QR Backend Integration]]. *Blocked by* and the *Source today* lines are the frontend's to update
+- 2026-11-09 · `tickets/backend/M-04-discovery/F-18-badge-qr/FR-18-scan-presenter` · backend local `main` `ebdca36` (not pushed yet): the Connect row ✅, `{ qrToken }` accepted on `POST /connections/requests`, with Block and the relationship by the same token ([[BD-14 Connections Backend Delivery]], [[BD-18 Badge & QR Backend Delivery]] `resolvePresenter`). Lines only

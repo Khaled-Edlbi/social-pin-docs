@@ -2166,12 +2166,14 @@
     },
     "GET /connections/relationship": {
       "containers": [
+        "feature:badge-qr",
         "feature:connections"
       ],
       "kind": "endpoint",
       "notes": [
         "backend-delivery:connections",
-        "backend-integration:connections"
+        "backend-integration:connections",
+        "frontend-requirements:badge-qr"
       ],
       "owner": "feature:connections"
     },
@@ -4345,13 +4347,15 @@
     },
     "POST /blocks": {
       "containers": [
+        "feature:badge-qr",
         "feature:connections"
       ],
       "kind": "endpoint",
       "notes": [
         "backend-delivery:connections",
         "backend-integration:connections",
-        "frontend-delivery:connections"
+        "frontend-delivery:connections",
+        "frontend-requirements:badge-qr"
       ],
       "owner": "feature:connections"
     },
@@ -12039,7 +12043,9 @@
       "to": "frontend-requirements:badge-qr",
       "via": [
         "E_RING_02",
+        "GET /connections/relationship",
         "GET /views/pin/:pinName",
+        "POST /blocks",
         "POST /connections/requests"
       ]
     },
@@ -17831,8 +17837,10 @@
       "to": "frontend-requirements:badge-qr",
       "via": [
         "E_RING_02",
+        "GET /connections/relationship",
         "GET /rings",
         "GET /views/pin/:pinName",
+        "POST /blocks",
         "POST /connections/requests"
       ]
     },
@@ -33831,6 +33839,7 @@
       "via": [
         "E_RING_02",
         "GET /rings",
+        "POST /blocks",
         "POST /connections/requests"
       ]
     },
@@ -48723,10 +48732,12 @@
       "via": [
         "E_AUTH_04",
         "E_RING_02",
+        "GET /connections/relationship",
         "GET /rings",
         "GET /views/pin/:pinName",
         "GET /views/qr/:token",
         "GET /views/ring/:ringId",
+        "POST /blocks",
         "POST /connections/requests"
       ]
     },
@@ -83568,7 +83579,7 @@
       "task": null,
       "title": "FR-18 Badge & QR Frontend Requirements",
       "unmet": [],
-      "updated": "2026-11-08"
+      "updated": "2026-11-09"
     },
     "frontend-requirements:build-deploy": {
       "affects": [],
