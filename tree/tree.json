@@ -959,6 +959,7 @@
     "DELETE /users/me": {
       "containers": [
         "feature:account",
+        "feature:badge-qr",
         "feature:connections",
         "feature:counts",
         "feature:ring-members",
@@ -967,6 +968,7 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:account",
+        "backend-delivery:badge-qr",
         "backend-delivery:connections",
         "backend-integration:account",
         "backend-integration:connections",
@@ -2174,10 +2176,12 @@
     },
     "GET /connections/relationship": {
       "containers": [
+        "feature:badge-qr",
         "feature:connections"
       ],
       "kind": "endpoint",
       "notes": [
+        "backend-delivery:badge-qr",
         "backend-delivery:connections",
         "backend-integration:connections"
       ],
@@ -2197,10 +2201,12 @@
     },
     "GET /connections/relationship?qrToken=": {
       "containers": [
+        "feature:badge-qr",
         "feature:connections"
       ],
       "kind": "endpoint",
       "notes": [
+        "backend-delivery:badge-qr",
         "backend-delivery:connections"
       ],
       "owner": null
@@ -4364,10 +4370,12 @@
     },
     "POST /blocks": {
       "containers": [
+        "feature:badge-qr",
         "feature:connections"
       ],
       "kind": "endpoint",
       "notes": [
+        "backend-delivery:badge-qr",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections"
@@ -6884,7 +6892,7 @@
     },
     "concepts": 325,
     "decisions": 34,
-    "edges": 8075,
+    "edges": 8088,
     "features": 41,
     "layerNotes": 157,
     "modules": 8,
@@ -11125,6 +11133,14 @@
     {
       "from": "backend-delivery:badge-qr",
       "kind": "related",
+      "to": "backend-delivery:account",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "backend-delivery:badge-qr",
+      "kind": "related",
       "to": "backend-delivery:counts",
       "via": [
         "E_RING_02"
@@ -11169,6 +11185,14 @@
     {
       "from": "backend-delivery:badge-qr",
       "kind": "related",
+      "to": "backend-integration:account",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "backend-delivery:badge-qr",
+      "kind": "related",
       "to": "backend-integration:badge-qr",
       "via": [
         "E_BADGE_01",
@@ -11178,6 +11202,7 @@
         "GET /views/pin/:pinName",
         "GET /views/qr/:token",
         "GET /views/ring/:ringId",
+        "POST /connections/requests",
         "POST /rings/:ringId/qr",
         "POST /rings/:ringId/qr/reset"
       ]
@@ -11238,6 +11263,14 @@
     {
       "from": "backend-delivery:badge-qr",
       "kind": "related",
+      "to": "decision:D-10",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "backend-delivery:badge-qr",
+      "kind": "related",
       "to": "decision:D-11",
       "via": [
         "POST /rings/:ringId/qr"
@@ -11255,7 +11288,28 @@
     {
       "from": "backend-delivery:badge-qr",
       "kind": "related",
+      "to": "decision:D-17",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "backend-delivery:badge-qr",
+      "kind": "related",
       "to": "decision:D-22"
+    },
+    {
+      "from": "backend-delivery:badge-qr",
+      "kind": "related",
+      "to": "decision:D-24",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "backend-delivery:badge-qr",
+      "kind": "related",
+      "to": "decision:D-25"
     },
     {
       "from": "backend-delivery:badge-qr",
@@ -11271,6 +11325,14 @@
       "from": "backend-delivery:badge-qr",
       "kind": "related",
       "to": "feature:subscription"
+    },
+    {
+      "from": "backend-delivery:badge-qr",
+      "kind": "related",
+      "to": "frontend-delivery:account",
+      "via": [
+        "DELETE /users/me"
+      ]
     },
     {
       "from": "backend-delivery:badge-qr",
@@ -11291,6 +11353,14 @@
     {
       "from": "backend-delivery:badge-qr",
       "kind": "related",
+      "to": "frontend-requirements:account",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "backend-delivery:badge-qr",
+      "kind": "related",
       "to": "frontend-requirements:badge-qr",
       "via": [
         "E_BADGE_01",
@@ -11299,6 +11369,7 @@
         "GET /rings/:ringId/qr/scans",
         "GET /views/qr/:token",
         "GET /views/ring/:ringId",
+        "POST /connections/requests",
         "POST /rings/:ringId/qr",
         "POST /rings/:ringId/qr/reset"
       ]
@@ -11473,7 +11544,8 @@
       "kind": "related",
       "to": "needs-decision:ND-10",
       "via": [
-        "GET /views/ring/:ringId"
+        "GET /views/ring/:ringId",
+        "POST /connections/requests"
       ]
     },
     {
@@ -11482,6 +11554,14 @@
       "to": "needs-decision:ND-11",
       "via": [
         "POST /rings/:ringId/qr"
+      ]
+    },
+    {
+      "from": "backend-delivery:badge-qr",
+      "kind": "related",
+      "to": "needs-decision:ND-24",
+      "via": [
+        "POST /connections/requests"
       ]
     },
     {
@@ -11565,9 +11645,19 @@
     {
       "from": "backend-delivery:badge-qr",
       "kind": "related",
+      "to": "qa-backend:account",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "backend-delivery:badge-qr",
+      "kind": "related",
       "to": "qa-backend:counts",
       "via": [
+        "DELETE /users/me",
         "E_RING_02",
+        "POST /blocks",
         "POST /connections/requests"
       ]
     },
@@ -11604,6 +11694,7 @@
       "kind": "related",
       "to": "qa-backend:ring-members",
       "via": [
+        "DELETE /users/me",
         "E_RING_02"
       ]
     },
@@ -11637,6 +11728,22 @@
     {
       "from": "backend-delivery:badge-qr",
       "kind": "related",
+      "to": "qa-frontend:account",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "backend-delivery:badge-qr",
+      "kind": "related",
+      "to": "story:account",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "backend-delivery:badge-qr",
+      "kind": "related",
       "to": "story:badge-qr",
       "via": [
         "E_RING_02",
@@ -11660,7 +11767,8 @@
       "via": [
         "E_RING_02",
         "GET /views/qr/:token",
-        "GET /views/ring/:ringId"
+        "GET /views/ring/:ringId",
+        "POST /connections/requests"
       ]
     },
     {
@@ -11714,6 +11822,14 @@
     {
       "from": "backend-delivery:badge-qr",
       "kind": "related",
+      "to": "task:B-02",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "backend-delivery:badge-qr",
+      "kind": "related",
       "to": "task:B-11",
       "via": [
         "GET /views/ring/:ringId"
@@ -11740,10 +11856,13 @@
       "kind": "related",
       "to": "backend-delivery:badge-qr",
       "via": [
+        "DELETE /users/me",
         "E_BADGE_01",
         "E_RING_02",
+        "GET /connections/relationship",
         "GET /views/pin/:pinName",
         "GET /views/qr/:token",
+        "POST /blocks",
         "POST /connections/requests"
       ]
     },
@@ -17610,10 +17729,13 @@
       "kind": "related",
       "to": "backend-delivery:badge-qr",
       "via": [
+        "DELETE /users/me",
         "E_BADGE_01",
         "E_RING_02",
+        "GET /connections/relationship",
         "GET /views/pin/:pinName",
         "GET /views/qr/:token",
+        "POST /blocks",
         "POST /connections/requests"
       ]
     },
@@ -24159,7 +24281,9 @@
       "to": "backend-delivery:badge-qr",
       "via": [
         "E_BADGE_01",
-        "GET /views/pin/:pinName"
+        "GET /views/pin/:pinName",
+        "POST /blocks",
+        "POST /connections/requests"
       ]
     },
     {
@@ -25924,10 +26048,12 @@
       "kind": "related",
       "to": "backend-delivery:badge-qr",
       "via": [
+        "DELETE /users/me",
         "E_RING_02",
         "GET /views/pin/:pinName",
         "GET /views/qr/:token",
-        "GET /views/ring/:ringId"
+        "GET /views/ring/:ringId",
+        "POST /connections/requests"
       ]
     },
     {
@@ -46231,6 +46357,14 @@
     {
       "from": "task:B-26",
       "kind": "related",
+      "to": "backend-delivery:badge-qr",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "task:B-26",
+      "kind": "related",
       "to": "backend-delivery:connections",
       "via": [
         "DELETE /users/me"
@@ -47466,6 +47600,7 @@
       "kind": "shares",
       "to": "feature:badge-qr",
       "via": [
+        "DELETE /users/me",
         "E_AUTH_04",
         "GET /rings",
         "GET /users/me"
@@ -48952,13 +49087,17 @@
       "kind": "shares",
       "to": "feature:connections",
       "via": [
+        "DELETE /users/me",
         "E_AUTH_04",
         "E_BADGE_01",
         "E_RING_02",
+        "GET /connections/relationship",
+        "GET /connections/relationship?qrToken=",
         "GET /rings",
         "GET /views/pin/:pinName",
         "GET /views/qr/:token",
         "GET /views/ring/:ringId",
+        "POST /blocks",
         "POST /connections/requests"
       ]
     },
@@ -48967,6 +49106,7 @@
       "kind": "shares",
       "to": "feature:counts",
       "via": [
+        "DELETE /users/me",
         "E_RING_02",
         "GET /rings",
         "GET /users/me"
@@ -49170,6 +49310,7 @@
       "kind": "shares",
       "to": "feature:ring-members",
       "via": [
+        "DELETE /users/me",
         "E_RING_02",
         "GET /rings",
         "GET /views/pin/:pinName"
@@ -49361,6 +49502,7 @@
       "kind": "shares",
       "to": "task:B-02",
       "via": [
+        "DELETE /users/me",
         "GET /rings",
         "GET /users/me"
       ]
@@ -61936,11 +62078,6 @@
     {
       "from": "decision:D-10",
       "kind": "wikilink",
-      "to": "backend-delivery:badge-qr"
-    },
-    {
-      "from": "decision:D-10",
-      "kind": "wikilink",
       "to": "story:subscription"
     },
     {
@@ -68704,6 +68841,7 @@
         "decision:D-30",
         "backend-delivery:connections",
         "backend-integration:connections",
+        "backend-delivery:badge-qr",
         "task:B-01",
         "decision:D-20",
         "story:code-delivery",
@@ -69013,6 +69151,7 @@
       "priority": "critical",
       "related": [
         "task:B-17",
+        "task:B-26",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -69083,6 +69222,19 @@
         "project:docs-tree",
         "project:api-conventions",
         "project:frontend-agent-prompt",
+        "needs-decision:ND-24",
+        "decision:D-10",
+        "decision:D-17",
+        "decision:D-24",
+        "task:B-02",
+        "backend-delivery:account",
+        "backend-integration:account",
+        "frontend-delivery:account",
+        "frontend-requirements:account",
+        "qa-backend:account",
+        "qa-frontend:account",
+        "story:account",
+        "decision:D-25",
         "decision:D-22",
         "decision:D-35",
         "feature:subscription",
@@ -69111,7 +69263,7 @@
       "task": null,
       "title": "BD-18 Badge & QR Backend Delivery",
       "unmet": [],
-      "updated": "2026-11-08"
+      "updated": "2026-11-09"
     },
     "backend-delivery:build-deploy": {
       "affects": [],
@@ -72079,6 +72231,7 @@
         "decision:D-30",
         "backend-delivery:connections",
         "backend-integration:connections",
+        "backend-delivery:badge-qr",
         "backend-delivery:account",
         "task:B-02",
         "decision:D-20",
@@ -75609,6 +75762,7 @@
         "frontend-delivery:connections",
         "frontend-requirements:connections",
         "story:connections",
+        "backend-delivery:badge-qr",
         "backend-integration:badge-qr",
         "frontend-requirements:badge-qr",
         "story:badge-qr",
@@ -76179,6 +76333,7 @@
         "frontend-delivery:connections",
         "frontend-requirements:connections",
         "story:connections",
+        "backend-delivery:badge-qr",
         "qa-backend:counts",
         "story:ring-invitations"
       ],
@@ -76620,6 +76775,7 @@
         "frontend-delivery:connections",
         "frontend-requirements:connections",
         "story:connections",
+        "backend-delivery:badge-qr",
         "qa-backend:counts"
       ],
       "release": null,
@@ -76683,7 +76839,8 @@
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-requirements:connections",
-        "story:connections"
+        "story:connections",
+        "backend-delivery:badge-qr"
       ],
       "release": null,
       "resolution": null,
@@ -80914,6 +81071,7 @@
         "decision:D-20",
         "backend-delivery:connections",
         "backend-integration:connections",
+        "backend-delivery:badge-qr",
         "backend-delivery:account",
         "backend-integration:account",
         "frontend-requirements:account",
@@ -83434,6 +83592,7 @@
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-requirements:connections",
+        "backend-delivery:badge-qr",
         "backend-delivery:account",
         "backend-integration:account",
         "frontend-delivery:account",
@@ -89656,6 +89815,7 @@
         "decision:D-24",
         "backend-delivery:connections",
         "backend-integration:connections",
+        "backend-delivery:badge-qr",
         "qa-backend:counts"
       ],
       "release": null,
@@ -92514,6 +92674,7 @@
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-requirements:connections",
+        "backend-delivery:badge-qr",
         "backend-delivery:account",
         "backend-integration:account",
         "backend-integration:auth",
@@ -95602,6 +95763,7 @@
         "task:B-27",
         "backend-delivery:connections",
         "backend-integration:connections",
+        "backend-delivery:badge-qr",
         "backend-delivery:account",
         "backend-integration:account",
         "story:account",
@@ -97837,6 +97999,7 @@
         "decision:D-30",
         "backend-delivery:connections",
         "backend-integration:connections",
+        "backend-delivery:badge-qr",
         "backend-delivery:account",
         "backend-integration:account",
         "qa-frontend:account",
@@ -101116,6 +101279,7 @@
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-requirements:connections",
+        "backend-delivery:badge-qr",
         "backend-integration:account",
         "backend-delivery:auth",
         "backend-integration:auth",
@@ -103188,6 +103352,7 @@
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-requirements:connections",
+        "backend-delivery:badge-qr",
         "backend-delivery:account",
         "backend-integration:account",
         "frontend-requirements:account",
