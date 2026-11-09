@@ -13,15 +13,11 @@ depends: ["S-15 Ring Access Engine Story"]
 affects: ["BD-08 Ring Access Engine Backend Delivery"]
 related: ["BI-05 Ring Access Engine Backend Integration", "Ring Access Model", "D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-18 Ring names shown when joined knowingly", "ND-23 Mutual connections and events in common", "FR-11 Rings Frontend Requirements", "FR-12 View As & Pin Views Frontend Requirements", "S-18 Rings Story", "S-16 Ring Members Story", "S-23 Connections Story", "S-31 Delegated Admins Story", "S-87 Error Contract Story", "GET /rings/shared-with-me", "GET /views/pin/:pinName", "GET /views/ring/:ringId", "GET /views/user/:userId/perspectives", E_RING_05, E_RING_02]
 created: 2026-10-18
-updated: 2026-11-08
+updated: 2026-11-09
 tags: [frontend-requirements, frontend-requirements/approved, module/identity, layer/frontend]
 ---
 
 # Ring Access Engine · Frontend Requirements
-
-> ⚠ Affected by [[BD-14 Connections Backend Delivery]] (2026-11-08): F-14 shipped on backend main 1c460b0: blocks can now be made and removed (POST /blocks, GET /blocks, DELETE /blocks/:id, S-23 S13), and s47's mutual count is mutualCount on GET /connections/:userId (D-23, a count, no names; events in common stay hidden). The 'Create or remove a block' and 'Mutual connections' rows and Blocked by read not available
-
-> ⚠ Affected by [[BD-11 Rings Backend Delivery]] (2026-11-05): backend main 12172c6: GET /rings/shared-with-me now lists people, one row { ringId, pinName, displayName, avatarUrl, expiresAt, ringName, memberCount } (ringName and memberCount null until F-09 records how a membership was made), no filters; the six D-04 settings exist on a Ring, membersCanSeeEachOther enforced, the rest stored until their flows ship. The Shared with me and Ring settings 'Source today' lines are stale; shapes in BI-08 (/frontend)
 
 **Feature:** [[F-08 Ring Access Engine]] · **Status:** Approved 2026-11-08 by khaled · **Story:** [[S-15 Ring Access Engine Story]] · **Backend Integration:** [[BI-05 Ring Access Engine Backend Integration]]
 
@@ -38,7 +34,7 @@ The engine exposes no endpoint. What the client needs from it is a set of guaran
 - **A member count** ("· N people") only on a named-Ring row, and only when that Ring's "members can see each other" is on; never on a person row.
 - **Until the backend records how a membership was made:** every row is shown as **the person**, with no Ring name and no count.
 - Tap: opens that person's card for me (`GET /views/ring/:ringId`), never the owner's Ring data (s14).
-- Source today: `GET /rings/shared-with-me` returns Rings, **with their names, to every member**, and no owner card or count: ❌ (the shape is asked in [[FR-11 Rings Frontend Requirements|FR-11]], since the endpoint is listed under [[F-11 Rings]]).
+- Source today: `GET /rings/shared-with-me` lists people, one row `{ ringId, pinName, displayName, avatarUrl, expiresAt, ringName, memberCount }` (backend `main` `12172c6`; `ringName` and `memberCount` only on a row joined knowingly, since `1c460b0`) ✅; shipped in [[FD-10 Ring Access Engine Frontend Delivery]].
 
 ### Any screen that renders another person ([[Screen Index#s44|s44]], [[Screen Index#s31|s31]] for a member, the perspective switcher, s17's cards)
 
@@ -58,16 +54,16 @@ The engine exposes no endpoint. What the client needs from it is a set of guaran
 - "Members can invite others", "members can save attachments": checked before an invite or a download; a refusal is quiet (as a 403, S6).
 - "Who can request to join" has **three choices**: anyone who scans, only with a code (default, with invitation), only invited. Not "Contacts of members". With "approve each one", it decides whether a request or a code creates a live membership at once.
 - **Not shown in v1:** members can message me, see when I'm at an event, required work email domain (each with its feature).
-- Source today: none of the settings exist; every Ring behaves as all-off.
+- Source today: the six settings exist on a Ring (backend `main` `12172c6`); "members can see each other" is enforced, the rest are stored until their flows ship.
 
 ### [[Screen Index#s15|s15]] Ring people: the roster footnote (S8)
 
 - Needs: the Ring's "members can see each other" value, to choose the footnote: off → "Members never see who else is in this Ring — only you do."; on → "Members of this Ring can see each other." ([[S-16 Ring Members Story]]).
-- Source today: the setting doesn't exist; the "off" sentence is the true one.
+- Source today: the setting exists on the Ring (backend `main` `12172c6`).
 
 ### [[Screen Index#s47|s47]] Connection detail: what we share (S-15 Open questions)
 
-- "Mutual connections" and "events in common" are **not shown** until [[ND-23 Mutual connections and events in common]] is decided; the engine enforces the answer.
+- "Mutual connections": a count, no names, `mutualCount` on `GET /connections/:userId` (backend `main` `1c460b0`, [[D-23 A count of mutual connections, events where both were visible]]) ✅; "events in common" stays hidden.
 
 ### Owner's View as ([[Screen Index#s31|s31]])
 
@@ -104,10 +100,10 @@ The engine exposes no endpoint. What the client needs from it is a set of guaran
 | 403 when below the admin level | `PATCH /rings/:id`, `/rings/:ringId/members/*`, `/rings/:ringId/projection/*` | ✅ | — |
 | Owner-only: 404 to anyone else, an admin included | `POST /rings/:id/default`, `POST /rings/:id/disposition`, `DELETE /rings/:id` | ✅ | — ([[S-31 Delegated Admins Story\|Delegated Admins · A4]]) |
 | The six launch settings, saved and enforced | saved on the Ring (`GET` / `PATCH /rings/:id`); "members can see each other" enforced, the other five stored until their flows ship | ✅ | built in [[S-18 Rings Story\|Rings · S9]] (asked in FR-11); enforced per S-15 S8 |
-| Create or remove a block | — | ❌ | [[S-23 Connections Story\|Connections · S13]] |
+| Create or remove a block | `POST /blocks`, `GET /blocks`, `DELETE /blocks/:id` (backend `main` `1c460b0`) | ✅ | [[S-23 Connections Story\|Connections · S13]] |
 | Grant or revoke a delegated admin level | — | ❌ | [[S-31 Delegated Admins Story#What the backend has to build\|Delegated Admins · What the backend has to build]] |
-| Mutual connections and events in common | — | ❌ | [[ND-23 Mutual connections and events in common]] |
-| Resolve a scanned QR token through the engine | — | ❌ | [[S-37 Badge & QR Story\|Badge & QR · S13–S18]] |
+| Mutual connections (a count, no names); events in common stay hidden | `GET /connections/:userId` → `mutualCount` (backend `main` `1c460b0`) | ✅ | [[D-23 A count of mutual connections, events where both were visible]] |
+| Resolve a scanned QR token through the engine | `GET /views/qr/:token` (one 404 for every refused case) | ✅ | [[S-37 Badge & QR Story\|Badge & QR · S13–S18]] |
 
 ## Behaviour expectations
 
@@ -136,7 +132,5 @@ Until [[S-87 Error Contract Story|Error Contract · S4–S8]] ships, the body ca
 
 ## Blocked by
 
-- [[S-18 Rings Story|Rings · S9]]: the six settings, saved; until then every Ring is all-off and no screen implies members see one another.
-- [[S-23 Connections Story|Connections · S13]]: a block screen; the engine already honours blocks but none can be created.
 - [[S-31 Delegated Admins Story#What the backend has to build|Delegated Admins · What the backend has to build]]: admin management behind Edit Ring's *Joining and permissions* (s26 / s27 merged); today only owners pass the level check.
-- [[ND-23 Mutual connections and events in common]]: the two rows on s47.
+- Settled: the six settings exist ([[S-18 Rings Story|Rings · S9]], backend `12172c6`); blocks can be made and removed ([[S-23 Connections Story|Connections · S13]], `1c460b0`); the mutual count is decided and served ([[D-23 A count of mutual connections, events where both were visible]]).
