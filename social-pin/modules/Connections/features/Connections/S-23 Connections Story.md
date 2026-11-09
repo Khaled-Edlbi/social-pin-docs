@@ -20,6 +20,8 @@ tags: [story, story/approved, module/connections, layer/business]
 
 # Connections · User Story
 
+> ⚠ Affected by [[BD-14 Connections Backend Delivery]] (2026-11-09): S2 and S13 by scanned code ({ qrToken } on Connect, Block and the relationship, source SCAN) and S16's account deletion (D-25: connections end, requests close both ways, blocks removed, silently) are built on backend main ebdca36 (local, not pushed yet); BD-14 has nothing pending
+
 > ⚠ Affected by [[BD-18 Badge & QR Backend Delivery]] (2026-11-08): GET /views/qr/:token exists on backend main 1c460b0 ('What exists today' and S1 By scan); Connect by { qrToken } is still not accepted by POST /connections/requests
 
 **Feature:** [[F-14 Connections]] · **Status:** Approved 2026-11-04 by Omar Fostok · **Frontend Requirements:** [[FR-14 Connections Frontend Requirements]] · **Backend Integration:** not yet · **Verified by:** [[Connections QA Backend]], [[Connections QA Frontend]]

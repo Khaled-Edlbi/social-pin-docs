@@ -959,6 +959,7 @@
     "DELETE /users/me": {
       "containers": [
         "feature:account",
+        "feature:connections",
         "feature:counts",
         "feature:ring-members",
         "task:B-02"
@@ -966,6 +967,7 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:account",
+        "backend-delivery:connections",
         "backend-integration:account",
         "frontend-delivery:account",
         "frontend-requirements:account",
@@ -1298,12 +1300,15 @@
     "E_BADGE_01": {
       "containers": [
         "feature:badge-qr",
+        "feature:connections",
         "project:frontend-api-guide"
       ],
       "kind": "error",
       "notes": [
         "backend-delivery:badge-qr",
+        "backend-delivery:connections",
         "backend-integration:badge-qr",
+        "frontend-delivery:connections",
         "frontend-requirements:badge-qr",
         "project:frontend-api-guide"
       ],
@@ -2184,6 +2189,16 @@
         "backend-delivery:connections",
         "frontend-delivery:connections",
         "frontend-requirements:connections"
+      ],
+      "owner": null
+    },
+    "GET /connections/relationship?qrToken=": {
+      "containers": [
+        "feature:connections"
+      ],
+      "kind": "endpoint",
+      "notes": [
+        "backend-delivery:connections"
       ],
       "owner": null
     },
@@ -6863,14 +6878,14 @@
       "qa": 13,
       "shared": 10
     },
-    "concepts": 324,
+    "concepts": 325,
     "decisions": 34,
-    "edges": 8055,
+    "edges": 8063,
     "features": 41,
     "layerNotes": 157,
     "modules": 8,
     "notes": 351,
-    "partial": 9,
+    "partial": 8,
     "placeholders": 128,
     "records": 33
   },
@@ -10502,16 +10517,6 @@
       "to": "frontend-requirements:widgets"
     },
     {
-      "from": "backend-delivery:connections",
-      "kind": "pending",
-      "to": "decision:D-25"
-    },
-    {
-      "from": "backend-delivery:connections",
-      "kind": "pending",
-      "to": "story:connections"
-    },
-    {
       "from": "backend-delivery:profiles",
       "kind": "pending",
       "to": "decision:D-22"
@@ -11713,8 +11718,17 @@
     {
       "from": "backend-delivery:connections",
       "kind": "related",
+      "to": "backend-delivery:account",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "backend-delivery:connections",
+      "kind": "related",
       "to": "backend-delivery:badge-qr",
       "via": [
+        "E_BADGE_01",
         "E_RING_02",
         "GET /views/pin/:pinName",
         "GET /views/qr/:token",
@@ -11782,7 +11796,16 @@
       "kind": "related",
       "to": "backend-delivery:view-as",
       "via": [
-        "GET /views/pin/:pinName"
+        "GET /views/pin/:pinName",
+        "GET /views/qr/:token"
+      ]
+    },
+    {
+      "from": "backend-delivery:connections",
+      "kind": "related",
+      "to": "backend-integration:account",
+      "via": [
+        "DELETE /users/me"
       ]
     },
     {
@@ -11790,6 +11813,7 @@
       "kind": "related",
       "to": "backend-integration:badge-qr",
       "via": [
+        "E_BADGE_01",
         "E_RING_02",
         "GET /views/pin/:pinName",
         "GET /views/qr/:token",
@@ -11908,6 +11932,14 @@
     {
       "from": "backend-delivery:connections",
       "kind": "related",
+      "to": "decision:D-12",
+      "via": [
+        "GET /views/qr/:token"
+      ]
+    },
+    {
+      "from": "backend-delivery:connections",
+      "kind": "related",
       "to": "decision:D-13"
     },
     {
@@ -11991,11 +12023,20 @@
     {
       "from": "backend-delivery:connections",
       "kind": "related",
+      "to": "frontend-delivery:account",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "backend-delivery:connections",
+      "kind": "related",
       "to": "frontend-delivery:connections",
       "via": [
         "DELETE /blocks/:id",
         "DELETE /connections/:userId",
         "DELETE /connections/requests/:id",
+        "E_BADGE_01",
         "GET /blocks",
         "GET /connections/:userId",
         "GET /connections/count",
@@ -12036,10 +12077,20 @@
     {
       "from": "backend-delivery:connections",
       "kind": "related",
+      "to": "frontend-requirements:account",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "backend-delivery:connections",
+      "kind": "related",
       "to": "frontend-requirements:badge-qr",
       "via": [
+        "E_BADGE_01",
         "E_RING_02",
         "GET /views/pin/:pinName",
+        "GET /views/qr/:token",
         "POST /connections/requests"
       ]
     },
@@ -12078,6 +12129,7 @@
         "GET /connections/:userId",
         "GET /connections/count",
         "GET /views/pin/:pinName",
+        "GET /views/qr/:token",
         "POST /connections/requests",
         "POST /connections/requests/:id/decline"
       ]
@@ -12222,7 +12274,8 @@
       "kind": "related",
       "to": "frontend-requirements:view-as",
       "via": [
-        "GET /views/pin/:pinName"
+        "GET /views/pin/:pinName",
+        "GET /views/qr/:token"
       ]
     },
     {
@@ -12320,8 +12373,10 @@
       "kind": "related",
       "to": "project:frontend-api-guide",
       "via": [
+        "E_BADGE_01",
         "E_RING_02",
-        "GET /views/pin/:pinName"
+        "GET /views/pin/:pinName",
+        "GET /views/qr/:token"
       ]
     },
     {
@@ -12335,13 +12390,17 @@
     {
       "from": "backend-delivery:connections",
       "kind": "related",
-      "to": "project:ring-access-model"
+      "to": "project:ring-access-model",
+      "via": [
+        "GET /views/qr/:token"
+      ]
     },
     {
       "from": "backend-delivery:connections",
       "kind": "related",
       "to": "project:spec-map",
       "via": [
+        "GET /views/qr/:token",
         "POST /rings/:ringId/members"
       ]
     },
@@ -12356,10 +12415,19 @@
     {
       "from": "backend-delivery:connections",
       "kind": "related",
+      "to": "qa-backend:account",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "backend-delivery:connections",
+      "kind": "related",
       "to": "qa-backend:counts",
       "via": [
         "DELETE /connections/:userId",
         "DELETE /connections/requests/:id",
+        "DELETE /users/me",
         "E_RING_02",
         "GET /connections",
         "GET /connections/count",
@@ -12405,6 +12473,7 @@
       "kind": "related",
       "to": "qa-backend:ring-members",
       "via": [
+        "DELETE /users/me",
         "E_RING_02",
         "E_RING_05",
         "GET /views/pin/:pinName",
@@ -12440,10 +12509,27 @@
     {
       "from": "backend-delivery:connections",
       "kind": "related",
+      "to": "qa-frontend:account",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "backend-delivery:connections",
+      "kind": "related",
+      "to": "story:account",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "backend-delivery:connections",
+      "kind": "related",
       "to": "story:badge-qr",
       "via": [
         "E_RING_02",
-        "GET /views/pin/:pinName"
+        "GET /views/pin/:pinName",
+        "GET /views/qr/:token"
       ]
     },
     {
@@ -12464,6 +12550,7 @@
         "E_RING_05",
         "GET /blocks",
         "GET /views/pin/:pinName",
+        "GET /views/qr/:token",
         "POST /connections/requests",
         "POST /rings/:ringId/members"
       ]
@@ -12499,6 +12586,14 @@
       "to": "story:view-as",
       "via": [
         "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "backend-delivery:connections",
+      "kind": "related",
+      "to": "task:B-02",
+      "via": [
+        "DELETE /users/me"
       ]
     },
     {
@@ -23956,6 +24051,7 @@
       "kind": "related",
       "to": "backend-delivery:badge-qr",
       "via": [
+        "E_BADGE_01",
         "GET /views/pin/:pinName"
       ]
     },
@@ -23972,6 +24068,7 @@
       "kind": "related",
       "to": "backend-integration:badge-qr",
       "via": [
+        "E_BADGE_01",
         "GET /views/pin/:pinName"
       ]
     },
@@ -46025,6 +46122,14 @@
     {
       "from": "task:B-26",
       "kind": "related",
+      "to": "backend-delivery:connections",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "task:B-26",
+      "kind": "related",
       "to": "backend-integration:account",
       "via": [
         "DELETE /users/me"
@@ -47274,6 +47379,7 @@
       "kind": "shares",
       "to": "feature:connections",
       "via": [
+        "DELETE /users/me",
         "E_AUTH_04",
         "GET /rings",
         "GET /rings/:ringId/projection"
@@ -48722,6 +48828,7 @@
       "to": "feature:connections",
       "via": [
         "E_AUTH_04",
+        "E_BADGE_01",
         "E_RING_02",
         "GET /rings",
         "GET /views/pin/:pinName",
@@ -50162,6 +50269,7 @@
       "via": [
         "DELETE /connections/:userId",
         "DELETE /rings/:ringId/members/:userId",
+        "DELETE /users/me",
         "E_RING_02",
         "GET /connections",
         "GET /connections/count",
@@ -50392,6 +50500,7 @@
       "via": [
         "DELETE /connections/:userId",
         "DELETE /rings/:ringId/members/:userId",
+        "DELETE /users/me",
         "E_RING_02",
         "E_RING_05",
         "E_RING_07",
@@ -50583,6 +50692,7 @@
       "to": "project:frontend-api-guide",
       "via": [
         "E_AUTH_04",
+        "E_BADGE_01",
         "E_RING_02",
         "GET /rings",
         "GET /rings/shared-with-me",
@@ -50654,6 +50764,7 @@
       "kind": "shares",
       "to": "task:B-02",
       "via": [
+        "DELETE /users/me",
         "GET /rings"
       ]
     },
@@ -68466,6 +68577,7 @@
         "task:B-26",
         "needs-decision:ND-30",
         "decision:D-30",
+        "backend-delivery:connections",
         "task:B-01",
         "decision:D-20",
         "story:code-delivery",
@@ -69107,7 +69219,7 @@
         "frontend-requirements:connections",
         "story:connections"
       ],
-      "effectiveStatus": "partial",
+      "effectiveStatus": "done",
       "effort": null,
       "feature": "connections",
       "foundOn": null,
@@ -69128,20 +69240,10 @@
         "feature:connections"
       ],
       "path": "social-pin/modules/Connections/features/Connections/flow/BD-14 Connections Backend Delivery.md",
-      "pending": [
-        {
-          "person": null,
-          "text": "Connect, Block and the relationship by scanned code ({ qrToken }, S2, S13): POST /connections/requests, POST /blocks and GET /connections/relationship take a Pin name only; BadgeService.resolveCode (F-18, on main) is the lookup they should share (D-10)",
-          "to": "story:connections"
-        },
-        {
-          "person": null,
-          "text": "UserService.softDelete does not yet end the deleted account's connections, requests and blocks; every list and the detail already leave the account out",
-          "to": "decision:D-25"
-        }
-      ],
+      "pending": [],
       "priority": "critical",
       "related": [
+        "task:B-26",
         "feature:connections",
         "backend-delivery:ring-access",
         "backend-delivery:ring-members",
@@ -69202,6 +69304,15 @@
         "project:status-report-2026-10-15",
         "project:frontend-api-guide",
         "project:frontend-contract",
+        "decision:D-12",
+        "task:B-02",
+        "backend-delivery:account",
+        "backend-integration:account",
+        "frontend-delivery:account",
+        "frontend-requirements:account",
+        "qa-backend:account",
+        "qa-frontend:account",
+        "story:account",
         "task:B-15",
         "frontend-requirements:pincast",
         "frontend-requirements:event-ring-auto",
@@ -69262,7 +69373,7 @@
       "task": null,
       "title": "BD-14 Connections Backend Delivery",
       "unmet": [],
-      "updated": "2026-11-08"
+      "updated": "2026-11-09"
     },
     "backend-delivery:counts": {
       "affects": [
@@ -71839,6 +71950,7 @@
         "task:B-26",
         "needs-decision:ND-30",
         "decision:D-30",
+        "backend-delivery:connections",
         "backend-delivery:account",
         "task:B-02",
         "decision:D-20",
@@ -75503,6 +75615,7 @@
         "decision:D-22",
         "decision:D-35",
         "feature:subscription",
+        "backend-delivery:connections",
         "backend-delivery:badge-qr",
         "backend-integration:badge-qr",
         "frontend-requirements:badge-qr",
@@ -78031,12 +78144,12 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "approved": 2,
+        "approved": 1,
         "current": 1,
         "decided": 12,
-        "done": 1,
+        "delivered": 1,
+        "done": 2,
         "missing": 2,
-        "partial": 1,
         "verified": 12
       },
       "scope": null,
@@ -80659,6 +80772,7 @@
         "task:B-27",
         "needs-decision:ND-20",
         "decision:D-20",
+        "backend-delivery:connections",
         "backend-delivery:account",
         "backend-integration:account",
         "frontend-requirements:account",
@@ -83176,6 +83290,7 @@
         "task:B-24",
         "task:B-25",
         "task:B-26",
+        "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:account",
@@ -83937,6 +84052,7 @@
       "affects": [
         "backend-delivery:connections"
       ],
+      "autoDelivered": true,
       "blockedBy": [],
       "card": "FR-14",
       "children": [],
@@ -83946,7 +84062,7 @@
       "depends": [
         "story:connections"
       ],
-      "effectiveStatus": "approved",
+      "effectiveStatus": "delivered",
       "effort": null,
       "feature": "connections",
       "foundOn": null,
@@ -87424,13 +87540,13 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 2,
+        "approved": 1,
         "current": 1,
         "decided": 12,
-        "done": 1,
+        "delivered": 1,
+        "done": 2,
         "in-progress": 1,
         "missing": 2,
-        "partial": 1,
         "verified": 12
       },
       "scope": null,
@@ -92250,6 +92366,7 @@
         "task:B-26",
         "needs-decision:ND-30",
         "decision:D-30",
+        "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:account",
@@ -95338,6 +95455,7 @@
         "task:B-25",
         "task:B-26",
         "task:B-27",
+        "backend-delivery:connections",
         "backend-delivery:account",
         "backend-integration:account",
         "story:account",
@@ -97500,18 +97618,18 @@
         }
       ],
       "rollup": {
-        "approved": 41,
+        "approved": 40,
         "blocked": 27,
         "current": 5,
         "decided": 33,
-        "delivered": 16,
-        "done": 42,
+        "delivered": 17,
+        "done": 43,
         "draft": 26,
         "failing": 1,
         "in-progress": 46,
         "missing": 128,
         "needs-decision": 1,
-        "partial": 9,
+        "partial": 8,
         "passing": 10,
         "ready": 1,
         "reference": 32,
@@ -97571,6 +97689,7 @@
         "task:B-27",
         "needs-decision:ND-30",
         "decision:D-30",
+        "backend-delivery:connections",
         "backend-delivery:account",
         "backend-integration:account",
         "qa-frontend:account",
@@ -100847,6 +100966,7 @@
         "task:B-23",
         "task:B-24",
         "task:B-26",
+        "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-integration:account",
@@ -102918,6 +103038,7 @@
         "qa-frontend:account",
         "story:account",
         "task:B-02",
+        "backend-delivery:connections",
         "backend-delivery:account",
         "backend-integration:account",
         "frontend-requirements:account",
