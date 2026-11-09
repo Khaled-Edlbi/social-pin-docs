@@ -16,6 +16,8 @@ tags: [decision, decision/decided]
 
 # ✅ D-28 · Scan someone in is not in the MVP
 
+> ⚠ Affected by [[S-23 Connections Story]] (2026-11-09): decided by Omar Fostok: *Scan someone in* is not shown on the People tab (s15) at all, hidden rather than disabled with "Not available yet"
+
 **Answers:** [[ND-28 Scanning someone straight into a Ring]] · **Decided by:** Omar Fostok · **On:** 2026-11-04 · **Feature:** [[F-14 Connections]]
 
 > This card is the answer to [[ND-28 Scanning someone straight into a Ring]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. `draft` while the answer is prepared; `decided` only by the PM or the owner, on the user's word, with `decidedBy` and `decidedAt`: then [[ND-28 Scanning someone straight into a Ring]] shows Fulfilled by itself and the cards it blocked continue.
