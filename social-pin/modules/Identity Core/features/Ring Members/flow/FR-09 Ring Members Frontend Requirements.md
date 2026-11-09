@@ -3,21 +3,25 @@ id: FR-09
 type: frontend-requirements
 module: identity
 feature: ring-members
-status: ready
+status: approved
 scope: feature
 screens: [s15, s16, s35, s46, s47]
+approvedBy: "khaled"
+approvedAt: 2026-11-09
 owner: "Omar Fostok"
 depends: ["S-16 Ring Members Story"]
 affects: ["BD-09 Ring Members Backend Delivery"]
 related: ["BI-06 Ring Members Backend Integration", "D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-18 Ring names shown when joined knowingly", "FR-08 Ring Access Engine Frontend Requirements", "FR-11 Rings Frontend Requirements", "S-18 Rings Story", "S-23 Connections Story", "S-33 Ring Invitations & Join Story", "S-87 Error Contract Story", "S-31 Delegated Admins Story", "D-28 Scan someone in is not in the MVP", "D-29 Connection detail opens a member who is not a connection", "BI-16 Connections Backend Integration", "GET /connections/:userId", "GET /connections", "DELETE /connections/:userId", "GET /rings/:ringId/members", "POST /rings/:ringId/members", "PATCH /rings/:ringId/members/:userId", "DELETE /rings/:ringId/members/:userId", "POST /rings/:ringId/members/:userId/reassign", "GET /rings", E_RING_05, E_RING_02]
 created: 2026-10-18
 updated: 2026-11-09
-tags: [frontend-requirements, frontend-requirements/ready, module/identity, layer/frontend]
+tags: [frontend-requirements, frontend-requirements/approved, module/identity, layer/frontend]
 ---
 
 # Ring Members · Frontend Requirements
 
-**Feature:** [[F-09 Ring Members]] · **Status:** Ready (waiting for the backend: s15 and s47 rewritten 2026-11-09 to what the client builds on Connections; names on the roster and `?name=` asked, M10) · **Story:** [[S-16 Ring Members Story]] · **Backend Integration:** [[BI-06 Ring Members Backend Integration]]
+> ⚠ Affected by [[BD-09 Ring Members Backend Delivery]] (2026-11-09): membersCanSeeEachOther exists on a Ring since backend main 12172c6 (BD-11), so the 'the setting doesn't exist' lines (s15 footnote, s17 Source today, Blocked by S-18 S9) are stale; only the member-facing roster read is missing, pending on BD-09 (/frontend)
+
+**Feature:** [[F-09 Ring Members]] · **Status:** Approved by the backend 2026-11-09 (names on the roster, `?name=` search and the member-facing roster are pending on [[BD-09 Ring Members Backend Delivery]]) · **Story:** [[S-16 Ring Members Story]] · **Backend Integration:** [[BI-06 Ring Members Backend Integration]]
 
 What the client needs from the backend to build the owner's roster, the per-person checklist of Rings, the "bring people in" flow, join approvals and the members a member may see, and whether each need is met today. Shapes, the `status` filter and the window semantics are in [[BI-06 Ring Members Backend Integration]].
 
@@ -89,7 +93,7 @@ What the client needs from the backend to build the owner's roster, the per-pers
 | Picker of my other Rings | `GET /rings` | ✅ | S4 (listed under [[F-11 Rings]]) |
 | For one person, which of my Rings they're in, with each window, in one call | `GET /connections/:userId` (`memberships`) | ✅ | S5, S3 |
 | Disconnect (end the connection), the D-15 sheet's second choice | `DELETE /connections/:userId` | ✅ | S5 ([[D-15 Several Rings per connection, remove or disconnect\|D-15]]) |
-| **This Ring's pending join requests** (who, how, when), approve and decline | — | ❌ | S9 ([[S-33 Ring Invitations & Join Story]]) |
+| **This Ring's pending join requests** (who, how, when), approve and decline | `GET /rings/:ringId/join-requests`, `POST /rings/:ringId/join-requests/:requestId/approve`, `POST /rings/:ringId/join-requests/:requestId/decline` | ✅ | S9 ([[S-33 Ring Invitations & Join Story]], shipped by [[BD-17 Ring Invitations & Join Backend Delivery]]) |
 | **The members a member may see**, when the Ring's "members can see each other" is on (each member's card for that Ring), paginated | — | ❌ | S8 (the setting: [[S-18 Rings Story\|Rings · S9]]) |
 | Scan someone in | — | not in the MVP | [[D-28 Scan someone in is not in the MVP]] |
 | Delegated admins managing the roster | every members route above | ✅ | an admin at `MEMBER_MANAGER` or above already passes the members routes |
