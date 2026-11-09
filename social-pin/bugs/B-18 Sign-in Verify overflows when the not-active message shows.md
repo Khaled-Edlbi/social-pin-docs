@@ -19,6 +19,8 @@ tags: [bug, bug/todo, module/identity, priority/high]
 
 # ⬜ B-18 · Sign-in Verify overflows when the not-active message shows
 
+> ⚠ Affected by [[S-02 Auth & Sign-up Story]] (2026-11-09): decided by Omar Fostok, the fix is the Verify screen's buttons pinned at the bottom while the content above them scrolls (S-02 S2)
+
 **Found against:** [[FD-05 Auth & Sign-up Frontend Delivery]] · **Feature:** [[F-02 Auth & Sign-up]] · **Status:** To do · **Priority:** High · **Deadline:** — · **Effort:** S
 
 **Found by:** [[QF-05 Auth & Sign-up QA Frontend]] row AU-23, on build `social_pin` `28d4ee7` (emulator Medium_Phone, Android 16), 2026-11-08.

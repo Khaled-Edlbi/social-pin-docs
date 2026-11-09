@@ -11,7 +11,7 @@ approvedAt: 2026-10-25
 owner: "Omar Fostok"
 related: ["D-06 Yearly rename, old name freed, case-insensitive", "FR-02 Auth & Sign-up Frontend Requirements", "F-05 Onboarding Imports", "F-37 Interests", "S-14 Profiles & Pin Name Story"]
 created: 2026-10-18
-updated: 2026-10-29
+updated: 2026-11-09
 tags: [story, story/approved, module/identity, layer/business]
 ---
 
@@ -51,6 +51,7 @@ Acceptance criteria:
 - [ ] A wrong or expired code (400 `E_AUTH_05`) clears the cells and shows "That code is invalid or has expired"; the "expired" state is driven by `expiresAt`, not a client constant.
 - [ ] After five wrong tries (429 `E_AUTH_06`) the cells are disabled and only *Send a new code* remains.
 - [ ] While delivery is unwired, `devCode` from the challenge pre-fills the cells; the screen works identically when it is absent.
+- [ ] **Layout** (sign-up and sign-in Verify alike, S5): the buttons (*Verify*, *Send a new code*, *Start sign-up again*) are **pinned at the bottom**, above the keyboard, while the content above them scrolls; a long message (such as "This account isn't active…") never pushes them off the screen or overflows it (decided by Omar Fostok, 2026-11-09, the fix for [[B-18 Sign-in Verify overflows when the not-active message shows|B-18]]).
 
 ### S3 · Claim a Pin name ([[Screen Index#s06|s06]])
 
@@ -116,3 +117,8 @@ Acceptance criteria:
 
 - Decided: [[D-06 Yearly rename, old name freed, case-insensitive]]: s06 suggests handles from the person's own name (built on the client); a later rename is limited to once a year ([[S-14 Profiles & Pin Name Story|Profiles & Pin Name · S12–S13]]).
 - Delivery latency once [[S-78 Code Delivery Story|Code Delivery · S6]] lands: the resend cool-down and the expired state should be tuned on real numbers.
+
+## Log
+
+- 2026-11-09 · `tickets/pm/M-01-identity/F-02-auth/S-02-verify-buttons-pinned` · S2: the Verify screen's buttons are pinned at the bottom while the content scrolls, the fix for B-18; decided by Omar Fostok, the story stays approved
+- 2026-11-09 · flagged [[B-18 Sign-in Verify overflows when the not-active message shows]] and [[FD-05 Auth & Sign-up Frontend Delivery]]: the fix is the buttons pinned at the bottom with the content scrolling above them (S-02 S2)
