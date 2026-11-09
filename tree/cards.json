@@ -135,6 +135,7 @@
     "frontend-delivery:photo-library": "FD-08",
     "frontend-delivery:profiles": "FD-09",
     "frontend-delivery:ring-access": "FD-10",
+    "frontend-delivery:ring-members": "FD-14",
     "frontend-delivery:ring-projection": "FD-11",
     "frontend-delivery:rings": "FD-12",
     "frontend-requirements:account": "FR-01",
