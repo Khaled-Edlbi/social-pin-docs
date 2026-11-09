@@ -66,6 +66,7 @@
     "B-20 In Arabic the code boxes fill right to left": "task:B-20",
     "B-21 A failed resend restarts the countdown": "task:B-21",
     "B-22 The code's expiry counts with the phone clock": "task:B-22",
+    "B-23 A deleted account opened cold lands on Home, not Welcome": "task:B-23",
     "BD-01 Account Backend Delivery": "backend-delivery:account",
     "BD-02 Auth & Sign-up Backend Delivery": "backend-delivery:auth",
     "BD-03 Counts Backend Delivery": "backend-delivery:counts",
@@ -400,6 +401,7 @@
     "B-20": "task:B-20",
     "B-21": "task:B-21",
     "B-22": "task:B-22",
+    "B-23": "task:B-23",
     "BD-01": "backend-delivery:account",
     "BD-02": "backend-delivery:auth",
     "BD-03": "backend-delivery:counts",
@@ -1833,7 +1835,8 @@
         "feature:error-contract",
         "feature:view-as",
         "project:auth-model",
-        "task:B-02"
+        "task:B-02",
+        "task:B-23"
       ],
       "kind": "error",
       "notes": [
@@ -1854,7 +1857,8 @@
         "qa-backend:view-as",
         "qa-frontend:account",
         "qa-frontend:auth",
-        "task:B-02"
+        "task:B-02",
+        "task:B-23"
       ],
       "owner": null
     },
@@ -3300,7 +3304,8 @@
         "feature:counts",
         "feature:linked-accounts",
         "feature:ring-projection",
-        "task:B-02"
+        "task:B-02",
+        "task:B-23"
       ],
       "kind": "endpoint",
       "notes": [
@@ -3319,7 +3324,8 @@
         "qa-frontend:auth",
         "story:account",
         "story:counts",
-        "task:B-02"
+        "task:B-02",
+        "task:B-23"
       ],
       "owner": "feature:account"
     },
@@ -4948,7 +4954,8 @@
         "feature:linked-accounts",
         "feature:onboarding-imports",
         "needs-decision:ND-01",
-        "task:B-04"
+        "task:B-04",
+        "task:B-23"
       ],
       "kind": "screen",
       "notes": [
@@ -4968,7 +4975,8 @@
         "qa-frontend:auth",
         "story:auth",
         "story:linked-accounts",
-        "task:B-04"
+        "task:B-04",
+        "task:B-23"
       ],
       "owner": null
     },
@@ -5215,7 +5223,8 @@
         "feature:connections",
         "feature:counts",
         "feature:pincast",
-        "needs-decision:ND-02"
+        "needs-decision:ND-02",
+        "task:B-23"
       ],
       "kind": "screen",
       "notes": [
@@ -5235,7 +5244,8 @@
         "qa-backend:counts",
         "story:connections",
         "story:counts",
-        "story:pincast"
+        "story:pincast",
+        "task:B-23"
       ],
       "owner": null
     },
@@ -6561,7 +6571,8 @@
         "task:B-01",
         "task:B-02",
         "task:B-03",
-        "task:B-11"
+        "task:B-11",
+        "task:B-23"
       ],
       "kind": "screen",
       "notes": [
@@ -6623,7 +6634,8 @@
         "task:B-01",
         "task:B-02",
         "task:B-03",
-        "task:B-11"
+        "task:B-11",
+        "task:B-23"
       ],
       "owner": null
     },
@@ -6774,7 +6786,7 @@
   },
   "counts": {
     "blocked": 27,
-    "bugs": 22,
+    "bugs": 23,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 14,
@@ -6788,22 +6800,22 @@
       "qa-backend": 11,
       "qa-frontend": 2,
       "story": 41,
-      "task": 22
+      "task": 23
     },
     "byLayer": {
       "backend": 61,
-      "business": 177,
+      "business": 178,
       "frontend": 54,
       "qa": 13,
       "shared": 10
     },
     "concepts": 323,
     "decisions": 34,
-    "edges": 7873,
+    "edges": 7906,
     "features": 41,
     "layerNotes": 157,
     "modules": 8,
-    "notes": 346,
+    "notes": 347,
     "partial": 14,
     "placeholders": 128,
     "records": 33
@@ -44562,6 +44574,201 @@
       ]
     },
     {
+      "from": "task:B-23",
+      "kind": "related",
+      "to": "backend-delivery:account",
+      "via": [
+        "E_USER_01",
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "task:B-23",
+      "kind": "related",
+      "to": "backend-delivery:auth",
+      "via": [
+        "E_USER_01",
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "task:B-23",
+      "kind": "related",
+      "to": "backend-delivery:view-as",
+      "via": [
+        "E_USER_01"
+      ]
+    },
+    {
+      "from": "task:B-23",
+      "kind": "related",
+      "to": "backend-integration:account",
+      "via": [
+        "E_USER_01",
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "task:B-23",
+      "kind": "related",
+      "to": "backend-integration:auth",
+      "via": [
+        "E_USER_01"
+      ]
+    },
+    {
+      "from": "task:B-23",
+      "kind": "related",
+      "to": "feature:account",
+      "via": [
+        "E_USER_01"
+      ]
+    },
+    {
+      "from": "task:B-23",
+      "kind": "related",
+      "to": "frontend-delivery:account",
+      "via": [
+        "E_USER_01",
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "task:B-23",
+      "kind": "related",
+      "to": "frontend-delivery:auth",
+      "via": [
+        "E_USER_01",
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "task:B-23",
+      "kind": "related",
+      "to": "frontend-requirements:account",
+      "via": [
+        "E_USER_01",
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "task:B-23",
+      "kind": "related",
+      "to": "frontend-requirements:badge-qr",
+      "via": [
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "task:B-23",
+      "kind": "related",
+      "to": "frontend-requirements:error-contract",
+      "via": [
+        "E_USER_01"
+      ]
+    },
+    {
+      "from": "task:B-23",
+      "kind": "related",
+      "to": "frontend-requirements:linked-accounts",
+      "via": [
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "task:B-23",
+      "kind": "related",
+      "to": "frontend-requirements:ring-projection",
+      "via": [
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "task:B-23",
+      "kind": "related",
+      "to": "frontend-requirements:view-as",
+      "via": [
+        "E_USER_01"
+      ]
+    },
+    {
+      "from": "task:B-23",
+      "kind": "related",
+      "to": "project:auth-model",
+      "via": [
+        "E_USER_01"
+      ]
+    },
+    {
+      "from": "task:B-23",
+      "kind": "related",
+      "to": "qa-backend:account",
+      "via": [
+        "E_USER_01",
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "task:B-23",
+      "kind": "related",
+      "to": "qa-backend:auth",
+      "via": [
+        "E_USER_01",
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "task:B-23",
+      "kind": "related",
+      "to": "qa-backend:view-as",
+      "via": [
+        "E_USER_01"
+      ]
+    },
+    {
+      "from": "task:B-23",
+      "kind": "related",
+      "to": "qa-frontend:account",
+      "via": [
+        "E_USER_01",
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "task:B-23",
+      "kind": "related",
+      "to": "qa-frontend:auth",
+      "via": [
+        "E_USER_01",
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "task:B-23",
+      "kind": "related",
+      "to": "story:account",
+      "via": [
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "task:B-23",
+      "kind": "related",
+      "to": "story:counts",
+      "via": [
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "task:B-23",
+      "kind": "related",
+      "to": "task:B-02",
+      "via": [
+        "E_USER_01",
+        "GET /users/me"
+      ]
+    },
+    {
       "from": "decision:D-10",
       "kind": "shares",
       "to": "decision:D-17",
@@ -46124,6 +46331,15 @@
       ]
     },
     {
+      "from": "feature:account",
+      "kind": "shares",
+      "to": "task:B-23",
+      "via": [
+        "E_USER_01",
+        "GET /users/me"
+      ]
+    },
+    {
       "from": "feature:app-shell",
       "kind": "shares",
       "to": "feature:auth",
@@ -47077,6 +47293,15 @@
       ]
     },
     {
+      "from": "feature:auth",
+      "kind": "shares",
+      "to": "task:B-23",
+      "via": [
+        "E_USER_01",
+        "GET /users/me"
+      ]
+    },
+    {
       "from": "feature:badge-qr",
       "kind": "shares",
       "to": "feature:cleanup-jobs",
@@ -47559,6 +47784,14 @@
       "to": "task:B-17",
       "via": [
         "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "feature:badge-qr",
+      "kind": "shares",
+      "to": "task:B-23",
+      "via": [
+        "GET /users/me"
       ]
     },
     {
@@ -49409,6 +49642,14 @@
       ]
     },
     {
+      "from": "feature:counts",
+      "kind": "shares",
+      "to": "task:B-23",
+      "via": [
+        "GET /users/me"
+      ]
+    },
+    {
       "from": "feature:delegated-admins",
       "kind": "shares",
       "to": "feature:devices",
@@ -50677,6 +50918,14 @@
       "via": [
         "E_AUTH_03",
         "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "feature:error-contract",
+      "kind": "shares",
+      "to": "task:B-23",
+      "via": [
+        "E_USER_01"
       ]
     },
     {
@@ -52272,6 +52521,14 @@
       "to": "task:B-18",
       "via": [
         "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "feature:linked-accounts",
+      "kind": "shares",
+      "to": "task:B-23",
+      "via": [
+        "GET /users/me"
       ]
     },
     {
@@ -54750,6 +55007,14 @@
       ]
     },
     {
+      "from": "feature:ring-projection",
+      "kind": "shares",
+      "to": "task:B-23",
+      "via": [
+        "GET /users/me"
+      ]
+    },
+    {
       "from": "feature:rings",
       "kind": "shares",
       "to": "feature:view-as",
@@ -55315,6 +55580,14 @@
       "to": "task:B-18",
       "via": [
         "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "feature:view-as",
+      "kind": "shares",
+      "to": "task:B-23",
+      "via": [
+        "E_USER_01"
       ]
     },
     {
@@ -56072,6 +56345,14 @@
       "to": "task:B-18",
       "via": [
         "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "project:auth-model",
+      "kind": "shares",
+      "to": "task:B-23",
+      "via": [
+        "E_USER_01"
       ]
     },
     {
@@ -58360,6 +58641,11 @@
       "from": "feature:widgets",
       "kind": "tree",
       "to": "story:widgets"
+    },
+    {
+      "from": "frontend-delivery:account",
+      "kind": "tree",
+      "to": "task:B-23"
     },
     {
       "from": "frontend-delivery:auth",
@@ -65144,6 +65430,10 @@
       "name": "B-22 The code's expiry counts with the phone clock",
       "type": "bug"
     },
+    "social-pin/bugs/B-23 A deleted account opened cold lands on Home, not Welcome.md": {
+      "name": "B-23 A deleted account opened cold lands on Home, not Welcome",
+      "type": "bug"
+    },
     "social-pin/business/Feature Graph.md": {
       "name": "Feature Graph",
       "type": "map"
@@ -66659,6 +66949,7 @@
         "task:B-02",
         "task:B-18",
         "task:B-22",
+        "task:B-23",
         "needs-decision:ND-30",
         "decision:D-30",
         "task:B-01",
@@ -66868,6 +67159,7 @@
         "task:B-18",
         "task:B-21",
         "task:B-22",
+        "task:B-23",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-delivery:account",
@@ -69865,6 +70157,7 @@
         "task:B-16",
         "task:B-17",
         "task:B-18",
+        "task:B-23",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -70027,6 +70320,7 @@
         "task:B-03",
         "task:B-18",
         "task:B-22",
+        "task:B-23",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-delivery:account",
@@ -70186,6 +70480,7 @@
         "task:B-18",
         "task:B-21",
         "task:B-22",
+        "task:B-23",
         "needs-decision:ND-20",
         "needs-decision:ND-30",
         "decision:D-20",
@@ -75455,6 +75750,7 @@
         "project:spec-map",
         "feature:interests",
         "feature:operator-panel",
+        "task:B-23",
         "needs-decision:ND-25",
         "decision:D-25",
         "backend-delivery:account",
@@ -75476,6 +75772,7 @@
         "done": 2,
         "partial": 3,
         "passing": 1,
+        "todo": 1,
         "verified": 1
       },
       "scope": null,
@@ -78790,7 +79087,9 @@
       "affects": [],
       "blockedBy": [],
       "card": "FD-04",
-      "children": [],
+      "children": [
+        "task:B-23"
+      ],
       "code": "account",
       "created": "2026-10-26",
       "deadline": null,
@@ -78811,7 +79110,9 @@
       "labels": [],
       "layer": "frontend",
       "module": "identity",
-      "openBugs": [],
+      "openBugs": [
+        "task:B-23"
+      ],
       "parentTask": null,
       "parents": [
         "feature:account"
@@ -78822,6 +79123,7 @@
       "related": [
         "task:B-03",
         "task:B-18",
+        "task:B-23",
         "needs-decision:ND-20",
         "decision:D-20",
         "backend-delivery:account",
@@ -79019,6 +79321,7 @@
         "task:B-20",
         "task:B-21",
         "task:B-22",
+        "task:B-23",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-integration:connections",
@@ -81327,6 +81630,7 @@
         "task:B-13",
         "task:B-17",
         "task:B-18",
+        "task:B-23",
         "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-delivery:account",
@@ -81644,6 +81948,7 @@
         "task:B-03",
         "task:B-13",
         "task:B-17",
+        "task:B-23",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -82699,6 +83004,7 @@
         "task:B-03",
         "task:B-05",
         "task:B-18",
+        "task:B-23",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-delivery:account",
@@ -83381,6 +83687,7 @@
         "task:B-03",
         "task:B-04",
         "task:B-22",
+        "task:B-23",
         "backend-delivery:account",
         "backend-integration:account",
         "qa-backend:auth",
@@ -84665,6 +84972,7 @@
         "task:B-13",
         "task:B-15",
         "task:B-17",
+        "task:B-23",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-requirements:connections",
@@ -85036,6 +85344,7 @@
         "task:B-13",
         "task:B-17",
         "task:B-18",
+        "task:B-23",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -85751,7 +86060,7 @@
         "needs-decision": 1,
         "partial": 12,
         "passing": 7,
-        "todo": 5,
+        "todo": 6,
         "verified": 10
       },
       "scope": null,
@@ -88771,6 +89080,7 @@
         "task:B-02",
         "task:B-03",
         "task:B-18",
+        "task:B-23",
         "needs-decision:ND-20",
         "needs-decision:ND-30",
         "decision:D-30",
@@ -90346,6 +90656,7 @@
         "task:B-13",
         "task:B-18",
         "task:B-22",
+        "task:B-23",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-integration:connections",
@@ -90490,6 +90801,7 @@
         "task:B-18",
         "task:B-21",
         "task:B-22",
+        "task:B-23",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-integration:connections",
@@ -93190,6 +93502,7 @@
         "task:B-16",
         "task:B-17",
         "task:B-18",
+        "task:B-23",
         "decision:D-16",
         "backend-delivery:connections",
         "backend-integration:connections",
@@ -93409,6 +93722,7 @@
         "task:B-02",
         "task:B-03",
         "task:B-18",
+        "task:B-23",
         "backend-delivery:account",
         "backend-integration:account",
         "frontend-requirements:account",
@@ -93610,6 +93924,7 @@
         "task:B-20",
         "task:B-21",
         "task:B-22",
+        "task:B-23",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-integration:connections",
@@ -95535,7 +95850,7 @@
         "passing": 7,
         "ready": 1,
         "reference": 32,
-        "todo": 8,
+        "todo": 9,
         "verified": 33
       },
       "scope": null,
@@ -95584,6 +95899,7 @@
       "related": [
         "task:B-18",
         "task:B-22",
+        "task:B-23",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-delivery:account",
@@ -96418,6 +96734,7 @@
       "priority": "critical",
       "related": [
         "task:B-13",
+        "task:B-23",
         "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-integration:account",
@@ -98861,6 +99178,7 @@
         "feature:profiles",
         "task:B-13",
         "task:B-18",
+        "task:B-23",
         "backend-integration:connections",
         "frontend-requirements:connections",
         "backend-integration:account",
@@ -100642,6 +100960,88 @@
       "title": "B-22 The code's expiry counts with the phone clock",
       "unmet": [],
       "updated": "2026-11-08"
+    },
+    "task:B-23": {
+      "affects": [],
+      "blockedBy": [],
+      "card": "B-23",
+      "children": [],
+      "code": "B-23",
+      "created": "2026-11-09",
+      "deadline": null,
+      "decision": null,
+      "depends": [],
+      "dir": null,
+      "effectiveStatus": "todo",
+      "effort": "S",
+      "feature": "account",
+      "foundOn": "FD-04 Account Frontend Delivery",
+      "frontendOnly": false,
+      "id": "task:B-23",
+      "inherits": {
+        "release": "feature:account"
+      },
+      "kind": "task",
+      "label": "Bug",
+      "labels": [
+        "bug"
+      ],
+      "layer": "business",
+      "module": "identity",
+      "openBugs": [],
+      "parentTask": null,
+      "parents": [
+        "frontend-delivery:account"
+      ],
+      "path": "social-pin/bugs/B-23 A deleted account opened cold lands on Home, not Welcome.md",
+      "pending": [],
+      "priority": "high",
+      "related": [
+        "frontend-delivery:account",
+        "qa-frontend:account",
+        "story:account",
+        "task:B-02",
+        "frontend-requirements:badge-qr",
+        "backend-delivery:account",
+        "backend-integration:account",
+        "frontend-requirements:account",
+        "qa-backend:account",
+        "backend-delivery:auth",
+        "frontend-delivery:auth",
+        "qa-backend:auth",
+        "qa-frontend:auth",
+        "story:counts",
+        "frontend-requirements:ring-projection",
+        "frontend-requirements:linked-accounts",
+        "feature:account",
+        "backend-integration:auth",
+        "backend-delivery:view-as",
+        "frontend-requirements:view-as",
+        "qa-backend:view-as",
+        "frontend-requirements:error-contract",
+        "project:auth-model"
+      ],
+      "release": "mvp",
+      "resolution": null,
+      "rollup": {},
+      "scope": null,
+      "screens": [
+        "s68",
+        "s01",
+        "s11"
+      ],
+      "status": "todo",
+      "summary": "The fix is /frontend's. It sets in-progress when it starts and ready when the fix ships; QA re-runs AC-14 and closes or reopens it.",
+      "tags": [
+        "bug",
+        "bug/todo",
+        "module/identity",
+        "priority/high"
+      ],
+      "task": null,
+      "title": "B-23 A deleted account opened cold lands on Home, not Welcome",
+      "unmet": [],
+      "updated": "2026-11-09"
     }
   },
   "priorities": [
