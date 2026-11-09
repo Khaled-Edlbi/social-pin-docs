@@ -249,6 +249,7 @@
     "project:workflow": "P-20",
     "qa-backend:account": "QB-04",
     "qa-backend:auth": "QB-05",
+    "qa-backend:badge-qr": "QB-16",
     "qa-backend:counts": "QB-07",
     "qa-backend:files": "QB-06",
     "qa-backend:photo-library": "QB-08",

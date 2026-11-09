@@ -264,7 +264,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
       - ✅ [FR-18 Badge & QR Frontend Requirements](social-pin/modules/Discovery/features/Badge%20%26%20QR/flow/FR-18%20Badge%20%26%20QR%20Frontend%20Requirements.md) (Frontend Requirements, Critical)
       - ✅ [BD-18 Badge & QR Backend Delivery](social-pin/modules/Discovery/features/Badge%20%26%20QR/flow/BD-18%20Badge%20%26%20QR%20Backend%20Delivery.md) (Backend Delivery, Critical)
       - 🔵 [BI-15 Badge & QR Backend Integration](social-pin/modules/Discovery/features/Badge%20%26%20QR/flow/BI-15%20Badge%20%26%20QR%20Backend%20Integration.md) (Backend Integration, Critical)
-      - ∅ _Badge & QR QA Backend_ (QA Backend)
+      - 🟢 [QB-16 Badge & QR QA Backend](social-pin/modules/Discovery/features/Badge%20%26%20QR/flow/QB-16%20Badge%20%26%20QR%20QA%20Backend.md) (QA Backend, Critical)
       - ∅ _Badge & QR Frontend Delivery_ (Frontend Delivery)
       - ∅ _Badge & QR QA Frontend_ (QA Frontend, blocked by Badge & QR Frontend Delivery)
     - 🔵 [F-19 Discover Hub & Search](social-pin/modules/Discovery/features/Discover%20Hub%20%26%20Search/F-19%20Discover%20Hub%20%26%20Search.md) (release No release)
