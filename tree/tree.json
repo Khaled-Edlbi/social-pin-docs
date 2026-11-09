@@ -6726,7 +6726,7 @@
     },
     "concepts": 319,
     "decisions": 34,
-    "edges": 7696,
+    "edges": 7698,
     "features": 41,
     "layerNotes": 156,
     "modules": 8,
@@ -61163,6 +61163,11 @@
     {
       "from": "project:database-migrations",
       "kind": "wikilink",
+      "to": "backend-delivery:ring-invitations"
+    },
+    {
+      "from": "project:database-migrations",
+      "kind": "wikilink",
       "to": "decision:D-02"
     },
     {
@@ -61179,6 +61184,11 @@
       "from": "project:database-migrations",
       "kind": "wikilink",
       "to": "decision:D-06"
+    },
+    {
+      "from": "project:database-migrations",
+      "kind": "wikilink",
+      "to": "decision:D-18"
     },
     {
       "from": "project:database-migrations",
