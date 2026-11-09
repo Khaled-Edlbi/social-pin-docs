@@ -3334,12 +3334,14 @@
       "containers": [
         "feature:discover-hub",
         "feature:ring-access",
+        "feature:ring-invitations",
         "feature:view-as",
         "project:frontend-api-guide"
       ],
       "kind": "endpoint",
       "notes": [
         "backend-delivery:ring-access",
+        "backend-delivery:ring-invitations",
         "backend-delivery:view-as",
         "backend-integration:view-as",
         "project:frontend-api-guide",
@@ -48813,7 +48815,8 @@
       "kind": "shares",
       "to": "feature:ring-invitations",
       "via": [
-        "E_AUTH_04"
+        "E_AUTH_04",
+        "GET /views/pin"
       ]
     },
     {
@@ -52460,6 +52463,7 @@
         "E_RING_05",
         "GET /rings",
         "GET /rings/shared-with-me",
+        "GET /views/pin",
         "GET /views/ring/:ringId",
         "PATCH /rings/:id"
       ]
@@ -52830,6 +52834,7 @@
       "via": [
         "E_AUTH_04",
         "GET /rings",
+        "GET /views/pin",
         "GET /views/ring/:ringId"
       ]
     },
@@ -52875,6 +52880,7 @@
         "E_RING_03",
         "GET /rings",
         "GET /rings/shared-with-me",
+        "GET /views/pin",
         "GET /views/ring/:ringId"
       ]
     },
@@ -67919,7 +67925,7 @@
         },
         {
           "person": "pm",
-          "text": "confirm that a Shared with me row opens the oldest Ring joined knowingly before an older placed one (a reading of D-15 next to S-33 S2)",
+          "text": "confirm how a Shared with me row chooses its Ring. Built on backend main d8267d3: the oldest live membership wins, however it was made (D-15 as decided), the same Ring GET /views/pin and View 1 show, so a Ring joined knowingly after an older placed one is not the one the row opens and is not named on it. Before d8267d3 the row preferred the oldest Ring joined knowingly (a reading of D-15 next to S-33 S2). Waits on the PM: confirm, or overrule so a Ring joined knowingly comes first everywhere",
           "to": null
         }
       ],
@@ -67994,7 +68000,7 @@
       "task": null,
       "title": "BD-17 Ring Invitations & Join Backend Delivery",
       "unmet": [],
-      "updated": "2026-11-08"
+      "updated": "2026-11-09"
     },
     "backend-delivery:ring-members": {
       "affects": [],

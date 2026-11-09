@@ -17,6 +17,8 @@ tags: [story, story/approved, module/shared-rings, layer/business]
 
 # Ring Invitations & Join · User Story
 
+> ⚠ Affected by [[BD-17 Ring Invitations & Join Backend Delivery]] (2026-11-09): backend main d8267d3 (D-15): a Shared with me row now opens the Ring the viewer was put in first, however it was made, as GET /views/pin and View 1 do; it no longer prefers a Ring joined knowingly over an older placed one (the 2026-11-08 flag's line no longer holds), so after Join Ring the row stays on the older placed Ring, unnamed. Waits on the PM's confirmation (BD-17 pending)
+
 > ⚠ Affected by [[BD-17 Ring Invitations & Join Backend Delivery]] (2026-11-08): backend main 1c460b0 shipped S1-S3 and S5-S9 (invitations, join codes and the join QR, join requests, Ring names on Shared with me for Rings joined knowingly, joinPolicy / requireApproval / membersCanInvite enforced); the Not available yet lines of those parts and What exists today no longer hold. S10, S11, S12 not built; a Shared with me row now opens the oldest Ring joined knowingly before an older placed one (D-15, to confirm)
 
 **Feature:** [[F-17 Ring Invitations & Join]] · **Status:** Approved (2026-11-08 by Omar Fostok) · **Frontend Requirements:** [[FR-17 Ring Invitations & Join Frontend Requirements]] · **API Integration:** not yet (backend not built)
