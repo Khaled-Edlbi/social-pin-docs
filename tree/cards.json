@@ -255,6 +255,7 @@
     "qa-backend:photo-library": "QB-08",
     "qa-backend:profiles": "QB-10",
     "qa-backend:ring-access": "QB-09",
+    "qa-backend:ring-invitations": "QB-17",
     "qa-backend:ring-members": "QB-11",
     "qa-backend:ring-projection": "QB-13",
     "qa-backend:rings": "QB-12",
