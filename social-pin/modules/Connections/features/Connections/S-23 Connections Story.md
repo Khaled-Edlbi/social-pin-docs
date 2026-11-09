@@ -14,7 +14,7 @@ affects: ["S-16 Ring Members Story", "S-18 Rings Story", "S-19 View As & Pin Vie
 related: ["D-04 Ring settings at launch and their defaults", "D-13 The requester sees a declined request", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-17 Requests expire after 30 days, optional note, ask again at once", "D-18 Ring names shown when joined knowingly", "ND-10 How Connect addresses the scanned person", "ND-23 Mutual connections and events in common", "D-10 Connect sends what the requester already has", "D-23 A count of mutual connections, events where both were visible", "D-24 One pending request per pair", "D-25 A deleted account's connections, requests and blocks end silently", "D-26 A disconnect is not announced", "D-27 Sent keeps declined and expired requests for 30 days", "D-28 Scan someone in is not in the MVP", "D-29 Connection detail opens a member who is not a connection", "Ring Access Model"]
 pending: []
 created: 2026-10-18
-updated: 2026-11-08
+updated: 2026-11-09
 tags: [story, story/approved, module/connections, layer/business]
 ---
 
@@ -69,7 +69,7 @@ Acceptance criteria:
 - [ ] Someone **already connected** with me: the card shows *Connected* instead of *Connect* and sends nothing.
 - [ ] **They already asked me** (a pending request from them): the card shows *Accept* instead of *Connect*, which opens S5 for their request (as PinCast does, [[S-45 PinCast & Nearby Story]]). If both send at the same moment, the server keeps one pending request per pair: the second is refused with the first one's id, and the app opens S5 for it ([[D-24 One pending request per pair]]).
 - [ ] A blocked pair, either way: the request fails with the same 404 as the card (S1); the button returns to *Connect*.
-- [ ] After a **decline** or an **expiry**, the button reads *Declined* or *Expired* with *Connect* again, which sends a **new** request at once; no waiting period.
+- [ ] After a **decline** or an **expiry**, the button reads *Not accepted* or *Request expired* with *Connect* again, which sends a **new** request at once; no waiting period. The two states read **"Not accepted"** (a decline) and **"Request expired"** (30 days unanswered), here and on Sent (S4), never "Declined" (decided by Omar Fostok, 2026-11-09).
 - [ ] Offline: *Connect* says the request couldn't be sent and stays *Connect*; nothing is queued.
 
 ### S3 · See who wants to connect ([[Screen Index#s45|s45]], [[Screen Index#s11|s11]], [[Screen Index#s69|s69]])
@@ -91,11 +91,11 @@ Acceptance criteria:
 **As a** requester **I want** to see my requests and take one back **so that** I know where I stand.
 
 Acceptance criteria:
-- [ ] `GET /connections/requests?direction=sent` lists my requests with their **status**: *Pending*, *Declined* or *Expired* ([[D-13 The requester sees a declined request]]). Accepted and cancelled ones leave the list. Not available yet.
-- [ ] *Declined* and *Expired* each offer *Connect* again (a new request, S2).
+- [ ] `GET /connections/requests?direction=sent` lists my requests with their **status**: *Pending*, *Not accepted* or *Request expired* ([[D-13 The requester sees a declined request]]). Accepted and cancelled ones leave the list. Not available yet.
+- [ ] *Not accepted* and *Request expired* each offer *Connect* again (a new request, S2).
 - [ ] *Cancel* on a pending one (`DELETE /connections/requests/:id`) removes it at once, from my list and from their inbox.
 - [ ] Cancelling one that was answered or expired a moment ago refreshes the list instead of failing.
-- [ ] *Declined* and *Expired* rows stay for **30 days** after they ended, then leave; no reminder before a request expires ([[D-27 Sent keeps declined and expired requests for 30 days]]).
+- [ ] *Not accepted* and *Request expired* rows stay for **30 days** after they ended, then leave; no reminder before a request expires ([[D-27 Sent keeps declined and expired requests for 30 days]]).
 - [ ] The tab reads "Sent · N". Empty: "You haven't asked anyone yet."
 - [ ] A **block** never shows here as a decline: the request reads as *Pending* until it expires, or disappears; it never says "blocked" (S13).
 
@@ -158,7 +158,7 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] Header: the person (name, Pin name, initials), "Connected 4 Nov" and how we met when known.
-- [ ] **IN RING · VISIBLE TO YOU ONLY**: every Ring of mine as a **checklist** ([[S-16 Ring Members Story|Ring Members · S5]]). Ticked = they're in it, each with its window ("Until removed ›", "Until 12 Nov ›", "Lapsed 12 Nov ›"). Tick adds (`POST /rings/:ringId/members`), untick removes (`DELETE …/members/:userId`), a window opens `PATCH …/members/:userId` (all exist). A move is add, then remove, so they're never in none by accident. Not available yet: one call that says which of my Rings a person is in (today it would be one roster call per Ring).
+- [ ] **IN RING · VISIBLE TO YOU ONLY**: my **live** Rings only as a **checklist**; a Ring that has ended or not started yet is not listed (decided by Omar Fostok, 2026-11-09) ([[S-16 Ring Members Story|Ring Members · S5]]). Ticked = they're in it, each with its window ("Until removed ›", "Until 12 Nov ›", "Lapsed 12 Nov ›"). Tick adds (`POST /rings/:ringId/members`), untick removes (`DELETE …/members/:userId`), a window opens `PATCH …/members/:userId` (all exist). A move is add, then remove, so they're never in none by accident. Not available yet: one call that says which of my Rings a person is in (today it would be one roster call per Ring).
 - [ ] The copy after a change: "What they see just changed." Motion: the chip moves; reduced motion fades.
 - [ ] **WHAT THEY CAN SEE**: the fields of the **first** Ring they're in (D-15), the same rule the server uses, not the union of all their Rings. In no Ring: "Nothing: they're a connection without access."
 - [ ] **What they share with me**: their card through `GET /views/user/:userId/perspectives` (exists); several perspectives are "View 1 / View 2", never Ring names ([[S-19 View As & Pin Views Story|View As · S5]]). Empty: "Nothing shared with you right now."
@@ -193,7 +193,7 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] **New Ring, step 2** (s19): search my connections (S8's list), picked ones as chips; filters **All** and **No Ring yet** (connections in none of my Rings); each pick is a `POST /rings/:ringId/members` after the Ring is created; skippable ([[S-18 Rings Story|Rings · S4]]). Today the step says connections come later.
-- [ ] **A Ring's People tab** (s15): members by name, Pin name and photo, in one request for the whole roster (the members route gives `userId` only today, [[S-16 Ring Members Story|Ring Members · S1]]); a row opens Connection detail (S9). *Move from a Ring* is the reassign route (exists). *Scan someone in* is shown disabled, "Not available yet": not in the MVP ([[D-28 Scan someone in is not in the MVP]]).
+- [ ] **A Ring's People tab** (s15): members by name, Pin name and photo, in one request for the whole roster (the members route gives `userId` only today, [[S-16 Ring Members Story|Ring Members · S1]]); a row opens Connection detail (S9). *Move from a Ring* is the reassign route (exists). *Scan someone in* is **not shown** on the People tab: not in the MVP ([[D-28 Scan someone in is not in the MVP]]); hidden rather than disabled (decided by Omar Fostok, 2026-11-09).
 - [ ] The People tab's **Waiting on you** shows join requests to that Ring only (invitations and codes, [[S-16 Ring Members Story|Ring Members · S9]]), **not** connection requests: a connection request has no Ring until I choose one (S5).
 
 ### S13 · Block and unblock ([[Screen Index#s44|s44]], [[Screen Index#s47|s47]], [[Screen Index#s68|s68]])
@@ -235,8 +235,8 @@ Acceptance criteria:
 
 ## States and motion the design asks for
 
-- **s44:** resolved card; *Connect* → *Sending…* → *Requested*; *Declined* / *Expired* + *Connect* again; *Connected*; *Accept* (they asked me); not available (neutral 404); my own card (preview, no *Connect*).
-- **s45:** Incoming · N / Sent · N; a row with where from and the note; Sent rows with *Pending*, *Declined*, *Expired*; empty per tab; a row leaving after an answer; *Undo* after a decline.
+- **s44:** resolved card; *Connect* → *Sending…* → *Requested*; *Not accepted* / *Request expired* + *Connect* again; *Connected*; *Accept* (they asked me); not available (neutral 404); my own card (preview, no *Connect*).
+- **s45:** Incoming · N / Sent · N; a row with where from and the note; Sent rows with *Pending*, *Not accepted*, *Request expired*; empty per tab; a row leaving after an answer; *Undo* after a decline.
 - **s46:** the Ring list with one picked; the note; the window; *Adding…*; the card sliding into the Ring; the four errors of S5.
 - **s47:** loading; the checklist with windows; the last-Ring choice; "What they see just changed"; what they share with me; *No access*.
 - **Contacts:** list, search with no results, empty, *No access* marker.
@@ -250,8 +250,8 @@ Acceptance criteria:
 |---|---|---|
 | s44, s42 | *Connect* opens s46, the **receiver's** accept sheet | *Connect* sends a request on the spot and turns into *Requested* (S2) |
 | s44 | No note field | A note, up to 200 characters, with a counter (D-17) |
-| s44 | Only the resolved card | *Requested*, *Declined*, *Expired*, *Connected*, *Accept*, not available, my own card |
-| s45 | *Sent · 5* goes nowhere; no note; no *Undo* | A Sent list with *Pending* / *Declined* / *Expired*, *Cancel*, *Connect* again (D-13, D-17); the note on incoming rows |
+| s44 | Only the resolved card | *Requested*, *Not accepted*, *Request expired*, *Connected*, *Accept*, not available, my own card |
+| s45 | *Sent · 5* goes nowhere; no note; no *Undo* | A Sent list with *Pending* / *Not accepted* / *Request expired*, *Cancel*, *Connect* again (D-13, D-17); the note on incoming rows |
 | s46 | A full screen | The brief asks for a bottom sheet; either is fine, but one is needed. Plus the note, the window, *Decline* |
 | s47 | Only *Revoke access* | The checklist, windows, *Remove from Rings* / *Disconnect* (D-15), *Block* in ⋯ |
 | s47 | "2 events in common", "4 mutual connections · Omar, Lina…" | A count, no names; events hidden until Events ship (D-23) |
@@ -340,3 +340,5 @@ Shipped since the rewrite: **Shared with me as people** (D-14), backend `main` @
 - 2026-11-04 · flagged [[FR-14 Connections Frontend Requirements]]: S-23's open questions are decided (D-24 to D-29): one pending request per pair, a crossing request answers 409 with the other request's id (D-24); a deleted account's connections, requests and blocks end silently (D-25); a disconnect is not announced (D-26); Sent keeps declined and expired rows 30 days, no reminder (D-27); Scan someone in stays disabled, not in the MVP (D-28); s47 opens a member who isn't a connection, connectedAt null, no Disconnect (D-29). Move these rows out of Blocked by.
 - 2026-11-04 · flagged [[BD-14 Connections Backend Delivery]]: S-23's open questions are decided (D-24 to D-29): one pending request per pair, a crossing request answers 409 with the other request's id (D-24); account deletion ends connections, requests and blocks silently (D-25); DELETE /connections/:userId sends no notification (D-26); the Sent list drops declined and expired requests 30 days after they ended (D-27); no POST /rings/:ringId/members { qrToken } in the MVP (D-28); GET /connections/:userId answers a member who isn't a connection with connectedAt null (D-29).
 - 2026-11-08 · flagged [[FR-14 Connections Frontend Requirements]]: S-23 updated for backend main 12172c6: GET /rings/shared-with-me returns people (S7), the card opening from the row's ringId; photos are avatarUrl, a signed link (D-16), never avatarFileId: the request, contact and blocked rows should ask for avatarUrl; /views/pin and the perspectives still put the default Ring first
+- 2026-11-09 · `tickets/pm/M-02-connections/F-14-connections/S-23-request-states-and-rings` · decided by Omar Fostok: the request states read "Not accepted" and "Request expired" (S2, S4, states, design table); Connection detail lists my live Rings only (S9); *Scan someone in* is not shown on the People tab, hidden rather than disabled (S12, D-28). The story stays approved
+- 2026-11-09 · flagged [[D-28 Scan someone in is not in the MVP]]: Scan someone in is now hidden on the People tab, not shown disabled
