@@ -969,6 +969,7 @@
         "backend-delivery:account",
         "backend-delivery:connections",
         "backend-integration:account",
+        "backend-integration:connections",
         "frontend-delivery:account",
         "frontend-requirements:account",
         "qa-backend:account",
@@ -1308,6 +1309,7 @@
         "backend-delivery:badge-qr",
         "backend-delivery:connections",
         "backend-integration:badge-qr",
+        "backend-integration:connections",
         "frontend-delivery:connections",
         "frontend-requirements:badge-qr",
         "project:frontend-api-guide"
@@ -3620,6 +3622,7 @@
         "backend-delivery:connections",
         "backend-delivery:view-as",
         "backend-integration:badge-qr",
+        "backend-integration:connections",
         "backend-integration:view-as",
         "decision:D-12",
         "frontend-requirements:badge-qr",
@@ -6880,7 +6883,7 @@
     },
     "concepts": 325,
     "decisions": 34,
-    "edges": 8063,
+    "edges": 8072,
     "features": 41,
     "layerNotes": 157,
     "modules": 8,
@@ -11828,6 +11831,8 @@
         "DELETE /blocks/:id",
         "DELETE /connections/:userId",
         "DELETE /connections/requests/:id",
+        "DELETE /users/me",
+        "E_BADGE_01",
         "E_BLOCK_01",
         "E_BLOCK_02",
         "E_CONNECTION_01",
@@ -11841,6 +11846,7 @@
         "GET /connections/relationship",
         "GET /connections/requests",
         "GET /views/pin/:pinName",
+        "GET /views/qr/:token",
         "POST /blocks",
         "POST /connections/requests",
         "POST /connections/requests/:id/accept",
@@ -17576,10 +17582,20 @@
     {
       "from": "backend-integration:connections",
       "kind": "related",
+      "to": "backend-delivery:account",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
       "to": "backend-delivery:badge-qr",
       "via": [
+        "E_BADGE_01",
         "E_RING_02",
         "GET /views/pin/:pinName",
+        "GET /views/qr/:token",
         "POST /connections/requests"
       ]
     },
@@ -17660,7 +17676,16 @@
       "kind": "related",
       "to": "backend-delivery:view-as",
       "via": [
-        "GET /views/pin/:pinName"
+        "GET /views/pin/:pinName",
+        "GET /views/qr/:token"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "backend-integration:account",
+      "via": [
+        "DELETE /users/me"
       ]
     },
     {
@@ -17668,9 +17693,11 @@
       "kind": "related",
       "to": "backend-integration:badge-qr",
       "via": [
+        "E_BADGE_01",
         "E_RING_02",
         "GET /rings",
         "GET /views/pin/:pinName",
+        "GET /views/qr/:token",
         "POST /connections/requests"
       ]
     },
@@ -17751,6 +17778,7 @@
       "via": [
         "GET /rings/shared-with-me",
         "GET /views/pin/:pinName",
+        "GET /views/qr/:token",
         "GET /views/user/:userId/perspectives"
       ]
     },
@@ -17761,6 +17789,14 @@
       "via": [
         "GET /views/pin/:pinName",
         "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "decision:D-12",
+      "via": [
+        "GET /views/qr/:token"
       ]
     },
     {
@@ -17813,6 +17849,11 @@
     {
       "from": "backend-integration:connections",
       "kind": "related",
+      "to": "decision:D-25"
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
       "to": "decision:D-26",
       "via": [
         "DELETE /connections/:userId"
@@ -17834,6 +17875,14 @@
     {
       "from": "backend-integration:connections",
       "kind": "related",
+      "to": "frontend-delivery:account",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
       "to": "frontend-delivery:auth",
       "via": [
         "GET /rings"
@@ -17847,6 +17896,7 @@
         "DELETE /blocks/:id",
         "DELETE /connections/:userId",
         "DELETE /connections/requests/:id",
+        "E_BADGE_01",
         "GET /blocks",
         "GET /connections/:userId",
         "GET /connections/count",
@@ -17901,6 +17951,7 @@
       "kind": "related",
       "to": "frontend-requirements:account",
       "via": [
+        "DELETE /users/me",
         "GET /rings"
       ]
     },
@@ -17925,9 +17976,11 @@
       "kind": "related",
       "to": "frontend-requirements:badge-qr",
       "via": [
+        "E_BADGE_01",
         "E_RING_02",
         "GET /rings",
         "GET /views/pin/:pinName",
+        "GET /views/qr/:token",
         "POST /connections/requests"
       ]
     },
@@ -17973,6 +18026,7 @@
         "GET /rings/:ringId/projection",
         "GET /rings/shared-with-me",
         "GET /views/pin/:pinName",
+        "GET /views/qr/:token",
         "GET /views/user/:userId/perspectives",
         "PATCH /rings/:ringId/members/:userId",
         "POST /connections/requests",
@@ -18153,6 +18207,7 @@
       "via": [
         "GET /rings",
         "GET /views/pin/:pinName",
+        "GET /views/qr/:token",
         "GET /views/user/:userId/perspectives"
       ]
     },
@@ -18251,9 +18306,11 @@
       "kind": "related",
       "to": "project:frontend-api-guide",
       "via": [
+        "E_BADGE_01",
         "E_RING_02",
         "GET /rings",
-        "GET /views/pin/:pinName"
+        "GET /views/pin/:pinName",
+        "GET /views/qr/:token"
       ]
     },
     {
@@ -18268,9 +18325,18 @@
     {
       "from": "backend-integration:connections",
       "kind": "related",
+      "to": "project:ring-access-model",
+      "via": [
+        "GET /views/qr/:token"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
       "to": "project:spec-map",
       "via": [
         "GET /rings",
+        "GET /views/qr/:token",
         "POST /rings/:ringId/members"
       ]
     },
@@ -18288,6 +18354,7 @@
       "kind": "related",
       "to": "qa-backend:account",
       "via": [
+        "DELETE /users/me",
         "GET /rings"
       ]
     },
@@ -18307,6 +18374,7 @@
         "DELETE /connections/:userId",
         "DELETE /connections/requests/:id",
         "DELETE /rings/:ringId/members/:userId",
+        "DELETE /users/me",
         "E_RING_02",
         "GET /connections",
         "GET /connections/count",
@@ -18370,6 +18438,7 @@
       "to": "qa-backend:ring-members",
       "via": [
         "DELETE /rings/:ringId/members/:userId",
+        "DELETE /users/me",
         "E_RING_02",
         "E_RING_05",
         "GET /views/pin/:pinName",
@@ -18410,9 +18479,25 @@
     {
       "from": "backend-integration:connections",
       "kind": "related",
+      "to": "qa-frontend:account",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
       "to": "qa-frontend:auth",
       "via": [
         "GET /rings"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "story:account",
+      "via": [
+        "DELETE /users/me"
       ]
     },
     {
@@ -18429,7 +18514,8 @@
       "to": "story:badge-qr",
       "via": [
         "E_RING_02",
-        "GET /views/pin/:pinName"
+        "GET /views/pin/:pinName",
+        "GET /views/qr/:token"
       ]
     },
     {
@@ -18451,6 +18537,7 @@
         "GET /blocks",
         "GET /rings",
         "GET /views/pin/:pinName",
+        "GET /views/qr/:token",
         "POST /connections/requests",
         "POST /rings/:ringId/members"
       ]
@@ -18526,6 +18613,7 @@
       "kind": "related",
       "to": "task:B-02",
       "via": [
+        "DELETE /users/me",
         "GET /rings"
       ]
     },
@@ -46138,6 +46226,14 @@
     {
       "from": "task:B-26",
       "kind": "related",
+      "to": "backend-integration:connections",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "task:B-26",
+      "kind": "related",
       "to": "frontend-delivery:account",
       "via": [
         "DELETE /users/me"
@@ -68578,6 +68674,7 @@
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "task:B-01",
         "decision:D-20",
         "story:code-delivery",
@@ -71951,6 +72048,7 @@
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "backend-delivery:account",
         "task:B-02",
         "decision:D-20",
@@ -72548,6 +72646,7 @@
         "task:B-10",
         "task:B-13",
         "task:B-17",
+        "task:B-26",
         "backend-delivery:connections",
         "story:connections",
         "decision:D-10",
@@ -72561,26 +72660,42 @@
         "decision:D-26",
         "decision:D-27",
         "decision:D-29",
+        "decision:D-12",
+        "decision:D-25",
         "backend-integration:ring-members",
         "backend-integration:view-as",
+        "backend-integration:badge-qr",
         "project:frontend-contract",
-        "needs-decision:ND-10",
-        "needs-decision:ND-24",
-        "frontend-delivery:connections",
         "frontend-requirements:connections",
         "backend-delivery:badge-qr",
-        "backend-integration:badge-qr",
         "frontend-requirements:badge-qr",
+        "story:badge-qr",
+        "backend-delivery:view-as",
+        "frontend-requirements:view-as",
+        "project:ring-access-model",
+        "project:spec-map",
+        "project:frontend-api-guide",
+        "task:B-02",
+        "backend-delivery:account",
+        "backend-integration:account",
+        "frontend-delivery:account",
+        "frontend-requirements:account",
+        "qa-backend:account",
+        "qa-frontend:account",
+        "story:account",
+        "qa-backend:counts",
+        "qa-backend:ring-members",
+        "frontend-delivery:connections",
+        "needs-decision:ND-10",
+        "needs-decision:ND-24",
         "backend-delivery:counts",
         "backend-integration:counts",
         "frontend-requirements:counts",
-        "qa-backend:counts",
         "backend-delivery:ring-members",
         "frontend-delivery:ring-members",
         "frontend-requirements:ring-members",
         "needs-decision:ND-29",
         "needs-decision:ND-22",
-        "story:badge-qr",
         "frontend-requirements:discover-hub",
         "story:discover-hub",
         "qa-backend:files",
@@ -72588,23 +72703,16 @@
         "frontend-delivery:ring-access",
         "frontend-requirements:ring-access",
         "qa-backend:ring-access",
-        "qa-backend:ring-members",
-        "backend-delivery:view-as",
-        "frontend-requirements:view-as",
         "qa-backend:view-as",
         "story:view-as",
         "frontend-requirements:e2e-tests",
         "project:status-report-2026-10-15",
-        "project:frontend-api-guide",
-        "task:B-02",
         "frontend-requirements:pincast",
         "frontend-requirements:event-ring-auto",
         "story:event-ring-auto",
         "frontend-requirements:events-before",
         "frontend-requirements:post-event",
         "story:post-event",
-        "frontend-requirements:account",
-        "qa-backend:account",
         "frontend-delivery:auth",
         "frontend-requirements:auth",
         "qa-backend:auth",
@@ -72626,7 +72734,6 @@
         "frontend-requirements:companies",
         "story:delegated-admins",
         "frontend-requirements:ring-invitations",
-        "project:spec-map",
         "needs-decision:ND-14",
         "needs-decision:ND-15",
         "task:B-15",
@@ -72668,7 +72775,7 @@
         "s68"
       ],
       "status": "current",
-      "summary": "Written by the backend team for the frontend: how to call what was delivered. It matches backend main 1c460b0 (F-14 merged as 25fcc8c, with F-18 and F-17 on either side). Every route is under…",
+      "summary": "Written by the backend team for the frontend: how to call what was delivered. It matches backend main ebdca36 (local, not pushed yet): F-14 merged as 25fcc8c in 1c460b0, with F-18 and F-17 on…",
       "tags": [
         "backend-integration",
         "backend-integration/current",
@@ -72678,7 +72785,7 @@
       "task": null,
       "title": "BI-16 Connections Backend Integration",
       "unmet": [],
-      "updated": "2026-11-08"
+      "updated": "2026-11-09"
     },
     "backend-integration:counts": {
       "affects": [
@@ -75616,6 +75723,7 @@
         "decision:D-35",
         "feature:subscription",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "backend-delivery:badge-qr",
         "backend-integration:badge-qr",
         "frontend-requirements:badge-qr",
@@ -76542,6 +76650,7 @@
         "feature:connections",
         "feature:account",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "frontend-requirements:connections",
         "story:connections"
       ],
@@ -80773,6 +80882,7 @@
         "needs-decision:ND-20",
         "decision:D-20",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "backend-delivery:account",
         "backend-integration:account",
         "frontend-requirements:account",
@@ -91998,6 +92108,7 @@
         "feature:ring-invitations",
         "decision:D-04",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "story:connections",
         "backend-delivery:badge-qr",
         "backend-integration:badge-qr",
@@ -95456,6 +95567,7 @@
         "task:B-26",
         "task:B-27",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "backend-delivery:account",
         "backend-integration:account",
         "story:account",
@@ -97690,6 +97802,7 @@
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "backend-delivery:account",
         "backend-integration:account",
         "qa-frontend:account",
@@ -103039,6 +103152,7 @@
         "story:account",
         "task:B-02",
         "backend-delivery:connections",
+        "backend-integration:connections",
         "backend-delivery:account",
         "backend-integration:account",
         "frontend-requirements:account",
