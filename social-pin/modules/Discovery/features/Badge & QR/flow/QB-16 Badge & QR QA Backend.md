@@ -12,13 +12,13 @@ related: ["FR-18 Badge & QR Frontend Requirements", "BI-09 View As & Pin Views B
 pending: []
 unmet: []
 created: 2026-11-09
-updated: 2026-11-09
+updated: 2026-11-10
 tags: [qa-backend, qa-backend/passing, module/discovery, layer/qa]
 ---
 
 # 🧪 Badge & QR · QA Backend
 
-**Feature:** [[F-18 Badge & QR]] · **Verifies:** [[BD-18 Badge & QR Backend Delivery]] against [[S-37 Badge & QR Story]] and [[FR-18 Badge & QR Frontend Requirements]], with the shapes and errors of [[BI-15 Badge & QR Backend Integration]] · **Verdict:** ✅ Passing · 2026-11-09 · `main @ ebdca36 (local, not pushed) · localhost:3115, Node 22.22.2`
+**Feature:** [[F-18 Badge & QR]] · **Verifies:** [[BD-18 Badge & QR Backend Delivery]] against [[S-37 Badge & QR Story]] and [[FR-18 Badge & QR Frontend Requirements]], with the shapes and errors of [[BI-15 Badge & QR Backend Integration]] · **Verdict:** ✅ Passing · re-run 2026-11-10 · `main @ 3024dcc · localhost:3100, Node 22.22.2` (first run 2026-11-09 on `ebdca36`)
 
 Expected behaviour of the API, as artefacts a person can check a build against: tables and diagrams, **not test code** (the specs live in the backend repo). `status: passing` or `failing` after a run; the verdict tells the PM whether the story can be fulfilled (passing with nothing pending or unmet). A failing row is one of two things: a story part the delivery does not fulfil (not built, or built other than the story says) goes in `unmet` and turns the story's badge ✕; a bug (built as asked, but it breaks) is filed against the Backend Integration and goes in `pending`, and leaves the story alone.
 
@@ -157,7 +157,10 @@ What the routes answer on this build. The `ErrorCode` column is what [[BI-15 Bad
 
 ## Verdict
 
-- **Run on:** 2026-11-09 · **build:** `main @ ebdca36 (local, not pushed) · localhost:3115, Node 22.22.2`, throwaway database `social_pin_qa_bi15`, dropped · **result:** ✅ **passing** · 38 of 38 rows as expected, none unrun · **story parts unmet:** none · **bugs:** none. Unit tests on the same commit: 1026 of 1026 green, `tsc --noEmit` clean.
+- **Re-run on:** 2026-11-10 · **build:** `main @ 3024dcc · localhost:3100, Node 22.22.2` (pushed; `ebdca36` plus the merge of `FR-17/ring-invitation/picked-ring-and-roster`, which adds the migration `20261109120000_ring_member_shown_ring` and leaves `src/modules/badge` untouched), throwaway database `social_pin_qa_bi15`, recreated for the run and dropped · **result:** ✅ **passing** · B1–B38 run again, 38 of 38 as expected, none unrun · **story parts unmet:** none · **bugs:** none. Unit tests on the same commit: 1071 of 1071 green (47 suites), `tsc --noEmit` clean once the Prisma client was regenerated for the new migration.
+- On the re-run: the refusals of B21 and B33 answered in 303–318 ms and 306–312 ms (B22), the 429 in 2–3 ms (B28). The two block cases of B21 were made by Pin name between Sara and Omar, who is a seeded member of one of her Rings, so the card was shared and the block was written (201); both directions answered the one 404, and the same code opened again after the unblock. B38 as before: the deleted account's card still opened, and its Connect and Block 404 came back in 5–6 ms.
+- Seen on the re-run, outside the rows, nothing that differs from [[BI-15 Badge & QR Backend Integration]]: a Ring id that is not a UUID answers 400 "Validation failed (uuid is expected)" on the three owner routes, which BI-15's error table does not list; the card's only id is `links[].id`, each link's own id, as on `GET /views/ring/:ringId`.
+- **First run on:** 2026-11-09 · **build:** `main @ ebdca36 (local, not pushed) · localhost:3115, Node 22.22.2`, throwaway database `social_pin_qa_bi15`, dropped · **result:** ✅ **passing** · 38 of 38 rows as expected, none unrun · **story parts unmet:** none · **bugs:** none. Unit tests on the same commit: 1026 of 1026 green, `tsc --noEmit` clean.
 - The first pass showed B21 and B22 differing for the two block cases; the cause was the run's own setup (the blocks were attempted by Pin name, refused, and never existed). Made from scanned codes and checked in `user_blocks`, both cases answered the one 404 at 304–305 ms.
 - **[[S-37 Badge & QR Story]] (S-37) is not ready to fulfil:** its backend side is clear, but there is no QA Frontend note yet for S1, S3, S5–S9 and S12.
 
@@ -165,3 +168,4 @@ What the routes answer on this build. The `ErrorCode` column is what [[BI-15 Bad
 
 - 2026-11-09 · `docs/qa/M-04-discovery/F-18-badge-qr/QB-16-passing` · first run, on backend `main @ ebdca36` (local, not pushed), localhost:3115, Node 22.22.2: 38 of 38 as expected; written `passing`. The "no QA Backend card yet" gap of [[BD-18 Badge & QR Backend Delivery]] flagged as answered.
 - 2026-11-09 · flagged [[BD-18 Badge & QR Backend Delivery]]: QB-16 Badge & QR QA Backend is written: passing, 38 of 38, on backend main ebdca36 (2026-11-09); the Gaps line 'No QA Backend card yet' can go
+- 2026-11-10 · `docs/qa/M-04-discovery/F-18-badge-qr/QB-16-rerun-3024dcc` (stacked on `QB-16-passing`) · re-run on backend `main @ 3024dcc`, localhost:3100, Node 22.22.2: B1–B38, 38 of 38 as expected; stays `passing`. Unit tests 1071 of 1071.
