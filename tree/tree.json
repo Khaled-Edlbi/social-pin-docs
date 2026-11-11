@@ -7220,7 +7220,7 @@
     },
     "concepts": 335,
     "decisions": 34,
-    "edges": 8732,
+    "edges": 8733,
     "features": 40,
     "layerNotes": 162,
     "modules": 8,
@@ -27275,6 +27275,11 @@
       "from": "frontend-delivery:ring-members",
       "kind": "related",
       "to": "decision:D-34"
+    },
+    {
+      "from": "frontend-delivery:ring-members",
+      "kind": "related",
+      "to": "feature:ring-invitations"
     },
     {
       "from": "frontend-delivery:ring-members",
@@ -87018,6 +87023,7 @@
         "decision:D-34",
         "decision:D-35",
         "decision:D-36",
+        "frontend-delivery:ring-members",
         "frontend-delivery:rings"
       ],
       "release": "mvp",
@@ -89970,6 +89976,8 @@
         "frontend-delivery:connections",
         "frontend-delivery:rings",
         "frontend-delivery:counts",
+        "frontend-delivery:ring-invitations",
+        "feature:ring-invitations",
         "decision:D-15",
         "decision:D-18",
         "decision:D-26",
@@ -89994,7 +90002,6 @@
         "frontend-requirements:rings",
         "project:spec-map",
         "backend-delivery:ring-invitations",
-        "frontend-delivery:ring-invitations",
         "frontend-requirements:ring-invitations",
         "project:frontend-api-guide",
         "needs-decision:ND-29",
@@ -90049,7 +90056,7 @@
       "task": null,
       "title": "FD-14 Ring Members Frontend Delivery",
       "unmet": [],
-      "updated": "2026-11-09"
+      "updated": "2026-11-11"
     },
     "frontend-delivery:ring-projection": {
       "affects": [],
