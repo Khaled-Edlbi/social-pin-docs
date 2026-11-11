@@ -11,7 +11,7 @@ approvedAt: 2026-11-08
 owner: "Omar Fostok"
 related: ["D-10 Connect sends what the requester already has", "D-11 The badge code stays the same for its day", "D-12 The badge QR is a socialpin.me link", "D-22 The public page only says the Pin exists", "D-28 Scan someone in is not in the MVP", "D-35 A join code can be shown as a QR", "ND-10 How Connect addresses the scanned person", "ND-11 Get or rotate the badge token", "ND-12 What the badge QR encodes", "S-19 View As & Pin Views Story", "S-23 Connections Story", "S-33 Ring Invitations & Join Story", "S-53 Events During Story", "S-71 Subscription (Free vs Pro) Story", "S-82 Devices & NFC Story", "BI-09 View As & Pin Views Backend Integration", "F-12 View As & Pin Views", "F-28 Subscription (Free vs Pro)"]
 created: 2026-10-18
-updated: 2026-11-09
+updated: 2026-11-11
 tags: [story, story/approved, module/discovery, layer/business]
 ---
 
@@ -191,6 +191,7 @@ Acceptance criteria:
 | s44 | *Save for later* with no limit | Connect from a saved scan until its code expires (S8) |
 | s44 | *Save for later* goes back Home | Stays on the card, "Saved for later", the button turns into *Remove from saved* (S8) |
 | s44 | *Save contact* always shown | Next to *Save for later*, only when the card shares a phone number; the phone's own new-contact screen (S8) |
+| s43 | "Checking which Ring they belong in" (design Nov 2026) | "Checking who this is": a scan never places anyone in a Ring (S6, D-28); kept by Omar Fostok 2026-11-11, the design follows |
 
 ## What the backend has to build
 
@@ -236,3 +237,4 @@ Left, none blocking:
 - 2026-11-09 · flagged [[FR-18 Badge & QR Frontend Requirements]]: S8 Save for later stays on the card, "Saved for later", then "Remove from saved"; no return to Home
 - 2026-11-09 · `tickets/pm/M-04-discovery/F-18-badge-qr/S-37-save-contact` · S8 Save contact added next to Save for later, only when the card shares a phone number, opening the phone's own new-contact screen with only what the card shows; decided by Omar Fostok, the story stays approved
 - 2026-11-09 · flagged [[FR-18 Badge & QR Frontend Requirements]]: S8 Save contact next to Save for later, only when the card shares a phone number, the phone's own new-contact screen with only what the card shows
+- 2026-11-11 · `tickets/pm/M-04-discovery/F-18-badge-qr/S-37-design-nov-2026` · the Nov 2026 design's s43 line "Checking which Ring they belong in" is refused, decided by Omar Fostok: S6 keeps "Checking who this is" (D-28); a design-disagrees row added. The story stays approved
