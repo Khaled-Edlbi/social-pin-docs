@@ -7220,7 +7220,7 @@
     },
     "concepts": 335,
     "decisions": 34,
-    "edges": 8732,
+    "edges": 8733,
     "features": 40,
     "layerNotes": 162,
     "modules": 8,
@@ -27777,6 +27777,11 @@
       "from": "frontend-delivery:rings",
       "kind": "related",
       "to": "decision:D-18"
+    },
+    {
+      "from": "frontend-delivery:rings",
+      "kind": "related",
+      "to": "decision:D-28"
     },
     {
       "from": "frontend-delivery:rings",
@@ -83681,7 +83686,8 @@
         "qa-backend:badge-qr",
         "story:badge-qr",
         "frontend-delivery:ring-members",
-        "frontend-requirements:ring-members"
+        "frontend-requirements:ring-members",
+        "frontend-delivery:rings"
       ],
       "release": null,
       "resolution": null,
@@ -90221,6 +90227,7 @@
         "decision:D-04",
         "decision:D-14",
         "decision:D-18",
+        "decision:D-28",
         "frontend-delivery:counts",
         "frontend-delivery:ring-projection",
         "feature:ring-invitations",
@@ -90267,7 +90274,7 @@
       "task": null,
       "title": "FD-12 Rings Frontend Delivery",
       "unmet": [],
-      "updated": "2026-11-09"
+      "updated": "2026-11-11"
     },
     "frontend-delivery:subscription": {
       "affects": [],
