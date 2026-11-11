@@ -16,7 +16,9 @@ tags: [backend-delivery, backend-delivery/done, module/discovery, layer/backend]
 
 # ✅ Badge & QR · Backend Delivery
 
-**Feature:** [[F-18 Badge & QR]] · **Status:** Done · **Integration guide:** [[BI-15 Badge & QR Backend Integration]] · **Requirements:** [[FR-18 Badge & QR Frontend Requirements]] · **QA:** [[Badge & QR QA Backend]]
+> ⚠ Affected by [[QB-16 Badge & QR QA Backend]] (2026-11-09): QB-16 Badge & QR QA Backend is written: passing, 38 of 38, on backend main ebdca36 (2026-11-09); the Gaps line 'No QA Backend card yet' can go
+
+**Feature:** [[F-18 Badge & QR]] · **Status:** Done · **Integration guide:** [[BI-15 Badge & QR Backend Integration]] · **Requirements:** [[FR-18 Badge & QR Frontend Requirements]] · **QA:** [[QB-16 Badge & QR QA Backend]]
 
 What the backend shipped for this feature and how it works. **On backend `main` since `1c460b0`** (2026-11-08): the code branch `FR-18/badge/qr-token-issue-resolve` (`a566a2e`) merged first, then F-14 and F-17; 981 unit tests green on the combination. Since 2026-11-09 (local `main` `ebdca36`, not pushed yet): `BadgeService.resolvePresenter` and `BadgeRateLimitService.assertWithinLimit`, which Connect, Block and the relationship by scanned code call ([[BD-14 Connections Backend Delivery]]).
 
@@ -69,7 +71,7 @@ On backend `main` (`1c460b0`):
 
 - **A deleted or suspended account's badge still opens their card.** `GET /views/qr/:token` does not read the badge owner's account status: `assertRingPresented` checks the Ring (`ringLiveFilter`: status, `deletedAt`, window) and blocks, never the owner's `users` row, and `DELETE /users/me` ([[BD-01 Account Backend Delivery]]) neither revokes the codes nor ends the Rings. So a code issued before the deletion resolves for the rest of its 24 h. Connect, Block and the relationship by that code do refuse it (BD-14 checks the owner after `resolvePresenter`), but that one 404 comes after the lookup, so it is neither floored nor counted against the limit. Not decided: an owner check inside the resolve, or the deletion revoking the account's codes.
 - **Scan someone in** is not built, by decision: not in the MVP ([[D-28 Scan someone in is not in the MVP|D-28]]); a scan never adds anyone to a Ring.
-- **No QA Backend card yet** ([[Badge & QR QA Backend]] is not written): QA writes it.
+- **No QA Backend card yet** ([[QB-16 Badge & QR QA Backend]] is not written): QA writes it.
 - The 429 limit is kept in the process's memory: behind several instances each counts alone.
 - A deleted Ring's codes are not revoked on delete (`RingService.remove` is F-11's); they are refused because the engine requires a live Ring. The same holds for an ended Ring.
 - The 429 carries no `Retry-After`; the window is one minute.

@@ -3,14 +3,14 @@ id: M-08
 type: module
 module: platform
 created: 2026-10-18
-updated: 2026-10-29
+updated: 2026-11-11
 tags: [module, module/platform]
 ---
 
 # Platform & Cross-cutting · Module
 
 Notifications, Gemma, devices, interests, code delivery, errors, jobs, tests,
-the operator panel, the build and deploy pipeline.
+the operator panel. DevOps and CI/CD are not part of this project.
 
 A module is the sum of its features; a feature is the sum of its tasks. Each feature below is a business note with one child note per layer (story, frontend requirements, backend delivery and integration, frontend delivery, QA backend and frontend). Statuses roll up in [[Docs Tree|the docs tree]].
 
@@ -20,7 +20,6 @@ A module is the sum of its features; a feature is the sum of its tasks. Each fea
 |---|---|---|---|---|---|---|
 | [[F-29 App Shell & Onboarding Narrative]] | 🖼️ Frontend only | [[S-73 App Shell & Onboarding Narrative Story\|Story]] | [[FR-29 App Shell & Onboarding Narrative Frontend Requirements\|Req.]] | [[BD-29 App Shell & Onboarding Narrative Backend Delivery\|Delivery]] · [[App Shell & Onboarding Narrative Backend Integration\|Integration]] | [[App Shell & Onboarding Narrative Frontend Delivery\|Delivery]] | [[App Shell & Onboarding Narrative QA Backend\|Backend]] · [[App Shell & Onboarding Narrative QA Frontend\|Frontend]] |
 | [[F-30 Audit Log]] | ⬜ To do | [[S-74 Audit Log Story\|Story]] | [[FR-30 Audit Log Frontend Requirements\|Req.]] | [[BD-30 Audit Log Backend Delivery\|Delivery]] · [[Audit Log Backend Integration\|Integration]] | [[Audit Log Frontend Delivery\|Delivery]] | [[Audit Log QA Backend\|Backend]] · [[Audit Log QA Frontend\|Frontend]] |
-| [[F-43 Build & Deploy]] | 🟡 Partial | [[S-116 Build & Deploy Story\|Story]] | [[Build & Deploy Frontend Requirements\|Req.]] | [[Build & Deploy Backend Delivery\|Delivery]] · [[Build & Deploy Backend Integration\|Integration]] | [[Build & Deploy Frontend Delivery\|Delivery]] | [[Build & Deploy QA Backend\|Backend]] · [[Build & Deploy QA Frontend\|Frontend]] |
 | [[F-31 Cleanup Jobs]] | ⬜ To do | [[S-76 Cleanup Jobs Story\|Story]] | [[FR-31 Cleanup Jobs Frontend Requirements\|Req.]] | [[BD-31 Cleanup Jobs Backend Delivery\|Delivery]] · [[Cleanup Jobs Backend Integration\|Integration]] | [[Cleanup Jobs Frontend Delivery\|Delivery]] | [[Cleanup Jobs QA Backend\|Backend]] · [[Cleanup Jobs QA Frontend\|Frontend]] |
 | [[F-32 Code Delivery]] | 🟡 Partial | [[S-78 Code Delivery Story\|Story]] | [[FR-32 Code Delivery Frontend Requirements\|Req.]] | [[BD-32 Code Delivery Backend Delivery\|Delivery]] · [[Code Delivery Backend Integration\|Integration]] | [[Code Delivery Frontend Delivery\|Delivery]] | [[Code Delivery QA Backend\|Backend]] · [[Code Delivery QA Frontend\|Frontend]] |
 | [[F-33 Devices & NFC]] | 🟡 Partial | [[S-82 Devices & NFC Story\|Story]] | [[FR-33 Devices & NFC Frontend Requirements\|Req.]] | [[BD-33 Devices & NFC Backend Delivery\|Delivery]] · [[Devices & NFC Backend Integration\|Integration]] | [[Devices & NFC Frontend Delivery\|Delivery]] | [[Devices & NFC QA Backend\|Backend]] · [[Devices & NFC QA Frontend\|Frontend]] |
@@ -41,4 +40,5 @@ A module is the sum of its features; a feature is the sum of its tasks. Each fea
 
 - 2026-10-18 · created when the vault moved to layers
 - 2026-10-26 · [[F-42 Operator Panel]] added, with Operator Panel · S3 to Operator Panel · S7 under it
-- 2026-10-26 · [[F-43 Build & Deploy]] added for the pipeline that already shipped (Build & Deploy · GitLab pipeline and Docker setup)
+- 2026-10-26 · F-43 Build & Deploy added for the pipeline that already shipped (GitLab pipeline and Docker setup)
+- 2026-11-11 · F-43 Build & Deploy removed: DevOps and CI/CD are not part of this project (decided by khaled); the GitLab pipeline stays in the backend repo, undocumented here

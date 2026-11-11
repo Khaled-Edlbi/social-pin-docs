@@ -5,11 +5,13 @@ module: platform
 feature: e2e-tests
 screens: []
 created: 2026-10-15
-updated: 2026-11-01
+updated: 2026-11-11
 tags: [feature, module/platform]
 ---
 
 # E2E Test Run
+
+> ⚠ Affected by F-43 Build & Deploy (2026-11-11): removed, since DevOps and CI/CD are not part of this project (decided by khaled). This story asks for the e2e suite to run in CI (S4); the PM or owner must decide whether it stays, moves or is reworded.
 
 **Backend:** TODO · **Module:** [[M-08 Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
