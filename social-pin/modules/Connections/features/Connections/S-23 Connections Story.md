@@ -14,7 +14,7 @@ affects: ["S-16 Ring Members Story", "S-18 Rings Story", "S-19 View As & Pin Vie
 related: ["D-04 Ring settings at launch and their defaults", "D-13 The requester sees a declined request", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-17 Requests expire after 30 days, optional note, ask again at once", "D-18 Ring names shown when joined knowingly", "ND-10 How Connect addresses the scanned person", "ND-23 Mutual connections and events in common", "D-10 Connect sends what the requester already has", "D-23 A count of mutual connections, events where both were visible", "D-24 One pending request per pair", "D-25 A deleted account's connections, requests and blocks end silently", "D-26 A disconnect is not announced", "D-27 Sent keeps declined and expired requests for 30 days", "D-28 Scan someone in is not in the MVP", "D-29 Connection detail opens a member who is not a connection", "Ring Access Model"]
 pending: []
 created: 2026-10-18
-updated: 2026-11-09
+updated: 2026-11-11
 tags: [story, story/approved, module/connections, layer/business]
 ---
 
@@ -185,9 +185,10 @@ Acceptance criteria:
 **As a** receiver **I want** to take away access without losing the connection, or to end it **so that** I control both separately.
 
 Acceptance criteria:
-- [ ] Unticking a Ring that isn't their last asks nothing.
+- [ ] Unticking a Ring that isn't their last asks nothing: they leave that Ring at once, and "What they see just changed." shows. This is the rule for every place a Ring is unticked; [[S-16 Ring Members Story|Ring Members · S5]] follows it (confirmed by Omar Fostok, 2026-11-11).
 - [ ] Unticking the **last** Ring asks: **Remove from Rings** (they stay a connection with no access, listed as *No access*; I can tick a Ring again without a new request) or **Disconnect** (the connection ends, they leave my contacts, getting back in takes a new request) ([[D-15 Several Rings per connection, remove or disconnect]]).
-- [ ] *Disconnect* **lives in the ⋯ menu** of Connection detail, beside *Block*, for every connection (one Ring or several), never as a button on the page; it removes them from all of my Rings first, then ends the connection. A member who isn't a connection has none (D-29) (decided by Omar Fostok, 2026-11-09).
+- [ ] *Disconnect* **lives in the ⋯ menu** of Connection detail, beside *Block*, for every connection (one Ring or several); it removes them from all of my Rings first, then ends the connection. A member who isn't a connection has none (D-29) (decided by Omar Fostok, 2026-11-09).
+- [ ] **Revoke access** is a button on the page (decided by Omar Fostok, 2026-11-11, from the Nov 2026 design): it asks first ("They're taken out of every Ring of yours they're in and stop seeing what those Rings share. They aren't told."), takes them out of every Ring of mine, then asks the last-Ring question above (*Remove from Rings* keeps the connection, *Disconnect* ends it). So *Disconnect* is reached from the page through Revoke access, and on its own only from ⋯. Then "Access revoked. What they see just changed."
 - [ ] Not available yet: the disconnect route. The other person is not told ([[D-26 A disconnect is not announced]]).
 - [ ] Either way, nothing reaches the other person beyond losing access: no notification "you were removed".
 
@@ -257,7 +258,7 @@ Acceptance criteria:
 | s44 | Only the resolved card | *Requested*, *Not accepted*, *Request expired*, *Connected*, *Accept*, not available, my own card |
 | s45 | *Sent · 5* goes nowhere; no note; no *Undo* | A Sent list with *Pending* / *Not accepted* / *Request expired*, *Cancel*, *Connect* again (D-13, D-17); the note on incoming rows |
 | s46 | A full screen | The brief asks for a bottom sheet; either is fine, but one is needed. Plus the note, the window, *Decline* |
-| s47 | Only *Revoke access* | The checklist, windows, *Remove from Rings* / *Disconnect* (D-15), *Disconnect* and *Block* in ⋯ |
+| s47 | Only *Revoke access* | The checklist, windows, *Remove from Rings* / *Disconnect* (D-15), *Disconnect* and *Block* in ⋯; *Revoke access* kept on the page, leading to the D-15 choice (S11, 2026-11-11) |
 | s47 | "2 events in common", "4 mutual connections · Omar, Lina…" | A count, no names; events hidden until Events ship (D-23) |
 | s17 | Ring names ("Acme Team") | People, never the Ring (D-14) |
 | s15 | "Waiting on you" shows scans of my badge in a Ring | Join requests to that Ring only (S12) |
@@ -348,3 +349,5 @@ Shipped since the rewrite: **Shared with me as people** (D-14), backend `main` @
 - 2026-11-09 · flagged [[D-28 Scan someone in is not in the MVP]]: Scan someone in is now hidden on the People tab, not shown disabled
 - 2026-11-09 · `tickets/pm/M-02-connections/F-14-connections/S-23-disconnect-in-menu` · S9, S11: Disconnect lives in the ⋯ menu of Connection detail beside Block, for every connection, never a button on the page; decided by Omar Fostok, the story stays approved. The other three decisions of the same message are already recorded (previous entry)
 - 2026-11-09 · flagged [[FR-14 Connections Frontend Requirements]]: s47 Disconnect lives in the ⋯ menu beside Block, for every connection, never a button on the page
+- 2026-11-11 · `tickets/pm/M-02-connections/F-14-connections/S-23-design-nov-2026` · from the Nov 2026 design, decided by Omar Fostok: S11 Revoke access stays a button on s47, asks first, removes from every Ring, then the D-15 last-Ring choice (as the app does, FD-13); unticking a Ring that isn't the last asks nothing, the rule S-16 S5 now follows. The story stays approved
+- 2026-11-11 · flagged [[FR-14 Connections Frontend Requirements]] (FD-13's deviation line is for /frontend to clear once its merge lands): S11 Revoke access on s47 is now the story, not a deviation; unticking a non-last Ring asks nothing
