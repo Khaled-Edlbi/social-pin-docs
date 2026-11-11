@@ -7175,7 +7175,7 @@
     },
     "concepts": 335,
     "decisions": 34,
-    "edges": 8562,
+    "edges": 8563,
     "features": 40,
     "layerNotes": 160,
     "modules": 8,
@@ -71576,6 +71576,11 @@
       "to": "story:exhibitor"
     },
     {
+      "from": "story:events-before",
+      "kind": "wikilink",
+      "to": "story:gemma"
+    },
+    {
       "from": "story:events-during",
       "kind": "wikilink",
       "to": "feature:badge-qr"
@@ -105282,7 +105287,7 @@
       "task": null,
       "title": "S-89 Gemma AI Story",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-11"
     },
     "story:interests": {
       "affects": [],
