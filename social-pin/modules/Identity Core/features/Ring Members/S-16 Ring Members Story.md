@@ -17,6 +17,8 @@ tags: [story, story/approved, module/identity, layer/business]
 
 # Ring Members · User Story
 
+> ⚠ Affected by [[FD-14 Ring Members Frontend Delivery]] (2026-11-11): app rings/F-11/honest-rings @ dbef63e: S5's untick of a non-last Ring asks nothing, as written; but Remove from s15's ⋯ menu (not an untick) still asks "Remove <name> from <Ring>?": does S5's rule cover it? Also the Add people menu lost its looping "Manage join codes and invitations" link (/pm)
+
 > ⚠ Affected by [[FD-14 Ring Members Frontend Delivery]] (2026-11-09): social_pin 0005f00: S9's waiting rows read "Asked with <code label>" or "Asked to join" (not "with your code" / "from your public card"), and Decline is a ✕; S4 still moves one member out from a row's ⋯, not several in with "Move from a Ring"; S1's names, ?name= search and the footnote setting, S3's Ring end, S5's Revoke access and S8's Members · N are shipped, so their Not available yet lines no longer hold (/pm)
 
 > ⚠ Affected by [[BD-17 Ring Invitations & Join Backend Delivery]] (2026-11-09): backend main 14c6916: S8's member-facing roster exists, GET /rings/:ringId/colleagues (BD-17, S-33 S11): any live member while members can see each other, newest first, searchable, each colleague as the Ring they picked (D-34), never the owner, never a blocked pair; the Not available yet line no longer holds
