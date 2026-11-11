@@ -20,6 +20,8 @@ tags: [story, story/approved, module/shared-rings, layer/business]
 
 # Companies · User Story
 
+> ⚠ Affected by [[FD-15 Ring Invitations & Join Frontend Delivery]] (2026-11-11): the app (rings/F-11/honest-rings @ dbef63e, demo data, no company Ring API) still shows s73 "Verified · {domain}" against P6 and s72 "Let {company} update my title" against P4; s74 now offers only an invitation, a code or a join QR (no work email, colleague scan, purpose or contribute), s72 has no verified work email row, s73 no verified email line
+
 > ⚠ Affected by [[D-36 Who it's for stays the owner's alone]] (2026-11-08): the invitation on s72 doesn't show what the Ring is for (purpose stays the owner's); the bio says it, after joining
 
 > ⚠ Affected by [[D-35 A join code can be shown as a QR]] (2026-11-08): S1's ways in read invitation, code or a join QR (shown by the company), never a colleague's badge
