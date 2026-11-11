@@ -18,10 +18,6 @@ tags: [frontend-requirements, frontend-requirements/approved, module/discovery, 
 
 # 📨 Badge & QR · Frontend Requirements
 
-> ⚠ Affected by [[S-37 Badge & QR Story]] (2026-11-09): S8 Save contact sits next to Save for later, only when the card shares a phone number; it opens the phone's own new-contact screen with only what the card shows (no server call)
-
-> ⚠ Affected by [[S-37 Badge & QR Story]] (2026-11-09): S8 Save for later stays on the card, shows "Saved for later" and the button turns into "Remove from saved"; it no longer returns Home
-
 **Feature:** [[F-18 Badge & QR]] · **Status:** Approved 2026-11-08 by khaled · **Story:** [[S-37 Badge & QR Story]] (approved 2026-11-08) · **API Integration:** not yet (backend not built)
 
 What the client needs from the backend to build [[S-37 Badge & QR Story]] S1–S15, and whether each need is met today. **Rewritten 2026-11-08** against the approved story and [[D-10 Connect sends what the requester already has|D-10]], [[D-11 The badge code stays the same for its day|D-11]], [[D-12 The badge QR is a socialpin.me link|D-12]], [[D-35 A join code can be shown as a QR|D-35]]. The route names come from the story and the decisions; anything they don't name is asked as a need, for the backend to name in [[BD-18 Badge & QR Backend Delivery]].
@@ -74,7 +70,8 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
 - **Source today:** the card shape ✅ (via `/views/ring` and `/views/pin`); Connect: not yet (FR-14).
 - **What changes in the app:** today `scanned_pin_screen.dart` shows a sample person, *Connect* goes to *Pick a Ring*, and *Save for later* does nothing.
   - The card is the resolved one (null is "not shared", no Ring name anywhere).
-  - **Save for later** keeps the card, the code and its `expiresAt` on the phone only, in a new **Saved scans** list (with remove).
+  - **Save for later** keeps the card, the code and its `expiresAt` on the phone only, in a new **Saved scans** list (with remove); it stays on the card, "Saved for later", and the button turns into **Remove from saved** (S-37 S8, 2026-11-09).
+  - **Save contact** next to it, only when the card shares a phone number: the phone's own new-contact screen with only what the card shows, no server call (S-37 S8, 2026-11-09).
   - From a saved scan, *Connect* works until `expiresAt`; after it, "This code has expired. Scan {name} again to connect." and *Connect* off. The saved card is never read again from the server.
 
 ### [[Screen Index#s56|s56]] Event pass (S15)
@@ -139,3 +136,4 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
 - 2026-11-08 · `tickets/backend/M-04-discovery/F-18-badge-qr/FR-18-accepted` · approved by the backend (khaled): the ✅ rows hold on backend `main` `cb95a39` (`GET /rings`, `GET /users/me` `accountType`, `GET /views/pin/:pinName`); the ❌ asks match S-37 and D-10, D-11, D-12, D-28, D-35. The backend names the reset, the ended-Ring and the 429 codes and the scan count route in [[BD-18 Badge & QR Backend Delivery]]; the join-QR form stays BD-17's. BD-18 stays `in-progress`
 - 2026-11-08 · `tickets/backend/M-04-discovery/F-18-badge-qr/FR-18-delivered-rows` · backend `main` `1c460b0`: rows ✅ with their endpoints for the code (`POST /rings/:ringId/qr`), the reset (`POST /rings/:ringId/qr/reset`), the resolve (`GET /views/qr/:token`), its 429 (`E_BADGE_01`), the scan count (`GET /rings/:ringId/qr/scans`) and the join QR (BD-17, `POST /rings/join-codes/resolve`); Connect 🟡 (`{ pinName }` yes, `{ qrToken }` not yet); the 429 and ended-Ring codes filled in the error table. How to call them: [[BI-15 Badge & QR Backend Integration]]. *Blocked by* and the *Source today* lines are the frontend's to update
 - 2026-11-09 · `tickets/backend/M-04-discovery/F-18-badge-qr/FR-18-scan-presenter` · backend local `main` `ebdca36` (not pushed yet): the Connect row ✅, `{ qrToken }` accepted on `POST /connections/requests`, with Block and the relationship by the same token ([[BD-14 Connections Backend Delivery]], [[BD-18 Badge & QR Backend Delivery]] `resolvePresenter`). Lines only
+- 2026-11-09 · `docs/frontend/M-04-discovery/F-18-badge-qr/FD-16-shipped` · the two S-37 S8 flags (Save for later stays on the card with Remove from saved; Save contact only with a phone) settled in the s44 lines and cleared: the app does both ([[FD-16 Badge & QR Frontend Delivery]]); status kept

@@ -129,6 +129,7 @@
     "feature:widgets": "F-13",
     "frontend-delivery:account": "FD-04",
     "frontend-delivery:auth": "FD-05",
+    "frontend-delivery:badge-qr": "FD-16",
     "frontend-delivery:connections": "FD-13",
     "frontend-delivery:counts": "FD-06",
     "frontend-delivery:files": "FD-07",

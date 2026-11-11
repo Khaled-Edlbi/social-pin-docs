@@ -17,6 +17,7 @@ tags: [backend-integration, backend-integration/current, module/discovery, layer
 
 # 🔌 Badge & QR · Backend Integration
 
+> ⚠ Affected by [[FD-16 Badge & QR Frontend Delivery]] (2026-11-09): the app sends the resolve token through Uri.encodeComponent (unchanged for a well-formed token); Connect, Block and the relationship by qrToken are built and read the 400 "qrToken should not exist" as coming soon until ebdca36 is deployed
 **Feature:** [[F-18 Badge & QR]] · **Backend:** ✅ [[BD-18 Badge & QR Backend Delivery]] · **Read first:** [[Frontend Contract]], [[Frontend API Guide]], [[BI-09 View As & Pin Views Backend Integration]]
 
 Written by the **backend** team for the frontend: how to call what was delivered. **`current`:** matches backend `main` `ebdca36` (local, not pushed yet): the badge module from `FR-18/badge/qr-token-issue-resolve` (`a566a2e`, in `1c460b0`), and since 2026-11-09 Connect, Block and the relationship by the scanned token (`FR-14/connection/scan-token`, `2a1821b`).
