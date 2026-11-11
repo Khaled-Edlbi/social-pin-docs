@@ -16,6 +16,8 @@ tags: [decision, decision/decided]
 
 # ✅ D-32 · Several join codes per Ring
 
+> ⚠ Affected by [[S-33 Ring Invitations & Join Story]] (2026-11-11): decided by Omar Fostok from the Nov 2026 design, the codes are managed on the Ring's People tab (Add people → Share a join code), not under Edit Ring → Joining; the codes themselves are unchanged
+
 **Answers:** [[ND-32 How a Ring's join code works]] · **Decided by:** Omar Fostok · **On:** 2026-11-08 · **Feature:** [[F-17 Ring Invitations & Join]]
 
 > This card is the answer to [[ND-32 How a Ring's join code works]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. `draft` while the answer is prepared; `decided` only by the PM or the owner, on the user's word, with `decidedBy` and `decidedAt`: then [[ND-32 How a Ring's join code works]] shows Fulfilled by itself and the cards it blocked continue.

@@ -11,7 +11,7 @@ approvedAt: 2026-11-08
 owner: "Omar Fostok"
 related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-17 Requests expire after 30 days, optional note, ask again at once", "D-18 Ring names shown when joined knowingly", "D-31 An invitation is its own record", "D-32 Several join codes per Ring", "D-33 Work email joining waits for real emails and Companies", "D-34 A member shows one of their own Rings", "D-35 A join code can be shown as a QR", "D-36 Who it's for stays the owner's alone", "ND-31 What an invitation is", "ND-32 How a Ring's join code works", "ND-33 When a work email is checked", "ND-34 What a member contributes to a shared Ring", "ND-35 A colleague's QR offering their company Ring", "ND-36 Whether an invitee sees who a Ring is for", "S-16 Ring Members Story", "S-18 Rings Story", "S-29 Companies Story", "S-31 Delegated Admins Story", "S-37 Badge & QR Story", "S-78 Code Delivery Story", "BI-08 Rings Backend Integration", "FR-15 Companies Frontend Requirements"]
 created: 2026-10-18
-updated: 2026-11-09
+updated: 2026-11-11
 tags: [story, story/approved, module/shared-rings, layer/business]
 ---
 
@@ -77,6 +77,7 @@ Acceptance criteria:
 
 - [ ] **Left out of this version** ([[D-33 Work email joining waits for real emails and Companies]]): s74 and s72 offer no work-email way in, and nothing names it as "coming soon".
 - [ ] It waits on real emails ([[S-78 Code Delivery Story|Code Delivery · S6]]) and the company Ring's work-email domain ([[S-29 Companies Story|Companies · S12]]). When both exist, a new needs-decision card settles whether the address is checked once at joining or every 12 months, starting from [[ND-33 When a work email is checked]].
+- [ ] **Wanted later** (Omar Fostok, 2026-11-11): work-email joining stays planned for a later version. Until then the design draws no work-email way in, on s74 or s72; the Nov 2026 design's work-email tab and "Work email" contribute row go.
 
 ### S5 · My join requests: waiting, cancelled, declined ([[Screen Index#s72|s72]], [[Screen Index#s17|s17]])
 
@@ -102,12 +103,13 @@ Acceptance criteria:
 - [ ] An invitation works whatever the Ring's "who can request to join" says: the policy limits who may **ask**, never whom the owner invites.
 - [ ] Not available yet.
 
-### S7 · The Ring's join codes (Edit Ring · *Joining* → **Join codes**, [[Screen Index#s26|s26]])
+### S7 · The Ring's join codes (the Ring's **People** tab → *Add people* → *Share a join code*, [[Screen Index#s15|s15]])
 
 **As a** Ring owner **I want** codes I can hand out, one for each group **so that** people join without me inviting each one, and I can stop one without stopping the others.
 
 Acceptance criteria:
-- [ ] Under *Joining*, when the policy allows codes: **Join codes**, a list of the Ring's codes, each with its **label**, the code (K7QM-4RXT), its end date and use limit if set, how many have used it ("12 of 20 used"), and *Off* or *Ended* when it no longer works ([[D-32 Several join codes per Ring]]).
+- [ ] **Where they live** (decided by Omar Fostok, 2026-11-11, from the Nov 2026 design; was Edit Ring → *Joining*): on the Ring's People tab, *Add people* (s15a) → *Share a join code* opens **Join codes** (s15d), with *Make a new code* (s15g) and *Show as QR* (s15f). Edit Ring says "Invitations and join codes are on the People tab ›" and links there. Everything below about the codes is unchanged.
+- [ ] When the policy allows codes: **Join codes**, a list of the Ring's codes, each with its **label**, the code (K7QM-4RXT), its end date and use limit if set, how many have used it ("12 of 20 used"), and *Off* or *Ended* when it no longer works ([[D-32 Several join codes per Ring]]).
 - [ ] **Make a new code** adds one: a **label**, required, up to 40 characters, seen only by the owner ("Onboarding week", "Speakers 2026"); an optional **end date**; an optional **use limit** (one use is one person who joined or asked to join with it). Up to **10 active** codes; at 10, *Make a new code* says to turn one off first. Nothing is replaced on its own.
 - [ ] On each active code: **Share** (the code as text), **Show as QR** (S9) and **Turn off** (stops it at once, and its QR with it; it stays listed as *Off*).
 - [ ] The D-18 line under the list: "People who join this way will see this Ring's name."
@@ -133,7 +135,7 @@ Acceptance criteria:
 Acceptance criteria:
 - [ ] **Show as QR** on an active join code (S7) shows it full screen as a QR, with the code's text under it for those who type it ([[D-35 A join code can be shown as a QR]]). Only whoever manages the codes can show one; a member can't.
 - [ ] Scanning it with the app's scanner (s43) opens the S3 review for that Ring, and everything about the code applies: the policy, "approve each one", its end date, its use limit, the try limit and the one neutral message.
-- [ ] A **personal badge never offers a Ring to join**, and nothing about a person's memberships is ever read from a scan (D-14): a badge only ever opens a person's card ([[S-37 Badge & QR Story]]).
+- [ ] A **personal badge never offers a Ring to join**, and nothing about a person's memberships is ever read from a scan (D-14): a badge only ever opens a person's card ([[S-37 Badge & QR Story]]). So no Ring setting reads "Anyone who scans your badge": the way in is "Anyone with a join code or its QR" (kept by Omar Fostok, 2026-11-11, against the Nov 2026 design's s21).
 - [ ] Not available yet. **For the designer:** the Show as QR screen is not drawn.
 
 ### S10 · Your card in this Ring (after *Join Ring*, [[Screen Index#s74|s74]]; then [[Screen Index#s17|s17]])
@@ -186,8 +188,11 @@ Acceptance criteria:
 | s74 | A work-email way in | Not in this version (S4, D-33) |
 | s74 | The review shows "who it's for" | Never: the owner's alone (D-36); the bio says what the Ring is for |
 | s15 | "Scanned your badge" in Waiting | A join request with the code they used (S8, S-16 S9) |
-| s26 | No owner side for codes or invitations | The *Join codes* list, its add sheet and Show as QR (S7, S9), and *Invite* (S6) |
+| s26 | No owner side for codes or invitations | The *Join codes* list, its add sheet and Show as QR (S7, S9), and *Invite* (S6); drawn in the Nov 2026 design on the People tab (s15a, s15d, s15f, s15g), which is now the story (S7) |
 | — | No step after *Join Ring* | "Your card in <Ring>" (S10) |
+| s74 (Nov 2026) | Ways in: invite code, **work email**, **Scan a colleague**; "What joining gives you" lists the purpose ("Brand kit & support line"); **What you contribute** with toggles (name, work email, phone, Ring photo); Join goes back; the code "VERTEX-7K2Q" | Kept by Omar Fostok 2026-11-11: an invitation or a code (K7QM-4RXT shape, D-32) or a join QR (D-35); no work email until later (S4, D-33); no purpose (D-36); after *Join Ring*, the "Your card in <Ring>" step (S10, D-34), then s17 |
+| s21 (Nov 2026) | "Anyone who scans your badge" can ask to join | "Anyone with a join code or its QR": a badge never offers a Ring (S9, D-35); kept 2026-11-11 |
+| s17b (Nov 2026) | *Clients* pre-ticked while Public is the default | Pre-set to my **default Ring** (S10, D-34); kept 2026-11-11 |
 
 ## What the backend has to build
 
@@ -241,3 +246,5 @@ Left by those decisions, none blocking:
 - 2026-11-09 · flagged [[BD-17 Ring Invitations & Join Backend Delivery]]: the PM confirms both readings it asked about: a Shared with me row opens the first Ring the person put me in (D-15 stands), and a placed member has no my-card and no leave (the 404 is intended); the two @pm pending entries can leave
 - 2026-11-09 · `tickets/pm/M-03-shared-rings/F-17-ring-invitations/S-33-member-invites` · S6: a member invites from the owner's card, "+ Invite someone to <Ring>", no access window, only while the Ring lets members invite; decided by Omar Fostok, the story stays approved. The D-15 and placed-member decisions in the same message are already recorded (previous entry)
 - 2026-11-09 · flagged [[FR-17 Ring Invitations & Join Frontend Requirements]]: S6 a member invites from the owner's card, "+ Invite someone to <Ring>", no access window, only while membersCanInvite is on
+- 2026-11-11 · `tickets/pm/M-03-shared-rings/F-17-ring-invitations/S-33-design-nov-2026` · the Nov 2026 design, decided by Omar Fostok: S7 join codes move to the People tab (Add people → Share a join code: s15d, s15g, s15f), from Edit Ring → Joining; kept against the design: s74 (no work email, no colleague's scan, no purpose, no "What you contribute", the card step after Join, the code shape), s21 (no "Anyone who scans your badge"), s17b (pre-set to the default Ring); S4 work email wanted later. Three design-disagrees rows added. The story stays approved. FR-17 is for /frontend to update after its FD-15 merge lands
+- 2026-11-11 · flagged [[D-32 Several join codes per Ring]]: the codes now live on the Ring's People tab (S7), not under Edit Ring → Joining
