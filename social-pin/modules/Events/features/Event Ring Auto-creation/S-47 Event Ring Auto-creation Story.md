@@ -10,7 +10,7 @@ approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-29
+updated: 2026-11-11
 tags: [story, story/approved, module/events, layer/business]
 ---
 
@@ -78,6 +78,8 @@ Inside the registration transaction: create an `EVENT` Ring (temporary, window =
 
 Screens: [[Screen Index#s52|s52]] Event Ring granted
 
+- **For the designer** (Nov 2026 design, kept by Omar Fostok 2026-11-11): s56 reads "Scanning this pass grants your Event Ring". The Ring is made in the registration, as s52 already says; scanning the pass doesn't create it, so that line goes.
+
 ## States and motion the design asks for
 
 - Motion: successful registration animates the **Event Ring joining the Ring carousel**, a continuous bridge from "event" to "identity" (brief §7.3, signature motion 8). Reduced-motion: a fade-in on the carousel item.
@@ -98,3 +100,7 @@ Screens: [[Screen Index#s52|s52]] Event Ring granted
 - No decision note exists for this feature. Open points live in the tasks:
 - [[S-47 Event Ring Auto-creation Story|Event Ring Auto-creation · S6]] — who owns the Event Ring (the visitor, as the hub shows, or the organizer with the visitor as member) and what the organizer / exhibitor membership rules are. The feature note lists this as a gap; the story assumes the visitor sees it as their own Ring until decided.
 - [[S-49 Events Before Story|Events Before · S9]] — whether the Ring is created at order time or on webhook success decides how long S1's pending state can last.
+
+## Log
+
+- 2026-11-11 · `tickets/pm/M-05-events/F-21-event-ring-auto/S-47-design-nov-2026` · the Nov 2026 design's s56 "Scanning this pass grants your Event Ring" refused, decided by Omar Fostok: S6 keeps the Ring made in the registration; a for-the-designer line added. The story stays approved
