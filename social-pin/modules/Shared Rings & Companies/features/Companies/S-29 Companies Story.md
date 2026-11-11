@@ -14,7 +14,7 @@ affects: ["S-33 Ring Invitations & Join Story", "S-59 Exhibitor Story", "S-31 De
 related: ["D-02 One main profile every Ring starts from", "S-14 Profiles & Pin Name Story", "S-15 Ring Access Engine Story", "D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-16 Files load from signed links that expire in 15 minutes", "D-18 Ring names shown when joined knowingly", "Ring Access Model"]
 pending: []
 created: 2026-10-18
-updated: 2026-11-08
+updated: 2026-11-11
 tags: [story, story/approved, module/shared-rings, layer/business]
 ---
 
@@ -244,6 +244,7 @@ Acceptance criteria:
 | s72 | "Northstar · 6 people share a Ring with you" for a plain member | No count unless I administer a Ring of it or "members can see each other" is on (D-04, S2) |
 | s72 | *Let Acme Studio update my title* | Hidden in the MVP (P4) |
 | s72 | The pending request has *Cancel* only | Also "Not approved" with *Dismiss*, and "no longer valid" (S3) |
+| s72 (Nov 2026) | An invitation row with the purpose ("Company Ring · directory, brand kit, support line"); "Invite code, work email or a QR from a colleague"; "verified email" on rows | Kept by Omar Fostok 2026-11-11: the company and Ring name only, never the purpose (D-36); "Invitation, code or a join QR" (D-33, D-35); no work email until a later version ([[S-33 Ring Invitations & Join Story|S-33 S4]]) |
 | s73 | "Verified · acme.co" | "acme.co" without *Verified* in the MVP (P6) |
 | s73 | "Company · Your own Ring · uses the Acme logo" | Not in the MVP (P3) |
 | s73 | Ring rows with names only | A Ring I was placed in, or moved into, shows as "{Company} card", unnamed (D-18, P7, S6) |
@@ -295,3 +296,4 @@ Not available yet, in the order the journey needs them:
 - 2026-11-05 · flagged [[FR-07 Profiles & Pin Name Frontend Requirements]]: S-29 P10 (decided in the story, 2026-11-05): the main profile gets a role field (job title) next to company; together they are the Company & role field Companies shows as the work identity (S-29 S4, S8).
 - 2026-11-05 · flagged [[FR-15 Companies Frontend Requirements]]: S-29 added P9 (every company member reads the company's card Ring), P10 (a role field on the main profile) and P11 (my title only on the company row matching my profile's company), all decided in the story; cite them.
 - 2026-11-05 · flagged [[BD-15 Companies Backend Delivery]]: S-29 added P9 (every company member reads the company's card Ring, through the access engine) and P11 (the title shows only on the company matching the profile's company).
+- 2026-11-11 · `tickets/pm/M-03-shared-rings/F-15-companies/S-29-design-nov-2026` · the Nov 2026 design's s72 refused on three points, decided by Omar Fostok: no purpose on an invitation row (D-36), no work email or colleague's QR as a way in (D-33, D-35; work email wanted later); a design-disagrees row added. The story's status is unchanged
