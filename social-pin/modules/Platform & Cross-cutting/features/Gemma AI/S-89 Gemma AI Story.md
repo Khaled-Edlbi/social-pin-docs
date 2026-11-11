@@ -9,7 +9,7 @@ screens: [s13, s60]
 owner: "omar"
 related: ["D-06 Yearly rename, old name freed, case-insensitive"]
 created: 2026-10-18
-updated: 2026-10-29
+updated: 2026-11-11
 tags: [story, story/draft, module/platform, layer/business]
 ---
 
@@ -62,6 +62,8 @@ Acceptance criteria:
 - [ ] Each card shows the match strength and human-readable reasons that never name a private interest ("shared industry", not which one).
 - [ ] Cards surface and stack by strength; the list only includes people and exhibitors registered for the event and visible to the user.
 - [ ] A Free user sees the entry point with an upgrade prompt, not the list.
+- [ ] **For the designer** (Nov 2026 design, kept by Omar Fostok 2026-11-11): s60 shows 94% / 88% / 81%, a reason naming the interest ("You both work on AI support tools"), and the list to a Free user. Strength stays Strong / Good / Weak, reasons stay general, and a Free user gets the upgrade prompt.
+- [ ] **Interests never leave the app** (kept 2026-11-11): no organizer form (s50a, [[S-49 Events Before Story|Events Before]]) is pre-filled with my interests and nothing sends them out; they only shape suggestions inside the app (Rules, [[F-37 Interests]]).
 
 ### S5 · Request a meeting from a match ([[Screen Index#s60|s60]])
 
@@ -112,3 +114,8 @@ Screens: [[Screen Index#s60|s60]] Smart Match
 
 - Decided: [[D-06 Yearly rename, old name freed, case-insensitive]] (S6). Whether the suggestions come from Gemma or from a plain server rule is not decided; either way the input is the person's own name only.
 - [[S-89 Gemma AI Story|Gemma AI · S7]] needs a model and provider decision; no decision note exists for it yet.
+
+## Log
+
+- 2026-11-11 · `tickets/pm/M-08-platform/F-36-gemma/S-89-design-nov-2026` · the Nov 2026 design refused on s60 (% scores, a reason naming the interest, the list for Free users) and s50a (interests sent to the organizer), decided by Omar Fostok: S4 keeps Strong / Good / Weak, general reasons, Pro only; interests never leave the app. Stays draft
+- 2026-11-11 · flagged [[S-49 Events Before Story]]: s50a must not pre-fill or send my interests to the organizer (S-89 S4)
