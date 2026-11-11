@@ -248,7 +248,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
       - 🟡 [BD-17 Ring Invitations & Join Backend Delivery](social-pin/modules/Shared%20Rings%20%26%20Companies/features/Ring%20Invitations%20%26%20Join/flow/BD-17%20Ring%20Invitations%20%26%20Join%20Backend%20Delivery.md) (Backend Delivery, 5 pending notes, Critical)
       - 🔵 [BI-17 Ring Invitations & Join Backend Integration](social-pin/modules/Shared%20Rings%20%26%20Companies/features/Ring%20Invitations%20%26%20Join/flow/BI-17%20Ring%20Invitations%20%26%20Join%20Backend%20Integration.md) (Backend Integration, Critical)
       - 🟢 [QB-17 Ring Invitations & Join QA Backend](social-pin/modules/Shared%20Rings%20%26%20Companies/features/Ring%20Invitations%20%26%20Join/flow/QB-17%20Ring%20Invitations%20%26%20Join%20QA%20Backend.md) (QA Backend, Critical)
-      - 🟡 [FD-15 Ring Invitations & Join Frontend Delivery](social-pin/modules/Shared%20Rings%20%26%20Companies/features/Ring%20Invitations%20%26%20Join/flow/FD-15%20Ring%20Invitations%20%26%20Join%20Frontend%20Delivery.md) (Frontend Delivery, 2 pending notes, Critical)
+      - 🟡 [FD-15 Ring Invitations & Join Frontend Delivery](social-pin/modules/Shared%20Rings%20%26%20Companies/features/Ring%20Invitations%20%26%20Join/flow/FD-15%20Ring%20Invitations%20%26%20Join%20Frontend%20Delivery.md) (Frontend Delivery, 1 pending note, Critical)
       - ∅ _Ring Invitations & Join QA Frontend_ (QA Frontend)
       - ✅ [ND-04 Ring settings](social-pin/needs-decisions/ND-04%20Ring%20settings.md) (Needs decision)
         - (see above)

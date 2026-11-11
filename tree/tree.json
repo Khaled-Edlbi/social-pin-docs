@@ -7105,6 +7105,7 @@
       "notes": [
         "backend-delivery:companies",
         "feature:companies",
+        "frontend-delivery:ring-invitations",
         "frontend-requirements:companies",
         "needs-decision:ND-18",
         "needs-decision:ND-31",
@@ -7128,6 +7129,7 @@
       "notes": [
         "backend-delivery:companies",
         "feature:companies",
+        "frontend-delivery:ring-invitations",
         "frontend-requirements:companies",
         "needs-decision:ND-18",
         "needs-decision:ND-33",
@@ -89818,11 +89820,6 @@
       "pending": [
         {
           "person": null,
-          "text": "S10 the Your card step on the first open of a Ring whose join request was approved (today only the row's Your card here)",
-          "to": "story:ring-invitations"
-        },
-        {
-          "person": null,
           "text": "S12 notifications, with F-39",
           "to": "story:ring-invitations"
         }
@@ -89855,6 +89852,7 @@
         "backend-integration:ring-invitations",
         "frontend-requirements:ring-invitations",
         "story:ring-invitations",
+        "story:companies",
         "decision:D-15",
         "decision:D-18",
         "decision:D-31",
@@ -89875,7 +89873,6 @@
         "frontend-delivery:rings",
         "story:rings",
         "frontend-requirements:meetings",
-        "story:companies",
         "frontend-requirements:delegated-admins",
         "qa-backend:ring-invitations",
         "project:spec-map",
@@ -89895,6 +89892,8 @@
         "s19",
         "s26",
         "s43",
+        "s72",
+        "s73",
         "s74"
       ],
       "status": "done",
@@ -89908,7 +89907,7 @@
       "task": null,
       "title": "FD-15 Ring Invitations & Join Frontend Delivery",
       "unmet": [],
-      "updated": "2026-11-09"
+      "updated": "2026-11-11"
     },
     "frontend-delivery:ring-members": {
       "affects": [],
