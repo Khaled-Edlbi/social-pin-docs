@@ -13,7 +13,7 @@ depends: ["S-18 Rings Story"]
 affects: ["BD-11 Rings Backend Delivery"]
 related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-18 Ring names shown when joined knowingly", "S-15 Ring Access Engine Story", "FR-08 Ring Access Engine Frontend Requirements", "GET /rings/shared-with-me", "PATCH /rings/:id", "POST /rings"]
 created: 2026-10-18
-updated: 2026-11-09
+updated: 2026-11-11
 tags: [frontend-requirements, frontend-requirements/approved, module/identity, layer/frontend]
 ---
 
@@ -76,7 +76,7 @@ What the client needs from the backend to build the Ring lists, the create wizar
   | Setting | Values | Default |
   |---|---|---|
   | Who it's for (purpose) | a short description, a few words or a sentence | empty |
-  | Who can request to join | **anyone who scans**, **only with a code**, **only invited** | only with a code or by invitation |
+  | Who can request to join | **anyone with a join code or its QR**, **only with a code**, **only invited** (copy only, `joinPolicy` unchanged; a personal badge never offers a Ring, D-35, decided 2026-11-11; shipped in social_pin `dbef63e`) | only with a code or by invitation |
   | Approve each one | on / off (off = auto-accept) | on |
   | Members can see each other | on / off | off |
   | Members can invite others | on / off | off |
