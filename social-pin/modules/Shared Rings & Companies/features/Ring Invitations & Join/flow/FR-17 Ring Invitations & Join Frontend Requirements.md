@@ -12,7 +12,7 @@ owner: "Omar Fostok"
 affects: ["BD-17 Ring Invitations & Join Backend Delivery"]
 related: ["S-33 Ring Invitations & Join Story", "BI-08 Rings Backend Integration", "FR-15 Companies Frontend Requirements", "D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-18 Ring names shown when joined knowingly", "D-31 An invitation is its own record", "D-32 Several join codes per Ring", "D-33 Work email joining waits for real emails and Companies", "D-34 A member shows one of their own Rings", "D-35 A join code can be shown as a QR", "D-36 Who it's for stays the owner's alone", "S-37 Badge & QR Story", "S-87 Error Contract Story", "S-96 Notifications Story", "Frontend Contract"]
 created: 2026-10-18
-updated: 2026-11-09
+updated: 2026-11-11
 tags: [frontend-requirements, frontend-requirements/approved, module/shared-rings, layer/frontend]
 ---
 
@@ -47,9 +47,9 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
   - one neutral refusal for a code that is wrong, off, ended or used up, and one for too many tries (with when I may try again, if the backend gives it);
   - a code refused under "only by invitation" reads the same as a wrong one.
 - **Source today:** `POST /rings/invitations/:id/accept` ✅, `POST /rings/invitations/:id/decline` ✅, `POST /rings/invitations/:id/dismiss` ✅, `POST /rings/join-codes/resolve` ✅, `POST /rings/join-codes/join` ✅. `GET /views/ring/:ringId` ✅ opens the owner's card only **after** joining (before, the viewer gets the neutral 404).
-- **What changes in the app:** today `join_company_ring_screen.dart` is a sample (Alma Group) with four ways in and a "What you contribute" list. It keeps **This invite** and **Invite code** only:
+- **What changes in the app:** today `join_company_ring_screen.dart` is a sample (Alma Group) with four ways in and a "What you contribute" list. It keeps **This invitation**, **Invite code** and **Join QR** only (2026-11-11, S-33 S4, S9):
   - **Work email** goes (D-33), with "verified domain alma.co";
-  - **Scan a colleague** goes: the app's scanner opens this screen instead (D-35);
+  - **Scan a colleague** goes: *Join QR* opens the app's scanner, which opens this screen with the code (D-35);
   - **"What you contribute"** (name, work email, phone, photo) goes: replaced by the "Your card in <Ring>" step (D-34);
   - no "who it's for" line (D-36); "What joining gives you" is the Ring's bio once joined, not before;
   - the code field takes K7QM-4RXT, any case, dash optional; with approval on, *Join Ring* shows "Request sent: {owner} will approve it".
@@ -81,7 +81,9 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
 - **Needs:** the same invite as s15, sent for the Ring just created.
 - **What changes in the app:** step 2 offers *Invite* beside adding members, with the D-18 line "People who join this way will see this Ring's name."
 
-### [[Screen Index#s26|s26]] Edit Ring → Joining → Join codes (S7, S9, D-32, D-35)
+### [[Screen Index#s15|s15]] People tab → *Add people* → *Share a join code*: Join codes (S7, S9, D-32, D-35)
+
+Where the codes live (2026-11-11, [[S-33 Ring Invitations & Join Story|S-33 S7]], from the Nov 2026 design; was Edit Ring → *Joining*): the Ring's People tab, *Add people* (s15a: *Invite someone*, *Place your connections*, *Share a join code*) → **Join codes** (s15d), with **Make a new code** (s15g) and **Show as QR** (s15f). No other link leads to them from *Add people*. [[Screen Index#s26|s26]] Edit Ring keeps **one row**, "Invitations and join codes are on the People tab ›", which opens s15. The needs, the routes and the rules below are unchanged.
 
 - **Needs:**
   - **list** the Ring's codes: id, label, the code text, end date, use limit, uses so far, state (active, off, ended, used up);
@@ -90,7 +92,8 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
   - the code text is what *Share* sends and what *Show as QR* draws (the client draws the QR from what the backend says a join QR carries);
   - managed by the owner (later admins at "can also manage who's in it"); refused, and the list hidden, under "only by invitation".
 - **Source today:** the Ring's settings ✅ (`PATCH /rings/:id`, `joinPolicy`, `requireApproval`); `GET /rings/:ringId/join-codes` ✅, `POST /rings/:ringId/join-codes` ✅, `POST /rings/:ringId/join-codes/:codeId/turn-off` ✅.
-- **What changes in the app:** today *Joining* has who can join and approval, each with "Takes effect when…", an approval line "Auto-accept is set per QR code" and an old **"Verified email required"** row. It gains a **Join codes** list (label, K7QM-4RXT, "12 of 20 used", *Off* / *Ended*), *Make a new code* (a sheet: label, end date, use limit), and per active code **Share**, **Show as QR** (a new full-screen QR with the code under it) and **Turn off**. The "Verified email" row and the "per QR code" wording go. Not drawn: the app's own style.
+- **What changes in the app:** the People tab's *Add people* gains *Share a join code*, opening the **Join codes** list (s15d: label, K7QM-4RXT, "12 of 20 used", *Off* / *Ended*), *Make a new code* (s15g, a sheet: label, end date, use limit), and per active code **Share**, **Show as QR** (s15f, full screen with the code under it) and **Turn off**. Edit Ring's *Joining* keeps who can join and approval, and the one row to the People tab; the old **"Verified email required"** row and the "Auto-accept is set per QR code" wording go.
+- **The join option's label (2026-11-11, [[S-33 Ring Invitations & Join Story|S-33 S9]], D-35):** the way in reads **"Anyone with a join code or its QR"** everywhere it appears: the New Ring wizard ([[Screen Index#s21|s21]]) and its summary, Edit Ring, the Ring detail's WHEN AND WHO and the policy sheet; never "Anyone who scans your badge" or "Anyone who scans" (a badge never offers a Ring). Same in Arabic. A copy change only: `joinPolicy` is unchanged.
 
 ### Inside a Ring I joined (S11, D-34)
 
@@ -137,7 +140,7 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
 
 ## Behaviour expectations
 
-- **Refetch:** s17 reads the people, the invitations and my requests on screen focus and on app resume, each on its own (one failing never blanks the others). After accept, decline, dismiss, cancel or join: refetch all three and My companies. s15 reads Invited and Waiting on focus; s26 reads the codes on open and after make or turn off. No polling until notifications exist.
+- **Refetch:** s17 reads the people, the invitations and my requests on screen focus and on app resume, each on its own (one failing never blanks the others). After accept, decline, dismiss, cancel or join: refetch all three and My companies. s15 reads Invited and Waiting on focus; Join codes (s15d) reads the codes on open and after make or turn off. No polling until notifications exist.
 - **Caching keys:** people, invitations and requests by (signed-in user); a Ring's invitations, requests and codes by (ring id); my picked Ring by (membership / ring id); a card by (viewer, ring id). Never compare or show `ringId` to the user.
 - **Pagination / ordering:** `{ data, meta: { total } }`, `limit` ≤ 50; invitations and requests newest first; codes active first, then newest.
 - **Code entry:** uppercase, strip spaces and the dash before sending; no shape check beyond non-empty, so the UI never reveals the pattern. Show it back grouped (K7QM-4RXT).
@@ -161,7 +164,7 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
 - [[BD-17 Ring Invitations & Join Backend Delivery]]: every ❌ row above.
 - [[S-87 Error Contract Story|Error Contract · S4–S8]]: the error table is by status until then.
 - [[S-96 Notifications Story|Notifications]]: S12.
-- Not drawn (the app's own style until a designer): the Join codes list and its sheet, Show as QR, the "Your card in <Ring>" step, Invited and Waiting on s15.
+- Drawn in the Nov 2026 design: the Join codes list (s15d), its sheet (s15g) and Show as QR (s15f). Not drawn (the app's own style until a designer): the "Your card in <Ring>" step, Invited and Waiting on s15.
 
 ## Log
 
@@ -172,3 +175,4 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
 - 2026-11-09 · `docs/backend/M-03-shared-rings/F-17-ring-invitations/BD-17-picked-ring-and-roster` · backend `main` `14c6916` shipped S-33 S10 and S11: three rows → ✅ with their endpoints (picked Ring, roster, leave) and the s17, s74 "Your card" and *Inside a Ring* *Source today* lines updated ([[BD-17 Ring Invitations & Join Backend Delivery]], [[BI-17 Ring Invitations & Join Backend Integration]]). Still ❌: notifications (S12); work email is not in this version.
 - 2026-11-09 · `tickets/frontend/M-03-shared-rings/F-17-ring-invitations/FR-17-decisions-2026-11-09` · Omar Fostok's decisions on [[S-33 Ring Invitations & Join Story]]: a Shared with me row opens the server's `ringId`, the first Ring (D-15 stands), the Ring joined later is the next view (s17); a placed member gets no "Your card in <Ring>" step and no *Leave*, the 404 on `my-card` / `leave` is intended (s74 step, inside a Ring); placed and knowing told apart by the row only; s72 stays with [[FR-15 Companies Frontend Requirements|FR-15]]. No new endpoint or field: the backend's approval stands
 - 2026-11-09 · `docs/frontend/M-03-shared-rings/F-17-ring-invitations/FD-15-shipped` · the S-33 S6 flag settled and cleared: the member's invite added under *Inside a Ring I joined* and to the endpoints table, with two ❌ needs the app met while shipping [[FD-15 Ring Invitations & Join Frontend Delivery|FD-15]] (whether members may invite, told to a member; a member's own sent invitations and withdraw); status unchanged
+- 2026-11-11 · `tickets/frontend/M-03-shared-rings/F-17-ring-invitations/FR-17-dbef63e-decisions` · Omar Fostok's 2026-11-11 decisions on [[S-33 Ring Invitations & Join Story]] (app `rings/F-11/honest-rings` @ `dbef63e`): the join codes section moved from s26 to the People tab (*Add people* s15a → *Share a join code* → s15d, s15g, s15f), Edit Ring keeps one row to it; the join option reads "Anyone with a join code or its QR" (S9, D-35); s74 ways in are an invitation, a code or a join QR (S4, S9); refetch and the not-drawn list updated. No ⚠ flag to clear. No new endpoint or field: the backend's approval stands, status unchanged
