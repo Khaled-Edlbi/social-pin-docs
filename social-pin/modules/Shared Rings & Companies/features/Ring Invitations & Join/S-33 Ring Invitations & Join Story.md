@@ -17,6 +17,8 @@ tags: [story, story/approved, module/shared-rings, layer/business]
 
 # Ring Invitations & Join · User Story
 
+> ⚠ Affected by [[FD-15 Ring Invitations & Join Frontend Delivery]] (2026-11-09): the app shipped S1-S3 and S5-S11 (app rings/F-11/honest-rings @ 0005f00), so their "The app: not available yet" lines no longer hold. Deviations: S6 a member's "+ Invite someone to <Ring>" is offered on every Ring joined knowingly and hidden after a 403, since no route tells a member membersCanInvite; a member can't list or withdraw the invitations they sent (the Ring's invitations are the owner's and admins'); S5/S10 no card step on the first open of a Ring whose request was approved, only "Your card here ›" on the row
+
 > ⚠ Affected by [[BD-17 Ring Invitations & Join Backend Delivery]] (2026-11-08): backend main 1c460b0 shipped S1-S3 and S5-S9 (invitations, join codes and the join QR, join requests, Ring names on Shared with me for Rings joined knowingly, joinPolicy / requireApproval / membersCanInvite enforced); the Not available yet lines of those parts and What exists today no longer hold. S10, S11, S12 not built; a Shared with me row now opens the oldest Ring joined knowingly before an older placed one (D-15, to confirm)
 
 **Feature:** [[F-17 Ring Invitations & Join]] · **Status:** Approved (2026-11-08 by Omar Fostok) · **Frontend Requirements:** [[FR-17 Ring Invitations & Join Frontend Requirements]] · **API Integration:** not yet (backend not built)
