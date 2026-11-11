@@ -11,7 +11,7 @@ approvedAt: 2026-10-29
 owner: "Omar Fostok"
 related: ["D-04 Ring settings at launch and their defaults", "D-05 Inherit per field, copy without members", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-18 Ring names shown when joined knowingly", "S-15 Ring Access Engine Story", "S-16 Ring Members Story", "S-17 Ring Projection Story", "S-23 Connections Story", "S-33 Ring Invitations & Join Story", "S-89 Gemma AI Story"]
 created: 2026-10-18
-updated: 2026-10-29
+updated: 2026-11-11
 tags: [story, story/approved, module/identity, layer/business]
 ---
 
@@ -54,6 +54,7 @@ Acceptance criteria:
 - [ ] "Create Ring" sends `POST /rings { name, colorHex, isTemporary?, startsAt?, expiresAt? }`, then switches on what was ticked (the projection writes), then continues to the View as teaser (s10).
 - [ ] A new Ring animates as a ring forming and taking its place in the carousel.
 - [ ] **For the designer:** s09's Colour section is not drawn (between the name and "What this Ring exposes").
+- [ ] **For the designer** (Nov 2026 design, kept by Omar Fostok 2026-11-11): s09 reads "Only you see its name." The line stays the full one above, with "…unless someone joins it with an invitation or a code." ([[D-18 Ring names shown when joined knowingly|D-18]]).
 
 ### S2 · My Rings ([[Screen Index#s16|s16]])
 
@@ -173,3 +174,7 @@ Acceptance criteria:
 - Whose card a member sees when members can see each other; whether an admin may change every setting (D-04, *Still open*).
 - Whether a copied Ring's fields keep following the Pin where the source Ring followed it (D-05, *Still open*).
 - The default Ring created at registration is called "**Public**" in the design (s08, s16); to confirm with the backend what name registration gives it.
+
+## Log
+
+- 2026-11-11 · `tickets/pm/M-01-identity/F-11-rings/S-18-design-nov-2026` · the Nov 2026 design's s09 "Only you see its name." refused, decided by Omar Fostok: S1 keeps the full line with "…unless someone joins it with an invitation or a code." (D-18); a for-the-designer line added. The story's status is unchanged
