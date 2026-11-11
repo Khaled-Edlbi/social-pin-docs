@@ -22,6 +22,8 @@ tags: [story, story/approved, module/connections, layer/business]
 
 > ⚠ Affected by [[FD-14 Ring Members Frontend Delivery]] (2026-11-09): social_pin 0005f00: s47's checklist (S9) and s15's move picker leave out ended Rings only; a Ring that has not started yet is still listed, pending on FD-14. Scan someone in is not shown on s15 and Disconnect lives in ⋯ beside Block, as S11 and S12 say (/pm)
 
+> ⚠ Affected by [[FD-13 Connections Frontend Delivery]] (2026-11-09): on social_pin 0005f00 the request states, Disconnect in ⋯ and no Scan someone in on s15 match the 2026-11-09 decisions; two differences: s47 also has a Revoke access button on the page (S-16 S5) whose D-15 choice can end in Disconnect (S11 says never a button on the page), and s47's checklist still lists a Ring that has not started yet (S9: live Rings only)
+
 > ⚠ Affected by [[BD-14 Connections Backend Delivery]] (2026-11-09): S2 and S13 by scanned code ({ qrToken } on Connect, Block and the relationship, source SCAN) and S16's account deletion (D-25: connections end, requests close both ways, blocks removed, silently) are built on backend main ebdca36 (local, not pushed yet); BD-14 has nothing pending
 
 > ⚠ Affected by [[BD-18 Badge & QR Backend Delivery]] (2026-11-08): GET /views/qr/:token exists on backend main 1c460b0 ('What exists today' and S1 By scan); Connect by { qrToken } is still not accepted by POST /connections/requests
