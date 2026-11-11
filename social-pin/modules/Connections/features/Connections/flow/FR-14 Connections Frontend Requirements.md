@@ -14,15 +14,11 @@ affects: ["BD-14 Connections Backend Delivery"]
 related: ["S-23 Connections Story", "D-04 Ring settings at launch and their defaults", "D-06 Yearly rename, old name freed, case-insensitive", "D-10 Connect sends what the requester already has", "D-13 The requester sees a declined request", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-16 Files load from signed links that expire in 15 minutes", "D-17 Requests expire after 30 days, optional note, ask again at once", "D-18 Ring names shown when joined knowingly", "D-23 A count of mutual connections, events where both were visible", "D-24 One pending request per pair", "D-25 A deleted account's connections, requests and blocks end silently", "D-26 A disconnect is not announced", "D-27 Sent keeps declined and expired requests for 30 days", "D-28 Scan someone in is not in the MVP", "D-29 Connection detail opens a member who is not a connection", "BI-06 Ring Members Backend Integration", "BI-08 Rings Backend Integration", "BI-09 View As & Pin Views Backend Integration", "FR-03 Counts Frontend Requirements", "FR-09 Ring Members Frontend Requirements", "FR-11 Rings Frontend Requirements", "FR-12 View As & Pin Views Frontend Requirements", "FR-16 Delegated Admins Frontend Requirements", "FR-18 Badge & QR Frontend Requirements", "FR-39 Notifications Frontend Requirements", "S-87 Error Contract Story", "Frontend Contract", "GET /views/pin/:pinName", "GET /views/user/:userId/perspectives", "GET /rings", "GET /rings/shared-with-me", "POST /rings/:ringId/members", "PATCH /rings/:ringId/members/:userId", "DELETE /rings/:ringId/members/:userId", "POST /rings/:ringId/members/:userId/reassign", "GET /rings/:ringId/projection", "E_RING_02", "E_RING_05"]
 pending: []
 created: 2026-10-18
-updated: 2026-11-09
+updated: 2026-11-11
 tags: [frontend-requirements, frontend-requirements/approved, module/connections, layer/frontend]
 ---
 
 # 📨 Connections · Frontend Requirements
-
-> ⚠ Affected by [[S-23 Connections Story]] (2026-11-11): S11 Revoke access stays a button on s47 (asks first, removes from every Ring, then the D-15 last-Ring choice); unticking a Ring that isn't the last asks nothing
-
-> ⚠ Affected by [[S-23 Connections Story]] (2026-11-09): s47 Disconnect lives in the ⋯ menu beside Block, for every connection (one Ring or several), never as a button on the page; the last-Ring question still offers it
 
 > ⚠ Affected by [[BD-18 Badge & QR Backend Delivery]] (2026-11-08): GET /views/qr/:token is on backend main 1c460b0: the 'By scan' and 'The card by scanned code' rows can read ✅ (BI-15); Connect by { qrToken } is still ❌
 
@@ -30,7 +26,7 @@ tags: [frontend-requirements, frontend-requirements/approved, module/connections
 
 **Feature:** [[F-14 Connections]] · **Status:** Approved by the backend 2026-11-08 · **Story:** [[S-23 Connections Story]] (approved 2026-11-04) · **Backend Integration:** [[BI-16 Connections Backend Integration]] (backend `main` `1c460b0`)
 
-What the client needs from the backend to build every part of [[S-23 Connections Story]], S1 to S16, and whether each need is met today. **Rewritten 2026-11-04** against the approved story and the decisions D-10, D-23 and D-24 to D-29: every link names the story's current parts, *Connect* sends `{ qrToken }` or `{ pinName }`, s47 shows the mutual count, and the questions the story left open are answered below. **Updated 2026-11-09** with Omar Fostok's decisions on [[S-23 Connections Story]]: the request states read "Not accepted" and "Request expired" (s44, s45 Sent), s47 lists my live Rings only, *Scan someone in* is not shown on s15 (D-28). All three are copy or phone-side filtering: no new endpoint or field is asked, so the backend's approval stands.
+What the client needs from the backend to build every part of [[S-23 Connections Story]], S1 to S16, and whether each need is met today. **Rewritten 2026-11-04** against the approved story and the decisions D-10, D-23 and D-24 to D-29: every link names the story's current parts, *Connect* sends `{ qrToken }` or `{ pinName }`, s47 shows the mutual count, and the questions the story left open are answered below. **Updated 2026-11-09** with Omar Fostok's decisions on [[S-23 Connections Story]]: the request states read "Not accepted" and "Request expired" (s44, s45 Sent), s47 lists my live Rings only, *Scan someone in* is not shown on s15 (D-28). All three are copy or phone-side filtering: no new endpoint or field is asked, so the backend's approval stands. **Updated 2026-11-11** with Omar Fostok's decisions on [[S-23 Connections Story|S-23 S11]]: s47 keeps *Revoke access* as a button on the page (asks first, removes from every Ring, then D-15's last-Ring question), *Disconnect* on its own lives in ⋯ beside *Block*, and unticking a Ring that isn't the last asks nothing. Both use routes that exist: no new endpoint or field is asked, so the approval stands.
 
 **What exists today.** Showing the other person (`/views`), the Ring members routes (add, window, move, remove), `GET /rings` and `GET /rings/shared-with-me`. Everything that creates, lists, answers or closes a request, the contacts list, the connection detail, disconnect and blocks: **no route**. In the app every connection screen is sample data except the person card on Shared with me.
 
@@ -183,14 +179,16 @@ What the client needs from the backend to build every part of [[S-23 Connections
   - tick: `POST /rings/:ringId/members { userId }` ✅; untick: `DELETE …/members/:userId` ✅; the window: `PATCH …/members/:userId` ✅;
   - **a move is add, then remove**, so they're never in none by accident;
   - a failed call reverts the tick and refetches;
-  - after each change: "What they see just changed", and a refetch.
+  - **unticking a Ring that isn't their last asks nothing** (S11, 2026-11-11): they leave it at once, no "Remove {name} from {Ring}?";
+  - after each change: "What they see just changed.", and a refetch.
 - **WHAT THEY CAN SEE:** the fields of the **first** Ring they're in (D-15): the oldest **live** membership by `createdAt` → that Ring's projection, `GET /rings/:ringId/projection` ✅. Not the union of all their Rings. In none: "Nothing: they're a connection without access."
 - **What they share with me:** `GET /views/user/:userId/perspectives` ✅; several = "View 1 / View 2", never Ring names. Empty: "Nothing shared with you right now."
 - **Mutual connections:** "4 mutual connections" from `mutualCount`, **hidden at 0**, never names, never counting a blocked pair (D-23).
 - **Events in common:** hidden in the MVP (D-23: Events aren't in the MVP).
 - *Request meeting*: hidden (Meetings is v1). *Introduce*: shown disabled, "Not available yet".
 - **The last Ring** (S11): unticking it asks **Remove from Rings** (they stay; *No access*; a tick later needs no new request) or **Disconnect**.
-- **Disconnect** (also in ⋯ for someone in several Rings): `DELETE /connections/:userId` ✅, which **in one transaction** ends every membership of theirs in my Rings and the connection. The app does not loop over the Rings itself. → 204, back to Contacts. **Nothing is sent to them** ([[D-26 A disconnect is not announced]]).
+- **Revoke access**, a button on the page (S11, decided 2026-11-11): asks first, "Revoke {name}'s access?" / "They're taken out of every Ring of yours they're in and stop seeing what those Rings share. They aren't told."; then `DELETE /rings/:ringId/members/:userId` ✅ for every Ring of mine they're in (read fresh first; a membership already gone counts as done); then, for a connection, the last-Ring question above (*Remove from Rings* keeps the connection, *Disconnect* ends it); then "Access revoked. What they see just changed." No new route asked.
+- **Disconnect**, on its own only in ⋯ beside *Block*, for every connection (one Ring or several), never a button on the page; also reached through the last-Ring question: `DELETE /connections/:userId` ✅, which **in one transaction** ends every membership of theirs in my Rings and the connection. The app does not loop over the Rings itself. → 204, back to Contacts. **Nothing is sent to them** ([[D-26 A disconnect is not announced]]).
 - ⋯ → *Block* (S13).
 - **Errors:**
   - 404 `E_CONNECTION_02` (proposed) on load: they disconnected, blocked me or deleted their account since. "This person isn't in your contacts any more", back to Contacts. One message for all three.

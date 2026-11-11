@@ -934,6 +934,7 @@
         "backend-integration:connections",
         "backend-integration:ring-members",
         "frontend-delivery:ring-members",
+        "frontend-requirements:connections",
         "frontend-requirements:ring-members",
         "qa-backend:counts",
         "qa-backend:ring-access",
@@ -30150,6 +30151,7 @@
       "kind": "related",
       "to": "qa-backend:ring-invitations",
       "via": [
+        "DELETE /rings/:ringId/members/:userId",
         "E_RING_02",
         "E_RING_05",
         "GET /rings/shared-with-me",
@@ -91554,7 +91556,7 @@
       "task": null,
       "title": "FR-14 Connections Frontend Requirements",
       "unmet": [],
-      "updated": "2026-11-09"
+      "updated": "2026-11-11"
     },
     "frontend-requirements:counts": {
       "affects": [
