@@ -11,7 +11,7 @@ approvedAt: 2026-10-29
 owner: "Omar Fostok"
 related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-18 Ring names shown when joined knowingly", "S-18 Rings Story", "S-15 Ring Access Engine Story", "S-23 Connections Story", "S-33 Ring Invitations & Join Story"]
 created: 2026-10-18
-updated: 2026-10-29
+updated: 2026-11-11
 tags: [story, story/approved, module/identity, layer/business]
 ---
 
@@ -95,7 +95,7 @@ Acceptance criteria:
 Acceptance criteria:
 - [ ] "IN RING — VISIBLE TO YOU ONLY" on s47 is a **checklist** of my Rings, with the ones this person is in ticked. Not available yet: no call returns, for one person, which of my Rings they're in (today that means reading every Ring's roster).
 - [ ] **Tick a Ring:** they're added to it at once (`POST /rings/:ringId/members { userId }`), "until removed" (S3), recorded as **placed by me**, so they never see that Ring's name (D-18).
-- [ ] **Untick a Ring:** after "Remove <name> from <Ring>?", they're removed from it (`DELETE /rings/:ringId/members/:userId` → `REMOVED`; the roster always filters `ACTIVE`).
+- [ ] **Untick a Ring** that isn't their last: no question; they're removed from it at once (`DELETE /rings/:ringId/members/:userId` → `REMOVED`; the roster always filters `ACTIVE`) and "What they see just changed." shows. The same rule as [[S-23 Connections Story|Connections · S11]] (decided by Omar Fostok, 2026-11-11; before, it asked "Remove <name> from <Ring>?").
 - [ ] **Untick the last Ring:** asks **Remove from Rings** (they stay a connection with no access, and I can tick a Ring again without a new request) or **Disconnect** (the connection ends; getting back in takes a new request) ([[D-15 Several Rings per connection, remove or disconnect]]). Not available yet: there is no disconnect endpoint ([[S-23 Connections Story]]).
 - [ ] **Moving** someone = tick the new Ring, then untick the old. The app always **adds first**, so there's no moment with no access. With several Rings, they see the version from the Ring they were put in first; after a move, the one they're left in.
 - [ ] **"Revoke access"** at the bottom = remove them from **all** my Rings: the same as unticking every Ring, ending with the last-Ring question; then back to s15.
@@ -165,3 +165,8 @@ Acceptance criteria:
 - **Whose card a member sees** when members can see each other: the card each member shares with that Ring is the natural reading (D-04, *Still open*); S8 uses it.
 - The disconnect route, and whether the other person is told anything (D-15, *Still open*; see [[S-23 Connections Story|Connections · S19–S24]]).
 - Later, not in v1: the "**Recent**" and "**Never met**" filters on s15; they need a "last met" date that meetings or scans would record.
+
+## Log
+
+- 2026-11-11 · `tickets/pm/M-01-identity/F-09-ring-members/S-16-design-nov-2026` · S5: unticking a Ring that isn't the person's last asks nothing, as S-23 S11 and the Nov 2026 design; decided by Omar Fostok, the story stays approved
+- 2026-11-11 · flagged [[FR-09 Ring Members Frontend Requirements]]: S5 untick of a non-last Ring asks nothing (no "Remove <name> from <Ring>?")

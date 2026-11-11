@@ -19,6 +19,8 @@ tags: [frontend-requirements, frontend-requirements/approved, module/identity, l
 
 # Ring Members · Frontend Requirements
 
+> ⚠ Affected by [[S-16 Ring Members Story]] (2026-11-11): S5 unticking a Ring that isn't the person's last asks nothing (no "Remove <name> from <Ring>?"), as S-23 S11
+
 > ⚠ Affected by [[BD-09 Ring Members Backend Delivery]] (2026-11-09): backend main 516a78f: GET /rings/:ringId/members rows now carry displayName, pinName, avatarUrl (as GET /connections/:userId answers) and take ?name= with paging, so s15's 'Names today' (one call per member), on-phone search and 'Source today' lines are stale; shapes in BI-06 (/frontend)
 
 > ⚠ Affected by [[BD-09 Ring Members Backend Delivery]] (2026-11-09): membersCanSeeEachOther exists on a Ring since backend main 12172c6 (BD-11), so the 'the setting doesn't exist' lines (s15 footnote, s17 Source today, Blocked by S-18 S9) are stale; only the member-facing roster read is missing, pending on BD-09 (/frontend)
