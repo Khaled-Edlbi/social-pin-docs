@@ -10,11 +10,13 @@ approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "khaled"
 created: 2026-10-18
-updated: 2026-10-29
+updated: 2026-11-11
 tags: [story, story/approved, module/platform, layer/business]
 ---
 
 # E2E Test Run · User Story
+
+> ⚠ Affected by F-43 Build & Deploy (2026-11-11): removed, since DevOps and CI/CD are not part of this project (decided by khaled). This story asks for the e2e suite to run in CI (S4); the PM or owner must decide whether it stays, moves or is reworded.
 
 **Feature:** [[F-34 E2E Test Run]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[FR-34 E2E Test Run Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
