@@ -17,6 +17,8 @@ tags: [story, story/approved, module/identity, layer/business]
 
 # Rings · User Story
 
+> ⚠ Affected by [[FD-12 Rings Frontend Delivery]] (2026-11-11): app rings/F-11/honest-rings @ dbef63e: the join choice S9 calls "anyone who scans" reads "Anyone with a join code or its QR" (en and ar) in the wizard, its summary, Edit Ring, the policy sheet and Ring detail (D-28: no badge-scan join in the MVP); the S1/S5 name line now shows on s09 and s18 as written (/pm)
+
 > ⚠ Affected by [[FD-12 Rings Frontend Delivery]] (2026-11-09): app rings/F-11/honest-rings @ 0005f00: S4 'Not available yet' lines are stale (Copy is built; step 2 lists my connections, GET /connections); S1 the s08 templates leave Email (Work, Events) and Personal's photo off, s09 has no such row; S4 the Ring is still created at the end, picked people added after Create; S6 Delegated admins shows on company Rings only (S-31 A1), the S-31 · S6 link is stale; motion: a new Ring forming and delete collapsing out are not built (only s62's) (/pm)
 
 > ⚠ Affected by [[BD-11 Rings Backend Delivery]] (2026-11-05): backend main 12172c6: S3 per-person Shared with me, S4 copy (POST /rings/:id/copy), S7 the server refuses a temporary default (409 E_RING_09) and S9 the six settings are built; their 'Not available yet' lines are stale except Ring names when joined knowingly (F-09) and the join/invite/save flows (F-17) (/pm)
