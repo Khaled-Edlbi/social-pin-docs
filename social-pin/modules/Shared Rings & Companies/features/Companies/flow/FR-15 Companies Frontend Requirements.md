@@ -18,6 +18,8 @@ tags: [frontend-requirements, frontend-requirements/ready, module/shared-rings, 
 
 # 📨 Companies · Frontend Requirements
 
+> ⚠ Affected by [[D-39 The company domain and the title switch show in the MVP]] (2026-11-12): s73's "Verified · {domain}" and s72's "Let {company} update my title" are shown in the MVP (not hidden); what they stand for starts right after the MVP
+
 **Feature:** [[F-15 Companies]] · **Status:** Ready (waiting on the backend's review) · **Story:** [[S-29 Companies Story]] (approved 2026-11-05) · **Backend Integration:** not yet (no routes: [[BD-15 Companies Backend Delivery]])
 
 What the client needs from the backend to build every part of [[S-29 Companies Story]], S1 to S14, and whether each need is met today. **Rewritten 2026-11-05** against the approved story and its decisions P1–P11 ([[S-29 Companies Story#Decided in this story|Decided in this story]]). This answers the flags the old list carried: D-18 and D-04 are applied row by row below, every link names the story's current parts (the old *Companies · S6* is now S2, S5, S9 and P2), and P9–P11 are cited where they apply.
