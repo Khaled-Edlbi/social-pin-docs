@@ -16,6 +16,8 @@ tags: [story, story/approved, module/platform, layer/business]
 
 # App Shell & Onboarding Narrative · User Story
 
+> ⚠ Affected by [[D-40 The bell count, the tab cross-fade and Go Pro coming soon stay]] (2026-11-12): kept on purpose in the MVP: the Home bell shows a count before F-39 ships (S5's "no number until then" goes; where the count comes from is to be written), and tab changes cross-fade, not slide (S5)
+
 **Feature:** [[F-29 App Shell & Onboarding Narrative]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[FR-29 App Shell & Onboarding Narrative Frontend Requirements]] · **API Integration:** none needed (frontend only)
 
 A person has just installed the app. In the first thirty seconds they need to understand one idea, that they have one profile and many audiences, and then reach the sign-up choice without feeling they walked through a slideshow. After sign-up the same person lives in a five-slot tab bar whose centre is the badge. This feature is the frame everything else sits in; it talks to no endpoint.

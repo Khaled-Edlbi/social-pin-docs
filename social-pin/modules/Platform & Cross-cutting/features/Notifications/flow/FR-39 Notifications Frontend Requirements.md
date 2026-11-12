@@ -13,6 +13,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/platform, laye
 
 # Notifications · Frontend Requirements
 
+> ⚠ Affected by [[D-40 The bell count, the tab cross-fade and Go Pro coming soon stay]] (2026-11-12): the Home bell shows a count in the MVP before the notifications list ships
+
 **Feature:** [[F-39 Notifications]] · **Status:** Draft · **Story:** [[S-96 Notifications Story]] · **API Integration:** not yet (backend not built)
 
 What the client needs for the inbox, the bell, the deep links, push and preferences. Nothing is available; the schema fixes the fields and the type list.

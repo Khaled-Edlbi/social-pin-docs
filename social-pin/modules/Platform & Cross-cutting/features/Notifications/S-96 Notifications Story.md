@@ -16,6 +16,8 @@ tags: [story, story/approved, module/platform, layer/business]
 
 # Notifications · User Story
 
+> ⚠ Affected by [[D-40 The bell count, the tab cross-fade and Go Pro coming soon stay]] (2026-11-12): the Home bell shows a count in the MVP before the notifications list ships ("the notifications feature comes later"); F-39 still carries release mvp, which the owner may move
+
 **Feature:** [[F-39 Notifications]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[FR-39 Notifications Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 Things happen to a user while the app is closed: someone asks to connect, a PinCast ends, pins are nearby, a meeting is accepted. The user wants a bell with a count, an inbox grouped by day, and a tap that lands on the thing itself. Nothing is built; the table, its idempotency key and the preference table exist.

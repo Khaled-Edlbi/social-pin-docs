@@ -13,6 +13,8 @@ tags: [backend-delivery, backend-delivery/todo, module/commerce, layer/backend]
 
 # ⬜ Subscription (Free vs Pro) · Backend Delivery
 
+> ⚠ Affected by [[D-40 The bell count, the tab cross-fade and Go Pro coming soon stay]] (2026-11-12): "Go Pro" on s70 stays "coming soon" with no price in the MVP; no purchase is needed for the MVP
+
 **Feature:** [[F-28 Subscription (Free vs Pro)]] · **Status:** To do · **Integration guide:** [[Subscription (Free vs Pro) Backend Integration]] · **Requirements:** [[FR-28 Subscription (Free vs Pro) Frontend Requirements]] · **QA:** [[Subscription (Free vs Pro) QA Backend]]
 
 What the backend shipped for this feature and how it works. The sum of this feature's task-level Backend Delivery notes (see the *Tasks* table below).

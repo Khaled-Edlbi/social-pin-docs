@@ -161,6 +161,7 @@
     "D-37 Discover opens a Pin by its exact Pin name in the MVP": "decision:D-37",
     "D-38 Introduce is in the MVP": "decision:D-38",
     "D-39 The company domain and the title switch show in the MVP": "decision:D-39",
+    "D-40 The bell count, the tab cross-fade and Go Pro coming soon stay": "decision:D-40",
     "Database & Migrations": "project:database-migrations",
     "Developer Guide": "project:developer-guide",
     "Developer Setup": "project:developer-setup",
@@ -312,6 +313,7 @@
     "ND-37 What Discover does in the MVP": "needs-decision:ND-37",
     "ND-38 Whether Introduce is in the MVP": "needs-decision:ND-38",
     "ND-39 Whether the company domain and the title switch show in the MVP": "needs-decision:ND-39",
+    "ND-40 Which app choices the MVP keeps as they are": "needs-decision:ND-40",
     "Owner Agent": "project:owner-agent",
     "PM Agent": "project:pm-agent",
     "Project Overview": "project:project-overview",
@@ -509,6 +511,7 @@
     "D-37": "decision:D-37",
     "D-38": "decision:D-38",
     "D-39": "decision:D-39",
+    "D-40": "decision:D-40",
     "F-01": "feature:account",
     "F-02": "feature:auth",
     "F-03": "feature:counts",
@@ -647,6 +650,7 @@
     "ND-37": "needs-decision:ND-37",
     "ND-38": "needs-decision:ND-38",
     "ND-39": "needs-decision:ND-39",
+    "ND-40": "needs-decision:ND-40",
     "P-01": "project:feature-graph",
     "P-02": "project:feature-tree",
     "P-03": "project:glossary",
@@ -6994,6 +6998,7 @@
         "feature:ring-projection",
         "needs-decision:ND-20",
         "needs-decision:ND-25",
+        "needs-decision:ND-40",
         "task:B-01",
         "task:B-02",
         "task:B-03",
@@ -7043,6 +7048,7 @@
         "frontend-requirements:ring-projection",
         "needs-decision:ND-20",
         "needs-decision:ND-25",
+        "needs-decision:ND-40",
         "qa-backend:account",
         "qa-backend:auth",
         "qa-backend:connections",
@@ -7096,7 +7102,8 @@
       "containers": [
         "feature:account",
         "feature:subscription",
-        "needs-decision:ND-07"
+        "needs-decision:ND-07",
+        "needs-decision:ND-40"
       ],
       "kind": "screen",
       "notes": [
@@ -7105,6 +7112,7 @@
         "frontend-delivery:account",
         "frontend-requirements:subscription",
         "needs-decision:ND-07",
+        "needs-decision:ND-40",
         "qa-frontend:account",
         "story:subscription"
       ],
@@ -7236,12 +7244,12 @@
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 14,
-      "decision": 36,
+      "decision": 37,
       "feature": 40,
       "frontend-delivery": 14,
       "frontend-requirements": 39,
       "module": 8,
-      "needs-decision": 37,
+      "needs-decision": 38,
       "project": 28,
       "qa-backend": 14,
       "qa-frontend": 2,
@@ -7250,21 +7258,21 @@
     },
     "byLayer": {
       "backend": 61,
-      "business": 186,
+      "business": 188,
       "frontend": 57,
       "qa": 16,
       "shared": 10
     },
     "concepts": 336,
-    "decisions": 37,
-    "edges": 8791,
+    "decisions": 38,
+    "edges": 8820,
     "features": 40,
     "layerNotes": 162,
     "modules": 8,
-    "notes": 361,
+    "notes": 363,
     "partial": 17,
     "placeholders": 116,
-    "records": 36
+    "records": 37
   },
   "deadlines": {
     "missed": {
@@ -8227,6 +8235,41 @@
       "from": "decision:D-39",
       "kind": "affects",
       "to": "story:companies"
+    },
+    {
+      "from": "decision:D-40",
+      "kind": "affects",
+      "to": "backend-delivery:subscription"
+    },
+    {
+      "from": "decision:D-40",
+      "kind": "affects",
+      "to": "frontend-requirements:app-shell"
+    },
+    {
+      "from": "decision:D-40",
+      "kind": "affects",
+      "to": "frontend-requirements:notifications"
+    },
+    {
+      "from": "decision:D-40",
+      "kind": "affects",
+      "to": "frontend-requirements:subscription"
+    },
+    {
+      "from": "decision:D-40",
+      "kind": "affects",
+      "to": "story:app-shell"
+    },
+    {
+      "from": "decision:D-40",
+      "kind": "affects",
+      "to": "story:notifications"
+    },
+    {
+      "from": "decision:D-40",
+      "kind": "affects",
+      "to": "story:subscription"
     },
     {
       "from": "frontend-requirements:badge-qr",
@@ -9872,6 +9915,26 @@
       "from": "needs-decision:ND-39",
       "kind": "decision",
       "to": "story:companies"
+    },
+    {
+      "from": "needs-decision:ND-40",
+      "kind": "decision",
+      "to": "feature:app-shell"
+    },
+    {
+      "from": "needs-decision:ND-40",
+      "kind": "decision",
+      "to": "feature:subscription"
+    },
+    {
+      "from": "needs-decision:ND-40",
+      "kind": "decision",
+      "to": "story:app-shell"
+    },
+    {
+      "from": "needs-decision:ND-40",
+      "kind": "decision",
+      "to": "story:subscription"
     },
     {
       "from": "backend-delivery:badge-qr",
@@ -24279,6 +24342,26 @@
       "to": "needs-decision:ND-39"
     },
     {
+      "from": "decision:D-40",
+      "kind": "related",
+      "to": "feature:app-shell"
+    },
+    {
+      "from": "decision:D-40",
+      "kind": "related",
+      "to": "feature:notifications"
+    },
+    {
+      "from": "decision:D-40",
+      "kind": "related",
+      "to": "feature:subscription"
+    },
+    {
+      "from": "decision:D-40",
+      "kind": "related",
+      "to": "needs-decision:ND-40"
+    },
+    {
       "from": "feature:account",
       "kind": "related",
       "to": "feature:auth"
@@ -36541,6 +36624,26 @@
       "from": "needs-decision:ND-39",
       "kind": "related",
       "to": "frontend-requirements:companies"
+    },
+    {
+      "from": "needs-decision:ND-40",
+      "kind": "related",
+      "to": "feature:app-shell"
+    },
+    {
+      "from": "needs-decision:ND-40",
+      "kind": "related",
+      "to": "feature:notifications"
+    },
+    {
+      "from": "needs-decision:ND-40",
+      "kind": "related",
+      "to": "feature:subscription"
+    },
+    {
+      "from": "needs-decision:ND-40",
+      "kind": "related",
+      "to": "story:notifications"
     },
     {
       "from": "project:admin-agent",
@@ -67816,6 +67919,11 @@
       "to": "decision:D-39"
     },
     {
+      "from": "needs-decision:ND-40",
+      "kind": "tree",
+      "to": "decision:D-40"
+    },
+    {
       "from": "root",
       "kind": "tree",
       "to": "group:backend"
@@ -67874,6 +67982,11 @@
       "from": "root",
       "kind": "tree",
       "to": "module:shared-rings"
+    },
+    {
+      "from": "story:app-shell",
+      "kind": "tree",
+      "to": "needs-decision:ND-40"
     },
     {
       "from": "story:auth",
@@ -68044,6 +68157,11 @@
       "from": "story:subscription",
       "kind": "tree",
       "to": "needs-decision:ND-07"
+    },
+    {
+      "from": "story:subscription",
+      "kind": "tree",
+      "to": "needs-decision:ND-40"
     },
     {
       "from": "task:B-01",
@@ -69014,6 +69132,41 @@
       "from": "decision:D-39",
       "kind": "wikilink",
       "to": "story:companies"
+    },
+    {
+      "from": "decision:D-40",
+      "kind": "wikilink",
+      "to": "backend-delivery:subscription"
+    },
+    {
+      "from": "decision:D-40",
+      "kind": "wikilink",
+      "to": "frontend-requirements:app-shell"
+    },
+    {
+      "from": "decision:D-40",
+      "kind": "wikilink",
+      "to": "frontend-requirements:notifications"
+    },
+    {
+      "from": "decision:D-40",
+      "kind": "wikilink",
+      "to": "frontend-requirements:subscription"
+    },
+    {
+      "from": "decision:D-40",
+      "kind": "wikilink",
+      "to": "story:app-shell"
+    },
+    {
+      "from": "decision:D-40",
+      "kind": "wikilink",
+      "to": "story:notifications"
+    },
+    {
+      "from": "decision:D-40",
+      "kind": "wikilink",
+      "to": "story:subscription"
     },
     {
       "from": "feature:account",
@@ -74356,6 +74509,10 @@
       "name": "D-39 The company domain and the title switch show in the MVP",
       "type": "decision"
     },
+    "social-pin/decisions/D-40 The bell count, the tab cross-fade and Go Pro coming soon stay.md": {
+      "name": "D-40 The bell count, the tab cross-fade and Go Pro coming soon stay",
+      "type": "decision"
+    },
     "social-pin/decisions/Decisions.md": {
       "name": "Decisions",
       "type": "map"
@@ -75382,6 +75539,10 @@
     },
     "social-pin/needs-decisions/ND-39 Whether the company domain and the title switch show in the MVP.md": {
       "name": "ND-39 Whether the company domain and the title switch show in the MVP",
+      "type": "needs-decision"
+    },
+    "social-pin/needs-decisions/ND-40 Which app choices the MVP keeps as they are.md": {
+      "name": "ND-40 Which app choices the MVP keeps as they are",
       "type": "needs-decision"
     },
     "templates/Backend Delivery Template.md": {
@@ -84841,6 +85002,71 @@
       "unmet": [],
       "updated": "2026-11-12"
     },
+    "decision:D-40": {
+      "affects": [
+        "story:app-shell",
+        "frontend-requirements:app-shell",
+        "story:subscription",
+        "frontend-requirements:subscription",
+        "backend-delivery:subscription",
+        "story:notifications",
+        "frontend-requirements:notifications"
+      ],
+      "blockedBy": [],
+      "card": "D-40",
+      "children": [],
+      "code": "D-40",
+      "created": "2026-11-12",
+      "deadline": null,
+      "decidedAt": "2026-11-11",
+      "decidedBy": "Omar Fostok",
+      "decides": "ND-40",
+      "depends": [],
+      "effectiveStatus": "decided",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "app-shell",
+        "subscription"
+      ],
+      "foundOn": null,
+      "frontendOnly": false,
+      "id": "decision:D-40",
+      "inherits": {},
+      "kind": "decision",
+      "label": "Decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "openBugs": [],
+      "parentTask": null,
+      "parents": [
+        "needs-decision:ND-40"
+      ],
+      "path": "social-pin/decisions/D-40 The bell count, the tab cross-fade and Go Pro coming soon stay.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "needs-decision:ND-40",
+        "feature:app-shell",
+        "feature:subscription",
+        "feature:notifications"
+      ],
+      "release": null,
+      "resolution": null,
+      "scope": null,
+      "screens": [],
+      "status": "decided",
+      "summary": "Kept on the owner's word, after the vault-vs-app review of 2026-11-11: the app already does all three.",
+      "tags": [
+        "decision",
+        "decision/decided"
+      ],
+      "task": null,
+      "title": "D-40 The bell count, the tab cross-fade and Go Pro coming soon stay",
+      "unmet": [],
+      "updated": "2026-11-12"
+    },
     "feature:account": {
       "affects": [],
       "blockedBy": [],
@@ -84975,15 +85201,19 @@
         "project:ring-access-model",
         "project:architecture",
         "project:api-conventions",
-        "project:spec-map"
+        "project:spec-map",
+        "needs-decision:ND-40",
+        "decision:D-40"
       ],
       "release": "mvp",
       "resolution": null,
       "rollup": {
         "approved": 1,
+        "decided": 1,
         "done": 1,
         "draft": 1,
-        "missing": 2
+        "missing": 2,
+        "verified": 1
       },
       "scope": null,
       "screens": [
@@ -86838,7 +87068,9 @@
         "project:architecture",
         "project:api-conventions",
         "project:spec-map",
-        "feature:ring-invitations"
+        "feature:ring-invitations",
+        "needs-decision:ND-40",
+        "decision:D-40"
       ],
       "release": "mvp",
       "resolution": null,
@@ -87974,7 +88206,9 @@
         "project:spec-map",
         "feature:account",
         "needs-decision:ND-07",
+        "needs-decision:ND-40",
         "decision:D-12",
+        "decision:D-40",
         "story:payments",
         "backend-delivery:badge-qr",
         "story:badge-qr"
@@ -87984,10 +88218,10 @@
       "rollup": {
         "approved": 1,
         "blocked": 1,
-        "decided": 1,
+        "decided": 2,
         "draft": 1,
         "missing": 4,
-        "verified": 1
+        "verified": 2
       },
       "scope": null,
       "screens": [
@@ -95447,11 +95681,11 @@
       "rollup": {
         "approved": 2,
         "blocked": 2,
-        "decided": 1,
+        "decided": 2,
         "draft": 2,
         "in-progress": 2,
         "missing": 8,
-        "verified": 1
+        "verified": 2
       },
       "scope": null,
       "screens": [],
@@ -95837,13 +96071,13 @@
       "rollup": {
         "approved": 11,
         "blocked": 10,
-        "decided": 3,
+        "decided": 4,
         "done": 1,
         "draft": 11,
         "in-progress": 12,
         "missing": 48,
         "todo": 1,
-        "verified": 3
+        "verified": 4
       },
       "scope": null,
       "screens": [],
@@ -98528,6 +98762,73 @@
       ],
       "task": null,
       "title": "ND-39 Whether the company domain and the title switch show in the MVP",
+      "unmet": [],
+      "updated": "2026-11-12"
+    },
+    "needs-decision:ND-40": {
+      "affects": [],
+      "blockedBy": [],
+      "blocks": [
+        "story:app-shell",
+        "story:subscription"
+      ],
+      "card": "ND-40",
+      "children": [
+        "decision:D-40"
+      ],
+      "code": "ND-40",
+      "created": "2026-11-12",
+      "deadline": null,
+      "decider": "owner",
+      "depends": [],
+      "effectiveStatus": "verified",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "app-shell",
+        "subscription"
+      ],
+      "foundOn": null,
+      "frontendOnly": false,
+      "fulfilledBy": "decision:D-40",
+      "id": "needs-decision:ND-40",
+      "inherits": {},
+      "kind": "needs-decision",
+      "label": "Needs decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "openBugs": [],
+      "parentTask": null,
+      "parents": [
+        "story:app-shell",
+        "story:subscription"
+      ],
+      "path": "social-pin/needs-decisions/ND-40 Which app choices the MVP keeps as they are.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "feature:app-shell",
+        "feature:subscription",
+        "feature:notifications",
+        "story:notifications",
+        "decision:D-40"
+      ],
+      "release": null,
+      "resolution": null,
+      "scope": null,
+      "screens": [
+        "s68",
+        "s70"
+      ],
+      "status": "needs-decision",
+      "summary": "Whether three things the app does differently from the stories stay as they are in the MVP:",
+      "tags": [
+        "needs-decision",
+        "needs-decision/open"
+      ],
+      "task": null,
+      "title": "ND-40 Which app choices the MVP keeps as they are",
       "unmet": [],
       "updated": "2026-11-12"
     },
@@ -106186,7 +106487,7 @@
         "approved": 40,
         "blocked": 27,
         "current": 10,
-        "decided": 36,
+        "decided": 37,
         "delivered": 12,
         "done": 37,
         "draft": 25,
@@ -106199,7 +106500,7 @@
         "ready": 6,
         "reference": 32,
         "todo": 2,
-        "verified": 37
+        "verified": 38
       },
       "scope": null,
       "screens": [],
@@ -106306,7 +106607,9 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-73",
-      "children": [],
+      "children": [
+        "needs-decision:ND-40"
+      ],
       "code": "app-shell",
       "created": "2026-10-18",
       "deadline": null,
@@ -108145,6 +108448,7 @@
       "pending": [],
       "priority": "critical",
       "related": [
+        "needs-decision:ND-40",
         "frontend-requirements:ring-invitations"
       ],
       "release": "mvp",
@@ -109200,7 +109504,8 @@
       "blockedBy": [],
       "card": "S-71",
       "children": [
-        "needs-decision:ND-07"
+        "needs-decision:ND-07",
+        "needs-decision:ND-40"
       ],
       "code": "subscription",
       "created": "2026-10-18",
