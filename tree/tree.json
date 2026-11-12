@@ -76513,7 +76513,9 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:discover-hub",
-      "inherits": {},
+      "inherits": {
+        "release": "feature:discover-hub"
+      },
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -76528,7 +76530,7 @@
       "pending": [],
       "priority": null,
       "related": [],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -85361,7 +85363,7 @@
         "project:api-conventions",
         "project:spec-map"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -85377,12 +85379,13 @@
       "summary": "Discover tab (s38): search by !pinname, recent searches, entry points to People, Events, Companies, Exhibitors, PinCast, import contacts.",
       "tags": [
         "feature",
-        "module/discovery"
+        "module/discovery",
+        "release/mvp"
       ],
       "task": null,
       "title": "F-19 Discover Hub & Search",
       "unmet": [],
-      "updated": "2026-11-01"
+      "updated": "2026-11-12"
     },
     "feature:e2e-tests": {
       "affects": [],
@@ -91846,7 +91849,9 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:discover-hub",
-      "inherits": {},
+      "inherits": {
+        "release": "feature:discover-hub"
+      },
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -91884,7 +91889,7 @@
         "qa-backend:view-as",
         "frontend-requirements:error-contract"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -105420,7 +105425,7 @@
           "done": 1,
           "id": "mvp",
           "partial": 0,
-          "total": 26
+          "total": 27
         },
         {
           "done": 0,
@@ -105438,7 +105443,7 @@
           "done": 0,
           "id": null,
           "partial": 0,
-          "total": 14
+          "total": 13
         }
       ],
       "rollup": {
@@ -106572,7 +106577,9 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:discover-hub",
-      "inherits": {},
+      "inherits": {
+        "release": "feature:discover-hub"
+      },
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -106610,7 +106617,7 @@
         "frontend-requirements:view-as",
         "qa-backend:view-as"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [

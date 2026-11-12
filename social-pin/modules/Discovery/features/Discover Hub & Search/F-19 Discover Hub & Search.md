@@ -3,19 +3,23 @@ id: F-19
 type: feature
 module: discovery
 feature: discover-hub
+release: mvp
 screens: [s38]
+owner: "Omar Fostok"
 created: 2026-10-15
-updated: 2026-11-01
-tags: [feature, module/discovery]
+updated: 2026-11-12
+tags: [feature, module/discovery, release/mvp]
 ---
 
 # Discover Hub & Search
 
-**Backend:** TODO · **Module:** [[M-04 Discovery Module|Discovery]]
+**Backend:** TODO · **Release:** MVP · **Module:** [[M-04 Discovery Module|Discovery]]
 
 **Layers:** [[S-42 Discover Hub & Search Story|Story]] · [[FR-19 Discover Hub & Search Frontend Requirements|Frontend Requirements]] · [[BD-19 Discover Hub & Search Backend Delivery|Backend Delivery]] · [[Discover Hub & Search Backend Integration|Backend Integration]] · [[Discover Hub & Search Frontend Delivery|Frontend Delivery]] · [[Discover Hub & Search QA Backend|QA Backend]] · [[Discover Hub & Search QA Frontend|QA Frontend]]
 
 Discover tab (s38): search by `!pinname`, recent searches, entry points to People, Events, Companies, Exhibitors, PinCast, import contacts.
+
+**In the MVP** (moved into the MVP on 2026-11-11 by Omar Fostok): opening a Pin by its exact Pin name, "This Pin isn't available to you" under the field when it can't be opened, and recent searches kept on the phone. Searching by name, Gemma queries, matching imported contacts and a business Pin opening its company screen come later.
 
 ## Design reference
 
