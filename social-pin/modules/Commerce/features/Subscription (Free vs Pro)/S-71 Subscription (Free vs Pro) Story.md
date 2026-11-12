@@ -16,6 +16,8 @@ tags: [story, story/approved, module/commerce, layer/business]
 
 # Subscription (Free vs Pro) · User Story
 
+> ⚠ Affected by [[D-40 The bell count, the tab cross-fade and Go Pro coming soon stay]] (2026-11-12): kept on purpose in the MVP: "Go Pro" on s70 stays "coming soon" with no price; S2's price ("Go Pro — $9 / month") and S3's purchase are not in the MVP
+
 > ⚠ Affected by [[D-12 The badge QR is a socialpin.me link]] (2026-11-08): the Pro permanent code is a https://socialpin.me/q/<token> link and waits until the socialpin.me domain and app links work
 
 **Feature:** [[F-28 Subscription (Free vs Pro)]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[FR-28 Subscription (Free vs Pro) Frontend Requirements]] · **API Integration:** not yet (backend not built)

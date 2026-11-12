@@ -13,6 +13,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/commerce, laye
 
 # Subscription (Free vs Pro) · Frontend Requirements
 
+> ⚠ Affected by [[D-40 The bell count, the tab cross-fade and Go Pro coming soon stay]] (2026-11-12): "Go Pro" on s70 stays "coming soon" with no price in the MVP; no purchase call
+
 **Feature:** [[F-28 Subscription (Free vs Pro)]] · **Status:** Draft · **Story:** [[S-71 Subscription (Free vs Pro) Story]] · **API Integration:** not yet (backend not built)
 
 What the client needs to show the plan, sell Pro and render every Pro lock truthfully, and whether each need is met today. Nothing is available; the account entity carries no plan field on the wire yet.

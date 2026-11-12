@@ -13,6 +13,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/platform, laye
 
 # App Shell & Onboarding Narrative · Frontend Requirements
 
+> ⚠ Affected by [[D-40 The bell count, the tab cross-fade and Go Pro coming soon stay]] (2026-11-12): the Home bell shows a count in the MVP, before F-39 ships; tab changes cross-fade, not slide
+
 **Feature:** [[F-29 App Shell & Onboarding Narrative]] · **Status:** Draft · **Story:** [[S-73 App Shell & Onboarding Narrative Story]] · **API Integration:** none needed (frontend only)
 
 What the client needs to build the splash, the three value panels, the tab bar and the persistent chrome. This feature calls no endpoint; its only dependency is the local session state that [[F-02 Auth & Sign-up]] already defines.
