@@ -19,6 +19,8 @@ tags: [frontend-requirements, frontend-requirements/approved, module/identity, l
 
 # Ring Members · Frontend Requirements
 
+> ⚠ Affected by [[S-16 Ring Members Story]] (2026-11-12): S2/S3 copy is the app's: "You're the owner of this Ring.", "Can't add this person.", "You can't do that here.", "…whichever comes first ends their access."
+
 > ⚠ Affected by [[S-16 Ring Members Story]] (2026-11-11): S5 unticking a Ring that isn't the person's last asks nothing (no "Remove <name> from <Ring>?"), as S-23 S11
 
 > ⚠ Affected by [[BD-09 Ring Members Backend Delivery]] (2026-11-09): backend main 516a78f: GET /rings/:ringId/members rows now carry displayName, pinName, avatarUrl (as GET /connections/:userId answers) and take ?name= with paging, so s15's 'Names today' (one call per member), on-phone search and 'Source today' lines are stale; shapes in BI-06 (/frontend)

@@ -11,7 +11,7 @@ approvedAt: 2026-10-29
 owner: "Omar Fostok"
 related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-18 Ring names shown when joined knowingly", "S-18 Rings Story", "S-15 Ring Access Engine Story", "S-23 Connections Story", "S-33 Ring Invitations & Join Story"]
 created: 2026-10-18
-updated: 2026-11-11
+updated: 2026-11-12
 tags: [story, story/approved, module/identity, layer/business]
 ---
 
@@ -63,7 +63,7 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] `POST /rings/:ringId/members { userId, startsAt?, expiresAt? }`; on 201 the roster refetches and the new row appears first.
-- [ ] Adding yourself reads "You are the owner of this Ring" (400); an already-active member is a no-op with a refresh (409 `E_RING_MEMBER_01`); a pair with a block reads "Cannot add this user" (409 `E_RING_MEMBER_04`).
+- [ ] Adding yourself reads "You're the owner of this Ring." (400); an already-active member is a no-op with a refresh (409 `E_RING_MEMBER_01`); a pair with a block reads "Can't add this person." (409 `E_RING_MEMBER_04`). A 403 reads "You can't do that here."
 - [ ] Re-adding someone who was removed or lapsed reactivates them with the new window.
 - [ ] Adding someone who is already in another of my Rings is allowed: they are then in several of my Rings and see the version from the Ring they were put in first ([[D-15 Several Rings per connection, remove or disconnect]]).
 - [ ] The source of a `userId` is the connect flow (Add → [[Screen Index#s46|s46]]) or a scan ([[Screen Index#s35|s35]]), neither of which exists yet; the buttons lead there only when those flows ship.
@@ -75,7 +75,7 @@ Acceptance criteria:
 Acceptance criteria:
 - [ ] Under each **ticked** Ring on s47 (S5), one line: "**Until removed ›**" (the default), "**Until 12 Nov ›**", "**From 3 Nov ›**", "**3 Nov – 12 Nov ›**"; a lapsed one reads "**Lapsed** 12 Nov ›". The window is **per Ring**.
 - [ ] Tapping it opens start and end date-time pickers, each with "No start" / "Until removed" to clear it (sent as `null`); saved with `PATCH /rings/:ringId/members/:userId { startsAt?, expiresAt? }`; the line re-renders from the response.
-- [ ] The copy explains that the Ring's own window also applies: "The Ring's own end date also applies: whichever comes first ends access."; the Ring's `expiresAt`, when it has one, is shown next to the pickers.
+- [ ] The copy explains that the Ring's own window also applies: "The Ring's own end date also applies: whichever comes first ends their access."; the Ring's `expiresAt`, when it has one, is shown next to the pickers.
 - [ ] **For the designer:** the line, its lapsed variant and the pickers are not drawn.
 
 ### S4 · Bring people in from another Ring ("Move from a Ring" on [[Screen Index#s15|s15]])
@@ -172,3 +172,5 @@ Acceptance criteria:
 
 - 2026-11-11 · `tickets/pm/M-01-identity/F-09-ring-members/S-16-design-nov-2026` · S5: unticking a Ring that isn't the person's last asks nothing, as S-23 S11 and the Nov 2026 design; decided by Omar Fostok, the story stays approved
 - 2026-11-11 · flagged [[FR-09 Ring Members Frontend Requirements]]: S5 untick of a non-last Ring asks nothing (no "Remove <name> from <Ring>?")
+- 2026-11-12 · `tickets/pm/M-01-identity/F-09-ring-members/S-16-app-778d9b4` · S2 and S3 use the app's wording: "You're the owner of this Ring.", "Can't add this person.", "You can't do that here.", "…whichever comes first ends their access.", decided by Omar Fostok 2026-11-11, app 778d9b4. The story stays approved
+- 2026-11-12 · flagged [[FR-09 Ring Members Frontend Requirements]]: the same wording
