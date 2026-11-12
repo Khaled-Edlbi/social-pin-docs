@@ -3811,12 +3811,14 @@
     "GET /views/pin/{pinName}": {
       "containers": [
         "decision:D-37",
+        "feature:discover-hub",
         "needs-decision:ND-37"
       ],
       "kind": "endpoint",
       "notes": [
         "decision:D-37",
-        "needs-decision:ND-37"
+        "needs-decision:ND-37",
+        "story:discover-hub"
       ],
       "owner": null
     },
@@ -7265,7 +7267,7 @@
     },
     "concepts": 336,
     "decisions": 38,
-    "edges": 8820,
+    "edges": 8826,
     "features": 40,
     "layerNotes": 162,
     "modules": 8,
@@ -47945,6 +47947,36 @@
       "to": "story:ring-invitations"
     },
     {
+      "from": "story:discover-hub",
+      "kind": "related",
+      "to": "decision:D-37"
+    },
+    {
+      "from": "story:discover-hub",
+      "kind": "related",
+      "to": "feature:companies"
+    },
+    {
+      "from": "story:discover-hub",
+      "kind": "related",
+      "to": "feature:connections"
+    },
+    {
+      "from": "story:discover-hub",
+      "kind": "related",
+      "to": "feature:gemma"
+    },
+    {
+      "from": "story:discover-hub",
+      "kind": "related",
+      "to": "feature:pincast"
+    },
+    {
+      "from": "story:discover-hub",
+      "kind": "related",
+      "to": "feature:view-as"
+    },
+    {
       "from": "story:events-before",
       "kind": "related",
       "to": "feature:event-ring-auto"
@@ -54252,6 +54284,14 @@
       ]
     },
     {
+      "from": "decision:D-37",
+      "kind": "shares",
+      "to": "feature:discover-hub",
+      "via": [
+        "GET /views/pin/{pinName}"
+      ]
+    },
+    {
       "from": "feature:account",
       "kind": "shares",
       "to": "feature:app-shell",
@@ -58968,6 +59008,14 @@
       "to": "needs-decision:ND-22",
       "via": [
         "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "feature:discover-hub",
+      "kind": "shares",
+      "to": "needs-decision:ND-37",
+      "via": [
+        "GET /views/pin/{pinName}"
       ]
     },
     {
@@ -69089,11 +69137,6 @@
       "to": "frontend-requirements:discover-hub"
     },
     {
-      "from": "decision:D-37",
-      "kind": "wikilink",
-      "to": "story:discover-hub"
-    },
-    {
       "from": "decision:D-38",
       "kind": "wikilink",
       "to": "backend-delivery:connections"
@@ -73512,11 +73555,6 @@
       "from": "story:devices",
       "kind": "wikilink",
       "to": "project:auth-model"
-    },
-    {
-      "from": "story:discover-hub",
-      "kind": "wikilink",
-      "to": "feature:view-as"
     },
     {
       "from": "story:discover-hub",
@@ -84867,7 +84905,8 @@
         "needs-decision:ND-37",
         "feature:view-as",
         "feature:gemma",
-        "feature:companies"
+        "feature:companies",
+        "story:discover-hub"
       ],
       "release": null,
       "resolution": null,
@@ -85701,7 +85740,8 @@
         "needs-decision:ND-39",
         "decision:D-33",
         "decision:D-37",
-        "decision:D-39"
+        "decision:D-39",
+        "story:discover-hub"
       ],
       "release": "mvp",
       "resolution": null,
@@ -85810,6 +85850,7 @@
         "decision:D-29",
         "decision:D-38",
         "backend-delivery:connections",
+        "story:discover-hub",
         "frontend-requirements:counts"
       ],
       "release": "mvp",
@@ -86757,6 +86798,7 @@
         "project:spec-map",
         "needs-decision:ND-37",
         "decision:D-37",
+        "story:discover-hub",
         "frontend-requirements:interests"
       ],
       "release": null,
@@ -87458,7 +87500,8 @@
         "project:ring-access-model",
         "project:architecture",
         "project:api-conventions",
-        "project:spec-map"
+        "project:spec-map",
+        "story:discover-hub"
       ],
       "release": null,
       "resolution": null,
@@ -88308,7 +88351,8 @@
         "decision:D-15",
         "decision:D-16",
         "decision:D-37",
-        "story:badge-qr"
+        "story:badge-qr",
+        "story:discover-hub"
       ],
       "release": "mvp",
       "resolution": null,
@@ -107645,6 +107689,12 @@
         "backend-integration:badge-qr",
         "frontend-delivery:badge-qr",
         "qa-backend:badge-qr",
+        "decision:D-37",
+        "feature:view-as",
+        "feature:connections",
+        "feature:companies",
+        "feature:pincast",
+        "feature:gemma",
         "qa-backend:auth",
         "qa-frontend:auth",
         "qa-backend:files",
@@ -107677,7 +107727,7 @@
       "task": null,
       "title": "S-42 Discover Hub & Search Story",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-12"
     },
     "story:e2e-tests": {
       "affects": [],
