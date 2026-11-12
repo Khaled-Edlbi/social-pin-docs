@@ -18,6 +18,8 @@ tags: [frontend-requirements, frontend-requirements/ready, module/shared-rings, 
 
 # 📨 Companies · Frontend Requirements
 
+> ⚠ Affected by [[S-29 Companies Story]] (2026-11-12): S9/S11: the owner sees "You own {company}. Hand it over before you leave." in place of Leave company; S9 the member's Leave confirmation has no admin clause ("You leave its {n} Rings. The connections you made stay yours."); S7 the section reads "YOUR COLLEAGUES · {n}"; P4/P6 per D-39 ("Verified · {domain}" and the title switch shown in the MVP; the switch is kept on screen only, saved nowhere)
+
 > ⚠ Affected by [[D-39 The company domain and the title switch show in the MVP]] (2026-11-12): s73's "Verified · {domain}" and s72's "Let {company} update my title" are shown in the MVP (not hidden); what they stand for starts right after the MVP
 
 **Feature:** [[F-15 Companies]] · **Status:** Ready (waiting on the backend's review) · **Story:** [[S-29 Companies Story]] (approved 2026-11-05) · **Backend Integration:** not yet (no routes: [[BD-15 Companies Backend Delivery]])
