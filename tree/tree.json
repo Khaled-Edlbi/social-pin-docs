@@ -7265,7 +7265,7 @@
     },
     "concepts": 336,
     "decisions": 38,
-    "edges": 8820,
+    "edges": 8821,
     "features": 40,
     "layerNotes": 162,
     "modules": 8,
@@ -73539,6 +73539,11 @@
       "to": "project:api-conventions"
     },
     {
+      "from": "story:error-contract",
+      "kind": "wikilink",
+      "to": "story:code-delivery"
+    },
+    {
       "from": "story:event-ring-auto",
       "kind": "wikilink",
       "to": "feature:rings"
@@ -107820,7 +107825,7 @@
       "task": null,
       "title": "S-87 Error Contract Story",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-12"
     },
     "story:event-ring-auto": {
       "affects": [],

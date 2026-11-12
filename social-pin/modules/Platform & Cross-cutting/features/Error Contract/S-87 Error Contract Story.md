@@ -8,9 +8,9 @@ scope: feature
 screens: []
 approvedBy: "khaled"
 approvedAt: 2026-10-25
-owner: "khaled"
+owner: "Omar Fostok"
 created: 2026-10-18
-updated: 2026-10-29
+updated: 2026-11-12
 tags: [story, story/approved, module/platform, layer/business]
 ---
 
@@ -76,8 +76,9 @@ Acceptance criteria:
 **As a** user signing in or up **I want** a wrong code, too many tries and an unavailable account to read differently **so that** I know whether to retype, ask for a new code or start again.
 
 Acceptance criteria:
-- [ ] Wrong or expired: `E_AUTH_05`. The boxes shake and empty.
-- [ ] Too many tries: `E_AUTH_06`. The boxes lock until a new code is sent.
+- [ ] Wrong (or already expired on the server): `E_AUTH_05`. The boxes shake and clear, and the line reads "That code is wrong or has expired."
+- [ ] Expired on the phone: when the phone's own timer (from the challenge's `expiresAt`) runs out before a try is sent, no call is made; the boxes clear and switch off, and the line reads "This code has expired. Ask for a new one." ([[S-78 Code Delivery Story|Code Delivery · S4]]).
+- [ ] Too many tries: `E_AUTH_06`. The boxes lock until a new code is sent ("Too many tries. Ask for a new code.").
 - [ ] Suspended or unfinished account on sign-in: `E_AUTH_03`. The app offers to sign up again; the two causes stay indistinguishable.
 - [ ] Sign-up for an existing account: `E_AUTH_01`. The app moves to sign-in.
 
@@ -148,4 +149,8 @@ Acceptance criteria:
 - (Error Contract · S4–S8) `E_RING_01` also means a disallowed Ring type and `E_RING_PROFILE_03` covers a bad link, a missing link and a missing info block (see [[S-87 Error Contract Story]] S3). No task splits them yet; until one does, the app treats `E_RING_01` as "name taken" only because it never sends a refused type.
 - (Error Contract · S9–S11) How many codes each split becomes, and their names, follow the enum's conventions and are the backend's to propose in [[BD-35 Error Contract Backend Delivery|Error Contract · S9–S11]]; product only asks that each meaning has one.
 - (Error Contract · S9–S11) Nothing is blocked on an answer: the ticket waits on [[S-87 Error Contract Story|Error Contract · S4–S8]] first.
+
+## Log
+
+- 2026-11-12 · `tickets/pm/M-08-platform/F-35-error-contract/S-87-app-778d9b4` · S6: a wrong code shakes and clears the boxes ("That code is wrong or has expired."); an expired code found by the phone's own timer says "This code has expired. Ask for a new one."; too many tries "Too many tries. Ask for a new code."; decided by Omar Fostok 2026-11-11, app 778d9b4. No FR/FD/BD note made wrong: FR-35 doesn't carry S6's copy
 
