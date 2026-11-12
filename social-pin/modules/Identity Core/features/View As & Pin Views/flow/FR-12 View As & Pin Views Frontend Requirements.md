@@ -17,6 +17,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/identity, laye
 
 # View As & Pin Views · Frontend Requirements
 
+> ⚠ Affected by [[S-19 View As & Pin Views Story]] (2026-11-12): S1 (s10) matched to app 778d9b4: the first View as is the labelled card with no flip and no Ring picker ("This is what {ring} sees", Go to the app), one GET /views/ring/:ringId for the new Ring
+
 **Feature:** [[F-12 View As & Pin Views]] · **Status:** Draft, sent back by the backend 2026-11-05 · **Story:** [[S-19 View As & Pin Views Story]] · **Backend Integration:** [[BI-09 View As & Pin Views Backend Integration]]
 
 > **For `/frontend`, from the backend's review (2026-11-05, against backend `main` f186ba1).** The three `/views` routes, the view's shape (no `ringId`, `show*` gating, hidden rows left out), the signed links and both `E_RING_ACCESS_*` 404s match the code. It goes back to `draft` for four fixes; set it `ready` again once they're in.
