@@ -160,6 +160,7 @@
     "D-36 Who it's for stays the owner's alone": "decision:D-36",
     "D-37 Discover opens a Pin by its exact Pin name in the MVP": "decision:D-37",
     "D-38 Introduce is in the MVP": "decision:D-38",
+    "D-39 The company domain and the title switch show in the MVP": "decision:D-39",
     "Database & Migrations": "project:database-migrations",
     "Developer Guide": "project:developer-guide",
     "Developer Setup": "project:developer-setup",
@@ -310,6 +311,7 @@
     "ND-36 Whether an invitee sees who a Ring is for": "needs-decision:ND-36",
     "ND-37 What Discover does in the MVP": "needs-decision:ND-37",
     "ND-38 Whether Introduce is in the MVP": "needs-decision:ND-38",
+    "ND-39 Whether the company domain and the title switch show in the MVP": "needs-decision:ND-39",
     "Owner Agent": "project:owner-agent",
     "PM Agent": "project:pm-agent",
     "Project Overview": "project:project-overview",
@@ -506,6 +508,7 @@
     "D-36": "decision:D-36",
     "D-37": "decision:D-37",
     "D-38": "decision:D-38",
+    "D-39": "decision:D-39",
     "F-01": "feature:account",
     "F-02": "feature:auth",
     "F-03": "feature:counts",
@@ -643,6 +646,7 @@
     "ND-36": "needs-decision:ND-36",
     "ND-37": "needs-decision:ND-37",
     "ND-38": "needs-decision:ND-38",
+    "ND-39": "needs-decision:ND-39",
     "P-01": "project:feature-graph",
     "P-02": "project:feature-tree",
     "P-03": "project:glossary",
@@ -7126,7 +7130,8 @@
         "needs-decision:ND-18",
         "needs-decision:ND-31",
         "needs-decision:ND-32",
-        "needs-decision:ND-36"
+        "needs-decision:ND-36",
+        "needs-decision:ND-39"
       ],
       "kind": "screen",
       "notes": [
@@ -7138,6 +7143,7 @@
         "needs-decision:ND-31",
         "needs-decision:ND-32",
         "needs-decision:ND-36",
+        "needs-decision:ND-39",
         "story:companies",
         "story:ring-invitations"
       ],
@@ -7150,7 +7156,8 @@
         "feature:ring-invitations",
         "needs-decision:ND-18",
         "needs-decision:ND-33",
-        "needs-decision:ND-34"
+        "needs-decision:ND-34",
+        "needs-decision:ND-39"
       ],
       "kind": "screen",
       "notes": [
@@ -7161,6 +7168,7 @@
         "needs-decision:ND-18",
         "needs-decision:ND-33",
         "needs-decision:ND-34",
+        "needs-decision:ND-39",
         "story:companies",
         "story:delegated-admins",
         "story:ring-invitations"
@@ -7228,12 +7236,12 @@
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 14,
-      "decision": 35,
+      "decision": 36,
       "feature": 40,
       "frontend-delivery": 14,
       "frontend-requirements": 39,
       "module": 8,
-      "needs-decision": 36,
+      "needs-decision": 37,
       "project": 28,
       "qa-backend": 14,
       "qa-frontend": 2,
@@ -7242,21 +7250,21 @@
     },
     "byLayer": {
       "backend": 61,
-      "business": 184,
+      "business": 186,
       "frontend": 57,
       "qa": 16,
       "shared": 10
     },
     "concepts": 336,
-    "decisions": 36,
-    "edges": 8773,
+    "decisions": 37,
+    "edges": 8791,
     "features": 40,
     "layerNotes": 162,
     "modules": 8,
-    "notes": 359,
+    "notes": 361,
     "partial": 17,
     "placeholders": 116,
-    "records": 35
+    "records": 36
   },
   "deadlines": {
     "missed": {
@@ -8199,6 +8207,26 @@
       "from": "decision:D-38",
       "kind": "affects",
       "to": "story:connections"
+    },
+    {
+      "from": "decision:D-39",
+      "kind": "affects",
+      "to": "backend-delivery:companies"
+    },
+    {
+      "from": "decision:D-39",
+      "kind": "affects",
+      "to": "frontend-delivery:ring-invitations"
+    },
+    {
+      "from": "decision:D-39",
+      "kind": "affects",
+      "to": "frontend-requirements:companies"
+    },
+    {
+      "from": "decision:D-39",
+      "kind": "affects",
+      "to": "story:companies"
     },
     {
       "from": "frontend-requirements:badge-qr",
@@ -9834,6 +9862,16 @@
       "from": "needs-decision:ND-38",
       "kind": "decision",
       "to": "story:connections"
+    },
+    {
+      "from": "needs-decision:ND-39",
+      "kind": "decision",
+      "to": "feature:companies"
+    },
+    {
+      "from": "needs-decision:ND-39",
+      "kind": "decision",
+      "to": "story:companies"
     },
     {
       "from": "backend-delivery:badge-qr",
@@ -24231,6 +24269,16 @@
       "to": "needs-decision:ND-38"
     },
     {
+      "from": "decision:D-39",
+      "kind": "related",
+      "to": "feature:companies"
+    },
+    {
+      "from": "decision:D-39",
+      "kind": "related",
+      "to": "needs-decision:ND-39"
+    },
+    {
       "from": "feature:account",
       "kind": "related",
       "to": "feature:auth"
@@ -36473,6 +36521,26 @@
       "from": "needs-decision:ND-38",
       "kind": "related",
       "to": "frontend-requirements:connections"
+    },
+    {
+      "from": "needs-decision:ND-39",
+      "kind": "related",
+      "to": "backend-delivery:companies"
+    },
+    {
+      "from": "needs-decision:ND-39",
+      "kind": "related",
+      "to": "feature:companies"
+    },
+    {
+      "from": "needs-decision:ND-39",
+      "kind": "related",
+      "to": "frontend-delivery:ring-invitations"
+    },
+    {
+      "from": "needs-decision:ND-39",
+      "kind": "related",
+      "to": "frontend-requirements:companies"
     },
     {
       "from": "project:admin-agent",
@@ -67743,6 +67811,11 @@
       "to": "decision:D-38"
     },
     {
+      "from": "needs-decision:ND-39",
+      "kind": "tree",
+      "to": "decision:D-39"
+    },
+    {
       "from": "root",
       "kind": "tree",
       "to": "group:backend"
@@ -67826,6 +67899,11 @@
       "from": "story:companies",
       "kind": "tree",
       "to": "needs-decision:ND-18"
+    },
+    {
+      "from": "story:companies",
+      "kind": "tree",
+      "to": "needs-decision:ND-39"
     },
     {
       "from": "story:connections",
@@ -68916,6 +68994,26 @@
       "from": "decision:D-38",
       "kind": "wikilink",
       "to": "story:connections"
+    },
+    {
+      "from": "decision:D-39",
+      "kind": "wikilink",
+      "to": "backend-delivery:companies"
+    },
+    {
+      "from": "decision:D-39",
+      "kind": "wikilink",
+      "to": "frontend-delivery:ring-invitations"
+    },
+    {
+      "from": "decision:D-39",
+      "kind": "wikilink",
+      "to": "frontend-requirements:companies"
+    },
+    {
+      "from": "decision:D-39",
+      "kind": "wikilink",
+      "to": "story:companies"
     },
     {
       "from": "feature:account",
@@ -74254,6 +74352,10 @@
       "name": "D-38 Introduce is in the MVP",
       "type": "decision"
     },
+    "social-pin/decisions/D-39 The company domain and the title switch show in the MVP.md": {
+      "name": "D-39 The company domain and the title switch show in the MVP",
+      "type": "decision"
+    },
     "social-pin/decisions/Decisions.md": {
       "name": "Decisions",
       "type": "map"
@@ -75278,6 +75380,10 @@
       "name": "ND-38 Whether Introduce is in the MVP",
       "type": "needs-decision"
     },
+    "social-pin/needs-decisions/ND-39 Whether the company domain and the title switch show in the MVP.md": {
+      "name": "ND-39 Whether the company domain and the title switch show in the MVP",
+      "type": "needs-decision"
+    },
     "templates/Backend Delivery Template.md": {
       "name": "Backend Delivery Template",
       "type": "backend-delivery"
@@ -76233,7 +76339,9 @@
       "path": "social-pin/modules/Shared Rings & Companies/features/Companies/flow/BD-15 Companies Backend Delivery.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "needs-decision:ND-39"
+      ],
       "release": "mvp",
       "resolution": null,
       "scope": "feature",
@@ -84674,6 +84782,65 @@
       "unmet": [],
       "updated": "2026-11-12"
     },
+    "decision:D-39": {
+      "affects": [
+        "story:companies",
+        "frontend-requirements:companies",
+        "backend-delivery:companies",
+        "frontend-delivery:ring-invitations"
+      ],
+      "blockedBy": [],
+      "card": "D-39",
+      "children": [],
+      "code": "D-39",
+      "created": "2026-11-12",
+      "deadline": null,
+      "decidedAt": "2026-11-11",
+      "decidedBy": "Omar Fostok",
+      "decides": "ND-39",
+      "depends": [],
+      "effectiveStatus": "decided",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "companies"
+      ],
+      "foundOn": null,
+      "frontendOnly": false,
+      "id": "decision:D-39",
+      "inherits": {},
+      "kind": "decision",
+      "label": "Decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "openBugs": [],
+      "parentTask": null,
+      "parents": [
+        "needs-decision:ND-39"
+      ],
+      "path": "social-pin/decisions/D-39 The company domain and the title switch show in the MVP.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "needs-decision:ND-39",
+        "feature:companies"
+      ],
+      "release": null,
+      "resolution": null,
+      "scope": null,
+      "screens": [],
+      "status": "decided",
+      "summary": null,
+      "tags": [
+        "decision",
+        "decision/decided"
+      ],
+      "task": null,
+      "title": "D-39 The company domain and the title switch show in the MVP",
+      "unmet": [],
+      "updated": "2026-11-12"
+    },
     "feature:account": {
       "affects": [],
       "blockedBy": [],
@@ -85301,18 +85468,20 @@
         "project:spec-map",
         "needs-decision:ND-18",
         "needs-decision:ND-33",
+        "needs-decision:ND-39",
         "decision:D-33",
-        "decision:D-37"
+        "decision:D-37",
+        "decision:D-39"
       ],
       "release": "mvp",
       "resolution": null,
       "rollup": {
         "approved": 1,
         "blocked": 1,
-        "decided": 2,
+        "decided": 3,
         "missing": 4,
         "ready": 1,
-        "verified": 2
+        "verified": 3
       },
       "scope": null,
       "screens": [
@@ -90215,6 +90384,7 @@
       "priority": "critical",
       "related": [
         "task:B-13",
+        "needs-decision:ND-39",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-requirements:connections",
@@ -91585,6 +91755,7 @@
         "task:B-14",
         "task:B-16",
         "task:B-17",
+        "needs-decision:ND-39",
         "decision:D-31",
         "backend-delivery:connections",
         "backend-integration:connections",
@@ -95729,14 +95900,14 @@
         "approved": 3,
         "blocked": 3,
         "current": 1,
-        "decided": 8,
+        "decided": 9,
         "draft": 1,
         "in-progress": 3,
         "missing": 9,
         "partial": 2,
         "passing": 1,
         "ready": 1,
-        "verified": 8
+        "verified": 9
       },
       "scope": null,
       "screens": [],
@@ -98293,6 +98464,70 @@
       ],
       "task": null,
       "title": "ND-38 Whether Introduce is in the MVP",
+      "unmet": [],
+      "updated": "2026-11-12"
+    },
+    "needs-decision:ND-39": {
+      "affects": [],
+      "blockedBy": [],
+      "blocks": [
+        "story:companies"
+      ],
+      "card": "ND-39",
+      "children": [
+        "decision:D-39"
+      ],
+      "code": "ND-39",
+      "created": "2026-11-12",
+      "deadline": null,
+      "decider": "owner",
+      "depends": [],
+      "effectiveStatus": "verified",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "companies"
+      ],
+      "foundOn": null,
+      "frontendOnly": false,
+      "fulfilledBy": "decision:D-39",
+      "id": "needs-decision:ND-39",
+      "inherits": {},
+      "kind": "needs-decision",
+      "label": "Needs decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "openBugs": [],
+      "parentTask": null,
+      "parents": [
+        "story:companies"
+      ],
+      "path": "social-pin/needs-decisions/ND-39 Whether the company domain and the title switch show in the MVP.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "feature:companies",
+        "frontend-requirements:companies",
+        "backend-delivery:companies",
+        "frontend-delivery:ring-invitations",
+        "decision:D-39"
+      ],
+      "release": null,
+      "resolution": null,
+      "scope": null,
+      "screens": [
+        "s72",
+        "s73"
+      ],
+      "status": "needs-decision",
+      "summary": "Whether two company items the story hides in the MVP stay visible, as the app shows them:",
+      "tags": [
+        "needs-decision",
+        "needs-decision/open"
+      ],
+      "task": null,
+      "title": "ND-39 Whether the company domain and the title switch show in the MVP",
       "unmet": [],
       "updated": "2026-11-12"
     },
@@ -105951,7 +106186,7 @@
         "approved": 40,
         "blocked": 27,
         "current": 10,
-        "decided": 35,
+        "decided": 36,
         "delivered": 12,
         "done": 37,
         "draft": 25,
@@ -105964,7 +106199,7 @@
         "ready": 6,
         "reference": 32,
         "todo": 2,
-        "verified": 36
+        "verified": 37
       },
       "scope": null,
       "screens": [],
@@ -106517,7 +106752,8 @@
       "blockedBy": [],
       "card": "S-29",
       "children": [
-        "needs-decision:ND-18"
+        "needs-decision:ND-18",
+        "needs-decision:ND-39"
       ],
       "code": "companies",
       "created": "2026-10-18",

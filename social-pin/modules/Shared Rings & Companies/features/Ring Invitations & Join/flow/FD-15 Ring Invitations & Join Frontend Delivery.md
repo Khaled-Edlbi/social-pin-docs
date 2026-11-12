@@ -18,6 +18,8 @@ tags: [frontend-delivery, frontend-delivery/done, module/shared-rings, layer/fro
 
 # ✅ Ring Invitations & Join · Frontend Delivery
 
+> ⚠ Affected by [[D-39 The company domain and the title switch show in the MVP]] (2026-11-12): s73's "Verified · {domain}" and s72's "Let {company} update my title" are kept in the MVP on purpose; the app already matches, so the open points against S-29 P4 and P6 close
+
 **Feature:** [[F-17 Ring Invitations & Join]] · **Status:** Done · **Built from:** [[BI-17 Ring Invitations & Join Backend Integration]] · **Against:** [[S-33 Ring Invitations & Join Story]] · **Requirements:** [[FR-17 Ring Invitations & Join Frontend Requirements]] · **QA:** [[Ring Invitations & Join QA Frontend]]
 
 What the client shipped for joining someone else's Ring knowingly, and the owner's side of it, on `social_pin` `rings/F-11/honest-rings` @ `0005f00` (2026-11-09), with the first half in `f801aaa` (invitations, join codes, Waiting on you, named Shared with me rows), and the product owner's decisions of 2026-11-11 in `dbef63e` (join codes on the People tab, the join-option wording, the card step's default and its first open after an approved request, the company Ring screens). It is not on `main` yet. Built against backend `main` `14c6916` ([[BI-17 Ring Invitations & Join Backend Integration|BI-17]]). Unit and widget tests only so far; not yet tried on a device.

@@ -13,6 +13,8 @@ tags: [backend-delivery, backend-delivery/todo, module/shared-rings, layer/backe
 
 # ⬜ Companies · Backend Delivery
 
+> ⚠ Affected by [[D-39 The company domain and the title switch show in the MVP]] (2026-11-12): s73's "Verified · {domain}" and s72's title switch show in the MVP; nothing new for the MVP, the proof of the domain and the company's title updates start right after it
+
 > ⚠ Affected by [[S-29 Companies Story]] (2026-11-05): S-29 added P9 (every company member reads the company's card Ring, through the access engine) and P11 (the title shows only on the company matching the profile's company).
 
 **Feature:** [[F-15 Companies]] · **Status:** To do · **Integration guide:** [[Companies Backend Integration]] · **Requirements:** [[FR-15 Companies Frontend Requirements]] · **QA:** [[Companies QA Backend]]
