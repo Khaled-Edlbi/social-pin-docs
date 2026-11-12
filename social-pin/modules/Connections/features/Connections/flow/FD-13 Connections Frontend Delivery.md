@@ -19,6 +19,8 @@ tags: [frontend-delivery, frontend-delivery/done, module/connections, layer/fron
 
 # ✅ Connections · Frontend Delivery
 
+> ⚠ Affected by [[D-38 Introduce is in the MVP]] (2026-11-12): Introduce (s47) is in the MVP; it stays disabled ("Not available yet") until its endpoint ships
+
 **Feature:** [[F-14 Connections]] · **Status:** Done · **Built from:** [[BI-16 Connections Backend Integration]] · **Against:** [[S-23 Connections Story]] · **Requirements:** [[FR-14 Connections Frontend Requirements]] · **QA:** [[Connections QA Frontend]]
 
 What the client shipped for asking, answering and keeping connections, on `social_pin` `rings/F-11/honest-rings`, not on `main` yet: first @ `f70c791` (2026-11-09) against backend `main` `1c460b0`, then @ `0005f00` (2026-11-09, with `f801aaa`, `f9c19e3` and `d4cbd1f` before it) against backend `main` `ebdca36` as [[BI-16 Connections Backend Integration]] describes it. `ebdca36` is local and not pushed yet, so what it adds (Connect, Block and the relationship by `qrToken`) is built in the app but not switched on. The work and what is left are tracked in the client's `docs/gap-reviews/BI-16 Connections gap review.md` (CN1–CN13). Unit and widget tests only so far; not yet tried on a device.

@@ -20,6 +20,8 @@ tags: [story, story/approved, module/connections, layer/business]
 
 # Connections · User Story
 
+> ⚠ Affected by [[D-38 Introduce is in the MVP]] (2026-11-12): Introduce (s47) is in the MVP; S9 needs an Introduce part with screen and backend criteria (the API has no endpoint yet), what Introduce means is to be written, and the open question's "proposed v1" goes
+
 > ⚠ Affected by [[FD-14 Ring Members Frontend Delivery]] (2026-11-09): social_pin 0005f00: s47's checklist (S9) and s15's move picker leave out ended Rings only; a Ring that has not started yet is still listed, pending on FD-14. Scan someone in is not shown on s15 and Disconnect lives in ⋯ beside Block, as S11 and S12 say (/pm)
 
 > ⚠ Affected by [[FD-13 Connections Frontend Delivery]] (2026-11-09): on social_pin 0005f00 the request states, Disconnect in ⋯ and no Scan someone in on s15 match the 2026-11-09 decisions; two differences: s47 also has a Revoke access button on the page (S-16 S5) whose D-15 choice can end in Disconnect (S11 says never a button on the page), and s47's checklist still lists a Ring that has not started yet (S9: live Rings only)

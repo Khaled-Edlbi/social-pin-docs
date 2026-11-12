@@ -20,6 +20,8 @@ tags: [frontend-requirements, frontend-requirements/approved, module/connections
 
 # 📨 Connections · Frontend Requirements
 
+> ⚠ Affected by [[D-38 Introduce is in the MVP]] (2026-11-12): Introduce (s47) is in the MVP; once S-23 has the part, the requirements need the Introduce endpoint
+
 > ⚠ Affected by [[BD-18 Badge & QR Backend Delivery]] (2026-11-08): GET /views/qr/:token is on backend main 1c460b0: the 'By scan' and 'The card by scanned code' rows can read ✅ (BI-15); Connect by { qrToken } is still ❌
 
 > ⚠ Affected by [[D-12 The badge QR is a socialpin.me link]] (2026-11-08): "By scan" reads the token from the link https://socialpin.me/q/<token> before GET /views/qr/:token; Connect still sends { qrToken } (D-10)

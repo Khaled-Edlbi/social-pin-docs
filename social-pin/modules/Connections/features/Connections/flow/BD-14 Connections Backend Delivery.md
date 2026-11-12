@@ -17,6 +17,8 @@ tags: [backend-delivery, backend-delivery/done, module/connections, layer/backen
 
 # ✅ Connections · Backend Delivery
 
+> ⚠ Affected by [[D-38 Introduce is in the MVP]] (2026-11-12): Introduce (s47) is in the MVP and has no endpoint yet; it comes to the backend through S-23 and FR-14
+
 **Feature:** [[F-14 Connections]] · **Status:** Done · **Integration guide:** [[BI-16 Connections Backend Integration]] · **Requirements:** [[FR-14 Connections Frontend Requirements]] · **QA:** [[QB-15 Connections QA Backend]]
 
 What the backend shipped for this feature and how it works. On backend `main` since 2026-11-08 (`1c460b0`, the merge of `FR-14/connection/requests-accept-contacts-block`: `345daf1`, `7b58cc8`, `4beb29e`), merged after F-18 Badge & QR and before F-17 Ring Invitations & Join. Since 2026-11-09 (local `main` `ebdca36`): Connect, Block and the relationship by scanned code (`{ qrToken }`, D-10), and a deleted account's connections, requests and blocks ending with it (D-25). Built on a branch, not merged: blocking a colleague met only in a Ring's roster (*Block*, below; `pending`).
