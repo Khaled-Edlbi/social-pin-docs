@@ -269,6 +269,8 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
       - ∅ _Badge & QR QA Frontend_ (QA Frontend)
     - 🔵 [F-19 Discover Hub & Search](social-pin/modules/Discovery/features/Discover%20Hub%20%26%20Search/F-19%20Discover%20Hub%20%26%20Search.md) (release MVP)
       - 👍 [S-42 Discover Hub & Search Story](social-pin/modules/Discovery/features/Discover%20Hub%20%26%20Search/S-42%20Discover%20Hub%20%26%20Search%20Story.md) (User Story)
+        - ✅ [ND-37 What Discover does in the MVP](social-pin/needs-decisions/ND-37%20What%20Discover%20does%20in%20the%20MVP.md) (Needs decision)
+          - ⚖️ [D-37 Discover opens a Pin by its exact Pin name in the MVP](social-pin/decisions/D-37%20Discover%20opens%20a%20Pin%20by%20its%20exact%20Pin%20name%20in%20the%20MVP.md) (Decision)
       - ✏️ [FR-19 Discover Hub & Search Frontend Requirements](social-pin/modules/Discovery/features/Discover%20Hub%20%26%20Search/flow/FR-19%20Discover%20Hub%20%26%20Search%20Frontend%20Requirements.md) (Frontend Requirements)
       - ⛔ [BD-19 Discover Hub & Search Backend Delivery](social-pin/modules/Discovery/features/Discover%20Hub%20%26%20Search/flow/BD-19%20Discover%20Hub%20%26%20Search%20Backend%20Delivery.md) (Backend Delivery, blocked by FR-19 Discover Hub & Search Frontend Requirements)
       - ∅ _Discover Hub & Search Backend Integration_ (Backend Integration, blocked by BD-19 Discover Hub & Search Backend Delivery)

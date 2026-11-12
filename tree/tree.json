@@ -158,6 +158,7 @@
     "D-34 A member shows one of their own Rings": "decision:D-34",
     "D-35 A join code can be shown as a QR": "decision:D-35",
     "D-36 Who it's for stays the owner's alone": "decision:D-36",
+    "D-37 Discover opens a Pin by its exact Pin name in the MVP": "decision:D-37",
     "Database & Migrations": "project:database-migrations",
     "Developer Guide": "project:developer-guide",
     "Developer Setup": "project:developer-setup",
@@ -306,6 +307,7 @@
     "ND-34 What a member contributes to a shared Ring": "needs-decision:ND-34",
     "ND-35 A colleague's QR offering their company Ring": "needs-decision:ND-35",
     "ND-36 Whether an invitee sees who a Ring is for": "needs-decision:ND-36",
+    "ND-37 What Discover does in the MVP": "needs-decision:ND-37",
     "Owner Agent": "project:owner-agent",
     "PM Agent": "project:pm-agent",
     "Project Overview": "project:project-overview",
@@ -500,6 +502,7 @@
     "D-34": "decision:D-34",
     "D-35": "decision:D-35",
     "D-36": "decision:D-36",
+    "D-37": "decision:D-37",
     "F-01": "feature:account",
     "F-02": "feature:auth",
     "F-03": "feature:counts",
@@ -635,6 +638,7 @@
     "ND-34": "needs-decision:ND-34",
     "ND-35": "needs-decision:ND-35",
     "ND-36": "needs-decision:ND-36",
+    "ND-37": "needs-decision:ND-37",
     "P-01": "project:feature-graph",
     "P-02": "project:feature-tree",
     "P-03": "project:glossary",
@@ -3792,6 +3796,18 @@
       ],
       "owner": null
     },
+    "GET /views/pin/{pinName}": {
+      "containers": [
+        "decision:D-37",
+        "needs-decision:ND-37"
+      ],
+      "kind": "endpoint",
+      "notes": [
+        "decision:D-37",
+        "needs-decision:ND-37"
+      ],
+      "owner": null
+    },
     "GET /views/qr": {
       "containers": [
         "feature:connections"
@@ -6351,7 +6367,8 @@
       "containers": [
         "feature:companies",
         "feature:connections",
-        "feature:discover-hub"
+        "feature:discover-hub",
+        "needs-decision:ND-37"
       ],
       "kind": "screen",
       "notes": [
@@ -6362,6 +6379,7 @@
         "frontend-requirements:companies",
         "frontend-requirements:connections",
         "frontend-requirements:discover-hub",
+        "needs-decision:ND-37",
         "qa-backend:connections",
         "story:companies",
         "story:connections",
@@ -6472,6 +6490,7 @@
         "needs-decision:ND-22",
         "needs-decision:ND-24",
         "needs-decision:ND-35",
+        "needs-decision:ND-37",
         "task:B-07",
         "task:B-17"
       ],
@@ -6507,6 +6526,7 @@
         "needs-decision:ND-22",
         "needs-decision:ND-24",
         "needs-decision:ND-35",
+        "needs-decision:ND-37",
         "qa-backend:badge-qr",
         "qa-backend:connections",
         "qa-backend:files",
@@ -7202,12 +7222,12 @@
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 14,
-      "decision": 33,
+      "decision": 34,
       "feature": 40,
       "frontend-delivery": 14,
       "frontend-requirements": 39,
       "module": 8,
-      "needs-decision": 34,
+      "needs-decision": 35,
       "project": 28,
       "qa-backend": 14,
       "qa-frontend": 2,
@@ -7216,21 +7236,21 @@
     },
     "byLayer": {
       "backend": 61,
-      "business": 180,
+      "business": 182,
       "frontend": 57,
       "qa": 16,
       "shared": 10
     },
-    "concepts": 335,
-    "decisions": 34,
-    "edges": 8734,
+    "concepts": 336,
+    "decisions": 35,
+    "edges": 8755,
     "features": 40,
     "layerNotes": 162,
     "modules": 8,
-    "notes": 355,
+    "notes": 357,
     "partial": 17,
     "placeholders": 116,
-    "records": 33
+    "records": 34
   },
   "deadlines": {
     "missed": {
@@ -8133,6 +8153,26 @@
       "from": "decision:D-36",
       "kind": "affects",
       "to": "story:ring-invitations"
+    },
+    {
+      "from": "decision:D-37",
+      "kind": "affects",
+      "to": "backend-delivery:discover-hub"
+    },
+    {
+      "from": "decision:D-37",
+      "kind": "affects",
+      "to": "feature:discover-hub"
+    },
+    {
+      "from": "decision:D-37",
+      "kind": "affects",
+      "to": "frontend-requirements:discover-hub"
+    },
+    {
+      "from": "decision:D-37",
+      "kind": "affects",
+      "to": "story:discover-hub"
     },
     {
       "from": "frontend-requirements:badge-qr",
@@ -9748,6 +9788,16 @@
       "from": "needs-decision:ND-36",
       "kind": "decision",
       "to": "story:ring-invitations"
+    },
+    {
+      "from": "needs-decision:ND-37",
+      "kind": "decision",
+      "to": "feature:discover-hub"
+    },
+    {
+      "from": "needs-decision:ND-37",
+      "kind": "decision",
+      "to": "story:discover-hub"
     },
     {
       "from": "backend-delivery:badge-qr",
@@ -24115,6 +24165,26 @@
       "to": "story:rings"
     },
     {
+      "from": "decision:D-37",
+      "kind": "related",
+      "to": "feature:companies"
+    },
+    {
+      "from": "decision:D-37",
+      "kind": "related",
+      "to": "feature:gemma"
+    },
+    {
+      "from": "decision:D-37",
+      "kind": "related",
+      "to": "feature:view-as"
+    },
+    {
+      "from": "decision:D-37",
+      "kind": "related",
+      "to": "needs-decision:ND-37"
+    },
+    {
       "from": "feature:account",
       "kind": "related",
       "to": "feature:auth"
@@ -36312,6 +36382,31 @@
       "from": "needs-decision:ND-36",
       "kind": "related",
       "to": "story:rings"
+    },
+    {
+      "from": "needs-decision:ND-37",
+      "kind": "related",
+      "to": "backend-delivery:discover-hub"
+    },
+    {
+      "from": "needs-decision:ND-37",
+      "kind": "related",
+      "to": "feature:discover-hub"
+    },
+    {
+      "from": "needs-decision:ND-37",
+      "kind": "related",
+      "to": "feature:gemma"
+    },
+    {
+      "from": "needs-decision:ND-37",
+      "kind": "related",
+      "to": "feature:view-as"
+    },
+    {
+      "from": "needs-decision:ND-37",
+      "kind": "related",
+      "to": "frontend-requirements:discover-hub"
     },
     {
       "from": "project:admin-agent",
@@ -67572,6 +67667,11 @@
       "to": "decision:D-36"
     },
     {
+      "from": "needs-decision:ND-37",
+      "kind": "tree",
+      "to": "decision:D-37"
+    },
+    {
       "from": "root",
       "kind": "tree",
       "to": "group:backend"
@@ -67715,6 +67815,11 @@
       "from": "story:connections",
       "kind": "tree",
       "to": "needs-decision:ND-29"
+    },
+    {
+      "from": "story:discover-hub",
+      "kind": "tree",
+      "to": "needs-decision:ND-37"
     },
     {
       "from": "story:error-contract",
@@ -68695,6 +68800,26 @@
       "from": "decision:D-36",
       "kind": "wikilink",
       "to": "story:companies"
+    },
+    {
+      "from": "decision:D-37",
+      "kind": "wikilink",
+      "to": "backend-delivery:discover-hub"
+    },
+    {
+      "from": "decision:D-37",
+      "kind": "wikilink",
+      "to": "feature:discover-hub"
+    },
+    {
+      "from": "decision:D-37",
+      "kind": "wikilink",
+      "to": "frontend-requirements:discover-hub"
+    },
+    {
+      "from": "decision:D-37",
+      "kind": "wikilink",
+      "to": "story:discover-hub"
     },
     {
       "from": "feature:account",
@@ -74025,6 +74150,10 @@
       "name": "D-36 Who it's for stays the owner's alone",
       "type": "decision"
     },
+    "social-pin/decisions/D-37 Discover opens a Pin by its exact Pin name in the MVP.md": {
+      "name": "D-37 Discover opens a Pin by its exact Pin name in the MVP",
+      "type": "decision"
+    },
     "social-pin/decisions/Decisions.md": {
       "name": "Decisions",
       "type": "map"
@@ -75039,6 +75168,10 @@
     },
     "social-pin/needs-decisions/ND-36 Whether an invitee sees who a Ring is for.md": {
       "name": "ND-36 Whether an invitee sees who a Ring is for",
+      "type": "needs-decision"
+    },
+    "social-pin/needs-decisions/ND-37 What Discover does in the MVP.md": {
+      "name": "ND-37 What Discover does in the MVP",
       "type": "needs-decision"
     },
     "templates/Backend Delivery Template.md": {
@@ -76529,7 +76662,9 @@
       "path": "social-pin/modules/Discovery/features/Discover Hub & Search/flow/BD-19 Discover Hub & Search Backend Delivery.md",
       "pending": [],
       "priority": null,
-      "related": [],
+      "related": [
+        "needs-decision:ND-37"
+      ],
       "release": "mvp",
       "resolution": null,
       "scope": "feature",
@@ -84314,6 +84449,67 @@
       "unmet": [],
       "updated": "2026-11-08"
     },
+    "decision:D-37": {
+      "affects": [
+        "story:discover-hub",
+        "frontend-requirements:discover-hub",
+        "backend-delivery:discover-hub",
+        "feature:discover-hub"
+      ],
+      "blockedBy": [],
+      "card": "D-37",
+      "children": [],
+      "code": "D-37",
+      "created": "2026-11-12",
+      "deadline": null,
+      "decidedAt": "2026-11-11",
+      "decidedBy": "Omar Fostok",
+      "decides": "ND-37",
+      "depends": [],
+      "effectiveStatus": "decided",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "discover-hub"
+      ],
+      "foundOn": null,
+      "frontendOnly": false,
+      "id": "decision:D-37",
+      "inherits": {},
+      "kind": "decision",
+      "label": "Decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "openBugs": [],
+      "parentTask": null,
+      "parents": [
+        "needs-decision:ND-37"
+      ],
+      "path": "social-pin/decisions/D-37 Discover opens a Pin by its exact Pin name in the MVP.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "needs-decision:ND-37",
+        "feature:view-as",
+        "feature:gemma",
+        "feature:companies"
+      ],
+      "release": null,
+      "resolution": null,
+      "scope": null,
+      "screens": [],
+      "status": "decided",
+      "summary": null,
+      "tags": [
+        "decision",
+        "decision/decided"
+      ],
+      "task": null,
+      "title": "D-37 Discover opens a Pin by its exact Pin name in the MVP",
+      "unmet": [],
+      "updated": "2026-11-12"
+    },
     "feature:account": {
       "affects": [],
       "blockedBy": [],
@@ -84941,7 +85137,8 @@
         "project:spec-map",
         "needs-decision:ND-18",
         "needs-decision:ND-33",
-        "decision:D-33"
+        "decision:D-33",
+        "decision:D-37"
       ],
       "release": "mvp",
       "resolution": null,
@@ -85361,15 +85558,18 @@
         "project:ring-access-model",
         "project:architecture",
         "project:api-conventions",
-        "project:spec-map"
+        "project:spec-map",
+        "needs-decision:ND-37"
       ],
       "release": "mvp",
       "resolution": null,
       "rollup": {
         "approved": 1,
         "blocked": 1,
+        "decided": 1,
         "draft": 1,
-        "missing": 4
+        "missing": 4,
+        "verified": 1
       },
       "scope": null,
       "screens": [
@@ -85990,6 +86190,8 @@
         "project:architecture",
         "project:api-conventions",
         "project:spec-map",
+        "needs-decision:ND-37",
+        "decision:D-37",
         "frontend-requirements:interests"
       ],
       "release": null,
@@ -87532,9 +87734,11 @@
         "needs-decision:ND-14",
         "needs-decision:ND-16",
         "needs-decision:ND-22",
+        "needs-decision:ND-37",
         "decision:D-14",
         "decision:D-15",
         "decision:D-16",
+        "decision:D-37",
         "story:badge-qr"
       ],
       "release": "mvp",
@@ -91867,6 +92071,7 @@
       "priority": null,
       "related": [
         "task:B-03",
+        "needs-decision:ND-37",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -95023,7 +95228,7 @@
         "approved": 3,
         "blocked": 2,
         "current": 1,
-        "decided": 3,
+        "decided": 4,
         "delivered": 1,
         "done": 1,
         "draft": 2,
@@ -95031,7 +95236,7 @@
         "missing": 9,
         "partial": 1,
         "passing": 1,
-        "verified": 3
+        "verified": 4
       },
       "scope": null,
       "screens": [],
@@ -97794,6 +97999,71 @@
       "title": "ND-36 Whether an invitee sees who a Ring is for",
       "unmet": [],
       "updated": "2026-11-08"
+    },
+    "needs-decision:ND-37": {
+      "affects": [],
+      "blockedBy": [],
+      "blocks": [
+        "story:discover-hub"
+      ],
+      "card": "ND-37",
+      "children": [
+        "decision:D-37"
+      ],
+      "code": "ND-37",
+      "created": "2026-11-12",
+      "deadline": null,
+      "decider": "owner",
+      "depends": [],
+      "effectiveStatus": "verified",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "discover-hub"
+      ],
+      "foundOn": null,
+      "frontendOnly": false,
+      "fulfilledBy": "decision:D-37",
+      "id": "needs-decision:ND-37",
+      "inherits": {},
+      "kind": "needs-decision",
+      "label": "Needs decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "openBugs": [],
+      "parentTask": null,
+      "parents": [
+        "story:discover-hub"
+      ],
+      "path": "social-pin/needs-decisions/ND-37 What Discover does in the MVP.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "feature:discover-hub",
+        "frontend-requirements:discover-hub",
+        "backend-delivery:discover-hub",
+        "feature:view-as",
+        "feature:gemma",
+        "decision:D-37"
+      ],
+      "release": null,
+      "resolution": null,
+      "scope": null,
+      "screens": [
+        "s38",
+        "s44"
+      ],
+      "status": "needs-decision",
+      "summary": "Whether Discover & Search (F-19 Discover Hub & Search) is in the MVP, and if it is, which of S-42 Discover Hub & Search Story's parts are. The feature had no release, and the story describes the…",
+      "tags": [
+        "needs-decision",
+        "needs-decision/open"
+      ],
+      "task": null,
+      "title": "ND-37 What Discover does in the MVP",
+      "unmet": [],
+      "updated": "2026-11-12"
     },
     "project:admin-agent": {
       "affects": [],
@@ -105450,7 +105720,7 @@
         "approved": 40,
         "blocked": 27,
         "current": 10,
-        "decided": 33,
+        "decided": 34,
         "delivered": 12,
         "done": 37,
         "draft": 25,
@@ -105463,7 +105733,7 @@
         "ready": 6,
         "reference": 32,
         "todo": 2,
-        "verified": 34
+        "verified": 35
       },
       "scope": null,
       "screens": [],
@@ -106566,7 +106836,9 @@
       "affects": [],
       "blockedBy": [],
       "card": "S-42",
-      "children": [],
+      "children": [
+        "needs-decision:ND-37"
+      ],
       "code": "discover-hub",
       "created": "2026-10-18",
       "deadline": null,
