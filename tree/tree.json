@@ -159,6 +159,7 @@
     "D-35 A join code can be shown as a QR": "decision:D-35",
     "D-36 Who it's for stays the owner's alone": "decision:D-36",
     "D-37 Discover opens a Pin by its exact Pin name in the MVP": "decision:D-37",
+    "D-38 Introduce is in the MVP": "decision:D-38",
     "Database & Migrations": "project:database-migrations",
     "Developer Guide": "project:developer-guide",
     "Developer Setup": "project:developer-setup",
@@ -308,6 +309,7 @@
     "ND-35 A colleague's QR offering their company Ring": "needs-decision:ND-35",
     "ND-36 Whether an invitee sees who a Ring is for": "needs-decision:ND-36",
     "ND-37 What Discover does in the MVP": "needs-decision:ND-37",
+    "ND-38 Whether Introduce is in the MVP": "needs-decision:ND-38",
     "Owner Agent": "project:owner-agent",
     "PM Agent": "project:pm-agent",
     "Project Overview": "project:project-overview",
@@ -503,6 +505,7 @@
     "D-35": "decision:D-35",
     "D-36": "decision:D-36",
     "D-37": "decision:D-37",
+    "D-38": "decision:D-38",
     "F-01": "feature:account",
     "F-02": "feature:auth",
     "F-03": "feature:counts",
@@ -639,6 +642,7 @@
     "ND-35": "needs-decision:ND-35",
     "ND-36": "needs-decision:ND-36",
     "ND-37": "needs-decision:ND-37",
+    "ND-38": "needs-decision:ND-38",
     "P-01": "project:feature-graph",
     "P-02": "project:feature-tree",
     "P-03": "project:glossary",
@@ -6610,6 +6614,7 @@
         "needs-decision:ND-25",
         "needs-decision:ND-26",
         "needs-decision:ND-29",
+        "needs-decision:ND-38",
         "task:B-09",
         "task:B-10"
       ],
@@ -6634,6 +6639,7 @@
         "needs-decision:ND-25",
         "needs-decision:ND-26",
         "needs-decision:ND-29",
+        "needs-decision:ND-38",
         "qa-backend:connections",
         "qa-backend:ring-access",
         "qa-backend:ring-members",
@@ -7222,12 +7228,12 @@
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 14,
-      "decision": 34,
+      "decision": 35,
       "feature": 40,
       "frontend-delivery": 14,
       "frontend-requirements": 39,
       "module": 8,
-      "needs-decision": 35,
+      "needs-decision": 36,
       "project": 28,
       "qa-backend": 14,
       "qa-frontend": 2,
@@ -7236,21 +7242,21 @@
     },
     "byLayer": {
       "backend": 61,
-      "business": 182,
+      "business": 184,
       "frontend": 57,
       "qa": 16,
       "shared": 10
     },
     "concepts": 336,
-    "decisions": 35,
-    "edges": 8755,
+    "decisions": 36,
+    "edges": 8773,
     "features": 40,
     "layerNotes": 162,
     "modules": 8,
-    "notes": 357,
+    "notes": 359,
     "partial": 17,
     "placeholders": 116,
-    "records": 34
+    "records": 35
   },
   "deadlines": {
     "missed": {
@@ -8173,6 +8179,26 @@
       "from": "decision:D-37",
       "kind": "affects",
       "to": "story:discover-hub"
+    },
+    {
+      "from": "decision:D-38",
+      "kind": "affects",
+      "to": "backend-delivery:connections"
+    },
+    {
+      "from": "decision:D-38",
+      "kind": "affects",
+      "to": "frontend-delivery:connections"
+    },
+    {
+      "from": "decision:D-38",
+      "kind": "affects",
+      "to": "frontend-requirements:connections"
+    },
+    {
+      "from": "decision:D-38",
+      "kind": "affects",
+      "to": "story:connections"
     },
     {
       "from": "frontend-requirements:badge-qr",
@@ -9798,6 +9824,16 @@
       "from": "needs-decision:ND-37",
       "kind": "decision",
       "to": "story:discover-hub"
+    },
+    {
+      "from": "needs-decision:ND-38",
+      "kind": "decision",
+      "to": "feature:connections"
+    },
+    {
+      "from": "needs-decision:ND-38",
+      "kind": "decision",
+      "to": "story:connections"
     },
     {
       "from": "backend-delivery:badge-qr",
@@ -24185,6 +24221,16 @@
       "to": "needs-decision:ND-37"
     },
     {
+      "from": "decision:D-38",
+      "kind": "related",
+      "to": "feature:connections"
+    },
+    {
+      "from": "decision:D-38",
+      "kind": "related",
+      "to": "needs-decision:ND-38"
+    },
+    {
       "from": "feature:account",
       "kind": "related",
       "to": "feature:auth"
@@ -36407,6 +36453,26 @@
       "from": "needs-decision:ND-37",
       "kind": "related",
       "to": "frontend-requirements:discover-hub"
+    },
+    {
+      "from": "needs-decision:ND-38",
+      "kind": "related",
+      "to": "backend-delivery:connections"
+    },
+    {
+      "from": "needs-decision:ND-38",
+      "kind": "related",
+      "to": "feature:connections"
+    },
+    {
+      "from": "needs-decision:ND-38",
+      "kind": "related",
+      "to": "frontend-delivery:connections"
+    },
+    {
+      "from": "needs-decision:ND-38",
+      "kind": "related",
+      "to": "frontend-requirements:connections"
     },
     {
       "from": "project:admin-agent",
@@ -67672,6 +67738,11 @@
       "to": "decision:D-37"
     },
     {
+      "from": "needs-decision:ND-38",
+      "kind": "tree",
+      "to": "decision:D-38"
+    },
+    {
       "from": "root",
       "kind": "tree",
       "to": "group:backend"
@@ -67815,6 +67886,11 @@
       "from": "story:connections",
       "kind": "tree",
       "to": "needs-decision:ND-29"
+    },
+    {
+      "from": "story:connections",
+      "kind": "tree",
+      "to": "needs-decision:ND-38"
     },
     {
       "from": "story:discover-hub",
@@ -68820,6 +68896,26 @@
       "from": "decision:D-37",
       "kind": "wikilink",
       "to": "story:discover-hub"
+    },
+    {
+      "from": "decision:D-38",
+      "kind": "wikilink",
+      "to": "backend-delivery:connections"
+    },
+    {
+      "from": "decision:D-38",
+      "kind": "wikilink",
+      "to": "frontend-delivery:connections"
+    },
+    {
+      "from": "decision:D-38",
+      "kind": "wikilink",
+      "to": "frontend-requirements:connections"
+    },
+    {
+      "from": "decision:D-38",
+      "kind": "wikilink",
+      "to": "story:connections"
     },
     {
       "from": "feature:account",
@@ -74154,6 +74250,10 @@
       "name": "D-37 Discover opens a Pin by its exact Pin name in the MVP",
       "type": "decision"
     },
+    "social-pin/decisions/D-38 Introduce is in the MVP.md": {
+      "name": "D-38 Introduce is in the MVP",
+      "type": "decision"
+    },
     "social-pin/decisions/Decisions.md": {
       "name": "Decisions",
       "type": "map"
@@ -75172,6 +75272,10 @@
     },
     "social-pin/needs-decisions/ND-37 What Discover does in the MVP.md": {
       "name": "ND-37 What Discover does in the MVP",
+      "type": "needs-decision"
+    },
+    "social-pin/needs-decisions/ND-38 Whether Introduce is in the MVP.md": {
+      "name": "ND-38 Whether Introduce is in the MVP",
       "type": "needs-decision"
     },
     "templates/Backend Delivery Template.md": {
@@ -76196,6 +76300,7 @@
       "priority": "critical",
       "related": [
         "task:B-26",
+        "needs-decision:ND-38",
         "feature:connections",
         "backend-delivery:ring-access",
         "backend-delivery:ring-members",
@@ -84510,6 +84615,65 @@
       "unmet": [],
       "updated": "2026-11-12"
     },
+    "decision:D-38": {
+      "affects": [
+        "story:connections",
+        "frontend-requirements:connections",
+        "backend-delivery:connections",
+        "frontend-delivery:connections"
+      ],
+      "blockedBy": [],
+      "card": "D-38",
+      "children": [],
+      "code": "D-38",
+      "created": "2026-11-12",
+      "deadline": null,
+      "decidedAt": "2026-11-11",
+      "decidedBy": "Omar Fostok",
+      "decides": "ND-38",
+      "depends": [],
+      "effectiveStatus": "decided",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "connections"
+      ],
+      "foundOn": null,
+      "frontendOnly": false,
+      "id": "decision:D-38",
+      "inherits": {},
+      "kind": "decision",
+      "label": "Decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "openBugs": [],
+      "parentTask": null,
+      "parents": [
+        "needs-decision:ND-38"
+      ],
+      "path": "social-pin/decisions/D-38 Introduce is in the MVP.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "needs-decision:ND-38",
+        "feature:connections"
+      ],
+      "release": null,
+      "resolution": null,
+      "scope": null,
+      "screens": [],
+      "status": "decided",
+      "summary": null,
+      "tags": [
+        "decision",
+        "decision/decided"
+      ],
+      "task": null,
+      "title": "D-38 Introduce is in the MVP",
+      "unmet": [],
+      "updated": "2026-11-12"
+    },
     "feature:account": {
       "affects": [],
       "blockedBy": [],
@@ -85236,6 +85400,7 @@
         "needs-decision:ND-27",
         "needs-decision:ND-28",
         "needs-decision:ND-29",
+        "needs-decision:ND-38",
         "decision:D-10",
         "decision:D-23",
         "decision:D-24",
@@ -85244,6 +85409,7 @@
         "decision:D-27",
         "decision:D-28",
         "decision:D-29",
+        "decision:D-38",
         "backend-delivery:connections",
         "frontend-requirements:counts"
       ],
@@ -85252,11 +85418,11 @@
       "rollup": {
         "approved": 2,
         "current": 1,
-        "decided": 12,
+        "decided": 13,
         "missing": 1,
         "partial": 2,
         "passing": 1,
-        "verified": 12
+        "verified": 13
       },
       "scope": null,
       "screens": [
@@ -88529,6 +88695,7 @@
       "related": [
         "task:B-13",
         "task:B-17",
+        "needs-decision:ND-38",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-requirements:connections",
@@ -91600,6 +91767,7 @@
         "task:B-16",
         "task:B-17",
         "task:B-26",
+        "needs-decision:ND-38",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -95166,12 +95334,12 @@
       "rollup": {
         "approved": 2,
         "current": 1,
-        "decided": 12,
+        "decided": 13,
         "in-progress": 1,
         "missing": 1,
         "partial": 2,
         "passing": 1,
-        "verified": 12
+        "verified": 13
       },
       "scope": null,
       "screens": [],
@@ -98062,6 +98230,69 @@
       ],
       "task": null,
       "title": "ND-37 What Discover does in the MVP",
+      "unmet": [],
+      "updated": "2026-11-12"
+    },
+    "needs-decision:ND-38": {
+      "affects": [],
+      "blockedBy": [],
+      "blocks": [
+        "story:connections"
+      ],
+      "card": "ND-38",
+      "children": [
+        "decision:D-38"
+      ],
+      "code": "ND-38",
+      "created": "2026-11-12",
+      "deadline": null,
+      "decider": "owner",
+      "depends": [],
+      "effectiveStatus": "verified",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "connections"
+      ],
+      "foundOn": null,
+      "frontendOnly": false,
+      "fulfilledBy": "decision:D-38",
+      "id": "needs-decision:ND-38",
+      "inherits": {},
+      "kind": "needs-decision",
+      "label": "Needs decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "openBugs": [],
+      "parentTask": null,
+      "parents": [
+        "story:connections"
+      ],
+      "path": "social-pin/needs-decisions/ND-38 Whether Introduce is in the MVP.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "feature:connections",
+        "frontend-requirements:connections",
+        "backend-delivery:connections",
+        "frontend-delivery:connections",
+        "decision:D-38"
+      ],
+      "release": null,
+      "resolution": null,
+      "scope": null,
+      "screens": [
+        "s47"
+      ],
+      "status": "needs-decision",
+      "summary": "Whether Introduce on Connection detail (s47) is in the MVP. S-23 Connections Story shows it disabled, \"Not available yet\", and proposes it for v1 in its open questions.",
+      "tags": [
+        "needs-decision",
+        "needs-decision/open"
+      ],
+      "task": null,
+      "title": "ND-38 Whether Introduce is in the MVP",
       "unmet": [],
       "updated": "2026-11-12"
     },
@@ -105720,7 +105951,7 @@
         "approved": 40,
         "blocked": 27,
         "current": 10,
-        "decided": 34,
+        "decided": 35,
         "delivered": 12,
         "done": 37,
         "draft": 25,
@@ -105733,7 +105964,7 @@
         "ready": 6,
         "reference": 32,
         "todo": 2,
-        "verified": 35
+        "verified": 36
       },
       "scope": null,
       "screens": [],
@@ -106427,7 +106658,8 @@
         "needs-decision:ND-26",
         "needs-decision:ND-27",
         "needs-decision:ND-28",
-        "needs-decision:ND-29"
+        "needs-decision:ND-29",
+        "needs-decision:ND-38"
       ],
       "code": "connections",
       "created": "2026-10-18",
