@@ -20,6 +20,8 @@ tags: [frontend-requirements, frontend-requirements/approved, module/connections
 
 # 📨 Connections · Frontend Requirements
 
+> ⚠ Affected by [[S-23 Connections Story]] (2026-11-12): S17 Introduce is an MVP part (D-38) and needs an endpoint (its shape waits on what Introduce sends); S8 Discover's People tile opens Contacts ("Requests · N"); the app's wording kept: "Can't add this person.", "…whichever comes first ends their access.", "You can't do that here.", "You haven't blocked anyone.", "Nothing shared with you right now."
+
 > ⚠ Affected by [[D-38 Introduce is in the MVP]] (2026-11-12): Introduce (s47) is in the MVP; once S-23 has the part, the requirements need the Introduce endpoint
 
 > ⚠ Affected by [[BD-18 Badge & QR Backend Delivery]] (2026-11-08): GET /views/qr/:token is on backend main 1c460b0: the 'By scan' and 'The card by scanned code' rows can read ✅ (BI-15); Connect by { qrToken } is still ❌
