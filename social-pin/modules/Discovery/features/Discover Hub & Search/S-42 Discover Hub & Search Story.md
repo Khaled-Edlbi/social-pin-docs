@@ -16,6 +16,8 @@ tags: [story, story/approved, module/discovery, layer/business]
 
 # Discover Hub & Search · User Story
 
+> ⚠ Affected by [[D-37 Discover opens a Pin by its exact Pin name in the MVP]] (2026-11-12): F-19 is in the MVP; the MVP is S2 and S3 (exact Pin name via GET /views/pin/{pinName}, "This Pin isn't available to you" under the field, recent searches kept on the phone, which answers the open question); search by name, Gemma (S4), import contacts matching (S5, S7) and a business Pin opening its company screen are later
+
 > ⚠ Affected by [[S-29 Companies Story]] (2026-11-05): S-29 was rewritten as S1–S14 with its product rules decided inside the story (P1–P8, no decision cards). The old Companies · S6 (merged T-029) is gone: the list is S2, company detail S5, leave S9, and the business ↔ Ring link is decided as P2 (every company Ring carries its business; setup creates both). The domain shows as acme.co without Verified in the MVP (P6). Repoint the links that name Companies · S6.
 
 **Feature:** [[F-19 Discover Hub & Search]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[FR-19 Discover Hub & Search Frontend Requirements]] · **API Integration:** not yet (backend not built)
