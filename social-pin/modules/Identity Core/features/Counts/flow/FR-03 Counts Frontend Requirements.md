@@ -19,6 +19,8 @@ tags: [frontend-requirements, frontend-requirements/approved, module/identity, l
 
 # Counts · Frontend Requirements
 
+> ⚠ Affected by [[S-03 Counts Story]] (2026-11-12): S2 and S10 no longer say "never": on Shared with me, "· N people" shows only on a row whose Ring lets members see each other (the server sends memberCount on GET /rings/shared-with-me only then, BI-17); "Not asked, by decision" and the owner-only line here are out of date
+
 **Feature:** [[F-03 Counts]] · **Status:** Approved 2026-11-05 by khaled · **Story:** [[S-03 Counts Story]] · **API Integration:** not yet (backend not built)
 
 What the client needs to show the numbers the design puts on Home, the Ring picker, My Rings, Shared with me, Ring data and Me, and which of them can be read today. The feature has no endpoints of its own; two of the numbers fall out of list envelopes that already exist, the rest wait on tasks. In the MVP since 2026-10-27.

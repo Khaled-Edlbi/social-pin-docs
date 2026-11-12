@@ -9,9 +9,9 @@ screens: [s11, s12, s14, s16, s17, s68]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "Omar Fostok"
-related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring"]
+related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "S-33 Ring Invitations & Join Story", "BI-17 Ring Invitations & Join Backend Integration"]
 created: 2026-10-18
-updated: 2026-10-29
+updated: 2026-11-12
 tags: [story, story/approved, module/identity, layer/business]
 ---
 
@@ -54,7 +54,8 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] "My Rings · N" is `meta.total` of `GET /rings`; "Shared with me · N" counts the **people** who share with me right now, one per person, since Shared with me lists people, not Rings ([[D-14 Shared with me lists people, never the Ring]]). Not available yet: `meta.total` of `GET /rings/shared-with-me` counts live Rings today, so someone sharing two Rings counts twice.
-- [ ] Each owned Ring row shows "N people" when the member count exists; a row on Shared with me is a person and never shows a member count.
+- [ ] Each owned Ring row shows "N people" when the member count exists.
+- [ ] A row on Shared with me is a person. It shows "· N people" only when the Ring lets members see each other: the server sends `memberCount` on a row only then (a Ring I joined knowingly, with `ringName` set, [[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S1]]). When `memberCount` is `null`, which includes a Ring I was placed in, the row shows no number.
 - [ ] The shared count can change without any action of the viewer; it refetches on screen focus.
 
 ### S3 · Ring data header ([[Screen Index#s14|s14]])
@@ -123,7 +124,8 @@ Acceptance criteria:
 **As a** Ring member **I want** the size of someone else's Ring kept private **so that** membership isn't revealed.
 
 Acceptance criteria:
-- [ ] `memberCount` is on the owner's Rings only; `GET /rings/shared-with-me` doesn't carry it. "Members can see each other" is a Ring setting, off by default ([[D-04 Ring settings at launch and their defaults]]); a member-side count, if any, belongs to that setting's work, not to this task.
+- [ ] `memberCount` is on the owner's Rings (`GET /rings`, `GET /rings/:id`).
+- [ ] On `GET /rings/shared-with-me`, a member gets `memberCount` only on a row whose Ring lets members see each other. That is a Ring setting, off by default ([[D-04 Ring settings at launch and their defaults]]). Otherwise it is `null` and no number shows.
 
 ### S11 · Connections on Me ([[Screen Index#s68|s68]])
 
@@ -166,10 +168,15 @@ Acceptance criteria:
 ## Open questions
 
 - Whether the member count rides on `RingEntity` (`memberCount`) or on a separate stats endpoint is left open in [[S-03 Counts Story|Counts · S6–S10]]; the client prefers it on the entity so the list needs one call.
-- Whether members of a Ring with "members can see each other" on see a member count: D-04 says they see each other's full cards, and the count follows from that list; not asked separately ([[D-04 Ring settings at launch and their defaults]], *Still open*). It never shows on Shared with me, which names no Ring.
+- Whether members of a Ring with "members can see each other" on see a member count: D-04 says they see each other's full cards, and the count follows from that list; not asked separately ([[D-04 Ring settings at launch and their defaults]], *Still open*). Answered by the backend and the app: on Shared with me, "· N people" shows only on a row whose Ring lets members see each other (S2, S10).
 - (Counts · S6–S10) **On the Ring, or a stats endpoint.** The task allows either. The app asks for `memberCount` on `RingEntity` in both `GET /rings` and `GET /rings/:id`: one request for the whole list, no call per Ring.
 - (Counts · S6–S10) **"N added today"** on Home ("148 people · 2 added today") isn't in this task. Either a second number here, or dropped from the design.
 - (Counts · S6–S10) **My Rings wording.** The design says "148 connections" on My Rings rows and "148 people" elsewhere for the same number; one word should be chosen.
 - (Counts · S11) Whether the count rides on `GET /users/me`, on a stats endpoint, or on the connections list's `meta.total` is for the backend to choose in Counts · S11; the client needs one number and no extra list call on Me.
 - (Counts · S11) The task keeps its title "on Me and Home"; Home is out by the 2026-10-27 decision.
+
+## Log
+
+- 2026-11-12 · `tickets/pm/M-01-identity/F-03-counts/S-03-app-778d9b4` · S2, S10 and the open question: "· N people" on Shared with me only when the Ring lets members see each other (the server sends memberCount only then); the "never" wording is gone. Decided by Omar Fostok 2026-11-11, app 778d9b4
+- 2026-11-12 · flagged [[FR-03 Counts Frontend Requirements]], [[BD-03 Counts Backend Delivery]], [[BI-14 Counts Backend Integration]], [[FD-06 Counts Frontend Delivery]], [[QB-07 Counts QA Backend]]: the same
 

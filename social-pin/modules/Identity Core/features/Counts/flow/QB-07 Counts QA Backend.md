@@ -18,6 +18,8 @@ tags: [qa-backend, qa-backend/passing, module/identity, layer/qa]
 
 # 🧪 Counts · QA Backend
 
+> ⚠ Affected by [[S-03 Counts Story]] (2026-11-12): S10 now says GET /rings/shared-with-me carries memberCount on a row whose Ring lets members see each other; B12 ("no item carries memberCount") holds only for a Ring without that setting
+
 > Blocked by default until [[BD-03 Counts Backend Delivery]] is `done` (the hand-off order in `docs.config.json`); `blockedBy: []` opts out, `blockedBy: [...]` names other blockers.
 
 **Feature:** [[F-03 Counts]] · **Verifies:** [[BD-03 Counts Backend Delivery]] against [[S-03 Counts Story]] and [[FR-03 Counts Frontend Requirements]], with the shapes of [[BI-14 Counts Backend Integration]] · **Verdict:** Passing on backend `main` `516a78f`, 2026-11-09: S11 (B20–B27) re-run and as expected; B1–B19 passing on `f186ba1`, 2026-11-05
