@@ -11,13 +11,11 @@ approvedAt: 2026-10-29
 owner: "Omar Fostok"
 related: ["D-02 One main profile every Ring starts from", "D-03 Links entered once, switched on or off per Ring", "D-05 Inherit per field, copy without members", "S-06 Files Upload Story", "S-14 Profiles & Pin Name Story", "S-19 View As & Pin Views Story", "S-89 Gemma AI Story", "F-38 Linked Accounts (OAuth)"]
 created: 2026-10-18
-updated: 2026-10-29
+updated: 2026-11-12
 tags: [story, story/approved, module/identity, layer/business]
 ---
 
 # Ring Projection · User Story
-
-> ⚠ Affected by [[FD-11 Ring Projection Frontend Delivery]] (2026-11-09): app f801aaa ships S10 and s28: headline, role, company and location per Ring (follows / own / hidden, Reset to Pin) are a section of s24 saved with its Save, not rows on s23; the bio has no Inherit or Reset to Pin yet (pending on FD-11); s28 lists only Rings with a bio or photo of their own; for /pm
 
 **Feature:** [[F-10 Ring Projection]] · **Status:** Approved 2026-10-29 by Omar Fostok (first approved 2026-10-25 by khaled; reworked 2026-10-29 by the design review: S1, S3, S4, S5, S7 changed, S9 and S10 added) · **Frontend Requirements:** [[FR-10 Ring Projection Frontend Requirements]] · **Backend Integration:** [[BI-07 Ring Projection Backend Integration]]
 
@@ -56,15 +54,15 @@ Acceptance criteria:
 - [ ] s23, top to bottom:
   - **Full name**: shown, read-only, "the same in every Ring" ([[D-02 One main profile every Ring starts from]]). The API still accepts `displayName` today; the editor does not send it.
   - **Photo**: Change (→ s29), Inherit, Copy a Ring, Upload (→ s30).
-  - **Headline**, **Role**, **Company**, **Location**: each row shows the value this Ring shows and its state, "**Follows your Pin**" or "**Own for <Ring>**"; tapping it offers **Inherit** or **Write my own**, and "**Reset to Pin**" when it has its own (S10). If the field is off on s24, the row reads "**Hidden in <Ring>**" and links there.
-  - **Nickname** ("What friends call you", [[S-14 Profiles & Pin Name Story|Profiles & Pin Name · S3]]): the same pattern; a Ring's `nickname`, `null` follows the profile's. **Works today.**
-  - **Bio**: Reset, Write my own, Inherit, Copy a Ring (`bio` ≤ 2000).
+  - **Headline**, **Role**, **Company**, **Location**: set on What it shows (s24) with **Your Pin / Own here / Hidden** (S10), not here.
+  - **Nickname** ("What friends call you", [[S-14 Profiles & Pin Name Story|Profiles & Pin Name · S3]]): **Your Pin / Own here** (S10); a Ring's `nickname`, `null` follows the profile's.
+  - **Bio**: **Your Pin / Own here** (S10), and Copy a Ring (`bio` ≤ 2000).
   - "Inherit stays in sync with your Pin. Copy takes a snapshot." at the bottom.
 - [ ] **Copy a Ring** (s28), for the photo and the bio: pick another of my Rings, preview, "Use this bio"; it copies once (a snapshot), afterwards the two are independent ([[D-05 Inherit per field, copy without members]]). **Available now**: the client reads the other Ring's `bio` (or `avatarFileId`) and saves it with `PATCH /rings/:ringId/projection`.
 - [ ] Each field follows the main profile until I change it here; changing one stops that field only from following; a field I changed here keeps its value when I change the main one (D-05).
 - [ ] "Gemma: rewrite" is [[S-89 Gemma AI Story]]'s and not shown until Gemma is built.
 - [ ] No theme row: `themeConfig` stays in the backend with no screen in v1.
-- [ ] Not available yet: headline, role, company and location (no main profile fields, [[S-14 Profiles & Pin Name Story|Profiles & Pin Name · S9–S11]], and S10); their rows are shown disabled with "coming soon". Nickname, photo and bio work today (`PATCH …/projection` with `nickname` ≤ 60, `bio`, `avatarFileId`; `null` follows the profile).
+- [ ] Nickname, photo and bio are saved with `PATCH …/projection` (`nickname` ≤ 60, `bio`, `avatarFileId`; `null` follows the profile).
 - [ ] Save returns to s14; the Ring re-composes with the new header.
 - [ ] **For the designer:** the four field rows and the nickname row are not drawn.
 
@@ -142,11 +140,11 @@ Acceptance criteria:
 **As a** Ring owner **I want** each main-profile field on a Ring to follow my Pin, have its own value, or be hidden **so that** one Ring can say "Product lead" and another nothing at all.
 
 Acceptance criteria:
-- [ ] Each main-profile field (**headline**, **role**, **company**, **location**) on a Ring is in one of three states: **off** (switched off on s24), **on following the Pin** (the default on a new Ring), or **on with its own value** (set on s23); "Reset to Pin" goes back to following ([[D-05 Inherit per field, copy without members]]).
+- [ ] Each main-profile field (**headline**, **role**, **company**, **location**) on a Ring has one control with three choices: **Your Pin** (follows the Pin; the default on a new Ring: "\"{value}\". Changes when your Pin does."), **Own here** ("Write one only {ring} sees. Your Pin stays as it is.") and **Hidden**. Picking **Your Pin** goes back to following; there is no "Reset to Pin" ([[D-05 Inherit per field, copy without members]]). The control is the section **ABOUT YOU · YOUR PIN, OWN HERE OR HIDDEN** of What it shows (s24), saved with its Save.
 - [ ] A Ring that changed a field keeps its value when the main one changes; one that follows changes with it.
-- [ ] The **photo** and the **bio** follow the same rule without "off" (`null` follows the profile, as today).
+- [ ] The **photo**, the **bio** and the **nickname** are a **Your Pin / Own here** row, with no Hidden (`null` follows the Pin; the API never hides them).
 - [ ] The **name** is always on and the same in every Ring (D-02).
-- [ ] Not available yet: depends on the main profile fields ([[S-14 Profiles & Pin Name Story|Profiles & Pin Name · S9–S11]]); no Ring can hide or change them today.
+- [ ] My other **links** and **custom fields** can be dragged into this Ring's order; the order is sent with Save as each row's `sortOrder`.
 
 ## States and motion the design asks for
 
@@ -167,3 +165,7 @@ Acceptance criteria:
 - Decided: [[D-02 One main profile every Ring starts from]], [[D-03 Links entered once, switched on or off per Ring]], [[D-05 Inherit per field, copy without members]]; built in S9 and S10 (design review 2026-10-29). The main profile fields are [[S-14 Profiles & Pin Name Story|Profiles & Pin Name · S9–S11]].
 - Answered 2026-10-29: custom fields and files follow the same on/off rule as links (S9).
 - The order of links within a Ring: shared, or per Ring (D-03, *Still open*); S9 keeps it per Ring until product says otherwise.
+
+## Log
+
+- 2026-11-12 · `tickets/pm/M-01-identity/F-10-ring-projection/S-17-app-778d9b4` · S10 matched to the app: the per-field control is Your Pin / Own here / Hidden ("Your Pin" replaces Reset to Pin), a section of s24 saved with its Save; the photo, bio and nickname are a Your Pin / Own here row; links and custom fields can be reordered per Ring; S3's s23 rows point to S10 (no Inherit / Reset to Pin); decided by Omar Fostok 2026-11-11, app 778d9b4. Clears FD-11's 2026-11-09 flag. The story stays approved. Flagged [[FR-10 Ring Projection Frontend Requirements]] and [[FD-11 Ring Projection Frontend Delivery]]
