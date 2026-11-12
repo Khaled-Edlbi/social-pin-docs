@@ -8,15 +8,13 @@ scope: feature
 screens: [s02]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
-owner: "khaled"
+owner: "Omar Fostok"
 created: 2026-10-18
-updated: 2026-10-29
+updated: 2026-11-12
 tags: [story, story/approved, module/platform, layer/business]
 ---
 
 # Code Delivery · User Story
-
-> ⚠ Affected by [[D-30 The fifth wrong code try locks the code]] (2026-11-05): ND-30 decided, option 1: S4's 'After the sixth wrong guess the code is burned' should read the fifth; S-78 is approved, so the reword sends it back to draft until product re-approves it (/pm, on the user's word)
 
 **Feature:** [[F-32 Code Delivery]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[FR-32 Code Delivery Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
@@ -56,11 +54,13 @@ Acceptance criteria:
 
 ### S4 · Wrong or expired code ([[Screen Index#s02|s02]])
 
-**As a** user who mistyped or waited too long **I want** one clear message and a way forward **so that** I do not get stuck.
+**As a** user who mistyped or waited too long **I want** a clear message and a way forward **so that** I do not get stuck.
 
 Acceptance criteria:
-- [ ] A wrong code and an expired code show the same "invalid or expired" message with the resend button.
-- [ ] After the sixth wrong guess the code is burned; the screen says a new code is required and offers resend only.
+- [ ] **A wrong code** (400 `E_AUTH_05`, which the server also answers for a code it has already expired): the boxes **shake and clear**, so I can type again at once, and the line under them reads "That code is wrong or has expired."; resend stays offered.
+- [ ] **An expired code**, found by the phone's own timer (counted from the challenge's `expiresAt` against the server's clock, before any try is sent): the boxes clear and switch off, and the line reads "This code has expired. Ask for a new one."; resend is the way forward.
+- [ ] Fewer than six digits: no call is sent; the boxes shake and the line reads "Enter all six digits."
+- [ ] After the **fifth** wrong guess the code is burned (429 `E_AUTH_06`, [[D-30 The fifth wrong code try locks the code|D-30]]): the boxes clear and switch off until a new code is sent, the line reads "Too many tries. Ask for a new code.", and resend is the only way forward.
 - [ ] "Use a different email" returns to s01 and clears the typed digits.
 
 ### S5 · Dev build fills the code in ([[Screen Index#s02|s02]])
@@ -114,3 +114,8 @@ Screens: [[Screen Index#s02|s02]] Verify
 ## Open questions
 
 - [[ND-01 Passwordless login]] — if login becomes code-based, every login costs a delivery and the resend timer appears on the login path too; the decision needs delivery first either way.
+
+## Log
+
+- 2026-11-12 · `tickets/pm/M-08-platform/F-32-code-delivery/S-78-app-778d9b4` · S4's "one message" criterion settled to what the app does: a wrong code shakes and clears the boxes ("That code is wrong or has expired."); an expired code, found by the phone's own timer, says "This code has expired. Ask for a new one."; the fifth wrong guess burns the code (D-30; was "sixth"); decided by Omar Fostok 2026-11-11, app 778d9b4. D-30 flag cleared
+- 2026-11-12 · flagged [[FR-32 Code Delivery Frontend Requirements]]: S4 now has two messages (wrong: shake and clear; expired by the phone's timer: "This code has expired. Ask for a new one.") and the fifth wrong guess locks
