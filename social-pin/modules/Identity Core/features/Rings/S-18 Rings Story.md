@@ -5,19 +5,17 @@ module: identity
 feature: rings
 status: approved
 scope: feature
-screens: [s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s27, s62]
+screens: [s08, s09, s16, s17, s18, s19, s20, s21, s22, s26, s27, s28, s62]
 approvedBy: "Omar Fostok"
 approvedAt: 2026-10-29
 owner: "Omar Fostok"
-related: ["D-04 Ring settings at launch and their defaults", "D-05 Inherit per field, copy without members", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-18 Ring names shown when joined knowingly", "S-15 Ring Access Engine Story", "S-16 Ring Members Story", "S-17 Ring Projection Story", "S-23 Connections Story", "S-33 Ring Invitations & Join Story", "S-89 Gemma AI Story"]
+related: ["D-04 Ring settings at launch and their defaults", "D-05 Inherit per field, copy without members", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-18 Ring names shown when joined knowingly", "S-15 Ring Access Engine Story", "S-16 Ring Members Story", "S-17 Ring Projection Story", "S-23 Connections Story", "S-33 Ring Invitations & Join Story", "S-89 Gemma AI Story", "D-28 Scan someone in is not in the MVP", "D-35 A join code can be shown as a QR", "S-19 View As & Pin Views Story"]
 created: 2026-10-18
-updated: 2026-11-11
+updated: 2026-11-12
 tags: [story, story/approved, module/identity, layer/business]
 ---
 
 # Rings · User Story
-
-> ⚠ Affected by [[FD-12 Rings Frontend Delivery]] (2026-11-11): app rings/F-11/honest-rings @ dbef63e: the join choice S9 calls "anyone who scans" reads "Anyone with a join code or its QR" (en and ar) in the wizard, its summary, Edit Ring, the policy sheet and Ring detail (D-28: no badge-scan join in the MVP); the S1/S5 name line now shows on s09 and s18 as written (/pm)
 
 > ⚠ Affected by [[FD-12 Rings Frontend Delivery]] (2026-11-09): app rings/F-11/honest-rings @ 0005f00: S4 'Not available yet' lines are stale (Copy is built; step 2 lists my connections, GET /connections); S1 the s08 templates leave Email (Work, Events) and Personal's photo off, s09 has no such row; S4 the Ring is still created at the end, picked people added after Create; S6 Delegated admins shows on company Rings only (S-31 A1), the S-31 · S6 link is stale; motion: a new Ring forming and delete collapsing out are not built (only s62's) (/pm)
 
@@ -52,11 +50,16 @@ Acceptance criteria:
   | **Personal** | "Personal" | Phone, the photo | none |
 
   A field that can't be switched on yet (headline, role & company before [[S-14 Profiles & Pin Name Story|Profiles & Pin Name · S9–S11]]) is left off. "Create my first Ring" → s09; "Take me to the app" → Home, nothing created.
-- [ ] s09, top to bottom: **Ring name** (1–24, with chips Clients · Family · Company · Close friends · + Type your own) and "**Only you see this name, unless someone joins it with an invitation or a code.**"; **Colour** (the s18 swatches, colour only; pre-selected: the template's colour, or the first one no other Ring of mine uses); **What this Ring exposes · N of M on** (the s24 rows, [[S-17 Ring Projection Story|Ring Projection · S4]]); **Expiry** (optional: none, 7 days, 30 days, a date; on for Events); **Later** (→ Home) and **Create Ring**.
-- [ ] "Create Ring" sends `POST /rings { name, colorHex, isTemporary?, startsAt?, expiresAt? }`, then switches on what was ticked (the projection writes), then continues to the View as teaser (s10).
+- [ ] **s09 is one screen** ("Your first Ring": "A Ring is a group of people and the version of you they see."), top to bottom:
+  - **NAME** (1–24), with the line "**Only you see this name, unless someone joins it with an invitation or a code.**" There are no name chips.
+  - **Colour**: "Change the colour" (the s18 swatches; pre-selected: the template's colour, or the first one no other Ring of mine uses).
+  - **WHAT {ring} SEES**: one row per field, each set to **Your Pin / Own here / Hidden** ([[S-17 Ring Projection Story|Ring Projection · S10]]); "+ Add one for {ring}" where my Pin has none.
+  - **A dates row**: always, or "Or give it an end date, for an event or a project" ("Until {date}"; "Members stop seeing it after that day"). There is no none / 7 / 30-day expiry choice.
+  - "**More options: photo, bio, files, who can join ›**" opens the New Ring wizard (S4) with what s09 holds.
+  - **Later** (→ Home, with "Make Rings any time from the Rings tab.") and **Create Ring** ("Give it a name" under it while the name is empty; "You already have a Ring called {name}." on a clash).
+- [ ] "Create Ring" sends `POST /rings { name, colorHex, isTemporary?, startsAt?, expiresAt? }`, then the projection writes for what was set, then continues to the View as teaser (s10, [[S-19 View As & Pin Views Story|View As · S1]]). A failure keeps everything: "Couldn't create {ring}" · "Check your connection. Everything you picked is still here."
 - [ ] A new Ring animates as a ring forming and taking its place in the carousel.
-- [ ] **For the designer:** s09's Colour section is not drawn (between the name and "What this Ring exposes").
-- [ ] **For the designer** (Nov 2026 design, kept by Omar Fostok 2026-11-11): s09 reads "Only you see its name." The line stays the full one above, with "…unless someone joins it with an invitation or a code." ([[D-18 Ring names shown when joined knowingly|D-18]]).
+- [ ] **For the designer:** s09's Colour section is not drawn (between the name and "WHAT {ring} SEES").
 
 ### S2 · My Rings ([[Screen Index#s16|s16]])
 
@@ -86,21 +89,22 @@ Acceptance criteria:
 
 ### S4 · New Ring wizard ([[Screen Index#s18|s18]] → [[Screen Index#s21|s21]])
 
-**As a** Ring owner **I want** a four-step wizard, name → who is in it → what it shows → how you appear, **so that** a Ring is complete when I tap Create.
+**As a** Ring owner **I want** a four-step wizard, name and kind → who's in it → what it shows → who can join, **so that** a Ring is complete when I tap Create.
 
 Acceptance criteria:
-- [ ] **Step 1 · Name it (s18):**
-  - **Ring name**, 1–24 characters in the app (the counter reads /24; the server allows up to 80), unique per owner (409 `E_RING_01` inline), with suggestion chips; "Gemma: suggest" is [[S-89 Gemma AI Story]]'s and not shown until Gemma is built.
-  - **Colour & icon**: `colorHex`; the icon is kept in `style` (the backend stores it as-is). "Only you see it — it tells your Rings apart at a glance."
+- [ ] The header reads "Step {n} of 4 · {label}"; the steps are **Name and kind**, **Who's in it · optional**, **What it shows**, **Who can join**.
+- [ ] **Step 1 · Name and kind (s18):**
+  - **Ring name**, 1–24 characters in the app (the counter reads /24; the server allows up to 80), unique per owner (409 `E_RING_01` inline); "Gemma: suggest" is [[S-89 Gemma AI Story]]'s and not shown until Gemma is built. Under it: "**Only you see this name, unless someone joins it with an invitation or a code.**"
+  - **Colour & icon**: `colorHex`; the icon is kept in `style` (the backend stores it as-is).
   - **Who is it for**: the purpose (S5, S9).
-  - **Start from**: **Blank Ring** (default); **Copy an existing Ring** (pick one of mine; the new Ring gets its settings, what it shows, bio, photo and colour, **never its members**, [[D-05 Inherit per field, copy without members]]; not available yet: no copy endpoint, shown disabled with "coming soon"); **Event Ring** (a temporary Ring: picking it shows start and end date-time pickers, end required).
+  - **Start from**: **Blank Ring** (default); **Copy an existing Ring**: pick one of mine. The new Ring ("{ring} copy") starts with its settings, what it shows, bio, photo and colour, **never its people, invitations or join codes** ("{ring} starts with what {source} shows. Its people, invitations and join codes aren't copied.", [[D-05 Inherit per field, copy without members]]), and runs through all four steps prefilled; **Event Ring** (a temporary Ring: start and end, end required).
   - **No type picker**: every Ring made here is `PERSONAL` (an Event Ring is `PERSONAL` with `isTemporary`; the `EVENT` type is only for Rings an event creates, [[F-21 Event Ring Auto-creation]]; a `CORPORATE` Ring is made through [[F-15 Companies]]).
-  - "Next · who is in it" calls `POST /rings { name, colorHex, style?, isTemporary?, startsAt?, expiresAt? }` so later steps have a Ring to write to.
-- [ ] **Step 2 · Who is in it (s19):** search my connections; picked people show as chips (× to unpick); filters **All** and **No Ring yet** (connections in none of my Rings); each picked person is added with `POST /rings/:ringId/members { userId }` (placed by me, never told the Ring's name, D-18). "Met this month" is later (no "last met" date); "Suggested by Gemma" is hidden until Gemma; "Invite" is [[S-33 Ring Invitations & Join Story]]'s (disabled until invitations exist). "You can create the Ring empty and add people later by scanning them in." The step can be skipped. Not available yet: my connections list ([[S-23 Connections Story|Connections · S19–S24]]); until it exists the step shows only that sentence and Next.
-- [ ] **Step 3 · What it shows (s20):** [[S-17 Ring Projection Story|Ring Projection · S2]].
-- [ ] **Step 4 · How you appear (s21):** photo and bio ([[S-17 Ring Projection Story|Ring Projection · S3]]); **Access**: Expiry, Who can request to join, Members see each other (three of S9's settings, with their defaults; the rest keep their defaults and are changed on s26 / s27); **Summary**: People N added, Exposes N fields · N socials, Photo & bio Inherited / Own. "Create Ring" lands on s14.
-- [ ] Cancel deletes the Ring created in step 1.
-- [ ] **For the designer:** the start / end pickers under "Event Ring" on s18 are not drawn.
+- [ ] **Step 2 · Who's in it · optional (s19):** search my connections (`GET /connections`); picked people show as chips (× to unpick); filters **All** and **No Ring yet**; "Met this month" is later; "Suggested by Gemma" is hidden until Gemma; "Invite" is [[S-33 Ring Invitations & Join Story]]'s. The step can be skipped.
+- [ ] **Step 3 · What it shows (s20):** the fields, each **Your Pin / Own here / Hidden** ([[S-17 Ring Projection Story|Ring Projection · S2, S10]]); **ABOUT YOU** holds the photo and the bio ([[S-17 Ring Projection Story|Ring Projection · S3]]), with "**Copy from another Ring**" ([[Screen Index#s28|s28]]), which copies another Ring's bio or photo into this one.
+- [ ] **Step 4 · Who can join (s21):** the dates (start, end); who can ask to join (S9's three choices); approve each one; members can see each other, members can invite others, members can save attachments; then **BEFORE YOU CREATE IT**, the summary (who's in it, what it shows, the photo and bio, who can join and whether "you approve." or "they're in at once.").
+- [ ] **Create {ring}** sends `POST /rings { name, colorHex, style?, isTemporary?, startsAt?, expiresAt? }` (a copy: `POST /rings/:id/copy`), then the projection writes, the settings, and places the people picked in step 2 (`POST /rings/:ringId/members { userId }`, placed by me, never told the Ring's name, D-18). A write that fails after the Ring exists is said on the Ring ("{ring} is ready, but who can join wasn't saved"). Create and Copy open the new Ring (s14).
+- [ ] Nothing is created before Create; Cancel, or back on step 1, asks first when there is something to lose.
+- [ ] Join codes and invitations live on the Ring's **People** tab ([[S-33 Ring Invitations & Join Story|Ring Invitations · S7]]); the wizard and Edit Ring only point there.
 
 ### S5 · Edit name & purpose ([[Screen Index#s22|s22]])
 
@@ -119,17 +123,18 @@ Acceptance criteria:
 - [ ] `PATCH /rings/:id { startsAt?, expiresAt?, isTemporary? }`; `null` clears a bound; the copy explains expiry applies to every member at that instant.
 - [ ] An expired Ring remains editable here; its members cannot read it.
 - [ ] **Make this my default Ring** (S7) is a row on this screen.
-- [ ] "Delete Ring" behind a confirmation ("Deleting removes the Ring for everyone in it. The connections stay in your contacts."); `DELETE /rings/:id`; on the default Ring it's disabled with "Choose another default first" (409 `E_RING_04`).
-- [ ] Settings and Permissions (s27) are S9; delegated admins are [[S-31 Delegated Admins Story|Delegated Admins · S6]].
+- [ ] "Delete Ring" behind a confirmation, "Delete {ring}?": "**The N people in it lose this card, and its join codes stop working. This can't be undone. Your connections stay in your contacts.**" (one person: "The 1 person in it loses this card…"; count unknown: "The people in it lose this card…"); `DELETE /rings/:id`; on the default Ring it's disabled with "Choose another default first." (409 `E_RING_04`).
+- [ ] Settings and Permissions (s27) are S9; delegated admins are [[S-31 Delegated Admins Story]] (company Rings only).
+- [ ] Join codes and invitations aren't here: Edit Ring keeps one row pointing to the Ring's **People** tab ([[S-33 Ring Invitations & Join Story|Ring Invitations · S7]]).
 
 ### S7 · Make a Ring the default ([[Screen Index#s26|s26]])
 
 **As a** Ring owner **I want** to choose which Ring strangers get **so that** a scanned badge resolves to the right me.
 
 Acceptance criteria:
-- [ ] On s26 of a Ring that isn't the default: "**Make this my default Ring**", with "This is what someone sees when they scan you and they're in no other Ring of yours." Tapping it confirms ("Strangers who scan you will see <Ring> instead of <current default>."), then `POST /rings/:id/default`; the previous default is demoted in the same transaction.
+- [ ] On s26 of a Ring that isn't the default: "**Make this my default Ring**", with "**This is what someone sees when they scan you and they're in no other Ring of yours.**" Tapping it confirms ("Make {ring} your default?" · "Strangers who scan you will see {ring} instead of {current}." · "Make it my default"), then `POST /rings/:id/default`; the previous default is demoted in the same transaction; "{ring} is now your default Ring."
 - [ ] On the default Ring: "**This is your default Ring**", with the same sentence and no action.
-- [ ] **A temporary Ring can't be the default**: the row is disabled with "A temporary Ring can't be your default." The app checks `isTemporary`; not available yet: the backend doesn't refuse it.
+- [ ] **A temporary Ring can't be the default**: the row is disabled with "A temporary Ring can't be your default. Set Expires to Never first." The server refuses it too (409 `E_RING_09`).
 - [ ] s16 keeps the "DEFAULT" mark; there's no make-default action on the list.
 - [ ] **For the designer:** the row, its confirmation and its "This is your default Ring" state are not drawn.
 
@@ -139,7 +144,8 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] The sheet appears when `isTemporary`, `disposition === "UNDECIDED"` and `expiresAt` is past.
-- [ ] `POST /rings/:id/disposition { disposition, mergedIntoRingId? }`: KEEP makes it permanent; MERGE needs a picker of my other Rings and moves every active member with their window; AUTO_DELETE archives it and expires it now, with "You can still change your mind until it is purged".
+- [ ] `POST /rings/:id/disposition { disposition, mergedIntoRingId? }`: KEEP makes it permanent ("Keep it"); MERGE needs a picker of my other Rings and moves every active member with their window ("Merge into…"); AUTO_DELETE archives it and expires it now ("Let it go").
+- [ ] **Let it go offers no way back.** It asks "Let {ring} go?" · "{ring} is archived now, and everyone in it loses access to what it shows. **This can't be undone in the app.**" The server would still take AUTO_DELETE → KEEP until the purge; the app doesn't offer it.
 - [ ] Motion: keep stays, merge shows two Rings combining, delete collapses out.
 - [ ] The preview on this sheet must not use `GET /views/ring/:id`, which is a 404 for an expired Ring.
 
@@ -148,8 +154,8 @@ Acceptance criteria:
 **As a** Ring owner **I want** a short list of settings with safe defaults **so that** a Ring is private until I open it up ([[D-04 Ring settings at launch and their defaults]]).
 
 Acceptance criteria:
-- [ ] Six settings at launch, with these defaults on a new Ring: **who it's for** (a short description, empty), **who can request to join** (D-04's three choices: **anyone who scans**, **only with a code**, **only invited**; default **only with a code or by invitation**; not "Contacts of members"), **approve each one** (on; off means auto-accept), **members can see each other** (off), **members can invite others** (off), **members can save attachments** (off).
-- [ ] The wizard's step 4 (s21) shows three of them (Expiry, Who can request to join, Members see each other); all six are on s26 / s27.
+- [ ] Six settings at launch, with these defaults on a new Ring: **who it's for** (a short description, empty), **who can ask to join** (D-04's three choices: **Anyone with a join code or its QR**, **Only with a join code or invitation**, **Only by invitation**; default **only with a join code or invitation**; not "Contacts of members"; no badge-scan join in the MVP, [[D-28 Scan someone in is not in the MVP|D-28]], [[D-35 A join code can be shown as a QR|D-35]]), **approve each one** (on; off means auto-accept), **members can see each other** (off), **members can invite others** (off), **members can save attachments** (off).
+- [ ] The wizard's step 4, Who can join (s21), shows all but "who it's for" (step 1): who can ask to join, approve each one, members can see each other, invite others, save attachments; all six are on Edit Ring (s26 / s27).
 - [ ] When "members can see each other" is on, members see each other's **full cards**, not just names; while it is off, only the owner sees who is in the Ring ([[S-16 Ring Members Story|Ring Members · S8]]).
 - [ ] **The owner and the Ring's admins** can change the settings ([[S-31 Delegated Admins Story]]); a member cannot.
 - [ ] **Not shown in v1** (no switch that saves nothing): required work email domain (comes with [[F-15 Companies]]), members can message me (comes with messaging), see when I'm at an event (comes with events).
@@ -158,7 +164,7 @@ Acceptance criteria:
 
 ## States and motion the design asks for
 
-- State: default mark, temporary / EVENT badge, expired chip, archived, disposition pending, empty lists, read-only (403), name clash, template picked, "coming soon" on Copy a Ring, temporary Ring can't be default.
+- State: default mark, temporary / EVENT badge, expired chip, archived, disposition pending, empty lists, read-only (403), name clash, template picked, copying a Ring, a write that failed after Create, temporary Ring can't be default.
 - Motion: a new Ring forms and takes its place in the carousel; deleting collapses it out; switching Rings re-composes the profile; the lifecycle choice animates keep / merge / delete. Reduced motion: fades.
 
 ## Rules the backend already enforces
@@ -180,3 +186,4 @@ Acceptance criteria:
 ## Log
 
 - 2026-11-11 · `tickets/pm/M-01-identity/F-11-rings/S-18-design-nov-2026` · the Nov 2026 design's s09 "Only you see its name." refused, decided by Omar Fostok: S1 keeps the full line with "…unless someone joins it with an invitation or a code." (D-18); a for-the-designer line added. The story's status is unchanged
+- 2026-11-12 · `tickets/pm/M-01-identity/F-11-rings/S-18-app-778d9b4` · matched to the app: S1 s09 is one screen (name, colour, WHAT {ring} SEES with Your Pin / Own here / Hidden, a dates row, More options, Later; no name chips, no none/7/30-day expiry); S4 four steps (Name and kind · Who's in it · What it shows with photo, bio and Copy from another Ring (s28) · Who can join with the dates, join policy, approve each one, the three member switches and the summary), Copy runs through all four, Create and Copy open s14, join codes on the People tab; S6 the delete copy; S7 the default row and its confirmation; S8 Let it go "can't be undone in the app" (AUTO_DELETE → KEEP not offered); S9 the join choices "Anyone with a join code or its QR" (clears FD-12's 2026-11-11 flag); decided by Omar Fostok 2026-11-11, app 778d9b4. The story stays approved. Flagged [[FR-11 Rings Frontend Requirements]] and [[FD-12 Rings Frontend Delivery]]
