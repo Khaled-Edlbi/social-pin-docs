@@ -6,6 +6,8 @@ tags: [map, design]
 
 # Screen Index
 
+> ⚠ Affected by [[Frontend Contract]] (2026-11-15): statuses behind the app (social_pin rings/F-11/honest-rings @ 778d9b4; dart analyze 0 errors, flutter test 1752 passed). Built, with no data of their own: s00a, s00b, s00c, s00d (marked ⬜). Built on the real API: s34 Badge (🟡), s38 Discover hub (❌; exact Pin name lookup, D-37), s45 Requests and s46 Accept (❌). Built on demo data, no API: s13 Gemma sheet, s39–s42 PinCast, s48–s51, s53–s55, s57–s61, s63–s67 (events, exhibitors, meetings, business), s69 Notifications, s70 Subscription ("Go Pro" coming soon, D-40), all marked ❌ (/pm)
+
 All 78 screens of the prototype (`socialPin-design/.proto2.json`, ids are the prototype's own numbering) plus `s35`, which the click-through map references but the prototype file lacks. Each screen links to the backend feature(s) behind it; the status column is the worst case across those features.
 
 | Screen | Name | Status | Features | Note |

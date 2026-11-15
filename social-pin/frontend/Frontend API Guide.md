@@ -8,6 +8,8 @@ tags: [project]
 ---
 # Frontend API guide
 
+> ⚠ Affected by [[Frontend Contract]] (2026-11-15): GET /profiles/ring-privacy is missing from this guide. The app (social_pin rings/F-11/honest-rings @ 778d9b4) calls it for Me › Privacy: one call, `{ data: RingPrivacyEntity[], meta: { total } }`, every Ring you own (default first, then newest), each with its private-field switches; a switch is PATCH /rings/:ringId/projection, then the list is read again (as BI-04 S4 documents) (/backend)
+
 What the client needs to know to build against this API. The OpenAPI document
 at `/docs` is the contract; this explains the parts that are a *model* rather
 than a signature.
