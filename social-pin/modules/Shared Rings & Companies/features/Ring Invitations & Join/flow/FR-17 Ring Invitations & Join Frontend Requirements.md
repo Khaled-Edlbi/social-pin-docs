@@ -18,6 +18,8 @@ tags: [frontend-requirements, frontend-requirements/approved, module/shared-ring
 
 # 📨 Ring Invitations & Join · Frontend Requirements
 
+> ⚠ Affected by [[S-33 Ring Invitations & Join Story]] (2026-11-12): S2: the s17 invitation card can carry Join and Decline (the owner with name and !pinname, "Invited by {name}" when not the owner, "Access until / from …" when windowed; Decline "Undo · 5" before it is sent; tapping the card opens s74; Home's Join opens s74); S1: "· N people" only when the server sends memberCount (members can see each other). No new route: the existing accept and decline
+
 **Feature:** [[F-17 Ring Invitations & Join]] · **Status:** Approved 2026-11-08 by khaled · **Story:** [[S-33 Ring Invitations & Join Story]] (approved 2026-11-08) · **API Integration:** [[BI-17 Ring Invitations & Join Backend Integration]] (backend `main` `1c460b0`)
 
 What the client needs from the backend to build [[S-33 Ring Invitations & Join Story]] S1–S12, and whether each need is met today. **Rewritten 2026-11-08** against the approved story, [[D-31 An invitation is its own record|D-31]] to [[D-36 Who it's for stays the owner's alone|D-36]], and backend `main` @ `12172c6` ([[BI-08 Rings Backend Integration]]). Routes that don't exist yet are asked for as needs, not names: the backend names them in [[BD-17 Ring Invitations & Join Backend Delivery]]; the two join-request routes keep the names [[FR-15 Companies Frontend Requirements|FR-15]] already asked for.

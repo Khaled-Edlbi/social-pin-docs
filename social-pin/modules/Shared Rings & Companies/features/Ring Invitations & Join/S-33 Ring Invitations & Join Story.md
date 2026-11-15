@@ -11,7 +11,7 @@ approvedAt: 2026-11-08
 owner: "Omar Fostok"
 related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-17 Requests expire after 30 days, optional note, ask again at once", "D-18 Ring names shown when joined knowingly", "D-31 An invitation is its own record", "D-32 Several join codes per Ring", "D-33 Work email joining waits for real emails and Companies", "D-34 A member shows one of their own Rings", "D-35 A join code can be shown as a QR", "D-36 Who it's for stays the owner's alone", "ND-31 What an invitation is", "ND-32 How a Ring's join code works", "ND-33 When a work email is checked", "ND-34 What a member contributes to a shared Ring", "ND-35 A colleague's QR offering their company Ring", "ND-36 Whether an invitee sees who a Ring is for", "S-16 Ring Members Story", "S-18 Rings Story", "S-29 Companies Story", "S-31 Delegated Admins Story", "S-37 Badge & QR Story", "S-78 Code Delivery Story", "BI-08 Rings Backend Integration", "FR-15 Companies Frontend Requirements"]
 created: 2026-10-18
-updated: 2026-11-11
+updated: 2026-11-12
 tags: [story, story/approved, module/shared-rings, layer/business]
 ---
 
@@ -43,10 +43,10 @@ Being let into someone else's Ring **knowingly**. A company invites its new hire
 **As a** joiner **I want** my pending invitations above the people who share with me **so that** I settle them where I look for what's shared with me.
 
 Acceptance criteria:
-- [ ] An **Invitations** section above the list: each `PENDING` invitation with the Ring's **name** (an invitation names its Ring, D-18), the owner's name, who invited me and when; *Review* → s74 for it. Hidden while empty. An invitation is its own record, never a membership while pending ([[D-31 An invitation is its own record]]).
+- [ ] An **Invitations** section above the list: each `PENDING` invitation as a card with the Ring's **name** (an invitation names its Ring, D-18), the owner's name, who invited me and when; tapping the card opens the full review, s74 (S2). The card can carry **Join** and **Decline** itself (S2). Hidden while empty. An invitation is its own record, never a membership while pending ([[D-31 An invitation is its own record]]).
 - [ ] An invitation to a company Ring also carries the company (`business { id, name, logoFileId }`), so s72 can list it **by company** ([[S-29 Companies Story|Companies · S3]], [[FR-15 Companies Frontend Requirements|FR-15]]).
 - [ ] A pending invitation **expires after 30 days** and leaves the section ([[D-17 Requests expire after 30 days, optional note, ask again at once|D-17]]).
-- [ ] The people list is `GET /rings/shared-with-me` as it is: one row per person (exists). On a row I **joined knowingly**, `ringName` is shown with the person ("Acme Team · Shared by Acme Studio"), and "· N people" only when `memberCount` is not `null` (the Ring lets members see each other). Never its colour or type. Not available yet: `ringName` and `memberCount` are always `null` until joining records how it was made (S2, S3).
+- [ ] The people list is `GET /rings/shared-with-me` as it is: one row per person (exists). On a row I **joined knowingly**, `ringName` is shown with the person ("Acme Team · Shared by Acme Studio"), and "· N people" only when the Ring lets members see each other: the server sends `memberCount` only then, `null` otherwise, and the row shows no count. Never its colour or type. A row I was placed in carries neither (`ringName` and `memberCount` `null`).
 - [ ] A row keeps opening **the first Ring the person put me in**, however it was made, the same Ring `GET /views/pin` shows ([[D-15 Several Rings per connection, remove or disconnect|D-15]] stands). A Ring I join later is that person's next view, not the row's: after *Join Ring*, a row that already opened a Ring I was placed in stays on it, unnamed (decided by Omar Fostok, 2026-11-09).
 - [ ] On a row I joined knowingly: "**Your card here: <my Ring> ›**" to change what I show its members (S10).
 - [ ] *Join with a code* opens s74 with the code field ready.
@@ -63,7 +63,12 @@ Acceptance criteria:
 - [ ] **Join Ring** accepts: the invitation becomes `ACCEPTED` and, in the same step, I become a member with the invitation's window, recorded as **joined knowingly**; then the "Your card in <Ring>" step (S10); then the owner is on Shared with me with the Ring's name and their card opens; when the owner had already put me in another Ring, the row stays on that first one (S1, D-15). The design's path to s16 (My Rings) is a slip: the destination is s17.
 - [ ] **Decline** makes it `DECLINED`; the owner may invite me again; back to where I came from (s17 or s72).
 - [ ] An invitation that is no longer valid (S1) offers only *Dismiss*.
-- [ ] Not available yet: invitations.
+- [ ] **On the invitation card** (Shared with me, S1), Join and Decline can be answered without opening s74:
+  - A card that offers *Join* shows the review in short: the owner, by name and `!pinname`; "Invited by {name}" when someone other than the owner sent it; and "Access until {date}", "Access from {date}" or "Access from {from} until {until}" when the invitation has a window.
+  - *Join* on the card accepts as *Join Ring* does, then shows the "Your card in <Ring>" step (S10).
+  - *Decline* asks nothing. The card reads declined with "Undo · 5", counting down, and the decline is sent only when the countdown ends (leaving the screen sends it). Undone, nothing is sent.
+  - Tapping the card itself opens the full review (s74).
+- [ ] The invitation card on **Home** doesn't accept: its *Join* opens the review (s74).
 
 ### S3 · Join with a code ([[Screen Index#s74|s74]])
 
@@ -252,3 +257,5 @@ Left by those decisions, none blocking:
 - 2026-11-09 · flagged [[FR-17 Ring Invitations & Join Frontend Requirements]]: S6 a member invites from the owner's card, "+ Invite someone to <Ring>", no access window, only while membersCanInvite is on
 - 2026-11-11 · `tickets/pm/M-03-shared-rings/F-17-ring-invitations/S-33-design-nov-2026` · the Nov 2026 design, decided by Omar Fostok: S7 join codes move to the People tab (Add people → Share a join code: s15d, s15g, s15f), from Edit Ring → Joining; kept against the design: s74 (no work email, no colleague's scan, no purpose, no "What you contribute", the card step after Join, the code shape), s21 (no "Anyone who scans your badge"), s17b (pre-set to the default Ring); S4 work email wanted later. Three design-disagrees rows added. The story stays approved. FR-17 is for /frontend to update after its FD-15 merge lands
 - 2026-11-11 · flagged [[D-32 Several join codes per Ring]]: the codes now live on the Ring's People tab (S7), not under Edit Ring → Joining
+- 2026-11-12 · `tickets/pm/M-03-shared-rings/F-17-ring-invitations/S-33-app-778d9b4` · S1: "· N people" only when the Ring lets members see each other (the server sends memberCount only then), the stale "always null" line goes; S2: Join and Decline on the invitation card (owner with !pinname, "Invited by …", "Access until / from …", Decline "Undo · 5" before it is sent, tapping the card opens s74, Home's Join opens s74), decided by Omar Fostok 2026-11-11, app 778d9b4
+- 2026-11-12 · flagged [[FR-17 Ring Invitations & Join Frontend Requirements]]: S2 Join and Decline on the s17 invitation card, S1 "· N people" only with memberCount
