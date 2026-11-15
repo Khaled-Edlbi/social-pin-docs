@@ -131,6 +131,7 @@
     "feature:view-as": "F-12",
     "feature:widgets": "F-13",
     "frontend-delivery:account": "FD-04",
+    "frontend-delivery:app-shell": "FD-21",
     "frontend-delivery:auth": "FD-05",
     "frontend-delivery:badge-qr": "FD-16",
     "frontend-delivery:connections": "FD-13",
