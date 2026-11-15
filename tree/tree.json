@@ -47821,6 +47821,11 @@
     {
       "from": "story:companies",
       "kind": "related",
+      "to": "decision:D-39"
+    },
+    {
+      "from": "story:companies",
+      "kind": "related",
       "to": "project:ring-access-model"
     },
     {
@@ -69177,11 +69182,6 @@
       "to": "frontend-requirements:companies"
     },
     {
-      "from": "decision:D-39",
-      "kind": "wikilink",
-      "to": "story:companies"
-    },
-    {
       "from": "decision:D-40",
       "kind": "wikilink",
       "to": "backend-delivery:subscription"
@@ -85041,7 +85041,8 @@
       "priority": null,
       "related": [
         "needs-decision:ND-39",
-        "feature:companies"
+        "feature:companies",
+        "story:companies"
       ],
       "release": null,
       "resolution": null,
@@ -107187,6 +107188,7 @@
         "frontend-requirements:view-as",
         "qa-backend:view-as",
         "frontend-requirements:companies",
+        "decision:D-39",
         "decision:D-02",
         "story:profiles",
         "story:ring-access",
@@ -107228,7 +107230,7 @@
       "task": null,
       "title": "S-29 Companies Story",
       "unmet": [],
-      "updated": "2026-11-11"
+      "updated": "2026-11-12"
     },
     "story:connections": {
       "affects": [
