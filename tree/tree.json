@@ -220,6 +220,7 @@
     "FD-15 Ring Invitations & Join Frontend Delivery": "frontend-delivery:ring-invitations",
     "FD-16 Badge & QR Frontend Delivery": "frontend-delivery:badge-qr",
     "FD-17 View As & Pin Views Frontend Delivery": "frontend-delivery:view-as",
+    "FD-19 Widgets Frontend Delivery": "frontend-delivery:widgets",
     "FR-01 Account Frontend Requirements": "frontend-requirements:account",
     "FR-02 Auth & Sign-up Frontend Requirements": "frontend-requirements:auth",
     "FR-03 Counts Frontend Requirements": "frontend-requirements:counts",
@@ -566,6 +567,7 @@
     "FD-15": "frontend-delivery:ring-invitations",
     "FD-16": "frontend-delivery:badge-qr",
     "FD-17": "frontend-delivery:view-as",
+    "FD-19": "frontend-delivery:widgets",
     "FR-01": "frontend-requirements:account",
     "FR-02": "frontend-requirements:auth",
     "FR-03": "frontend-requirements:counts",
@@ -6342,6 +6344,7 @@
         "feature:widgets",
         "frontend-delivery:files",
         "frontend-delivery:ring-projection",
+        "frontend-delivery:widgets",
         "frontend-requirements:files",
         "frontend-requirements:ring-projection",
         "frontend-requirements:widgets",
@@ -6367,6 +6370,7 @@
         "backend-delivery:widgets",
         "feature:ring-projection",
         "feature:widgets",
+        "frontend-delivery:widgets",
         "frontend-requirements:ring-projection",
         "frontend-requirements:widgets",
         "qa-backend:ring-projection",
@@ -7239,14 +7243,14 @@
     }
   },
   "counts": {
-    "blocked": 27,
+    "blocked": 28,
     "bugs": 27,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 14,
       "decision": 37,
       "feature": 40,
-      "frontend-delivery": 14,
+      "frontend-delivery": 15,
       "frontend-requirements": 39,
       "module": 8,
       "needs-decision": 38,
@@ -7259,19 +7263,19 @@
     "byLayer": {
       "backend": 61,
       "business": 188,
-      "frontend": 57,
+      "frontend": 58,
       "qa": 16,
       "shared": 10
     },
     "concepts": 336,
     "decisions": 38,
-    "edges": 8820,
+    "edges": 8825,
     "features": 40,
-    "layerNotes": 162,
+    "layerNotes": 163,
     "modules": 8,
-    "notes": 363,
+    "notes": 364,
     "partial": 17,
-    "placeholders": 116,
+    "placeholders": 115,
     "records": 37
   },
   "deadlines": {
@@ -28760,6 +28764,26 @@
       "via": [
         "GET /views/ring/:ringId"
       ]
+    },
+    {
+      "from": "frontend-delivery:widgets",
+      "kind": "related",
+      "to": "backend-delivery:widgets"
+    },
+    {
+      "from": "frontend-delivery:widgets",
+      "kind": "related",
+      "to": "feature:gemma"
+    },
+    {
+      "from": "frontend-delivery:widgets",
+      "kind": "related",
+      "to": "frontend-requirements:widgets"
+    },
+    {
+      "from": "frontend-delivery:widgets",
+      "kind": "related",
+      "to": "story:widgets"
     },
     {
       "from": "frontend-requirements:auth",
@@ -71056,6 +71080,11 @@
     {
       "from": "module:identity",
       "kind": "wikilink",
+      "to": "frontend-delivery:widgets"
+    },
+    {
+      "from": "module:identity",
+      "kind": "wikilink",
       "to": "frontend-requirements:account"
     },
     {
@@ -75116,6 +75145,10 @@
     "social-pin/modules/Identity Core/features/Widgets/flow/BD-13 Widgets Backend Delivery.md": {
       "name": "BD-13 Widgets Backend Delivery",
       "type": "backend-delivery"
+    },
+    "social-pin/modules/Identity Core/features/Widgets/flow/FD-19 Widgets Frontend Delivery.md": {
+      "name": "FD-19 Widgets Frontend Delivery",
+      "type": "frontend-delivery"
     },
     "social-pin/modules/Identity Core/features/Widgets/flow/FR-13 Widgets Frontend Requirements.md": {
       "name": "FR-13 Widgets Frontend Requirements",
@@ -79268,7 +79301,9 @@
       "path": "social-pin/modules/Identity Core/features/Widgets/flow/BD-13 Widgets Backend Delivery.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "frontend-delivery:widgets"
+      ],
       "release": "mvp",
       "resolution": null,
       "scope": "feature",
@@ -86757,6 +86792,7 @@
         "project:spec-map",
         "needs-decision:ND-37",
         "decision:D-37",
+        "frontend-delivery:widgets",
         "frontend-requirements:interests"
       ],
       "release": null,
@@ -88392,10 +88428,10 @@
       "resolution": null,
       "rollup": {
         "approved": 1,
-        "blocked": 1,
+        "blocked": 2,
         "decided": 1,
         "draft": 1,
-        "missing": 4,
+        "missing": 3,
         "verified": 1
       },
       "scope": null,
@@ -91311,19 +91347,23 @@
           "why": "Widgets Backend Integration is not written yet"
         }
       ],
-      "card": null,
+      "card": "FD-19",
       "children": [],
       "code": "widgets",
-      "created": null,
+      "created": "2026-11-15",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "missing",
+      "deployedTo": [],
+      "effectiveStatus": "blocked",
       "effort": null,
       "feature": "widgets",
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:widgets",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:widgets",
+        "release": "feature:widgets"
+      },
       "kind": "frontend-delivery",
       "label": "Frontend Delivery",
       "labels": [],
@@ -91334,21 +91374,34 @@
       "parents": [
         "feature:widgets"
       ],
-      "path": null,
+      "path": "social-pin/modules/Identity Core/features/Widgets/flow/FD-19 Widgets Frontend Delivery.md",
       "pending": [],
-      "priority": null,
-      "related": [],
-      "release": null,
+      "priority": "critical",
+      "related": [
+        "story:widgets",
+        "frontend-requirements:widgets",
+        "backend-delivery:widgets",
+        "feature:gemma"
+      ],
+      "release": "mvp",
+      "resolution": null,
       "scope": "feature",
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold frontend-delivery widgets",
-      "tags": [],
+      "screens": [
+        "s36",
+        "s37"
+      ],
+      "status": "todo",
+      "summary": "Widgets aren't built: they have no endpoints yet. The note stays todo and blocked by the flow until the Backend Integration is written. What the app has today, on socialpin rings/F-11/honest-rings…",
+      "tags": [
+        "frontend-delivery",
+        "frontend-delivery/todo",
+        "module/identity",
+        "layer/frontend"
+      ],
       "task": null,
-      "template": "templates/Frontend Delivery Template.md",
-      "title": "Widgets Frontend Delivery",
+      "title": "FD-19 Widgets Frontend Delivery",
       "unmet": [],
-      "updated": null
+      "updated": "2026-11-15"
     },
     "frontend-requirements:account": {
       "affects": [],
@@ -95415,6 +95468,7 @@
         "frontend-delivery:view-as",
         "frontend-requirements:view-as",
         "qa-backend:view-as",
+        "frontend-delivery:widgets",
         "frontend-requirements:companies",
         "qa-backend:ring-invitations"
       ],
@@ -95937,7 +95991,7 @@
       "resolution": null,
       "rollup": {
         "approved": 14,
-        "blocked": 3,
+        "blocked": 4,
         "current": 7,
         "decided": 10,
         "delivered": 11,
@@ -95945,7 +95999,7 @@
         "draft": 3,
         "failing": 1,
         "in-progress": 12,
-        "missing": 17,
+        "missing": 16,
         "needs-decision": 1,
         "partial": 12,
         "passing": 10,
@@ -106371,8 +106425,8 @@
       "blockedBy": [
         {
           "id": "frontend-delivery:widgets",
-          "title": "Widgets Frontend Delivery",
-          "why": "Widgets Frontend Delivery is not written yet"
+          "title": "FD-19 Widgets Frontend Delivery",
+          "why": "FD-19 Widgets Frontend Delivery is blocked"
         }
       ],
       "card": null,
@@ -106485,7 +106539,7 @@
       ],
       "rollup": {
         "approved": 40,
-        "blocked": 27,
+        "blocked": 28,
         "current": 10,
         "decided": 37,
         "delivered": 12,
@@ -106493,7 +106547,7 @@
         "draft": 25,
         "failing": 1,
         "in-progress": 46,
-        "missing": 116,
+        "missing": 115,
         "needs-decision": 1,
         "partial": 17,
         "passing": 13,
@@ -109704,6 +109758,7 @@
         "qa-backend:ring-projection",
         "frontend-delivery:view-as",
         "frontend-requirements:view-as",
+        "frontend-delivery:widgets",
         "decision:D-03"
       ],
       "release": "mvp",
