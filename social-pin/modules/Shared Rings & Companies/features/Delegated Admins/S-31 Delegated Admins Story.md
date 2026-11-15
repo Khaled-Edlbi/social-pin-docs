@@ -20,6 +20,8 @@ tags: [story, story/draft, module/shared-rings, layer/business]
 
 # Delegated Admins · User Story
 
+> ⚠ Affected by [[FD-12 Rings Frontend Delivery]] (2026-11-15): app rings/F-11/honest-rings @ 778d9b4: Edit Ring no longer shows any Delegated admins or *Joining and permissions* row (not even as *Soon* on a company Ring); the joining settings are on Edit Ring itself and invitations and join codes on the Ring's People tab; S1's "today the row reads Soon" is stale
+
 > ⚠ Affected by [[D-32 Several join codes per Ring]] (2026-11-08): ND-32 decided 2026-11-08 by Omar Fostok, option 2: several join codes per Ring, managed under Edit Ring → Joining → Join codes; managing them (make, turn off) is part of "can also manage who's in it", alongside the owner
 
 **Feature:** [[F-16 Delegated Admins]] · **Status:** Draft (awaiting product sign-off; first approved 2026-10-25 by khaled, rewritten 2026-11-05) · **Frontend Requirements:** [[FR-16 Delegated Admins Frontend Requirements]] · **Backend Integration:** not yet · **Verified by:** [[Delegated Admins QA Backend]], [[Delegated Admins QA Frontend]]

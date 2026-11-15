@@ -5672,6 +5672,7 @@
         "feature:counts",
         "feature:files",
         "feature:ring-projection",
+        "feature:rings",
         "needs-decision:ND-16",
         "task:B-07",
         "task:B-08"
@@ -5690,6 +5691,7 @@
         "frontend-delivery:counts",
         "frontend-delivery:files",
         "frontend-delivery:ring-projection",
+        "frontend-delivery:rings",
         "frontend-requirements:companies",
         "frontend-requirements:counts",
         "frontend-requirements:files",
@@ -6157,12 +6159,14 @@
     "s28": {
       "containers": [
         "feature:ring-projection",
+        "feature:rings",
         "needs-decision:ND-05"
       ],
       "kind": "screen",
       "notes": [
         "feature:ring-projection",
         "frontend-delivery:ring-projection",
+        "frontend-delivery:rings",
         "frontend-requirements:ring-projection",
         "needs-decision:ND-05",
         "qa-backend:ring-projection",
@@ -7270,7 +7274,7 @@
     "layerNotes": 162,
     "modules": 8,
     "notes": 363,
-    "partial": 17,
+    "partial": 16,
     "placeholders": 116,
     "records": 37
   },
@@ -11195,11 +11199,6 @@
       "from": "frontend-delivery:ring-projection",
       "kind": "pending",
       "to": "story:ring-projection"
-    },
-    {
-      "from": "frontend-delivery:rings",
-      "kind": "pending",
-      "to": "story:rings"
     },
     {
       "from": "frontend-delivery:view-as",
@@ -69624,6 +69623,11 @@
       "to": "frontend-delivery:auth"
     },
     {
+      "from": "frontend-delivery:rings",
+      "kind": "wikilink",
+      "to": "frontend-delivery:files"
+    },
+    {
       "from": "frontend-requirements:account",
       "kind": "wikilink",
       "to": "feature:profiles"
@@ -81888,6 +81892,7 @@
     },
     "backend-integration:rings": {
       "affects": [],
+      "autoDelivered": true,
       "blockedBy": [],
       "card": "BI-08",
       "children": [
@@ -81900,7 +81905,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "current",
+      "effectiveStatus": "delivered",
       "effort": null,
       "feature": "rings",
       "foundOn": null,
@@ -88120,11 +88125,11 @@
       "resolution": null,
       "rollup": {
         "approved": 2,
-        "current": 1,
         "decided": 2,
-        "done": 4,
+        "delivered": 1,
+        "done": 5,
         "missing": 1,
-        "partial": 2,
+        "partial": 1,
         "passing": 1,
         "verified": 2
       },
@@ -90952,7 +90957,7 @@
         "backend-integration:rings"
       ],
       "deployedTo": [],
-      "effectiveStatus": "partial",
+      "effectiveStatus": "done",
       "effort": null,
       "feature": "rings",
       "foundOn": null,
@@ -90973,13 +90978,7 @@
         "feature:rings"
       ],
       "path": "social-pin/modules/Identity Core/features/Rings/flow/FD-12 Rings Frontend Delivery.md",
-      "pending": [
-        {
-          "person": null,
-          "text": "S1 and the motion list, a new Ring forming and taking its place in the carousel, a deleted Ring collapsing out (not built; only s62's motion is)",
-          "to": "story:rings"
-        }
-      ],
+      "pending": [],
       "priority": "critical",
       "related": [
         "task:B-09",
@@ -91038,6 +91037,7 @@
       "screens": [
         "s08",
         "s09",
+        "s14",
         "s16",
         "s17",
         "s18",
@@ -91047,6 +91047,7 @@
         "s22",
         "s26",
         "s27",
+        "s28",
         "s62"
       ],
       "status": "done",
@@ -91060,7 +91061,7 @@
       "task": null,
       "title": "FD-12 Rings Frontend Delivery",
       "unmet": [],
-      "updated": "2026-11-11"
+      "updated": "2026-11-15"
     },
     "frontend-delivery:subscription": {
       "affects": [],
@@ -95938,16 +95939,16 @@
       "rollup": {
         "approved": 14,
         "blocked": 3,
-        "current": 7,
+        "current": 6,
         "decided": 10,
-        "delivered": 11,
-        "done": 35,
+        "delivered": 12,
+        "done": 36,
         "draft": 3,
         "failing": 1,
         "in-progress": 12,
         "missing": 17,
         "needs-decision": 1,
-        "partial": 12,
+        "partial": 11,
         "passing": 10,
         "ready": 5,
         "verified": 11
@@ -106486,16 +106487,16 @@
       "rollup": {
         "approved": 40,
         "blocked": 27,
-        "current": 10,
+        "current": 9,
         "decided": 37,
-        "delivered": 12,
-        "done": 37,
+        "delivered": 13,
+        "done": 38,
         "draft": 25,
         "failing": 1,
         "in-progress": 46,
         "missing": 116,
         "needs-decision": 1,
-        "partial": 17,
+        "partial": 16,
         "passing": 13,
         "ready": 6,
         "reference": 32,
