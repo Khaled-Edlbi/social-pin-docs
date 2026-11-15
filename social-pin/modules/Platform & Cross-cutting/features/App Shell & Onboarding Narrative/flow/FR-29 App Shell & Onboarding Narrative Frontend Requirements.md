@@ -13,6 +13,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/platform, laye
 
 # App Shell & Onboarding Narrative · Frontend Requirements
 
+> ⚠ Affected by [[S-73 App Shell & Onboarding Narrative Story]] (2026-11-12): the splash holds 1.8 s; `onboardingIntroSeen` is kept on sign-out; the active Ring is restored after a restart only if it's still mine and live; the bell counts the demo inbox until its source is decided; tab changes cross-fade
+
 > ⚠ Affected by [[D-40 The bell count, the tab cross-fade and Go Pro coming soon stay]] (2026-11-12): the Home bell shows a count in the MVP, before F-39 ships; tab changes cross-fade, not slide
 
 **Feature:** [[F-29 App Shell & Onboarding Narrative]] · **Status:** Draft · **Story:** [[S-73 App Shell & Onboarding Narrative Story]] · **API Integration:** none needed (frontend only)
