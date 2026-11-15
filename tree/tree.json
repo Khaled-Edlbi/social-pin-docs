@@ -7265,12 +7265,12 @@
     },
     "concepts": 336,
     "decisions": 38,
-    "edges": 8820,
+    "edges": 8819,
     "features": 40,
     "layerNotes": 162,
     "modules": 8,
     "notes": 363,
-    "partial": 17,
+    "partial": 16,
     "placeholders": 116,
     "records": 37
   },
@@ -11185,11 +11185,6 @@
       "from": "frontend-delivery:ring-invitations",
       "kind": "pending",
       "to": "story:ring-invitations"
-    },
-    {
-      "from": "frontend-delivery:ring-members",
-      "kind": "pending",
-      "to": "story:connections"
     },
     {
       "from": "frontend-delivery:ring-projection",
@@ -81656,6 +81651,7 @@
     },
     "backend-integration:ring-members": {
       "affects": [],
+      "autoDelivered": true,
       "blockedBy": [],
       "card": "BI-06",
       "children": [
@@ -81666,7 +81662,7 @@
       "created": "2026-10-15",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "current",
+      "effectiveStatus": "delivered",
       "effort": null,
       "feature": "ring-members",
       "foundOn": null,
@@ -87898,12 +87894,10 @@
       "resolution": null,
       "rollup": {
         "approved": 1,
-        "current": 1,
         "decided": 1,
-        "delivered": 1,
-        "done": 3,
+        "delivered": 2,
+        "done": 4,
         "missing": 1,
-        "partial": 1,
         "passing": 1,
         "verified": 1
       },
@@ -90713,7 +90707,7 @@
         "backend-integration:ring-members"
       ],
       "deployedTo": [],
-      "effectiveStatus": "partial",
+      "effectiveStatus": "done",
       "effort": null,
       "feature": "ring-members",
       "foundOn": null,
@@ -90734,13 +90728,7 @@
         "feature:ring-members"
       ],
       "path": "social-pin/modules/Identity Core/features/Ring Members/flow/FD-14 Ring Members Frontend Delivery.md",
-      "pending": [
-        {
-          "person": null,
-          "text": "s47's checklist and s15's move picker drop ended Rings only; a Ring that has not started yet is still listed (S9: live Rings only)",
-          "to": "story:connections"
-        }
-      ],
+      "pending": [],
       "priority": "critical",
       "related": [
         "task:B-09",
@@ -90841,7 +90829,7 @@
       "task": null,
       "title": "FD-14 Ring Members Frontend Delivery",
       "unmet": [],
-      "updated": "2026-11-11"
+      "updated": "2026-11-15"
     },
     "frontend-delivery:ring-projection": {
       "affects": [],
@@ -95938,16 +95926,16 @@
       "rollup": {
         "approved": 14,
         "blocked": 3,
-        "current": 7,
+        "current": 6,
         "decided": 10,
-        "delivered": 11,
-        "done": 35,
+        "delivered": 12,
+        "done": 36,
         "draft": 3,
         "failing": 1,
         "in-progress": 12,
         "missing": 17,
         "needs-decision": 1,
-        "partial": 12,
+        "partial": 11,
         "passing": 10,
         "ready": 5,
         "verified": 11
@@ -106486,16 +106474,16 @@
       "rollup": {
         "approved": 40,
         "blocked": 27,
-        "current": 10,
+        "current": 9,
         "decided": 37,
-        "delivered": 12,
-        "done": 37,
+        "delivered": 13,
+        "done": 38,
         "draft": 25,
         "failing": 1,
         "in-progress": 46,
         "missing": 116,
         "needs-decision": 1,
-        "partial": 17,
+        "partial": 16,
         "passing": 13,
         "ready": 6,
         "reference": 32,
