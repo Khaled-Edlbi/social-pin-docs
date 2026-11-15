@@ -2325,7 +2325,8 @@
     "GET /connections/relationship?qrToken=": {
       "containers": [
         "feature:badge-qr",
-        "feature:connections"
+        "feature:connections",
+        "feature:view-as"
       ],
       "kind": "endpoint",
       "notes": [
@@ -2334,6 +2335,7 @@
         "backend-integration:badge-qr",
         "frontend-delivery:badge-qr",
         "frontend-delivery:connections",
+        "frontend-requirements:view-as",
         "qa-backend:badge-qr"
       ],
       "owner": null
@@ -7308,7 +7310,7 @@
     },
     "concepts": 336,
     "decisions": 38,
-    "edges": 8923,
+    "edges": 8937,
     "features": 40,
     "layerNotes": 168,
     "modules": 8,
@@ -11704,6 +11706,8 @@
       "kind": "related",
       "to": "frontend-requirements:view-as",
       "via": [
+        "E_AUTH_03",
+        "E_AUTH_04",
         "E_USER_01"
       ]
     },
@@ -17890,6 +17894,7 @@
       "to": "frontend-requirements:view-as",
       "via": [
         "E_AUTH_03",
+        "E_AUTH_04",
         "E_USER_01"
       ]
     },
@@ -18159,6 +18164,8 @@
       "kind": "related",
       "to": "frontend-requirements:view-as",
       "via": [
+        "E_AUTH_03",
+        "E_AUTH_04",
         "E_USER_01"
       ]
     },
@@ -18656,6 +18663,7 @@
       "kind": "related",
       "to": "frontend-requirements:view-as",
       "via": [
+        "E_AUTH_04",
         "GET /connections/relationship",
         "GET /rings",
         "GET /views/pin/:pinName",
@@ -30653,6 +30661,7 @@
       "kind": "related",
       "to": "frontend-requirements:view-as",
       "via": [
+        "E_AUTH_04",
         "GET /rings",
         "GET /rings/:ringId/projection",
         "GET /views/pin/:pinName",
@@ -31427,16 +31436,6 @@
       "to": "frontend-requirements:subscription",
       "via": [
         "E_AUTH_04"
-      ]
-    },
-    {
-      "from": "frontend-requirements:error-contract",
-      "kind": "related",
-      "to": "frontend-requirements:view-as",
-      "via": [
-        "E_AUTH_03",
-        "E_AUTH_04",
-        "E_USER_01"
       ]
     },
     {
@@ -35764,6 +35763,8 @@
       "kind": "related",
       "to": "backend-delivery:view-as",
       "via": [
+        "E_AUTH_03",
+        "E_USER_01",
         "GET /views/pin/:pinName",
         "GET /views/qr/:token",
         "GET /views/ring/:ringId",
@@ -35830,6 +35831,32 @@
     {
       "from": "frontend-requirements:view-as",
       "kind": "related",
+      "to": "decision:D-20",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "frontend-requirements:view-as",
+      "kind": "related",
+      "to": "feature:account",
+      "via": [
+        "E_USER_01"
+      ]
+    },
+    {
+      "from": "frontend-requirements:view-as",
+      "kind": "related",
+      "to": "frontend-delivery:account",
+      "via": [
+        "E_AUTH_03",
+        "E_AUTH_04",
+        "E_USER_01"
+      ]
+    },
+    {
+      "from": "frontend-requirements:view-as",
+      "kind": "related",
       "to": "frontend-delivery:app-shell",
       "via": [
         "GET /rings"
@@ -35840,6 +35867,8 @@
       "kind": "related",
       "to": "frontend-delivery:auth",
       "via": [
+        "E_AUTH_03",
+        "E_USER_01",
         "GET /rings"
       ]
     },
@@ -35881,6 +35910,9 @@
       "kind": "related",
       "to": "frontend-requirements:account",
       "via": [
+        "E_AUTH_03",
+        "E_AUTH_04",
+        "E_USER_01",
         "GET /rings"
       ]
     },
@@ -35889,6 +35921,7 @@
       "kind": "related",
       "to": "frontend-requirements:app-shell",
       "via": [
+        "E_AUTH_04",
         "GET /rings"
       ]
     },
@@ -35897,6 +35930,8 @@
       "kind": "related",
       "to": "frontend-requirements:auth",
       "via": [
+        "E_AUTH_03",
+        "E_AUTH_04",
         "GET /rings"
       ]
     },
@@ -35905,6 +35940,7 @@
       "kind": "related",
       "to": "frontend-requirements:badge-qr",
       "via": [
+        "E_AUTH_04",
         "GET /rings",
         "GET /views/pin/:pinName",
         "GET /views/qr/:token",
@@ -35924,6 +35960,7 @@
       "kind": "related",
       "to": "frontend-requirements:companies",
       "via": [
+        "E_AUTH_04",
         "GET /rings",
         "GET /views/ring/:ringId"
       ]
@@ -35939,8 +35976,26 @@
     {
       "from": "frontend-requirements:view-as",
       "kind": "related",
+      "to": "frontend-requirements:delegated-admins",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-requirements:view-as",
+      "kind": "related",
+      "to": "frontend-requirements:devices",
+      "via": [
+        "E_AUTH_03",
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-requirements:view-as",
+      "kind": "related",
       "to": "frontend-requirements:discover-hub",
       "via": [
+        "E_AUTH_04",
         "GET /views/pin/:pinName"
       ]
     },
@@ -35950,6 +36005,16 @@
       "to": "frontend-requirements:e2e-tests",
       "via": [
         "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "frontend-requirements:view-as",
+      "kind": "related",
+      "to": "frontend-requirements:error-contract",
+      "via": [
+        "E_AUTH_03",
+        "E_AUTH_04",
+        "E_USER_01"
       ]
     },
     {
@@ -35966,6 +36031,7 @@
       "kind": "related",
       "to": "frontend-requirements:events-before",
       "via": [
+        "E_AUTH_04",
         "GET /rings"
       ]
     },
@@ -35988,6 +36054,22 @@
     {
       "from": "frontend-requirements:view-as",
       "kind": "related",
+      "to": "frontend-requirements:interests",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-requirements:view-as",
+      "kind": "related",
+      "to": "frontend-requirements:linked-accounts",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-requirements:view-as",
+      "kind": "related",
       "to": "frontend-requirements:meetings",
       "via": [
         "GET /views/ring/:ringId"
@@ -35996,8 +36078,25 @@
     {
       "from": "frontend-requirements:view-as",
       "kind": "related",
+      "to": "frontend-requirements:notifications",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-requirements:view-as",
+      "kind": "related",
+      "to": "frontend-requirements:payments",
+      "via": [
+        "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "frontend-requirements:view-as",
+      "kind": "related",
       "to": "frontend-requirements:pincast",
       "via": [
+        "E_AUTH_04",
         "GET /rings",
         "GET /views/user/:userId/perspectives"
       ]
@@ -36007,6 +36106,7 @@
       "kind": "related",
       "to": "frontend-requirements:post-event",
       "via": [
+        "E_AUTH_04",
         "GET /rings",
         "GET /views/ring/:ringId"
       ]
@@ -36016,6 +36116,7 @@
       "kind": "related",
       "to": "frontend-requirements:ring-invitations",
       "via": [
+        "E_AUTH_04",
         "GET /rings",
         "GET /views/ring/:ringId"
       ]
@@ -36027,6 +36128,14 @@
       "via": [
         "GET /rings",
         "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "frontend-requirements:view-as",
+      "kind": "related",
+      "to": "frontend-requirements:subscription",
+      "via": [
+        "E_AUTH_04"
       ]
     },
     {
@@ -36071,6 +36180,14 @@
     {
       "from": "frontend-requirements:view-as",
       "kind": "related",
+      "to": "needs-decision:ND-20",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "frontend-requirements:view-as",
+      "kind": "related",
       "to": "needs-decision:ND-22",
       "via": [
         "GET /views/pin/:pinName"
@@ -36079,8 +36196,19 @@
     {
       "from": "frontend-requirements:view-as",
       "kind": "related",
+      "to": "project:auth-model",
+      "via": [
+        "E_AUTH_03",
+        "E_USER_01"
+      ]
+    },
+    {
+      "from": "frontend-requirements:view-as",
+      "kind": "related",
       "to": "project:frontend-api-guide",
       "via": [
+        "E_AUTH_03",
+        "E_AUTH_04",
         "GET /rings",
         "GET /views/pin/:pinName",
         "GET /views/qr/:token",
@@ -36093,10 +36221,20 @@
       "kind": "related",
       "to": "project:frontend-contract",
       "via": [
+        "E_AUTH_04",
         "GET /rings",
         "GET /views/pin/:pinName",
         "GET /views/ring/:ringId",
         "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "frontend-requirements:view-as",
+      "kind": "related",
+      "to": "project:frontend-passwordless-migration",
+      "via": [
+        "E_AUTH_03",
+        "E_AUTH_04"
       ]
     },
     {
@@ -36134,6 +36272,9 @@
       "kind": "related",
       "to": "qa-backend:account",
       "via": [
+        "E_AUTH_03",
+        "E_AUTH_04",
+        "E_USER_01",
         "GET /rings"
       ]
     },
@@ -36170,8 +36311,18 @@
     {
       "from": "frontend-requirements:view-as",
       "kind": "related",
+      "to": "story:account",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "frontend-requirements:view-as",
+      "kind": "related",
       "to": "story:auth",
       "via": [
+        "E_AUTH_03",
+        "E_AUTH_04",
         "GET /rings"
       ]
     },
@@ -36232,7 +36383,10 @@
     {
       "from": "frontend-requirements:view-as",
       "kind": "related",
-      "to": "story:error-contract"
+      "to": "story:error-contract",
+      "via": [
+        "E_AUTH_03"
+      ]
     },
     {
       "from": "frontend-requirements:view-as",
@@ -36302,8 +36456,18 @@
     {
       "from": "frontend-requirements:view-as",
       "kind": "related",
+      "to": "task:B-01",
+      "via": [
+        "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "frontend-requirements:view-as",
+      "kind": "related",
       "to": "task:B-02",
       "via": [
+        "E_AUTH_03",
+        "E_USER_01",
         "GET /rings"
       ]
     },
@@ -37331,15 +37495,6 @@
       "to": "frontend-requirements:devices",
       "via": [
         "E_AUTH_03"
-      ]
-    },
-    {
-      "from": "project:auth-model",
-      "kind": "related",
-      "to": "frontend-requirements:view-as",
-      "via": [
-        "E_AUTH_03",
-        "E_USER_01"
       ]
     },
     {
@@ -38657,6 +38812,7 @@
       "kind": "related",
       "to": "frontend-requirements:view-as",
       "via": [
+        "E_AUTH_04",
         "GET /connections/relationship",
         "GET /views/pin/:pinName",
         "GET /views/qr/:token",
@@ -56787,6 +56943,7 @@
       "via": [
         "E_AUTH_04",
         "GET /connections/relationship",
+        "GET /connections/relationship?qrToken=",
         "GET /rings",
         "GET /views/pin/:pinName",
         "GET /views/qr/:token",
@@ -58278,6 +58435,7 @@
         "E_AUTH_04",
         "GET /connections",
         "GET /connections/relationship",
+        "GET /connections/relationship?qrToken=",
         "GET /rings",
         "GET /rings/:ringId/projection",
         "GET /views/pin/:pinName",
@@ -84529,6 +84687,7 @@
         "story:account",
         "qa-backend:auth",
         "qa-frontend:auth",
+        "frontend-requirements:view-as",
         "qa-backend:view-as",
         "frontend-requirements:error-contract",
         "project:auth-model"
@@ -85942,6 +86101,7 @@
         "backend-integration:auth",
         "qa-backend:auth",
         "qa-frontend:auth",
+        "frontend-requirements:view-as",
         "qa-backend:view-as",
         "frontend-requirements:error-contract",
         "project:auth-model"
@@ -89136,9 +89296,9 @@
         "approved": 1,
         "current": 1,
         "done": 1,
-        "draft": 1,
         "missing": 1,
-        "partial": 3
+        "partial": 3,
+        "ready": 1
       },
       "scope": null,
       "screens": [
@@ -89318,6 +89478,7 @@
         "frontend-requirements:profiles",
         "qa-backend:profiles",
         "frontend-requirements:ring-projection",
+        "frontend-requirements:view-as",
         "qa-backend:view-as",
         "frontend-requirements:error-contract",
         "project:auth-model"
@@ -93468,6 +93629,7 @@
         "frontend-requirements:rings",
         "qa-backend:rings",
         "backend-integration:view-as",
+        "frontend-requirements:view-as",
         "frontend-requirements:error-contract",
         "frontend-requirements:companies",
         "backend-delivery:ring-invitations",
@@ -93536,6 +93698,7 @@
         "qa-frontend:account",
         "qa-backend:auth",
         "qa-frontend:auth",
+        "frontend-requirements:view-as",
         "qa-backend:view-as",
         "frontend-requirements:error-contract",
         "project:auth-model"
@@ -93755,6 +93918,7 @@
         "frontend-requirements:profiles",
         "qa-backend:profiles",
         "qa-backend:rings",
+        "frontend-requirements:view-as",
         "qa-backend:view-as",
         "story:error-contract",
         "backend-delivery:error-contract",
@@ -93773,7 +93937,6 @@
         "frontend-requirements:auth",
         "story:auth",
         "backend-delivery:view-as",
-        "frontend-requirements:view-as",
         "frontend-requirements:devices",
         "project:auth-model",
         "project:frontend-passwordless-migration",
@@ -94383,6 +94546,7 @@
         "frontend-requirements:auth",
         "qa-backend:auth",
         "qa-frontend:auth",
+        "frontend-requirements:view-as",
         "frontend-requirements:error-contract",
         "frontend-delivery:interests",
         "feature:auth",
@@ -94453,6 +94617,7 @@
         "qa-frontend:account",
         "qa-backend:auth",
         "qa-frontend:auth",
+        "frontend-requirements:view-as",
         "frontend-requirements:error-contract"
       ],
       "release": "mvp",
@@ -94605,6 +94770,7 @@
         "qa-frontend:account",
         "qa-backend:auth",
         "qa-frontend:auth",
+        "frontend-requirements:view-as",
         "frontend-requirements:error-contract",
         "frontend-delivery:notifications"
       ],
@@ -94798,6 +94964,7 @@
         "qa-frontend:account",
         "qa-backend:auth",
         "qa-frontend:auth",
+        "frontend-requirements:view-as",
         "frontend-requirements:error-contract"
       ],
       "release": null,
@@ -96108,6 +96275,7 @@
         "qa-frontend:account",
         "qa-backend:auth",
         "qa-frontend:auth",
+        "frontend-requirements:view-as",
         "frontend-requirements:error-contract"
       ],
       "release": "mvp",
@@ -96143,7 +96311,7 @@
       "depends": [
         "story:view-as"
       ],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "ready",
       "effort": null,
       "feature": "view-as",
       "foundOn": null,
@@ -96283,8 +96451,22 @@
         "frontend-delivery:ring-invitations",
         "decision:D-12",
         "project:ring-access-model",
+        "task:B-01",
+        "needs-decision:ND-20",
+        "decision:D-20",
+        "frontend-delivery:account",
+        "story:account",
+        "frontend-requirements:devices",
         "frontend-requirements:error-contract",
-        "project:auth-model"
+        "project:auth-model",
+        "project:frontend-passwordless-migration",
+        "frontend-requirements:payments",
+        "frontend-requirements:subscription",
+        "frontend-requirements:interests",
+        "frontend-requirements:linked-accounts",
+        "frontend-requirements:notifications",
+        "frontend-requirements:delegated-admins",
+        "feature:account"
       ],
       "release": "mvp",
       "resolution": null,
@@ -96295,18 +96477,18 @@
         "s44",
         "s62"
       ],
-      "status": "draft",
+      "status": "ready",
       "summary": "What the client needs from the backend for every screen that renders another person, and for the owner's preview, and whether each need is met today. The viewer shape and the cache rule are in…",
       "tags": [
         "frontend-requirements",
-        "frontend-requirements/draft",
+        "frontend-requirements/ready",
         "module/identity",
         "layer/frontend"
       ],
       "task": null,
       "title": "FR-12 View As & Pin Views Frontend Requirements",
       "unmet": [],
-      "updated": "2026-11-09"
+      "updated": "2026-11-15"
     },
     "frontend-requirements:widgets": {
       "affects": [],
@@ -96900,14 +97082,14 @@
         "decided": 10,
         "delivered": 16,
         "done": 40,
-        "draft": 3,
+        "draft": 2,
         "failing": 1,
         "in-progress": 12,
         "missing": 16,
         "needs-decision": 1,
         "partial": 7,
         "passing": 10,
-        "ready": 5,
+        "ready": 6,
         "verified": 11
       },
       "scope": null,
@@ -98395,6 +98577,7 @@
         "story:account",
         "qa-backend:auth",
         "qa-frontend:auth",
+        "frontend-requirements:view-as",
         "qa-backend:view-as",
         "frontend-requirements:error-contract"
       ],
@@ -100238,6 +100421,7 @@
         "backend-integration:auth",
         "qa-backend:auth",
         "qa-frontend:auth",
+        "frontend-requirements:view-as",
         "qa-backend:view-as",
         "frontend-requirements:error-contract",
         "feature:account",
@@ -100246,7 +100430,6 @@
         "qa-backend:account",
         "frontend-delivery:auth",
         "backend-delivery:view-as",
-        "frontend-requirements:view-as",
         "task:B-01",
         "decision:D-20",
         "story:account",
@@ -101049,6 +101232,7 @@
         "backend-integration:profiles",
         "frontend-requirements:profiles",
         "qa-backend:profiles",
+        "frontend-requirements:view-as",
         "qa-backend:view-as",
         "frontend-requirements:error-contract",
         "project:auth-model"
@@ -107454,14 +107638,14 @@
         "decided": 37,
         "delivered": 17,
         "done": 44,
-        "draft": 25,
+        "draft": 24,
         "failing": 1,
         "in-progress": 46,
         "missing": 110,
         "needs-decision": 1,
         "partial": 12,
         "passing": 13,
-        "ready": 6,
+        "ready": 7,
         "reference": 32,
         "todo": 2,
         "verified": 38
@@ -107544,6 +107728,7 @@
         "qa-backend:profiles",
         "story:profiles",
         "frontend-requirements:ring-projection",
+        "frontend-requirements:view-as",
         "qa-backend:view-as",
         "frontend-requirements:error-contract",
         "project:auth-model"
@@ -110780,6 +110965,7 @@
         "story:account",
         "qa-backend:auth",
         "qa-frontend:auth",
+        "frontend-requirements:view-as",
         "qa-backend:view-as",
         "frontend-requirements:error-contract",
         "project:auth-model"

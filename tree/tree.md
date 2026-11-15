@@ -155,7 +155,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
         - (see above)
     - 🔵 [F-12 View As & Pin Views](social-pin/modules/Identity%20Core/features/View%20As%20%26%20Pin%20Views/F-12%20View%20As%20%26%20Pin%20Views.md) (release MVP, Critical)
       - 👍 [S-19 View As & Pin Views Story](social-pin/modules/Identity%20Core/features/View%20As%20%26%20Pin%20Views/S-19%20View%20As%20%26%20Pin%20Views%20Story.md) (User Story, Critical)
-      - ✏️ [FR-12 View As & Pin Views Frontend Requirements](social-pin/modules/Identity%20Core/features/View%20As%20%26%20Pin%20Views/flow/FR-12%20View%20As%20%26%20Pin%20Views%20Frontend%20Requirements.md) (Frontend Requirements, Critical)
+      - 📨 [FR-12 View As & Pin Views Frontend Requirements](social-pin/modules/Identity%20Core/features/View%20As%20%26%20Pin%20Views/flow/FR-12%20View%20As%20%26%20Pin%20Views%20Frontend%20Requirements.md) (Frontend Requirements, Critical)
       - 🟡 [BD-12 View As & Pin Views Backend Delivery](social-pin/modules/Identity%20Core/features/View%20As%20%26%20Pin%20Views/flow/BD-12%20View%20As%20%26%20Pin%20Views%20Backend%20Delivery.md) (Backend Delivery, 1 pending note, Critical)
       - 🔵 [BI-09 View As & Pin Views Backend Integration](social-pin/modules/Identity%20Core/features/View%20As%20%26%20Pin%20Views/flow/BI-09%20View%20As%20%26%20Pin%20Views%20Backend%20Integration.md) (Backend Integration, Critical)
         - ✅ [B-17 A new Ring answers 404 to its own owner until its projection is opened](social-pin/bugs/B-17%20A%20new%20Ring%20answers%20404%20to%20its%20own%20owner%20until%20its%20projection%20is%20opened.md) (bug, Fixed, High)
