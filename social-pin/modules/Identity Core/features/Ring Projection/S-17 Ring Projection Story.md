@@ -17,6 +17,8 @@ tags: [story, story/approved, module/identity, layer/business]
 
 # Ring Projection · User Story
 
+> ⚠ Affected by [[FD-11 Ring Projection Frontend Delivery]] (2026-11-15): app 778d9b4 has no s23 screen: the photo, bio, nickname and the four profile fields are ABOUT YOU on s24 (Your Pin / Own here / Hidden; the photo, bio and nickname without Hidden), and Copy from a Ring (s28) is reached from New Ring step 3 only, not from the editor; S3 still puts the photo, nickname, bio and Copy a Ring on s23
+
 > ⚠ Affected by [[FD-11 Ring Projection Frontend Delivery]] (2026-11-09): app f801aaa ships S10 and s28: headline, role, company and location per Ring (follows / own / hidden, Reset to Pin) are a section of s24 saved with its Save, not rows on s23; the bio has no Inherit or Reset to Pin yet (pending on FD-11); s28 lists only Rings with a bio or photo of their own; for /pm
 
 **Feature:** [[F-10 Ring Projection]] · **Status:** Approved 2026-10-29 by Omar Fostok (first approved 2026-10-25 by khaled; reworked 2026-10-29 by the design review: S1, S3, S4, S5, S7 changed, S9 and S10 added) · **Frontend Requirements:** [[FR-10 Ring Projection Frontend Requirements]] · **Backend Integration:** [[BI-07 Ring Projection Backend Integration]]

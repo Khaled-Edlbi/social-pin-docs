@@ -1551,6 +1551,7 @@
       "notes": [
         "backend-integration:profiles",
         "backend-integration:ring-projection",
+        "frontend-delivery:ring-projection",
         "frontend-requirements:profiles",
         "frontend-requirements:ring-projection",
         "qa-backend:profiles",
@@ -7270,7 +7271,7 @@
     "layerNotes": 162,
     "modules": 8,
     "notes": 363,
-    "partial": 17,
+    "partial": 16,
     "placeholders": 116,
     "records": 37
   },
@@ -11192,11 +11193,6 @@
       "to": "story:connections"
     },
     {
-      "from": "frontend-delivery:ring-projection",
-      "kind": "pending",
-      "to": "story:ring-projection"
-    },
-    {
       "from": "frontend-delivery:rings",
       "kind": "pending",
       "to": "story:rings"
@@ -15026,6 +15022,7 @@
       "kind": "related",
       "to": "frontend-delivery:ring-projection",
       "via": [
+        "E_PROFILE_01",
         "PATCH /rings/:ringId/projection"
       ]
     },
@@ -16926,6 +16923,7 @@
       "kind": "related",
       "to": "frontend-delivery:ring-projection",
       "via": [
+        "E_PROFILE_01",
         "GET /rings/:ringId/projection",
         "PATCH /rings/:ringId/projection"
       ]
@@ -21658,6 +21656,7 @@
       "kind": "related",
       "to": "frontend-delivery:ring-projection",
       "via": [
+        "E_PROFILE_01",
         "PATCH /rings/:ringId/projection"
       ]
     },
@@ -32491,6 +32490,14 @@
     {
       "from": "frontend-requirements:profiles",
       "kind": "related",
+      "to": "frontend-delivery:ring-projection",
+      "via": [
+        "E_PROFILE_01"
+      ]
+    },
+    {
+      "from": "frontend-requirements:profiles",
+      "kind": "related",
       "to": "frontend-requirements:account",
       "via": [
         "GET /profiles"
@@ -42172,6 +42179,7 @@
       "kind": "related",
       "to": "frontend-delivery:ring-projection",
       "via": [
+        "E_PROFILE_01",
         "PATCH /rings/:ringId/projection"
       ]
     },
@@ -44445,6 +44453,7 @@
       "kind": "related",
       "to": "frontend-delivery:ring-projection",
       "via": [
+        "E_PROFILE_01",
         "GET /rings/:ringId/projection",
         "PATCH /rings/:ringId/projection"
       ]
@@ -81748,6 +81757,7 @@
       "affects": [
         "frontend-requirements:ring-projection"
       ],
+      "autoDelivered": true,
       "blockedBy": [],
       "card": "BI-07",
       "children": [
@@ -81761,7 +81771,7 @@
       "depends": [
         "backend-delivery:ring-projection"
       ],
-      "effectiveStatus": "current",
+      "effectiveStatus": "delivered",
       "effort": null,
       "feature": "ring-projection",
       "foundOn": null,
@@ -87992,12 +88002,10 @@
       "resolution": null,
       "rollup": {
         "approved": 1,
-        "current": 1,
         "decided": 3,
-        "delivered": 1,
-        "done": 4,
+        "delivered": 2,
+        "done": 5,
         "missing": 1,
-        "partial": 1,
         "passing": 1,
         "verified": 3
       },
@@ -90855,7 +90863,7 @@
         "backend-integration:ring-projection"
       ],
       "deployedTo": [],
-      "effectiveStatus": "partial",
+      "effectiveStatus": "done",
       "effort": null,
       "feature": "ring-projection",
       "foundOn": null,
@@ -90876,13 +90884,7 @@
         "feature:ring-projection"
       ],
       "path": "social-pin/modules/Identity Core/features/Ring Projection/flow/FD-11 Ring Projection Frontend Delivery.md",
-      "pending": [
-        {
-          "person": null,
-          "text": "S3 / S10 the bio's Inherit and Reset to Pin on a Ring (the bio field edits the Ring's own bio only)",
-          "to": "story:ring-projection"
-        }
-      ],
+      "pending": [],
       "priority": "critical",
       "related": [
         "task:B-08",
@@ -90897,6 +90899,7 @@
         "backend-delivery:profiles",
         "backend-integration:profiles",
         "frontend-delivery:profiles",
+        "frontend-requirements:profiles",
         "qa-backend:profiles",
         "backend-delivery:ring-projection",
         "backend-integration:ring-projection",
@@ -90938,7 +90941,7 @@
       "task": null,
       "title": "FD-11 Ring Projection Frontend Delivery",
       "unmet": [],
-      "updated": "2026-11-09"
+      "updated": "2026-11-15"
     },
     "frontend-delivery:rings": {
       "affects": [],
@@ -94315,7 +94318,8 @@
         "needs-decision:ND-21",
         "frontend-delivery:files",
         "story:files",
-        "story:photo-library"
+        "story:photo-library",
+        "frontend-delivery:ring-projection"
       ],
       "release": "mvp",
       "resolution": null,
@@ -95938,16 +95942,16 @@
       "rollup": {
         "approved": 14,
         "blocked": 3,
-        "current": 7,
+        "current": 6,
         "decided": 10,
-        "delivered": 11,
-        "done": 35,
+        "delivered": 12,
+        "done": 36,
         "draft": 3,
         "failing": 1,
         "in-progress": 12,
         "missing": 17,
         "needs-decision": 1,
-        "partial": 12,
+        "partial": 11,
         "passing": 10,
         "ready": 5,
         "verified": 11
@@ -106486,16 +106490,16 @@
       "rollup": {
         "approved": 40,
         "blocked": 27,
-        "current": 10,
+        "current": 9,
         "decided": 37,
-        "delivered": 12,
-        "done": 37,
+        "delivered": 13,
+        "done": 38,
         "draft": 25,
         "failing": 1,
         "in-progress": 46,
         "missing": 116,
         "needs-decision": 1,
-        "partial": 17,
+        "partial": 16,
         "passing": 13,
         "ready": 6,
         "reference": 32,
