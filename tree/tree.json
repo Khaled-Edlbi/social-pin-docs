@@ -6402,6 +6402,7 @@
         "backend-delivery:discover-hub",
         "backend-integration:connections",
         "feature:discover-hub",
+        "frontend-delivery:connections",
         "frontend-requirements:companies",
         "frontend-requirements:connections",
         "frontend-requirements:discover-hub",
@@ -7279,7 +7280,7 @@
     },
     "concepts": 336,
     "decisions": 38,
-    "edges": 8835,
+    "edges": 8836,
     "features": 40,
     "layerNotes": 163,
     "modules": 8,
@@ -11179,6 +11180,11 @@
       "from": "frontend-delivery:connections",
       "kind": "pending",
       "to": "backend-delivery:connections"
+    },
+    {
+      "from": "frontend-delivery:connections",
+      "kind": "pending",
+      "to": "frontend-requirements:connections"
     },
     {
       "from": "frontend-delivery:connections",
@@ -26605,6 +26611,11 @@
       "from": "frontend-delivery:connections",
       "kind": "related",
       "to": "decision:D-29"
+    },
+    {
+      "from": "frontend-delivery:connections",
+      "kind": "related",
+      "to": "decision:D-38"
     },
     {
       "from": "frontend-delivery:connections",
@@ -69208,11 +69219,6 @@
     {
       "from": "decision:D-38",
       "kind": "wikilink",
-      "to": "frontend-delivery:connections"
-    },
-    {
-      "from": "decision:D-38",
-      "kind": "wikilink",
       "to": "frontend-requirements:connections"
     },
     {
@@ -85058,7 +85064,8 @@
       "priority": null,
       "related": [
         "needs-decision:ND-38",
-        "feature:connections"
+        "feature:connections",
+        "frontend-delivery:connections"
       ],
       "release": null,
       "resolution": null,
@@ -89211,13 +89218,13 @@
         },
         {
           "person": null,
-          "text": "S9, s47's checklist still lists a Ring that has not started yet (only ended and archived Rings are left out)",
+          "text": "S5, s46 offers my own live Rings only, not the Rings I manage as a MEMBER_MANAGER admin under their owner's name",
           "to": "story:connections"
         },
         {
           "person": null,
-          "text": "S5, s46 offers my own live Rings only, not the Rings I manage as a MEMBER_MANAGER admin under their owner's name",
-          "to": "story:connections"
+          "text": "Introduce on s47 (S-23, MVP per D-38) says Coming soon when tapped until its endpoint exists",
+          "to": "frontend-requirements:connections"
         }
       ],
       "priority": "critical",
@@ -89245,6 +89252,7 @@
         "story:ring-members",
         "story:gemma",
         "decision:D-28",
+        "decision:D-38",
         "task:B-08",
         "needs-decision:ND-10",
         "needs-decision:ND-22",
@@ -89290,6 +89298,7 @@
       "screens": [
         "s11",
         "s19",
+        "s38",
         "s43",
         "s44",
         "s45",
@@ -89308,7 +89317,7 @@
       "task": null,
       "title": "FD-13 Connections Frontend Delivery",
       "unmet": [],
-      "updated": "2026-11-11"
+      "updated": "2026-11-15"
     },
     "frontend-delivery:counts": {
       "affects": [],
