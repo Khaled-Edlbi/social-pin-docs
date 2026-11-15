@@ -17,6 +17,8 @@ tags: [backend-delivery, backend-delivery/done, module/connections, layer/backen
 
 # ✅ Connections · Backend Delivery
 
+> ⚠ Affected by [[FR-14 Connections Frontend Requirements]] (2026-11-15): new ❌ rows for Introduce (MVP, D-38): POST /connections/introductions { userId, toUserId, note? } (proposed), two of my connections, no Ring name or id, one open per pair, the same quiet 404 for a blocked pair / not a connection / deleted account; what the two people see waits on S-23. Take them as pending here (the list stays approved)
+
 > ⚠ Affected by [[S-23 Connections Story]] (2026-11-12): S17 Introduce (D-38, MVP) needs an endpoint (S-23's backend list item 12); its shape waits on what Introduce sends
 
 > ⚠ Affected by [[D-38 Introduce is in the MVP]] (2026-11-12): Introduce (s47) is in the MVP and has no endpoint yet; it comes to the backend through S-23 and FR-14
