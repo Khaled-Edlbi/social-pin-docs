@@ -7,7 +7,7 @@ status: draft
 scope: feature
 screens: [s02]
 created: 2026-10-18
-updated: 2026-10-29
+updated: 2026-11-15
 tags: [frontend-requirements, frontend-requirements/draft, module/platform, layer/frontend]
 ---
 
@@ -44,7 +44,7 @@ What the client needs to make s02 real: the challenge response it already gets, 
 - `devCode`: fill the input when present; never require it, never persist it, never infer account existence from it. It disappears when [[S-78 Code Delivery Story|Code Delivery · S8]] ships; no client change is needed then if the field is treated as optional.
 - Caching keys: none. Keep the current challenge (`destination`, `channel`, `expiresAt`) in memory for the life of s02 only.
 - Pagination / ordering: none.
-- After a wrong guess keep the digits for editing; after a 429 clear them and disable "Verify" until a new challenge arrives.
+- After a wrong guess the boxes **shake and clear**, so the next try starts at once ([[S-78 Code Delivery Story|Code Delivery · S4]]). Fewer than six digits sends nothing: the boxes shake. When the phone's own timer (from `expiresAt`, on the server's clock) reaches zero before a try is sent, the boxes clear and switch off. After a 429 they clear and "Verify" stays off until a new challenge arrives.
 - Copy: never confirm that a destination is registered. `request-code` answers the same for unknown addresses.
 
 ## Error states the UI must handle
@@ -53,8 +53,10 @@ What the client needs to make s02 real: the challenge response it already gets, 
 |---|---|---|
 | 400 | `E_AUTH_07` | sign-up with neither or both of email / phone: form validation on s01 |
 | 409 | `E_AUTH_01` | address already registered: "Already registered, sign in" |
-| 400 | `E_AUTH_05` | wrong, expired or consumed code: "Invalid or expired code" + resend |
-| 429 | `E_AUTH_06` | code burned after five wrong guesses: "Request a new code" |
+| 400 | `E_AUTH_05` | wrong, expired or consumed code: the boxes shake and clear, "That code is wrong or has expired." + resend |
+| — | — (no call) | expired by the phone's own timer: the boxes clear and switch off, "This code has expired. Ask for a new one." + resend |
+| — | — (no call) | fewer than six digits: the boxes shake, "Enter all six digits." |
+| 429 | `E_AUTH_06` | code burned after the fifth wrong guess ([[D-30 The fifth wrong code try locks the code\|D-30]]): the boxes clear and switch off, "Too many tries. Ask for a new code." |
 | 400 | validation (string array) | malformed email or non-E.164 phone: inline |
 
 `ErrorCode` is not on the wire until [[S-87 Error Contract Story|Error Contract · S4–S8]] ships; branch on status and endpoint until then, and keep `message` display-only ([[F-35 Error Contract]]).
@@ -63,3 +65,7 @@ What the client needs to make s02 real: the challenge response it already gets, 
 
 - No decision blocks delivery itself; [[S-78 Code Delivery Story|Code Delivery · S6]] and [[S-78 Code Delivery Story|Code Delivery · S7]] are To do.
 - [[ND-01 Passwordless login]] — decides whether the same code also logs a returning user in; it needs delivery first either way.
+
+## Log
+
+- 2026-11-15 · the wrong-code behaviour corrected to the app (social_pin rings/F-11/honest-rings @ 778d9b4) and [[S-78 Code Delivery Story|Code Delivery · S4]] as rewritten 2026-11-12: a wrong code shakes and clears the boxes, the phone-timer expiry and the too-few-digits rows added, the copy as the app has it; no endpoint changed
