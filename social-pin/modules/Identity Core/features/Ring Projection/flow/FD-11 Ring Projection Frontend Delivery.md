@@ -19,6 +19,8 @@ tags: [frontend-delivery, frontend-delivery/done, module/identity, layer/fronten
 
 # ✅ Ring Projection · Frontend Delivery
 
+> ⚠ Affected by [[S-17 Ring Projection Story]] (2026-11-12): S10 and S3 now describe app 778d9b4 (Your Pin / Own here / Hidden, the bio as a Your Pin / Own here row, reorder per Ring); the pending item about the bio's Inherit / Reset to Pin can be checked against them
+
 **Feature:** [[F-10 Ring Projection]] · **Status:** Done · **Built from:** [[BI-07 Ring Projection Backend Integration]] · **Against:** [[S-17 Ring Projection Story]] · **Requirements:** [[FR-10 Ring Projection Frontend Requirements]] · **QA:** [[Ring Projection QA Frontend]]
 
 What the client shipped for what each Ring shows. On `social_pin` `main`: what a Ring shows saved to the API (`bdc8d18`, 2026-10-21), custom fields and s24 redrawn (`4887fcb`), links (`678e545`), a nickname per Ring (`ed3a763`). On `rings/F-11/honest-rings` @ `461673e` (2026-11-08), not on `main` yet: one library of links and fields switched per Ring, and five new link types; @ `f801aaa` (2026-11-09): headline, role, company and location per Ring, and Copy from a Ring. The files on a Ring are in [[FD-07 Files Upload Frontend Delivery]], its photo in [[FD-08 Photo Library Frontend Delivery]]. The QA checklist for the library is LK-01…LK-08 in the client's `docs/TEST_CASES_2026-10-18.md`.

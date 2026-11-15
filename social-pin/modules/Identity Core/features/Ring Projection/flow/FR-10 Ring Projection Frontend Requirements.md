@@ -19,6 +19,8 @@ tags: [frontend-requirements, frontend-requirements/approved, module/identity, l
 
 # Ring Projection · Frontend Requirements
 
+> ⚠ Affected by [[S-17 Ring Projection Story]] (2026-11-12): S10 matched to app 778d9b4: the per-field control is Your Pin / Own here / Hidden (no Reset to Pin) on s24; photo, bio and nickname are Your Pin / Own here; links and custom fields reorder per Ring (sortOrder with Save); S3's s23 rows point to S10
+
 > ⚠ Affected by [[BD-10 Ring Projection Backend Delivery]] (2026-11-08): S10 per field, per Ring is on backend main cb95a39 (row flipped ✅, shapes in BI-07 Flow 2a): the s24 'Not available yet' on Headline, Role & company, Location, 'Main-profile field switches: not yet', the s23 'Headline, role, company, location per Ring: not yet … coming soon' and the Blocked-by S10 line no longer hold; the frontend's to update (/frontend)
 
 > ⚠ Affected by [[BD-10 Ring Projection Backend Delivery]] (2026-11-05): S5 and S9 are on main a249ab2: the prose that still says 15 LINK_TYPE values, per-Ring copies and the phone-side imitation (s25, Blocked by) is the frontend's to update
