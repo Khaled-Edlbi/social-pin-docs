@@ -7265,7 +7265,7 @@
     },
     "concepts": 336,
     "decisions": 38,
-    "edges": 8820,
+    "edges": 8821,
     "features": 40,
     "layerNotes": 162,
     "modules": 8,
@@ -25978,6 +25978,11 @@
         "GET /views/pin/:pinName",
         "GET /views/qr/:token"
       ]
+    },
+    {
+      "from": "frontend-delivery:badge-qr",
+      "kind": "related",
+      "to": "decision:D-05"
     },
     {
       "from": "frontend-delivery:badge-qr",
@@ -82658,6 +82663,7 @@
         "needs-decision:ND-05",
         "decision:D-04",
         "decision:D-34",
+        "frontend-delivery:badge-qr",
         "backend-delivery:files",
         "backend-delivery:photo-library",
         "backend-integration:photo-library",
@@ -88808,6 +88814,7 @@
         "decision:D-12",
         "decision:D-28",
         "decision:D-35",
+        "decision:D-05",
         "needs-decision:ND-11",
         "qa-backend:badge-qr",
         "backend-delivery:view-as",
@@ -88898,7 +88905,7 @@
       "task": null,
       "title": "FD-16 Badge & QR Frontend Delivery",
       "unmet": [],
-      "updated": "2026-11-11"
+      "updated": "2026-11-15"
     },
     "frontend-delivery:cleanup-jobs": {
       "affects": [],

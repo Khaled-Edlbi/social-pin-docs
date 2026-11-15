@@ -17,6 +17,8 @@ tags: [story, story/approved, module/discovery, layer/business]
 
 # Badge & QR · User Story
 
+> ⚠ Affected by [[FD-16 Badge & QR Frontend Delivery]] (2026-11-15): app 778d9b4: S5 camera denied now offers *Open settings* on Android too (the 2026-11-09 "Android Try again" deviation is gone); S8 s44 adds "This card stays open until {time}. Save it to keep it here until then, or connect to ask for more." and, once saved, "Saved on this phone. Works until {date}."; s44 opened without a scan (PinCast, Discover, Exhibitors) shows a demo person; the badge card shows the Ring's photo
+
 > ⚠ Affected by [[FD-16 Badge & QR Frontend Delivery]] (2026-11-09): shipped on app 0005f00 with deviations: S5 Android camera denied shows Try again (iOS Open settings), reduced motion is a fade-through; S8 Save contact sits under the card, also takes web links, photo and headline as job title, and Remove from saved asks first; extra states "No code found in this photo", "Couldn't check this code", camera unavailable, "Scanned N min ago"; S14 note reads "This code is temporary — it rotates every 24 h…"; Saved scans also on Me; Connect by qrToken waits on backend ebdca36 being deployed
 > ⚠ Affected by [[BD-18 Badge & QR Backend Delivery]] (2026-11-08): backend main 1c460b0 shipped the code, reset, scan count and resolve: POST /rings/:ringId/qr (+ /reset, GET …/qr/scans) and GET /views/qr/:token; 'What exists today' and the 'Not available yet' lines of S1, S2, S6, S10, S13 are out of date. Connect by qrToken is still not built (BD-14)
 
