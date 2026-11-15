@@ -8,10 +8,10 @@ scope: feature
 screens: [s36, s37]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
-owner: "omar"
-related: ["D-03 Links entered once, switched on or off per Ring"]
+owner: "Omar Fostok"
+related: ["D-03 Links entered once, switched on or off per Ring", "F-36 Gemma AI"]
 created: 2026-10-18
-updated: 2026-10-29
+updated: 2026-11-12
 tags: [story, story/approved, module/identity, layer/business]
 ---
 
@@ -32,7 +32,8 @@ A Ring owner on "Add to this Ring" ([[Screen Index#s36|s36]]) choosing widgets f
 **As a** Ring owner **I want** "Widget" on the Add sheet **so that** widgets sit next to fields, links and files.
 
 Acceptance criteria:
-- [ ] "Widget" and "Add" lead to s37; the entry is shown but disabled with "coming soon" until widget endpoints exist.
+- [ ] The "Widget" entry on s36 ("Video, map, availability, and more") is shown but disabled, dimmed, with a "Coming soon" label and no chevron. It doesn't open s37 until widget endpoints exist; once they do, it leads to s37.
+- [ ] Gemma's "Booking availability" suggestion on s36 (under "GEMMA SUGGESTS FOR {ring}") is a widget, so it is disabled with it: dimmed, with a "Coming soon" label instead of Add. The other suggestion, "A deck or portfolio", stays.
 - [ ] Done returns to s14 and refetches the projection, where `widgets[]` already arrives today.
 
 ### S2 · Pick widgets ([[Screen Index#s37|s37]])
@@ -104,3 +105,8 @@ Screens: [[Screen Index#s36|s36]] Add to this Ring · [[Screen Index#s37|s37]] W
 - Decided: [[D-03 Links entered once, switched on or off per Ring]]; widgets are built on the library from the start ([[S-20 Widgets Story|Widgets · S7]], which still waits on [[S-20 Widgets Story|Widgets · S6]]).
 - Whether the order of widgets is shared or per Ring, as for links (D-03, *Still open*).
 - Per-type `config` schemas (what an Availability or Payment widget carries) are not defined; [[S-20 Widgets Story|Widgets · S7]] must specify them before the picker can validate.
+
+## Log
+
+- 2026-11-12 · `tickets/pm/M-01-identity/F-13-widgets/S-20-app-778d9b4` · S1: the Widget entry on s36 and Gemma's "Booking availability" suggestion are shown disabled with "Coming soon"; the Widget entry doesn't open s37 yet. Decided by Omar Fostok 2026-11-11, app 778d9b4
+- 2026-11-12 · flagged [[FR-13 Widgets Frontend Requirements]]: the same

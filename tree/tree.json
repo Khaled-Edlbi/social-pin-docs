@@ -7269,7 +7269,7 @@
     },
     "concepts": 336,
     "decisions": 38,
-    "edges": 8826,
+    "edges": 8827,
     "features": 40,
     "layerNotes": 162,
     "modules": 8,
@@ -48437,6 +48437,11 @@
       "to": "decision:D-03"
     },
     {
+      "from": "story:widgets",
+      "kind": "related",
+      "to": "feature:gemma"
+    },
+    {
       "from": "task:B-01",
       "kind": "related",
       "to": "backend-integration:account",
@@ -86808,6 +86813,7 @@
         "project:spec-map",
         "needs-decision:ND-37",
         "decision:D-37",
+        "story:widgets",
         "frontend-requirements:interests"
       ],
       "release": null,
@@ -109763,7 +109769,8 @@
         "qa-backend:ring-projection",
         "frontend-delivery:view-as",
         "frontend-requirements:view-as",
-        "decision:D-03"
+        "decision:D-03",
+        "feature:gemma"
       ],
       "release": "mvp",
       "resolution": null,
@@ -109783,7 +109790,7 @@
       "task": null,
       "title": "S-20 Widgets Story",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-12"
     },
     "task:B-01": {
       "affects": [

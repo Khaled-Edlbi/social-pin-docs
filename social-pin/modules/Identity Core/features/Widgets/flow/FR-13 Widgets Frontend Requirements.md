@@ -13,6 +13,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/identity, laye
 
 # Widgets · Frontend Requirements
 
+> ⚠ Affected by [[S-20 Widgets Story]] (2026-11-12): S1: the Widget entry on s36 and Gemma's "Booking availability" suggestion are shown disabled with "Coming soon" and don't open s37 until widget endpoints exist (app 778d9b4)
+
 > ⚠ Affected by [[D-03 Links entered once, switched on or off per Ring]] (2026-10-25): ND-03 decided, links are entered once and only switched on or off per Ring; booking, Behance, Dribbble, GitHub and YouTube join the types, detected from the pasted link.
 
 **Feature:** [[F-13 Widgets]] · **Status:** Draft · **Story:** [[S-20 Widgets Story]] · **API Integration:** not yet (backend not built)
