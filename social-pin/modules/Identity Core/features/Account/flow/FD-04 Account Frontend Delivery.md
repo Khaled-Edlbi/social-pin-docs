@@ -13,7 +13,7 @@ affects: []
 related: ["FR-01 Account Frontend Requirements", "F-07 Profiles & Pin Name", "S-06 Files Upload Story", "S-03 Counts Story", "S-94 Linked Accounts (OAuth) Story", "S-82 Devices & NFC Story", "S-71 Subscription (Free vs Pro) Story", "S-87 Error Contract Story"]
 pending: []
 created: 2026-10-26
-updated: 2026-11-09
+updated: 2026-11-15
 tags: [frontend-delivery, frontend-delivery/done, module/identity, layer/frontend]
 ---
 
@@ -41,7 +41,9 @@ What the client shipped for the account section of Me, on `social_pin` `main` @ 
 
 | Screen | State | Note |
 |---|---|---|
-| [[Screen Index#s68\|s68]] Me / Account | 🟡 | Header (name, `!pinName`), plan card from `accountType`, ACCOUNT group (email, phone, verified chips, last signed in), change email / phone in a sheet, PRIVACY group (birthdate, gender, marital status: what's set, which Rings show it, set it from the row), delete account. The profile card shows your initials on a disc in your default Ring's colour and your Ring count (`· 3 Rings`), with no connections count and no tap. Rows with no API show no value (Photo library, Interests, Companies, Devices, Business account, Notifications: their screens still open); Linked accounts says Coming soon and opens nothing; Language shows the language in use and opens a sheet of the app's languages, each in its own name, the one in use ticked: picking one switches the app at once and keeps it for the next launch (`dde0533`); Help & support opens the mail app to `hello@brain-socket.com` (subject filled in), and with no mail app copies the address and says so (`dde0533`). |
+| [[Screen Index#s68\|s68]] Me | 🟡 | **Slim Me** (`776e6ca`; the pill and the card's loading state `c1f152c`). Title row with a plan pill from `accountType`: "Pro", or "Free · Upgrade" which opens s70. The profile card (name, `!pinName`, the headline under the handle or "Add a headline") opens the profile editor; three count tiles under it, **Rings** (→ the Rings tab), **Connections** (→ Contacts), **Photos** (→ Photo library), each a real count or a dash before it loads. **YOUR THINGS**: Saved scans (new, the count of cards kept on this phone, → Saved scans), Interests, Companies ("Yours and your business account"). **SETTINGS**: *Account & sign-in* ("Email, phone, devices", or "N to verify" while an email or phone is unverified), *Privacy* ("Private fields, blocked people"), Notifications, Language, Help & support. The Linked accounts, Business account and Photo library rows are gone from Me (Photo library is the Photos tile; the business account is under Companies). Language and Help & support work as on 2026-11-09 (`dde0533`). |
+| Account & sign-in | 🟡 | New screen behind Me (`776e6ca`): ACCOUNT (email, phone, verified chips, change in a sheet as before), PLAN (the plan card, → s70), My devices (s75, with Sign out of all devices), Delete account ("Asks first, and says what goes with it."). |
+| Privacy | 🟡 | New screen behind Me (`776e6ca`): WHAT EACH RING SHOWS (the private fields: birthdate, gender, marital status, which Rings show each, set from the row; the switches simplified in `5cb24ae`), View as (→ View as), Blocked people (→ Blocked people, moved here from Connections). |
 | [[Screen Index#s70\|s70]] Subscription | 🟡 | Free and Pro side by side, the one you are on marked *Current plan* from your account's `accountType` (none marked until the account loads); on Pro there is nothing to buy. Go Pro says Coming soon and charges nothing (`dde0533`): no purchase API yet ([[S-71 Subscription (Free vs Pro) Story\|Subscription (Free vs Pro) · S6]]). |
 | [[Screen Index#s75\|s75]] My devices | 🟡 | Sign out of all devices works (`POST /auth/logout-everywhere`, every session, this one included). The device list, the NFC card and the two security rows say Coming soon and open nothing (`dde0533`): no API yet ([[S-82 Devices & NFC Story\|Devices & NFC · S6]]); the sample device list went. |
 
@@ -69,9 +71,10 @@ What the client shipped for the account section of Me, on `social_pin` `main` @ 
 - **The unverified copy** says "Confirming a new email or number isn't in the app yet", shown under the ACCOUNT group while anything is unverified. S2 asks for "must be verified before it can be used to sign in"; the backend does not refuse sign-in on an unverified address, so the copy does not claim it.
 - **The "saved" message is a pill inside the tab** (`f462a28`): "Email changed." / "Phone number changed." shows above the tab bar, the same frosted pill as the tab bar, besides the row showing the new value as Unverified. The tab scaffold of auto_route 11.2 is not Flutter's, so the shell now shows short messages itself; errors still use the toast.
 - **No Manage account row** (`fbb07c0`): email, phone and delete are already on Me; the design's row went.
-- **The profile card opens nothing** (`fbb07c0`): no chevron and no tap until the profile editor exists ([[F-07 Profiles & Pin Name]]).
+- **The profile card opens the profile editor** (`776e6ca`; it opened nothing from `fbb07c0` until the editor existed).
 - **No sample values** (`98357f1`, `3064c9d`): a row or count with no API behind it shows nothing rather than a made-up number; the card and My Rings show no Ring count until the Rings load.
-- **Pro:** the plan card reads "Pro plan" and hides Upgrade; there is no separate Pro badge in the header (S1).
+- **Pro:** the title row's pill reads "Pro", or "Free · Upgrade" (→ s70) on Free (`776e6ca`); the plan card itself moved into Account & sign-in, where it reads "Pro plan" and hides Upgrade.
+- **Me is split** (`776e6ca`): the ACCOUNT and PRIVACY groups that sat on Me are now the *Account & sign-in* and *Privacy* screens, one row each on Me ([[S-01 Account Story|Account · S1]] as rewritten 2026-11-12).
 - **The not-active state (S6) is Welcome with a message**, not a screen of its own: the same place a suspended account lands at startup, with the support line in the message.
 - **Privacy rows (S5) open a picker for that one field, not the profile editor**: the client has no profile editor screen yet. Birthdate opens a date picker, gender and marital status a sheet of the API's values. Each row also keeps, under its title, which of your Rings show it; it never says "public".
 
@@ -79,11 +82,11 @@ What the client shipped for the account section of Me, on `social_pin` `main` @ 
 
 - A suspension mid-session (S6) says "Your session has expired" rather than "not active" until [[S-87 Error Contract Story|Error Contract · S4–S8]] puts `E_AUTH_03` on the wire; the client branch is in and needs no change then.
 - Header photo: initials (from the full name's first and last word, else the Pin name) in the default Ring's colour → [[S-06 Files Upload Story|Files Upload · showing files]].
-- Connection count: not shown → [[S-03 Counts Story|Counts · S11]].
 - The 2026-11-05 cleanup is on `rings/F-11/honest-rings`; it reaches `main` with that branch.
 - Linked accounts (Coming soon) → [[S-94 Linked Accounts (OAuth) Story|Linked Accounts (OAuth) · S7]]; devices, the NFC card and the security rows on s75 (Coming soon) → [[S-82 Devices & NFC Story|Devices & NFC · S6]]; buying Pro on s70 (Go Pro says Coming soon) → [[S-71 Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]].
 - The 2026-11-09 work (`dde0533`) is on `rings/F-11/honest-rings`; it reaches `main` with that branch.
 - Re-verifying a changed email or phone: no backend route and no task yet ([[F-01 Account#Gaps]]).
+- The 2026-11-15 work (`776e6ca`, `c1f152c`, `5cb24ae`, up to `778d9b4`) is on `rings/F-11/honest-rings`; it reaches `main` with that branch.
 
 ## Log
 
@@ -92,3 +95,4 @@ What the client shipped for the account section of Me, on `social_pin` `main` @ 
 - 2026-10-26 · `main` @ `47ce960` (social_pin) · s68 PRIVACY rows: what's set on the profile, set it from the row (`PATCH /profiles/:id`) · flagged nothing
 - 2026-11-05 · `rings/F-11/honest-rings` @ `f462a28` (social_pin, not on `main` yet) · s68: initials in the default Ring's colour (`a1c14b1`); no made-up connections count, Ring count only (`98357f1`); no sample values, Linked accounts Coming soon, Language as in use (`3064c9d`); Manage account removed, the card opens nothing (`fbb07c0`); "Email changed." / "Phone number changed." inside the tab (`f462a28`) · flagged nothing
 - 2026-11-09 · app branch `rings/F-11/honest-rings` @ `f9c19e3` (with `dde0533`, `f801aaa`; social_pin, not on `main` yet) · parts: the Me rows with no API say so ([[S-82 Devices & NFC Story|Devices & NFC · S6]], [[S-71 Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]]), Language and Help & support work · screens: s75 My devices (Coming soon rows, sample devices removed, sign out everywhere kept), s70 Subscription (Coming soon, the real plan from `accountType`), s68 Language sheet and Help & support mail to `hello@brain-socket.com` (all `dde0533`) · bugs: none · flagged nothing; the flags above from B-02 and QF-04 are not settled by this work and stay
+- 2026-11-15 · `rings/F-11/honest-rings` @ `778d9b4` (with `776e6ca`, `c1f152c`, `5cb24ae`; social_pin, not on `main` yet; dart analyze 0 errors, flutter test 1752 passed) · [[S-01 Account Story|Account · S1, S5]] · s68 slim Me (plan pill, profile card → editor, Rings / Connections / Photos tiles, Saved scans, Account & sign-in and Privacy rows; Linked accounts, Business account and Photo library rows removed); the new Account & sign-in and Privacy screens · flagged nothing; the "profile card opens nothing" point of QF-04's 2026-11-09 flag is settled (it opens the editor), the rest of that flag and the B-02 flags stay
