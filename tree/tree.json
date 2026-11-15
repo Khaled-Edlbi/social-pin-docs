@@ -223,6 +223,7 @@
     "FD-18 Discover Hub & Search Frontend Delivery": "frontend-delivery:discover-hub",
     "FD-19 Widgets Frontend Delivery": "frontend-delivery:widgets",
     "FD-20 Companies Frontend Delivery": "frontend-delivery:companies",
+    "FD-21 App Shell & Onboarding Narrative Frontend Delivery": "frontend-delivery:app-shell",
     "FR-01 Account Frontend Requirements": "frontend-requirements:account",
     "FR-02 Auth & Sign-up Frontend Requirements": "frontend-requirements:auth",
     "FR-03 Counts Frontend Requirements": "frontend-requirements:counts",
@@ -572,6 +573,7 @@
     "FD-18": "frontend-delivery:discover-hub",
     "FD-19": "frontend-delivery:widgets",
     "FD-20": "frontend-delivery:companies",
+    "FD-21": "frontend-delivery:app-shell",
     "FR-01": "frontend-requirements:account",
     "FR-02": "frontend-requirements:auth",
     "FR-03": "frontend-requirements:counts",
@@ -2909,6 +2911,7 @@
         "backend-integration:profiles",
         "backend-integration:ring-invitations",
         "backend-integration:rings",
+        "frontend-delivery:app-shell",
         "frontend-delivery:auth",
         "frontend-delivery:badge-qr",
         "frontend-delivery:connections",
@@ -5298,6 +5301,7 @@
       "notes": [
         "backend-delivery:app-shell",
         "feature:app-shell",
+        "frontend-delivery:app-shell",
         "frontend-requirements:app-shell",
         "story:app-shell"
       ],
@@ -5311,6 +5315,7 @@
       "notes": [
         "backend-delivery:app-shell",
         "feature:app-shell",
+        "frontend-delivery:app-shell",
         "frontend-requirements:app-shell",
         "story:app-shell"
       ],
@@ -5324,6 +5329,7 @@
       "notes": [
         "backend-delivery:app-shell",
         "feature:app-shell",
+        "frontend-delivery:app-shell",
         "frontend-requirements:app-shell",
         "story:app-shell"
       ],
@@ -5337,6 +5343,7 @@
       "notes": [
         "backend-delivery:app-shell",
         "feature:app-shell",
+        "frontend-delivery:app-shell",
         "frontend-requirements:app-shell",
         "story:app-shell"
       ],
@@ -7272,7 +7279,7 @@
       "backend-integration": 14,
       "decision": 37,
       "feature": 40,
-      "frontend-delivery": 17,
+      "frontend-delivery": 18,
       "frontend-requirements": 39,
       "module": 8,
       "needs-decision": 38,
@@ -7285,19 +7292,19 @@
     "byLayer": {
       "backend": 61,
       "business": 188,
-      "frontend": 60,
+      "frontend": 61,
       "qa": 16,
       "shared": 10
     },
     "concepts": 336,
     "decisions": 38,
-    "edges": 8889,
+    "edges": 8910,
     "features": 40,
-    "layerNotes": 165,
+    "layerNotes": 166,
     "modules": 8,
-    "notes": 366,
+    "notes": 367,
     "partial": 12,
-    "placeholders": 113,
+    "placeholders": 112,
     "records": 37
   },
   "deadlines": {
@@ -9221,11 +9228,6 @@
       "from": "backend-integration:widgets",
       "kind": "blocks",
       "to": "frontend-delivery:widgets"
-    },
-    {
-      "from": "frontend-delivery:app-shell",
-      "kind": "blocks",
-      "to": "qa-frontend:app-shell"
     },
     {
       "from": "frontend-delivery:audit-log",
@@ -13815,6 +13817,14 @@
       "to": "feature:rings",
       "via": [
         "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "backend-delivery:counts",
+      "kind": "related",
+      "to": "frontend-delivery:app-shell",
+      "via": [
+        "GET /rings"
       ]
     },
     {
@@ -19306,6 +19316,14 @@
     {
       "from": "backend-integration:connections",
       "kind": "related",
+      "to": "frontend-delivery:app-shell",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
       "to": "frontend-delivery:auth",
       "via": [
         "GET /rings"
@@ -20303,6 +20321,14 @@
       "to": "feature:rings",
       "via": [
         "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "backend-integration:counts",
+      "kind": "related",
+      "to": "frontend-delivery:app-shell",
+      "via": [
+        "GET /rings"
       ]
     },
     {
@@ -25860,6 +25886,41 @@
       "to": "story:subscription"
     },
     {
+      "from": "frontend-delivery:app-shell",
+      "kind": "related",
+      "to": "backend-delivery:app-shell"
+    },
+    {
+      "from": "frontend-delivery:app-shell",
+      "kind": "related",
+      "to": "decision:D-40"
+    },
+    {
+      "from": "frontend-delivery:app-shell",
+      "kind": "related",
+      "to": "feature:auth"
+    },
+    {
+      "from": "frontend-delivery:app-shell",
+      "kind": "related",
+      "to": "feature:notifications"
+    },
+    {
+      "from": "frontend-delivery:app-shell",
+      "kind": "related",
+      "to": "feature:rings"
+    },
+    {
+      "from": "frontend-delivery:app-shell",
+      "kind": "related",
+      "to": "frontend-requirements:app-shell"
+    },
+    {
+      "from": "frontend-delivery:app-shell",
+      "kind": "related",
+      "to": "story:app-shell"
+    },
+    {
       "from": "frontend-delivery:auth",
       "kind": "related",
       "to": "feature:code-delivery"
@@ -27871,6 +27932,14 @@
     {
       "from": "frontend-delivery:ring-members",
       "kind": "related",
+      "to": "frontend-delivery:app-shell",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:ring-members",
+      "kind": "related",
       "to": "frontend-delivery:auth",
       "via": [
         "GET /rings"
@@ -28575,6 +28644,14 @@
       "from": "frontend-delivery:view-as",
       "kind": "related",
       "to": "decision:D-18"
+    },
+    {
+      "from": "frontend-delivery:view-as",
+      "kind": "related",
+      "to": "frontend-delivery:app-shell",
+      "via": [
+        "GET /rings"
+      ]
     },
     {
       "from": "frontend-delivery:view-as",
@@ -29343,6 +29420,14 @@
       "to": "feature:rings",
       "via": [
         "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "frontend-requirements:companies",
+      "kind": "related",
+      "to": "frontend-delivery:app-shell",
+      "via": [
+        "GET /rings"
       ]
     },
     {
@@ -30145,6 +30230,14 @@
       "to": "feature:rings",
       "via": [
         "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "frontend-requirements:connections",
+      "kind": "related",
+      "to": "frontend-delivery:app-shell",
+      "via": [
+        "GET /rings"
       ]
     },
     {
@@ -34090,6 +34183,14 @@
     {
       "from": "frontend-requirements:ring-members",
       "kind": "related",
+      "to": "frontend-delivery:app-shell",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-requirements:ring-members",
+      "kind": "related",
       "to": "frontend-delivery:auth",
       "via": [
         "GET /rings"
@@ -35660,6 +35761,14 @@
       "from": "frontend-requirements:view-as",
       "kind": "related",
       "to": "decision:D-16"
+    },
+    {
+      "from": "frontend-requirements:view-as",
+      "kind": "related",
+      "to": "frontend-delivery:app-shell",
+      "via": [
+        "GET /rings"
+      ]
     },
     {
       "from": "frontend-requirements:view-as",
@@ -39149,6 +39258,14 @@
     {
       "from": "qa-backend:connections",
       "kind": "related",
+      "to": "frontend-delivery:app-shell",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "qa-backend:connections",
+      "kind": "related",
       "to": "frontend-delivery:auth",
       "via": [
         "GET /rings"
@@ -40144,6 +40261,14 @@
       "to": "frontend-delivery:account",
       "via": [
         "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "qa-backend:counts",
+      "kind": "related",
+      "to": "frontend-delivery:app-shell",
+      "via": [
+        "GET /rings"
       ]
     },
     {
@@ -45440,6 +45565,14 @@
     {
       "from": "qa-backend:rings",
       "kind": "related",
+      "to": "frontend-delivery:app-shell",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "qa-backend:rings",
+      "kind": "related",
       "to": "frontend-delivery:auth",
       "via": [
         "GET /rings"
@@ -47299,6 +47432,14 @@
         "GET /users/me",
         "POST /auth/logout",
         "POST /auth/logout-everywhere"
+      ]
+    },
+    {
+      "from": "qa-frontend:auth",
+      "kind": "related",
+      "to": "frontend-delivery:app-shell",
+      "via": [
+        "GET /rings"
       ]
     },
     {
@@ -50631,6 +50772,14 @@
       "from": "task:B-13",
       "kind": "related",
       "to": "decision:D-04"
+    },
+    {
+      "from": "task:B-13",
+      "kind": "related",
+      "to": "frontend-delivery:app-shell",
+      "via": [
+        "GET /rings"
+      ]
     },
     {
       "from": "task:B-13",
@@ -71879,6 +72028,11 @@
     {
       "from": "module:platform",
       "kind": "wikilink",
+      "to": "frontend-delivery:app-shell"
+    },
+    {
+      "from": "module:platform",
+      "kind": "wikilink",
       "to": "frontend-requirements:app-shell"
     },
     {
@@ -75683,6 +75837,10 @@
       "name": "BD-29 App Shell & Onboarding Narrative Backend Delivery",
       "type": "backend-delivery"
     },
+    "social-pin/modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/flow/FD-21 App Shell & Onboarding Narrative Frontend Delivery.md": {
+      "name": "FD-21 App Shell & Onboarding Narrative Frontend Delivery",
+      "type": "frontend-delivery"
+    },
     "social-pin/modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/flow/FR-29 App Shell & Onboarding Narrative Frontend Requirements.md": {
       "name": "FR-29 App Shell & Onboarding Narrative Frontend Requirements",
       "type": "frontend-requirements"
@@ -76543,7 +76701,9 @@
       "path": "social-pin/modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/flow/BD-29 App Shell & Onboarding Narrative Backend Delivery.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "frontend-delivery:app-shell"
+      ],
       "release": "mvp",
       "resolution": null,
       "scope": "feature",
@@ -77334,6 +77494,7 @@
         "story:rings",
         "frontend-delivery:view-as",
         "frontend-requirements:view-as",
+        "frontend-delivery:app-shell",
         "frontend-requirements:app-shell",
         "frontend-requirements:cleanup-jobs",
         "frontend-requirements:companies",
@@ -80535,6 +80696,7 @@
         "backend-delivery:rings",
         "backend-integration:rings",
         "qa-backend:rings",
+        "frontend-delivery:app-shell",
         "frontend-requirements:app-shell",
         "frontend-requirements:cleanup-jobs",
         "frontend-requirements:companies",
@@ -80678,6 +80840,7 @@
         "story:rings",
         "frontend-delivery:view-as",
         "frontend-requirements:view-as",
+        "frontend-delivery:app-shell",
         "frontend-requirements:app-shell",
         "frontend-requirements:cleanup-jobs",
         "frontend-requirements:companies",
@@ -85611,7 +85774,8 @@
         "needs-decision:ND-40",
         "feature:app-shell",
         "feature:subscription",
-        "feature:notifications"
+        "feature:notifications",
+        "frontend-delivery:app-shell"
       ],
       "release": null,
       "resolution": null,
@@ -85771,9 +85935,9 @@
       "rollup": {
         "approved": 1,
         "decided": 1,
-        "done": 1,
+        "done": 2,
         "draft": 1,
-        "missing": 2,
+        "missing": 1,
         "verified": 1
       },
       "scope": null,
@@ -85928,6 +86092,7 @@
         "decision:D-30",
         "frontend-requirements:onboarding-imports",
         "frontend-requirements:profiles",
+        "frontend-delivery:app-shell",
         "frontend-requirements:interests"
       ],
       "release": "mvp",
@@ -87634,7 +87799,8 @@
         "project:spec-map",
         "feature:ring-invitations",
         "needs-decision:ND-40",
-        "decision:D-40"
+        "decision:D-40",
+        "frontend-delivery:app-shell"
       ],
       "release": "mvp",
       "resolution": null,
@@ -88671,6 +88837,7 @@
         "frontend-requirements:rings",
         "qa-backend:rings",
         "backend-integration:view-as",
+        "frontend-delivery:app-shell",
         "frontend-requirements:companies",
         "backend-delivery:ring-invitations",
         "backend-integration:ring-invitations",
@@ -89088,19 +89255,23 @@
     "frontend-delivery:app-shell": {
       "affects": [],
       "blockedBy": [],
-      "card": null,
+      "card": "FD-21",
       "children": [],
       "code": "app-shell",
-      "created": null,
+      "created": "2026-11-15",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "missing",
+      "deployedTo": [],
+      "effectiveStatus": "done",
       "effort": null,
       "feature": "app-shell",
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:app-shell",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:app-shell",
+        "release": "feature:app-shell"
+      },
       "kind": "frontend-delivery",
       "label": "Frontend Delivery",
       "labels": [],
@@ -89111,21 +89282,53 @@
       "parents": [
         "feature:app-shell"
       ],
-      "path": null,
+      "path": "social-pin/modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/flow/FD-21 App Shell & Onboarding Narrative Frontend Delivery.md",
       "pending": [],
-      "priority": null,
-      "related": [],
-      "release": null,
+      "priority": "critical",
+      "related": [
+        "task:B-13",
+        "backend-integration:connections",
+        "frontend-requirements:connections",
+        "qa-backend:connections",
+        "qa-frontend:auth",
+        "backend-delivery:counts",
+        "backend-integration:counts",
+        "qa-backend:counts",
+        "frontend-delivery:ring-members",
+        "frontend-requirements:ring-members",
+        "qa-backend:rings",
+        "frontend-delivery:view-as",
+        "frontend-requirements:view-as",
+        "story:app-shell",
+        "frontend-requirements:app-shell",
+        "backend-delivery:app-shell",
+        "decision:D-40",
+        "feature:notifications",
+        "feature:rings",
+        "feature:auth",
+        "frontend-requirements:companies"
+      ],
+      "release": "mvp",
+      "resolution": null,
       "scope": "feature",
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold frontend-delivery app-shell",
-      "tags": [],
+      "screens": [
+        "s00a",
+        "s00b",
+        "s00c",
+        "s00d"
+      ],
+      "status": "done",
+      "summary": "What the client shipped for the splash, the three value panels, the tab bar and the chrome around it. It is on socialpin rings/F-11/honest-rings @ 778d9b4 (2026-11-12), not on main yet. The shell,…",
+      "tags": [
+        "frontend-delivery",
+        "frontend-delivery/done",
+        "module/platform",
+        "layer/frontend"
+      ],
       "task": null,
-      "template": "templates/Frontend Delivery Template.md",
-      "title": "App Shell & Onboarding Narrative Frontend Delivery",
+      "title": "FD-21 App Shell & Onboarding Narrative Frontend Delivery",
       "unmet": [],
-      "updated": null
+      "updated": "2026-11-15"
     },
     "frontend-delivery:audit-log": {
       "affects": [],
@@ -91438,6 +91641,7 @@
         "backend-delivery:rings",
         "backend-integration:rings",
         "qa-backend:rings",
+        "frontend-delivery:app-shell",
         "frontend-requirements:app-shell",
         "frontend-requirements:cleanup-jobs",
         "story:delegated-admins",
@@ -91861,6 +92065,7 @@
         "backend-delivery:profiles",
         "frontend-delivery:rings",
         "story:rings",
+        "frontend-delivery:app-shell",
         "frontend-requirements:app-shell",
         "frontend-requirements:cleanup-jobs",
         "story:delegated-admins",
@@ -92109,6 +92314,7 @@
         "qa-backend:rings",
         "frontend-delivery:view-as",
         "frontend-requirements:view-as",
+        "frontend-delivery:app-shell",
         "frontend-requirements:error-contract",
         "frontend-requirements:companies"
       ],
@@ -92680,6 +92886,7 @@
         "story:counts",
         "frontend-delivery:rings",
         "story:rings",
+        "frontend-delivery:app-shell",
         "frontend-requirements:app-shell",
         "frontend-requirements:cleanup-jobs",
         "story:delegated-admins",
@@ -92872,6 +93079,7 @@
         "frontend-delivery:rings",
         "qa-backend:rings",
         "story:rings",
+        "frontend-delivery:app-shell",
         "frontend-requirements:app-shell",
         "frontend-requirements:cleanup-jobs",
         "frontend-requirements:companies",
@@ -95354,6 +95562,7 @@
         "backend-delivery:rings",
         "backend-integration:rings",
         "qa-backend:rings",
+        "frontend-delivery:app-shell",
         "frontend-requirements:app-shell",
         "frontend-requirements:cleanup-jobs",
         "backend-integration:ring-invitations",
@@ -95938,6 +96147,7 @@
         "backend-delivery:profiles",
         "frontend-delivery:rings",
         "story:rings",
+        "frontend-delivery:app-shell",
         "frontend-requirements:app-shell",
         "frontend-requirements:cleanup-jobs",
         "story:delegated-admins",
@@ -96691,10 +96901,10 @@
         "approved": 11,
         "blocked": 10,
         "decided": 4,
-        "done": 1,
+        "done": 2,
         "draft": 11,
         "in-progress": 12,
-        "missing": 48,
+        "missing": 47,
         "todo": 1,
         "verified": 4
       },
@@ -102208,6 +102418,7 @@
         "backend-delivery:rings",
         "backend-integration:rings",
         "qa-backend:rings",
+        "frontend-delivery:app-shell",
         "frontend-requirements:app-shell",
         "frontend-requirements:cleanup-jobs",
         "frontend-requirements:companies",
@@ -102362,6 +102573,7 @@
         "story:rings",
         "frontend-delivery:view-as",
         "frontend-requirements:view-as",
+        "frontend-delivery:app-shell",
         "frontend-requirements:app-shell",
         "frontend-requirements:cleanup-jobs",
         "frontend-requirements:companies",
@@ -104607,6 +104819,7 @@
         "story:rings",
         "frontend-delivery:view-as",
         "frontend-requirements:view-as",
+        "frontend-delivery:app-shell",
         "frontend-requirements:app-shell",
         "frontend-requirements:cleanup-jobs",
         "frontend-requirements:companies",
@@ -105101,13 +105314,7 @@
     },
     "qa-frontend:app-shell": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "frontend-delivery:app-shell",
-          "title": "App Shell & Onboarding Narrative Frontend Delivery",
-          "why": "App Shell & Onboarding Narrative Frontend Delivery is not written yet"
-        }
-      ],
+      "blockedBy": [],
       "card": null,
       "children": [],
       "code": "app-shell",
@@ -105349,6 +105556,7 @@
         "story:rings",
         "frontend-delivery:view-as",
         "frontend-requirements:view-as",
+        "frontend-delivery:app-shell",
         "frontend-requirements:cleanup-jobs",
         "frontend-requirements:companies",
         "story:delegated-admins",
@@ -107116,11 +107324,11 @@
         "current": 5,
         "decided": 37,
         "delivered": 17,
-        "done": 43,
+        "done": 44,
         "draft": 25,
         "failing": 1,
         "in-progress": 46,
-        "missing": 113,
+        "missing": 112,
         "needs-decision": 1,
         "partial": 12,
         "passing": 13,
@@ -107264,7 +107472,9 @@
       "path": "social-pin/modules/Platform & Cross-cutting/features/App Shell & Onboarding Narrative/S-73 App Shell & Onboarding Narrative Story.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "frontend-delivery:app-shell"
+      ],
       "release": "mvp",
       "resolution": null,
       "scope": "feature",
@@ -111513,6 +111723,7 @@
         "story:rings",
         "frontend-delivery:view-as",
         "frontend-requirements:view-as",
+        "frontend-delivery:app-shell",
         "frontend-requirements:app-shell",
         "frontend-requirements:cleanup-jobs",
         "frontend-requirements:companies",

@@ -16,7 +16,7 @@ tags: [feature, module/platform, priority/critical, release/mvp]
 
 **Backend:** Frontend only · **Priority:** Critical · **Release:** MVP · **Module:** [[M-08 Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
-**Layers:** [[S-73 App Shell & Onboarding Narrative Story|Story]] · [[FR-29 App Shell & Onboarding Narrative Frontend Requirements|Frontend Requirements]] · [[BD-29 App Shell & Onboarding Narrative Backend Delivery|Backend Delivery]] · [[App Shell & Onboarding Narrative Backend Integration|Backend Integration]] · [[App Shell & Onboarding Narrative Frontend Delivery|Frontend Delivery]] · [[App Shell & Onboarding Narrative QA Backend|QA Backend]] · [[App Shell & Onboarding Narrative QA Frontend|QA Frontend]]
+**Layers:** [[S-73 App Shell & Onboarding Narrative Story|Story]] · [[FR-29 App Shell & Onboarding Narrative Frontend Requirements|Frontend Requirements]] · [[BD-29 App Shell & Onboarding Narrative Backend Delivery|Backend Delivery]] · [[App Shell & Onboarding Narrative Backend Integration|Backend Integration]] · [[FD-21 App Shell & Onboarding Narrative Frontend Delivery|Frontend Delivery]] · [[App Shell & Onboarding Narrative QA Backend|QA Backend]] · [[App Shell & Onboarding Narrative QA Frontend|QA Frontend]]
 
 Splash, the three value panels, tab bar and the signature motions. No backend work.
 
