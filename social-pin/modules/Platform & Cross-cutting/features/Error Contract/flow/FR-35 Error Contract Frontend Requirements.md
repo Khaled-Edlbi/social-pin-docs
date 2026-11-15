@@ -12,7 +12,7 @@ depends: []
 affects: ["S-87 Error Contract Story"]
 related: ["S-87 Error Contract Story", "BD-35 Error Contract Backend Delivery", "BI-02 Auth & Sign-up Backend Integration", "BI-01 Account Backend Integration", "Frontend API Guide", "Frontend Contract", "API Conventions", E_AUTH_03, E_AUTH_04, E_AUTH_05, E_AUTH_06, E_USER_01]
 created: 2026-10-18
-updated: 2026-10-29
+updated: 2026-11-15
 tags: [frontend-requirements, frontend-requirements/approved, module/platform, layer/frontend]
 ---
 
@@ -77,7 +77,8 @@ No structured `{ field, constraints }` shape is asked of the backend for the MVP
 | any route, access token missing, malformed or expired | `message: "Unauthorized"`, no code | the access token is stale | refreshes **once** (one refresh in flight for the whole app), retries the call once |
 | `POST /auth/refresh`, or a token of the wrong scope anywhere | `E_AUTH_04` | the session is over | signs out: "Please sign in again"; no further refresh |
 | any route, suspended account | `E_AUTH_03`, `message: "Account is not active"` | the account is locked | signs out with the "can't sign in right now" copy; **no** refresh |
-| `POST /auth/complete-registration` | `E_AUTH_05`, `message: "Verification session is invalid or expired"` | the onboarding token expired | back to s02 for a new code; **no** refresh: there is no session yet |
+
+An expired onboarding token on `POST /auth/complete-registration` is **not** a 401: it answers **400 `E_AUTH_05`** ("Verification session is invalid or expired", [[B-05 Expired onboarding token answers 401, not the documented 400|B-05]] fixed), so it falls to the "400 · domain code" row below: back to s02 for a new code, and **no** refresh, since there is no session yet.
 
 Until `errorCode` is on the wire, the client cannot tell the first and third rows apart on an ordinary route; it tries the one refresh, which fails for a suspended account (its sessions were revoked), and then signs out. That is acceptable; what must never happen is a refresh loop or a refresh from the onboarding step.
 
@@ -85,7 +86,9 @@ Until `errorCode` is on the wire, the client cannot tell the first and third row
 
 **404 on any authenticated route can mean the account is gone.** `E_USER_01` with `message: "User not found"` comes from the auth check itself, on any route, once the account was deleted (on another device): sign out with "Your account has been deleted." ([[BI-01 Account Backend Integration]]). Every other 404 is "not found" for the thing asked for; on the privacy-sensitive routes (`/views/pin/:pinName`) it is one copy for missing, not shared and blocked, and the client never derives a difference from timing or wording.
 
-**429 is a burned code, not a busy server.** The only 429 is `E_AUTH_06`: five wrong guesses used up the one-time code. Disable the code cells and offer *Send a new code*; retrying the same request never succeeds, so the client never retries it automatically.
+**429 is never a busy server.** There are two:
+- `E_AUTH_06`: the fifth wrong guess used up the one-time code. Disable the code cells and offer *Send a new code*; retrying the same request never succeeds, so the client never retries it automatically.
+- `E_BADGE_01`: more than 20 badge codes resolved (or refused) in a minute, on a scan or a Connect by scan. Say "slow down", keep the camera open, and let the person try again after a minute; no automatic retry.
 
 **500.** An unexpected server error: a generic message, a retry action, never any part of the body on screen.
 
@@ -97,16 +100,17 @@ Caching keys, pagination, realtime: none.
 |---|---|---|---|
 | 400 | — (validation) | a body field failed a rule | every entry of the `message` array, placed under its field when the property name matches |
 | 400 | domain code | a domain rule refused the request, e.g. `E_AUTH_05` wrong or expired one-time code | the per-feature copy for that code |
+| 400 | `E_AUTH_05` | onboarding token expired or refused (`complete-registration`) | back to s02 for a new code; no refresh |
 | 401 | — | access token missing or expired | nothing: one silent refresh, then retry |
 | 401 | `E_AUTH_04` | session over | Welcome, "Please sign in again" |
 | 401 | `E_AUTH_03` | account suspended | Welcome, "This account can't sign in right now" |
-| 401 | `E_AUTH_05` | onboarding token expired (`complete-registration` only) | back to s02, "Your code expired, request a new one" |
 | 403 | `E_AUTH_03` | account not active, on `login/verify` or `refresh` | "This account is not active" + *Start sign-up again* (sign-in) / sign-out (refresh) |
 | 403 | other domain code | role or ownership refusal | "You can't do that here" |
 | 404 | `E_USER_01` | account deleted, any authenticated route | Welcome, "Your account has been deleted." |
 | 404 | other domain code | the resource does not exist, or is not shared | "Not found"; one identical copy on the privacy-sensitive routes |
 | 409 | domain code | a conflict, e.g. `E_PROFILE_02` Pin taken, `E_RING_01` Ring name taken | the per-feature copy, at the field |
 | 429 | `E_AUTH_06` | one-time code burned | cells disabled, *Send a new code* |
+| 429 | `E_BADGE_01` | more than 20 badge codes resolved or refused in a minute (scan, Connect by scan) | "slow down", the camera stays open, try again after a minute |
 | 500 | — | unhandled server error | generic failure, retry |
 
 Before [[S-87 Error Contract Story|Error Contract · S4–S8]] ships the `errorCode` column is empty on the wire; the client uses the *When* column (status plus endpoint) instead.
@@ -126,3 +130,4 @@ Before [[S-87 Error Contract Story|Error Contract · S4–S8]] ships the `errorC
 
 - 2026-10-27 · branch `tickets/frontend/M-08-platform/F-35-error-contract/FR-35-ready` · rewritten on khaled's request after the backend's review of the draft (eight points, branch `tickets/backend/M-08-platform/F-35-error-contract/FR-35-reviewed`): the wire key named (`errorCode`, optional); the four kinds of 401 and when a refresh is allowed; 403 `E_AUTH_03` as an account state; 404 `E_USER_01` as a deleted account; 429 as a burned code; validation decided as a plain list with best-effort field placement (S8 unchanged); the stale "no task yet" row pointed at Error Contract · S9–S11; `error` never branched on. Set `ready` for the backend to approve or send back. The 401 on `complete-registration` is the build today; it is filed as bug B-05 against the integration note, which promises 400.
 - 2026-10-29 · branch `tickets/backend/M-08-platform/F-35-error-contract/FR-35-accepted` · approved by the backend: the eight review points are answered and every status and code in the list matches `main @ b4984d6`. Two notes added under *Sign-off* (the second 404 `E_USER_01` and 400 `E_AUTH_05` on `complete-registration`). [[BD-35 Error Contract Backend Delivery]] stays `in-progress`; Error Contract · S4–S8 is the next backend work.
+- 2026-11-15 · corrected to what the backend answers and the app handles (social_pin rings/F-11/honest-rings @ 778d9b4): an expired onboarding token on `complete-registration` is 400 `E_AUTH_05`, not 401 (the 401 row removed, the 400 row added; B-05); a second 429, `E_BADGE_01` (more than 20 badge codes a minute), added beside `E_AUTH_06`. Status kept `approved`
