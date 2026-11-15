@@ -225,6 +225,7 @@
     "FD-20 Companies Frontend Delivery": "frontend-delivery:companies",
     "FD-21 App Shell & Onboarding Narrative Frontend Delivery": "frontend-delivery:app-shell",
     "FD-22 Interests Frontend Delivery": "frontend-delivery:interests",
+    "FD-23 Notifications Frontend Delivery": "frontend-delivery:notifications",
     "FR-01 Account Frontend Requirements": "frontend-requirements:account",
     "FR-02 Auth & Sign-up Frontend Requirements": "frontend-requirements:auth",
     "FR-03 Counts Frontend Requirements": "frontend-requirements:counts",
@@ -576,6 +577,7 @@
     "FD-20": "frontend-delivery:companies",
     "FD-21": "frontend-delivery:app-shell",
     "FD-22": "frontend-delivery:interests",
+    "FD-23": "frontend-delivery:notifications",
     "FR-01": "frontend-requirements:account",
     "FR-02": "frontend-requirements:auth",
     "FR-03": "frontend-requirements:counts",
@@ -7128,6 +7130,7 @@
       "notes": [
         "backend-delivery:notifications",
         "feature:notifications",
+        "frontend-delivery:notifications",
         "frontend-requirements:connections",
         "frontend-requirements:notifications",
         "story:connections",
@@ -7279,14 +7282,14 @@
     }
   },
   "counts": {
-    "blocked": 30,
+    "blocked": 31,
     "bugs": 27,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 14,
       "decision": 37,
       "feature": 40,
-      "frontend-delivery": 19,
+      "frontend-delivery": 20,
       "frontend-requirements": 39,
       "module": 8,
       "needs-decision": 38,
@@ -7299,19 +7302,19 @@
     "byLayer": {
       "backend": 61,
       "business": 188,
-      "frontend": 62,
+      "frontend": 63,
       "qa": 16,
       "shared": 10
     },
     "concepts": 336,
     "decisions": 38,
-    "edges": 8916,
+    "edges": 8923,
     "features": 40,
-    "layerNotes": 167,
+    "layerNotes": 168,
     "modules": 8,
-    "notes": 368,
+    "notes": 369,
     "partial": 12,
-    "placeholders": 111,
+    "placeholders": 110,
     "records": 37
   },
   "deadlines": {
@@ -27376,6 +27379,36 @@
       "from": "frontend-delivery:interests",
       "kind": "related",
       "to": "story:interests"
+    },
+    {
+      "from": "frontend-delivery:notifications",
+      "kind": "related",
+      "to": "backend-delivery:notifications"
+    },
+    {
+      "from": "frontend-delivery:notifications",
+      "kind": "related",
+      "to": "decision:D-40"
+    },
+    {
+      "from": "frontend-delivery:notifications",
+      "kind": "related",
+      "to": "feature:app-shell"
+    },
+    {
+      "from": "frontend-delivery:notifications",
+      "kind": "related",
+      "to": "frontend-requirements:notifications"
+    },
+    {
+      "from": "frontend-delivery:notifications",
+      "kind": "related",
+      "to": "story:app-shell"
+    },
+    {
+      "from": "frontend-delivery:notifications",
+      "kind": "related",
+      "to": "story:notifications"
     },
     {
       "from": "frontend-delivery:photo-library",
@@ -72070,6 +72103,11 @@
     {
       "from": "module:platform",
       "kind": "wikilink",
+      "to": "frontend-delivery:notifications"
+    },
+    {
+      "from": "module:platform",
+      "kind": "wikilink",
       "to": "frontend-requirements:app-shell"
     },
     {
@@ -76042,6 +76080,10 @@
       "name": "BD-39 Notifications Backend Delivery",
       "type": "backend-delivery"
     },
+    "social-pin/modules/Platform & Cross-cutting/features/Notifications/flow/FD-23 Notifications Frontend Delivery.md": {
+      "name": "FD-23 Notifications Frontend Delivery",
+      "type": "frontend-delivery"
+    },
     "social-pin/modules/Platform & Cross-cutting/features/Notifications/flow/FR-39 Notifications Frontend Requirements.md": {
       "name": "FR-39 Notifications Frontend Requirements",
       "type": "frontend-requirements"
@@ -78533,7 +78575,9 @@
       "path": "social-pin/modules/Platform & Cross-cutting/features/Notifications/flow/BD-39 Notifications Backend Delivery.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "frontend-delivery:notifications"
+      ],
       "release": "mvp",
       "resolution": null,
       "scope": "feature",
@@ -85818,7 +85862,8 @@
         "feature:app-shell",
         "feature:subscription",
         "feature:notifications",
-        "frontend-delivery:app-shell"
+        "frontend-delivery:app-shell",
+        "frontend-delivery:notifications"
       ],
       "release": null,
       "resolution": null,
@@ -85971,7 +86016,8 @@
         "project:api-conventions",
         "project:spec-map",
         "needs-decision:ND-40",
-        "decision:D-40"
+        "decision:D-40",
+        "frontend-delivery:notifications"
       ],
       "release": "mvp",
       "resolution": null,
@@ -87851,9 +87897,9 @@
       "resolution": null,
       "rollup": {
         "approved": 1,
-        "blocked": 1,
+        "blocked": 2,
         "draft": 1,
-        "missing": 4
+        "missing": 3
       },
       "scope": null,
       "screens": [
@@ -90911,19 +90957,23 @@
           "why": "Notifications Backend Integration is not written yet"
         }
       ],
-      "card": null,
+      "card": "FD-23",
       "children": [],
       "code": "notifications",
-      "created": null,
+      "created": "2026-11-15",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "missing",
+      "deployedTo": [],
+      "effectiveStatus": "blocked",
       "effort": null,
       "feature": "notifications",
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:notifications",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:notifications",
+        "release": "feature:notifications"
+      },
       "kind": "frontend-delivery",
       "label": "Frontend Delivery",
       "labels": [],
@@ -90934,21 +90984,35 @@
       "parents": [
         "feature:notifications"
       ],
-      "path": null,
+      "path": "social-pin/modules/Platform & Cross-cutting/features/Notifications/flow/FD-23 Notifications Frontend Delivery.md",
       "pending": [],
-      "priority": null,
-      "related": [],
-      "release": null,
+      "priority": "critical",
+      "related": [
+        "story:notifications",
+        "frontend-requirements:notifications",
+        "backend-delivery:notifications",
+        "decision:D-40",
+        "feature:app-shell",
+        "story:app-shell"
+      ],
+      "release": "mvp",
+      "resolution": null,
       "scope": "feature",
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold frontend-delivery notifications",
-      "tags": [],
+      "screens": [
+        "s69"
+      ],
+      "status": "in-progress",
+      "summary": "The inbox (s69) and the bell are built on demo data: the inbox has no API yet (BD-39 Notifications Backend Delivery). The note stays in-progress, and blocked by the flow, until the Backend…",
+      "tags": [
+        "frontend-delivery",
+        "frontend-delivery/in-progress",
+        "module/platform",
+        "layer/frontend"
+      ],
       "task": null,
-      "template": "templates/Frontend Delivery Template.md",
-      "title": "Notifications Frontend Delivery",
+      "title": "FD-23 Notifications Frontend Delivery",
       "unmet": [],
-      "updated": null
+      "updated": "2026-11-15"
     },
     "frontend-delivery:onboarding-imports": {
       "affects": [],
@@ -94541,7 +94605,8 @@
         "qa-frontend:account",
         "qa-backend:auth",
         "qa-frontend:auth",
-        "frontend-requirements:error-contract"
+        "frontend-requirements:error-contract",
+        "frontend-delivery:notifications"
       ],
       "release": "mvp",
       "resolution": null,
@@ -96963,12 +97028,12 @@
       "resolution": null,
       "rollup": {
         "approved": 11,
-        "blocked": 11,
+        "blocked": 12,
         "decided": 4,
         "done": 2,
         "draft": 11,
         "in-progress": 12,
-        "missing": 46,
+        "missing": 45,
         "todo": 1,
         "verified": 4
       },
@@ -106598,8 +106663,8 @@
       "blockedBy": [
         {
           "id": "frontend-delivery:notifications",
-          "title": "Notifications Frontend Delivery",
-          "why": "Notifications Frontend Delivery is not written yet"
+          "title": "FD-23 Notifications Frontend Delivery",
+          "why": "FD-23 Notifications Frontend Delivery is blocked"
         }
       ],
       "card": null,
@@ -107384,7 +107449,7 @@
       ],
       "rollup": {
         "approved": 40,
-        "blocked": 30,
+        "blocked": 31,
         "current": 5,
         "decided": 37,
         "delivered": 17,
@@ -107392,7 +107457,7 @@
         "draft": 25,
         "failing": 1,
         "in-progress": 46,
-        "missing": 111,
+        "missing": 110,
         "needs-decision": 1,
         "partial": 12,
         "passing": 13,
@@ -107537,7 +107602,8 @@
       "pending": [],
       "priority": "critical",
       "related": [
-        "frontend-delivery:app-shell"
+        "frontend-delivery:app-shell",
+        "frontend-delivery:notifications"
       ],
       "release": "mvp",
       "resolution": null,
@@ -109365,6 +109431,7 @@
       "priority": "critical",
       "related": [
         "needs-decision:ND-40",
+        "frontend-delivery:notifications",
         "frontend-requirements:ring-invitations"
       ],
       "release": "mvp",
