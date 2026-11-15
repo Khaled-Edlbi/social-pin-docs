@@ -19,6 +19,8 @@ tags: [frontend-delivery, frontend-delivery/done, module/identity, layer/fronten
 
 # ✅ Counts · Frontend Delivery
 
+> ⚠ Affected by [[S-03 Counts Story]] (2026-11-12): S2 now says a Shared with me row shows "· N people" when the Ring lets members see each other (memberCount not null); the s17 row "never a member count" is out of date
+
 **Feature:** [[F-03 Counts]] · **Status:** Done · **Built from:** [[BI-14 Counts Backend Integration]] · **Against:** [[S-03 Counts Story]] · **Requirements:** [[FR-03 Counts Frontend Requirements]] · **QA:** [[Counts QA Frontend]]
 
 What the client shipped for the numbers on Home, the Ring picker, My Rings, Shared with me, Ring data and Me, on `social_pin` `rings/F-11/honest-rings` (first @ `f2c2ad5`, 2026-11-05; now @ `0005f00`, 2026-11-09), not on `main` yet. Every number comes from the API ([[BI-14 Counts Backend Integration]], backend `main` @ `f186ba1`; the connections count from [[BI-16 Connections Backend Integration]]); none is computed from a roster and none is a sample: since `dde0533` the app has no sample Rings at all, and before `GET /rings` answers it shows a loading state, an error with retry when it fails. The QA checklist is RG-10…RG-13 in the client's `docs/TEST_CASES_2026-10-18.md`.

@@ -17,6 +17,8 @@ tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 
 # ✅ Counts · Backend Delivery
 
+> ⚠ Affected by [[S-03 Counts Story]] (2026-11-12): S10 now says GET /rings/shared-with-me carries memberCount on a row whose Ring lets members see each other (as BD-17 shipped), null otherwise; the "no memberCount, by design" row and the owner-only rule here are out of date
+
 **Feature:** [[F-03 Counts]] · **Status:** Done · **Integration guide:** [[BI-14 Counts Backend Integration]] · **Requirements:** [[FR-03 Counts Frontend Requirements]] · **QA:** [[QB-07 Counts QA Backend]]
 
 What the backend shipped for this feature and how it works. On `main` since 2026-11-05 (`f186ba1`): the live member count per Ring ([[S-03 Counts Story|Counts · S6–S10]]) and the people count on Shared with me ([[S-03 Counts Story|Counts · S2]]). The connection count on Me ([[S-03 Counts Story|Counts · S11]]) shipped with [[F-14 Connections]] on `main` `1c460b0` (2026-11-08), built and documented in [[BD-14 Connections Backend Delivery]].
