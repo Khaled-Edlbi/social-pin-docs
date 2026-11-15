@@ -144,6 +144,7 @@
     "frontend-delivery:ring-projection": "FD-11",
     "frontend-delivery:rings": "FD-12",
     "frontend-delivery:view-as": "FD-17",
+    "frontend-delivery:widgets": "FD-19",
     "frontend-requirements:account": "FR-01",
     "frontend-requirements:app-shell": "FR-29",
     "frontend-requirements:audit-log": "FR-30",

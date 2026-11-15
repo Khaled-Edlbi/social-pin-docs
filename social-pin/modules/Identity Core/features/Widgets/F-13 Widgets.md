@@ -16,7 +16,7 @@ tags: [feature, module/identity, priority/critical, release/mvp]
 
 **Backend:** Partial (needs more) · **Priority:** Critical · **Release:** MVP · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
-**Layers:** [[S-20 Widgets Story|Story]] · [[FR-13 Widgets Frontend Requirements|Frontend Requirements]] · [[BD-13 Widgets Backend Delivery|Backend Delivery]] · [[Widgets Backend Integration|Backend Integration]] · [[Widgets Frontend Delivery|Frontend Delivery]] · [[Widgets QA Backend|QA Backend]] · [[Widgets QA Frontend|QA Frontend]]
+**Layers:** [[S-20 Widgets Story|Story]] · [[FR-13 Widgets Frontend Requirements|Frontend Requirements]] · [[BD-13 Widgets Backend Delivery|Backend Delivery]] · [[Widgets Backend Integration|Backend Integration]] · [[FD-19 Widgets Frontend Delivery|Frontend Delivery]] · [[Widgets QA Backend|QA Backend]] · [[Widgets QA Frontend|QA Frontend]]
 
 Widgets on a Ring (s37). The table exists; no endpoints; the type list does not match the design.
 
