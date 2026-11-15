@@ -14,13 +14,11 @@ affects: ["BD-14 Connections Backend Delivery"]
 related: ["S-23 Connections Story", "D-04 Ring settings at launch and their defaults", "D-06 Yearly rename, old name freed, case-insensitive", "D-10 Connect sends what the requester already has", "D-13 The requester sees a declined request", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-16 Files load from signed links that expire in 15 minutes", "D-17 Requests expire after 30 days, optional note, ask again at once", "D-18 Ring names shown when joined knowingly", "D-23 A count of mutual connections, events where both were visible", "D-24 One pending request per pair", "D-25 A deleted account's connections, requests and blocks end silently", "D-26 A disconnect is not announced", "D-27 Sent keeps declined and expired requests for 30 days", "D-28 Scan someone in is not in the MVP", "D-29 Connection detail opens a member who is not a connection", "BI-06 Ring Members Backend Integration", "BI-08 Rings Backend Integration", "BI-09 View As & Pin Views Backend Integration", "FR-03 Counts Frontend Requirements", "FR-09 Ring Members Frontend Requirements", "FR-11 Rings Frontend Requirements", "FR-12 View As & Pin Views Frontend Requirements", "FR-16 Delegated Admins Frontend Requirements", "FR-18 Badge & QR Frontend Requirements", "FR-39 Notifications Frontend Requirements", "S-87 Error Contract Story", "Frontend Contract", "GET /views/pin/:pinName", "GET /views/user/:userId/perspectives", "GET /rings", "GET /rings/shared-with-me", "POST /rings/:ringId/members", "PATCH /rings/:ringId/members/:userId", "DELETE /rings/:ringId/members/:userId", "POST /rings/:ringId/members/:userId/reassign", "GET /rings/:ringId/projection", "E_RING_02", "E_RING_05"]
 pending: []
 created: 2026-10-18
-updated: 2026-11-11
+updated: 2026-11-15
 tags: [frontend-requirements, frontend-requirements/approved, module/connections, layer/frontend]
 ---
 
 # 📨 Connections · Frontend Requirements
-
-> ⚠ Affected by [[D-38 Introduce is in the MVP]] (2026-11-12): Introduce (s47) is in the MVP; once S-23 has the part, the requirements need the Introduce endpoint
 
 > ⚠ Affected by [[BD-18 Badge & QR Backend Delivery]] (2026-11-08): GET /views/qr/:token is on backend main 1c460b0: the 'By scan' and 'The card by scanned code' rows can read ✅ (BI-15); Connect by { qrToken } is still ❌
 
@@ -187,7 +185,7 @@ What the client needs from the backend to build every part of [[S-23 Connections
 - **What they share with me:** `GET /views/user/:userId/perspectives` ✅; several = "View 1 / View 2", never Ring names. Empty: "Nothing shared with you right now."
 - **Mutual connections:** "4 mutual connections" from `mutualCount`, **hidden at 0**, never names, never counting a blocked pair (D-23).
 - **Events in common:** hidden in the MVP (D-23: Events aren't in the MVP).
-- *Request meeting*: hidden (Meetings is v1). *Introduce*: shown disabled, "Not available yet".
+- *Request meeting*: hidden (Meetings is v1). *Introduce*: in the MVP ([[D-38 Introduce is in the MVP]]); its own section below. Until its route exists the button says "Coming soon" when tapped.
 - **The last Ring** (S11): unticking it asks **Remove from Rings** (they stay; *No access*; a tick later needs no new request) or **Disconnect**.
 - **Revoke access**, a button on the page (S11, decided 2026-11-11): asks first, "Revoke {name}'s access?" / "They're taken out of every Ring of yours they're in and stop seeing what those Rings share. They aren't told."; then `DELETE /rings/:ringId/members/:userId` ✅ for every Ring of mine they're in (read fresh first; a membership already gone counts as done); then, for a connection, the last-Ring question above (*Remove from Rings* keeps the connection, *Disconnect* ends it); then "Access revoked. What they see just changed." No new route asked.
 - **Disconnect**, on its own only in ⋯ beside *Block*, for every connection (one Ring or several), never a button on the page; also reached through the last-Ring question: `DELETE /connections/:userId` ✅, which **in one transaction** ends every membership of theirs in my Rings and the connection. The app does not loop over the Rings itself. → 204, back to Contacts. **Nothing is sent to them** ([[D-26 A disconnect is not announced]]).
@@ -198,6 +196,19 @@ What the client needs from the backend to build every part of [[S-23 Connections
   - 404 `E_RING_MEMBER_02` on untick or window: refetch.
   - 403 `E_RING_05`: that Ring's row is read-only.
 - **A member who isn't a connection** (joined one of my Rings by code or invite, [[S-33 Ring Invitations & Join Story]]) opens here too ([[D-29 Connection detail opens a member who is not a connection]]): `GET /connections/:userId` answers them with `connectedAt: null` and their `memberships`, not a 404. The header reads "Member of your Rings" in place of "Connected …"; the checklist, the windows, what they can see and what they share with me work the same; there is **no *Disconnect*** (no connection to end), and unticking their last Ring removes them without the last-Ring question.
+
+### [[Screen Index#s47|s47]] Introduce (S-23's Introduce part, MVP per [[D-38 Introduce is in the MVP|D-38]]) · added 2026-11-15
+
+What the client needs to introduce one connection to another from Connection detail. **No route exists** ([[BD-14 Connections Backend Delivery]], [[BI-16 Connections Backend Integration]]); the rows below are the ask. What an introduction *is* (a request sent on someone's behalf, or a suggestion to both) is still open in [[S-23 Connections Story]]; the rows ask for the smallest shape that works for either, and change with the story's answer.
+
+- **Entry:** *Introduce* on s47 of a **connection** (not on a member who isn't a connection, D-29; not on a blocked pair).
+- **Pick who:** one of my other connections, from the Contacts list (`GET /connections?q=` ✅, debounced, server search), the person on s47 left out. One person per introduction.
+- **An optional note,** trimmed, ≤ 200, plain text, as on *Connect*.
+- **Send:** `POST /connections/introductions { userId, toUserId, note? }` ❌ (proposed path and body; the backend may rename) → 201 `{ id, createdAt }`. Exactly two of **my** connections; **no Ring name or Ring id** goes in or comes back; neither person learns which Ring of mine the other is in.
+- **After sending:** "Introduction sent." and back to s47; nothing optimistic, nothing queued offline ("Couldn't send the introduction. Try again.").
+- **Asked again for the same pair:** the server keeps one open introduction per pair and answers as sent (200), not an error.
+- **What the two people see** (a request, a notification, a suggestion row): ❌, waits on the story's answer and on [[FR-39 Notifications Frontend Requirements|FR-39]] for the push. A push carries the introduction id and the event, no profile field and no Ring name.
+- **Errors:** a blocked pair (either way), a person no longer a connection, a deleted account: **one quiet answer**, the same 404 for all (`E_CONNECTION_02`, proposed), shown as "Can't introduce these two." never why; the same person twice or myself: 400 on the field; 401 sign in again.
 
 ### [[Screen Index#s19|s19]] New Ring · step 2, and [[Screen Index#s15|s15]] a Ring's People tab (S12)
 
@@ -295,6 +306,8 @@ What the client needs from the backend to build every part of [[S-23 Connections
 | Connections count on Me | `meta.total` of `GET /connections`, or [[FR-03 Counts Frontend Requirements\|FR-03]] | ✅ also `GET /connections/count` | S14 |
 | A deleted account leaves every list | the deletion ends connections, requests and blocks | ✅ `DELETE /users/me` ends them in the same transaction; every list and the detail leave it out | S16 · D-25 |
 | Requests during an event | `eventRingId` filter on the incoming list | ❌ | S15 (v1) |
+| **Introduce two of my connections**, no Ring name or id, one open per pair, quietly refused for a blocked pair | `POST /connections/introductions { userId, toUserId, note? }` (proposed) | ❌ | S-23 Introduce · [[D-38 Introduce is in the MVP\|D-38]] (MVP) |
+| What the two people introduced see | — (with the story's answer) | ❌ | S-23 Introduce · [[FR-39 Notifications Frontend Requirements\|FR-39]] |
 | Push on request and accept | — | ❌ | S3, S7 · [[FR-39 Notifications Frontend Requirements\|FR-39]] |
 | Photos | signed links | ✅ (not on Blocked people) | D-16 |
 
@@ -328,7 +341,8 @@ Until [[S-87 Error Contract Story|Error Contract · S4–S8]] puts `ErrorCode` o
 | 409 | `E_RING_MEMBER_04` | accept, a tick, s19 adds | "Can't add this person"; never why |
 | 409 | `E_RING_MEMBER_01` | accept, a tick | already in it: treat as done, refetch |
 | 404 | `E_RING_MEMBER_02` | untick, window | refetch s47 |
-| 400 | validation (`message` an array) | note over 200, window order, both `qrToken` and `pinName` sent | inline on the field |
+| 400 | validation (`message` an array) | note over 200, window order, both `qrToken` and `pinName` sent, an introduction of the same person twice or of myself | inline on the field |
+| 404 | `E_CONNECTION_02` (proposed) | introduce: a blocked pair, not a connection any more, a deleted account | "Can't introduce these two."; never why |
 | 401 | `E_AUTH_04` | all | sign in again |
 | — | offline, 5xx | all writes | "Couldn't … Try again."; nothing queued |
 
@@ -336,7 +350,7 @@ Until [[S-87 Error Contract Story|Error Contract · S4–S8]] puts `ErrorCode` o
 
 The story is approved and its open questions are decided (D-24 to D-29), so this list isn't blocked by it. Rows wait on:
 
-- **Introduce** (s47): disabled until defined; proposed v1.
+- **Introduce** (s47): in the MVP ([[D-38 Introduce is in the MVP]]); the route is ❌ and what the two people see waits on [[S-23 Connections Story]]'s answer. The new rows are for the backend to take as `pending` on [[BD-14 Connections Backend Delivery]] (its delivery is done).
 - **Auto-accept on the badge** (s34): hidden until defined.
 - [[S-37 Badge & QR Story|Badge & QR · S13–S18]]: `GET /views/qr/:token`. Scanning, and *Connect* or *Block* after a scan.
 - [[S-89 Gemma AI Story|Gemma AI · S7]]: the suggested Ring on s46.
