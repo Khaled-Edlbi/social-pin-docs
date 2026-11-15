@@ -12,7 +12,7 @@ owner: "Omar Fostok"
 affects: ["BD-18 Badge & QR Backend Delivery"]
 related: ["S-37 Badge & QR Story", "BI-09 View As & Pin Views Backend Integration", "FR-14 Connections Frontend Requirements", "FR-17 Ring Invitations & Join Frontend Requirements", "D-10 Connect sends what the requester already has", "D-11 The badge code stays the same for its day", "D-12 The badge QR is a socialpin.me link", "D-22 The public page only says the Pin exists", "D-28 Scan someone in is not in the MVP", "D-35 A join code can be shown as a QR", "S-53 Events During Story", "S-71 Subscription (Free vs Pro) Story", "S-82 Devices & NFC Story", "S-87 Error Contract Story", "Frontend Contract"]
 created: 2026-10-18
-updated: 2026-11-09
+updated: 2026-11-15
 tags: [frontend-requirements, frontend-requirements/approved, module/discovery, layer/frontend]
 ---
 
@@ -112,7 +112,7 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
 | Status | ErrorCode | Show |
 |---|---|---|
 | 404 | `E_RING_ACCESS_01` | resolve or Pin name: "This profile isn't available"; keep scanning |
-| 404 | `E_RING_ACCESS_02` | the same to a scanner; on my own code, "This Ring has ended" |
+| 404 | `E_RING_ACCESS_02` | the same to a scanner, my own ended code included: "This profile isn't available" (the app forgets the codes of ended Rings, so it no longer knows the code as mine; no "This Ring has ended" line) |
 | 404 | `E_RING_02` | asking a code for a Ring that isn't mine: read `GET /rings` again and reset the picked Ring |
 | 429 | `E_BADGE_01` | "Slow down", keep the camera open |
 | 401 | `E_AUTH_04` | sign in again |
@@ -137,3 +137,4 @@ Each screen ends with **What changes in the app**: the app as it is today (`soci
 - 2026-11-08 · `tickets/backend/M-04-discovery/F-18-badge-qr/FR-18-delivered-rows` · backend `main` `1c460b0`: rows ✅ with their endpoints for the code (`POST /rings/:ringId/qr`), the reset (`POST /rings/:ringId/qr/reset`), the resolve (`GET /views/qr/:token`), its 429 (`E_BADGE_01`), the scan count (`GET /rings/:ringId/qr/scans`) and the join QR (BD-17, `POST /rings/join-codes/resolve`); Connect 🟡 (`{ pinName }` yes, `{ qrToken }` not yet); the 429 and ended-Ring codes filled in the error table. How to call them: [[BI-15 Badge & QR Backend Integration]]. *Blocked by* and the *Source today* lines are the frontend's to update
 - 2026-11-09 · `tickets/backend/M-04-discovery/F-18-badge-qr/FR-18-scan-presenter` · backend local `main` `ebdca36` (not pushed yet): the Connect row ✅, `{ qrToken }` accepted on `POST /connections/requests`, with Block and the relationship by the same token ([[BD-14 Connections Backend Delivery]], [[BD-18 Badge & QR Backend Delivery]] `resolvePresenter`). Lines only
 - 2026-11-09 · `docs/frontend/M-04-discovery/F-18-badge-qr/FD-16-shipped` · the two S-37 S8 flags (Save for later stays on the card with Remove from saved; Save contact only with a phone) settled in the s44 lines and cleared: the app does both ([[FD-16 Badge & QR Frontend Delivery]]); status kept
+- 2026-11-15 · `tickets/frontend/M-04-discovery/F-18-badge-qr/FR-18-own-ended-code` · the `E_RING_ACCESS_02` row: my own ended code reads "This profile isn't available", as the app does (social_pin `rings/F-11/honest-rings` @ `778d9b4`), not "This Ring has ended"; client copy only, no backend change; status kept
