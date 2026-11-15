@@ -15,7 +15,7 @@ tags: [feature, module/platform, priority/critical, release/mvp]
 
 **Backend:** TODO · **Priority:** Critical · **Release:** MVP · **Module:** [[M-08 Platform & Cross-cutting Module|Platform & Cross-cutting]]
 
-**Layers:** [[S-96 Notifications Story|Story]] · [[FR-39 Notifications Frontend Requirements|Frontend Requirements]] · [[BD-39 Notifications Backend Delivery|Backend Delivery]] · [[Notifications Backend Integration|Backend Integration]] · [[Notifications Frontend Delivery|Frontend Delivery]] · [[Notifications QA Backend|QA Backend]] · [[Notifications QA Frontend|QA Frontend]]
+**Layers:** [[S-96 Notifications Story|Story]] · [[FR-39 Notifications Frontend Requirements|Frontend Requirements]] · [[BD-39 Notifications Backend Delivery|Backend Delivery]] · [[Notifications Backend Integration|Backend Integration]] · [[FD-23 Notifications Frontend Delivery|Frontend Delivery]] · [[Notifications QA Backend|QA Backend]] · [[Notifications QA Frontend|QA Frontend]]
 
 Grouped notifications (Today / Yesterday / Last 7 days), mark all read (s69), push delivery, preferences.
 

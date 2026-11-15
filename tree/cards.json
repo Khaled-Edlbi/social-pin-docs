@@ -136,6 +136,7 @@
     "frontend-delivery:connections": "FD-13",
     "frontend-delivery:counts": "FD-06",
     "frontend-delivery:files": "FD-07",
+    "frontend-delivery:notifications": "FD-23",
     "frontend-delivery:photo-library": "FD-08",
     "frontend-delivery:profiles": "FD-09",
     "frontend-delivery:ring-access": "FD-10",
