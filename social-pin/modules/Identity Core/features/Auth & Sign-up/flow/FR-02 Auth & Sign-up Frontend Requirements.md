@@ -13,7 +13,7 @@ depends: []
 affects: []
 related: ["ND-01 Passwordless login", "D-06 Yearly rename, old name freed, case-insensitive", "FR-05 Onboarding Imports Frontend Requirements", "FR-07 Profiles & Pin Name Frontend Requirements", "FR-37 Interests Frontend Requirements", "F-11 Rings", "S-14 Profiles & Pin Name Story", "S-87 Error Contract Story"]
 created: 2026-10-18
-updated: 2026-11-05
+updated: 2026-11-15
 tags: [frontend-requirements, frontend-requirements/approved, module/identity, layer/frontend]
 ---
 
@@ -63,7 +63,7 @@ Sign-in is steps 1 and 2 only, then Home.
 ### [[Screen Index#s06|s06]] Claim your Pin
 
 - The handle only: the full name is collected **before**, on *Profile basics*, and is required there; it reaches the backend as `fullName` in `complete-registration`.
-- The `!` is a prefix, never sent; 3–30 letters, digits, `.`, `_`, checked on the client first; availability is asked 400 ms after typing stops.
+- The `!` is a prefix, never sent; 3–30 letters, digits, `.`, `_`, checked on the client first; availability is asked 300 ms after typing stops.
 - **Suggestions are built on the client** from the person's own name and shown as chips, as [[D-06 Yearly rename, old name freed, case-insensitive]] decided; no endpoint needed. Capitals don't matter: the backend already compares names lower-cased.
 - The copy "You can change it once a year." is enforced by [[S-14 Profiles & Pin Name Story|Profiles & Pin Name · S12–S13]], not yet.
 - This is where the account is created: the onboarding token is dropped once `complete-registration` returns and the steps before can't be gone back to.
@@ -139,3 +139,7 @@ Removed on 2026-10-15 and not coming back: `POST /auth/reset-password`, `POST /a
 
 - Nothing for the flows above. [[S-78 Code Delivery Story|Code Delivery · S6]] / [[S-78 Code Delivery Story|Code Delivery · S7]] decide when `devCode` can go ([[S-78 Code Delivery Story|Code Delivery · S8]]).
 - The rename limit on s06 waits on [[S-14 Profiles & Pin Name Story|Profiles & Pin Name · S12–S13]].
+
+## Log
+
+- 2026-11-15 · s06 availability debounce corrected to 300 ms, as the app has asked it since `f9c19e3` ([[FD-05 Auth & Sign-up Frontend Delivery]]); no endpoint changed
