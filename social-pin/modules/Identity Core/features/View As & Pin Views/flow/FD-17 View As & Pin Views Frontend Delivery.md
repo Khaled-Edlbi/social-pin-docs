@@ -19,6 +19,8 @@ tags: [frontend-delivery, frontend-delivery/done, module/identity, layer/fronten
 
 # ✅ View As & Pin Views · Frontend Delivery
 
+> ⚠ Affected by [[S-19 View As & Pin Views Story]] (2026-11-12): S1 (s10) now describes the app: the labelled card with no flip, "This is what {ring} sees", the sign-up preview while slow, Go to the app; the s10 row can be checked against it
+
 **Feature:** [[F-12 View As & Pin Views]] · **Status:** Done · **Built from:** [[BI-09 View As & Pin Views Backend Integration]] · **Against:** [[S-19 View As & Pin Views Story]] · **Requirements:** [[FR-12 View As & Pin Views Frontend Requirements]] · **QA:** [[View As & Pin Views QA Frontend]]
 
 What the client shipped for View as and the cards of other people, on `social_pin` `rings/F-11/honest-rings` @ `0005f00` (2026-11-09), with `f801aaa` (View as from the view, perspectives) and `dde0533` (s10 from the real view, samples removed); not on `main` yet. Built against backend `main` `d8267d3` (D-15's order, [[BD-12 View As & Pin Views Backend Delivery|BD-12]]). One card component, `RingViewCard`, draws every view: s31's audience face, the Person card (Shared with me, Connection detail, a Pin name) and s44. Unit and widget tests, plus a Maestro subflow for Save contact; not yet tried on a device.

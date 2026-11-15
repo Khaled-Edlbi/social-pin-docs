@@ -11,7 +11,7 @@ approvedAt: 2026-11-09
 owner: "Omar Fostok"
 related: ["D-15 Several Rings per connection, remove or disconnect", "D-14 Shared with me lists people, never the Ring", "D-16 Files load from signed links that expire in 15 minutes", "D-18 Ring names shown when joined knowingly", "ND-12 What the badge QR encodes", "ND-22 Public web page by Pin name", "S-14 Profiles & Pin Name Story", "S-17 Ring Projection Story", "S-23 Connections Story", "F-03 Counts"]
 created: 2026-10-18
-updated: 2026-11-09
+updated: 2026-11-12
 tags: [story, story/approved, module/identity, layer/business]
 ---
 
@@ -38,11 +38,12 @@ A Ring owner in onboarding ([[Screen Index#s10|s10]]) or on Ring data flipping t
 **As a** new user **I want** to see my first Ring the way its audience will, and the way I see it **so that** I understand what a Ring is before I reach Home.
 
 Acceptance criteria:
-- [ ] s10 appears after "Create Ring" on s09 ("Later" goes straight to Home). It is **s31's View as component** (S2), opened on the Ring just created: "See yourself the way they do. Every Ring gets its own version of you. Flip the card to switch between what you see and what they see."
-- [ ] It opens on the **preview** ("PREVIEW — <RING> SEES", `GET /views/ring/:ringId` with the new Ring's id) with "Tap to flip ↻" to the owner's face ("YOUR VIEW — OWNER", S2).
-- [ ] The Ring picker ("<Ring> ›") offers the new Ring and the **Public** Ring (the default), so the new user sees two versions of themselves.
-- [ ] "Everything else is invisible to this Ring — including that this Ring exists."; **Got it** → Home; "You can open View as any time from a Ring."
-- [ ] Works on a Ring with almost nothing set: the name from the profile and whatever s09 switched on; the rest absent.
+- [ ] s10 appears after "Create Ring" on s09 ("Later" goes straight to Home), with "{ring} is ready".
+- [ ] It shows **the labelled card** the Ring's members get (`GET /views/ring/:ringId` with the new Ring's id), **with no flip** and no Ring picker: the title "**This is what {ring} sees**", "Each Ring gets its own version of you. Nothing else of yours shows, not even that the Ring exists.", and under the card "Members of {ring} see this card."
+- [ ] While the Ring's view is slow, it shows a preview built from what I entered on s09 ("A preview from what you entered here. Your live card shows once it loads.").
+- [ ] When what the Ring shows didn't all save: "Finish it in {ring}: open it from the Rings tab, then What they see." and Try again.
+- [ ] "**Go to the app**" → Home; "You can open View as any time from a Ring." The flip is s31's (S2).
+- [ ] Works on a Ring with almost nothing set: the name from the profile and whatever s09 set; the rest absent.
 
 ### S2 · View as, the flip ([[Screen Index#s31|s31]])
 
@@ -139,3 +140,4 @@ Acceptance criteria:
 - 2026-11-09 · flagged [[QB-09 Ring Access Engine QA Backend]]: S-19 S4/S5 now follow D-15 (2026-11-09, khaled): GET /views/pin and the perspectives list start from the Ring the viewer was put in first (oldest live membership), then the others in the order they were added; the owner's own lookup keeps their default Ring first; B58's expectation (D-15) is now also the story's, re-run after the backend change ships, for /qa
 - 2026-11-09 · `tickets/pm/M-01-identity/F-12-view-as/S-19-save-contact` · S7 Save contact sits next to Save for later (S-37 S8), not instead of it, only when the card shares a phone number; decided by Omar Fostok, the story stays approved
 - 2026-11-09 · flagged [[FR-12 View As & Pin Views Frontend Requirements]]: S7 Save contact sits next to Save for later, not instead of it, only when the card shares a phone number
+- 2026-11-12 · `tickets/pm/M-01-identity/F-12-view-as/S-19-app-778d9b4` · S1 (s10) matched to the app: the first View as shows the labelled card with no flip and no Ring picker, "This is what {ring} sees", a preview from sign-up while the view is slow, and "Go to the app"; decided by Omar Fostok 2026-11-11, app 778d9b4. The story stays approved. Flagged [[FR-12 View As & Pin Views Frontend Requirements]] and [[FD-17 View As & Pin Views Frontend Delivery]]
