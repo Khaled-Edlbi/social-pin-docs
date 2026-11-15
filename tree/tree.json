@@ -224,6 +224,7 @@
     "FD-19 Widgets Frontend Delivery": "frontend-delivery:widgets",
     "FD-20 Companies Frontend Delivery": "frontend-delivery:companies",
     "FD-21 App Shell & Onboarding Narrative Frontend Delivery": "frontend-delivery:app-shell",
+    "FD-22 Interests Frontend Delivery": "frontend-delivery:interests",
     "FR-01 Account Frontend Requirements": "frontend-requirements:account",
     "FR-02 Auth & Sign-up Frontend Requirements": "frontend-requirements:auth",
     "FR-03 Counts Frontend Requirements": "frontend-requirements:counts",
@@ -574,6 +575,7 @@
     "FD-19": "frontend-delivery:widgets",
     "FD-20": "frontend-delivery:companies",
     "FD-21": "frontend-delivery:app-shell",
+    "FD-22": "frontend-delivery:interests",
     "FR-01": "frontend-requirements:account",
     "FR-02": "frontend-requirements:auth",
     "FR-03": "frontend-requirements:counts",
@@ -2724,6 +2726,7 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:interests",
+        "frontend-delivery:interests",
         "frontend-requirements:interests",
         "story:interests"
       ],
@@ -3607,6 +3610,7 @@
       ],
       "kind": "endpoint",
       "notes": [
+        "frontend-delivery:interests",
         "frontend-requirements:interests"
       ],
       "owner": null
@@ -5289,6 +5293,7 @@
       ],
       "kind": "endpoint",
       "notes": [
+        "frontend-delivery:interests",
         "frontend-requirements:interests"
       ],
       "owner": null
@@ -5558,6 +5563,7 @@
       "notes": [
         "backend-delivery:interests",
         "feature:interests",
+        "frontend-delivery:interests",
         "frontend-requirements:interests",
         "story:interests"
       ],
@@ -7158,6 +7164,7 @@
       "notes": [
         "backend-delivery:interests",
         "feature:interests",
+        "frontend-delivery:interests",
         "frontend-requirements:interests",
         "story:interests"
       ],
@@ -7272,14 +7279,14 @@
     }
   },
   "counts": {
-    "blocked": 29,
+    "blocked": 30,
     "bugs": 27,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 14,
       "decision": 37,
       "feature": 40,
-      "frontend-delivery": 18,
+      "frontend-delivery": 19,
       "frontend-requirements": 39,
       "module": 8,
       "needs-decision": 38,
@@ -7292,19 +7299,19 @@
     "byLayer": {
       "backend": 61,
       "business": 188,
-      "frontend": 61,
+      "frontend": 62,
       "qa": 16,
       "shared": 10
     },
     "concepts": 336,
     "decisions": 38,
-    "edges": 8910,
+    "edges": 8916,
     "features": 40,
-    "layerNotes": 166,
+    "layerNotes": 167,
     "modules": 8,
-    "notes": 367,
+    "notes": 368,
     "partial": 12,
-    "placeholders": 112,
+    "placeholders": 111,
     "records": 37
   },
   "deadlines": {
@@ -27344,6 +27351,31 @@
       "from": "frontend-delivery:files",
       "kind": "related",
       "to": "story:widgets"
+    },
+    {
+      "from": "frontend-delivery:interests",
+      "kind": "related",
+      "to": "backend-delivery:interests"
+    },
+    {
+      "from": "frontend-delivery:interests",
+      "kind": "related",
+      "to": "feature:auth"
+    },
+    {
+      "from": "frontend-delivery:interests",
+      "kind": "related",
+      "to": "feature:gemma"
+    },
+    {
+      "from": "frontend-delivery:interests",
+      "kind": "related",
+      "to": "frontend-requirements:interests"
+    },
+    {
+      "from": "frontend-delivery:interests",
+      "kind": "related",
+      "to": "story:interests"
     },
     {
       "from": "frontend-delivery:photo-library",
@@ -72033,6 +72065,11 @@
     {
       "from": "module:platform",
       "kind": "wikilink",
+      "to": "frontend-delivery:interests"
+    },
+    {
+      "from": "module:platform",
+      "kind": "wikilink",
       "to": "frontend-requirements:app-shell"
     },
     {
@@ -75969,6 +76006,10 @@
       "name": "BD-37 Interests Backend Delivery",
       "type": "backend-delivery"
     },
+    "social-pin/modules/Platform & Cross-cutting/features/Interests/flow/FD-22 Interests Frontend Delivery.md": {
+      "name": "FD-22 Interests Frontend Delivery",
+      "type": "frontend-delivery"
+    },
     "social-pin/modules/Platform & Cross-cutting/features/Interests/flow/FR-37 Interests Frontend Requirements.md": {
       "name": "FR-37 Interests Frontend Requirements",
       "type": "frontend-requirements"
@@ -78305,7 +78346,9 @@
       "path": "social-pin/modules/Platform & Cross-cutting/features/Interests/flow/BD-37 Interests Backend Delivery.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "frontend-delivery:interests"
+      ],
       "release": "mvp",
       "resolution": null,
       "scope": "feature",
@@ -86093,6 +86136,7 @@
         "frontend-requirements:onboarding-imports",
         "frontend-requirements:profiles",
         "frontend-delivery:app-shell",
+        "frontend-delivery:interests",
         "frontend-requirements:interests"
       ],
       "release": "mvp",
@@ -87486,6 +87530,7 @@
         "story:discover-hub",
         "frontend-delivery:widgets",
         "story:widgets",
+        "frontend-delivery:interests",
         "frontend-requirements:interests"
       ],
       "release": null,
@@ -87565,9 +87610,9 @@
       "resolution": null,
       "rollup": {
         "approved": 1,
-        "blocked": 1,
+        "blocked": 2,
         "draft": 1,
-        "missing": 4
+        "missing": 3
       },
       "scope": null,
       "screens": [
@@ -90704,19 +90749,23 @@
           "why": "Interests Backend Integration is not written yet"
         }
       ],
-      "card": null,
+      "card": "FD-22",
       "children": [],
       "code": "interests",
-      "created": null,
+      "created": "2026-11-15",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "missing",
+      "deployedTo": [],
+      "effectiveStatus": "blocked",
       "effort": null,
       "feature": "interests",
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:interests",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:interests",
+        "release": "feature:interests"
+      },
       "kind": "frontend-delivery",
       "label": "Frontend Delivery",
       "labels": [],
@@ -90727,21 +90776,35 @@
       "parents": [
         "feature:interests"
       ],
-      "path": null,
+      "path": "social-pin/modules/Platform & Cross-cutting/features/Interests/flow/FD-22 Interests Frontend Delivery.md",
       "pending": [],
-      "priority": null,
-      "related": [],
-      "release": null,
+      "priority": "critical",
+      "related": [
+        "story:interests",
+        "frontend-requirements:interests",
+        "backend-delivery:interests",
+        "feature:gemma",
+        "feature:auth"
+      ],
+      "release": "mvp",
+      "resolution": null,
       "scope": "feature",
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold frontend-delivery interests",
-      "tags": [],
+      "screens": [
+        "s07",
+        "s71"
+      ],
+      "status": "in-progress",
+      "summary": "Both pickers are built, but on a sample list, and nothing is saved or sent: GET /interests, GET /users/me/interests and PUT /users/me/interests don't exist yet (Interests · S5). The note stays…",
+      "tags": [
+        "frontend-delivery",
+        "frontend-delivery/in-progress",
+        "module/platform",
+        "layer/frontend"
+      ],
       "task": null,
-      "template": "templates/Frontend Delivery Template.md",
-      "title": "Interests Frontend Delivery",
+      "title": "FD-22 Interests Frontend Delivery",
       "unmet": [],
-      "updated": null
+      "updated": "2026-11-15"
     },
     "frontend-delivery:linked-accounts": {
       "affects": [],
@@ -94257,6 +94320,7 @@
         "qa-backend:auth",
         "qa-frontend:auth",
         "frontend-requirements:error-contract",
+        "frontend-delivery:interests",
         "feature:auth",
         "feature:gemma",
         "story:gemma",
@@ -96899,12 +96963,12 @@
       "resolution": null,
       "rollup": {
         "approved": 11,
-        "blocked": 10,
+        "blocked": 11,
         "decided": 4,
         "done": 2,
         "draft": 11,
         "in-progress": 12,
-        "missing": 47,
+        "missing": 46,
         "todo": 1,
         "verified": 4
       },
@@ -106390,8 +106454,8 @@
       "blockedBy": [
         {
           "id": "frontend-delivery:interests",
-          "title": "Interests Frontend Delivery",
-          "why": "Interests Frontend Delivery is not written yet"
+          "title": "FD-22 Interests Frontend Delivery",
+          "why": "FD-22 Interests Frontend Delivery is blocked"
         }
       ],
       "card": null,
@@ -107320,7 +107384,7 @@
       ],
       "rollup": {
         "approved": 40,
-        "blocked": 29,
+        "blocked": 30,
         "current": 5,
         "decided": 37,
         "delivered": 17,
@@ -107328,7 +107392,7 @@
         "draft": 25,
         "failing": 1,
         "in-progress": 46,
-        "missing": 112,
+        "missing": 111,
         "needs-decision": 1,
         "partial": 12,
         "passing": 13,
@@ -109116,7 +109180,9 @@
       "path": "social-pin/modules/Platform & Cross-cutting/features/Interests/S-92 Interests Story.md",
       "pending": [],
       "priority": "critical",
-      "related": [],
+      "related": [
+        "frontend-delivery:interests"
+      ],
       "release": "mvp",
       "resolution": null,
       "scope": "feature",
