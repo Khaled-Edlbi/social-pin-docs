@@ -7265,7 +7265,7 @@
     },
     "concepts": 336,
     "decisions": 38,
-    "edges": 8820,
+    "edges": 8819,
     "features": 40,
     "layerNotes": 162,
     "modules": 8,
@@ -11200,11 +11200,6 @@
       "from": "frontend-delivery:rings",
       "kind": "pending",
       "to": "story:rings"
-    },
-    {
-      "from": "frontend-delivery:view-as",
-      "kind": "pending",
-      "to": "story:view-as"
     },
     {
       "from": "frontend-delivery:view-as",
@@ -91146,26 +91141,6 @@
       "pending": [
         {
           "person": null,
-          "text": "S3 each file's size beside its name (the view carries sizeBytes; the card shows the name only)",
-          "to": "story:view-as"
-        },
-        {
-          "person": null,
-          "text": "S2 Save contact and Connect drawn disabled on the audience face of s31",
-          "to": "story:view-as"
-        },
-        {
-          "person": null,
-          "text": "S6 View as on s14 offered on live Rings only (today an expired Ring opens it and reads This Ring has expired)",
-          "to": "story:view-as"
-        },
-        {
-          "person": null,
-          "text": "S7 the nickname as the contact's nickname",
-          "to": "story:view-as"
-        },
-        {
-          "person": null,
           "text": "S7 the view's widgets drawn on the card (read, not drawn)",
           "to": "story:widgets"
         }
@@ -91300,7 +91275,7 @@
       "task": null,
       "title": "FD-17 View As & Pin Views Frontend Delivery",
       "unmet": [],
-      "updated": "2026-11-09"
+      "updated": "2026-11-15"
     },
     "frontend-delivery:widgets": {
       "affects": [],
