@@ -14,17 +14,13 @@ affects: ["S-16 Ring Members Story", "S-18 Rings Story", "S-19 View As & Pin Vie
 related: ["D-04 Ring settings at launch and their defaults", "D-13 The requester sees a declined request", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-17 Requests expire after 30 days, optional note, ask again at once", "D-18 Ring names shown when joined knowingly", "ND-10 How Connect addresses the scanned person", "ND-23 Mutual connections and events in common", "D-10 Connect sends what the requester already has", "D-23 A count of mutual connections, events where both were visible", "D-24 One pending request per pair", "D-25 A deleted account's connections, requests and blocks end silently", "D-26 A disconnect is not announced", "D-27 Sent keeps declined and expired requests for 30 days", "D-28 Scan someone in is not in the MVP", "D-29 Connection detail opens a member who is not a connection", "Ring Access Model"]
 pending: []
 created: 2026-10-18
-updated: 2026-11-11
+updated: 2026-11-12
 tags: [story, story/approved, module/connections, layer/business]
 ---
 
 # Connections · User Story
 
-> ⚠ Affected by [[D-38 Introduce is in the MVP]] (2026-11-12): Introduce (s47) is in the MVP; S9 needs an Introduce part with screen and backend criteria (the API has no endpoint yet), what Introduce means is to be written, and the open question's "proposed v1" goes
-
 > ⚠ Affected by [[FD-14 Ring Members Frontend Delivery]] (2026-11-09): social_pin 0005f00: s47's checklist (S9) and s15's move picker leave out ended Rings only; a Ring that has not started yet is still listed, pending on FD-14. Scan someone in is not shown on s15 and Disconnect lives in ⋯ beside Block, as S11 and S12 say (/pm)
-
-> ⚠ Affected by [[FD-13 Connections Frontend Delivery]] (2026-11-09): on social_pin 0005f00 the request states, Disconnect in ⋯ and no Scan someone in on s15 match the 2026-11-09 decisions; two differences: s47 also has a Revoke access button on the page (S-16 S5) whose D-15 choice can end in Disconnect (S11 says never a button on the page), and s47's checklist still lists a Ring that has not started yet (S9: live Rings only)
 
 > ⚠ Affected by [[BD-14 Connections Backend Delivery]] (2026-11-09): S2 and S13 by scanned code ({ qrToken } on Connect, Block and the relationship, source SCAN) and S16's account deletion (D-25: connections end, requests close both ways, blocks removed, silently) are built on backend main ebdca36 (local, not pushed yet); BD-14 has nothing pending
 
@@ -114,14 +110,15 @@ Acceptance criteria:
 - [ ] It lists my **live** Rings from `GET /rings` (exists): name, colour, member count; Rings that have **ended** are not offered; **temporary** (Event) Rings are offered only when the request came from that event. Rings where I'm a delegated admin at `MEMBER_MANAGER` level are offered too, under their owner's name.
 - [ ] One Ring is picked to start: **my default Ring** (Gemma's suggestion, "Gemma suggests TechSummit '26", is not available yet, [[S-89 Gemma AI Story|Gemma AI · S7]]).
 - [ ] *+ New Ring for this person* opens the New Ring wizard and comes back to the sheet with the new Ring picked.
-- [ ] An optional access window, **Starts** and **Expires**, for this membership; none means until removed ([[S-16 Ring Members Story|Ring Members · S3]]). The Ring's own Expires still applies; whichever comes first ends access.
+- [ ] An optional access window, **Starts** and **Expires**, for this membership; none means until removed ([[S-16 Ring Members Story|Ring Members · S3]]). The Ring's own Expires still applies: "The Ring's own end date also applies: whichever comes first ends their access."
 - [ ] *Accept & add to Ring* sends the request id, the `ringId` and the window; **in one transaction** the server creates the connection, adds them as a member of that Ring and records `grantedRingId`. All three or none. Not available yet.
 - [ ] No optimistic accept: the sheet shows *Adding…* until the server answers, then opens Connection detail (S9).
 - [ ] Motion: the person's card **slides into the chosen Ring** on the sheet; reduced motion fades.
 - [ ] *Not now* closes the sheet; the request stays pending.
 - [ ] Errors, quiet and specific:
   - the Ring was deleted or isn't mine any more: 404 `E_RING_02`, the list refetches;
-  - a block exists either way: 409 `E_RING_MEMBER_04`, "Can't add this person", never why;
+  - a block exists either way: 409 `E_RING_MEMBER_04`, "Can't add this person.", never why;
+  - not allowed on that Ring (403): "You can't do that here.";
   - they're already in that Ring: 409 `E_RING_MEMBER_01`, treated as done;
   - the request was cancelled, expired or already answered: "This request is no longer open", the sheet closes and the row leaves the inbox.
 
@@ -150,7 +147,7 @@ Acceptance criteria:
 **As a** user **I want** everyone I'm connected with in one searchable list **so that** I find someone without scanning them twice.
 
 Acceptance criteria:
-- [ ] Reached from the **People** tile on Discover (s38) and from **Connections** on Me (s68); the Requests inbox (S3) is one tap from its header ("Requests · 3"). Today the People tile opens Requests.
+- [ ] Reached from the **People** tile on Discover (s38) and from **Connections** on Me (s68). Both open Contacts. The Requests inbox (S3) is one tap from its header, "Requests · N" ("Requests · 3"), shown when someone is waiting.
 - [ ] `GET /connections?q=&limit=&skip=` lists my connections by display name, paged (`limit` ≤ 50, `meta.total`). Not available yet.
 - [ ] Each row: `userId`, `displayName`, `pinName`, photo, when we connected, and **No access** when they're in none of my Rings (after *Remove from Rings*, S11).
 - [ ] Search (`q`) matches name or Pin name **within my own connections only**; it never finds strangers. No results: "No one by that name."
@@ -170,9 +167,9 @@ Acceptance criteria:
 - [ ] **What they share with me**: their card through `GET /views/user/:userId/perspectives` (exists); several perspectives are "View 1 / View 2", never Ring names ([[S-19 View As & Pin Views Story|View As · S5]]). Empty: "Nothing shared with you right now."
 - [ ] **Mutual connections** as a count only, "4 mutual connections", never names, never counting a blocked pair, hidden at zero; **events in common** only where we were both visible, hidden until the Events features ship ([[D-23 A count of mutual connections, events where both were visible]]).
 - [ ] A member of my Rings who isn't a connection (joined by invitation or code) opens here too, as a member, with no *Disconnect* ([[D-29 Connection detail opens a member who is not a connection]]).
-- [ ] *Request meeting* is hidden in the MVP (Meetings is v1). *Introduce* is shown disabled, "Not available yet" ([[#Open questions]]).
+- [ ] *Request meeting* is hidden in the MVP (Meetings is v1). *Introduce* is in the MVP (S17, [[D-38 Introduce is in the MVP|D-38]]); until its endpoint exists it is shown and says "Coming soon" when tapped.
 - [ ] The ⋯ menu: *Disconnect* (S11) and *Block* (S13).
-- [ ] The screen refetches after every change; a 409 `E_RING_MEMBER_04` on a tick (they blocked me since) reads "Can't add this person".
+- [ ] The screen refetches after every change; a 409 `E_RING_MEMBER_04` on a tick (they blocked me since) reads "Can't add this person."; a 403 reads "You can't do that here."
 
 ### S10 · Someone I'm connected with, from the other side ([[Screen Index#s17|s17]], [[Screen Index#s47|s47]])
 
@@ -211,7 +208,7 @@ Acceptance criteria:
 - [ ] *Block* is in the ⋯ menu on their card (s44) and on Connection detail (s47), with a confirmation: "Block Maya? She stops seeing every Ring of yours and can't ask to connect. She isn't told."
 - [ ] `POST /blocks/:userId`: their memberships in my Rings and mine in theirs end, the connection closes, pending requests between us close. Not available yet; `UserBlock` is already honoured by the access engine.
 - [ ] From then on each of us reads the other as "This profile isn't available to you" (S1); a request between us fails the same way (S2); nothing says "blocked".
-- [ ] **Blocked people** on Me (s68): the list with *Unblock* (`DELETE /blocks/:userId`). Unblocking **restores nothing**; a new request is needed.
+- [ ] **Blocked people** on Me (s68): the list with *Unblock* (`DELETE /blocks/:userId`). Unblocking **restores nothing**; a new request is needed. Empty: "You haven't blocked anyone."
 
 ### S14 · Counts ([[Screen Index#s68|s68]], [[Screen Index#s38|s38]])
 
@@ -239,6 +236,23 @@ Acceptance criteria:
 - [ ] A Pin name given up is free at once ([[D-06 Yearly rename, old name freed, case-insensitive]]): a saved `!pinname` may lead to someone else; a stale recent search shows the neutral 404 (S1).
 - [ ] **Deleting an account** ends its connections, closes its requests both ways and its blocks; the other person loses the row without being told ([[D-25 A deleted account's connections, requests and blocks end silently]]).
 - [ ] Signing out keeps everything on the server; only the phone's caches clear.
+
+### S17 · Introduce ([[Screen Index#s47|s47]]) · MVP
+
+In the MVP since 2026-11-11, by Omar Fostok ([[D-38 Introduce is in the MVP|D-38]]).
+
+**As a** user connected with two people **I want** to introduce one to the other **so that** they can connect through me without scanning each other.
+
+Acceptance criteria:
+- [ ] *Introduce* on Connection detail (S9) picks a second person from my contacts (S8's list, my own connections only).
+- [ ] **Screen:**
+  - The app shows *Introduce* on s47 today. Tapping it says "Coming soon", and nothing is sent.
+  - It keeps that state until the endpoint below exists.
+- [ ] **Backend:**
+  - Not available yet: an Introduce endpoint. It takes the two people's ids, which come from my connections only, never a stranger.
+  - It refuses a pair with a block, either way, quietly, as S13.
+  - It reveals nothing either person doesn't already share with the other. No Ring name and no `ringId` ever goes out.
+- [ ] **What each person receives** (a connection request made on someone's behalf, or a suggestion to connect) is not written yet ([[#Open questions]]). The endpoint's shape waits on it.
 
 ## States and motion the design asks for
 
@@ -283,6 +297,7 @@ Not available yet, in the order the journey needs them:
 9. **Counts:** connections on Me; pending incoming.
 10. **Notifications:** request received, accepted (push carries no profile fields or Ring names).
 11. **Request error codes** (none defined yet): not found, already connected, already pending, no longer open.
+12. **Introduce** (S17, D-38, in the MVP): an endpoint that introduces one of my connections to another, once what it sends is written.
 
 Shipped since the rewrite: **Shared with me as people** (D-14), backend `main` @ `12172c6`.
 
@@ -299,7 +314,7 @@ Shipped since the rewrite: **Shared with me as people** (D-14), backend `main` @
 ## Open questions
 
 - Decided 2026-11-04 by Omar Fostok: [[D-10 Connect sends what the requester already has]] (S2), [[D-23 A count of mutual connections, events where both were visible]] (S9), [[D-24 One pending request per pair]] (S2), [[D-25 A deleted account's connections, requests and blocks end silently]] (S16), [[D-26 A disconnect is not announced]] (S11), [[D-27 Sent keeps declined and expired requests for 30 days]] (S4), [[D-28 Scan someone in is not in the MVP]] (S12), [[D-29 Connection detail opens a member who is not a connection]] (S9, S12).
-- **Introduce** (s47): what it means (a request on someone's behalf, or a suggestion). Disabled until decided; proposed v1.
+- **Introduce** (s47, S17): in the MVP ([[D-38 Introduce is in the MVP|D-38]], decided 2026-11-11 by Omar Fostok). Still open: what it sends, a connection request on someone's behalf or a suggestion to both, and what each person sees. The endpoint waits on the answer.
 - **Auto-accept on the badge** (s34): the app's switch starts *on*; D-04 makes "approve each one" the default. Either the switch starts off, or what auto-accept does (into which Ring) needs a decision. Proposed: off, and hidden until defined.
 - The suggested Ring on s46: [[S-89 Gemma AI Story|Gemma AI · S7]]; the default Ring until then.
 
@@ -353,3 +368,12 @@ Shipped since the rewrite: **Shared with me as people** (D-14), backend `main` @
 - 2026-11-09 · flagged [[FR-14 Connections Frontend Requirements]]: s47 Disconnect lives in the ⋯ menu beside Block, for every connection, never a button on the page
 - 2026-11-11 · `tickets/pm/M-02-connections/F-14-connections/S-23-design-nov-2026` · from the Nov 2026 design, decided by Omar Fostok: S11 Revoke access stays a button on s47, asks first, removes from every Ring, then the D-15 last-Ring choice (as the app does, FD-13); unticking a Ring that isn't the last asks nothing, the rule S-16 S5 now follows. The story stays approved
 - 2026-11-11 · flagged [[FR-14 Connections Frontend Requirements]] (FD-13's deviation line is for /frontend to clear once its merge lands): S11 Revoke access on s47 is now the story, not a deviation; unticking a non-last Ring asks nothing
+- 2026-11-12 · `tickets/pm/M-02-connections/F-14-connections/S-23-app-778d9b4` · decided by Omar Fostok 2026-11-11, app 778d9b4:
+  - S8: Discover's People tile opens Contacts, with "Requests · N" in its header.
+  - S17 Introduce added, in the MVP per D-38: the screen shows "Coming soon" until its endpoint exists, and the backend needs it (backend list item 12). What it sends is an open question.
+  - The app's wording kept: "Can't add this person.", "…whichever comes first ends their access.", "You can't do that here.", "You haven't blocked anyone.", "Nothing shared with you right now." (S5, S9, S13).
+  - Cleared the D-38 flag, and FD-13's 2026-11-09 Revoke-access flag (S11 already matches).
+
+  The story stays approved.
+- 2026-11-12 · flagged [[FR-14 Connections Frontend Requirements]]: S17 Introduce is an MVP part needing an endpoint; S8 People tile opens Contacts; the wording above
+- 2026-11-12 · flagged [[BD-14 Connections Backend Delivery]]: S17 Introduce needs an endpoint (backend list item 12), its shape waiting on what Introduce sends

@@ -17,6 +17,8 @@ tags: [backend-delivery, backend-delivery/done, module/connections, layer/backen
 
 # ✅ Connections · Backend Delivery
 
+> ⚠ Affected by [[S-23 Connections Story]] (2026-11-12): S17 Introduce (D-38, MVP) needs an endpoint (S-23's backend list item 12); its shape waits on what Introduce sends
+
 > ⚠ Affected by [[D-38 Introduce is in the MVP]] (2026-11-12): Introduce (s47) is in the MVP and has no endpoint yet; it comes to the backend through S-23 and FR-14
 
 **Feature:** [[F-14 Connections]] · **Status:** Done · **Integration guide:** [[BI-16 Connections Backend Integration]] · **Requirements:** [[FR-14 Connections Frontend Requirements]] · **QA:** [[QB-15 Connections QA Backend]]
