@@ -5609,6 +5609,7 @@
         "feature:connections",
         "feature:counts",
         "feature:pincast",
+        "feature:ring-invitations",
         "needs-decision:ND-02",
         "task:B-23"
       ],
@@ -5623,6 +5624,7 @@
         "feature:pincast",
         "frontend-delivery:connections",
         "frontend-delivery:counts",
+        "frontend-delivery:ring-invitations",
         "frontend-requirements:connections",
         "frontend-requirements:counts",
         "frontend-requirements:pincast",
@@ -7145,7 +7147,6 @@
       "notes": [
         "backend-delivery:companies",
         "feature:companies",
-        "frontend-delivery:ring-invitations",
         "frontend-requirements:companies",
         "needs-decision:ND-18",
         "needs-decision:ND-31",
@@ -7171,7 +7172,6 @@
       "notes": [
         "backend-delivery:companies",
         "feature:companies",
-        "frontend-delivery:ring-invitations",
         "frontend-requirements:companies",
         "needs-decision:ND-18",
         "needs-decision:ND-33",
@@ -7265,7 +7265,7 @@
     },
     "concepts": 336,
     "decisions": 38,
-    "edges": 8820,
+    "edges": 8821,
     "features": 40,
     "layerNotes": 162,
     "modules": 8,
@@ -27190,6 +27190,11 @@
       "from": "frontend-delivery:ring-invitations",
       "kind": "related",
       "to": "decision:D-36"
+    },
+    {
+      "from": "frontend-delivery:ring-invitations",
+      "kind": "related",
+      "to": "feature:companies"
     },
     {
       "from": "frontend-delivery:ring-invitations",
@@ -85701,7 +85706,8 @@
         "needs-decision:ND-39",
         "decision:D-33",
         "decision:D-37",
-        "decision:D-39"
+        "decision:D-39",
+        "frontend-delivery:ring-invitations"
       ],
       "release": "mvp",
       "resolution": null,
@@ -90644,6 +90650,7 @@
         "backend-integration:ring-invitations",
         "frontend-requirements:ring-invitations",
         "story:ring-invitations",
+        "feature:companies",
         "story:companies",
         "decision:D-15",
         "decision:D-18",
@@ -90679,13 +90686,12 @@
       "resolution": null,
       "scope": "feature",
       "screens": [
+        "s11",
         "s15",
         "s17",
         "s19",
         "s26",
         "s43",
-        "s72",
-        "s73",
         "s74"
       ],
       "status": "done",
@@ -90699,7 +90705,7 @@
       "task": null,
       "title": "FD-15 Ring Invitations & Join Frontend Delivery",
       "unmet": [],
-      "updated": "2026-11-11"
+      "updated": "2026-11-15"
     },
     "frontend-delivery:ring-members": {
       "affects": [],
