@@ -11,7 +11,7 @@ approvedAt: 2026-11-08
 owner: "Omar Fostok"
 related: ["D-10 Connect sends what the requester already has", "D-11 The badge code stays the same for its day", "D-12 The badge QR is a socialpin.me link", "D-22 The public page only says the Pin exists", "D-28 Scan someone in is not in the MVP", "D-35 A join code can be shown as a QR", "ND-10 How Connect addresses the scanned person", "ND-11 Get or rotate the badge token", "ND-12 What the badge QR encodes", "S-19 View As & Pin Views Story", "S-23 Connections Story", "S-33 Ring Invitations & Join Story", "S-53 Events During Story", "S-71 Subscription (Free vs Pro) Story", "S-82 Devices & NFC Story", "BI-09 View As & Pin Views Backend Integration", "F-12 View As & Pin Views", "F-28 Subscription (Free vs Pro)"]
 created: 2026-10-18
-updated: 2026-11-11
+updated: 2026-11-12
 tags: [story, story/approved, module/discovery, layer/business]
 ---
 
@@ -166,7 +166,7 @@ Acceptance criteria:
 ### S14 · Pro keeps one code ([[Screen Index#s70|s70]])
 
 - [ ] A Pro account can keep a permanent code to print once: [[S-71 Subscription (Free vs Pro) Story|Subscription (Free vs Pro) · S6]]. It waits until `socialpin.me` works ([[D-12 The badge QR is a socialpin.me link|D-12]]).
-- [ ] A free account always gets the 24 h code; the badge shows "This code changes every 24 h" and *Get Pro*.
+- [ ] A free account always gets the 24 h code; the badge shows the note "This code is temporary — it rotates every 24 h. A permanent code you can print on a card or badge is part of Pro." and *Get Pro*.
 
 ### S15 · Event pass ([[Screen Index#s56|s56]])
 
@@ -238,3 +238,5 @@ Left, none blocking:
 - 2026-11-09 · `tickets/pm/M-04-discovery/F-18-badge-qr/S-37-save-contact` · S8 Save contact added next to Save for later, only when the card shares a phone number, opening the phone's own new-contact screen with only what the card shows; decided by Omar Fostok, the story stays approved
 - 2026-11-09 · flagged [[FR-18 Badge & QR Frontend Requirements]]: S8 Save contact next to Save for later, only when the card shares a phone number, the phone's own new-contact screen with only what the card shows
 - 2026-11-11 · `tickets/pm/M-04-discovery/F-18-badge-qr/S-37-design-nov-2026` · the Nov 2026 design's s43 line "Checking which Ring they belong in" is refused, decided by Omar Fostok: S6 keeps "Checking who this is" (D-28); a design-disagrees row added. The story stays approved
+- 2026-11-12 · `tickets/pm/M-04-discovery/F-18-badge-qr/S-37-app-778d9b4` · S14's rotate note reads "This code is temporary — it rotates every 24 h. A permanent code you can print on a card or badge is part of Pro.", decided by Omar Fostok 2026-11-11, app 778d9b4. The story stays approved
+- 2026-11-12 · flagged [[FR-18 Badge & QR Frontend Requirements]]: S14's note is now "This code is temporary — it rotates every 24 h. …", not "changes every 24 h"
