@@ -13,6 +13,8 @@ tags: [backend-delivery, backend-delivery/todo, module/shared-rings, layer/backe
 
 # ⬜ Companies · Backend Delivery
 
+> ⚠ Affected by [[S-29 Companies Story]] (2026-11-15): P12 added: a team member (accepted the owner's team invitation, Exhibitor · S2) is part of the company with no Ring membership; `GET /businesses/mine` lists the company for them (S2: "at least one live membership, or on its team"), and leaving the last Ring doesn't drop a company they're still on the team of (S10)
+
 > ⚠ Affected by [[D-39 The company domain and the title switch show in the MVP]] (2026-11-12): s73's "Verified · {domain}" and s72's title switch show in the MVP; nothing new for the MVP, the proof of the domain and the company's title updates start right after it
 
 > ⚠ Affected by [[S-29 Companies Story]] (2026-11-05): S-29 added P9 (every company member reads the company's card Ring, through the access engine) and P11 (the title shows only on the company matching the profile's company).

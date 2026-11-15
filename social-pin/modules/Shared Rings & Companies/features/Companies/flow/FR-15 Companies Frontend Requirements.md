@@ -18,6 +18,8 @@ tags: [frontend-requirements, frontend-requirements/ready, module/shared-rings, 
 
 # 📨 Companies · Frontend Requirements
 
+> ⚠ Affected by [[S-29 Companies Story]] (2026-11-15): P12 added: someone who accepted the owner's team invitation (Exhibitor · S2) is part of the company and listed on s72 while in none of its Rings; on s73 their row shows no Rings (RINGS IT SHARES WITH YOU hidden) until they're added to one. S2's list rule now reads "at least one live membership, or on its team"; s72's data (`GET /businesses/mine`) includes team members with no Ring
+
 > ⚠ Affected by [[S-29 Companies Story]] (2026-11-12): S9/S11: the owner sees "You own {company}. Hand it over before you leave." in place of Leave company; S9 the member's Leave confirmation has no admin clause ("You leave its {n} Rings. The connections you made stay yours."); S7 the section reads "YOUR COLLEAGUES · {n}"; P4/P6 per D-39 ("Verified · {domain}" and the title switch shown in the MVP; the switch is kept on screen only, saved nowhere)
 
 > ⚠ Affected by [[D-39 The company domain and the title switch show in the MVP]] (2026-11-12): s73's "Verified · {domain}" and s72's "Let {company} update my title" are shown in the MVP (not hidden); what they stand for starts right after the MVP

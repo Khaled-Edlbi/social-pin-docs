@@ -11,26 +11,14 @@ approvedAt: 2026-11-05
 owner: "Omar Fostok"
 depends: []
 affects: ["S-33 Ring Invitations & Join Story", "S-59 Exhibitor Story", "S-31 Delegated Admins Story", "S-16 Ring Members Story", "S-18 Rings Story", "S-03 Counts Story"]
-related: ["D-39 The company domain and the title switch show in the MVP", "D-02 One main profile every Ring starts from", "S-14 Profiles & Pin Name Story", "S-15 Ring Access Engine Story", "D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-16 Files load from signed links that expire in 15 minutes", "D-18 Ring names shown when joined knowingly", "Ring Access Model"]
+related: ["D-39 The company domain and the title switch show in the MVP", "D-31 An invitation is its own record", "D-33 Work email joining waits for real emails and Companies", "D-34 A member shows one of their own Rings", "D-35 A join code can be shown as a QR", "D-36 Who it's for stays the owner's alone", "BD-09 Ring Members Backend Delivery", "BI-17 Ring Invitations & Join Backend Integration", "D-02 One main profile every Ring starts from", "S-14 Profiles & Pin Name Story", "S-15 Ring Access Engine Story", "D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-16 Files load from signed links that expire in 15 minutes", "D-18 Ring names shown when joined knowingly", "Ring Access Model"]
 pending: []
 created: 2026-10-18
-updated: 2026-11-12
+updated: 2026-11-15
 tags: [story, story/approved, module/shared-rings, layer/business]
 ---
 
 # Companies · User Story
-
-> ⚠ Affected by [[D-36 Who it's for stays the owner's alone]] (2026-11-08): the invitation on s72 doesn't show what the Ring is for (purpose stays the owner's); the bio says it, after joining
-
-> ⚠ Affected by [[D-35 A join code can be shown as a QR]] (2026-11-08): S1's ways in read invitation, code or a join QR (shown by the company), never a colleague's badge
-
-> ⚠ Affected by [[D-34 A member shows one of their own Rings]] (2026-11-08): colleagues on Company detail (s73) open each one's card, the Ring they picked for that company Ring
-
-> ⚠ Affected by [[D-33 Work email joining waits for real emails and Companies]] (2026-11-08): ND-33 decided "not now": joining a company Ring with a verified work email is not in this version; S12's work-email domain has no join flow behind it yet; "Verified email" on Company detail and P5's "the work email I verified stops counting" apply once it exists; the Join a company Ring hint drops "work email" until then
-
-> ⚠ Affected by [[D-31 An invitation is its own record]] (2026-11-08): ND-31 decided 2026-11-08 by Omar Fostok, option 1: an invitation is its own record (Ring, invitee, inviter, optional window, PENDING/ACCEPTED/DECLINED/WITHDRAWN), never a membership while pending; accept creates the membership recorded as joined knowingly; decline, withdraw, 30-day expiry, valid:false on an ended Ring
-
-> ⚠ Affected by [[S-31 Delegated Admins Story]] (2026-11-05): S-31 was rewritten (2026-11-05) to match the app's one Edit Ring screen, with rules A1–A7 decided inside the story (no decision cards): company Rings only; an admin must be a member of the Ring; two levels (edit what it shows / also manage who's in it), owner-only appointing; member-managers change the joining settings, who it's for, delete and default stay owner-only; Rings you manage on My Rings and Company detail; rights end on removal, leaving the Ring or the company, silently. The old Delegated Admins · S6 (T-006, the admin routes) is now its 'What the backend has to build'; the levels are S3/A3. Repoint the links that name Delegated Admins · S6.
 
 **Feature:** [[F-15 Companies]] · **Status:** Approved 2026-11-05 by Omar Fostok · **Frontend Requirements:** [[FR-15 Companies Frontend Requirements]] · **Backend Integration:** not yet · **Verified by:** [[Companies QA Backend]], [[Companies QA Frontend]]
 
@@ -42,7 +30,7 @@ A person's work identity comes from the companies they belong to: an employee of
 
 ## Persona
 
-- **The member**: an employee or associate who joined a company Ring by invitation, with a code, or with a work email. Not the owner. They check which companies they're attached to, open one, see their colleagues, and sometimes leave.
+- **The member**: an employee or associate who joined a company Ring by invitation, with a code or a join QR, or accepted the owner's invitation to the team. Not the owner. (Joining with a work email is not in this version, [[D-33 Work email joining waits for real emails and Companies|D-33]].) They check which companies they're attached to, open one, see their colleagues, and sometimes leave.
 - **The company admin**: a member who also administers one or more of the company's Rings, at one of the two levels of [[S-31 Delegated Admins Story]] ("Can edit what the Ring shows", "Can manage who's in it", [[F-16 Delegated Admins]]). Marked *Admin*; sees the roster.
 - **The owner**: the person who created the business account ([[F-24 Exhibitor]]). Sees the company as *Owner*; can't leave it from here.
 
@@ -54,19 +42,20 @@ Decided 2026-11-05 by Omar Fostok. Each is a rule the design needs and no card h
 
 | # | Question | Decided | Parts |
 |---|---|---|---|
-| P1 | **Who counts as part of a company?** | Only someone who **chose** to be: accepted an invitation, used a code, or verified a work email, into any of its Rings; or accepted the owner's invitation to the team ([[S-59 Exhibitor Story\|Exhibitor · S2]]). Someone the owner **placed** in a company Ring (added directly, or accepted their connection request into it) is not a company member: the company isn't on their s72, and they see its owner as a person on Shared with me, as D-14 says. | S2, S5, S6 |
+| P1 | **Who counts as part of a company?** | Only someone who **chose** to be: accepted an invitation, used a code or a join QR, into any of its Rings (a verified work email too, once it exists, [[D-33 Work email joining waits for real emails and Companies\|D-33]]); or accepted the owner's invitation to the team ([[S-59 Exhibitor Story\|Exhibitor · S2]]). Someone the owner **placed** in a company Ring (added directly, or accepted their connection request into it) is not a company member: the company isn't on their s72, and they see its owner as a person on Shared with me, as D-14 says. | S2, S5, S6 |
 | P2 | **How is a business linked to its Rings?** | Every company Ring carries its **business**. The business setup creates the business and its first Ring together ([[S-59 Exhibitor Story\|Exhibitor · S7]]); a Ring made later under it (`parentRingId`) belongs to the same business. This part is Companies'; Exhibitor · S7 builds on it. | S2, S5, S13 |
 | P3 | **"Company · Your own Ring · uses the Acme logo"** (s73) | **Out of the MVP.** It's a Ring of mine branded with the company's logo; branding a personal Ring is not built anywhere. s73 lists only the company's own Rings. | S6 |
 | P4 | **Work identity: whose is the title, and the two switches** (s72) | The title is **mine**: my profile's *Company & role* field, which I edit. *Show company on my Public Ring* is the same switch as that field on my Public Ring's *What this Ring shows* (s24), offered here as a shortcut. *Let Acme update my title* (the company keeps my title current) is **shown in the MVP**, kept on purpose ([[D-39 The company domain and the title switch show in the MVP|D-39]]); the company keeping my title current starts right after the MVP. | S4, S8 |
-| P5 | **What leaving ends** | Every membership of mine in the company's Rings, my admin rights on them, my pending join requests to it, and my place in the company, **in one step**. My **connections stay**, and so do the Rings of mine people are in. The work email I verified for it stops counting for that company: joining again takes a new invitation, code or verification. **The owner can't leave.** | S9, S11 |
-| P6 | **The company's domain on s73** | Shown as **"Verified · acme.co"** in the MVP, kept on purpose ([[D-39 The company domain and the title switch show in the MVP|D-39]]). In the MVP, *Verified* rests only on the domain matching the business's website; a real proof of ownership (a DNS record, or an email to the domain's admin) starts right after the MVP. | S5, S12 |
+| P5 | **What leaving ends** | Every membership of mine in the company's Rings, my admin rights on them, my pending join requests to it, and my place in the company, **in one step**. My **connections stay**, and so do the Rings of mine people are in. Joining again takes a new invitation or code (once work email exists, the address I verified stops counting for that company too). **The owner can't leave.** | S9, S11 |
+| P6 | **The company's domain on s73** | Shown as **"Verified · acme.co"** in the MVP, kept on purpose ([[D-39 The company domain and the title switch show in the MVP|D-39]]). The domain is the **business's website domain**, set in the business setup ([[S-59 Exhibitor Story\|Exhibitor · S1]]), not a Ring setting (S12 is not in this version). In the MVP, *Verified* rests only on that; a real proof of ownership (a DNS record, or an email to the domain's admin) starts right after the MVP. | S5, S12 |
 | P7 | **Moved between company Rings** (D-18's *Still open*) | Someone the owner **moves** from a Ring they joined knowingly into another company Ring reads as **placed** there: the new Ring stays unnamed ([[D-18 Ring names shown when joined knowingly]]). | S6 |
 | P8 | **Handing a company to someone else, or deleting it** | **Not in the MVP**; it belongs with [[F-24 Exhibitor]] later. | S10, S11 |
 | P9 | **Who can read the company's card** (the header tap on s73) | **Every member of the company** (P1) can read its card Ring, the top Ring with its about text, address, contacts, links and files, even when they're only in a lower Ring of it. Reading the card gives no membership in that Ring, no place in its roster and no other of the company's Rings; the access engine answers it like every other view ([[S-15 Ring Access Engine Story]]). | S5 |
 | P10 | **A role field on the main profile** | The main profile ([[D-02 One main profile every Ring starts from]]) gets a **role** (job title, "Design lead") next to **company**; together they are the *Company & role* field P4 names. Mine to edit; a Ring shows them only where its *What this Ring shows* has them on. This adds to [[S-14 Profiles & Pin Name Story]]. | S4, S8 |
 | P11 | **My title on a company row** (s72) | With one *Company & role* field (P4), my title shows **only on the company whose name matches my profile's company**; the other companies' rows show no title. Never a title per company. | S2, S4 |
+| P12 | **A team member in no Ring** (P1 against S2) | Someone who accepted the owner's invitation to the team ([[S-59 Exhibitor Story\|Exhibitor · S2]]) is part of the company **and listed on s72**, even while in none of its Rings. Their row has no Rings on s73 (RINGS IT SHARES WITH YOU hidden) until they're added to one. | S2, S5, S10 |
 
-Added 2026-11-05 by Omar Fostok: P9, P10, P11.
+Added 2026-11-05 by Omar Fostok: P9, P10, P11. Added 2026-11-15 by Omar Fostok: P12.
 
 ## Stories
 
@@ -85,12 +74,12 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] Title "My companies", "Where your work identity comes from". A **MEMBER OF · N** section lists my companies (P1), by name.
-- [ ] Each row: the company's logo (its initial until files load, [[D-16 Files load from signed links that expire in 15 minutes]]), its name, **my title** ("Design lead") only on the company matching my profile's company (P11), **verified email** when I joined with one, and a badge: *Owner*, *Admin*, or none for a member.
+- [ ] Each row: the company's logo (its initial until files load, [[D-16 Files load from signed links that expire in 15 minutes]]), its name, **my title** ("Design lead") only on the company matching my profile's company (P11), and a badge: *Owner*, *Admin*, or none for a member. No verified email line in this version (D-33).
 - [ ] **The people count** on a row ("22 people") shows only where I may see them: I'm the owner or an admin of one of its Rings, or one of its Rings I'm in has "members can see each other" on ([[D-04 Ring settings at launch and their defaults]]). Otherwise no count.
 - [ ] A row opens Company detail (s73).
-- [ ] A company is listed while I have **at least one live membership** in its Rings. A company whose Rings I'm in have all ended, or that removed me, leaves the list (S10).
+- [ ] A company is listed while I have **at least one live membership** in its Rings, **or** I'm on its team (P12). A company whose Rings I'm in have all ended, or that removed me, leaves the list (S10), unless I'm still on its team.
 - [ ] Empty: "You're not part of a company yet", with *Join a company Ring* (s74, [[S-33 Ring Invitations & Join Story]]).
-- [ ] *+ Join a company Ring*, "Invite code, work email or a QR from a colleague", always at the end of the list → s74 with nothing picked. Each way in follows [[S-33 Ring Invitations & Join Story]] (code: S3; work email: S4, needs S12 here; colleague's QR: S9, waiting on [[ND-35 A colleague's QR offering their company Ring]]; my join requests: S5).
+- [ ] *+ Join a company Ring*, "Invitation, code or a join QR", always at the end of the list → s74 with nothing picked. Each way in follows [[S-33 Ring Invitations & Join Story]] (invitation: S2; code: S3; join QR shown by the company: S9, [[D-35 A join code can be shown as a QR|D-35]]; my join requests: S5). No work email way in this version, and nothing names it as coming soon ([[D-33 Work email joining waits for real emails and Companies|D-33]]).
 - [ ] The footnote: "Leaving a company removes its shared Rings. Connections you made stay yours."
 - [ ] Refetches when the screen opens (an invitation, an approval or a removal can happen without me doing anything). Not available yet: the route.
 
@@ -100,12 +89,12 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] Above the list, only when not empty:
-  - **An invitation I received**: "Alma Group invited you", what the Ring is for ("Company Ring · brand kit, directory, support line"), *Review* → s74 for it ([[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S2]]).
+  - **An invitation I received**: "Alma Group invited you", "From {inviter} · {Ring name}", *Review* → s74 for it ([[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S2]]). Never what the Ring is for: "who it's for" is the owner's alone ([[D-36 Who it's for stays the owner's alone|D-36]]); the company says it in the Ring's bio, read after joining.
   - **A join request I sent** to a company Ring (with a code, while it waits for "approve each one"): "Loop · Requested 2 days ago · waiting on their admin", *Cancel*.
 - [ ] *Cancel* withdraws the request at once; the row leaves. One that was answered a moment ago refreshes the list instead of failing.
 - [ ] When my request is **approved**, the company moves into MEMBER OF on the next refetch; when **declined**, the row reads "Not approved" with *Dismiss*, and nothing says why.
 - [ ] An invitation to a Ring that has since ended or been deleted reads "This invitation is no longer valid", *Dismiss* only (as S-33 S2).
-- [ ] Not available yet: invitations, join requests and their cancel ([[S-33 Ring Invitations & Join Story]]); this part needs the list of both, by company.
+- [ ] Available: invitations to me (`GET /rings/invitations/mine`) and my join requests with cancel and dismiss (`GET /rings/join-requests/mine`, `DELETE /rings/join-requests/:id`), each row with its `business`, which stays `null` until a company Ring carries its business (P2; [[BI-17 Ring Invitations & Join Backend Integration]]). Not available yet: the business ↔ Ring link, so the rows can't be grouped by company yet.
 
 ### S4 · My work identity ([[Screen Index#s72|s72]])
 
@@ -113,7 +102,7 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] **YOUR WORK IDENTITY**: *Shown as* "Design lead, Acme Studio", from my main profile's **role** and **company** (P10); tapping it edits them (P4). Not available yet: the role field ([[S-14 Profiles & Pin Name Story]]). "Used by Rings that show company & role."
-- [ ] *Verified email* "noor@acme.co": the work address I verified, when I joined with one (S-33 S4); shown, not edited here.
+- [ ] No *Verified email* line in this version: joining with a work email waits ([[D-33 Work email joining waits for real emails and Companies|D-33]]).
 - [ ] *Show company on my Public Ring*, "Strangers see where you work": a switch for *Company & role* on my Public Ring, the same one as on that Ring's *What this Ring shows* (s24). Turning it here turns it there, and the other way round. Saved at once. Not available yet if my Public Ring has no such field: the switch is hidden.
 - [ ] *Let Acme Studio update my title*, "Admins keep your role current when it changes": **shown** in the MVP (P4, D-39). In the app it is on by default and kept only on screen: nothing is saved and the company can't change my title yet. That starts right after the MVP ([[#Open questions]]).
 - [ ] With several companies, *Shown as* is the one *Company & role* field; it isn't per company.
@@ -123,7 +112,7 @@ Acceptance criteria:
 **As a** member **I want** one screen per company **so that** I see who I am there and what I'm part of.
 
 Acceptance criteria:
-- [ ] Header: the company's logo (initial until files load), name, and **"Verified · acme.co"** when a domain is set (S12, P6); my title and **"joined 12 Feb 2026"** (when I first joined one of its Rings); my badge (*Owner* / *Admin*).
+- [ ] Header: the company's logo (initial until files load), name, and **"Verified · acme.co"** when the business has a website domain (P6); my title and **"joined 12 Feb 2026"** (when I first joined one of its Rings); my badge (*Owner* / *Admin*).
 - [ ] Tapping the header opens the company's **public card** (its top Ring, s14), which every member of the company may read, whichever of its Rings they're in (P9; not available yet: today a view answers only members of that Ring), where its about text, address, contacts, links and files are. **s73 doesn't repeat them** (they belong to the business Ring the setup made, [[S-59 Exhibitor Story|Exhibitor · S1]]).
 - [ ] Sections, in order: **RINGS IT SHARES WITH YOU** (S6), **PEOPLE** (S7), **MY ROLE HERE** (S8), *Leave company* (S9).
 - [ ] Opening a company I'm no longer part of (removed while the screen was open, a stale link) reads "You're no longer part of this company" and goes back to s72.
@@ -135,8 +124,8 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] Lists only the company Rings **I'm a live member of**. Rings I'm not in aren't listed, and their number isn't shown.
-- [ ] A Ring I **joined knowingly** (invitation, code, work email) shows **its name** ("Acme Team"); one I was **placed** in shows as "{Company} card", unnamed ([[D-18 Ring names shown when joined knowingly]]). A Ring I was **moved** into by the owner reads as placed, even when I joined the first one knowingly (P7). Never its colour, type, or place in the hierarchy. Not available yet: a membership doesn't record how it was made.
-- [ ] Under the name, what it gives me when I may see it: "22 people · directory, brand kit, support line" (the count by S7's rule; the rest is the Ring's "who it's for" label, D-04).
+- [ ] A Ring I **joined knowingly** (invitation, code, join QR) shows **its name** ("Acme Team"); one I was **placed** in shows as "{Company} card", unnamed ([[D-18 Ring names shown when joined knowingly]]). A Ring I was **moved** into by the owner reads as placed, even when I joined the first one knowingly (P7). Never its colour, type, or place in the hierarchy. Available: a membership records how it was made (`RingMember.origin`: `PLACED`, `INVITATION`, `JOIN_CODE`, `JOIN_REQUEST`; a reassign writes `PLACED`, [[BD-09 Ring Members Backend Delivery]]).
+- [ ] Under the name, the people count when I may see it ("22 people", by S7's rule). Never what the Ring is for: "who it's for" is the owner's alone ([[D-36 Who it's for stays the owner's alone|D-36]]).
 - [ ] Ordered top Ring first, then by name. The parent and child structure is used **only to order**, never drawn as a tree.
 - [ ] A row opens the Ring's card (s14) through the same view as a scan (`GET /views/ring/:ringId`). An ended Ring reads "This Ring has ended" and leaves the list on the next refetch.
 - [ ] My own Rings branded with the company's logo ("Company · Your own Ring") are **not** listed (P3, v1).
@@ -154,16 +143,16 @@ Acceptance criteria:
 - [ ] Each person is counted once however many of its Rings we share; I'm not counted.
 - [ ] "**14 already in one of your Rings**": how many of those colleagues are in one of my own Rings, a number only; shown with the section, hidden at 0.
 - [ ] Someone in a block with me, either way, is neither listed nor counted ([[Ring Access Model]]).
-- [ ] Not available yet: the setting ([[S-18 Rings Story|Rings · S9]]), the members-facing list, names on the roster, the "already in your Rings" count. Until the setting exists, a plain member sees no colleagues and no count; only the owner and admins do.
+- [ ] Available: the setting (`membersCanSeeEachOther`, [[S-18 Rings Story|Rings · S9]]), names on the owner's and admins' roster (`GET /rings/:ringId/members`, with `?name=`), and the members-facing list (`GET /rings/:ringId/colleagues`, each colleague as the card of the Ring they picked, [[D-34 A member shows one of their own Rings|D-34]]). Not available yet: the colleagues of a whole company counted once, and the "already in your Rings" count (both on `GET /businesses/:id`).
 
 ### S8 · My role here ([[Screen Index#s73|s73]])
 
 **As a** member **I want** to see what I am at this company **so that** I know what I can do.
 
 Acceptance criteria:
-- [ ] **MY ROLE HERE**: *Title* (my *Company & role* field, editable from here as in S4); *Verified email* when I joined with one; *Admin rights* when I administer one of its Rings, in words from the admin level ("Can edit what the Ring shows", "Can manage who's in it", [[S-31 Delegated Admins Story]]); none for a member.
+- [ ] **MY ROLE HERE**: *Title* (my *Company & role* field, editable from here as in S4); no *Verified email* line in this version (D-33); *Admin rights* when I administer one of its Rings, in words from the admin level ("Can edit what the Ring shows", "Can manage who's in it", [[S-31 Delegated Admins Story]]); none for a member.
 - [ ] *Admin rights* for several Rings at different levels shows the highest, with the Ring's name when I joined it knowingly ("Can manage who's in Acme Team").
-- [ ] Not available yet: admin levels by member ([[S-31 Delegated Admins Story|Delegated Admins · S6]]).
+- [ ] Not available yet: admin levels by member ([[S-31 Delegated Admins Story|Delegated Admins]]'s levels, S3/A3, and its *What the backend has to build*).
 
 ### S9 · Leave a company ([[Screen Index#s73|s73]] → [[Screen Index#s72|s72]])
 
@@ -175,13 +164,12 @@ Acceptance criteria:
   - for a member, with no admin clause: "You leave its {n} Rings. The connections you made stay yours."
 - [ ] In **one step**: every membership of mine in its Rings ends, my admin rights on them end, my pending join requests to it close, my place in the company ends. All or nothing. Not available yet.
 - [ ] My **connections stay**, and nothing changes in my own Rings (the colleagues I put in them stay there).
-- [ ] The work email I verified stops counting for this company (P5).
 - [ ] The company's owner and admins keep the record that I was there; they aren't notified.
 - [ ] After leaving, s72 reloads without it (the row collapses out; reduced motion: a fade), and its Rings leave Shared with me on the next refetch.
 - [ ] **The owner** can't leave: there is no *Leave company*; in its place, "You own {company}. Hand it over before you leave." (P5, S11).
 - [ ] **The last admin** may leave; the owner still runs the company.
 - [ ] Offline or failed: "Couldn't leave. Try again." Nothing changes.
-- [ ] Joining again takes a new invitation, code or verification.
+- [ ] Joining again takes a new invitation or code.
 
 ### S10 · When a company leaves my list without me ([[Screen Index#s72|s72]])
 
@@ -205,7 +193,9 @@ Acceptance criteria:
 - [ ] The owner sees "You own {company}. Hand it over before you leave." and no *Leave company* (P5). Handing the company to someone else, or deleting it, is not in the MVP (P8).
 - [ ] The roles, as they read on s72 and s73: *Owner*, *Admin* (with its rights line from the admin level, S8), and no badge and no rights line for a member.
 
-### S12 · Join with a work email: the company's domain ([[Screen Index#s26|s26]])
+### S12 · Join with a work email: the company's domain ([[Screen Index#s26|s26]]) · not in this version
+
+> **Not in this version** ([[D-33 Work email joining waits for real emails and Companies|D-33]]): joining with a work email waits on real emails ([[S-78 Code Delivery Story]]) and on this part. The app shows no domain setting and no work-email way in, and nothing names them as coming soon. The domain on s73 comes from the business's website (P6), not from this setting. The criteria below are kept for when it comes back.
 
 **As a** company's owner or admin **I want** to let anyone with an address at our domain join the employees Ring **so that** nobody has to invite each new hire.
 
@@ -213,7 +203,7 @@ Acceptance criteria:
 - [ ] A company Ring's settings (s26) get **Required work email domain** ("acme.co"): the setting [[D-04 Ring settings at launch and their defaults]] left for this feature. The owner and the Ring's admins change it.
 - [ ] Only on `CORPORATE` Rings. The domain is the company's: it must be the domain of the business's website.
 - [ ] With it set, s74's *Work email* path works for that Ring ([[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S4]]): an address at the domain, a one-time code to that address, then the usual review and *Join Ring*. "Approve each one" still applies.
-- [ ] s73 shows "Verified · acme.co" once it is set (P6, D-39). A real proof that the company owns the domain starts right after the MVP.
+- [ ] The setting uses the same domain s73 already shows as "Verified · acme.co" (P6, D-39). A real proof that the company owns the domain starts right after the MVP.
 - [ ] Clearing it stops new joins by work email; members who joined that way stay.
 - [ ] Not available yet: the setting, the email verification for joining.
 
@@ -224,7 +214,7 @@ Acceptance criteria:
 Acceptance criteria:
 - [ ] When the setup of [[S-59 Exhibitor Story|Exhibitor · S1]] completes, the business and its first `CORPORATE` Ring exist together (P2); s72 lists the company with me as *Owner*; My Rings (s16) shows the Ring.
 - [ ] The Ring-forming motion plays once for the new Ring; reduced motion: a fade.
-- [ ] Colleagues added to the team on s63 get an **invitation** (S-33), and become members when they accept (P1); until invitations exist, the team step is skipped.
+- [ ] Colleagues added to the team on s63 get an **invitation** (S-33), and become part of the company when they accept (P1), listed on their s72 even before they're in a Ring (P12). Not available yet: the team invitation itself ([[S-59 Exhibitor Story|Exhibitor · S2]]); Ring invitations exist.
 
 ### S14 · When the account changes
 
@@ -254,9 +244,9 @@ Acceptance criteria:
 | s73 | "Company · Your own Ring · uses the Acme logo" | Not in the MVP (P3) |
 | s73 | Ring rows with names only | A Ring I was placed in, or moved into, shows as "{Company} card", unnamed (D-18, P7, S6) |
 | s73 | *Leave company* for everyone | Hidden for the owner, who reads "You own {company}. Hand it over before you leave."; the confirmation names what ends, the admin clause only for admins (S9) |
-| s73 | "Leaving removes Acme's shared Rings… connections stay" | Also: admin rights end; the verified email stops counting (P5) |
+| s73 | "Leaving removes Acme's shared Rings… connections stay" | Also: admin rights end (P5) |
 | s74 | *Join Ring* goes to My Rings (s16) | Shared with me (s17), as S-33 S2 says |
-| s26 | No *Required work email domain* | The setting, on company Rings (S12) |
+| s26 | No *Required work email domain* | Agrees for this version: S12 is not in it (D-33) |
 | — | No owner view of s72 / s73 | *Owner* badge, every Ring listed, no *Leave* (S11) |
 
 ## What the backend has to build
@@ -264,28 +254,28 @@ Acceptance criteria:
 Not available yet, in the order the journey needs them:
 
 1. **The business ↔ Ring link** (P2): a company Ring carries its business; the setup creates both in one step ([[S-59 Exhibitor Story|Exhibitor · S7]] uses it).
-2. **How a membership was made** (invitation, code, work email, owner add, connection accept, owner move): needed to name a Ring (D-18, P7) and to decide who is part of a company (P1). Shared with [[F-09 Ring Members]] and [[F-17 Ring Invitations & Join]].
-3. **My companies:** `GET /businesses/mine`: each company with name, logo, my title source, my badge (owner / admin / member), verified email, joined date, and the people count only where I may see it.
-4. **Company detail:** `GET /businesses/:id`: the above, plus the company Rings I'm in (named or not, ordered top first, each with its end date for me), my admin level per Ring, the colleague count and the "already in your Rings" count where allowed; the domain.
-5. **Waiting:** my invitations and my join requests by company, and cancelling a request ([[S-33 Ring Invitations & Join Story]]).
-6. **Leave:** one call that ends every membership, admin right and pending request of mine in the company (P5); refused for the owner.
-7. **The required work email domain** on a `CORPORATE` Ring, matched to the business's website, and joining by verified work email ([[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S4, S8]]).
-8. **Colleagues for a plain member** when "members can see each other" is on ([[S-16 Ring Members Story|Ring Members · S8]]); names on the roster.
-9. **Business error codes** (none defined yet): no such company or not part of it, the owner can't leave, a domain that isn't the company's.
+2. ~~**How a membership was made**~~: built (`RingMember.origin`, backend `main` `1c460b0`, [[BD-09 Ring Members Backend Delivery]]).
+3. **My companies:** `GET /businesses/mine`: each company with name, logo, my badge (owner / admin / member), joined date, and the people count only where I may see it; team members with no Ring included (P12); whether I own a business at all (for *Create a business account*, S1).
+4. **Company detail:** `GET /businesses/:id`: the above, plus the company Rings I'm in (named or not, ordered top first, each with its end date for me), my admin level per Ring, the colleague count and the "already in your Rings" count where allowed; the business's website domain (P6).
+5. ~~**Waiting**~~: built ([[BI-17 Ring Invitations & Join Backend Integration]]); its rows group by company once item 1 exists.
+6. **Leave:** one call that ends every membership, admin right and pending request of mine in the company, and my place on its team (P5); refused for the owner.
+7. **The required work email domain** and joining by verified work email: **not in this version** (D-33; [[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S4]]).
+8. ~~**Colleagues for a plain member**~~ and names on the roster: built (`GET /rings/:ringId/colleagues`, `GET /rings/:ringId/members` with names, [[BD-09 Ring Members Backend Delivery]]). The company-wide count stays on item 4.
+9. **Business error codes** (none defined yet): no such company or not part of it, the owner can't leave.
 
 ## Rules the backend already enforces
 
 - `CORPORATE` is an allowed type on `POST /rings`, with `parentRingId` required to be the caller's own (400 `E_RING_06`), so the hierarchy is owner-built ([[BI-08 Rings Backend Integration]]).
 - `GET /rings/shared-with-me` lists only Rings whose access is live right now (Ring window, membership window, no block); it doesn't carry the business.
 - A Ring's card is read with `GET /views/ring/:ringId`; an ended company Ring is 404 `E_RING_ACCESS_02` to a member.
-- The roster (`GET /rings/:ringId/members`) is for the owner or an admin at `MEMBER_MANAGER` only (403 `E_RING_05`); a plain member can't count colleagues.
+- The roster (`GET /rings/:ringId/members`) is for the owner or an admin at `MEMBER_MANAGER` only (403 `E_RING_05`), with names and `?name=` search. A plain member reads `GET /rings/:ringId/colleagues` only while `membersCanSeeEachOther` is on (else the not-shared 404).
+- A membership records how it was made (`origin`); an owner add and a reassign always write `PLACED` (D-18, P7).
 - A block is mutual and overrides membership both ways ([[Ring Access Model]]).
 - Admin rights on a company Ring come from `RingAdmin` levels ([[F-16 Delegated Admins]]).
 
 ## Open questions
 
 - **Whether a business has a Pin name** that resolves on Discover (the `!vertexlabs` path to s55, asked from [[S-42 Discover Hub & Search Story]]): not answered by this story.
-- **Joining via a colleague's QR** (s74): not built in any form ([[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S5]]).
 - **What *Let {company} update my title* does in the MVP** ([[D-39 The company domain and the title switch show in the MVP|D-39]]'s *Still open*): the app keeps it on screen only, on by default, saved nowhere. Whether its choice should be saved now, so it applies once companies can update titles: open.
 - **"Hand it over before you leave"** names a hand-over that isn't in the MVP (P8): the owner can't leave a company at all until it is.
 - **What you contribute to a company Ring** after joining (s74's *WHAT YOU CONTRIBUTE*): [[S-33 Ring Invitations & Join Story|Ring Invitations & Join · S6]], not built.
@@ -306,3 +296,4 @@ Not available yet, in the order the journey needs them:
 - 2026-11-11 · `tickets/pm/M-03-shared-rings/F-15-companies/S-29-design-nov-2026` · the Nov 2026 design's s72 refused on three points, decided by Omar Fostok: no purpose on an invitation row (D-36), no work email or colleague's QR as a way in (D-33, D-35; work email wanted later); a design-disagrees row added. The story's status is unchanged
 - 2026-11-12 · `tickets/pm/M-03-shared-rings/F-15-companies/S-29-app-778d9b4` · roles owner, admin (two levels, S-31) and member; rights lines for admins only; YOUR COLLEAGUES and the count for the owner, an admin, or when members can see each other; the owner's "You own {company}. Hand it over before you leave." and no Leave; the Leave copy with the admin clause only for admins; P4 and P6 kept in the MVP per D-39 (criteria, states and design rows rewritten; the switch's MVP behaviour an open question), decided by Omar Fostok 2026-11-11, app 778d9b4; cleared the D-39 and FD-15 (2026-11-11) flags
 - 2026-11-12 · flagged [[FR-15 Companies Frontend Requirements]]: the owner line in place of Leave, the member's Leave copy, YOUR COLLEAGUES, P4/P6 per D-39
+- 2026-11-15 · `tickets/pm/M-03-shared-rings/F-15-companies/S-29-decisions-applied` · criteria brought in line with decisions already made: D-33 (no verified email on S2, S4, S8, S9, persona, P1, P5; S12 marked not in this version), D-35 ("Invitation, code or a join QR"), D-36 (no "who it's for" on the S3 invitation row or under each Ring in S6), D-34 (colleagues as the card they picked); P6's domain is the business's website, not S12; "not available yet" refreshed against the backend (invitations and join requests, `RingMember.origin`, roster names, `membersCanSeeEachOther`, `GET /rings/:ringId/colleagues` built), Delegated Admins · S6 repointed to S-31; **P12 added, decided by Omar Fostok 2026-11-15**: a team member with no Ring is listed on s72 (closes P1 against S2). Cleared the D-31, D-33, D-34, D-35, D-36 and S-31 flags. Status kept `approved` (records decisions already made; P12 is Omar Fostok's own call)
