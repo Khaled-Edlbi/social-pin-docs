@@ -19,6 +19,8 @@ tags: [frontend-requirements, frontend-requirements/approved, module/identity, l
 
 # Rings · Frontend Requirements
 
+> ⚠ Affected by [[S-18 Rings Story]] (2026-11-12): matched to app 778d9b4: S1 s09 is one screen (Your Pin / Own here / Hidden per field, a dates row, More options; no name chips, no 7/30-day expiry); S4 steps are Name and kind · Who's in it · What it shows (photo, bio, Copy from another Ring s28) · Who can join (dates, join policy, approve each one, three member switches, summary), the Ring is created at Create and Copy runs through all four; S6 delete copy; S8 Let it go offers no way back
+
 **Feature:** [[F-11 Rings]] · **Status:** Approved 2026-11-05 by khaled · **Story:** [[S-18 Rings Story]] · **Backend Integration:** [[BI-08 Rings Backend Integration]]
 
 What the client needs from the backend to build the Ring lists, the create wizard, the edit screens and the post-event choice, and whether each need is met today. Field rules, enums and the disposition semantics are in [[BI-08 Rings Backend Integration]].
