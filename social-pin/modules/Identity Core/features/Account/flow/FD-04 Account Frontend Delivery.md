@@ -19,6 +19,8 @@ tags: [frontend-delivery, frontend-delivery/done, module/identity, layer/fronten
 
 # ✅ Account · Frontend Delivery
 
+> ⚠ Affected by [[S-01 Account Story]] (2026-11-12): S1 and S5 now describe the slim Me of app 778d9b4 (a header with the plan pill, the headline and three tiles; the "Account & sign-in" and "Privacy" screens); record the screens as shipped
+
 > ⚠ Affected by [[B-02 Deleted account answers 401, not the documented 404 E_USER_01]] (2026-11-09): B-02's pending items are cleared; one question moves here: a deleted account's old token gets 404 on any authenticated route (the auth guard answers it), so decide whether the network layer ends the session on a 404 E_USER_01 from any route, or relies on the next GET /users/me, and record it under Calls made (/frontend)
 
 > ⚠ Affected by [[QF-04 Account QA Frontend]] (2026-11-09): re-run on social_pin 0aaca9e, 36 of 36: the AC-14 point of the flag below is withdrawn (a test fault, B-23 cannot-reproduce: a 404 does end the session at startup). Record 0aaca9e here: a fresh GET /users/me saying SUSPENDED or DELETED now ends the session (B-24), the change sheet focuses the field on an error (B-25), the delete sheet names the Rings and what they show (B-26), the country-code button is one semantics node (B-27). The card-opens-the-editor and not-active-message points still stand (/frontend)

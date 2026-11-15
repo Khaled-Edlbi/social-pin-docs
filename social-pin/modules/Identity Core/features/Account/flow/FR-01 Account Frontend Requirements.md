@@ -15,6 +15,8 @@ tags: [frontend-requirements, frontend-requirements/approved, module/identity, l
 
 # Account · Frontend Requirements
 
+> ⚠ Affected by [[S-01 Account Story]] (2026-11-12): Me is slim (S1): a header with a "Pro" or "Free · Upgrade" pill, the headline under the handle and three tiles (Rings, Connections, Photos); "Account & sign-in" holds email, phone, plan, My devices, sign out of all devices and Delete; "Privacy" holds the private fields (S5), View as and Blocked people
+
 **Feature:** [[F-01 Account]] · **Status:** Approved 2026-10-26 by omar · **Story:** [[S-01 Account Story]] · **Backend Integration:** [[BI-01 Account Backend Integration]]
 
 What the client needs from the backend to build the account section of Me, and whether each need is met today. Call shapes, the token store and the error body are in [[BI-01 Account Backend Integration]]; this note lists the needs per screen and what still waits on a task.

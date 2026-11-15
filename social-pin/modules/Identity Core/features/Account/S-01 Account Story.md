@@ -11,7 +11,7 @@ approvedAt: 2026-11-09
 owner: "Omar Fostok"
 related: ["ND-20 Whether an unverified new address may sign in", "D-20 The changed address still signs in, the words are corrected", "B-01 An unverified changed email still signs in", "FD-04 Account Frontend Delivery", "QF-04 Account QA Frontend", "F-07 Profiles & Pin Name"]
 created: 2026-10-18
-updated: 2026-11-09
+updated: 2026-11-12
 tags: [story, story/verified, module/identity, layer/business]
 ---
 
@@ -34,11 +34,19 @@ A personal user on the Me tab ([[Wireframe Brief#Account, subscription & setting
 **As a** signed-in user **I want** to see who I am signed in as **so that** I can trust that the account, the Pin name and the Pro state shown are mine.
 
 Acceptance criteria:
-- [ ] The header shows the default profile's full name and `!pinName`, the Ring count, and the profile photo, or initials when there is none, composed from `GET /profiles` (`data[0]`) and the Rings; `GET /users/me` carries no name and no photo.
-- [ ] Email and phone each show a verified / unverified chip derived from `emailVerifiedAt` / `phoneVerifiedAt` (`null` = unverified).
-- [ ] The plan card reads "Pro plan" when `accountType` is `PRO`, with no Upgrade and no separate badge in the header; on Free it reads "Free plan" with "Upgrade", which leads to s70, which has no backend yet.
+- [ ] **Me is slim.** The header shows:
+  - the default profile's full name and `!pinName`, with the headline under the handle, or "Add a headline" when there is none;
+  - the profile photo, or initials when there is none;
+  - a plan pill: "Pro" when `accountType` is `PRO`, or "Free · Upgrade" on Free (Upgrade leads to s70, which has no backend yet);
+  - three tiles: **Rings**, **Connections** and **Photos**.
+
+  It is composed from `GET /profiles` (`data[0]`), the Rings and the counts; `GET /users/me` carries no name and no photo.
 - [ ] The header card opens the profile editor ([[S-14 Profiles & Pin Name Story|Profiles & Pin Name · S3]], [[F-07 Profiles & Pin Name]]).
-- [ ] There is no "Manage account" row. What the brief puts under it is elsewhere: email, phone and delete on Me itself (S2–S4), personal info in the profile editor, no password (sign-in is by code, [[ND-01 Passwordless login]]).
+- [ ] Under the header: **YOUR THINGS** (Interests, Companies, …) and **SETTINGS**. Settings holds two rows:
+  - **"Account & sign-in"** ("Email, phone, devices", with "{count} to verify" when a destination is unverified) opens its own screen: email and phone (HOW YOU SIGN IN, "A code goes to this email or phone each time you sign in. No password."), the plan (PLAN), My devices, "Sign out of all devices", and Delete account (S2–S4).
+  - **"Privacy"** ("Private fields, blocked people") opens its own screen: the private fields (S5), View as for each Ring ("See it as each Ring does"), and Blocked people ("They can't see or find you").
+- [ ] Email and phone each show a verified / unverified chip, derived from `emailVerifiedAt` / `phoneVerifiedAt` (`null` = unverified).
+- [ ] There is no "Manage account" row and no password: sign-in is by code ([[ND-01 Passwordless login]]). Personal info is in the profile editor.
 - [ ] The screen refetches on app resume and after any 401 recovery.
 - [ ] No code or token is ever rendered or logged; there is no password to show.
 
@@ -76,6 +84,7 @@ Acceptance criteria:
 **As a** user **I want** Me to remind me that birthdate, gender and marital status are shared per Ring **so that** I do not look for a global switch that does not exist.
 
 Acceptance criteria:
+- [ ] The rows are on the Privacy screen, under PRIVATE FIELDS, reached from Me › Privacy (S1).
 - [ ] The row shows whether each sensitive value is set on the profile (from `GET /profiles`), never whether it is "public".
 - [ ] Tapping a row opens a picker for that one value (a date picker for the birthdate, a sheet of the API's values for gender and marital status) and saves it with `PATCH /profiles/:id`; under each row's title, which of your Rings show it, or "Hidden from all Rings". The full profile is edited in the profile editor ([[S-14 Profiles & Pin Name Story]]); the per-Ring opt-in lives on each Ring's "what it shows" screen ([[S-17 Ring Projection Story]]).
 
@@ -91,7 +100,7 @@ Acceptance criteria:
 
 - State: verified / unverified per destination; Free / Pro badge; confirmation sheet for delete.
 - State: linked accounts, devices and subscription rows (§12) are placeholders until their features ship; render them as "coming soon", never as empty errors.
-- Motion: the Me tab arrives through the tab bar's shared horizontal slide; nothing screen-specific. Respect reduced motion.
+- Motion: the Me tab arrives through the tab bar's shared cross-fade ([[D-40 The bell count, the tab cross-fade and Go Pro coming soon stay]]); nothing screen-specific. Respect reduced motion.
 
 ## Rules the backend already enforces
 
@@ -105,3 +114,8 @@ Acceptance criteria:
 - No decision blocks this feature. Re-verifying a changed email or phone has no dedicated route; it is recorded in [[F-01 Account#Gaps]] and is not a part of this story yet.
 - Whether an unverified new address may sign in was answered **for now**, not for good: [[D-20 The changed address still signs in, the words are corrected]] leaves the gate out while `POST /auth/login` still returns `devCode`, and asks for the question again when [[S-78 Code Delivery Story|Code Delivery · S8]] lands. S2's and S3's copy changes back with it.
 - The connection count and linked accounts on s68 belong to [[F-03 Counts]] and [[F-38 Linked Accounts (OAuth)]].
+
+## Log
+
+- 2026-11-12 · `tickets/pm/M-01-identity/F-01-account/S-01-app-778d9b4` · S1 Me made slim: a header with the plan pill, the headline and three tiles (Rings, Connections, Photos); "Account & sign-in" holds email, phone, plan, My devices, sign out of all devices and Delete; "Privacy" holds the private fields, View as and Blocked people; S5 moved onto the Privacy screen; motion is the tab cross-fade (D-40). Decided by Omar Fostok 2026-11-11, app 778d9b4. Status kept: this records what shipped
+- 2026-11-12 · flagged [[FD-04 Account Frontend Delivery]] and [[FR-01 Account Frontend Requirements]]: the slim Me layout (S1, S5)
