@@ -220,6 +220,7 @@
     "FD-15 Ring Invitations & Join Frontend Delivery": "frontend-delivery:ring-invitations",
     "FD-16 Badge & QR Frontend Delivery": "frontend-delivery:badge-qr",
     "FD-17 View As & Pin Views Frontend Delivery": "frontend-delivery:view-as",
+    "FD-20 Companies Frontend Delivery": "frontend-delivery:companies",
     "FR-01 Account Frontend Requirements": "frontend-requirements:account",
     "FR-02 Auth & Sign-up Frontend Requirements": "frontend-requirements:auth",
     "FR-03 Counts Frontend Requirements": "frontend-requirements:counts",
@@ -566,6 +567,7 @@
     "FD-15": "frontend-delivery:ring-invitations",
     "FD-16": "frontend-delivery:badge-qr",
     "FD-17": "frontend-delivery:view-as",
+    "FD-20": "frontend-delivery:companies",
     "FR-01": "frontend-requirements:account",
     "FR-02": "frontend-requirements:auth",
     "FR-03": "frontend-requirements:counts",
@@ -5252,6 +5254,7 @@
     },
     "PUT /rings/:ringId/my-card": {
       "containers": [
+        "feature:companies",
         "feature:ring-invitations",
         "project:frontend-api-guide"
       ],
@@ -5259,6 +5262,7 @@
       "notes": [
         "backend-delivery:ring-invitations",
         "backend-integration:ring-invitations",
+        "frontend-delivery:companies",
         "frontend-delivery:ring-invitations",
         "frontend-requirements:ring-invitations",
         "project:frontend-api-guide",
@@ -7145,6 +7149,7 @@
       "notes": [
         "backend-delivery:companies",
         "feature:companies",
+        "frontend-delivery:companies",
         "frontend-delivery:ring-invitations",
         "frontend-requirements:companies",
         "needs-decision:ND-18",
@@ -7171,6 +7176,7 @@
       "notes": [
         "backend-delivery:companies",
         "feature:companies",
+        "frontend-delivery:companies",
         "frontend-delivery:ring-invitations",
         "frontend-requirements:companies",
         "needs-decision:ND-18",
@@ -7200,6 +7206,7 @@
         "backend-delivery:ring-invitations",
         "backend-integration:ring-invitations",
         "feature:ring-invitations",
+        "frontend-delivery:companies",
         "frontend-delivery:ring-invitations",
         "frontend-requirements:companies",
         "frontend-requirements:ring-invitations",
@@ -7239,14 +7246,14 @@
     }
   },
   "counts": {
-    "blocked": 27,
+    "blocked": 28,
     "bugs": 27,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 14,
       "decision": 37,
       "feature": 40,
-      "frontend-delivery": 14,
+      "frontend-delivery": 15,
       "frontend-requirements": 39,
       "module": 8,
       "needs-decision": 38,
@@ -7259,19 +7266,19 @@
     "byLayer": {
       "backend": 61,
       "business": 188,
-      "frontend": 57,
+      "frontend": 58,
       "qa": 16,
       "shared": 10
     },
     "concepts": 336,
     "decisions": 38,
-    "edges": 8820,
+    "edges": 8833,
     "features": 40,
-    "layerNotes": 162,
+    "layerNotes": 163,
     "modules": 8,
-    "notes": 363,
+    "notes": 364,
     "partial": 17,
-    "placeholders": 116,
+    "placeholders": 115,
     "records": 37
   },
   "deadlines": {
@@ -15902,6 +15909,14 @@
     {
       "from": "backend-delivery:ring-invitations",
       "kind": "related",
+      "to": "frontend-delivery:companies",
+      "via": [
+        "PUT /rings/:ringId/my-card"
+      ]
+    },
+    {
+      "from": "backend-delivery:ring-invitations",
+      "kind": "related",
       "to": "frontend-delivery:ring-access",
       "via": [
         "GET /rings/shared-with-me"
@@ -22006,6 +22021,14 @@
     {
       "from": "backend-integration:ring-invitations",
       "kind": "related",
+      "to": "frontend-delivery:companies",
+      "via": [
+        "PUT /rings/:ringId/my-card"
+      ]
+    },
+    {
+      "from": "backend-integration:ring-invitations",
+      "kind": "related",
       "to": "frontend-delivery:ring-access",
       "via": [
         "GET /rings/shared-with-me"
@@ -26516,6 +26539,54 @@
       "via": [
         "E_RING_02"
       ]
+    },
+    {
+      "from": "frontend-delivery:companies",
+      "kind": "related",
+      "to": "backend-delivery:companies"
+    },
+    {
+      "from": "frontend-delivery:companies",
+      "kind": "related",
+      "to": "decision:D-33"
+    },
+    {
+      "from": "frontend-delivery:companies",
+      "kind": "related",
+      "to": "decision:D-35"
+    },
+    {
+      "from": "frontend-delivery:companies",
+      "kind": "related",
+      "to": "decision:D-36"
+    },
+    {
+      "from": "frontend-delivery:companies",
+      "kind": "related",
+      "to": "decision:D-39"
+    },
+    {
+      "from": "frontend-delivery:companies",
+      "kind": "related",
+      "to": "frontend-delivery:ring-invitations",
+      "via": [
+        "PUT /rings/:ringId/my-card"
+      ]
+    },
+    {
+      "from": "frontend-delivery:companies",
+      "kind": "related",
+      "to": "frontend-requirements:companies"
+    },
+    {
+      "from": "frontend-delivery:companies",
+      "kind": "related",
+      "to": "story:companies"
+    },
+    {
+      "from": "frontend-delivery:companies",
+      "kind": "related",
+      "to": "story:delegated-admins"
     },
     {
       "from": "frontend-delivery:connections",
@@ -43444,6 +43515,14 @@
     {
       "from": "qa-backend:ring-invitations",
       "kind": "related",
+      "to": "frontend-delivery:companies",
+      "via": [
+        "PUT /rings/:ringId/my-card"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-invitations",
+      "kind": "related",
       "to": "frontend-delivery:connections",
       "via": [
         "GET /views/user/:userId/perspectives"
@@ -56982,7 +57061,8 @@
         "GET /rings/join-requests/mine",
         "GET /rings/shared-with-me",
         "GET /views/ring/:ringId",
-        "PATCH /rings/:id"
+        "PATCH /rings/:id",
+        "PUT /rings/:ringId/my-card"
       ]
     },
     {
@@ -57132,7 +57212,8 @@
         "E_RING_02",
         "GET /rings",
         "GET /rings/shared-with-me",
-        "GET /views/ring/:ringId"
+        "GET /views/ring/:ringId",
+        "PUT /rings/:ringId/my-card"
       ]
     },
     {
@@ -71531,6 +71612,11 @@
     {
       "from": "module:shared-rings",
       "kind": "wikilink",
+      "to": "frontend-delivery:companies"
+    },
+    {
+      "from": "module:shared-rings",
+      "kind": "wikilink",
       "to": "frontend-delivery:ring-invitations"
     },
     {
@@ -75345,6 +75431,10 @@
       "name": "BD-15 Companies Backend Delivery",
       "type": "backend-delivery"
     },
+    "social-pin/modules/Shared Rings & Companies/features/Companies/flow/FD-20 Companies Frontend Delivery.md": {
+      "name": "FD-20 Companies Frontend Delivery",
+      "type": "frontend-delivery"
+    },
     "social-pin/modules/Shared Rings & Companies/features/Companies/flow/FR-15 Companies Frontend Requirements.md": {
       "name": "FR-15 Companies Frontend Requirements",
       "type": "frontend-requirements"
@@ -76501,7 +76591,8 @@
       "pending": [],
       "priority": "critical",
       "related": [
-        "needs-decision:ND-39"
+        "needs-decision:ND-39",
+        "frontend-delivery:companies"
       ],
       "release": "mvp",
       "resolution": null,
@@ -78594,6 +78685,7 @@
         "project:frontend-contract",
         "frontend-requirements:badge-qr",
         "frontend-requirements:ring-members",
+        "frontend-delivery:companies",
         "backend-integration:ring-members",
         "story:ring-members"
       ],
@@ -81627,6 +81719,7 @@
         "project:frontend-api-guide",
         "project:frontend-contract",
         "frontend-requirements:badge-qr",
+        "frontend-delivery:companies",
         "backend-integration:ring-members",
         "decision:D-34"
       ],
@@ -84580,6 +84673,7 @@
         "decision:D-18",
         "decision:D-31",
         "decision:D-32",
+        "frontend-delivery:companies",
         "backend-delivery:ring-invitations",
         "frontend-delivery:ring-invitations",
         "frontend-requirements:ring-invitations",
@@ -84731,6 +84825,7 @@
         "frontend-delivery:badge-qr",
         "frontend-requirements:badge-qr",
         "story:badge-qr",
+        "frontend-delivery:companies",
         "backend-delivery:ring-invitations",
         "backend-integration:ring-invitations",
         "frontend-delivery:ring-invitations",
@@ -84801,6 +84896,7 @@
         "decision:D-31",
         "backend-integration:rings",
         "story:rings",
+        "frontend-delivery:companies",
         "backend-delivery:ring-invitations",
         "backend-integration:ring-invitations",
         "frontend-delivery:ring-invitations",
@@ -84985,7 +85081,8 @@
       "priority": null,
       "related": [
         "needs-decision:ND-39",
-        "feature:companies"
+        "feature:companies",
+        "frontend-delivery:companies"
       ],
       "release": null,
       "resolution": null,
@@ -85707,9 +85804,9 @@
       "resolution": null,
       "rollup": {
         "approved": 1,
-        "blocked": 1,
+        "blocked": 2,
         "decided": 3,
-        "missing": 4,
+        "missing": 3,
         "ready": 1,
         "verified": 3
       },
@@ -89005,19 +89102,23 @@
           "why": "Companies Backend Integration is not written yet"
         }
       ],
-      "card": null,
+      "card": "FD-20",
       "children": [],
       "code": "companies",
-      "created": null,
+      "created": "2026-11-15",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "missing",
+      "deployedTo": [],
+      "effectiveStatus": "blocked",
       "effort": null,
       "feature": "companies",
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:companies",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:companies",
+        "release": "feature:companies"
+      },
       "kind": "frontend-delivery",
       "label": "Frontend Delivery",
       "labels": [],
@@ -89028,21 +89129,43 @@
       "parents": [
         "feature:companies"
       ],
-      "path": null,
+      "path": "social-pin/modules/Shared Rings & Companies/features/Companies/flow/FD-20 Companies Frontend Delivery.md",
       "pending": [],
-      "priority": null,
-      "related": [],
-      "release": null,
+      "priority": "critical",
+      "related": [
+        "frontend-requirements:companies",
+        "story:companies",
+        "backend-delivery:companies",
+        "frontend-delivery:ring-invitations",
+        "story:delegated-admins",
+        "decision:D-33",
+        "decision:D-35",
+        "decision:D-36",
+        "decision:D-39",
+        "backend-delivery:ring-invitations",
+        "backend-integration:ring-invitations",
+        "qa-backend:ring-invitations"
+      ],
+      "release": "mvp",
+      "resolution": null,
       "scope": "feature",
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold frontend-delivery companies",
-      "tags": [],
+      "screens": [
+        "s72",
+        "s73",
+        "s74"
+      ],
+      "status": "todo",
+      "summary": "What the client has for companies, on socialpin rings/F-11/honest-rings (not on main yet): s72 My companies, s73 Company detail and s74 Join a company Ring, on demo data only…",
+      "tags": [
+        "frontend-delivery",
+        "frontend-delivery/todo",
+        "module/shared-rings",
+        "layer/frontend"
+      ],
       "task": null,
-      "template": "templates/Frontend Delivery Template.md",
-      "title": "Companies Frontend Delivery",
+      "title": "FD-20 Companies Frontend Delivery",
       "unmet": [],
-      "updated": null
+      "updated": "2026-11-15"
     },
     "frontend-delivery:connections": {
       "affects": [],
@@ -90639,6 +90762,7 @@
         "backend-integration:view-as",
         "frontend-delivery:view-as",
         "frontend-requirements:view-as",
+        "frontend-delivery:companies",
         "frontend-requirements:companies",
         "backend-delivery:ring-invitations",
         "backend-integration:ring-invitations",
@@ -92035,6 +92159,7 @@
         "frontend-requirements:view-as",
         "qa-backend:view-as",
         "frontend-requirements:error-contract",
+        "frontend-delivery:companies",
         "story:companies",
         "decision:D-02",
         "decision:D-04",
@@ -96132,12 +96257,12 @@
       "resolution": null,
       "rollup": {
         "approved": 3,
-        "blocked": 3,
+        "blocked": 4,
         "current": 1,
         "decided": 9,
         "draft": 1,
         "in-progress": 3,
-        "missing": 9,
+        "missing": 8,
         "partial": 2,
         "passing": 1,
         "ready": 1,
@@ -103500,6 +103625,7 @@
         "project:status-report-2026-10-15",
         "project:frontend-api-guide",
         "project:frontend-contract",
+        "frontend-delivery:companies",
         "backend-integration:ring-members",
         "task:B-11",
         "needs-decision:ND-10",
@@ -104901,8 +105027,8 @@
       "blockedBy": [
         {
           "id": "frontend-delivery:companies",
-          "title": "Companies Frontend Delivery",
-          "why": "Companies Frontend Delivery is not written yet"
+          "title": "FD-20 Companies Frontend Delivery",
+          "why": "FD-20 Companies Frontend Delivery is blocked"
         }
       ],
       "card": null,
@@ -106485,7 +106611,7 @@
       ],
       "rollup": {
         "approved": 40,
-        "blocked": 27,
+        "blocked": 28,
         "current": 10,
         "decided": 37,
         "delivered": 12,
@@ -106493,7 +106619,7 @@
         "draft": 25,
         "failing": 1,
         "in-progress": 46,
-        "missing": 116,
+        "missing": 115,
         "needs-decision": 1,
         "partial": 17,
         "passing": 13,
@@ -107129,6 +107255,7 @@
         "frontend-delivery:view-as",
         "frontend-requirements:view-as",
         "qa-backend:view-as",
+        "frontend-delivery:companies",
         "frontend-requirements:companies",
         "decision:D-02",
         "story:profiles",
@@ -107510,6 +107637,7 @@
         "qa-backend:rings",
         "frontend-delivery:view-as",
         "frontend-requirements:view-as",
+        "frontend-delivery:companies",
         "frontend-requirements:companies",
         "decision:D-04",
         "decision:D-14",
