@@ -13,6 +13,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/platform, laye
 
 # Code Delivery · Frontend Requirements
 
+> ⚠ Affected by [[S-78 Code Delivery Story]] (2026-11-12): S4 now has two messages, not one. A wrong code (E_AUTH_05) shakes and clears the boxes ("That code is wrong or has expired."), against "keep the digits for editing". An expired code, found by the phone's own timer, says "This code has expired. Ask for a new one." The fifth wrong guess locks (E_AUTH_06: "Too many tries. Ask for a new code.")
+
 **Feature:** [[F-32 Code Delivery]] · **Status:** Draft · **Story:** [[S-78 Code Delivery Story]] · **API Integration:** not yet (backend not built)
 
 What the client needs to make s02 real: the challenge response it already gets, a code that reaches the user, and the timing facts behind the resend and expiry states. The calls exist; the delivery does not.
