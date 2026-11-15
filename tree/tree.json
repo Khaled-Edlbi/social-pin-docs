@@ -1364,6 +1364,7 @@
       "containers": [
         "feature:badge-qr",
         "feature:connections",
+        "feature:error-contract",
         "project:frontend-api-guide"
       ],
       "kind": "error",
@@ -1373,6 +1374,7 @@
         "backend-integration:badge-qr",
         "backend-integration:connections",
         "frontend-requirements:badge-qr",
+        "frontend-requirements:error-contract",
         "project:frontend-api-guide",
         "qa-backend:badge-qr",
         "qa-backend:connections"
@@ -7310,7 +7312,7 @@
     },
     "concepts": 336,
     "decisions": 38,
-    "edges": 8937,
+    "edges": 8942,
     "features": 40,
     "layerNotes": 168,
     "modules": 8,
@@ -12121,6 +12123,14 @@
     {
       "from": "backend-delivery:badge-qr",
       "kind": "related",
+      "to": "frontend-requirements:error-contract",
+      "via": [
+        "E_BADGE_01"
+      ]
+    },
+    {
+      "from": "backend-delivery:badge-qr",
+      "kind": "related",
       "to": "frontend-requirements:event-ring-auto",
       "via": [
         "E_RING_02",
@@ -13123,6 +13133,14 @@
       "to": "frontend-requirements:e2e-tests",
       "via": [
         "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "backend-delivery:connections",
+      "kind": "related",
+      "to": "frontend-requirements:error-contract",
+      "via": [
+        "E_BADGE_01"
       ]
     },
     {
@@ -18546,6 +18564,15 @@
     {
       "from": "backend-integration:badge-qr",
       "kind": "related",
+      "to": "frontend-requirements:error-contract",
+      "via": [
+        "E_AUTH_04",
+        "E_BADGE_01"
+      ]
+    },
+    {
+      "from": "backend-integration:badge-qr",
+      "kind": "related",
       "to": "frontend-requirements:event-ring-auto",
       "via": [
         "E_RING_02",
@@ -19578,6 +19605,14 @@
       "to": "frontend-requirements:e2e-tests",
       "via": [
         "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "frontend-requirements:error-contract",
+      "via": [
+        "E_BADGE_01"
       ]
     },
     {
@@ -26262,6 +26297,14 @@
     {
       "from": "frontend-delivery:badge-qr",
       "kind": "related",
+      "to": "frontend-requirements:error-contract",
+      "via": [
+        "E_BADGE_01"
+      ]
+    },
+    {
+      "from": "frontend-delivery:badge-qr",
+      "kind": "related",
       "to": "frontend-requirements:event-ring-auto",
       "via": [
         "E_RING_02"
@@ -31238,14 +31281,6 @@
     {
       "from": "frontend-requirements:error-contract",
       "kind": "related",
-      "to": "backend-integration:badge-qr",
-      "via": [
-        "E_AUTH_04"
-      ]
-    },
-    {
-      "from": "frontend-requirements:error-contract",
-      "kind": "related",
       "to": "decision:D-20",
       "via": [
         "E_AUTH_03"
@@ -31499,14 +31534,6 @@
         "E_AUTH_03",
         "E_AUTH_04",
         "E_USER_01"
-      ]
-    },
-    {
-      "from": "frontend-requirements:error-contract",
-      "kind": "related",
-      "to": "qa-backend:badge-qr",
-      "via": [
-        "E_AUTH_04"
       ]
     },
     {
@@ -38696,6 +38723,15 @@
     {
       "from": "qa-backend:badge-qr",
       "kind": "related",
+      "to": "frontend-requirements:error-contract",
+      "via": [
+        "E_AUTH_04",
+        "E_BADGE_01"
+      ]
+    },
+    {
+      "from": "qa-backend:badge-qr",
+      "kind": "related",
       "to": "frontend-requirements:event-ring-auto",
       "via": [
         "E_RING_02",
@@ -39673,6 +39709,14 @@
       "to": "frontend-requirements:e2e-tests",
       "via": [
         "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "qa-backend:connections",
+      "kind": "related",
+      "to": "frontend-requirements:error-contract",
+      "via": [
+        "E_BADGE_01"
       ]
     },
     {
@@ -56739,6 +56783,7 @@
       "to": "feature:error-contract",
       "via": [
         "E_AUTH_04",
+        "E_BADGE_01",
         "E_RING_02"
       ]
     },
@@ -58188,6 +58233,7 @@
       "to": "feature:error-contract",
       "via": [
         "E_AUTH_04",
+        "E_BADGE_01",
         "E_RING_02"
       ]
     },
@@ -60276,6 +60322,7 @@
         "E_AUTH_04",
         "E_AUTH_05",
         "E_AUTH_06",
+        "E_BADGE_01",
         "E_RING_01",
         "E_RING_02",
         "POST /auth/refresh"
@@ -77239,6 +77286,7 @@
         "project:docs-tree",
         "project:api-conventions",
         "project:frontend-agent-prompt",
+        "frontend-requirements:error-contract",
         "needs-decision:ND-24",
         "decision:D-10",
         "decision:D-17",
@@ -77587,6 +77635,7 @@
         "frontend-requirements:ring-invitations",
         "story:ring-invitations",
         "decision:D-34",
+        "frontend-requirements:error-contract",
         "task:B-15",
         "frontend-requirements:pincast",
         "frontend-requirements:event-ring-auto",
@@ -80626,6 +80675,7 @@
         "project:docs-tree",
         "project:api-conventions",
         "project:frontend-agent-prompt",
+        "frontend-requirements:error-contract",
         "decision:D-28",
         "decision:D-35",
         "needs-decision:ND-24",
@@ -80638,8 +80688,7 @@
         "qa-backend:profiles",
         "backend-delivery:ring-members",
         "frontend-delivery:ring-members",
-        "backend-delivery:ring-projection",
-        "frontend-requirements:error-contract"
+        "backend-delivery:ring-projection"
       ],
       "release": "mvp",
       "resolution": null,
@@ -80895,6 +80944,7 @@
         "story:account",
         "qa-backend:counts",
         "qa-backend:ring-members",
+        "frontend-requirements:error-contract",
         "needs-decision:ND-10",
         "needs-decision:ND-24",
         "frontend-delivery:connections",
@@ -89883,6 +89933,7 @@
         "project:docs-tree",
         "project:api-conventions",
         "project:frontend-agent-prompt",
+        "frontend-requirements:error-contract",
         "backend-integration:account",
         "qa-frontend:account",
         "qa-frontend:auth",
@@ -93906,6 +93957,13 @@
         "task:B-24",
         "needs-decision:ND-30",
         "decision:D-30",
+        "backend-delivery:connections",
+        "backend-integration:connections",
+        "qa-backend:connections",
+        "backend-delivery:badge-qr",
+        "backend-integration:badge-qr",
+        "frontend-delivery:badge-qr",
+        "qa-backend:badge-qr",
         "backend-delivery:account",
         "backend-integration:account",
         "qa-frontend:account",
@@ -93943,9 +94001,7 @@
         "frontend-requirements:payments",
         "frontend-requirements:subscription",
         "frontend-requirements:connections",
-        "backend-integration:badge-qr",
         "frontend-requirements:badge-qr",
-        "qa-backend:badge-qr",
         "frontend-requirements:discover-hub",
         "frontend-requirements:pincast",
         "frontend-requirements:events-before",
@@ -93982,7 +94038,7 @@
       "task": null,
       "title": "FR-35 Error Contract Frontend Requirements",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-15"
     },
     "frontend-requirements:event-ring-auto": {
       "affects": [],
@@ -102426,13 +102482,13 @@
         "project:docs-tree",
         "project:api-conventions",
         "project:frontend-agent-prompt",
+        "frontend-requirements:error-contract",
         "qa-frontend:account",
         "qa-backend:auth",
         "qa-frontend:auth",
         "qa-backend:profiles",
         "backend-delivery:ring-members",
-        "backend-delivery:ring-projection",
-        "frontend-requirements:error-contract"
+        "backend-delivery:ring-projection"
       ],
       "release": "mvp",
       "resolution": null,
@@ -102750,6 +102806,7 @@
         "frontend-delivery:account",
         "qa-frontend:account",
         "story:account",
+        "frontend-requirements:error-contract",
         "task:B-15",
         "frontend-requirements:exhibitor",
         "frontend-requirements:photo-library",
