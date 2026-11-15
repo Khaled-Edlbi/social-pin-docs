@@ -17,7 +17,7 @@ tags: [feature, module/shared-rings, priority/critical, release/mvp]
 
 **Backend:** TODO · **Priority:** Critical · **Release:** MVP · **Module:** [[M-03 Shared Rings & Companies Module|Shared Rings & Companies]]
 
-**Layers:** [[S-29 Companies Story|Story]] · [[FR-15 Companies Frontend Requirements|Frontend Requirements]] · [[BD-15 Companies Backend Delivery|Backend Delivery]] · [[Companies Backend Integration|Backend Integration]] · [[Companies Frontend Delivery|Frontend Delivery]] · [[Companies QA Backend|QA Backend]] · [[Companies QA Frontend|QA Frontend]]
+**Layers:** [[S-29 Companies Story|Story]] · [[FR-15 Companies Frontend Requirements|Frontend Requirements]] · [[BD-15 Companies Backend Delivery|Backend Delivery]] · [[Companies Backend Integration|Backend Integration]] · [[FD-20 Companies Frontend Delivery|Frontend Delivery]] · [[Companies QA Backend|QA Backend]] · [[Companies QA Frontend|QA Frontend]]
 
 My companies (s72) and company detail (s73): the business tables exist (`Business`, `BusinessMember`, tags, files), no endpoints.
 
