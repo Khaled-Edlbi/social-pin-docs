@@ -6010,6 +6010,7 @@
     },
     "s22": {
       "containers": [
+        "feature:delegated-admins",
         "feature:rings",
         "needs-decision:ND-04",
         "needs-decision:ND-36",
@@ -6026,6 +6027,7 @@
         "needs-decision:ND-04",
         "needs-decision:ND-36",
         "qa-backend:rings",
+        "story:delegated-admins",
         "story:rings",
         "task:B-14",
         "task:B-16"
@@ -7316,7 +7318,7 @@
     },
     "concepts": 336,
     "decisions": 38,
-    "edges": 8947,
+    "edges": 8948,
     "features": 40,
     "layerNotes": 168,
     "modules": 8,
@@ -48947,6 +48949,21 @@
     {
       "from": "story:delegated-admins",
       "kind": "related",
+      "to": "decision:D-32"
+    },
+    {
+      "from": "story:delegated-admins",
+      "kind": "related",
+      "to": "decision:D-33"
+    },
+    {
+      "from": "story:delegated-admins",
+      "kind": "related",
+      "to": "decision:D-35"
+    },
+    {
+      "from": "story:delegated-admins",
+      "kind": "related",
       "to": "project:ring-access-model"
     },
     {
@@ -70057,11 +70074,6 @@
     {
       "from": "decision:D-32",
       "kind": "wikilink",
-      "to": "story:delegated-admins"
-    },
-    {
-      "from": "decision:D-32",
-      "kind": "wikilink",
       "to": "story:ring-members"
     },
     {
@@ -74508,11 +74520,6 @@
       "from": "story:delegated-admins",
       "kind": "wikilink",
       "to": "story:notifications"
-    },
-    {
-      "from": "story:delegated-admins",
-      "kind": "wikilink",
-      "to": "story:ring-members"
     },
     {
       "from": "story:devices",
@@ -85583,6 +85590,7 @@
         "decision:D-34",
         "decision:D-35",
         "frontend-delivery:ring-members",
+        "story:delegated-admins",
         "backend-delivery:ring-invitations",
         "backend-integration:ring-invitations",
         "frontend-delivery:ring-invitations",
@@ -85657,6 +85665,7 @@
         "frontend-delivery:companies",
         "frontend-requirements:companies",
         "story:companies",
+        "story:delegated-admins",
         "backend-delivery:ring-invitations",
         "frontend-delivery:ring-invitations",
         "frontend-requirements:ring-invitations",
@@ -85814,6 +85823,7 @@
         "frontend-delivery:companies",
         "frontend-requirements:companies",
         "story:companies",
+        "story:delegated-admins",
         "backend-delivery:ring-invitations",
         "backend-integration:ring-invitations",
         "frontend-delivery:ring-invitations",
@@ -108823,6 +108833,9 @@
         "decision:D-04",
         "decision:D-14",
         "decision:D-18",
+        "decision:D-32",
+        "decision:D-33",
+        "decision:D-35",
         "story:companies",
         "story:ring-invitations",
         "project:ring-access-model",
@@ -108834,6 +108847,7 @@
       "screens": [
         "s15",
         "s16",
+        "s22",
         "s26",
         "s27",
         "s69",
@@ -108850,7 +108864,7 @@
       "task": null,
       "title": "S-31 Delegated Admins Story",
       "unmet": [],
-      "updated": "2026-11-05"
+      "updated": "2026-11-16"
     },
     "story:devices": {
       "affects": [],
