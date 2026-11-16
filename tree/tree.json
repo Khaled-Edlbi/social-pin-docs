@@ -7350,7 +7350,7 @@
     }
   },
   "counts": {
-    "blocked": 31,
+    "blocked": 30,
     "bugs": 27,
     "byKind": {
       "backend-delivery": 39,
@@ -7376,7 +7376,7 @@
     },
     "concepts": 340,
     "decisions": 38,
-    "edges": 9061,
+    "edges": 9060,
     "features": 40,
     "layerNotes": 168,
     "modules": 8,
@@ -9586,11 +9586,6 @@
       "from": "story:operator-panel",
       "kind": "blocks",
       "to": "frontend-requirements:operator-panel"
-    },
-    {
-      "from": "story:pincast",
-      "kind": "blocks",
-      "to": "frontend-requirements:pincast"
     },
     {
       "from": "needs-decision:ND-01",
@@ -89660,7 +89655,7 @@
       "deadline": null,
       "depends": [],
       "dir": "social-pin/modules/Discovery/features/PinCast & Nearby",
-      "effectiveStatus": "todo",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "pincast",
       "foundOn": null,
@@ -89700,7 +89695,8 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "blocked": 2,
+        "approved": 1,
+        "blocked": 1,
         "draft": 1,
         "missing": 4
       },
@@ -96548,20 +96544,14 @@
     },
     "frontend-requirements:pincast": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "story:pincast",
-          "title": "S-45 PinCast & Nearby Story",
-          "why": "S-45 PinCast & Nearby Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "FR-20",
       "children": [],
       "code": "pincast",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "pincast",
       "foundOn": null,
@@ -98356,19 +98346,18 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 2,
-        "blocked": 3,
+        "approved": 3,
+        "blocked": 2,
         "current": 1,
         "decided": 4,
         "delivered": 1,
         "done": 2,
         "draft": 1,
-        "in-progress": 2,
+        "in-progress": 3,
         "missing": 8,
         "partial": 1,
         "passing": 1,
         "ready": 1,
-        "todo": 1,
         "verified": 4
       },
       "scope": null,
@@ -109077,22 +109066,22 @@
         }
       ],
       "rollup": {
-        "approved": 40,
-        "blocked": 31,
+        "approved": 41,
+        "blocked": 30,
         "current": 5,
         "decided": 37,
         "delivered": 17,
         "done": 44,
         "draft": 22,
         "failing": 1,
-        "in-progress": 45,
+        "in-progress": 46,
         "missing": 110,
         "needs-decision": 1,
         "partial": 12,
         "passing": 13,
         "ready": 9,
         "reference": 32,
-        "todo": 3,
+        "todo": 2,
         "verified": 38
       },
       "scope": null,
@@ -111399,7 +111388,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "pincast",
       "foundOn": null,
@@ -111444,11 +111433,11 @@
         "s41",
         "s42"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "PinCast is \"be findable, here, for a while\": I pick a Ring, a distance and a duration, and for that window the people around me who are also visible find me and see that Ring's card, as if they…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/discovery",
         "layer/business"
       ],
