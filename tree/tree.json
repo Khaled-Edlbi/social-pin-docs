@@ -7330,7 +7330,7 @@
     }
   },
   "counts": {
-    "blocked": 31,
+    "blocked": 30,
     "bugs": 27,
     "byKind": {
       "backend-delivery": 39,
@@ -7356,7 +7356,7 @@
     },
     "concepts": 339,
     "decisions": 38,
-    "edges": 9005,
+    "edges": 9004,
     "features": 40,
     "layerNotes": 168,
     "modules": 8,
@@ -9536,11 +9536,6 @@
       "from": "needs-decision:ND-21",
       "kind": "blocks",
       "to": "story:onboarding-imports"
-    },
-    {
-      "from": "story:delegated-admins",
-      "kind": "blocks",
-      "to": "frontend-requirements:delegated-admins"
     },
     {
       "from": "story:events-during",
@@ -87669,7 +87664,8 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "blocked": 2,
+        "approved": 1,
+        "blocked": 1,
         "decided": 1,
         "draft": 1,
         "missing": 4,
@@ -94299,13 +94295,7 @@
       "affects": [
         "backend-delivery:delegated-admins"
       ],
-      "blockedBy": [
-        {
-          "id": "story:delegated-admins",
-          "title": "S-31 Delegated Admins Story",
-          "why": "S-31 Delegated Admins Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "FR-16",
       "children": [],
       "code": "delegated-admins",
@@ -94314,7 +94304,7 @@
       "depends": [
         "story:delegated-admins"
       ],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "delegated-admins",
       "foundOn": null,
@@ -98095,8 +98085,8 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 3,
-        "blocked": 4,
+        "approved": 4,
+        "blocked": 3,
         "current": 1,
         "decided": 9,
         "draft": 1,
@@ -108467,8 +108457,8 @@
         }
       ],
       "rollup": {
-        "approved": 40,
-        "blocked": 31,
+        "approved": 41,
+        "blocked": 30,
         "current": 5,
         "decided": 37,
         "delivered": 17,
@@ -109448,7 +109438,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "delegated-admins",
       "foundOn": null,
@@ -109539,11 +109529,11 @@
         "s69",
         "s73"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "A company Ring is too big for one person to run. The owner hands parts of the job to colleagues at a level: one may edit what the Ring shows, another may also manage who is in it. The owner stays…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/shared-rings",
         "layer/business"
       ],

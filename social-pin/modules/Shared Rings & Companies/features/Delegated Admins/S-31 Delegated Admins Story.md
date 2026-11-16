@@ -3,11 +3,11 @@ id: S-31
 type: story
 module: shared-rings
 feature: delegated-admins
-status: draft
+status: approved
 scope: feature
 screens: [s15, s16, s22, s26, s27, s69, s73]
-approvedBy: ""
-approvedAt: ""
+approvedBy: "Omar Fostok"
+approvedAt: 2026-11-16
 owner: "Omar Fostok"
 depends: []
 affects: ["S-18 Rings Story", "S-16 Ring Members Story", "S-29 Companies Story", "S-15 Ring Access Engine Story", "S-96 Notifications Story"]
@@ -15,12 +15,12 @@ related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with m
 pending: []
 created: 2026-10-18
 updated: 2026-11-16
-tags: [story, story/draft, module/shared-rings, layer/business]
+tags: [story, story/approved, module/shared-rings, layer/business]
 ---
 
 # Delegated Admins · User Story
 
-**Feature:** [[F-16 Delegated Admins]] · **Status:** Draft (awaiting product sign-off; first approved 2026-10-25 by khaled, rewritten 2026-11-05) · **Frontend Requirements:** [[FR-16 Delegated Admins Frontend Requirements]] · **Backend Integration:** not yet · **Verified by:** [[Delegated Admins QA Backend]], [[Delegated Admins QA Frontend]]
+**Feature:** [[F-16 Delegated Admins]] · **Status:** Approved 2026-11-16 by Omar Fostok (first approved 2026-10-25 by khaled, rewritten 2026-11-05, updated 2026-11-16) · **Frontend Requirements:** [[FR-16 Delegated Admins Frontend Requirements]] · **Backend Integration:** not yet · **Verified by:** [[Delegated Admins QA Backend]], [[Delegated Admins QA Frontend]]
 
 > **Rewritten 2026-11-05.** The earlier story (S1–S6, approved 2026-10-25) was built on two design screens, Edit · access (s26) and Edit · permissions (s27), that the app has since merged into one **Edit Ring** screen; admins and joining sit behind its *Joining and permissions* row, shown as *Soon* today. It also reached a managed Ring "from the shared-Rings list", which [[D-14 Shared with me lists people, never the Ring]] rules out, and picked admins among connections, which the Companies rules ([[S-29 Companies Story|S-29 P1]]) no longer fit. This version follows the app, the backend as it is ([[BD-16 Delegated Admins Backend Delivery]]: `RingAdmin` and its levels enforced, no routes), and seven rules decided by Omar Fostok on 2026-11-05, recorded **in this story** under *Decided in this story* (A1–A7), on purpose without decision cards. The old S6 (the merged task T-006, four routes) is now *What the backend has to build*.
 
