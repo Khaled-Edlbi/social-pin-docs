@@ -9,15 +9,13 @@ screens: [s38]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "Omar Fostok"
-related: ["D-37 Discover opens a Pin by its exact Pin name in the MVP", "F-12 View As & Pin Views", "F-14 Connections", "F-15 Companies", "F-20 PinCast & Nearby", "F-36 Gemma AI"]
+related: ["D-37 Discover opens a Pin by its exact Pin name in the MVP", "S-29 Companies Story", "F-12 View As & Pin Views", "F-14 Connections", "F-15 Companies", "F-20 PinCast & Nearby", "F-36 Gemma AI"]
 created: 2026-10-18
-updated: 2026-11-12
+updated: 2026-11-16
 tags: [story, story/approved, module/discovery, layer/business]
 ---
 
 # Discover Hub & Search · User Story
-
-> ⚠ Affected by [[S-29 Companies Story]] (2026-11-05): S-29 was rewritten as S1–S14 with its product rules decided inside the story (P1–P8, no decision cards). The old Companies · S6 (merged T-029) is gone: the list is S2, company detail S5, leave S9, and the business ↔ Ring link is decided as P2 (every company Ring carries its business; setup creates both). The domain shows as acme.co without Verified in the MVP (P6). Repoint the links that name Companies · S6.
 
 **Feature:** [[F-19 Discover Hub & Search]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[FR-19 Discover Hub & Search Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
@@ -40,7 +38,6 @@ Acceptance criteria:
 - [ ] *People* opens Contacts, with "Requests · N" when someone is waiting ([[S-23 Connections Story|Connections · S8]]). *Events* switches to the Events tab, *Companies* opens My companies ([[Screen Index#s72|s72]]), and *Exhibitors* opens the exhibitors list ([[Screen Index#s54|s54]]).
 - [ ] Entries for features not built yet are shown, not hidden: *Import contacts* says "Coming soon" and doesn't open (S5).
 - [ ] Recent searches render under the field when there is at least one.
-- [ ] The tab restores its scroll and last query on return within the session.
 
 ### S2 · Search by `!pinname` ([[Screen Index#s38|s38]] → [[Screen Index#s44|s44]])
 
@@ -80,43 +77,29 @@ Acceptance criteria:
 Acceptance criteria:
 - [ ] Contacts permission is requested on the tile, with a sentence saying that only hashed emails and phone numbers leave the device.
 - [ ] Results list only the matches; a match is shown as the person's view (what they share with me) with *Connect*; nobody who is not in my contacts is ever listed.
+- [ ] The matching (hashed emails and phone numbers against users) never reveals who is on the platform beyond the match itself; it needs a privacy review before it ships.
 - [ ] Not available yet, and not in the MVP: the *Import contacts* card says "Coming soon" and doesn't open s03 until the privacy review is done.
 
-### S6 · Discover search by !pinname and recent searches
-
-*From T-030 (status then: To do), merged 2026-10-27.*
-
-Exact-name resolve reuses `GET /views/pin`. Recent searches are kept on the phone per user (S3; D-37), with no server store. No fuzzy search over other users' names.
-
-Screens: [[Screen Index#s38|s38]] Discover hub
-
-
-### S7 · Import contacts · later (D-37)
-
-*From T-031 (status then: Needs a decision), merged 2026-10-27.*
-
-Match hashed emails / phones against users; must not reveal who is on the platform beyond the match. Privacy review needed.
-
-Screens: [[Screen Index#s38|s38]] Discover hub
+> S6 and S7, the merged tasks T-030 and T-031 (2026-10-27), are covered by the parts above: S6 (exact-name resolve with `GET /views/pin`, recent searches on the phone, no fuzzy search) by S2 and S3; S7 (matching imported contacts, later) by S5. Folded in 2026-11-16.
 
 ## States and motion the design asks for
 
-- State: hub idle, field focused with recent searches, resolving, resolved (hands over to s44), not available, Gemma coming soon, contacts permission needed.
+- State: hub idle, field focused with recent searches, resolving, resolved (hands over to s44), not available, offline or no answer (said under the field; the name can be sent again), Gemma coming soon, contacts permission needed.
 - Motion: the brief gives the hub no signature motion; the handover to s44 reuses the profile-card reveal of the scan flow (QR-to-person) in its reduced form; tiles use the standard push transition.
 
 ## Rules the backend already enforces
 
 - `GET /views/pin/:pinName` resolves the exact normalised handle and renders the default Ring if the viewer is in it, else the oldest Ring they can see; no profile, no live Ring, or a block all give the same 404 `E_RING_ACCESS_01` ([[F-12 View As & Pin Views]]).
 - The response carries no `ringId`, no `userId`; a search result cannot tell the user which Ring they were resolved into.
-- There is no fuzzy or partial lookup on other users' names, and Discover Hub & Search · S6 keeps it that way: search must not become a membership oracle.
+- There is no fuzzy or partial lookup on other users' names, and Discover Hub & Search · S2 keeps it that way: search must not become a membership oracle.
 - The Pin-name availability check (`GET /profiles/pin-name/:pinName/availability`, public) never says who holds a taken name and must not be used by Discover as a "does this person exist" probe.
 
 ## Open questions
 
 - ~~Whether recent searches are server-side or device-only~~: answered by D-37, they are kept on the phone, per user (S3).
-- [[S-42 Discover Hub & Search Story|Discover Hub & Search · S7]] — the matching rule and what a match returns; S5 is disabled until the privacy review (later, D-37).
+- S5 — the matching rule and what a match returns; S5 is disabled until the privacy review (later, D-37).
 - [[S-89 Gemma AI Story|Gemma AI · S7]] — the assistant sheet behind S4 (later, D-37).
-- [[S-29 Companies Story|Companies · S6]] — whether a business has a Pin name that resolves on this field (the `!vertexlabs` path to s55; later, D-37).
+- [[S-29 Companies Story#Open questions|Companies · Open questions]] — whether a business has a Pin name that resolves on this field (the `!vertexlabs` path to s55; later, D-37).
 - Search by name: who may be found needs its own decision when it comes (D-37).
 
 ## Log
@@ -129,3 +112,4 @@ Screens: [[Screen Index#s38|s38]] Discover hub
 
   Decided by Omar Fostok 2026-11-11, app 778d9b4. The story stays approved. Clears the D-37 flag.
 - 2026-11-12 · flagged [[FR-19 Discover Hub & Search Frontend Requirements]]: the same; S1 hub entries, recent searches on the phone, demo people only outside production
+- 2026-11-16 · `tickets/pm/M-04-discovery/F-19-discover-hub/S-42-tidy` · tidied: S1's "restores its scroll and last query" removed (decided by Omar Fostok 2026-11-16, not needed; the app doesn't do it); S6 and S7 (merged T-030, T-031) folded in, S7's no-reveal and privacy-review rule now an S5 criterion; the offline / no-answer state added (said under the field, the name can be sent again, app 778d9b4); the Companies · S6 link repointed to S-29's Open questions, the S6 and S7 self-links to S2 and S5; cleared the S-29 flag. The story stays approved (records decisions already made). Flagged [[FR-19 Discover Hub & Search Frontend Requirements]] and [[BD-19 Discover Hub & Search Backend Delivery]]

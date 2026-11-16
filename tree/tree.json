@@ -7370,7 +7370,7 @@
     },
     "concepts": 340,
     "decisions": 38,
-    "edges": 9015,
+    "edges": 9016,
     "features": 40,
     "layerNotes": 168,
     "modules": 8,
@@ -49682,6 +49682,11 @@
       "to": "feature:view-as"
     },
     {
+      "from": "story:discover-hub",
+      "kind": "related",
+      "to": "story:companies"
+    },
+    {
       "from": "story:events-before",
       "kind": "related",
       "to": "feature:event-ring-auto"
@@ -70048,6 +70053,11 @@
       "to": "frontend-requirements:discover-hub"
     },
     {
+      "from": "backend-delivery:discover-hub",
+      "kind": "wikilink",
+      "to": "story:discover-hub"
+    },
+    {
       "from": "backend-delivery:e2e-tests",
       "kind": "wikilink",
       "to": "frontend-requirements:e2e-tests"
@@ -75206,11 +75216,6 @@
       "from": "story:devices",
       "kind": "wikilink",
       "to": "project:auth-model"
-    },
-    {
-      "from": "story:discover-hub",
-      "kind": "wikilink",
-      "to": "story:companies"
     },
     {
       "from": "story:discover-hub",
@@ -109216,6 +109221,7 @@
         "backend-delivery:badge-qr",
         "backend-integration:badge-qr",
         "qa-backend:badge-qr",
+        "story:discover-hub",
         "backend-delivery:counts",
         "backend-integration:counts",
         "qa-backend:counts",
@@ -109778,6 +109784,7 @@
         "qa-backend:badge-qr",
         "frontend-delivery:discover-hub",
         "decision:D-37",
+        "story:companies",
         "feature:view-as",
         "feature:connections",
         "feature:companies",
@@ -109815,7 +109822,7 @@
       "task": null,
       "title": "S-42 Discover Hub & Search Story",
       "unmet": [],
-      "updated": "2026-11-12"
+      "updated": "2026-11-16"
     },
     "story:e2e-tests": {
       "affects": [],
