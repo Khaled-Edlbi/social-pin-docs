@@ -5299,6 +5299,7 @@
     },
     "POST /rings/:ringId/leave": {
       "containers": [
+        "feature:companies",
         "feature:ring-invitations",
         "project:frontend-api-guide"
       ],
@@ -5307,6 +5308,7 @@
         "backend-delivery:ring-invitations",
         "backend-integration:ring-invitations",
         "frontend-delivery:ring-invitations",
+        "frontend-requirements:companies",
         "frontend-requirements:ring-invitations",
         "project:frontend-api-guide",
         "qa-backend:ring-invitations",
@@ -29798,7 +29800,8 @@
         "GET /rings/:ringId/colleagues",
         "GET /rings/invitations/mine",
         "GET /rings/join-requests/mine",
-        "GET /rings/shared-with-me"
+        "GET /rings/shared-with-me",
+        "POST /rings/:ringId/leave"
       ]
     },
     {
@@ -29845,7 +29848,8 @@
         "GET /rings/invitations/mine",
         "GET /rings/join-requests/mine",
         "GET /rings/shared-with-me",
-        "GET /views/ring/:ringId"
+        "GET /views/ring/:ringId",
+        "POST /rings/:ringId/leave"
       ]
     },
     {
@@ -30011,7 +30015,8 @@
         "GET /rings/:ringId/colleagues",
         "GET /rings/invitations/mine",
         "GET /rings/join-requests/mine",
-        "GET /rings/shared-with-me"
+        "GET /rings/shared-with-me",
+        "POST /rings/:ringId/leave"
       ]
     },
     {
@@ -30316,7 +30321,8 @@
         "GET /rings/invitations/mine",
         "GET /rings/join-requests/mine",
         "GET /rings/shared-with-me",
-        "GET /views/ring/:ringId"
+        "GET /views/ring/:ringId",
+        "POST /rings/:ringId/leave"
       ]
     },
     {
@@ -59646,6 +59652,7 @@
         "GET /rings/join-requests/mine",
         "GET /rings/shared-with-me",
         "GET /views/ring/:ringId",
+        "POST /rings/:ringId/leave",
         "PUT /rings/:ringId/my-card"
       ]
     },
@@ -59761,6 +59768,7 @@
         "GET /rings/:ringId/colleagues",
         "GET /rings/shared-with-me",
         "GET /views/ring/:ringId",
+        "POST /rings/:ringId/leave",
         "PUT /rings/:ringId/my-card"
       ]
     },
@@ -78951,7 +78959,7 @@
         {
           "id": "frontend-requirements:companies",
           "title": "FR-15 Companies Frontend Requirements",
-          "why": "FR-15 Companies Frontend Requirements is ready"
+          "why": "FR-15 Companies Frontend Requirements is draft"
         }
       ],
       "card": "BD-15",
@@ -88327,8 +88335,8 @@
         "approved": 1,
         "blocked": 2,
         "decided": 3,
+        "draft": 1,
         "missing": 3,
-        "ready": 1,
         "verified": 3
       },
       "scope": null,
@@ -94740,7 +94748,7 @@
       "depends": [
         "story:companies"
       ],
-      "effectiveStatus": "ready",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "companies",
       "foundOn": null,
@@ -94915,18 +94923,18 @@
         "s73",
         "s74"
       ],
-      "status": "ready",
+      "status": "draft",
       "summary": "What the client needs from the backend to build every part of S-29 Companies Story, S1 to S14, and whether each need is met today. Rewritten 2026-11-05 against the approved story and its decisions…",
       "tags": [
         "frontend-requirements",
-        "frontend-requirements/ready",
+        "frontend-requirements/draft",
         "module/shared-rings",
         "layer/frontend"
       ],
       "task": null,
       "title": "FR-15 Companies Frontend Requirements",
       "unmet": [],
-      "updated": "2026-11-15"
+      "updated": "2026-11-16"
     },
     "frontend-requirements:connections": {
       "affects": [
@@ -99136,11 +99144,12 @@
         "blocked": 3,
         "current": 1,
         "decided": 9,
+        "draft": 1,
         "in-progress": 3,
         "missing": 8,
         "partial": 2,
         "passing": 1,
-        "ready": 2,
+        "ready": 1,
         "verified": 9
       },
       "scope": null,
@@ -109531,14 +109540,14 @@
         "decided": 37,
         "delivered": 17,
         "done": 44,
-        "draft": 21,
+        "draft": 22,
         "failing": 1,
         "in-progress": 46,
         "missing": 110,
         "needs-decision": 1,
         "partial": 12,
         "passing": 13,
-        "ready": 10,
+        "ready": 9,
         "reference": 32,
         "todo": 2,
         "verified": 38
