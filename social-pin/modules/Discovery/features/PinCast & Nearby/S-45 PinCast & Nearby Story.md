@@ -3,11 +3,11 @@ id: S-45
 type: story
 module: discovery
 feature: pincast
-status: draft
+status: approved
 scope: feature
 screens: [s11, s39, s40, s41, s42]
-approvedBy: ""
-approvedAt: ""
+approvedBy: "Omar Fostok"
+approvedAt: 2026-11-16
 owner: "Omar Fostok"
 depends: []
 affects: ["S-23 Connections Story", "S-96 Notifications Story"]
@@ -15,12 +15,12 @@ related: ["F-20 PinCast & Nearby", "D-10 Connect sends what the requester alread
 pending: []
 created: 2026-10-18
 updated: 2026-11-16
-tags: [story, story/draft, module/discovery, layer/business]
+tags: [story, story/approved, module/discovery, layer/business]
 ---
 
 # PinCast & Nearby · User Story
 
-**Feature:** [[F-20 PinCast & Nearby]] · **Status:** Draft (rewritten 2026-11-16 for the MVP; first approved 2026-10-25 by khaled) · **Frontend Requirements:** [[FR-20 PinCast & Nearby Frontend Requirements]] · **Backend Integration:** not yet (backend not built)
+**Feature:** [[F-20 PinCast & Nearby]] · **Status:** Approved 2026-11-16 by Omar Fostok (rewritten 2026-11-16 for the MVP; first approved 2026-10-25 by khaled) · **Frontend Requirements:** [[FR-20 PinCast & Nearby Frontend Requirements]] · **Backend Integration:** not yet (backend not built)
 
 > **Rewritten 2026-11-16.** PinCast moved into the MVP that day, priority critical ([[F-20 PinCast & Nearby]], Omar Fostok). This version follows the app's screens (`rings/F-11/honest-rings` @ `778d9b4`: s39 hidden, s40 live with the ripple and *+15 min*, s41 setup, s42 results with *Broadcast again*, the Home chip) and twelve rules decided by Omar Fostok on 2026-11-16, recorded **in this story** under *Decided in this story* (N1–N12), on purpose without decision cards. It changes what was approved on 2026-10-25, so it is back to `draft`. The merged task T-032 (old S7) is folded into *What the backend has to build*.
 
