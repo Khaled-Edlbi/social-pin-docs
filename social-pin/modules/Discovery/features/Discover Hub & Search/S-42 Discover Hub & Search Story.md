@@ -17,6 +17,8 @@ tags: [story, story/approved, module/discovery, layer/business]
 
 # Discover Hub & Search · User Story
 
+> ⚠ Affected by [[FR-19 Discover Hub & Search Frontend Requirements]] (2026-11-16): for /pm: 'Rules the backend already enforces' says GET /views/pin/:pinName renders the default Ring if the viewer is in it, else the oldest Ring they can see; backend main 3cef5d7 renders the viewer's oldest live membership (D-15). The story's line to bring to that; nothing changes for FR-19 or the app
+
 **Feature:** [[F-19 Discover Hub & Search]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[FR-19 Discover Hub & Search Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 Discover is the tab for finding something on purpose: a person whose Pin name you were given, an event, a company, an exhibitor, the people around you, or the contacts already on your phone. It is not a feed and it does not browse strangers. Search here means "resolve the exact `!pinname` I typed", and the answer is whatever that person shares with me, or one neutral "not available".

@@ -3,9 +3,11 @@ id: FR-19
 type: frontend-requirements
 module: discovery
 feature: discover-hub
-status: ready
+status: approved
 scope: feature
 screens: [s38, s44]
+approvedBy: "khaled"
+approvedAt: 2026-11-16
 blockedBy: []
 depends: ["S-42 Discover Hub & Search Story"]
 affects: ["BD-19 Discover Hub & Search Backend Delivery"]
@@ -13,12 +15,12 @@ related: ["S-42 Discover Hub & Search Story", "D-37 Discover opens a Pin by its 
 pending: []
 created: 2026-10-18
 updated: 2026-11-16
-tags: [frontend-requirements, frontend-requirements/ready, module/discovery, layer/frontend]
+tags: [frontend-requirements, frontend-requirements/approved, module/discovery, layer/frontend]
 ---
 
-# 📨 Discover Hub & Search · Frontend Requirements
+# Discover Hub & Search · Frontend Requirements
 
-**Feature:** [[F-19 Discover Hub & Search]] · **Status:** Ready, 2026-11-16 (waiting on the backend's review) · **Story:** [[S-42 Discover Hub & Search Story]] (approved 2026-10-25, tidied 2026-11-16) · **Backend Integration:** [[BI-09 View As & Pin Views Backend Integration]] (the one call the MVP needs)
+**Feature:** [[F-19 Discover Hub & Search]] · **Status:** Approved, 2026-11-16 (the backend's review) · **Story:** [[S-42 Discover Hub & Search Story]] (approved 2026-10-25, tidied 2026-11-16) · **Backend Integration:** [[BI-09 View As & Pin Views Backend Integration]] (the one call the MVP needs)
 
 What the client needs from the backend to build [[S-42 Discover Hub & Search Story]], and whether each need is met today. **Rewritten 2026-11-16** against the story as of that day and [[D-37 Discover opens a Pin by its exact Pin name in the MVP|D-37]]: the MVP is S1, S2 and S3, and it needs **one call that already exists**, `GET /views/pin/:pinName`. Recent searches stay on the phone; the tiles only navigate. Gemma, contact matching, search by name and a business Pin opening s55 are later.
 
@@ -90,9 +92,11 @@ Nothing for the MVP: the story is approved and its one call exists. The later ro
 
 ## Sign-off
 
-- Approved by: — · on: —
+- Approved by: khaled · on: 2026-11-16 (the backend's review, against `main @ 3cef5d7`)
 
 ## Log
 
 - 2026-11-16 · `tickets/frontend/M-04-discovery/F-19-discover-hub/FR-19-s-42-2026-11-16` · rewritten to S-42 as of 2026-11-16 and D-37: the MVP needs only `GET /views/pin/:pinName` ✅; recent searches on the phone per user (no backend need); the tiles only navigate to other features; my own Pin name opens View as; demo people only outside production; the offline / no-answer state; Gemma, contact matching, name search and a business Pin to s55 later. Kept the input and privacy rules (strip `!` and `@`, trim, lowercase, submit only, one message for 404 and 400, no availability probe). Dropped the server recent-searches row, the tile rows and the S6 / S7 blocks. Cleared the S-42 (2026-11-12, 2026-11-16), D-37, S-29 and S-23 flags. Kept `draft`
 - 2026-11-16 · `tickets/frontend/M-04-discovery/F-19-discover-hub/FR-19-ready` · every screen, endpoint row and error state is in: set `ready` (📨) on Omar Fostok's word, handed to the backend; flagged [[BD-19 Discover Hub & Search Backend Delivery]]
+- 2026-11-16 · `tickets/backend/M-04-discovery/F-19-discover-hub/FR-19-accepted` · backend review against S-42 and backend `main` `3cef5d7`: the list holds, `ready` → `approved` on khaled's word. The MVP (S1–S3, D-37) needs nothing new: `GET /views/pin/:pinName` exists and answers the view with `pinName` and `displayName`, no Ring id and no user id; unknown, deleted, not shared and blocked all answer 404 `E_RING_ACCESS_01`; `GET /profiles` gives my own `pinName`. Two things on the wire for the app to know: the route has no name validation today, so the 400 row never fires (harmless: the app treats it as the 404), and `displayName` may be `null`. [[BD-19 Discover Hub & Search Backend Delivery]] → `in-progress`; flagged [[S-42 Discover Hub & Search Story]] (which Ring the resolve renders)
+- 2026-11-16 · flagged [[S-42 Discover Hub & Search Story]]: for /pm: 'Rules the backend already enforces' says GET /views/pin/:pinName renders the default Ring if the viewer is in it, else the oldest Ring they can see; backend main 3cef5d7 renders the viewer's oldest live membership (D-15). The story's line to bring to that; nothing changes for FR-19 or the app

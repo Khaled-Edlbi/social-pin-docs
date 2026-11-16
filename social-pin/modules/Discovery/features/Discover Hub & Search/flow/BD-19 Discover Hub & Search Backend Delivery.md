@@ -3,23 +3,17 @@ id: BD-19
 type: backend-delivery
 module: discovery
 feature: discover-hub
-status: todo
+status: in-progress
 scope: feature
 screens: [s38]
 created: 2026-10-18
-updated: 2026-10-29
-tags: [backend-delivery, backend-delivery/todo, module/discovery, layer/backend]
+updated: 2026-11-16
+tags: [backend-delivery, backend-delivery/in-progress, module/discovery, layer/backend]
 ---
 
-# ⬜ Discover Hub & Search · Backend Delivery
+# 🟡 Discover Hub & Search · Backend Delivery
 
-> ⚠ Affected by [[FR-19 Discover Hub & Search Frontend Requirements]] (2026-11-16): FR-19 is `ready` for review, rewritten to S-42 and D-37: the MVP asks for nothing new, only `GET /views/pin/:pinName` (exists, BI-09) and `GET /profiles`; recent searches stay on the phone; the tiles belong to other features; Gemma, contact matching, name search and a business Pin to s55 are later
-
-> ⚠ Affected by [[S-42 Discover Hub & Search Story]] (2026-11-16): the gap "Recent searches (per user, private)" is stale: recent searches stay on the phone, per user, with no server store (D-37, S-42 S3); nothing to build for them. S6 and S7 (merged T-030, T-031) are folded into S2, S3 and S5
-
-> ⚠ Affected by [[D-37 Discover opens a Pin by its exact Pin name in the MVP]] (2026-11-12): F-19 is in the MVP, needing only the existing GET /views/pin/{pinName}; recent searches stay on the phone (no server store); name search, Gemma and contact matching are later
-
-**Feature:** [[F-19 Discover Hub & Search]] · **Status:** To do · **Integration guide:** [[Discover Hub & Search Backend Integration]] · **Requirements:** [[FR-19 Discover Hub & Search Frontend Requirements]] · **QA:** [[Discover Hub & Search QA Backend]]
+**Feature:** [[F-19 Discover Hub & Search]] · **Status:** In progress · **Integration guide:** [[Discover Hub & Search Backend Integration]] · **Requirements:** [[FR-19 Discover Hub & Search Frontend Requirements]] · **QA:** [[Discover Hub & Search QA Backend]]
 
 What the backend shipped for this feature and how it works. The sum of this feature's task-level Backend Delivery notes (see the *Tasks* table below).
 
@@ -33,14 +27,18 @@ What the backend shipped for this feature and how it works. The sum of this feat
 
 ### What exists
 
-- Resolving one exact Pin name works.
+- Resolving one exact Pin name works: `GET /views/pin/:pinName` answers the view of what that person shares with the viewer, with `pinName` and `displayName` (which may be `null`), no Ring id and no user id. It is View As & Pin Views' route; how to call it is [[BI-09 View As & Pin Views Backend Integration]].
+- The lookup is not a membership oracle: unknown, deleted, not shared and blocked all answer the same 404 `E_RING_ACCESS_01`.
+- The viewer's own Pin name: `pinName` on `GET /profiles`.
+- This is everything the MVP asks ([[FR-19 Discover Hub & Search Frontend Requirements]], S1–S3, [[D-37 Discover opens a Pin by its exact Pin name in the MVP|D-37]]): nothing new to build.
 
 ### Gaps
 
-- Search must **not** become a membership oracle: a `!pinname` lookup returns the same 404 whether unknown, not shared, or blocked.
-- Recent searches (per user, private).
-- Import contacts (phone book match by hashed email / phone).
+- The route does not validate the name's format: a malformed name answers the same 404, never a 400.
+- Recent searches: not a gap any more. They stay on the phone, per user, with no server store (D-37, S-42 S3).
+- Later (D-37), not built: search by name, Gemma, import contacts (phone book match by hashed email / phone), and knowing a Pin name is a business's.
 
 ## Log
 
 - 2026-10-18 · split out of [[F-19 Discover Hub & Search]] when the vault moved to layers
+- 2026-11-16 · `tickets/backend/M-04-discovery/F-19-discover-hub/FR-19-accepted` · [[FR-19 Discover Hub & Search Frontend Requirements]] approved on the backend's review (backend `main` `3cef5d7`): `todo` → `in-progress`. The MVP (S-42 S1–S3, D-37) asks for nothing new; *What exists* and *Gaps* brought to that, and the FR-19, S-42 and D-37 flags (2026-11-12, 2026-11-16) cleared

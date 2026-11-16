@@ -7540,7 +7540,7 @@
     }
   },
   "counts": {
-    "blocked": 30,
+    "blocked": 29,
     "bugs": 27,
     "byKind": {
       "backend-delivery": 39,
@@ -7566,7 +7566,7 @@
     },
     "concepts": 358,
     "decisions": 38,
-    "edges": 9086,
+    "edges": 9085,
     "features": 40,
     "layerNotes": 168,
     "modules": 8,
@@ -9671,11 +9671,6 @@
       "from": "frontend-requirements:devices",
       "kind": "blocks",
       "to": "backend-delivery:devices"
-    },
-    {
-      "from": "frontend-requirements:discover-hub",
-      "kind": "blocks",
-      "to": "backend-delivery:discover-hub"
     },
     {
       "from": "frontend-requirements:e2e-tests",
@@ -70910,11 +70905,6 @@
       "to": "frontend-requirements:devices"
     },
     {
-      "from": "backend-delivery:discover-hub",
-      "kind": "wikilink",
-      "to": "story:discover-hub"
-    },
-    {
       "from": "backend-delivery:e2e-tests",
       "kind": "wikilink",
       "to": "frontend-requirements:e2e-tests"
@@ -75997,6 +75987,11 @@
     {
       "from": "story:discover-hub",
       "kind": "wikilink",
+      "to": "backend-delivery:discover-hub"
+    },
+    {
+      "from": "story:discover-hub",
+      "kind": "wikilink",
       "to": "story:gemma"
     },
     {
@@ -79512,20 +79507,14 @@
     },
     "backend-delivery:discover-hub": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "frontend-requirements:discover-hub",
-          "title": "FR-19 Discover Hub & Search Frontend Requirements",
-          "why": "FR-19 Discover Hub & Search Frontend Requirements is ready"
-        }
-      ],
+      "blockedBy": [],
       "card": "BD-19",
       "children": [],
       "code": "discover-hub",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "discover-hub",
       "foundOn": null,
@@ -79582,18 +79571,18 @@
       "screens": [
         "s38"
       ],
-      "status": "todo",
+      "status": "in-progress",
       "summary": "What the backend shipped for this feature and how it works. The sum of this feature's task-level Backend Delivery notes (see the Tasks table below).",
       "tags": [
         "backend-delivery",
-        "backend-delivery/todo",
+        "backend-delivery/in-progress",
         "module/discovery",
         "layer/backend"
       ],
       "task": null,
       "title": "BD-19 Discover Hub & Search Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-16"
     },
     "backend-delivery:e2e-tests": {
       "affects": [],
@@ -82871,7 +82860,7 @@
         {
           "id": "backend-delivery:discover-hub",
           "title": "BD-19 Discover Hub & Search Backend Delivery",
-          "why": "BD-19 Discover Hub & Search Backend Delivery is blocked"
+          "why": "BD-19 Discover Hub & Search Backend Delivery is in progress"
         }
       ],
       "card": null,
@@ -88757,12 +88746,11 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "approved": 1,
-        "blocked": 1,
+        "approved": 2,
         "decided": 1,
         "done": 1,
+        "in-progress": 1,
         "missing": 3,
-        "ready": 1,
         "verified": 1
       },
       "scope": null,
@@ -95498,7 +95486,7 @@
       "depends": [
         "story:discover-hub"
       ],
-      "effectiveStatus": "ready",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "discover-hub",
       "foundOn": null,
@@ -95580,11 +95568,11 @@
         "s38",
         "s44"
       ],
-      "status": "ready",
+      "status": "approved",
       "summary": "What the client needs from the backend to build S-42 Discover Hub & Search Story, and whether each need is met today. Rewritten 2026-11-16 against the story as of that day and D-37: the MVP is S1,…",
       "tags": [
         "frontend-requirements",
-        "frontend-requirements/ready",
+        "frontend-requirements/approved",
         "module/discovery",
         "layer/frontend"
       ],
@@ -98807,17 +98795,17 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 3,
-        "blocked": 2,
+        "approved": 4,
+        "blocked": 1,
         "current": 1,
         "decided": 4,
         "delivered": 1,
         "done": 2,
-        "in-progress": 3,
+        "in-progress": 4,
         "missing": 8,
         "partial": 1,
         "passing": 1,
-        "ready": 2,
+        "ready": 1,
         "verified": 4
       },
       "scope": null,
@@ -104966,7 +104954,7 @@
         {
           "id": "backend-delivery:discover-hub",
           "title": "BD-19 Discover Hub & Search Backend Delivery",
-          "why": "BD-19 Discover Hub & Search Backend Delivery is blocked"
+          "why": "BD-19 Discover Hub & Search Backend Delivery is in progress"
         }
       ],
       "card": null,
@@ -109534,20 +109522,20 @@
         }
       ],
       "rollup": {
-        "approved": 41,
-        "blocked": 30,
+        "approved": 42,
+        "blocked": 29,
         "current": 5,
         "decided": 37,
         "delivered": 17,
         "done": 44,
         "draft": 22,
         "failing": 1,
-        "in-progress": 46,
+        "in-progress": 47,
         "missing": 110,
         "needs-decision": 1,
         "partial": 12,
         "passing": 13,
-        "ready": 9,
+        "ready": 8,
         "reference": 32,
         "todo": 2,
         "verified": 38
