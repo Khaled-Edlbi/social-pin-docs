@@ -25722,6 +25722,11 @@
     {
       "from": "feature:pincast",
       "kind": "related",
+      "to": "project:mvp-order"
+    },
+    {
+      "from": "feature:pincast",
+      "kind": "related",
       "to": "project:ring-access-model"
     },
     {
@@ -74866,11 +74871,6 @@
     {
       "from": "project:mvp-order",
       "kind": "wikilink",
-      "to": "feature:pincast"
-    },
-    {
-      "from": "project:mvp-order",
-      "kind": "wikilink",
       "to": "feature:profiles"
     },
     {
@@ -80272,7 +80272,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "backend-delivery:pincast",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:pincast",
+        "release": "feature:pincast"
+      },
       "kind": "backend-delivery",
       "label": "Backend Delivery",
       "labels": [],
@@ -80285,9 +80288,9 @@
       ],
       "path": "social-pin/modules/Discovery/features/PinCast & Nearby/flow/BD-20 PinCast & Nearby Backend Delivery.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -89705,11 +89708,12 @@
       ],
       "path": "social-pin/modules/Discovery/features/PinCast & Nearby/F-20 PinCast & Nearby.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "feature:discover-hub",
         "feature:rings",
         "feature:view-as",
+        "project:mvp-order",
         "feature:ring-access",
         "feature:notifications",
         "feature:cleanup-jobs",
@@ -89720,7 +89724,7 @@
         "project:spec-map",
         "story:discover-hub"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "rollup": {
         "approved": 1,
@@ -89740,12 +89744,14 @@
       "summary": "Proximity broadcast limited by distance and time (s39 – s42) and nearby-by-Ring. The PostGIS column, trigger and GiST index are in place.",
       "tags": [
         "feature",
-        "module/discovery"
+        "module/discovery",
+        "priority/critical",
+        "release/mvp"
       ],
       "task": null,
       "title": "F-20 PinCast & Nearby",
       "unmet": [],
-      "updated": "2026-11-01"
+      "updated": "2026-11-16"
     },
     "feature:post-event": {
       "affects": [],
@@ -96585,7 +96591,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-requirements:pincast",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:pincast",
+        "release": "feature:pincast"
+      },
       "kind": "frontend-requirements",
       "label": "Frontend Requirements",
       "labels": [],
@@ -96598,7 +96607,7 @@
       ],
       "path": "social-pin/modules/Discovery/features/PinCast & Nearby/flow/FR-20 PinCast & Nearby Frontend Requirements.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-03",
         "task:B-13",
@@ -96645,7 +96654,7 @@
         "frontend-delivery:ring-invitations",
         "qa-backend:ring-invitations"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
@@ -102794,6 +102803,7 @@
       "pending": [],
       "priority": null,
       "related": [
+        "feature:pincast",
         "project:project-overview",
         "project:feature-tree",
         "needs-decision:ND-10",
@@ -109073,7 +109083,7 @@
           "done": 1,
           "id": "mvp",
           "partial": 0,
-          "total": 27
+          "total": 28
         },
         {
           "done": 0,
@@ -109091,7 +109101,7 @@
           "done": 0,
           "id": null,
           "partial": 0,
-          "total": 13
+          "total": 12
         }
       ],
       "rollup": {
@@ -111417,7 +111427,10 @@
       "foundOn": null,
       "frontendOnly": false,
       "id": "story:pincast",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:pincast",
+        "release": "feature:pincast"
+      },
       "kind": "story",
       "label": "User Story",
       "labels": [],
@@ -111430,7 +111443,7 @@
       ],
       "path": "social-pin/modules/Discovery/features/PinCast & Nearby/S-45 PinCast & Nearby Story.md",
       "pending": [],
-      "priority": null,
+      "priority": "critical",
       "related": [
         "task:B-17",
         "frontend-requirements:connections",
@@ -111444,7 +111457,7 @@
         "qa-backend:view-as",
         "qa-backend:ring-invitations"
       ],
-      "release": null,
+      "release": "mvp",
       "resolution": null,
       "scope": "feature",
       "screens": [
