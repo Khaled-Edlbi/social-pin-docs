@@ -283,7 +283,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
       - ∅ _Discover Hub & Search QA Frontend_ (QA Frontend)
     - 🔵 [F-20 PinCast & Nearby](social-pin/modules/Discovery/features/PinCast%20%26%20Nearby/F-20%20PinCast%20%26%20Nearby.md) (release MVP, Critical)
       - 👍 [S-45 PinCast & Nearby Story](social-pin/modules/Discovery/features/PinCast%20%26%20Nearby/S-45%20PinCast%20%26%20Nearby%20Story.md) (User Story, Critical)
-      - ✏️ [FR-20 PinCast & Nearby Frontend Requirements](social-pin/modules/Discovery/features/PinCast%20%26%20Nearby/flow/FR-20%20PinCast%20%26%20Nearby%20Frontend%20Requirements.md) (Frontend Requirements, Critical)
+      - 📨 [FR-20 PinCast & Nearby Frontend Requirements](social-pin/modules/Discovery/features/PinCast%20%26%20Nearby/flow/FR-20%20PinCast%20%26%20Nearby%20Frontend%20Requirements.md) (Frontend Requirements, Critical)
       - ⛔ [BD-20 PinCast & Nearby Backend Delivery](social-pin/modules/Discovery/features/PinCast%20%26%20Nearby/flow/BD-20%20PinCast%20%26%20Nearby%20Backend%20Delivery.md) (Backend Delivery, Critical, blocked by FR-20 PinCast & Nearby Frontend Requirements)
       - ∅ _PinCast & Nearby Backend Integration_ (Backend Integration, blocked by BD-20 PinCast & Nearby Backend Delivery)
       - ∅ _PinCast & Nearby QA Backend_ (QA Backend, blocked by BD-20 PinCast & Nearby Backend Delivery)

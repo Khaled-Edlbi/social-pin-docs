@@ -20,6 +20,8 @@ tags: [frontend-requirements, frontend-requirements/approved, module/connections
 
 # 📨 Connections · Frontend Requirements
 
+> ⚠ Affected by [[FR-20 PinCast & Nearby Frontend Requirements]] (2026-11-16): PinCast (S-45 N1, in the MVP) opens a person by a PinCast token, like a scanned badge: add `{ pincastToken, note? }` to `POST /connections/requests` and `?pincastToken=` to `GET /connections/relationship` (and `POST /blocks`), next to `qrToken`; never by Pin name (S-23 S2)
+
 > ⚠ Affected by [[S-23 Connections Story]] (2026-11-12): S17 Introduce is an MVP part (D-38) and needs an endpoint (its shape waits on what Introduce sends); S8 Discover's People tile opens Contacts ("Requests · N"); the app's wording kept: "Can't add this person.", "…whichever comes first ends their access.", "You can't do that here.", "You haven't blocked anyone.", "Nothing shared with you right now."
 
 > ⚠ Affected by [[BD-18 Badge & QR Backend Delivery]] (2026-11-08): GET /views/qr/:token is on backend main 1c460b0: the 'By scan' and 'The card by scanned code' rows can read ✅ (BI-15); Connect by { qrToken } is still ❌
