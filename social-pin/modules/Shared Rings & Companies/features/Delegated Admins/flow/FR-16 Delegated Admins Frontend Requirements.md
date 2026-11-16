@@ -3,7 +3,7 @@ id: FR-16
 type: frontend-requirements
 module: shared-rings
 feature: delegated-admins
-status: draft
+status: ready
 scope: feature
 screens: [s15, s16, s22, s69, s73]
 blockedBy: []
@@ -13,12 +13,12 @@ related: ["S-31 Delegated Admins Story", "D-04 Ring settings at launch and their
 pending: []
 created: 2026-10-18
 updated: 2026-11-16
-tags: [frontend-requirements, frontend-requirements/draft, module/shared-rings, layer/frontend]
+tags: [frontend-requirements, frontend-requirements/ready, module/shared-rings, layer/frontend]
 ---
 
-# Delegated Admins · Frontend Requirements
+# 📨 Delegated Admins · Frontend Requirements
 
-**Feature:** [[F-16 Delegated Admins]] · **Status:** Draft · **Story:** [[S-31 Delegated Admins Story]] (draft, updated 2026-11-16) · **Backend Integration:** not yet (no admin routes: [[BD-16 Delegated Admins Backend Delivery]])
+**Feature:** [[F-16 Delegated Admins]] · **Status:** Ready, 2026-11-16 (waiting on the backend's review) · **Story:** [[S-31 Delegated Admins Story]] (approved 2026-11-16) · **Backend Integration:** not yet (no admin routes: [[BD-16 Delegated Admins Backend Delivery]])
 
 What the client needs from the backend to build every part of [[S-31 Delegated Admins Story]], S1 to S9, and whether each need is met today. **Rewritten 2026-11-16** against the story as updated that day and its rules A1–A8 ([[S-31 Delegated Admins Story#Decided in this story|Decided in this story]]): the old two-screen layout (s26 Edit · access, s27 Edit · permissions), the picker over connections and the links to the old *Delegated Admins · S6* are gone; the six settings exist, so the ND-04 block is gone too.
 
@@ -157,7 +157,7 @@ Until [[S-87 Error Contract Story|Error Contract · S4–S8]] puts `ErrorCode` o
 
 ## Blocked by
 
-The story is a draft (updated 2026-11-16, not approved yet): this list waits on its approval as well as on:
+The story is approved (2026-11-16, A1–A8), so this list isn't blocked by it. Rows wait on:
 
 - [[BD-16 Delegated Admins Backend Delivery|BD-16]]: the admin routes, Rings I manage, the admin read with `myLevel`, the settings by level, ending the rights.
 - [[FR-17 Ring Invitations & Join Frontend Requirements|FR-17]]: join codes and invitations accepting a `MEMBER_MANAGER`.
@@ -172,3 +172,4 @@ The story is a draft (updated 2026-11-16, not approved yet): this list waits on 
 ## Log
 
 - 2026-11-16 · `tickets/frontend/M-03-shared-rings/F-16-delegated-admins/FR-16-s-31-2026-11-16` · rewritten from S-31 as updated 2026-11-16 (A1–A8): ADMINS on the People tab s15, company Rings and owner only; the picker over the Ring's members (`GET /rings/:ringId/members?name=` ✅); the two levels in words; add, change, remove each saved at once; Rings you manage on s16 and s73; the admin's Edit Ring (s22) and s15 with owner-only controls absent, from `myLevel`; "Your role on this Ring has changed" on 403 `E_RING_05`; the endpoints S-31 lists as not built (admins list, add, change, remove, Rings I manage, `GET /rings/:id` for an admin with `myLevel`, settings by level); proposed `E_RING_ADMIN_01`–`04`. Dropped the s26/s27 two-screen layout, the connections picker, the *Delegated Admins · S6* links and the ND-04 block. Cleared the S-31 (2026-11-05, 2026-11-16), S-23 and D-04 flags. Kept `draft`
+- 2026-11-16 · `tickets/frontend/M-03-shared-rings/F-16-delegated-admins/FR-16-ready` · S-31 approved 2026-11-16 by Omar Fostok; every screen, endpoint row and error state is in: set `ready` (📨) on Omar Fostok's word, handed to the backend; flagged [[BD-16 Delegated Admins Backend Delivery]]

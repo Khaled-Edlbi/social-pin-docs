@@ -944,6 +944,7 @@
       ],
       "kind": "endpoint",
       "notes": [
+        "backend-delivery:delegated-admins",
         "frontend-requirements:delegated-admins",
         "story:delegated-admins"
       ],
@@ -2921,6 +2922,7 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:counts",
+        "backend-delivery:delegated-admins",
         "backend-delivery:profiles",
         "backend-delivery:rings",
         "backend-integration:badge-qr",
@@ -2997,6 +2999,7 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:counts",
+        "backend-delivery:delegated-admins",
         "backend-delivery:rings",
         "backend-integration:counts",
         "backend-integration:rings",
@@ -3373,6 +3376,7 @@
       ],
       "kind": "endpoint",
       "notes": [
+        "backend-delivery:delegated-admins",
         "frontend-requirements:delegated-admins",
         "story:delegated-admins"
       ],
@@ -4995,6 +4999,16 @@
         "task:B-15"
       ],
       "owner": "feature:rings"
+    },
+    "POST /rings/:ringId/admins": {
+      "containers": [
+        "feature:delegated-admins"
+      ],
+      "kind": "endpoint",
+      "notes": [
+        "backend-delivery:delegated-admins"
+      ],
+      "owner": null
     },
     "POST /rings/:ringId/invitations": {
       "containers": [
@@ -7354,9 +7368,9 @@
       "qa": 16,
       "shared": 10
     },
-    "concepts": 339,
+    "concepts": 340,
     "decisions": 38,
-    "edges": 9004,
+    "edges": 9015,
     "features": 40,
     "layerNotes": 168,
     "modules": 8,
@@ -13763,6 +13777,15 @@
     {
       "from": "backend-delivery:counts",
       "kind": "related",
+      "to": "backend-delivery:delegated-admins",
+      "via": [
+        "GET /rings",
+        "GET /rings/:id"
+      ]
+    },
+    {
+      "from": "backend-delivery:counts",
+      "kind": "related",
       "to": "backend-delivery:error-contract",
       "via": [
         "E_RING_02"
@@ -19146,6 +19169,14 @@
     {
       "from": "backend-integration:connections",
       "kind": "related",
+      "to": "backend-delivery:delegated-admins",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
       "to": "backend-delivery:error-contract",
       "via": [
         "E_RING_02"
@@ -20323,6 +20354,15 @@
       "to": "backend-delivery:account",
       "via": [
         "GET /connections/count"
+      ]
+    },
+    {
+      "from": "backend-integration:counts",
+      "kind": "related",
+      "to": "backend-delivery:delegated-admins",
+      "via": [
+        "GET /rings",
+        "GET /rings/:id"
       ]
     },
     {
@@ -27957,6 +27997,14 @@
     {
       "from": "frontend-delivery:ring-members",
       "kind": "related",
+      "to": "backend-delivery:delegated-admins",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:ring-members",
+      "kind": "related",
       "to": "backend-delivery:profiles",
       "via": [
         "GET /rings"
@@ -28710,6 +28758,14 @@
       "to": "backend-delivery:account",
       "via": [
         "GET /views/qr/:token"
+      ]
+    },
+    {
+      "from": "frontend-delivery:view-as",
+      "kind": "related",
+      "to": "backend-delivery:delegated-admins",
+      "via": [
+        "GET /rings"
       ]
     },
     {
@@ -29512,6 +29568,7 @@
       "kind": "related",
       "to": "backend-delivery:delegated-admins",
       "via": [
+        "GET /rings",
         "PATCH /rings/:id"
       ]
     },
@@ -30252,6 +30309,14 @@
         "GET /connections/count",
         "GET /rings",
         "GET /rings/shared-with-me"
+      ]
+    },
+    {
+      "from": "frontend-requirements:connections",
+      "kind": "related",
+      "to": "backend-delivery:delegated-admins",
+      "via": [
+        "GET /rings"
       ]
     },
     {
@@ -31464,6 +31529,8 @@
       "kind": "related",
       "to": "backend-delivery:delegated-admins",
       "via": [
+        "GET /rings",
+        "GET /rings/:id",
         "PATCH /rings/:id"
       ]
     },
@@ -34808,6 +34875,14 @@
     {
       "from": "frontend-requirements:ring-members",
       "kind": "related",
+      "to": "backend-delivery:delegated-admins",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-requirements:ring-members",
+      "kind": "related",
       "to": "backend-delivery:error-contract",
       "via": [
         "E_RING_02"
@@ -36460,6 +36535,14 @@
         "GET /rings/shared-with-me",
         "PATCH /rings/:id",
         "POST /rings"
+      ]
+    },
+    {
+      "from": "frontend-requirements:view-as",
+      "kind": "related",
+      "to": "backend-delivery:delegated-admins",
+      "via": [
+        "GET /rings"
       ]
     },
     {
@@ -39922,6 +40005,14 @@
     {
       "from": "qa-backend:connections",
       "kind": "related",
+      "to": "backend-delivery:delegated-admins",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "qa-backend:connections",
+      "kind": "related",
       "to": "backend-delivery:error-contract",
       "via": [
         "E_RING_02"
@@ -41044,6 +41135,15 @@
       "to": "task:B-15",
       "via": [
         "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-backend:counts",
+      "kind": "related",
+      "to": "backend-delivery:delegated-admins",
+      "via": [
+        "GET /rings",
+        "GET /rings/:id"
       ]
     },
     {
@@ -46383,6 +46483,8 @@
       "kind": "related",
       "to": "backend-delivery:delegated-admins",
       "via": [
+        "GET /rings",
+        "GET /rings/:id",
         "PATCH /rings/:id"
       ]
     },
@@ -48271,6 +48373,14 @@
       "from": "qa-frontend:auth",
       "kind": "related",
       "to": "backend-delivery:counts",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "qa-frontend:auth",
+      "kind": "related",
+      "to": "backend-delivery:delegated-admins",
       "via": [
         "GET /rings"
       ]
@@ -51706,6 +51816,7 @@
       "kind": "related",
       "to": "backend-delivery:delegated-admins",
       "via": [
+        "GET /rings",
         "PATCH /rings/:id"
       ]
     },
@@ -78420,6 +78531,7 @@
         "frontend-requirements:app-shell",
         "frontend-requirements:cleanup-jobs",
         "frontend-requirements:companies",
+        "backend-delivery:delegated-admins",
         "frontend-requirements:delegated-admins",
         "story:delegated-admins",
         "backend-integration:ring-invitations",
@@ -78492,7 +78604,7 @@
         {
           "id": "frontend-requirements:delegated-admins",
           "title": "FR-16 Delegated Admins Frontend Requirements",
-          "why": "FR-16 Delegated Admins Frontend Requirements is draft"
+          "why": "FR-16 Delegated Admins Frontend Requirements is ready"
         }
       ],
       "card": "BD-16",
@@ -78528,11 +78640,22 @@
         "task:B-13",
         "task:B-14",
         "task:B-16",
+        "backend-integration:connections",
+        "frontend-requirements:connections",
+        "qa-backend:connections",
+        "qa-frontend:auth",
+        "backend-delivery:counts",
+        "backend-integration:counts",
+        "qa-backend:counts",
         "qa-backend:ring-access",
+        "frontend-delivery:ring-members",
+        "frontend-requirements:ring-members",
         "backend-delivery:rings",
         "backend-integration:rings",
         "frontend-requirements:rings",
         "qa-backend:rings",
+        "frontend-delivery:view-as",
+        "frontend-requirements:view-as",
         "frontend-requirements:companies",
         "frontend-requirements:delegated-admins"
       ],
@@ -81631,6 +81754,7 @@
         "frontend-requirements:app-shell",
         "frontend-requirements:cleanup-jobs",
         "frontend-requirements:companies",
+        "backend-delivery:delegated-admins",
         "frontend-requirements:delegated-admins",
         "story:delegated-admins",
         "frontend-delivery:ring-invitations",
@@ -81775,6 +81899,7 @@
         "frontend-requirements:app-shell",
         "frontend-requirements:cleanup-jobs",
         "frontend-requirements:companies",
+        "backend-delivery:delegated-admins",
         "frontend-requirements:delegated-admins",
         "story:delegated-admins",
         "backend-integration:ring-invitations",
@@ -87667,8 +87792,8 @@
         "approved": 1,
         "blocked": 1,
         "decided": 1,
-        "draft": 1,
         "missing": 4,
+        "ready": 1,
         "verified": 1
       },
       "scope": null,
@@ -92650,6 +92775,7 @@
         "frontend-delivery:app-shell",
         "frontend-requirements:app-shell",
         "frontend-requirements:cleanup-jobs",
+        "backend-delivery:delegated-admins",
         "story:delegated-admins",
         "project:status-report-2026-10-15",
         "project:frontend-contract"
@@ -93075,6 +93201,7 @@
         "frontend-delivery:app-shell",
         "frontend-requirements:app-shell",
         "frontend-requirements:cleanup-jobs",
+        "backend-delivery:delegated-admins",
         "frontend-requirements:delegated-admins",
         "story:delegated-admins",
         "frontend-delivery:ring-invitations",
@@ -93907,6 +94034,7 @@
         "frontend-delivery:app-shell",
         "frontend-requirements:app-shell",
         "frontend-requirements:cleanup-jobs",
+        "backend-delivery:delegated-admins",
         "story:delegated-admins",
         "frontend-delivery:ring-invitations",
         "project:spec-map",
@@ -93921,7 +94049,6 @@
         "qa-backend:ring-invitations",
         "story:ring-invitations",
         "task:B-14",
-        "backend-delivery:delegated-admins",
         "needs-decision:ND-10",
         "story:badge-qr",
         "frontend-requirements:events-during",
@@ -94109,6 +94236,7 @@
         "frontend-requirements:app-shell",
         "frontend-requirements:cleanup-jobs",
         "frontend-requirements:companies",
+        "backend-delivery:delegated-admins",
         "story:delegated-admins",
         "frontend-delivery:ring-invitations",
         "frontend-requirements:ring-invitations",
@@ -94304,7 +94432,7 @@
       "depends": [
         "story:delegated-admins"
       ],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "ready",
       "effort": null,
       "feature": "delegated-admins",
       "foundOn": null,
@@ -94412,6 +94540,7 @@
         "frontend-delivery:app-shell",
         "frontend-requirements:app-shell",
         "frontend-requirements:cleanup-jobs",
+        "backend-delivery:delegated-admins",
         "frontend-delivery:ring-invitations",
         "project:spec-map",
         "project:status-report-2026-10-15",
@@ -94419,7 +94548,6 @@
         "frontend-requirements:events-during",
         "frontend-requirements:meetings",
         "story:ring-access",
-        "backend-delivery:delegated-admins",
         "qa-backend:ring-invitations",
         "task:B-15",
         "story:badge-qr",
@@ -94443,11 +94571,11 @@
         "s69",
         "s73"
       ],
-      "status": "draft",
+      "status": "ready",
       "summary": "What the client needs from the backend to build every part of S-31 Delegated Admins Story, S1 to S9, and whether each need is met today. Rewritten 2026-11-16 against the story as updated that day…",
       "tags": [
         "frontend-requirements",
-        "frontend-requirements/draft",
+        "frontend-requirements/ready",
         "module/shared-rings",
         "layer/frontend"
       ],
@@ -96675,6 +96803,7 @@
         "frontend-delivery:app-shell",
         "frontend-requirements:app-shell",
         "frontend-requirements:cleanup-jobs",
+        "backend-delivery:delegated-admins",
         "backend-integration:ring-invitations",
         "frontend-delivery:ring-invitations",
         "frontend-requirements:ring-invitations",
@@ -97260,6 +97389,7 @@
         "frontend-delivery:app-shell",
         "frontend-requirements:app-shell",
         "frontend-requirements:cleanup-jobs",
+        "backend-delivery:delegated-admins",
         "frontend-requirements:delegated-admins",
         "story:delegated-admins",
         "frontend-delivery:ring-invitations",
@@ -98089,12 +98219,11 @@
         "blocked": 3,
         "current": 1,
         "decided": 9,
-        "draft": 1,
         "in-progress": 3,
         "missing": 8,
         "partial": 2,
         "passing": 1,
-        "ready": 1,
+        "ready": 2,
         "verified": 9
       },
       "scope": null,
@@ -103558,6 +103687,7 @@
         "frontend-requirements:app-shell",
         "frontend-requirements:cleanup-jobs",
         "frontend-requirements:companies",
+        "backend-delivery:delegated-admins",
         "frontend-requirements:delegated-admins",
         "story:delegated-admins",
         "frontend-delivery:ring-invitations",
@@ -103714,6 +103844,7 @@
         "frontend-requirements:app-shell",
         "frontend-requirements:cleanup-jobs",
         "frontend-requirements:companies",
+        "backend-delivery:delegated-admins",
         "frontend-requirements:delegated-admins",
         "story:delegated-admins",
         "backend-integration:ring-invitations",
@@ -105961,6 +106092,7 @@
         "frontend-requirements:app-shell",
         "frontend-requirements:cleanup-jobs",
         "frontend-requirements:companies",
+        "backend-delivery:delegated-admins",
         "frontend-requirements:delegated-admins",
         "story:delegated-admins",
         "backend-integration:ring-invitations",
@@ -105981,7 +106113,6 @@
         "story:companies",
         "frontend-requirements:events-during",
         "frontend-requirements:meetings",
-        "backend-delivery:delegated-admins",
         "backend-delivery:post-event",
         "frontend-delivery:ring-access",
         "story:error-contract",
@@ -106697,6 +106828,7 @@
         "frontend-delivery:app-shell",
         "frontend-requirements:cleanup-jobs",
         "frontend-requirements:companies",
+        "backend-delivery:delegated-admins",
         "frontend-requirements:delegated-admins",
         "story:delegated-admins",
         "backend-integration:ring-invitations",
@@ -108463,14 +108595,14 @@
         "decided": 37,
         "delivered": 17,
         "done": 44,
-        "draft": 24,
+        "draft": 23,
         "failing": 1,
         "in-progress": 46,
         "missing": 110,
         "needs-decision": 1,
         "partial": 12,
         "passing": 13,
-        "ready": 7,
+        "ready": 8,
         "reference": 32,
         "todo": 2,
         "verified": 38
@@ -112897,6 +113029,7 @@
         "frontend-requirements:app-shell",
         "frontend-requirements:cleanup-jobs",
         "frontend-requirements:companies",
+        "backend-delivery:delegated-admins",
         "frontend-requirements:delegated-admins",
         "story:delegated-admins",
         "backend-integration:ring-invitations",
@@ -112922,7 +113055,6 @@
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
         "story:ring-access",
-        "backend-delivery:delegated-admins",
         "qa-backend:photo-library"
       ],
       "release": "mvp",
