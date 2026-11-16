@@ -13,6 +13,8 @@ tags: [backend-delivery, backend-delivery/todo, module/discovery, layer/backend]
 
 # ⬜ Discover Hub & Search · Backend Delivery
 
+> ⚠ Affected by [[FR-19 Discover Hub & Search Frontend Requirements]] (2026-11-16): FR-19 is `ready` for review, rewritten to S-42 and D-37: the MVP asks for nothing new, only `GET /views/pin/:pinName` (exists, BI-09) and `GET /profiles`; recent searches stay on the phone; the tiles belong to other features; Gemma, contact matching, name search and a business Pin to s55 are later
+
 > ⚠ Affected by [[S-42 Discover Hub & Search Story]] (2026-11-16): the gap "Recent searches (per user, private)" is stale: recent searches stay on the phone, per user, with no server store (D-37, S-42 S3); nothing to build for them. S6 and S7 (merged T-030, T-031) are folded into S2, S3 and S5
 
 > ⚠ Affected by [[D-37 Discover opens a Pin by its exact Pin name in the MVP]] (2026-11-12): F-19 is in the MVP, needing only the existing GET /views/pin/{pinName}; recent searches stay on the phone (no server store); name search, Gemma and contact matching are later
