@@ -1574,6 +1574,7 @@
       ],
       "kind": "error",
       "notes": [
+        "backend-delivery:pincast",
         "frontend-requirements:pincast"
       ],
       "owner": null
@@ -2359,6 +2360,7 @@
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-requirements:badge-qr",
+        "frontend-requirements:connections",
         "frontend-requirements:pincast",
         "frontend-requirements:view-as"
       ],
@@ -2392,6 +2394,7 @@
       ],
       "kind": "endpoint",
       "notes": [
+        "backend-delivery:pincast",
         "frontend-requirements:pincast"
       ],
       "owner": null
@@ -2827,6 +2830,7 @@
       ],
       "kind": "endpoint",
       "notes": [
+        "backend-delivery:pincast",
         "frontend-requirements:pincast"
       ],
       "owner": null
@@ -2847,6 +2851,7 @@
       ],
       "kind": "endpoint",
       "notes": [
+        "backend-delivery:pincast",
         "frontend-requirements:pincast"
       ],
       "owner": null
@@ -2858,6 +2863,16 @@
       "kind": "endpoint",
       "notes": [
         "frontend-requirements:pincast"
+      ],
+      "owner": null
+    },
+    "GET /pincasts/current/people?filter=ALL|NEW": {
+      "containers": [
+        "feature:pincast"
+      ],
+      "kind": "endpoint",
+      "notes": [
+        "backend-delivery:pincast"
       ],
       "owner": null
     },
@@ -4008,6 +4023,7 @@
       ],
       "kind": "endpoint",
       "notes": [
+        "backend-delivery:pincast",
         "frontend-requirements:pincast"
       ],
       "owner": null
@@ -4827,6 +4843,7 @@
         "backend-integration:ring-invitations",
         "frontend-delivery:connections",
         "frontend-requirements:badge-qr",
+        "frontend-requirements:connections",
         "frontend-requirements:ring-access",
         "project:spec-map",
         "qa-backend:ring-invitations"
@@ -4957,6 +4974,7 @@
       ],
       "kind": "endpoint",
       "notes": [
+        "backend-delivery:pincast",
         "frontend-requirements:pincast"
       ],
       "owner": null
@@ -7544,7 +7562,7 @@
       "qa": 16,
       "shared": 10
     },
-    "concepts": 357,
+    "concepts": 358,
     "decisions": 38,
     "edges": 9086,
     "features": 40,
@@ -13374,8 +13392,10 @@
         "GET /connections",
         "GET /connections/:userId",
         "GET /connections/count",
+        "GET /connections/relationship",
         "GET /views/pin/:pinName",
         "GET /views/qr/:token",
+        "POST /blocks",
         "POST /connections/requests",
         "POST /connections/requests/:id/decline"
       ]
@@ -19876,6 +19896,7 @@
         "GET /connections",
         "GET /connections/:userId",
         "GET /connections/count",
+        "GET /connections/relationship",
         "GET /rings",
         "GET /rings/:ringId/projection",
         "GET /rings/shared-with-me",
@@ -19883,6 +19904,7 @@
         "GET /views/qr/:token",
         "GET /views/user/:userId/perspectives",
         "PATCH /rings/:ringId/members/:userId",
+        "POST /blocks",
         "POST /connections/requests",
         "POST /connections/requests/:id/decline",
         "POST /rings/:ringId/members"
@@ -30478,9 +30500,11 @@
       "via": [
         "DELETE /users/me",
         "E_RING_02",
+        "GET /connections/relationship",
         "GET /views/pin/:pinName",
         "GET /views/qr/:token",
         "GET /views/ring/:ringId",
+        "POST /blocks",
         "POST /connections/requests"
       ]
     },
@@ -30606,10 +30630,12 @@
       "to": "backend-integration:badge-qr",
       "via": [
         "E_RING_02",
+        "GET /connections/relationship",
         "GET /rings",
         "GET /views/pin/:pinName",
         "GET /views/qr/:token",
         "GET /views/ring/:ringId",
+        "POST /blocks",
         "POST /connections/requests"
       ]
     },
@@ -30821,9 +30847,11 @@
       "to": "frontend-delivery:badge-qr",
       "via": [
         "E_RING_02",
+        "GET /connections/relationship",
         "GET /rings",
         "GET /views/pin/:pinName",
         "GET /views/qr/:token",
+        "POST /blocks",
         "POST /connections/requests"
       ]
     },
@@ -31320,9 +31348,11 @@
       "to": "qa-backend:badge-qr",
       "via": [
         "E_RING_02",
+        "GET /connections/relationship",
         "GET /views/pin/:pinName",
         "GET /views/qr/:token",
         "GET /views/ring/:ringId",
+        "POST /blocks",
         "POST /connections/requests"
       ]
     },
@@ -31344,11 +31374,13 @@
         "GET /connections",
         "GET /connections/:userId",
         "GET /connections/count",
+        "GET /connections/relationship",
         "GET /rings",
         "GET /rings/shared-with-me",
         "GET /views/pin/:pinName",
         "GET /views/qr/:token",
         "GET /views/user/:userId/perspectives",
+        "POST /blocks",
         "POST /connections/requests",
         "POST /connections/requests/:id/decline"
       ]
@@ -31367,6 +31399,7 @@
         "GET /connections/count",
         "GET /rings",
         "GET /rings/shared-with-me",
+        "POST /blocks",
         "POST /connections/requests",
         "POST /connections/requests/:id/decline",
         "POST /rings/:ringId/members/:userId/reassign"
@@ -80578,7 +80611,7 @@
         {
           "id": "frontend-requirements:pincast",
           "title": "FR-20 PinCast & Nearby Frontend Requirements",
-          "why": "FR-20 PinCast & Nearby Frontend Requirements is draft"
+          "why": "FR-20 PinCast & Nearby Frontend Requirements is ready"
         }
       ],
       "card": "BD-20",
@@ -90059,8 +90092,8 @@
       "rollup": {
         "approved": 1,
         "blocked": 1,
-        "draft": 1,
-        "missing": 4
+        "missing": 4,
+        "ready": 1
       },
       "scope": null,
       "screens": [
@@ -96930,7 +96963,7 @@
       "depends": [
         "story:pincast"
       ],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "ready",
       "effort": null,
       "feature": "pincast",
       "foundOn": null,
@@ -97048,11 +97081,11 @@
         "s42",
         "s44"
       ],
-      "status": "draft",
+      "status": "ready",
       "summary": "What the client needs from the backend to build S-45 PinCast & Nearby Story S1 to S5, and whether each need is met today. Rewritten 2026-11-16 against the story as rewritten that day and its rules…",
       "tags": [
         "frontend-requirements",
-        "frontend-requirements/draft",
+        "frontend-requirements/ready",
         "module/discovery",
         "layer/frontend"
       ],
@@ -98772,12 +98805,11 @@
         "decided": 4,
         "delivered": 1,
         "done": 2,
-        "draft": 1,
         "in-progress": 3,
         "missing": 8,
         "partial": 1,
         "passing": 1,
-        "ready": 1,
+        "ready": 2,
         "verified": 4
       },
       "scope": null,
@@ -109499,14 +109531,14 @@
         "decided": 37,
         "delivered": 17,
         "done": 44,
-        "draft": 22,
+        "draft": 21,
         "failing": 1,
         "in-progress": 46,
         "missing": 110,
         "needs-decision": 1,
         "partial": 12,
         "passing": 13,
-        "ready": 9,
+        "ready": 10,
         "reference": 32,
         "todo": 2,
         "verified": 38
