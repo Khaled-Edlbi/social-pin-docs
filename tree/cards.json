@@ -44,6 +44,7 @@
     "backend-integration:badge-qr": "BI-15",
     "backend-integration:connections": "BI-16",
     "backend-integration:counts": "BI-14",
+    "backend-integration:discover-hub": "BI-19",
     "backend-integration:files": "BI-03",
     "backend-integration:photo-library": "BI-13",
     "backend-integration:profiles": "BI-04",
