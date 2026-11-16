@@ -13,6 +13,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/discovery, lay
 
 # PinCast & Nearby · Frontend Requirements
 
+> ⚠ Affected by [[S-45 PinCast & Nearby Story]] (2026-11-16): rewritten for the MVP and back to draft, with N1–N12 decided by Omar Fostok: people in range who are also visible see my broadcast Ring's card like a badge scan (no membership, no Ring name), connect by PinCast token; mutual; no distance, direction or map, my own range shown; no count while hidden; 25–500 m and 5 min / 30 min / 1 hr / 3 hr; +15 min; filters All and New to me; results "Sent you a request" / "Connected", never "Opened your card"; no background location; Nearby by Ring (S6) later; no notifications (ended chip on Home, "Your last PinCast" on s39); results 30 days, then the count. Old S7 is gone: the backend list is *What the backend has to build*
+
 > ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
 
 **Feature:** [[F-20 PinCast & Nearby]] · **Status:** Draft · **Story:** [[S-45 PinCast & Nearby Story]] · **API Integration:** not yet (backend not built)
