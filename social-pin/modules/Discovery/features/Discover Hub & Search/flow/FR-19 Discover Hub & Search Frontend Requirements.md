@@ -3,7 +3,7 @@ id: FR-19
 type: frontend-requirements
 module: discovery
 feature: discover-hub
-status: draft
+status: ready
 scope: feature
 screens: [s38, s44]
 blockedBy: []
@@ -13,12 +13,12 @@ related: ["S-42 Discover Hub & Search Story", "D-37 Discover opens a Pin by its 
 pending: []
 created: 2026-10-18
 updated: 2026-11-16
-tags: [frontend-requirements, frontend-requirements/draft, module/discovery, layer/frontend]
+tags: [frontend-requirements, frontend-requirements/ready, module/discovery, layer/frontend]
 ---
 
-# Discover Hub & Search · Frontend Requirements
+# 📨 Discover Hub & Search · Frontend Requirements
 
-**Feature:** [[F-19 Discover Hub & Search]] · **Status:** Draft · **Story:** [[S-42 Discover Hub & Search Story]] (approved 2026-10-25, tidied 2026-11-16) · **Backend Integration:** [[BI-09 View As & Pin Views Backend Integration]] (the one call the MVP needs)
+**Feature:** [[F-19 Discover Hub & Search]] · **Status:** Ready, 2026-11-16 (waiting on the backend's review) · **Story:** [[S-42 Discover Hub & Search Story]] (approved 2026-10-25, tidied 2026-11-16) · **Backend Integration:** [[BI-09 View As & Pin Views Backend Integration]] (the one call the MVP needs)
 
 What the client needs from the backend to build [[S-42 Discover Hub & Search Story]], and whether each need is met today. **Rewritten 2026-11-16** against the story as of that day and [[D-37 Discover opens a Pin by its exact Pin name in the MVP|D-37]]: the MVP is S1, S2 and S3, and it needs **one call that already exists**, `GET /views/pin/:pinName`. Recent searches stay on the phone; the tiles only navigate. Gemma, contact matching, search by name and a business Pin opening s55 are later.
 
@@ -95,3 +95,4 @@ Nothing for the MVP: the story is approved and its one call exists. The later ro
 ## Log
 
 - 2026-11-16 · `tickets/frontend/M-04-discovery/F-19-discover-hub/FR-19-s-42-2026-11-16` · rewritten to S-42 as of 2026-11-16 and D-37: the MVP needs only `GET /views/pin/:pinName` ✅; recent searches on the phone per user (no backend need); the tiles only navigate to other features; my own Pin name opens View as; demo people only outside production; the offline / no-answer state; Gemma, contact matching, name search and a business Pin to s55 later. Kept the input and privacy rules (strip `!` and `@`, trim, lowercase, submit only, one message for 404 and 400, no availability probe). Dropped the server recent-searches row, the tile rows and the S6 / S7 blocks. Cleared the S-42 (2026-11-12, 2026-11-16), D-37, S-29 and S-23 flags. Kept `draft`
+- 2026-11-16 · `tickets/frontend/M-04-discovery/F-19-discover-hub/FR-19-ready` · every screen, endpoint row and error state is in: set `ready` (📨) on Omar Fostok's word, handed to the backend; flagged [[BD-19 Discover Hub & Search Backend Delivery]]
