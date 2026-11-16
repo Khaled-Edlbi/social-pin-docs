@@ -15,7 +15,7 @@ tags: [feature, module/discovery, release/mvp]
 
 **Backend:** ✅ Done for the MVP (the existing `GET /views/pin/:pinName`, nothing new to build; name search, Gemma and contact matching later, D-37) · **Release:** MVP · **Module:** [[M-04 Discovery Module|Discovery]]
 
-**Layers:** [[S-42 Discover Hub & Search Story|Story]] · [[FR-19 Discover Hub & Search Frontend Requirements|Frontend Requirements]] · [[BD-19 Discover Hub & Search Backend Delivery|Backend Delivery]] · [[BI-19 Discover Hub & Search Backend Integration|Backend Integration]] · [[FD-18 Discover Hub & Search Frontend Delivery|Frontend Delivery]] · [[Discover Hub & Search QA Backend|QA Backend]] · [[Discover Hub & Search QA Frontend|QA Frontend]]
+**Layers:** [[S-42 Discover Hub & Search Story|Story]] · [[FR-19 Discover Hub & Search Frontend Requirements|Frontend Requirements]] · [[BD-19 Discover Hub & Search Backend Delivery|Backend Delivery]] · [[BI-19 Discover Hub & Search Backend Integration|Backend Integration]] · [[FD-18 Discover Hub & Search Frontend Delivery|Frontend Delivery]] · [[QB-18 Discover Hub & Search QA Backend|QA Backend]] · [[Discover Hub & Search QA Frontend|QA Frontend]]
 
 Discover tab (s38): search by `!pinname`, recent searches, entry points to People, Events, Companies, Exhibitors, PinCast, import contacts.
 

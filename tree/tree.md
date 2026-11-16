@@ -278,7 +278,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
       - ✅ [FR-19 Discover Hub & Search Frontend Requirements](social-pin/modules/Discovery/features/Discover%20Hub%20%26%20Search/flow/FR-19%20Discover%20Hub%20%26%20Search%20Frontend%20Requirements.md) (Frontend Requirements)
       - ✅ [BD-19 Discover Hub & Search Backend Delivery](social-pin/modules/Discovery/features/Discover%20Hub%20%26%20Search/flow/BD-19%20Discover%20Hub%20%26%20Search%20Backend%20Delivery.md) (Backend Delivery)
       - 🔵 [BI-19 Discover Hub & Search Backend Integration](social-pin/modules/Discovery/features/Discover%20Hub%20%26%20Search/flow/BI-19%20Discover%20Hub%20%26%20Search%20Backend%20Integration.md) (Backend Integration)
-      - ∅ _Discover Hub & Search QA Backend_ (QA Backend)
+      - ✏️ [QB-18 Discover Hub & Search QA Backend](social-pin/modules/Discovery/features/Discover%20Hub%20%26%20Search/flow/QB-18%20Discover%20Hub%20%26%20Search%20QA%20Backend.md) (QA Backend)
       - ✅ [FD-18 Discover Hub & Search Frontend Delivery](social-pin/modules/Discovery/features/Discover%20Hub%20%26%20Search/flow/FD-18%20Discover%20Hub%20%26%20Search%20Frontend%20Delivery.md) (Frontend Delivery)
       - ∅ _Discover Hub & Search QA Frontend_ (QA Frontend)
     - 🔵 [F-20 PinCast & Nearby](social-pin/modules/Discovery/features/PinCast%20%26%20Nearby/F-20%20PinCast%20%26%20Nearby.md) (release MVP, Critical)
