@@ -5,86 +5,93 @@ module: discovery
 feature: discover-hub
 status: draft
 scope: feature
-screens: [s38]
+screens: [s38, s44]
+blockedBy: []
+depends: ["S-42 Discover Hub & Search Story"]
+affects: ["BD-19 Discover Hub & Search Backend Delivery"]
+related: ["S-42 Discover Hub & Search Story", "D-37 Discover opens a Pin by its exact Pin name in the MVP", "BI-09 View As & Pin Views Backend Integration", "S-29 Companies Story", "S-89 Gemma AI Story", "S-87 Error Contract Story", "Frontend Contract", "GET /views/pin/:pinName"]
+pending: []
 created: 2026-10-18
-updated: 2026-10-29
+updated: 2026-11-16
 tags: [frontend-requirements, frontend-requirements/draft, module/discovery, layer/frontend]
 ---
 
 # Discover Hub & Search · Frontend Requirements
 
-> ⚠ Affected by [[S-42 Discover Hub & Search Story]] (2026-11-16): S1 no longer asks the tab to restore its scroll and last query (decided by Omar Fostok 2026-11-16, not needed); a new state, offline or no answer, said under the field with the name sendable again (as app 778d9b4); S6 and S7 (merged T-030, T-031) are folded into S2, S3 and S5: link those parts instead
+**Feature:** [[F-19 Discover Hub & Search]] · **Status:** Draft · **Story:** [[S-42 Discover Hub & Search Story]] (approved 2026-10-25, tidied 2026-11-16) · **Backend Integration:** [[BI-09 View As & Pin Views Backend Integration]] (the one call the MVP needs)
 
-> ⚠ Affected by [[S-42 Discover Hub & Search Story]] (2026-11-12): rewritten to D-37's MVP:
-> - S1's hub entries are as the app has them.
-> - S2 is the exact Pin name only. Demo people appear only outside production.
-> - S3's recent searches are kept on this phone per user: newest first, at most 20, swipe to remove, Clear all.
-> - Gemma, import contacts and name search are later.
-
-> ⚠ Affected by [[D-37 Discover opens a Pin by its exact Pin name in the MVP]] (2026-11-12): F-19 is in the MVP with only the exact Pin name read (GET /views/pin/{pinName}) and recent searches kept on the phone; name search, Gemma, contact matching and company screens are later
-
-> ⚠ Affected by [[S-29 Companies Story]] (2026-11-05): S-29 was rewritten as S1–S14 with its product rules decided inside the story (P1–P8, no decision cards). The old Companies · S6 (merged T-029) is gone: the list is S2, company detail S5, leave S9, and the business ↔ Ring link is decided as P2 (every company Ring carries its business; setup creates both). The domain shows as acme.co without Verified in the MVP (P6). Repoint the links that name Companies · S6.
-
-> ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
-
-**Feature:** [[F-19 Discover Hub & Search]] · **Status:** Draft · **Story:** [[S-42 Discover Hub & Search Story]] · **API Integration:** not yet (backend not built)
-
-What the client needs from the backend to build the screen in [[S-42 Discover Hub & Search Story]], and whether each need is met today. Exact-name resolve is done; recent searches, Gemma and contact import are not. The tiles hand over to other features and are listed here only for what the hub itself needs.
+What the client needs from the backend to build [[S-42 Discover Hub & Search Story]], and whether each need is met today. **Rewritten 2026-11-16** against the story as of that day and [[D-37 Discover opens a Pin by its exact Pin name in the MVP|D-37]]: the MVP is S1, S2 and S3, and it needs **one call that already exists**, `GET /views/pin/:pinName`. Recent searches stay on the phone; the tiles only navigate. Gemma, contact matching, search by name and a business Pin opening s55 are later.
 
 ## Per screen
 
-### [[Screen Index#s38|s38]] Discover hub
+### [[Screen Index#s38|s38]] The hub (S1)
 
-- Needs: resolve an exact `!pinname` to a view; the recent-searches list with add, remove one, clear; a Gemma prompt endpoint; a contacts-match call; nothing for the tiles themselves beyond navigation.
-- Source today: `GET /views/pin/:pinName` for the resolve. Recent searches, Gemma, contacts: not yet.
+- The field "Open a Pin by name · !pinname", then *PinCast* and *Import contacts* ("Coming soon", doesn't open, S5), **RECENT SEARCHES** (S3), and **BROWSE**.
+- **The tiles only navigate** to other features and need nothing from this one: *People* → Contacts ("Requests · N" is Connections'), *Events* → the Events tab, *Companies* → s72, *Exhibitors* → s54, *PinCast* → s39. What each shows is the owning feature's requirements list.
+- No backend need.
 
-### Handover to [[Screen Index#s44|s44]] Scanned Pin
+### [[Screen Index#s38|s38]] → [[Screen Index#s44|s44]] Open a Pin by its exact Pin name (S2)
 
-- Needs: the resolved `RingProfileViewEntity`.
-- Source today: the same call; pass the body to the screen rather than re-fetching.
+- **Resolve:** `GET /views/pin/:pinName` ✅ ([[BI-09 View As & Pin Views Backend Integration|BI-09]]) → the `RingProfileViewEntity` of what that person shares with me. On success s44 opens with **that body**, not re-fetched.
+- **Input:** strip a leading `!` or `@`, trim, lowercase before calling; an empty result sends nothing. **Submit only** (enter or the search action), never on a keystroke: no autocomplete, no partial match, no suggestions, so the API is never a prefix probe.
+- A spinner under the field while it looks.
+- **Not available:** a 404 `E_RING_ACCESS_01` (unknown, not shared, blocked) **and** a 400 (the name failed validation) read the same one line under the field, "This Pin isn't available to you". The field keeps the text; typing again clears the line.
+- **Offline or no answer** (no connection, timeout, 5xx): said under the field; the name can be sent again. Nothing is added to recent searches.
+- **My own Pin name:** compared on the phone with mine from `GET /profiles` ✅; opens View as on my default Ring ([[BI-09 View As & Pin Views Backend Integration|BI-09]]), no resolve call.
+- **Demo people** only outside production builds, from the app's own samples; a production build never shows them and sends nothing for them.
+- Later (D-37): a business Pin name opening s55 needs to know a name is a business's ([[S-29 Companies Story#Open questions|S-29 · Open questions]]); in the MVP every resolve lands on s44.
 
-### Handover to [[Screen Index#s55|s55]] Exhibitor (a business Pin name)
+### [[Screen Index#s38|s38]] Recent searches (S3)
 
-- Needs: whether a Pin name belongs to a business and the business id.
-- Source today: not yet; every resolve lands on s44.
+- **Kept on the phone, per user** (D-37): **no backend need**. Only a search that opened is added; newest first, one per normalised name, at most 20; each with the Pin name and the display name at the time.
+- Tagged with the signed-in user's id, so another account on the phone reads none of it; cleared on sign-out; not synced across devices.
+- A tap re-resolves (S2) every time: never a cached view, because access is answered per request. An entry whose lookup now fails stays, with the not-available line.
+- Swipe to remove one; *Clear all*.
+
+### Later (D-37): not asked for now
+
+- **Ask Gemma** (S4): the field searches Pin names only, nothing goes to Gemma ([[S-89 Gemma AI Story]]).
+- **Import contacts** (S5): no contacts permission is asked and nothing leaves the phone until the privacy review.
+- **Search by name**: needs its own decision first.
+- **A business Pin opening s55** (S2).
 
 ## Endpoints required
 
-| Need | Endpoint | Available | Task / decision |
+| Need | Endpoint | Available | Story part / decision |
 |---|---|---|---|
-| Resolve an exact Pin name to what the person shares with me | `GET /views/pin/:pinName` | ✅ | — |
-| Recent searches: list, add on success, remove one, clear | — | ❌ | [[S-42 Discover Hub & Search Story|Discover Hub & Search · S6]] |
-| Business Pin name resolving to a company / exhibitor screen | — | ❌ | [[S-29 Companies Story|Companies · S6]] |
-| Gemma prompt from the same field | — | ❌ | [[S-89 Gemma AI Story|Gemma AI · S7]] |
-| Contacts match by hashed email / phone | — | ❌ | [[S-42 Discover Hub & Search Story|Discover Hub & Search · S7]] |
-| People tile (requests and contacts) | — | ❌ | [[S-23 Connections Story|Connections · S8–S12]] |
-| Events tile | — | ❌ | [[S-49 Events Before Story|Events Before · S7]] |
-| Companies tile | — | ❌ | [[S-29 Companies Story|Companies · S6]] |
-| Exhibitors tile | — | ❌ | [[S-53 Events During Story|Events During · S8]] |
-| PinCast tile | — | ❌ | [[S-45 PinCast & Nearby Story|PinCast & Nearby · S7]] |
-| Avatar on recent-search rows and results | — | ❌ | [[S-06 Files Upload Story|Files Upload · showing files]] |
+| Resolve an exact Pin name to what the person shares with me | `GET /views/pin/:pinName` | ✅ | S2 · D-37 |
+| My own Pin name, to open View as instead | `GET /profiles` | ✅ | S2 |
+| Recent searches | — (on the phone) | no backend need | S3 · D-37 |
+| The tiles | — (other features) | no backend need | S1 |
+| Gemma, contact matching, search by name, a business Pin to s55 | — | later | S2, S4, S5 · D-37 |
 
 ## Behaviour expectations
 
-- Refetch / realtime: recent searches load on tab open and after each add, remove or clear; no polling. A tap on a recent entry always re-resolves; never show a cached view from a previous session, because access is resolved per request and may have changed.
-- Caching keys: a resolved view by (viewer, pin name) for the current screen only; recent searches by (signed-in user). Do not cache 404s.
-- Pagination / ordering: recent searches newest first, deduplicated by normalised name, at most 20 (client cap even if the server stores more); no pagination on the hub.
-- Input: strip a leading `!`, trim, lowercase before calling; submit only on enter or the search action, never on keystroke, so the API is never used as a prefix probe.
-- Privacy: one message for every resolve failure; do not time or retry a 404 to tell the cases apart; do not call the Pin-name availability endpoint from this screen.
+- **Refetch, no realtime:** nothing loads on tab open except the recent searches from the phone; a resolve only on submit or on a tap of a recent entry. No polling.
+- **Caching keys:** a resolved view by (viewer, pin name) for the open s44 only; recent searches by (signed-in user), on the phone. Never cache a 404.
+- **Input:** strip `!` and `@`, trim, lowercase; submit only.
+- **Privacy:** one message for every way a resolve fails (404 and 400 alike); never time or retry a 404 to tell the cases apart; **never call the Pin-name availability endpoint** (`GET /profiles/pin-name/:pinName/availability`) from this screen; never infer which Ring a result came from.
+- **Offline:** nothing queued; the line under the field, and the name can be sent again.
 
 ## Error states the UI must handle
 
+Until [[S-87 Error Contract Story|Error Contract · S4–S8]] puts `ErrorCode` on the wire everywhere, the app branches on status and endpoint ([[Frontend Contract]]).
+
 | Status | ErrorCode | Show |
 |---|---|---|
-| 404 | `E_RING_ACCESS_01` | "This Pin isn't available to you" inline under the field; keep the text; do not add to recent searches |
-| 400 | — | the name failed validation (empty, bad characters): inline, generic |
+| 404 | `E_RING_ACCESS_01` | "This Pin isn't available to you" under the field; keep the text; not added to recent searches |
+| 400 | validation | the same line, never a different one |
 | 401 | `E_AUTH_04` | sign in again |
-| — | recent-search and contacts codes | to be defined by Discover Hub & Search · S6 / Discover Hub & Search · S7; branch on `statusCode` until [[S-87 Error Contract Story|Error Contract · S4–S8]] |
-| client | contacts permission denied | inline state on the tile with *Open settings* |
+| — | offline, timeout, 5xx | said under the field; the name can be sent again; not added to recent searches |
 
 ## Blocked by
 
-- [[S-42 Discover Hub & Search Story|Discover Hub & Search · S7]] — the contacts row and the s03 handover (privacy review, needs a decision).
-- [[S-42 Discover Hub & Search Story|Discover Hub & Search · S6]] — server-side versus device-only recent searches; the list rows above.
-- [[S-89 Gemma AI Story|Gemma AI · S7]] — the Gemma row.
-- [[S-87 Error Contract Story|Error Contract · S4–S8]] — the error table is by status until then.
+Nothing for the MVP: the story is approved and its one call exists. The later rows wait on their own decisions (D-37): Gemma ([[S-89 Gemma AI Story]]), the contacts privacy review (S5), search by name, and whether a business has a Pin name ([[S-29 Companies Story#Open questions|S-29 · Open questions]]).
+
+## Sign-off
+
+- Approved by: — · on: —
+
+## Log
+
+- 2026-11-16 · `tickets/frontend/M-04-discovery/F-19-discover-hub/FR-19-s-42-2026-11-16` · rewritten to S-42 as of 2026-11-16 and D-37: the MVP needs only `GET /views/pin/:pinName` ✅; recent searches on the phone per user (no backend need); the tiles only navigate to other features; my own Pin name opens View as; demo people only outside production; the offline / no-answer state; Gemma, contact matching, name search and a business Pin to s55 later. Kept the input and privacy rules (strip `!` and `@`, trim, lowercase, submit only, one message for 404 and 400, no availability probe). Dropped the server recent-searches row, the tile rows and the S6 / S7 blocks. Cleared the S-42 (2026-11-12, 2026-11-16), D-37, S-29 and S-23 flags. Kept `draft`
