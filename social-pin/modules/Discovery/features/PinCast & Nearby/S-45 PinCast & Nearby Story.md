@@ -16,6 +16,8 @@ tags: [story, story/approved, module/discovery, layer/business]
 
 # PinCast & Nearby · User Story
 
+> ⚠ Affected by [[F-20 PinCast & Nearby]] (2026-11-16): moved into the MVP by Omar Fostok, priority critical: PinCast (S1–S5, and S7's setup, start, stop, results) is in the MVP; Nearby by Ring (S6) stays later. For /pm: add the "In the MVP / Later" line, mark S6 later, and fold or mark S7 (merged T-032)
+
 **Feature:** [[F-20 PinCast & Nearby]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[FR-20 PinCast & Nearby Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 PinCast is "be findable, here, for a while": the user picks a Ring, a distance and a duration, and for that window people nearby who are also looking can find them and see that Ring's perspective. When it ends, the user gets a list of who was reached and can connect from it. Nearby is the other direction: "who around me is in a Ring I belong to". Both are bounded by distance and time, and neither ever hands anyone a coordinate.

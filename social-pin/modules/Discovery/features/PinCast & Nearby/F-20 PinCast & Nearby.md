@@ -3,14 +3,18 @@ id: F-20
 type: feature
 module: discovery
 feature: pincast
+priority: critical
+release: mvp
 screens: [s11, s39, s40, s41, s42]
-related: ["F-11 Rings", "F-12 View As & Pin Views"]
+related: ["F-11 Rings", "F-12 View As & Pin Views", "MVP Order"]
 created: 2026-10-15
-updated: 2026-11-01
-tags: [feature, module/discovery]
+updated: 2026-11-16
+tags: [feature, module/discovery, priority/critical, release/mvp]
 ---
 
 # PinCast & Nearby
+
+**In the MVP** (moved into the MVP on 2026-11-16 by Omar Fostok, priority critical): **PinCast**, the proximity broadcast limited by distance and time (s39–s42, and Home while broadcasting, s11). **Nearby by Ring** comes later.
 
 **Backend:** TODO · **Module:** [[M-04 Discovery Module|Discovery]]
 

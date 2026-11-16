@@ -12,6 +12,8 @@ tags: [project, layer/business]
 
 # MVP Order
 
+> ⚠ Affected by [[F-20 PinCast & Nearby]] (2026-11-16): PinCast moved into the MVP by Omar Fostok, critical (release mvp); Nearby by Ring stays later. "What the MVP is" is stale: PinCast is in, and Discover is in too since 2026-11-11 (D-37, no new backend work); only Events and Gemma stay out. PinCast needs a backend step after step 10: setup, start, stop, results, waiting on S-45 marked for the MVP and its requirements approved
+
 The owner's order for the MVP, as set on 2026-11-01.
 
 ## What the MVP is
