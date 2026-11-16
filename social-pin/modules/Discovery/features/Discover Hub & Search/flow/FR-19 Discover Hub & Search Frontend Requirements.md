@@ -13,6 +13,8 @@ tags: [frontend-requirements, frontend-requirements/draft, module/discovery, lay
 
 # Discover Hub & Search · Frontend Requirements
 
+> ⚠ Affected by [[S-42 Discover Hub & Search Story]] (2026-11-16): S1 no longer asks the tab to restore its scroll and last query (decided by Omar Fostok 2026-11-16, not needed); a new state, offline or no answer, said under the field with the name sendable again (as app 778d9b4); S6 and S7 (merged T-030, T-031) are folded into S2, S3 and S5: link those parts instead
+
 > ⚠ Affected by [[S-42 Discover Hub & Search Story]] (2026-11-12): rewritten to D-37's MVP:
 > - S1's hub entries are as the app has them.
 > - S2 is the exact Pin name only. Demo people appear only outside production.
