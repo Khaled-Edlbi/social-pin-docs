@@ -17,6 +17,8 @@ tags: [backend-integration, backend-integration/current, module/discovery, layer
 
 # 🔌 Discover Hub & Search · Backend Integration
 
+> ⚠ Affected by [[S-42 Discover Hub & Search Story]] (2026-11-17): /backend: "Rules the backend already enforces" is replaced by *What the decision allows*. Search by part of a Pin name as you type, from 3 letters, 20 per page; a stranger sees only the account name and photo and Connect; a card opens only for someone who has me in a Ring; blocked people and myself are never shown. Submit-only, no partial match and "own Pin name opens View as" no longer hold. The search calls go here once they ship.
+
 > ⚠ Affected by [[D-41 Discover searches people by part of their Pin name]] (2026-11-17): /backend: "submit only, no partial match, never a prefix probe" no longer holds. Discover searches by part of a Pin name as you type (D-41 rules 1–7).
 
 **Feature:** [[F-19 Discover Hub & Search]] · **Backend:** [[BD-19 Discover Hub & Search Backend Delivery]] · **Read first:** [[Frontend Contract]], [[Frontend API Guide]], [[BI-09 View As & Pin Views Backend Integration]]

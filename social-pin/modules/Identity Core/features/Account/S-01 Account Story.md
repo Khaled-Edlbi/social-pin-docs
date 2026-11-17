@@ -17,6 +17,8 @@ tags: [story, story/verified, module/identity, layer/business]
 
 # Account · User Story
 
+> ⚠ Affected by [[S-42 Discover Hub & Search Story]] (2026-11-17): /pm: S-42 S5 puts "Let people find me by Pin name" on the Privacy screen (Me › Privacy) under PEOPLE, on by default. Under the switch: what a stranger sees, only the account name and photo from sign-up and Connect. Off, only people already in my Rings find me. S1's Privacy screen gets a PEOPLE section to match.
+
 > ⚠ Affected by [[D-41 Discover searches people by part of their Pin name]] (2026-11-17): /pm: a new switch, "Let people find me by Pin name", on Me › Privacy under PEOPLE, on by default. With it off, only people already in my Rings find me in Discover.
 
 > ⚠ Affected by [[BD-01 Account Backend Delivery]] (2026-11-09): S4 says deleting an account makes every Ring, projection and session go; DELETE /users/me (backend local main ebdca36) ends the sessions and, since D-25, the connections, requests and blocks, but leaves the account's Rings, memberships and badge codes untouched: a badge code issued before the deletion still opens the card (GET /views/qr/:token) until it expires. Written down as a gap in BD-01 and BD-18; nothing decided

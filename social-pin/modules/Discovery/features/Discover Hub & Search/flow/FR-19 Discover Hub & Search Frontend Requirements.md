@@ -20,6 +20,8 @@ tags: [frontend-requirements, frontend-requirements/approved, module/discovery, 
 
 # Discover Hub & Search · Frontend Requirements
 
+> ⚠ Affected by [[S-42 Discover Hub & Search Story]] (2026-11-17): /frontend: S-42 is rewritten to D-41 and back to draft. S1: the field is "Search by Pin name". S2: as you type from 3 letters, 20 per page, the next page at the bottom; four kinds of row (connected opens the card; not connected shows the account name, photo and Connect; Requested; "Asked to connect" with Accept); no photo shows an outline, no name shows the Pin name; never blocked people or myself. S3: unchanged. S4 (new): the states, from fewer than 3 letters, shimmer and "No Pin names match …" to no connection with Try again, the next page loading or failing, and "Request sent.". S5 (new): the switch in Me › Privacy. Submit-only and "my own Pin name opens View as" are gone; Gemma is now S6, Import contacts S7. Rewrite once S-42 is approved.
+
 > ⚠ Affected by [[D-41 Discover searches people by part of their Pin name]] (2026-11-17): /frontend: partial Pin-name search as you type from 3 letters, 20 a page with the next page loading at the bottom. The result row's states: opens the card, Connect, Requested, "Asked to connect" with Accept. The person outline, and the Pin name when there's no name. The submit-only rule goes. Wait for S-42's rewrite.
 
 **Feature:** [[F-19 Discover Hub & Search]] · **Status:** Approved, 2026-11-16 (the backend's review) · **Story:** [[S-42 Discover Hub & Search Story]] (approved 2026-10-25, tidied 2026-11-16) · **Backend Integration:** [[BI-09 View As & Pin Views Backend Integration]] (the one call the MVP needs)

@@ -3826,7 +3826,6 @@
     },
     "GET /views/pin": {
       "containers": [
-        "feature:discover-hub",
         "feature:ring-access",
         "feature:ring-invitations",
         "feature:view-as",
@@ -3841,7 +3840,6 @@
         "backend-integration:view-as",
         "frontend-requirements:view-as",
         "project:frontend-api-guide",
-        "story:discover-hub",
         "story:ring-invitations",
         "story:view-as"
       ],
@@ -4094,14 +4092,12 @@
     "GET /views/pin/{pinName}": {
       "containers": [
         "decision:D-37",
-        "feature:discover-hub",
         "needs-decision:ND-37"
       ],
       "kind": "endpoint",
       "notes": [
         "decision:D-37",
-        "needs-decision:ND-37",
-        "story:discover-hub"
+        "needs-decision:ND-37"
       ],
       "owner": null
     },
@@ -6937,6 +6933,7 @@
         "qa-backend:view-as",
         "story:badge-qr",
         "story:connections",
+        "story:discover-hub",
         "story:files",
         "story:profiles",
         "story:ring-access",
@@ -7380,6 +7377,7 @@
         "feature:companies",
         "feature:connections",
         "feature:counts",
+        "feature:discover-hub",
         "feature:error-contract",
         "feature:linked-accounts",
         "feature:payments",
@@ -7453,6 +7451,7 @@
         "story:companies",
         "story:connections",
         "story:counts",
+        "story:discover-hub",
         "story:linked-accounts",
         "story:payments",
         "story:photo-library",
@@ -7634,7 +7633,7 @@
     }
   },
   "counts": {
-    "blocked": 29,
+    "blocked": 30,
     "bugs": 27,
     "byKind": {
       "backend-delivery": 39,
@@ -7660,7 +7659,7 @@
     },
     "concepts": 364,
     "decisions": 39,
-    "edges": 9341,
+    "edges": 9342,
     "features": 40,
     "layerNotes": 170,
     "modules": 8,
@@ -9895,6 +9894,11 @@
       "from": "needs-decision:ND-21",
       "kind": "blocks",
       "to": "story:onboarding-imports"
+    },
+    {
+      "from": "story:discover-hub",
+      "kind": "blocks",
+      "to": "qa-backend:discover-hub"
     },
     {
       "from": "story:events-during",
@@ -52286,7 +52290,17 @@
     {
       "from": "story:discover-hub",
       "kind": "related",
+      "to": "decision:D-15"
+    },
+    {
+      "from": "story:discover-hub",
+      "kind": "related",
       "to": "decision:D-37"
+    },
+    {
+      "from": "story:discover-hub",
+      "kind": "related",
+      "to": "decision:D-41"
     },
     {
       "from": "story:discover-hub",
@@ -52316,7 +52330,17 @@
     {
       "from": "story:discover-hub",
       "kind": "related",
+      "to": "story:account"
+    },
+    {
+      "from": "story:discover-hub",
+      "kind": "related",
       "to": "story:companies"
+    },
+    {
+      "from": "story:discover-hub",
+      "kind": "related",
+      "to": "story:connections"
     },
     {
       "from": "story:events-before",
@@ -58718,14 +58742,6 @@
       ]
     },
     {
-      "from": "decision:D-37",
-      "kind": "shares",
-      "to": "feature:discover-hub",
-      "via": [
-        "GET /views/pin/{pinName}"
-      ]
-    },
-    {
       "from": "feature:account",
       "kind": "shares",
       "to": "feature:app-shell",
@@ -63389,7 +63405,6 @@
       "kind": "shares",
       "to": "feature:ring-access",
       "via": [
-        "GET /views/pin",
         "GET /views/pin/:pinName",
         "GET /views/pin/SaraAz"
       ]
@@ -63399,8 +63414,7 @@
       "kind": "shares",
       "to": "feature:ring-invitations",
       "via": [
-        "E_AUTH_04",
-        "GET /views/pin"
+        "E_AUTH_04"
       ]
     },
     {
@@ -63435,7 +63449,6 @@
       "via": [
         "E_AUTH_03",
         "E_AUTH_04",
-        "GET /views/pin",
         "GET /views/pin/!!bad%20name",
         "GET /views/pin/:pinName",
         "GET /views/pin/SaraAz",
@@ -63464,14 +63477,6 @@
       "to": "needs-decision:ND-22",
       "via": [
         "GET /views/pin/:pinName"
-      ]
-    },
-    {
-      "from": "feature:discover-hub",
-      "kind": "shares",
-      "to": "needs-decision:ND-37",
-      "via": [
-        "GET /views/pin/{pinName}"
       ]
     },
     {
@@ -63506,7 +63511,6 @@
         "E_AUTH_03",
         "E_AUTH_04",
         "GET /profiles/pin-name/:pinName/availability",
-        "GET /views/pin",
         "GET /views/pin/:pinName"
       ]
     },
@@ -72904,6 +72908,11 @@
       "to": "backend-delivery:view-as"
     },
     {
+      "from": "backend-delivery:discover-hub",
+      "kind": "wikilink",
+      "to": "story:discover-hub"
+    },
+    {
       "from": "backend-delivery:e2e-tests",
       "kind": "wikilink",
       "to": "frontend-requirements:e2e-tests"
@@ -73772,11 +73781,6 @@
       "from": "decision:D-41",
       "kind": "wikilink",
       "to": "story:connections"
-    },
-    {
-      "from": "decision:D-41",
-      "kind": "wikilink",
-      "to": "story:discover-hub"
     },
     {
       "from": "feature:account",
@@ -77996,11 +78000,6 @@
     {
       "from": "story:connections",
       "kind": "wikilink",
-      "to": "story:discover-hub"
-    },
-    {
-      "from": "story:connections",
-      "kind": "wikilink",
       "to": "story:events-before"
     },
     {
@@ -78042,11 +78041,6 @@
       "from": "story:devices",
       "kind": "wikilink",
       "to": "project:auth-model"
-    },
-    {
-      "from": "story:discover-hub",
-      "kind": "wikilink",
-      "to": "backend-delivery:discover-hub"
     },
     {
       "from": "story:discover-hub",
@@ -88061,6 +88055,7 @@
         "story:connections",
         "backend-integration:discover-hub",
         "qa-backend:discover-hub",
+        "story:discover-hub",
         "qa-backend:counts",
         "frontend-requirements:ring-access",
         "qa-backend:ring-access",
@@ -89923,7 +89918,8 @@
         "decision:D-37",
         "decision:D-10",
         "feature:connections",
-        "feature:account"
+        "feature:account",
+        "story:discover-hub"
       ],
       "release": null,
       "resolution": null,
@@ -91034,7 +91030,7 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "approved": 1,
+        "blocked": 1,
         "current": 1,
         "decided": 2,
         "delivered": 1,
@@ -101159,8 +101155,8 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 3,
-        "blocked": 1,
+        "approved": 2,
+        "blocked": 2,
         "current": 2,
         "decided": 5,
         "delivered": 2,
@@ -107428,7 +107424,13 @@
       "affects": [
         "backend-integration:discover-hub"
       ],
-      "blockedBy": [],
+      "blockedBy": [
+        {
+          "id": "story:discover-hub",
+          "title": "S-42 Discover Hub & Search Story",
+          "why": "S-42 Discover Hub & Search Story is draft"
+        }
+      ],
       "card": "QB-18",
       "children": [],
       "code": "discover-hub",
@@ -107438,7 +107440,7 @@
         "backend-delivery:discover-hub",
         "story:discover-hub"
       ],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "blocked",
       "effort": null,
       "feature": "discover-hub",
       "foundOn": null,
@@ -112114,8 +112116,8 @@
         }
       ],
       "rollup": {
-        "approved": 41,
-        "blocked": 29,
+        "approved": 40,
+        "blocked": 30,
         "current": 6,
         "decided": 38,
         "delivered": 18,
@@ -112192,6 +112194,7 @@
         "backend-delivery:badge-qr",
         "backend-integration:discover-hub",
         "qa-backend:discover-hub",
+        "story:discover-hub",
         "backend-delivery:account",
         "backend-integration:account",
         "qa-frontend:account",
@@ -112923,6 +112926,7 @@
         "frontend-delivery:discover-hub",
         "frontend-requirements:discover-hub",
         "qa-backend:discover-hub",
+        "story:discover-hub",
         "frontend-requirements:pincast",
         "story:pincast",
         "qa-frontend:auth",
@@ -113289,7 +113293,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "approved",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "discover-hub",
       "foundOn": null,
@@ -113324,7 +113328,11 @@
         "frontend-delivery:discover-hub",
         "frontend-requirements:discover-hub",
         "qa-backend:discover-hub",
+        "decision:D-41",
         "decision:D-37",
+        "decision:D-15",
+        "story:account",
+        "story:connections",
         "story:companies",
         "feature:view-as",
         "feature:connections",
@@ -113350,20 +113358,22 @@
       "resolution": null,
       "scope": "feature",
       "screens": [
-        "s38"
+        "s38",
+        "s44",
+        "s68"
       ],
-      "status": "approved",
-      "summary": "Discover is the tab for finding something on purpose: a person whose Pin name you were given, an event, a company, an exhibitor, the people around you, or the contacts already on your phone. It is…",
+      "status": "draft",
+      "summary": "Discover is the tab for finding someone on purpose: a person whose Pin name you know or partly remember, an event, a company, an exhibitor, the people around you. You type part of a Pin name and…",
       "tags": [
         "story",
-        "story/approved",
+        "story/draft",
         "module/discovery",
         "layer/business"
       ],
       "task": null,
       "title": "S-42 Discover Hub & Search Story",
       "unmet": [],
-      "updated": "2026-11-16"
+      "updated": "2026-11-17"
     },
     "story:e2e-tests": {
       "affects": [],
