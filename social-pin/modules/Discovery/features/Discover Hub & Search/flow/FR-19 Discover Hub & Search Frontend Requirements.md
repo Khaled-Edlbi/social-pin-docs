@@ -3,22 +3,22 @@ id: FR-19
 type: frontend-requirements
 module: discovery
 feature: discover-hub
-status: draft
+status: ready
 scope: feature
 screens: [s38, s44, s46, s68]
-blockedBy: ["S-42 Discover Hub & Search Story"]
+blockedBy: []
 depends: ["S-42 Discover Hub & Search Story", "D-41 Discover searches people by part of their Pin name"]
 affects: ["BD-19 Discover Hub & Search Backend Delivery"]
 related: ["S-42 Discover Hub & Search Story", "D-41 Discover searches people by part of their Pin name", "D-37 Discover opens a Pin by its exact Pin name in the MVP", "D-10 Connect sends what the requester already has", "BI-09 View As & Pin Views Backend Integration", "BI-16 Connections Backend Integration", "FR-14 Connections Frontend Requirements", "S-23 Connections Story", "S-01 Account Story", "S-29 Companies Story", "S-89 Gemma AI Story", "S-87 Error Contract Story", "Frontend Contract", "GET /views/pin/:pinName"]
 pending: []
 created: 2026-10-18
 updated: 2026-11-17
-tags: [frontend-requirements, frontend-requirements/draft, module/discovery, layer/frontend]
+tags: [frontend-requirements, frontend-requirements/ready, module/discovery, layer/frontend]
 ---
 
-# Discover Hub & Search · Frontend Requirements
+# 📨 Discover Hub & Search · Frontend Requirements
 
-**Feature:** [[F-19 Discover Hub & Search]] · **Status:** Draft, rewritten 2026-11-17 (was approved 2026-11-16 by khaled for the exact-name MVP) · **Story:** [[S-42 Discover Hub & Search Story]] (rewritten 2026-11-17 to D-41, draft) · **Backend Integration:** [[BI-19 Discover Hub & Search Backend Integration]] (the exact-name lookup only) · **Design:** [Discover search, 8 screens](https://claude.ai/artifact/VtuKA2ezgz1snhMbBUmSbd)
+**Feature:** [[F-19 Discover Hub & Search]] · **Status:** Ready, 2026-11-17 (waiting on the backend's review) · **Story:** [[S-42 Discover Hub & Search Story]] (approved 2026-11-17 by Omar Fostok) · **Backend Integration:** [[BI-19 Discover Hub & Search Backend Integration]] (the exact-name lookup only) · **Design:** [Discover search, 8 screens](https://claude.ai/artifact/VtuKA2ezgz1snhMbBUmSbd)
 
 What the client needs from the backend to build [[S-42 Discover Hub & Search Story]], and whether each need is met today. **Rewritten 2026-11-17** against the story as of that day and [[D-41 Discover searches people by part of their Pin name|D-41]]: the MVP is S1–S5. **Two routes don't exist yet:** the search by part of a Pin name, and reading and saving "Let people find me by Pin name". Opening a card, Connect and Accept reuse calls that exist. Recent searches stay on the phone. Gemma (S6), Import contacts (S7) and a business Pin opening s55 are later.
 
@@ -128,7 +128,8 @@ Until [[S-87 Error Contract Story|Error Contract · S4–S8]] puts `ErrorCode` o
 
 ## Blocked by
 
-- **[[S-42 Discover Hub & Search Story]]** is `draft` (rewritten 2026-11-17): this list waits on its approval.
+- Nothing from the story: [[S-42 Discover Hub & Search Story]] was approved 2026-11-17.
+- **The backend's review**, and the four routes it has to build (the endpoints table).
 - **One question left for the backend** (S-42's open questions; Q1–Q4 are answered): whether an account name and photo exist apart from the Ring profiles, which `accountName` and `avatarUrl` need.
 
 ## Sign-off
@@ -156,3 +157,4 @@ Until [[S-87 Error Contract Story|Error Contract · S4–S8]] puts `ErrorCode` o
   - Q4: a per-person limit as an endpoint row; the 429 reads "Too many searches, try again in a minute", with no automatic retry, and is a row in the states.
 
   *Blocked by* is down to the backend's account name and photo question. Cleared the S-42 flag. Kept `draft`
+- 2026-11-17 · `tickets/frontend/M-04-discovery/F-19-discover-hub/FR-19-ready` · S-42 approved the same day; every screen, endpoint row and error state is in: set `ready` (📨) on Omar Fostok's word, handed to the backend. `blockedBy` cleared. Flagged [[BD-19 Discover Hub & Search Backend Delivery]]
