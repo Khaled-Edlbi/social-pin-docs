@@ -7684,7 +7684,7 @@
     }
   },
   "counts": {
-    "blocked": 31,
+    "blocked": 29,
     "bugs": 27,
     "byKind": {
       "backend-delivery": 39,
@@ -7710,7 +7710,7 @@
     },
     "concepts": 368,
     "decisions": 39,
-    "edges": 9358,
+    "edges": 9356,
     "features": 40,
     "layerNotes": 170,
     "modules": 8,
@@ -9945,16 +9945,6 @@
       "from": "needs-decision:ND-21",
       "kind": "blocks",
       "to": "story:onboarding-imports"
-    },
-    {
-      "from": "story:discover-hub",
-      "kind": "blocks",
-      "to": "frontend-requirements:discover-hub"
-    },
-    {
-      "from": "story:discover-hub",
-      "kind": "blocks",
-      "to": "qa-backend:discover-hub"
     },
     {
       "from": "story:events-during",
@@ -91239,11 +91229,11 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "blocked": 2,
+        "approved": 1,
         "current": 1,
         "decided": 2,
         "done": 2,
-        "draft": 1,
+        "draft": 2,
         "missing": 1,
         "verified": 2
       },
@@ -98018,13 +98008,7 @@
       "affects": [
         "backend-delivery:discover-hub"
       ],
-      "blockedBy": [
-        {
-          "id": "story:discover-hub",
-          "title": "S-42 Discover Hub & Search Story",
-          "why": "S-42 Discover Hub & Search Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "FR-19",
       "children": [],
       "code": "discover-hub",
@@ -98034,7 +98018,7 @@
         "story:discover-hub",
         "decision:D-41"
       ],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "discover-hub",
       "foundOn": null,
@@ -101381,13 +101365,13 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 2,
-        "blocked": 3,
+        "approved": 3,
+        "blocked": 1,
         "current": 2,
         "decided": 5,
         "delivered": 1,
         "done": 3,
-        "draft": 1,
+        "draft": 2,
         "in-progress": 3,
         "missing": 6,
         "partial": 1,
@@ -107651,13 +107635,7 @@
       "affects": [
         "backend-integration:discover-hub"
       ],
-      "blockedBy": [
-        {
-          "id": "story:discover-hub",
-          "title": "S-42 Discover Hub & Search Story",
-          "why": "S-42 Discover Hub & Search Story is draft"
-        }
-      ],
+      "blockedBy": [],
       "card": "QB-18",
       "children": [],
       "code": "discover-hub",
@@ -107667,7 +107645,7 @@
         "backend-delivery:discover-hub",
         "story:discover-hub"
       ],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "draft",
       "effort": null,
       "feature": "discover-hub",
       "foundOn": null,
@@ -112343,13 +112321,13 @@
         }
       ],
       "rollup": {
-        "approved": 40,
-        "blocked": 31,
+        "approved": 41,
+        "blocked": 29,
         "current": 6,
         "decided": 38,
         "delivered": 17,
         "done": 45,
-        "draft": 23,
+        "draft": 24,
         "failing": 1,
         "in-progress": 46,
         "missing": 108,
@@ -113523,7 +113501,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "discover-hub",
       "foundOn": null,
@@ -113592,11 +113570,11 @@
         "s44",
         "s68"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "Discover is the tab for finding someone on purpose: a person whose Pin name you know or partly remember, an event, a company, an exhibitor, the people around you. You type part of a Pin name and…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/discovery",
         "layer/business"
       ],

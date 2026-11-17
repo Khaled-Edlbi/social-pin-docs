@@ -3,19 +3,21 @@ id: S-42
 type: story
 module: discovery
 feature: discover-hub
-status: draft
+status: approved
 scope: feature
 screens: [s38, s44, s68]
+approvedBy: "Omar Fostok"
+approvedAt: 2026-11-17
 owner: "Omar Fostok"
 related: ["D-41 Discover searches people by part of their Pin name", "D-37 Discover opens a Pin by its exact Pin name in the MVP", "D-15 Several Rings per connection, remove or disconnect", "S-01 Account Story", "S-23 Connections Story", "S-29 Companies Story", "F-12 View As & Pin Views", "F-14 Connections", "F-15 Companies", "F-20 PinCast & Nearby", "F-36 Gemma AI"]
 created: 2026-10-18
 updated: 2026-11-17
-tags: [story, story/draft, module/discovery, layer/business]
+tags: [story, story/approved, module/discovery, layer/business]
 ---
 
 # Discover Hub & Search · User Story
 
-**Feature:** [[F-19 Discover Hub & Search]] · **Status:** Draft, rewritten 2026-11-17 to [[D-41 Discover searches people by part of their Pin name|D-41]] (was approved 2026-10-25 by khaled) · **Frontend Requirements:** [[FR-19 Discover Hub & Search Frontend Requirements]] · **API Integration:** [[BI-19 Discover Hub & Search Backend Integration]] (the exact-name lookup only; the search is not built yet) · **Design:** [Discover search, 8 screens](https://claude.ai/artifact/VtuKA2ezgz1snhMbBUmSbd)
+**Feature:** [[F-19 Discover Hub & Search]] · **Status:** Approved 2026-11-17 by Omar Fostok, as rewritten that day to [[D-41 Discover searches people by part of their Pin name|D-41]] with Q1–Q4 · **Frontend Requirements:** [[FR-19 Discover Hub & Search Frontend Requirements]] · **API Integration:** [[BI-19 Discover Hub & Search Backend Integration]] (the exact-name lookup only; the search is not built yet) · **Design:** [Discover search, 8 screens](https://claude.ai/artifact/VtuKA2ezgz1snhMbBUmSbd)
 
 Discover is the tab for finding someone on purpose: a person whose Pin name you know or partly remember, an event, a company, an exhibitor, the people around you. You type part of a Pin name and see who matches. Someone who has you in one of their Rings opens as their card. Anyone else shows only the name and photo they signed up with, and a Connect button, so you can ask to connect without seeing anything they share in their Rings.
 
