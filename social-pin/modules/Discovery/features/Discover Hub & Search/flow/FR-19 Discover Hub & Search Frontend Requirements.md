@@ -3,100 +3,137 @@ id: FR-19
 type: frontend-requirements
 module: discovery
 feature: discover-hub
-status: approved
+status: draft
 scope: feature
-screens: [s38, s44]
-approvedBy: "khaled"
-approvedAt: 2026-11-16
-blockedBy: []
-depends: ["S-42 Discover Hub & Search Story"]
+screens: [s38, s44, s46, s68]
+blockedBy: ["S-42 Discover Hub & Search Story"]
+depends: ["S-42 Discover Hub & Search Story", "D-41 Discover searches people by part of their Pin name"]
 affects: ["BD-19 Discover Hub & Search Backend Delivery"]
-related: ["S-42 Discover Hub & Search Story", "D-37 Discover opens a Pin by its exact Pin name in the MVP", "BI-09 View As & Pin Views Backend Integration", "S-29 Companies Story", "S-89 Gemma AI Story", "S-87 Error Contract Story", "Frontend Contract", "GET /views/pin/:pinName"]
+related: ["S-42 Discover Hub & Search Story", "D-41 Discover searches people by part of their Pin name", "D-37 Discover opens a Pin by its exact Pin name in the MVP", "D-10 Connect sends what the requester already has", "BI-09 View As & Pin Views Backend Integration", "BI-16 Connections Backend Integration", "FR-14 Connections Frontend Requirements", "S-23 Connections Story", "S-01 Account Story", "S-29 Companies Story", "S-89 Gemma AI Story", "S-87 Error Contract Story", "Frontend Contract", "GET /views/pin/:pinName"]
 pending: []
 created: 2026-10-18
-updated: 2026-11-16
-tags: [frontend-requirements, frontend-requirements/approved, module/discovery, layer/frontend]
+updated: 2026-11-17
+tags: [frontend-requirements, frontend-requirements/draft, module/discovery, layer/frontend]
 ---
 
 # Discover Hub & Search · Frontend Requirements
 
-> ⚠ Affected by [[S-42 Discover Hub & Search Story]] (2026-11-17): /frontend: S-42 is rewritten to D-41 and back to draft. S1: the field is "Search by Pin name". S2: as you type from 3 letters, 20 per page, the next page at the bottom; four kinds of row (connected opens the card; not connected shows the account name, photo and Connect; Requested; "Asked to connect" with Accept); no photo shows an outline, no name shows the Pin name; never blocked people or myself. S3: unchanged. S4 (new): the states, from fewer than 3 letters, shimmer and "No Pin names match …" to no connection with Try again, the next page loading or failing, and "Request sent.". S5 (new): the switch in Me › Privacy. Submit-only and "my own Pin name opens View as" are gone; Gemma is now S6, Import contacts S7. Rewrite once S-42 is approved.
+**Feature:** [[F-19 Discover Hub & Search]] · **Status:** Draft, rewritten 2026-11-17 (was approved 2026-11-16 by khaled for the exact-name MVP) · **Story:** [[S-42 Discover Hub & Search Story]] (rewritten 2026-11-17 to D-41, draft) · **Backend Integration:** [[BI-19 Discover Hub & Search Backend Integration]] (the exact-name lookup only) · **Design:** [Discover search, 8 screens](https://claude.ai/artifact/VtuKA2ezgz1snhMbBUmSbd)
 
-> ⚠ Affected by [[D-41 Discover searches people by part of their Pin name]] (2026-11-17): /frontend: partial Pin-name search as you type from 3 letters, 20 a page with the next page loading at the bottom. The result row's states: opens the card, Connect, Requested, "Asked to connect" with Accept. The person outline, and the Pin name when there's no name. The submit-only rule goes. Wait for S-42's rewrite.
-
-**Feature:** [[F-19 Discover Hub & Search]] · **Status:** Approved, 2026-11-16 (the backend's review) · **Story:** [[S-42 Discover Hub & Search Story]] (approved 2026-10-25, tidied 2026-11-16) · **Backend Integration:** [[BI-09 View As & Pin Views Backend Integration]] (the one call the MVP needs)
-
-What the client needs from the backend to build [[S-42 Discover Hub & Search Story]], and whether each need is met today. **Rewritten 2026-11-16** against the story as of that day and [[D-37 Discover opens a Pin by its exact Pin name in the MVP|D-37]]: the MVP is S1, S2 and S3, and it needs **one call that already exists**, `GET /views/pin/:pinName`. Recent searches stay on the phone; the tiles only navigate. Gemma, contact matching, search by name and a business Pin opening s55 are later.
+What the client needs from the backend to build [[S-42 Discover Hub & Search Story]], and whether each need is met today. **Rewritten 2026-11-17** against the story as of that day and [[D-41 Discover searches people by part of their Pin name|D-41]]: the MVP is S1–S5. **Two routes don't exist yet:** the search by part of a Pin name, and reading and saving "Let people find me by Pin name". Opening a card, Connect and Accept reuse calls that exist. Recent searches stay on the phone. Gemma (S6), Import contacts (S7) and a business Pin opening s55 are later.
 
 ## Per screen
 
-### [[Screen Index#s38|s38]] The hub (S1)
+### [[Screen Index#s38|s38]] The hub (S1, S3)
 
-- The field "Open a Pin by name · !pinname", then *PinCast* and *Import contacts* ("Coming soon", doesn't open, S5), **RECENT SEARCHES** (S3), and **BROWSE**.
-- **The tiles only navigate** to other features and need nothing from this one: *People* → Contacts ("Requests · N" is Connections'), *Events* → the Events tab, *Companies* → s72, *Exhibitors* → s54, *PinCast* → s39. What each shows is the owning feature's requirements list.
-- No backend need.
+- The field **"Search by Pin name"**, then *PinCast* and *Import contacts* ("Coming soon", doesn't open, S7), **RECENT SEARCHES**, and **BROWSE**.
+- **The tiles only navigate** and need nothing from this feature: *People* → Contacts ("Requests · N" is Connections'), *Events* → the Events tab, *Companies* → s72, *Exhibitors* → s54, *PinCast* → s39.
+- **Recent searches** (S3), **kept on the phone, per user**, with no backend need:
+  - Only people whose card opened are added: newest first, one per Pin name, at most 20, each with the Pin name and the display name at the time. Never typed text, never someone only seen in results.
+  - Tagged with the signed-in user's id; cleared on sign-out; not synced.
+  - A tap opens the card again with `GET /views/pin/:pinName` ✅, read afresh every time. A 404 keeps the entry, with "This Pin isn't available to you".
+  - Swipe to remove one; *Clear all*. Hidden while results are shown.
 
-### [[Screen Index#s38|s38]] → [[Screen Index#s44|s44]] Open a Pin by its exact Pin name (S2)
+### [[Screen Index#s38|s38]] Results (S2, S4)
 
-- **Resolve:** `GET /views/pin/:pinName` ✅ ([[BI-09 View As & Pin Views Backend Integration|BI-09]]) → the `RingProfileViewEntity` of what that person shares with me. On success s44 opens with **that body**, not re-fetched.
-- **Input:** strip a leading `!` or `@`, trim, lowercase before calling; an empty result sends nothing. **Submit only** (enter or the search action), never on a keystroke: no autocomplete, no partial match, no suggestions, so the API is never a prefix probe.
-- A spinner under the field while it looks.
-- **Not available:** a 404 `E_RING_ACCESS_01` (unknown, not shared, blocked) **and** a 400 (the name failed validation) read the same one line under the field, "This Pin isn't available to you". The field keeps the text; typing again clears the line.
-- **Offline or no answer** (no connection, timeout, 5xx): said under the field; the name can be sent again. Nothing is added to recent searches.
-- **My own Pin name:** compared on the phone with mine from `GET /profiles` ✅; opens View as on my default Ring ([[BI-09 View As & Pin Views Backend Integration|BI-09]]), no resolve call.
-- **Demo people** only outside production builds, from the app's own samples; a production build never shows them and sends nothing for them.
-- Later (D-37): a business Pin name opening s55 needs to know a name is a business's ([[S-29 Companies Story#Open questions|S-29 · Open questions]]); in the MVP every resolve lands on s44.
+- **Input:** strip a leading `!` or `@`, trim, lowercase. Under 3 letters, nothing is sent and the hint says to type at least 3 letters.
+- **As you type:** the search runs **300 ms after the last keystroke** (debounced). A new query cancels the one in flight, and an answer for an older query is dropped, so the list always matches the text in the field.
+- **The search** (proposed, not built): `GET /search/pin-names?q=&limit=20&skip=` → `{ data: [...], meta: { total } }`. **Next page** when the list nears the bottom: the same `q` with `skip` moved by 20, until `meta.total` is reached.
+- **Each result:**
 
-### [[Screen Index#s38|s38]] Recent searches (S3)
+  | Field | Use |
+  |---|---|
+  | `pinName` | shown under the name, and the address for Connect and for opening the card |
+  | `accountName` | the name from sign-up, never a Ring's; `null` → show the Pin name as the name |
+  | `avatarUrl` | the photo from sign-up, a signed link; `null` → a person outline |
+  | `relationship` | where I stand: `CONNECTED`, `REQUESTED`, `ASKED_ME` or `NONE` |
+  | `requestId` | for `REQUESTED` and `ASKED_ME`: the request to accept |
+  | `canOpenCard` | `true` only when they have me in one of their Rings |
 
-- **Kept on the phone, per user** (D-37): **no backend need**. Only a search that opened is added; newest first, one per normalised name, at most 20; each with the Pin name and the display name at the time.
-- Tagged with the signed-in user's id, so another account on the phone reads none of it; cleared on sign-out; not synced across devices.
-- A tap re-resolves (S2) every time: never a cached view, because access is answered per request. An entry whose lookup now fails stays, with the not-available line.
-- Swipe to remove one; *Clear all*.
+  The result never carries a user id, a Ring id or anything shared in a Ring.
+- **The four kinds of row:**
+  - **Connected** (`canOpenCard: true`): a tap opens their card (s44) with `GET /views/pin/:pinName` ✅ ([[BI-09 View As & Pin Views Backend Integration|BI-09]]); the person goes into recent searches.
+  - **Not connected** (`NONE`): name, photo, Pin name and **Connect**. The row doesn't open anything.
+  - **Requested:** the button reads **Requested** and does nothing.
+  - **Asked to connect** (`ASKED_ME`): "Asked to connect" with **Accept**. Accept opens Accept into a Ring ([[Screen Index#s46|s46]]) for that `requestId`, as on [[S-23 Connections Story|Connections · S5]]. Once accepted, the row becomes Connected.
+- **Connect:** `POST /connections/requests` `{ pinName }` ✅ ([[BI-16 Connections Backend Integration|BI-16]]; [[D-10 Connect sends what the requester already has|D-10]]: what I have is the Pin name). On success the row reads Requested and "Request sent." shows. The button is disabled while it sends.
+- **Never in the list:** blocked people (either side), myself, and anyone with the switch off who doesn't have me in a Ring. The **server** filters all three; the app filters nothing and never hides rows on its own.
+- **Demo people:** outside production builds only, from the app's own samples. A production build never shows them and sends nothing for them.
+
+### [[Screen Index#s38|s38]] The states (S4)
+
+| State | Shown |
+|---|---|
+| Fewer than 3 letters | the hint, no call |
+| Searching (first page) | shimmer rows in place of the list |
+| No matches (`data: []`, `total: 0`) | "No Pin names match "{q}"" |
+| No connection (offline, timeout, 5xx) on the first page | said in place of the list, with **Try again**, which sends the same query |
+| The next page loading | a loading row under the results |
+| The next page failing | a row under the results with Try again; the rows already shown stay |
+| Connect sent | "Request sent."; the row reads Requested |
+| Connect failing | the row keeps Connect, and a line says it didn't go |
+
+### Me › Privacy · "Let people find me by Pin name" ([[Screen Index#s68|s68]], S5)
+
+- A switch under **PEOPLE** on the Privacy screen ([[S-01 Account Story|Account · S1]]), with the line saying what a stranger sees: only my account name and photo from sign-up, and Connect.
+- **Read** (proposed, not built): `findableByPinName` on `GET /users/me`, `true` when never set.
+- **Save** (proposed, not built): `PATCH /users/me` `{ findableByPinName }`, saved at once when the switch moves. The switch shows the new value straight away; if the save fails, it goes back and a line says so.
 
 ### Later (D-37): not asked for now
 
-- **Ask Gemma** (S4): the field searches Pin names only, nothing goes to Gemma ([[S-89 Gemma AI Story]]).
-- **Import contacts** (S5): no contacts permission is asked and nothing leaves the phone until the privacy review.
-- **Search by name**: needs its own decision first.
-- **A business Pin opening s55** (S2).
+- **Ask Gemma** (S6): the field searches Pin names only, nothing goes to Gemma ([[S-89 Gemma AI Story]]).
+- **Import contacts** (S7): no contacts permission is asked and nothing leaves the phone until the privacy review.
+- **A business Pin opening s55** ([[S-29 Companies Story#Open questions|S-29 · Open questions]]): every card opens on s44.
 
 ## Endpoints required
 
 | Need | Endpoint | Available | Story part / decision |
 |---|---|---|---|
-| Resolve an exact Pin name to what the person shares with me | `GET /views/pin/:pinName` | ✅ | S2 · D-37 |
-| My own Pin name, to open View as instead | `GET /profiles` | ✅ | S2 |
+| Search by part of a Pin name, 3+ letters, paged 20 | `GET /search/pin-names?q=&limit=&skip=` (proposed) | ❌ not built | S2, S4 · D-41 |
+| Each result: `pinName`, `accountName`, `avatarUrl`, `relationship`, `requestId`, `canOpenCard`; never blocked people, myself, or the switched-off who don't have me in a Ring | the same | ❌ | S2, S5 · D-41 |
+| Read "Let people find me by Pin name" | `findableByPinName` on `GET /users/me` (proposed field) | ❌ | S5 · D-41 |
+| Save it | `PATCH /users/me` `{ findableByPinName }` (proposed field) | ❌ | S5 · D-41 |
+| Open a connected person's card, or a recent search | `GET /views/pin/:pinName` | ✅ | S2, S3 |
+| Connect | `POST /connections/requests` `{ pinName }` | ✅ ([[BI-16 Connections Backend Integration\|BI-16]]) | S2 · S-23 S2 |
+| Accept | `POST /connections/requests/:id/accept` `{ ringId }`, through s46 | ✅ ([[BI-16 Connections Backend Integration\|BI-16]]) | S2 · S-23 S5 |
 | Recent searches | — (on the phone) | no backend need | S3 · D-37 |
 | The tiles | — (other features) | no backend need | S1 |
-| Gemma, contact matching, search by name, a business Pin to s55 | — | later | S2, S4, S5 · D-37 |
+| Gemma, contact matching, a business Pin to s55 | — | later | S6, S7 · D-37 |
 
 ## Behaviour expectations
 
-- **Refetch, no realtime:** nothing loads on tab open except the recent searches from the phone; a resolve only on submit or on a tap of a recent entry. No polling.
-- **Caching keys:** a resolved view by (viewer, pin name) for the open s44 only; recent searches by (signed-in user), on the phone. Never cache a 404.
-- **Input:** strip `!` and `@`, trim, lowercase; submit only.
-- **Privacy:** one message for every way a resolve fails (404 and 400 alike); never time or retry a 404 to tell the cases apart; **never call the Pin-name availability endpoint** (`GET /profiles/pin-name/:pinName/availability`) from this screen; never infer which Ring a result came from.
-- **Offline:** nothing queued; the line under the field, and the name can be sent again.
+- **Refetch, no realtime:** nothing loads on tab open except recent searches from the phone. The search runs on the debounced text; the card on a tap. No polling.
+- **Caching keys:** search pages by (viewer, `q`) for the list on screen only, dropped when the text changes. An opened view by (viewer, Pin name) for the open s44 only. Recent searches by signed-in user, on the phone. Never cache a 404. After Connect or Accept, the row is updated in place, not refetched.
+- **Debounce and order:** 300 ms; a new query cancels the old one; a stale answer is dropped.
+- **Privacy:** the app shows only what each result carries and never asks for more. It never opens the card of a row with `canOpenCard: false`. It never calls the Pin-name availability route (`GET /profiles/pin-name/:pinName/availability`). It never says which Ring a card came from.
+- **Offline:** nothing queued; the states above, with Try again.
 
 ## Error states the UI must handle
 
 Until [[S-87 Error Contract Story|Error Contract · S4–S8]] puts `ErrorCode` on the wire everywhere, the app branches on status and endpoint ([[Frontend Contract]]).
 
-| Status | ErrorCode | Show |
-|---|---|---|
-| 404 | `E_RING_ACCESS_01` | "This Pin isn't available to you" under the field; keep the text; not added to recent searches |
-| 400 | validation | the same line, never a different one |
-| 401 | `E_AUTH_04` | sign in again |
-| — | offline, timeout, 5xx | said under the field; the name can be sent again; not added to recent searches |
+| Endpoint | Status | ErrorCode | Show |
+|---|---|---|---|
+| search | 400 | `E_SEARCH_01` (proposed): fewer than 3 letters | never reached: the app sends 3 or more; treated like no matches |
+| search | 429 | `E_SEARCH_02` (proposed): too many searches | "Searching too fast. Try again in a moment." in place of the list |
+| search | — | offline, timeout, 5xx | the no-connection state, with Try again |
+| `GET /views/pin/:pinName` | 404 | `E_RING_ACCESS_01` | "This Pin isn't available to you" (a recent entry stays; a result row may have changed since the search) |
+| `POST /connections/requests` | 4xx | `E_CONNECTION_REQUEST_*` ([[BI-16 Connections Backend Integration\|BI-16]]) | as on Connections: already requested → Requested; already connected → refresh the row; otherwise the row keeps Connect with the line |
+| `PATCH /users/me` | 4xx, 5xx | — | the switch goes back, with a line |
+| any | 401 | `E_AUTH_04` | sign in again |
 
 ## Blocked by
 
-Nothing for the MVP: the story is approved and its one call exists. The later rows wait on their own decisions (D-37): Gemma ([[S-89 Gemma AI Story]]), the contacts privacy review (S5), search by name, and whether a business has a Pin name ([[S-29 Companies Story#Open questions|S-29 · Open questions]]).
+- **[[S-42 Discover Hub & Search Story]]** is `draft` (rewritten 2026-11-17): this list waits on its approval.
+- **The backend's answers to S-42's open questions**, which shape the search route:
+  - matching anywhere in the Pin name or only at the start, and the order;
+  - whether an exact Pin name still opens directly;
+  - the rate limit;
+  - whether an account name and photo exist apart from the Ring profiles.
 
 ## Sign-off
 
-- Approved by: khaled · on: 2026-11-16 (the backend's review, against `main @ 3cef5d7`)
+- Approved by: — · on: —
 
 ## Log
 
@@ -104,3 +141,12 @@ Nothing for the MVP: the story is approved and its one call exists. The later ro
 - 2026-11-16 · `tickets/frontend/M-04-discovery/F-19-discover-hub/FR-19-ready` · every screen, endpoint row and error state is in: set `ready` (📨) on Omar Fostok's word, handed to the backend; flagged [[BD-19 Discover Hub & Search Backend Delivery]]
 - 2026-11-16 · `tickets/backend/M-04-discovery/F-19-discover-hub/FR-19-accepted` · backend review against S-42 and backend `main` `3cef5d7`: the list holds, `ready` → `approved` on khaled's word. The MVP (S1–S3, D-37) needs nothing new: `GET /views/pin/:pinName` exists and answers the view with `pinName` and `displayName`, no Ring id and no user id; unknown, deleted, not shared and blocked all answer 404 `E_RING_ACCESS_01`; `GET /profiles` gives my own `pinName`. Two things on the wire for the app to know: the route has no name validation today, so the 400 row never fires (harmless: the app treats it as the 404), and `displayName` may be `null`. [[BD-19 Discover Hub & Search Backend Delivery]] → `in-progress`; flagged [[S-42 Discover Hub & Search Story]] (which Ring the resolve renders)
 - 2026-11-16 · flagged [[S-42 Discover Hub & Search Story]]: for /pm: 'Rules the backend already enforces' says GET /views/pin/:pinName renders the default Ring if the viewer is in it, else the oldest Ring they can see; backend main 3cef5d7 renders the viewer's oldest live membership (D-15). The story's line to bring to that; nothing changes for FR-19 or the app
+- 2026-11-17 · `tickets/frontend/M-04-discovery/F-19-discover-hub/FR-19-pin-name-search` · rewritten to S-42 as of 2026-11-17 and D-41, set back to **draft** from approved, since it changes what the backend approved:
+  - The hub, results, states and the Privacy switch per screen.
+  - Proposed: `GET /search/pin-names?q=&limit=20&skip=`, each result with `pinName`, `accountName`, `avatarUrl`, `relationship` (`CONNECTED`, `REQUESTED`, `ASKED_ME`, `NONE`), `requestId` and `canOpenCard`; blocked people, myself and the switched-off who don't have me in a Ring are filtered on the server.
+  - Proposed: `findableByPinName` on `GET` and `PATCH /users/me`.
+  - Reused: Connect with `POST /connections/requests` `{ pinName }` and Accept through s46, from BI-16; a connected card opens with `GET /views/pin/:pinName`.
+  - A 300 ms debounce, cancelling and dropping stale answers.
+  - Proposed codes `E_SEARCH_01` and `E_SEARCH_02`.
+  - Dropped: submit only, "my own Pin name opens View as", and the 400 row for names.
+  - Cleared the S-42 and D-41 flags.
