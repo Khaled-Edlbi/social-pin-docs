@@ -52029,6 +52029,11 @@
     {
       "from": "story:account",
       "kind": "related",
+      "to": "decision:D-41"
+    },
+    {
+      "from": "story:account",
+      "kind": "related",
       "to": "feature:profiles"
     },
     {
@@ -52325,6 +52330,11 @@
     {
       "from": "story:connections",
       "kind": "related",
+      "to": "decision:D-41"
+    },
+    {
+      "from": "story:connections",
+      "kind": "related",
       "to": "needs-decision:ND-10"
     },
     {
@@ -52336,6 +52346,11 @@
       "from": "story:connections",
       "kind": "related",
       "to": "project:ring-access-model"
+    },
+    {
+      "from": "story:connections",
+      "kind": "related",
+      "to": "story:discover-hub"
     },
     {
       "from": "story:counts",
@@ -52454,11 +52469,6 @@
       "from": "story:discover-hub",
       "kind": "related",
       "to": "story:companies"
-    },
-    {
-      "from": "story:discover-hub",
-      "kind": "related",
-      "to": "story:connections"
     },
     {
       "from": "story:events-before",
@@ -73977,16 +73987,6 @@
       "to": "frontend-delivery:discover-hub"
     },
     {
-      "from": "decision:D-41",
-      "kind": "wikilink",
-      "to": "story:account"
-    },
-    {
-      "from": "decision:D-41",
-      "kind": "wikilink",
-      "to": "story:connections"
-    },
-    {
       "from": "feature:account",
       "kind": "wikilink",
       "to": "task:B-01"
@@ -90125,8 +90125,10 @@
         "decision:D-10",
         "feature:connections",
         "feature:account",
+        "story:connections",
         "frontend-requirements:discover-hub",
-        "story:discover-hub"
+        "story:discover-hub",
+        "story:account"
       ],
       "release": null,
       "resolution": null,
@@ -112429,6 +112431,7 @@
         "task:B-01",
         "frontend-delivery:account",
         "feature:profiles",
+        "decision:D-41",
         "qa-backend:auth",
         "qa-frontend:auth",
         "qa-backend:counts",
@@ -112465,7 +112468,7 @@
       "task": null,
       "title": "S-01 Account Story",
       "unmet": [],
-      "updated": "2026-11-12"
+      "updated": "2026-11-17"
     },
     "story:app-shell": {
       "affects": [],
@@ -113142,6 +113145,8 @@
         "decision:D-27",
         "decision:D-28",
         "decision:D-29",
+        "decision:D-41",
+        "story:discover-hub",
         "project:ring-access-model",
         "backend-delivery:badge-qr",
         "backend-integration:badge-qr",
@@ -113152,7 +113157,6 @@
         "frontend-delivery:discover-hub",
         "frontend-requirements:discover-hub",
         "qa-backend:discover-hub",
-        "story:discover-hub",
         "frontend-requirements:pincast",
         "story:pincast",
         "qa-frontend:auth",
@@ -113229,7 +113233,7 @@
       "task": null,
       "title": "S-23 Connections Story",
       "unmet": [],
-      "updated": "2026-11-12"
+      "updated": "2026-11-17"
     },
     "story:counts": {
       "affects": [],
@@ -113547,6 +113551,7 @@
         "frontend-delivery:connections",
         "frontend-requirements:connections",
         "qa-backend:connections",
+        "story:connections",
         "backend-integration:badge-qr",
         "frontend-delivery:badge-qr",
         "qa-backend:badge-qr",
@@ -113558,7 +113563,6 @@
         "decision:D-37",
         "decision:D-15",
         "story:account",
-        "story:connections",
         "story:companies",
         "feature:view-as",
         "feature:connections",
