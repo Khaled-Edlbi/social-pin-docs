@@ -11,16 +11,14 @@ approvedAt: 2026-11-04
 owner: "Omar Fostok"
 depends: ["D-10 Connect sends what the requester already has"]
 affects: ["S-16 Ring Members Story", "S-18 Rings Story", "S-19 View As & Pin Views Story", "S-37 Badge & QR Story", "S-03 Counts Story", "S-96 Notifications Story", "S-42 Discover Hub & Search Story"]
-related: ["D-04 Ring settings at launch and their defaults", "D-13 The requester sees a declined request", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-17 Requests expire after 30 days, optional note, ask again at once", "D-18 Ring names shown when joined knowingly", "ND-10 How Connect addresses the scanned person", "ND-23 Mutual connections and events in common", "D-10 Connect sends what the requester already has", "D-23 A count of mutual connections, events where both were visible", "D-24 One pending request per pair", "D-25 A deleted account's connections, requests and blocks end silently", "D-26 A disconnect is not announced", "D-27 Sent keeps declined and expired requests for 30 days", "D-28 Scan someone in is not in the MVP", "D-29 Connection detail opens a member who is not a connection", "Ring Access Model"]
+related: ["D-04 Ring settings at launch and their defaults", "D-13 The requester sees a declined request", "D-14 Shared with me lists people, never the Ring", "D-15 Several Rings per connection, remove or disconnect", "D-17 Requests expire after 30 days, optional note, ask again at once", "D-18 Ring names shown when joined knowingly", "ND-10 How Connect addresses the scanned person", "ND-23 Mutual connections and events in common", "D-10 Connect sends what the requester already has", "D-23 A count of mutual connections, events where both were visible", "D-24 One pending request per pair", "D-25 A deleted account's connections, requests and blocks end silently", "D-26 A disconnect is not announced", "D-27 Sent keeps declined and expired requests for 30 days", "D-28 Scan someone in is not in the MVP", "D-29 Connection detail opens a member who is not a connection", "D-41 Discover searches people by part of their Pin name", "S-42 Discover Hub & Search Story", "Ring Access Model"]
 pending: []
 created: 2026-10-18
-updated: 2026-11-12
+updated: 2026-11-17
 tags: [story, story/approved, module/connections, layer/business]
 ---
 
 # Connections · User Story
-
-> ⚠ Affected by [[D-41 Discover searches people by part of their Pin name]] (2026-11-17): /pm: Connect from a Discover search result sends the normal connection request. The row then shows Requested, and someone who asked me shows "Asked to connect" with Accept.
 
 > ⚠ Affected by [[FD-14 Ring Members Frontend Delivery]] (2026-11-09): social_pin 0005f00: s47's checklist (S9) and s15's move picker leave out ended Rings only; a Ring that has not started yet is still listed, pending on FD-14. Scan someone in is not shown on s15 and Disconnect lives in ⋯ beside Block, as S11 and S12 say (/pm)
 
@@ -53,12 +51,12 @@ The same person is both, with different people, on the same day.
 
 Acceptance criteria:
 - [ ] **By scan:** the camera reads a Social Pin code and resolves it through `GET /views/qr/:token` ([[S-37 Badge & QR Story|Badge & QR · S13–S18]]). Not available yet: no QR route exists; the app's reader (s43) is a timer that opens a sample card.
-- [ ] **By Pin name:** `!pinname` on Discover resolves through `GET /views/pin/:pinName` (exists), exact and case-insensitive ([[S-42 Discover Hub & Search Story]]).
+- [ ] **By Pin name:** Discover searches by part of a Pin name ([[S-42 Discover Hub & Search Story|Discover · S2]], [[D-41 Discover searches people by part of their Pin name|D-41]]). A result opens the card (`GET /views/pin/:pinName`, exists) only when they have me in one of their Rings. Anyone else shows only their account name, photo and Pin name with *Connect*, and the row opens nothing (S2). Not available yet: the search route.
 - [ ] **From PinCast results** (s42): a row opens the same card. Not available yet (no PinCast API).
 - [ ] The card (s44) shows what their Ring shares with me (`RingProfileViewEntity`) and never the Ring's name, colour or type; the note "You see what their Ring shares, never which Ring you are in."
 - [ ] Every failure reads the same, "This profile isn't available to you": no such Pin, not shared, blocked either way, Ring gone or not live, token rotated or revoked (one 404, `E_RING_ACCESS_01` / `E_RING_ACCESS_02`). Nothing says "blocked".
 - [ ] A code that isn't a Social Pin code reads "Not a Social Pin code" on the phone, without a call (S-37 S15).
-- [ ] **My own code or Pin name** opens View as, marked as a preview, and offers no *Connect* (S-37 S16, S-42).
+- [ ] **My own code** opens View as, marked as a preview, and offers no *Connect* (S-37 S16). Discover's search never lists me (S-42 S2).
 - [ ] *Save for later* keeps the card in a recent list on the phone and sends nothing (S-37 S4).
 
 ### S2 · Ask to connect ([[Screen Index#s44|s44]])
@@ -75,6 +73,10 @@ Acceptance criteria:
 - [ ] A blocked pair, either way: the request fails with the same 404 as the card (S1); the button returns to *Connect*.
 - [ ] After a **decline** or an **expiry**, the button reads *Not accepted* or *Request expired* with *Connect* again, which sends a **new** request at once; no waiting period. The two states read **"Not accepted"** (a decline) and **"Request expired"** (30 days unanswered), here and on Sent (S4), never "Declined" (decided by Omar Fostok, 2026-11-09).
 - [ ] Offline: *Connect* says the request couldn't be sent and stays *Connect*; nothing is queued.
+- [ ] **From a Discover result** ([[Screen Index#s38|s38]], [[S-42 Discover Hub & Search Story|Discover · S2]]):
+  - *Connect* on the row sends the same request, `{ pinName }` (D-10). "Request sent." confirms it, and the row reads **Requested**.
+  - A row for someone who already asked me reads **"Asked to connect"** with **Accept**, which opens S5 for their request. Once accepted, the row opens their card.
+  - The request's *where from* is Pin name (S3).
 
 ### S3 · See who wants to connect ([[Screen Index#s45|s45]], [[Screen Index#s11|s11]], [[Screen Index#s69|s69]])
 
@@ -379,3 +381,8 @@ Shipped since the rewrite: **Shared with me as people** (D-14), backend `main` @
   The story stays approved.
 - 2026-11-12 · flagged [[FR-14 Connections Frontend Requirements]]: S17 Introduce is an MVP part needing an endpoint; S8 People tile opens Contacts; the wording above
 - 2026-11-12 · flagged [[BD-14 Connections Backend Delivery]]: S17 Introduce needs an endpoint (backend list item 12), its shape waiting on what Introduce sends
+- 2026-11-17 · `tickets/pm/M-04-discovery/F-19-discover-hub/S-42-open-questions` · brought to [[D-41 Discover searches people by part of their Pin name|D-41]] (decided by Omar Fostok 2026-11-17):
+  - S1: by Pin name is now Discover's search by part of a Pin name. A card opens only for someone who has me in a Ring; others show name, photo and *Connect*. My own Pin name is never listed.
+  - S2: Connect from a Discover result sends `{ pinName }` with "Request sent." and Requested; "Asked to connect" with Accept opens S5.
+
+  Cleared the D-41 flag. The story stays approved (the request routes are unchanged); say if it should go back to draft
