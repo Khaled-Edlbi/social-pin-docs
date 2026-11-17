@@ -20,6 +20,8 @@ tags: [frontend-delivery, frontend-delivery/done, module/discovery, layer/fronte
 
 # ✅ Discover Hub & Search · Frontend Delivery
 
+> ⚠ Affected by [[D-41 Discover searches people by part of their Pin name]] (2026-11-17): /frontend: the exact-name lookup on submit that shipped at `778d9b4` is no longer the MVP's search. The partial search, the Connect states and the opt-out are still to build, once FR-19 is rewritten.
+
 **Feature:** [[F-19 Discover Hub & Search]] · **Status:** Done · **Built from:** [[BI-19 Discover Hub & Search Backend Integration]] (current 2026-11-16), which uses [[BI-09 View As & Pin Views Backend Integration|BI-09]]'s `GET /views/pin/:pinName` · **Against:** [[S-42 Discover Hub & Search Story]] · **Requirements:** [[FR-19 Discover Hub & Search Frontend Requirements]] · **QA:** [[Discover Hub & Search QA Frontend]]
 
 What the client shipped for the Discover tab within [[D-37 Discover opens a Pin by its exact Pin name in the MVP|D-37]]'s MVP: opening a Pin by its exact Pin name, the one "not available" line, and recent searches kept on the phone (S1–S3). It is on `social_pin` `rings/F-11/honest-rings` @ `778d9b4` (2026-11-12), not on `main` yet. The hub and its demo came in `e03ddf9`; the real lookup, the recent searches and People → Contacts came in `778d9b4`. At `778d9b4`: `dart analyze` 0 errors, `flutter test` 1752 passed. Unit and widget tests only; not yet tried on a device.

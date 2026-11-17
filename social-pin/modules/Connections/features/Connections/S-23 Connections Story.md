@@ -20,6 +20,8 @@ tags: [story, story/approved, module/connections, layer/business]
 
 # Connections · User Story
 
+> ⚠ Affected by [[D-41 Discover searches people by part of their Pin name]] (2026-11-17): /pm: Connect from a Discover search result sends the normal connection request. The row then shows Requested, and someone who asked me shows "Asked to connect" with Accept.
+
 > ⚠ Affected by [[FD-14 Ring Members Frontend Delivery]] (2026-11-09): social_pin 0005f00: s47's checklist (S9) and s15's move picker leave out ended Rings only; a Ring that has not started yet is still listed, pending on FD-14. Scan someone in is not shown on s15 and Disconnect lives in ⋯ beside Block, as S11 and S12 say (/pm)
 
 > ⚠ Affected by [[BD-14 Connections Backend Delivery]] (2026-11-09): S2 and S13 by scanned code ({ qrToken } on Connect, Block and the relationship, source SCAN) and S16's account deletion (D-25: connections end, requests close both ways, blocks removed, silently) are built on backend main ebdca36 (local, not pushed yet); BD-14 has nothing pending

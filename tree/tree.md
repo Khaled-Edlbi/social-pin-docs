@@ -275,6 +275,8 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
       - 👍 [S-42 Discover Hub & Search Story](social-pin/modules/Discovery/features/Discover%20Hub%20%26%20Search/S-42%20Discover%20Hub%20%26%20Search%20Story.md) (User Story)
         - ✅ [ND-37 What Discover does in the MVP](social-pin/needs-decisions/ND-37%20What%20Discover%20does%20in%20the%20MVP.md) (Needs decision)
           - ⚖️ [D-37 Discover opens a Pin by its exact Pin name in the MVP](social-pin/decisions/D-37%20Discover%20opens%20a%20Pin%20by%20its%20exact%20Pin%20name%20in%20the%20MVP.md) (Decision)
+        - ✅ [ND-41 Who Discover finds by part of a Pin name](social-pin/needs-decisions/ND-41%20Who%20Discover%20finds%20by%20part%20of%20a%20Pin%20name.md) (Needs decision)
+          - ⚖️ [D-41 Discover searches people by part of their Pin name](social-pin/decisions/D-41%20Discover%20searches%20people%20by%20part%20of%20their%20Pin%20name.md) (Decision)
       - ✅ [FR-19 Discover Hub & Search Frontend Requirements](social-pin/modules/Discovery/features/Discover%20Hub%20%26%20Search/flow/FR-19%20Discover%20Hub%20%26%20Search%20Frontend%20Requirements.md) (Frontend Requirements)
       - ✅ [BD-19 Discover Hub & Search Backend Delivery](social-pin/modules/Discovery/features/Discover%20Hub%20%26%20Search/flow/BD-19%20Discover%20Hub%20%26%20Search%20Backend%20Delivery.md) (Backend Delivery)
       - 🔵 [BI-19 Discover Hub & Search Backend Integration](social-pin/modules/Discovery/features/Discover%20Hub%20%26%20Search/flow/BI-19%20Discover%20Hub%20%26%20Search%20Backend%20Integration.md) (Backend Integration)

@@ -16,6 +16,8 @@ tags: [decision, decision/decided]
 
 # ✅ D-37 · Discover opens a Pin by its exact Pin name in the MVP
 
+> ⚠ Affected by [[D-41 Discover searches people by part of their Pin name]] (2026-11-17): replaced in part. D-41 replaces the rule of exact Pin name only, with no partial match. Recent searches on the phone, and Gemma and import contacts later, still hold.
+
 **Answers:** [[ND-37 What Discover does in the MVP]] · **Decided by:** Omar Fostok · **On:** 2026-11-11 · **Feature:** [[F-19 Discover Hub & Search]]
 
 > This card is the answer to [[ND-37 What Discover does in the MVP]]. The needs-decision card keeps the question, the facts and the options; this decision card says what was decided, why, and what it changes. `draft` while the answer is prepared; `decided` only by the PM or the owner, on the user's word, with `decidedBy` and `decidedAt`: then [[ND-37 What Discover does in the MVP]] shows Fulfilled by itself and the cards it blocked continue.

@@ -20,6 +20,8 @@ tags: [frontend-requirements, frontend-requirements/approved, module/discovery, 
 
 # Discover Hub & Search · Frontend Requirements
 
+> ⚠ Affected by [[D-41 Discover searches people by part of their Pin name]] (2026-11-17): /frontend: partial Pin-name search as you type from 3 letters, 20 a page with the next page loading at the bottom. The result row's states: opens the card, Connect, Requested, "Asked to connect" with Accept. The person outline, and the Pin name when there's no name. The submit-only rule goes. Wait for S-42's rewrite.
+
 **Feature:** [[F-19 Discover Hub & Search]] · **Status:** Approved, 2026-11-16 (the backend's review) · **Story:** [[S-42 Discover Hub & Search Story]] (approved 2026-10-25, tidied 2026-11-16) · **Backend Integration:** [[BI-09 View As & Pin Views Backend Integration]] (the one call the MVP needs)
 
 What the client needs from the backend to build [[S-42 Discover Hub & Search Story]], and whether each need is met today. **Rewritten 2026-11-16** against the story as of that day and [[D-37 Discover opens a Pin by its exact Pin name in the MVP|D-37]]: the MVP is S1, S2 and S3, and it needs **one call that already exists**, `GET /views/pin/:pinName`. Recent searches stay on the phone; the tiles only navigate. Gemma, contact matching, search by name and a business Pin opening s55 are later.

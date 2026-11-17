@@ -163,6 +163,7 @@
     "D-38 Introduce is in the MVP": "decision:D-38",
     "D-39 The company domain and the title switch show in the MVP": "decision:D-39",
     "D-40 The bell count, the tab cross-fade and Go Pro coming soon stay": "decision:D-40",
+    "D-41 Discover searches people by part of their Pin name": "decision:D-41",
     "Database & Migrations": "project:database-migrations",
     "Developer Guide": "project:developer-guide",
     "Developer Setup": "project:developer-setup",
@@ -321,6 +322,7 @@
     "ND-38 Whether Introduce is in the MVP": "needs-decision:ND-38",
     "ND-39 Whether the company domain and the title switch show in the MVP": "needs-decision:ND-39",
     "ND-40 Which app choices the MVP keeps as they are": "needs-decision:ND-40",
+    "ND-41 Who Discover finds by part of a Pin name": "needs-decision:ND-41",
     "Owner Agent": "project:owner-agent",
     "PM Agent": "project:pm-agent",
     "Project Overview": "project:project-overview",
@@ -521,6 +523,7 @@
     "D-38": "decision:D-38",
     "D-39": "decision:D-39",
     "D-40": "decision:D-40",
+    "D-41": "decision:D-41",
     "F-01": "feature:account",
     "F-02": "feature:auth",
     "F-03": "feature:counts",
@@ -666,6 +669,7 @@
     "ND-38": "needs-decision:ND-38",
     "ND-39": "needs-decision:ND-39",
     "ND-40": "needs-decision:ND-40",
+    "ND-41": "needs-decision:ND-41",
     "P-01": "project:feature-graph",
     "P-02": "project:feature-tree",
     "P-03": "project:glossary",
@@ -3901,6 +3905,7 @@
         "feature:view-as",
         "needs-decision:ND-10",
         "needs-decision:ND-22",
+        "needs-decision:ND-41",
         "project:frontend-api-guide",
         "project:frontend-contract",
         "project:status-report-2026-10-15",
@@ -3931,6 +3936,7 @@
         "frontend-requirements:view-as",
         "needs-decision:ND-10",
         "needs-decision:ND-22",
+        "needs-decision:ND-41",
         "project:frontend-api-guide",
         "project:frontend-contract",
         "project:status-report-2026-10-15",
@@ -6752,7 +6758,8 @@
         "feature:companies",
         "feature:connections",
         "feature:discover-hub",
-        "needs-decision:ND-37"
+        "needs-decision:ND-37",
+        "needs-decision:ND-41"
       ],
       "kind": "screen",
       "notes": [
@@ -6767,6 +6774,7 @@
         "frontend-requirements:connections",
         "frontend-requirements:discover-hub",
         "needs-decision:ND-37",
+        "needs-decision:ND-41",
         "qa-backend:connections",
         "qa-backend:discover-hub",
         "story:companies",
@@ -7631,12 +7639,12 @@
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 15,
-      "decision": 37,
+      "decision": 38,
       "feature": 40,
       "frontend-delivery": 20,
       "frontend-requirements": 39,
       "module": 8,
-      "needs-decision": 38,
+      "needs-decision": 39,
       "project": 28,
       "qa-backend": 15,
       "qa-frontend": 2,
@@ -7645,21 +7653,21 @@
     },
     "byLayer": {
       "backend": 62,
-      "business": 188,
+      "business": 190,
       "frontend": 63,
       "qa": 17,
       "shared": 10
     },
     "concepts": 364,
-    "decisions": 38,
-    "edges": 9274,
+    "decisions": 39,
+    "edges": 9341,
     "features": 40,
     "layerNotes": 170,
     "modules": 8,
-    "notes": 371,
+    "notes": 373,
     "partial": 12,
     "placeholders": 108,
-    "records": 37
+    "records": 38
   },
   "deadlines": {
     "missed": {
@@ -8662,6 +8670,46 @@
       "from": "decision:D-40",
       "kind": "affects",
       "to": "story:subscription"
+    },
+    {
+      "from": "decision:D-41",
+      "kind": "affects",
+      "to": "backend-delivery:discover-hub"
+    },
+    {
+      "from": "decision:D-41",
+      "kind": "affects",
+      "to": "backend-integration:discover-hub"
+    },
+    {
+      "from": "decision:D-41",
+      "kind": "affects",
+      "to": "feature:discover-hub"
+    },
+    {
+      "from": "decision:D-41",
+      "kind": "affects",
+      "to": "frontend-delivery:discover-hub"
+    },
+    {
+      "from": "decision:D-41",
+      "kind": "affects",
+      "to": "frontend-requirements:discover-hub"
+    },
+    {
+      "from": "decision:D-41",
+      "kind": "affects",
+      "to": "story:account"
+    },
+    {
+      "from": "decision:D-41",
+      "kind": "affects",
+      "to": "story:connections"
+    },
+    {
+      "from": "decision:D-41",
+      "kind": "affects",
+      "to": "story:discover-hub"
     },
     {
       "from": "frontend-requirements:badge-qr",
@@ -10322,6 +10370,16 @@
       "from": "needs-decision:ND-40",
       "kind": "decision",
       "to": "story:subscription"
+    },
+    {
+      "from": "needs-decision:ND-41",
+      "kind": "decision",
+      "to": "feature:discover-hub"
+    },
+    {
+      "from": "needs-decision:ND-41",
+      "kind": "decision",
+      "to": "story:discover-hub"
     },
     {
       "from": "backend-delivery:badge-qr",
@@ -13772,6 +13830,14 @@
       "to": "needs-decision:ND-29",
       "via": [
         "GET /connections/:userId"
+      ]
+    },
+    {
+      "from": "backend-delivery:connections",
+      "kind": "related",
+      "to": "needs-decision:ND-41",
+      "via": [
+        "GET /views/pin/:pinName"
       ]
     },
     {
@@ -19243,6 +19309,14 @@
     {
       "from": "backend-integration:badge-qr",
       "kind": "related",
+      "to": "needs-decision:ND-41",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "backend-integration:badge-qr",
+      "kind": "related",
       "to": "project:agent-rules",
       "via": [
         "E_RING_02"
@@ -20364,6 +20438,14 @@
       "to": "needs-decision:ND-29",
       "via": [
         "GET /connections/:userId"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "needs-decision:ND-41",
+      "via": [
+        "GET /views/pin/:pinName"
       ]
     },
     {
@@ -24306,6 +24388,14 @@
     {
       "from": "backend-integration:view-as",
       "kind": "related",
+      "to": "needs-decision:ND-41",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "backend-integration:view-as",
+      "kind": "related",
       "to": "project:frontend-api-guide",
       "via": [
         "GET /rings/shared-with-me",
@@ -25423,6 +25513,31 @@
       "from": "decision:D-40",
       "kind": "related",
       "to": "needs-decision:ND-40"
+    },
+    {
+      "from": "decision:D-41",
+      "kind": "related",
+      "to": "decision:D-10"
+    },
+    {
+      "from": "decision:D-41",
+      "kind": "related",
+      "to": "decision:D-37"
+    },
+    {
+      "from": "decision:D-41",
+      "kind": "related",
+      "to": "feature:account"
+    },
+    {
+      "from": "decision:D-41",
+      "kind": "related",
+      "to": "feature:connections"
+    },
+    {
+      "from": "decision:D-41",
+      "kind": "related",
+      "to": "needs-decision:ND-41"
     },
     {
       "from": "feature:account",
@@ -27406,6 +27521,14 @@
     {
       "from": "frontend-delivery:badge-qr",
       "kind": "related",
+      "to": "needs-decision:ND-41",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "frontend-delivery:badge-qr",
+      "kind": "related",
       "to": "project:agent-rules",
       "via": [
         "E_RING_02"
@@ -27957,6 +28080,14 @@
     {
       "from": "frontend-delivery:connections",
       "kind": "related",
+      "to": "needs-decision:ND-41",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "frontend-delivery:connections",
+      "kind": "related",
       "to": "project:frontend-api-guide",
       "via": [
         "GET /views/pin/:pinName"
@@ -28265,6 +28396,14 @@
       "from": "frontend-delivery:discover-hub",
       "kind": "related",
       "to": "needs-decision:ND-22",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "frontend-delivery:discover-hub",
+      "kind": "related",
+      "to": "needs-decision:ND-41",
       "via": [
         "GET /views/pin/:pinName"
       ]
@@ -30077,6 +30216,14 @@
       "from": "frontend-delivery:view-as",
       "kind": "related",
       "to": "needs-decision:ND-22",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "frontend-delivery:view-as",
+      "kind": "related",
+      "to": "needs-decision:ND-41",
       "via": [
         "GET /views/pin/:pinName"
       ]
@@ -31980,6 +32127,14 @@
       "from": "frontend-requirements:connections",
       "kind": "related",
       "to": "needs-decision:ND-22",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "frontend-requirements:connections",
+      "kind": "related",
+      "to": "needs-decision:ND-41",
       "via": [
         "GET /views/pin/:pinName"
       ]
@@ -36256,6 +36411,14 @@
     {
       "from": "frontend-requirements:ring-access",
       "kind": "related",
+      "to": "needs-decision:ND-41",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "frontend-requirements:ring-access",
+      "kind": "related",
       "to": "project:agent-rules",
       "via": [
         "E_RING_02"
@@ -38748,6 +38911,14 @@
     {
       "from": "frontend-requirements:view-as",
       "kind": "related",
+      "to": "needs-decision:ND-41",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "frontend-requirements:view-as",
+      "kind": "related",
       "to": "project:auth-model",
       "via": [
         "E_AUTH_03",
@@ -39902,6 +40073,47 @@
       "from": "needs-decision:ND-40",
       "kind": "related",
       "to": "story:notifications"
+    },
+    {
+      "from": "needs-decision:ND-41",
+      "kind": "related",
+      "to": "backend-delivery:discover-hub"
+    },
+    {
+      "from": "needs-decision:ND-41",
+      "kind": "related",
+      "to": "backend-integration:discover-hub",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "needs-decision:ND-41",
+      "kind": "related",
+      "to": "decision:D-37"
+    },
+    {
+      "from": "needs-decision:ND-41",
+      "kind": "related",
+      "to": "feature:discover-hub"
+    },
+    {
+      "from": "needs-decision:ND-41",
+      "kind": "related",
+      "to": "frontend-requirements:discover-hub",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "needs-decision:ND-41",
+      "kind": "related",
+      "to": "story:account"
+    },
+    {
+      "from": "needs-decision:ND-41",
+      "kind": "related",
+      "to": "story:connections"
     },
     {
       "from": "project:admin-agent",
@@ -41448,6 +41660,14 @@
     {
       "from": "qa-backend:badge-qr",
       "kind": "related",
+      "to": "needs-decision:ND-41",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "qa-backend:badge-qr",
+      "kind": "related",
       "to": "project:agent-rules",
       "via": [
         "E_RING_02"
@@ -42518,6 +42738,14 @@
       "to": "needs-decision:ND-29",
       "via": [
         "GET /connections/:userId"
+      ]
+    },
+    {
+      "from": "qa-backend:connections",
+      "kind": "related",
+      "to": "needs-decision:ND-41",
+      "via": [
+        "GET /views/pin/:pinName"
       ]
     },
     {
@@ -44103,6 +44331,14 @@
     {
       "from": "qa-backend:discover-hub",
       "kind": "related",
+      "to": "needs-decision:ND-41",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "qa-backend:discover-hub",
+      "kind": "related",
       "to": "project:auth-model",
       "via": [
         "E_AUTH_03"
@@ -44688,6 +44924,14 @@
       "from": "qa-backend:files",
       "kind": "related",
       "to": "needs-decision:ND-22",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "qa-backend:files",
+      "kind": "related",
+      "to": "needs-decision:ND-41",
       "via": [
         "GET /views/pin/:pinName"
       ]
@@ -45496,6 +45740,14 @@
     {
       "from": "qa-backend:photo-library",
       "kind": "related",
+      "to": "needs-decision:ND-41",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "qa-backend:photo-library",
+      "kind": "related",
       "to": "project:agent-rules",
       "via": [
         "E_RING_02"
@@ -46290,6 +46542,14 @@
     {
       "from": "qa-backend:profiles",
       "kind": "related",
+      "to": "needs-decision:ND-41",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "qa-backend:profiles",
+      "kind": "related",
       "to": "project:frontend-api-guide",
       "via": [
         "GET /profiles/pin-name/:pinName/availability",
@@ -46999,6 +47259,14 @@
       "from": "qa-backend:ring-access",
       "kind": "related",
       "to": "needs-decision:ND-22",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-access",
+      "kind": "related",
+      "to": "needs-decision:ND-41",
       "via": [
         "GET /views/pin/:pinName"
       ]
@@ -49878,6 +50146,14 @@
       "from": "qa-backend:view-as",
       "kind": "related",
       "to": "needs-decision:ND-22",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "qa-backend:view-as",
+      "kind": "related",
+      "to": "needs-decision:ND-41",
       "via": [
         "GET /views/pin/:pinName"
       ]
@@ -57407,6 +57683,14 @@
     {
       "from": "decision:D-10",
       "kind": "shares",
+      "to": "needs-decision:ND-41",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
       "to": "project:frontend-api-guide",
       "via": [
         "GET /views/pin/:pinName"
@@ -60324,6 +60608,14 @@
     {
       "from": "feature:badge-qr",
       "kind": "shares",
+      "to": "needs-decision:ND-41",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "feature:badge-qr",
+      "kind": "shares",
       "to": "project:agent-rules",
       "via": [
         "E_RING_02"
@@ -61815,6 +62107,14 @@
     {
       "from": "feature:connections",
       "kind": "shares",
+      "to": "needs-decision:ND-41",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "feature:connections",
+      "kind": "shares",
       "to": "project:agent-rules",
       "via": [
         "E_RING_02"
@@ -63177,6 +63477,14 @@
     {
       "from": "feature:discover-hub",
       "kind": "shares",
+      "to": "needs-decision:ND-41",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "feature:discover-hub",
+      "kind": "shares",
       "to": "project:auth-model",
       "via": [
         "E_AUTH_03"
@@ -63340,6 +63648,14 @@
       "from": "feature:e2e-tests",
       "kind": "shares",
       "to": "needs-decision:ND-22",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "feature:e2e-tests",
+      "kind": "shares",
+      "to": "needs-decision:ND-41",
       "via": [
         "GET /views/pin/:pinName"
       ]
@@ -64860,6 +65176,14 @@
       "from": "feature:files",
       "kind": "shares",
       "to": "needs-decision:ND-22",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "feature:files",
+      "kind": "shares",
+      "to": "needs-decision:ND-41",
       "via": [
         "GET /views/pin/:pinName"
       ]
@@ -66698,6 +67022,14 @@
     {
       "from": "feature:profiles",
       "kind": "shares",
+      "to": "needs-decision:ND-41",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "feature:profiles",
+      "kind": "shares",
       "to": "project:developer-setup",
       "via": [
         "GET /views/pin/SaraAz"
@@ -66960,6 +67292,14 @@
       "to": "needs-decision:ND-29",
       "via": [
         "GET /connections/:userId"
+      ]
+    },
+    {
+      "from": "feature:ring-access",
+      "kind": "shares",
+      "to": "needs-decision:ND-41",
+      "via": [
+        "GET /views/pin/:pinName"
       ]
     },
     {
@@ -67512,6 +67852,14 @@
       "to": "needs-decision:ND-29",
       "via": [
         "GET /connections/:userId"
+      ]
+    },
+    {
+      "from": "feature:ring-members",
+      "kind": "shares",
+      "to": "needs-decision:ND-41",
+      "via": [
+        "GET /views/pin/:pinName"
       ]
     },
     {
@@ -68281,6 +68629,14 @@
     {
       "from": "feature:view-as",
       "kind": "shares",
+      "to": "needs-decision:ND-41",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "feature:view-as",
+      "kind": "shares",
       "to": "project:auth-model",
       "via": [
         "E_AUTH_03",
@@ -68671,6 +69027,14 @@
     {
       "from": "needs-decision:ND-10",
       "kind": "shares",
+      "to": "needs-decision:ND-41",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "needs-decision:ND-10",
+      "kind": "shares",
       "to": "project:frontend-api-guide",
       "via": [
         "GET /views/pin/:pinName",
@@ -69042,6 +69406,14 @@
     {
       "from": "needs-decision:ND-22",
       "kind": "shares",
+      "to": "needs-decision:ND-41",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "needs-decision:ND-22",
+      "kind": "shares",
       "to": "project:frontend-api-guide",
       "via": [
         "GET /views/pin/:pinName"
@@ -69137,6 +69509,38 @@
       "to": "task:B-18",
       "via": [
         "POST /auth/login/verify"
+      ]
+    },
+    {
+      "from": "needs-decision:ND-41",
+      "kind": "shares",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "needs-decision:ND-41",
+      "kind": "shares",
+      "to": "project:frontend-contract",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "needs-decision:ND-41",
+      "kind": "shares",
+      "to": "project:status-report-2026-10-15",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "needs-decision:ND-41",
+      "kind": "shares",
+      "to": "task:B-08",
+      "via": [
+        "GET /views/pin/:pinName"
       ]
     },
     {
@@ -72125,6 +72529,11 @@
       "to": "decision:D-40"
     },
     {
+      "from": "needs-decision:ND-41",
+      "kind": "tree",
+      "to": "decision:D-41"
+    },
+    {
       "from": "root",
       "kind": "tree",
       "to": "group:backend"
@@ -72288,6 +72697,11 @@
       "from": "story:discover-hub",
       "kind": "tree",
       "to": "needs-decision:ND-37"
+    },
+    {
+      "from": "story:discover-hub",
+      "kind": "tree",
+      "to": "needs-decision:ND-41"
     },
     {
       "from": "story:error-contract",
@@ -73323,6 +73737,46 @@
       "from": "decision:D-40",
       "kind": "wikilink",
       "to": "story:subscription"
+    },
+    {
+      "from": "decision:D-41",
+      "kind": "wikilink",
+      "to": "backend-delivery:discover-hub"
+    },
+    {
+      "from": "decision:D-41",
+      "kind": "wikilink",
+      "to": "backend-integration:discover-hub"
+    },
+    {
+      "from": "decision:D-41",
+      "kind": "wikilink",
+      "to": "feature:discover-hub"
+    },
+    {
+      "from": "decision:D-41",
+      "kind": "wikilink",
+      "to": "frontend-delivery:discover-hub"
+    },
+    {
+      "from": "decision:D-41",
+      "kind": "wikilink",
+      "to": "frontend-requirements:discover-hub"
+    },
+    {
+      "from": "decision:D-41",
+      "kind": "wikilink",
+      "to": "story:account"
+    },
+    {
+      "from": "decision:D-41",
+      "kind": "wikilink",
+      "to": "story:connections"
+    },
+    {
+      "from": "decision:D-41",
+      "kind": "wikilink",
+      "to": "story:discover-hub"
     },
     {
       "from": "feature:account",
@@ -78574,6 +79028,10 @@
       "name": "D-40 The bell count, the tab cross-fade and Go Pro coming soon stay",
       "type": "decision"
     },
+    "social-pin/decisions/D-41 Discover searches people by part of their Pin name.md": {
+      "name": "D-41 Discover searches people by part of their Pin name",
+      "type": "decision"
+    },
     "social-pin/decisions/Decisions.md": {
       "name": "Decisions",
       "type": "map"
@@ -79636,6 +80094,10 @@
     },
     "social-pin/needs-decisions/ND-40 Which app choices the MVP keeps as they are.md": {
       "name": "ND-40 Which app choices the MVP keeps as they are",
+      "type": "needs-decision"
+    },
+    "social-pin/needs-decisions/ND-41 Who Discover finds by part of a Pin name.md": {
+      "name": "ND-41 Who Discover finds by part of a Pin name",
       "type": "needs-decision"
     },
     "templates/Backend Delivery Template.md": {
@@ -80732,6 +81194,7 @@
         "feature:discover-hub",
         "task:B-08",
         "needs-decision:ND-22",
+        "needs-decision:ND-41",
         "backend-integration:badge-qr",
         "frontend-delivery:badge-qr",
         "qa-backend:badge-qr",
@@ -81158,6 +81621,7 @@
       "priority": null,
       "related": [
         "needs-decision:ND-37",
+        "needs-decision:ND-41",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -83831,6 +84295,7 @@
         "feature:discover-hub",
         "task:B-08",
         "needs-decision:ND-22",
+        "needs-decision:ND-41",
         "decision:D-10",
         "backend-delivery:discover-hub",
         "backend-integration:discover-hub",
@@ -84151,6 +84616,7 @@
         "qa-backend:ring-invitations",
         "feature:discover-hub",
         "needs-decision:ND-22",
+        "needs-decision:ND-41",
         "backend-delivery:discover-hub",
         "backend-integration:discover-hub",
         "frontend-delivery:discover-hub",
@@ -84532,6 +84998,7 @@
       "priority": null,
       "related": [
         "task:B-03",
+        "needs-decision:ND-41",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -86460,6 +86927,7 @@
         "feature:discover-hub",
         "needs-decision:ND-10",
         "needs-decision:ND-22",
+        "needs-decision:ND-41",
         "backend-delivery:discover-hub",
         "story:discover-hub",
         "backend-integration:profiles",
@@ -87170,6 +87638,7 @@
         "decision:D-11",
         "decision:D-12",
         "decision:D-28",
+        "decision:D-41",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -89189,10 +89658,12 @@
       "pending": [],
       "priority": null,
       "related": [
+        "needs-decision:ND-41",
         "needs-decision:ND-37",
         "feature:view-as",
         "feature:gemma",
         "feature:companies",
+        "decision:D-41",
         "backend-integration:discover-hub",
         "frontend-delivery:discover-hub",
         "frontend-requirements:discover-hub",
@@ -89403,6 +89874,72 @@
       "unmet": [],
       "updated": "2026-11-12"
     },
+    "decision:D-41": {
+      "affects": [
+        "story:discover-hub",
+        "frontend-requirements:discover-hub",
+        "backend-delivery:discover-hub",
+        "backend-integration:discover-hub",
+        "frontend-delivery:discover-hub",
+        "story:account",
+        "story:connections",
+        "feature:discover-hub"
+      ],
+      "blockedBy": [],
+      "card": "D-41",
+      "children": [],
+      "code": "D-41",
+      "created": "2026-11-17",
+      "deadline": null,
+      "decidedAt": "2026-11-17",
+      "decidedBy": "Omar Fostok",
+      "decides": "ND-41",
+      "depends": [],
+      "effectiveStatus": "decided",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "discover-hub"
+      ],
+      "foundOn": null,
+      "frontendOnly": false,
+      "id": "decision:D-41",
+      "inherits": {},
+      "kind": "decision",
+      "label": "Decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "openBugs": [],
+      "parentTask": null,
+      "parents": [
+        "needs-decision:ND-41"
+      ],
+      "path": "social-pin/decisions/D-41 Discover searches people by part of their Pin name.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "needs-decision:ND-41",
+        "decision:D-37",
+        "decision:D-10",
+        "feature:connections",
+        "feature:account"
+      ],
+      "release": null,
+      "resolution": null,
+      "scope": null,
+      "screens": [],
+      "status": "decided",
+      "summary": "1. Search as you type: by part of a Pin name, from 3 letters. 20 results per page; the next page loads at the bottom of the list. 2. Who can be found: anyone, unless they turn off \"Let people find…",
+      "tags": [
+        "decision",
+        "decision/decided"
+      ],
+      "task": null,
+      "title": "D-41 Discover searches people by part of their Pin name",
+      "unmet": [],
+      "updated": "2026-11-17"
+    },
     "feature:account": {
       "affects": [],
       "blockedBy": [],
@@ -89458,6 +89995,7 @@
         "task:B-23",
         "needs-decision:ND-25",
         "decision:D-25",
+        "decision:D-41",
         "backend-delivery:account",
         "backend-integration:account",
         "qa-frontend:account",
@@ -90151,6 +90689,7 @@
         "decision:D-28",
         "decision:D-29",
         "decision:D-38",
+        "decision:D-41",
         "backend-delivery:connections",
         "story:discover-hub",
         "frontend-requirements:counts"
@@ -90469,6 +91008,7 @@
         "project:api-conventions",
         "project:spec-map",
         "needs-decision:ND-37",
+        "needs-decision:ND-41",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -90496,12 +91036,12 @@
       "rollup": {
         "approved": 1,
         "current": 1,
-        "decided": 1,
+        "decided": 2,
         "delivered": 1,
         "done": 2,
         "draft": 1,
         "missing": 1,
-        "verified": 1
+        "verified": 2
       },
       "scope": null,
       "screens": [
@@ -93236,6 +93776,7 @@
         "task:B-08",
         "needs-decision:ND-10",
         "needs-decision:ND-22",
+        "needs-decision:ND-41",
         "backend-delivery:discover-hub",
         "backend-integration:discover-hub",
         "frontend-delivery:discover-hub",
@@ -93569,6 +94110,7 @@
         "task:B-08",
         "needs-decision:ND-10",
         "needs-decision:ND-22",
+        "needs-decision:ND-41",
         "qa-backend:connections",
         "backend-delivery:badge-qr",
         "backend-integration:badge-qr",
@@ -93893,6 +94435,7 @@
         "task:B-08",
         "needs-decision:ND-10",
         "needs-decision:ND-22",
+        "needs-decision:ND-41",
         "decision:D-10",
         "backend-delivery:badge-qr",
         "frontend-requirements:badge-qr",
@@ -95768,6 +96311,7 @@
         "project:frontend-contract",
         "feature:discover-hub",
         "needs-decision:ND-22",
+        "needs-decision:ND-41",
         "decision:D-10",
         "backend-delivery:discover-hub",
         "story:discover-hub",
@@ -96791,6 +97335,7 @@
         "feature:discover-hub",
         "needs-decision:ND-10",
         "needs-decision:ND-22",
+        "needs-decision:ND-41",
         "qa-backend:connections",
         "backend-delivery:badge-qr",
         "backend-integration:badge-qr",
@@ -97304,6 +97849,7 @@
       "related": [
         "task:B-03",
         "needs-decision:ND-37",
+        "needs-decision:ND-41",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -99224,6 +99770,7 @@
         "task:B-08",
         "needs-decision:ND-10",
         "needs-decision:ND-22",
+        "needs-decision:ND-41",
         "decision:D-10",
         "frontend-requirements:badge-qr",
         "story:badge-qr",
@@ -100065,6 +100612,7 @@
         "story:widgets",
         "story:error-contract",
         "feature:discover-hub",
+        "needs-decision:ND-41",
         "decision:D-10",
         "frontend-requirements:badge-qr",
         "backend-delivery:discover-hub",
@@ -100614,7 +101162,7 @@
         "approved": 3,
         "blocked": 1,
         "current": 2,
-        "decided": 4,
+        "decided": 5,
         "delivered": 2,
         "done": 3,
         "draft": 1,
@@ -100623,7 +101171,7 @@
         "partial": 1,
         "passing": 1,
         "ready": 1,
-        "verified": 4
+        "verified": 5
       },
       "scope": null,
       "screens": [],
@@ -103658,6 +104206,91 @@
       "unmet": [],
       "updated": "2026-11-12"
     },
+    "needs-decision:ND-41": {
+      "affects": [],
+      "blockedBy": [],
+      "blocks": [
+        "story:discover-hub"
+      ],
+      "card": "ND-41",
+      "children": [
+        "decision:D-41"
+      ],
+      "code": "ND-41",
+      "created": "2026-11-17",
+      "deadline": null,
+      "decider": "owner",
+      "depends": [],
+      "effectiveStatus": "verified",
+      "effort": null,
+      "feature": null,
+      "features": [
+        "discover-hub"
+      ],
+      "foundOn": null,
+      "frontendOnly": false,
+      "fulfilledBy": "decision:D-41",
+      "id": "needs-decision:ND-41",
+      "inherits": {},
+      "kind": "needs-decision",
+      "label": "Needs decision",
+      "labels": [],
+      "layer": "business",
+      "module": null,
+      "openBugs": [],
+      "parentTask": null,
+      "parents": [
+        "story:discover-hub"
+      ],
+      "path": "social-pin/needs-decisions/ND-41 Who Discover finds by part of a Pin name.md",
+      "pending": [],
+      "priority": null,
+      "related": [
+        "feature:discover-hub",
+        "decision:D-37",
+        "frontend-requirements:discover-hub",
+        "backend-delivery:discover-hub",
+        "backend-integration:discover-hub",
+        "story:connections",
+        "story:account",
+        "decision:D-41",
+        "backend-delivery:connections",
+        "backend-integration:connections",
+        "frontend-delivery:connections",
+        "frontend-requirements:connections",
+        "qa-backend:connections",
+        "backend-integration:badge-qr",
+        "frontend-delivery:badge-qr",
+        "qa-backend:badge-qr",
+        "frontend-delivery:discover-hub",
+        "qa-backend:discover-hub",
+        "qa-backend:files",
+        "qa-backend:photo-library",
+        "qa-backend:profiles",
+        "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
+        "backend-integration:view-as",
+        "frontend-delivery:view-as",
+        "frontend-requirements:view-as",
+        "qa-backend:view-as"
+      ],
+      "release": null,
+      "resolution": null,
+      "scope": null,
+      "screens": [
+        "s38"
+      ],
+      "status": "needs-decision",
+      "summary": "Whether Discover in the MVP searches people by part of their Pin name, and if it does, who can be found and what a result shows to someone who isn't connected. D-37 kept the MVP to an exact Pin…",
+      "tags": [
+        "needs-decision",
+        "needs-decision/open"
+      ],
+      "task": null,
+      "title": "ND-41 Who Discover finds by part of a Pin name",
+      "unmet": [],
+      "updated": "2026-11-17"
+    },
     "project:admin-agent": {
       "affects": [],
       "blockedBy": [],
@@ -106112,6 +106745,7 @@
         "feature:discover-hub",
         "task:B-08",
         "needs-decision:ND-22",
+        "needs-decision:ND-41",
         "backend-delivery:discover-hub",
         "backend-integration:discover-hub",
         "frontend-delivery:discover-hub",
@@ -106408,6 +107042,7 @@
         "feature:discover-hub",
         "task:B-08",
         "needs-decision:ND-22",
+        "needs-decision:ND-41",
         "frontend-delivery:badge-qr",
         "qa-backend:badge-qr",
         "story:badge-qr",
@@ -106847,6 +107482,7 @@
         "task:B-08",
         "needs-decision:ND-10",
         "needs-decision:ND-22",
+        "needs-decision:ND-41",
         "decision:D-10",
         "story:connections",
         "backend-delivery:badge-qr",
@@ -107312,6 +107948,7 @@
         "feature:discover-hub",
         "needs-decision:ND-10",
         "needs-decision:ND-22",
+        "needs-decision:ND-41",
         "decision:D-10",
         "story:connections",
         "frontend-requirements:badge-qr",
@@ -107847,6 +108484,7 @@
         "feature:discover-hub",
         "needs-decision:ND-10",
         "needs-decision:ND-22",
+        "needs-decision:ND-41",
         "decision:D-10",
         "frontend-delivery:connections",
         "story:connections",
@@ -108141,6 +108779,7 @@
         "feature:discover-hub",
         "needs-decision:ND-10",
         "needs-decision:ND-22",
+        "needs-decision:ND-41",
         "decision:D-10",
         "backend-delivery:connections",
         "frontend-delivery:connections",
@@ -108286,6 +108925,7 @@
         "feature:discover-hub",
         "needs-decision:ND-10",
         "needs-decision:ND-22",
+        "needs-decision:ND-41",
         "decision:D-10",
         "story:connections",
         "frontend-requirements:badge-qr",
@@ -109200,6 +109840,7 @@
         "task:B-08",
         "needs-decision:ND-10",
         "needs-decision:ND-22",
+        "needs-decision:ND-41",
         "decision:D-10",
         "story:connections",
         "frontend-requirements:badge-qr",
@@ -111476,7 +112117,7 @@
         "approved": 41,
         "blocked": 29,
         "current": 6,
-        "decided": 37,
+        "decided": 38,
         "delivered": 18,
         "done": 45,
         "draft": 23,
@@ -111489,7 +112130,7 @@
         "ready": 8,
         "reference": 32,
         "todo": 2,
-        "verified": 38
+        "verified": 39
       },
       "scope": null,
       "screens": [],
@@ -111543,6 +112184,7 @@
         "task:B-26",
         "task:B-27",
         "needs-decision:ND-30",
+        "needs-decision:ND-41",
         "decision:D-30",
         "backend-delivery:connections",
         "backend-integration:connections",
@@ -112248,6 +112890,7 @@
         "task:B-10",
         "task:B-13",
         "task:B-17",
+        "needs-decision:ND-41",
         "decision:D-11",
         "backend-delivery:connections",
         "backend-integration:connections",
@@ -112639,7 +113282,8 @@
       "blockedBy": [],
       "card": "S-42",
       "children": [
-        "needs-decision:ND-37"
+        "needs-decision:ND-37",
+        "needs-decision:ND-41"
       ],
       "code": "discover-hub",
       "created": "2026-10-18",
