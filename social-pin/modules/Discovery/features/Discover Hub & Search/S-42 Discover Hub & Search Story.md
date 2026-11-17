@@ -43,6 +43,8 @@ Acceptance criteria:
 
 Acceptance criteria:
 - [ ] The search runs **as I type, from 3 letters**. A leading `!` or `@` is ignored, and case doesn't matter. It matches Pin names only, never display names or anything shared in a Ring.
+- [ ] **The letters may be anywhere in the Pin name** (`rek` finds `!tareknassar`). **People who have me in one of their Rings come first** (Q1).
+- [ ] **A full Pin name typed** is listed first; no card opens by itself. A tap on a connected person opens their card; a tap on someone I'm not connected with does nothing, and only Connect works (Q2).
 - [ ] Results come **20 per page**; the next page loads when I reach the bottom of the list (S4).
 - [ ] **Four kinds of row:**
   - **Connected**: someone who has me in one of their Rings. The row shows their card's name and photo, and a tap opens their card (s44), as today.
@@ -78,6 +80,7 @@ Acceptance criteria:
 - [ ] **No connection** (offline, no answer): said in place of the results, with **Try again**.
 - [ ] **The next page:** a loading row under the results while it loads. If it fails, a row there says so and lets me try again, and the results already shown stay.
 - [ ] **Request sent.:** a short confirmation after Connect; the row then reads Requested.
+- [ ] **Too many searches:** past the limit on how many searches one person can make, "Too many searches, try again in a minute" in place of the results (Q4).
 
 ### S5 · "Let people find me by Pin name" (Me › Privacy, [[Screen Index#s68|s68]])
 
@@ -87,7 +90,7 @@ Acceptance criteria:
 - [ ] A switch, **"Let people find me by Pin name"**, on the Privacy screen (Me › Privacy, [[S-01 Account Story|Account · S1]]), under **PEOPLE**. On by default.
 - [ ] Under it, what a stranger sees: only my account name and photo from sign-up and a Connect button, never anything I share in my Rings.
 - [ ] **On:** anyone can find me in Discover (S2).
-- [ ] **Off:** only people already in my Rings find me.
+- [ ] **Off:** only people already in my Rings find me. I disappear from new searches **at once** (Q3).
 - [ ] Blocked people never find me, whichever way the switch is set.
 
 ### S6 · Ask Gemma ([[Screen Index#s38|s38]]) · later (D-37)
@@ -126,24 +129,32 @@ Acceptance criteria:
 
 What exists today is `GET /views/pin/:pinName`: an exact name, answered only when I'm in one of that person's Rings ([[BI-19 Discover Hub & Search Backend Integration|BI-19]]). The search needs:
 
-1. A search by part of a Pin name, paged 20 at a time.
+1. A search by part of a Pin name, paged 20 at a time. The letters match anywhere in the Pin name. People who have the searcher in a Ring come first, and a full Pin name match is listed first (Q1, Q2).
 2. Each result carries:
    - the Pin name;
    - the account name and photo;
    - the relationship to me (connected, requested, asked me);
    - whether the row opens a card.
 3. Blocked people (either side), the searcher, and people with the switch off who don't have the searcher in a Ring are never returned.
-4. The setting "Let people find me by Pin name" on the account, on by default, read and changed from Me › Privacy.
+4. The setting "Let people find me by Pin name" on the account, on by default, read and changed from Me › Privacy. Turned off, it applies to the next search at once (Q3).
 5. Connect and Accept from a result use the connection request routes of [[S-23 Connections Story|S-23]].
+6. A limit on how many searches one person can make, for example about 30 a minute; the exact number is the backend's. Over it, an answer the app shows as "Too many searches, try again in a minute" (Q4).
+
+## Decided in this story
+
+Answers to the open questions D-41 left, decided by Omar Fostok 2026-11-17.
+
+| # | Question | Decided |
+|---|---|---|
+| Q1 | Matching and order | The letters may be anywhere in the Pin name. People who have me in a Ring come first (S2). |
+| Q2 | A full Pin name typed | Listed first, no card opens by itself. A tap opens a connected person's card; a tap on someone not connected does nothing, only Connect works (S2). |
+| Q3 | Turning the switch off | They disappear from new searches at once (S5). |
+| Q4 | Abuse | A limit on searches per person, about 30 a minute, the exact number the backend's. Over it: "Too many searches, try again in a minute" (S4). |
 
 ## Open questions
 
-From [[D-41 Discover searches people by part of their Pin name|D-41]]'s *Still open*:
+From [[D-41 Discover searches people by part of their Pin name|D-41]]'s *Still open*: matching, a full Pin name, the switch and abuse are answered in *Decided in this story* (Q1–Q4). Still open:
 
-- **Matching:** whether part of a name matches anywhere in the Pin name or only at the start, and how results are ordered.
-- **An exact Pin name:** whether typing one still opens that card directly, or only lists it.
-- **Turning the switch off:** whether it applies at once to searches already shown, and whether someone with a waiting request still finds me.
-- **Abuse:** a rate limit, so that walking every 3-letter part can't list everyone.
 - **The account name and photo:** whether the backend keeps them apart from the Ring profiles today (`/backend`).
 
 Later, from D-37:
@@ -172,3 +183,10 @@ Later, from D-37:
   - Gemma is now S6 and Import contacts S7, both later.
 
   "Rules the backend already enforces" is replaced by *What the decision allows* and *What the backend has to build*; the Ring the card shows is the oldest live membership (D-15). The no-partial-match and submit-only rules and "my own Pin name opens View as" are removed (I never see myself), and D-41's Still open is added to the open questions. The design is linked. Clears the D-41 and FR-19 flags. Flagged [[FR-19 Discover Hub & Search Frontend Requirements]], [[BD-19 Discover Hub & Search Backend Delivery]], [[BI-19 Discover Hub & Search Backend Integration]] and [[S-01 Account Story]]
+- 2026-11-17 · `tickets/pm/M-04-discovery/F-19-discover-hub/S-42-open-questions` · D-41's open questions answered, decided by Omar Fostok 2026-11-17, in a new *Decided in this story* table (Q1–Q4):
+  - Q1 the letters match anywhere, with people who have me in a Ring first (S2);
+  - Q2 a full Pin name is listed first and opens nothing by itself (S2);
+  - Q3 switched off, they leave new searches at once (S5);
+  - Q4 a per-person limit, about 30 a minute, with "Too many searches, try again in a minute" (S4).
+
+  *What the backend has to build* follows (items 1, 4 and 6). Only the account name and photo question stays open, for `/backend`. The story stays draft. [[S-01 Account Story|S-01]] S7 (the switch) and [[S-23 Connections Story|S-23]] S1–S2 (Connect from a result) written in the same branch. Flagged [[FR-19 Discover Hub & Search Frontend Requirements]]
