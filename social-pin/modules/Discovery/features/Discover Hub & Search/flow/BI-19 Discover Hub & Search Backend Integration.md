@@ -17,6 +17,8 @@ tags: [backend-integration, backend-integration/current, module/discovery, layer
 
 # 🔌 Discover Hub & Search · Backend Integration
 
+> ⚠ Affected by [[D-41 Discover searches people by part of their Pin name]] (2026-11-17): /backend: "submit only, no partial match, never a prefix probe" no longer holds. Discover searches by part of a Pin name as you type (D-41 rules 1–7).
+
 **Feature:** [[F-19 Discover Hub & Search]] · **Backend:** [[BD-19 Discover Hub & Search Backend Delivery]] · **Read first:** [[Frontend Contract]], [[Frontend API Guide]], [[BI-09 View As & Pin Views Backend Integration]]
 
 Written by the **backend** team for the frontend: how to call what the hub needs. In the MVP ([[D-37 Discover opens a Pin by its exact Pin name in the MVP|D-37]], [[S-42 Discover Hub & Search Story|S-42]] S1–S3) the hub makes **one call of its own, and it is another feature's route**: `GET /views/pin/:pinName`, View As & Pin Views'. This note says how the hub uses it; the view's shape and rules stay in [[BI-09 View As & Pin Views Backend Integration|BI-09]] and are not repeated here. Matches backend `main` `3cef5d7`.

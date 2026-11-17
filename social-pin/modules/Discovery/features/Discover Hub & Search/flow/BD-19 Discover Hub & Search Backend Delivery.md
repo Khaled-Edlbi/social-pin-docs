@@ -13,6 +13,8 @@ tags: [backend-delivery, backend-delivery/done, module/discovery, layer/backend]
 
 # ✅ Discover Hub & Search · Backend Delivery
 
+> ⚠ Affected by [[D-41 Discover searches people by part of their Pin name]] (2026-11-17): /backend: a new search by part of a Pin name, paged 20 at a time. Each result carries the account name, the photo, the relationship state, and whether the row opens a card. Blocked people, the searcher, and opted-out people outside their Rings are never returned. A new account setting, "Let people find me by Pin name", on by default.
+
 **Feature:** [[F-19 Discover Hub & Search]] · **Status:** Done · **Integration guide:** [[BI-19 Discover Hub & Search Backend Integration]] · **Requirements:** [[FR-19 Discover Hub & Search Frontend Requirements]] · **QA:** [[QB-18 Discover Hub & Search QA Backend]]
 
 What the backend shipped for this feature and how it works. The sum of this feature's task-level Backend Delivery notes (see the *Tasks* table below).
