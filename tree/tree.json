@@ -2007,6 +2007,7 @@
       ],
       "kind": "error",
       "notes": [
+        "backend-delivery:discover-hub",
         "frontend-requirements:discover-hub"
       ],
       "owner": null
@@ -2017,6 +2018,7 @@
       ],
       "kind": "error",
       "notes": [
+        "backend-delivery:discover-hub",
         "frontend-requirements:discover-hub"
       ],
       "owner": null
@@ -91233,8 +91235,9 @@
         "current": 1,
         "decided": 2,
         "done": 2,
-        "draft": 2,
+        "draft": 1,
         "missing": 1,
+        "ready": 1,
         "verified": 2
       },
       "scope": null,
@@ -98018,7 +98021,7 @@
         "story:discover-hub",
         "decision:D-41"
       ],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "ready",
       "effort": null,
       "feature": "discover-hub",
       "foundOn": null,
@@ -98115,11 +98118,11 @@
         "s46",
         "s68"
       ],
-      "status": "draft",
+      "status": "ready",
       "summary": "What the client needs from the backend to build S-42 Discover Hub & Search Story, and whether each need is met today. Rewritten 2026-11-17 against the story as of that day and D-41: the MVP is…",
       "tags": [
         "frontend-requirements",
-        "frontend-requirements/draft",
+        "frontend-requirements/ready",
         "module/discovery",
         "layer/frontend"
       ],
@@ -101371,12 +101374,12 @@
         "decided": 5,
         "delivered": 1,
         "done": 3,
-        "draft": 2,
+        "draft": 1,
         "in-progress": 3,
         "missing": 6,
         "partial": 1,
         "passing": 1,
-        "ready": 1,
+        "ready": 2,
         "verified": 5
       },
       "scope": null,
@@ -112327,14 +112330,14 @@
         "decided": 38,
         "delivered": 17,
         "done": 45,
-        "draft": 24,
+        "draft": 23,
         "failing": 1,
         "in-progress": 46,
         "missing": 108,
         "needs-decision": 1,
         "partial": 12,
         "passing": 13,
-        "ready": 8,
+        "ready": 9,
         "reference": 32,
         "todo": 2,
         "verified": 39
