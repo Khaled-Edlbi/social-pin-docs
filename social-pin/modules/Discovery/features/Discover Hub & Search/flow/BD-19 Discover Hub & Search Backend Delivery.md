@@ -13,6 +13,8 @@ tags: [backend-delivery, backend-delivery/done, module/discovery, layer/backend]
 
 # ✅ Discover Hub & Search · Backend Delivery
 
+> ⚠ Affected by [[S-42 Discover Hub & Search Story]] (2026-11-17): /backend: S-42's new *What the backend has to build*. (1) A search by part of a Pin name, paged 20 at a time. (2) Each result: the Pin name, the account name and photo, the relationship (connected, requested, asked me) and whether the row opens a card. (3) Never returned: blocked people (either side), the searcher, and people with the switch off who don't have the searcher in a Ring. (4) The account setting "Let people find me by Pin name", on by default. (5) Connect and Accept use S-23's request routes. Open for you: match anywhere or only at the start, and the order; a rate limit; whether an account name and photo exist apart from the Ring profiles.
+
 > ⚠ Affected by [[D-41 Discover searches people by part of their Pin name]] (2026-11-17): /backend: a new search by part of a Pin name, paged 20 at a time. Each result carries the account name, the photo, the relationship state, and whether the row opens a card. Blocked people, the searcher, and opted-out people outside their Rings are never returned. A new account setting, "Let people find me by Pin name", on by default.
 
 **Feature:** [[F-19 Discover Hub & Search]] · **Status:** Done · **Integration guide:** [[BI-19 Discover Hub & Search Backend Integration]] · **Requirements:** [[FR-19 Discover Hub & Search Frontend Requirements]] · **QA:** [[QB-18 Discover Hub & Search QA Backend]]
