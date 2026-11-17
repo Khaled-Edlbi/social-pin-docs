@@ -18,8 +18,6 @@ tags: [frontend-requirements, frontend-requirements/draft, module/discovery, lay
 
 # Discover Hub & Search · Frontend Requirements
 
-> ⚠ Affected by [[S-42 Discover Hub & Search Story]] (2026-11-17): /frontend: S-42's open questions answered (Q1–Q4, decided by Omar Fostok). Q1: the letters match anywhere in the Pin name, with people who have me in a Ring first (the search route's order). Q2: a full Pin name is listed first and opens nothing by itself; a tap on a connected row opens the card, a tap on a not-connected row does nothing, only Connect works. Q3: switched off, they leave new searches at once. Q4: a per-person search limit (about 30 a minute, the number the backend's); over it, "Too many searches, try again in a minute", replacing FR-19's "Searching too fast. Try again in a moment." Still open for /backend: whether the account name and photo exist apart from the Ring profiles. S-01 S7 (the switch) and S-23 S1–S2 (Connect from a result) now say the same.
-
 **Feature:** [[F-19 Discover Hub & Search]] · **Status:** Draft, rewritten 2026-11-17 (was approved 2026-11-16 by khaled for the exact-name MVP) · **Story:** [[S-42 Discover Hub & Search Story]] (rewritten 2026-11-17 to D-41, draft) · **Backend Integration:** [[BI-19 Discover Hub & Search Backend Integration]] (the exact-name lookup only) · **Design:** [Discover search, 8 screens](https://claude.ai/artifact/VtuKA2ezgz1snhMbBUmSbd)
 
 What the client needs from the backend to build [[S-42 Discover Hub & Search Story]], and whether each need is met today. **Rewritten 2026-11-17** against the story as of that day and [[D-41 Discover searches people by part of their Pin name|D-41]]: the MVP is S1–S5. **Two routes don't exist yet:** the search by part of a Pin name, and reading and saving "Let people find me by Pin name". Opening a card, Connect and Accept reuse calls that exist. Recent searches stay on the phone. Gemma (S6), Import contacts (S7) and a business Pin opening s55 are later.
@@ -41,6 +39,8 @@ What the client needs from the backend to build [[S-42 Discover Hub & Search Sto
 - **Input:** strip a leading `!` or `@`, trim, lowercase. Under 3 letters, nothing is sent and the hint says to type at least 3 letters.
 - **As you type:** the search runs **300 ms after the last keystroke** (debounced). A new query cancels the one in flight, and an answer for an older query is dropped, so the list always matches the text in the field.
 - **The search** (proposed, not built): `GET /search/pin-names?q=&limit=20&skip=` → `{ data: [...], meta: { total } }`. **Next page** when the list nears the bottom: the same `q` with `skip` moved by 20, until `meta.total` is reached.
+- **Matching and order are the server's** (S-42 Q1, Q2): the letters match anywhere in the Pin name. An exact Pin name match comes first, then people who have me in one of their Rings, then everyone else. The app shows the rows in the order they come and never re-sorts them.
+- **A full Pin name typed** is just a search: its row is listed first and **no card opens by itself** (Q2).
 - **Each result:**
 
   | Field | Use |
@@ -55,7 +55,7 @@ What the client needs from the backend to build [[S-42 Discover Hub & Search Sto
   The result never carries a user id, a Ring id or anything shared in a Ring.
 - **The four kinds of row:**
   - **Connected** (`canOpenCard: true`): a tap opens their card (s44) with `GET /views/pin/:pinName` ✅ ([[BI-09 View As & Pin Views Backend Integration|BI-09]]); the person goes into recent searches.
-  - **Not connected** (`NONE`): name, photo, Pin name and **Connect**. The row doesn't open anything.
+  - **Not connected** (`NONE`): name, photo, Pin name and **Connect**. A tap on the row does nothing; only Connect works (Q2).
   - **Requested:** the button reads **Requested** and does nothing.
   - **Asked to connect** (`ASKED_ME`): "Asked to connect" with **Accept**. Accept opens Accept into a Ring ([[Screen Index#s46|s46]]) for that `requestId`, as on [[S-23 Connections Story|Connections · S5]]. Once accepted, the row becomes Connected.
 - **Connect:** `POST /connections/requests` `{ pinName }` ✅ ([[BI-16 Connections Backend Integration|BI-16]]; [[D-10 Connect sends what the requester already has|D-10]]: what I have is the Pin name). On success the row reads Requested and "Request sent." shows. The button is disabled while it sends.
@@ -74,12 +74,13 @@ What the client needs from the backend to build [[S-42 Discover Hub & Search Sto
 | The next page failing | a row under the results with Try again; the rows already shown stay |
 | Connect sent | "Request sent."; the row reads Requested |
 | Connect failing | the row keeps Connect, and a line says it didn't go |
+| Too many searches (429) | "Too many searches, try again in a minute" in place of the list; typing again searches as usual |
 
 ### Me › Privacy · "Let people find me by Pin name" ([[Screen Index#s68|s68]], S5)
 
 - A switch under **PEOPLE** on the Privacy screen ([[S-01 Account Story|Account · S1]]), with the line saying what a stranger sees: only my account name and photo from sign-up, and Connect.
 - **Read** (proposed, not built): `findableByPinName` on `GET /users/me`, `true` when never set.
-- **Save** (proposed, not built): `PATCH /users/me` `{ findableByPinName }`, saved at once when the switch moves. The switch shows the new value straight away; if the save fails, it goes back and a line says so.
+- **Save** (proposed, not built): `PATCH /users/me` `{ findableByPinName }`, saved at once when the switch moves. Off takes effect on the server at once: I leave the next search anyone makes (Q3, [[S-01 Account Story|Account · S7]]). The switch shows the new value straight away; if the save fails, it goes back and a line says so.
 
 ### Later (D-37): not asked for now
 
@@ -91,7 +92,8 @@ What the client needs from the backend to build [[S-42 Discover Hub & Search Sto
 
 | Need | Endpoint | Available | Story part / decision |
 |---|---|---|---|
-| Search by part of a Pin name, 3+ letters, paged 20 | `GET /search/pin-names?q=&limit=&skip=` (proposed) | ❌ not built | S2, S4 · D-41 |
+| Search by part of a Pin name, 3+ letters, paged 20; letters anywhere; an exact match first, then people who have me in a Ring | `GET /search/pin-names?q=&limit=&skip=` (proposed) | ❌ not built | S2, S4 · D-41, Q1, Q2 |
+| A per-person limit on searches (about 30 a minute, the number the backend's) | the same, 429 | ❌ | S4 · Q4 |
 | Each result: `pinName`, `accountName`, `avatarUrl`, `relationship`, `requestId`, `canOpenCard`; never blocked people, myself, or the switched-off who don't have me in a Ring | the same | ❌ | S2, S5 · D-41 |
 | Read "Let people find me by Pin name" | `findableByPinName` on `GET /users/me` (proposed field) | ❌ | S5 · D-41 |
 | Save it | `PATCH /users/me` `{ findableByPinName }` (proposed field) | ❌ | S5 · D-41 |
@@ -117,7 +119,7 @@ Until [[S-87 Error Contract Story|Error Contract · S4–S8]] puts `ErrorCode` o
 | Endpoint | Status | ErrorCode | Show |
 |---|---|---|---|
 | search | 400 | `E_SEARCH_01` (proposed): fewer than 3 letters | never reached: the app sends 3 or more; treated like no matches |
-| search | 429 | `E_SEARCH_02` (proposed): too many searches | "Searching too fast. Try again in a moment." in place of the list |
+| search | 429 | `E_SEARCH_02` (proposed): over the per-person limit | "Too many searches, try again in a minute" in place of the list; no automatic retry |
 | search | — | offline, timeout, 5xx | the no-connection state, with Try again |
 | `GET /views/pin/:pinName` | 404 | `E_RING_ACCESS_01` | "This Pin isn't available to you" (a recent entry stays; a result row may have changed since the search) |
 | `POST /connections/requests` | 4xx | `E_CONNECTION_REQUEST_*` ([[BI-16 Connections Backend Integration\|BI-16]]) | as on Connections: already requested → Requested; already connected → refresh the row; otherwise the row keeps Connect with the line |
@@ -127,11 +129,7 @@ Until [[S-87 Error Contract Story|Error Contract · S4–S8]] puts `ErrorCode` o
 ## Blocked by
 
 - **[[S-42 Discover Hub & Search Story]]** is `draft` (rewritten 2026-11-17): this list waits on its approval.
-- **The backend's answers to S-42's open questions**, which shape the search route:
-  - matching anywhere in the Pin name or only at the start, and the order;
-  - whether an exact Pin name still opens directly;
-  - the rate limit;
-  - whether an account name and photo exist apart from the Ring profiles.
+- **One question left for the backend** (S-42's open questions; Q1–Q4 are answered): whether an account name and photo exist apart from the Ring profiles, which `accountName` and `avatarUrl` need.
 
 ## Sign-off
 
@@ -152,3 +150,9 @@ Until [[S-87 Error Contract Story|Error Contract · S4–S8]] puts `ErrorCode` o
   - Proposed codes `E_SEARCH_01` and `E_SEARCH_02`.
   - Dropped: submit only, "my own Pin name opens View as", and the 400 row for names.
   - Cleared the S-42 and D-41 flags.
+- 2026-11-17 · `tickets/frontend/M-04-discovery/F-19-discover-hub/FR-19-s-42-answers` · S-42's Q1–Q4 applied (decided by Omar Fostok 2026-11-17):
+  - Q1 and Q2: the letters match anywhere; an exact match first, then people who have me in a Ring, in the server's order, never re-sorted. A full Pin name opens nothing by itself, and a tap on a not-connected row does nothing.
+  - Q3: switched off applies at once.
+  - Q4: a per-person limit as an endpoint row; the 429 reads "Too many searches, try again in a minute", with no automatic retry, and is a row in the states.
+
+  *Blocked by* is down to the backend's account name and photo question. Cleared the S-42 flag. Kept `draft`
