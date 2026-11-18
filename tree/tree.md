@@ -214,7 +214,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
           - ⚖️ [D-18 Ring names shown when joined knowingly](social-pin/decisions/D-18%20Ring%20names%20shown%20when%20joined%20knowingly.md) (Decision)
         - ✅ [ND-39 Whether the company domain and the title switch show in the MVP](social-pin/needs-decisions/ND-39%20Whether%20the%20company%20domain%20and%20the%20title%20switch%20show%20in%20the%20MVP.md) (Needs decision)
           - ⚖️ [D-39 The company domain and the title switch show in the MVP](social-pin/decisions/D-39%20The%20company%20domain%20and%20the%20title%20switch%20show%20in%20the%20MVP.md) (Decision)
-      - ✏️ [FR-15 Companies Frontend Requirements](social-pin/modules/Shared%20Rings%20%26%20Companies/features/Companies/flow/FR-15%20Companies%20Frontend%20Requirements.md) (Frontend Requirements, Critical)
+      - 📨 [FR-15 Companies Frontend Requirements](social-pin/modules/Shared%20Rings%20%26%20Companies/features/Companies/flow/FR-15%20Companies%20Frontend%20Requirements.md) (Frontend Requirements, Critical)
       - ⛔ [BD-15 Companies Backend Delivery](social-pin/modules/Shared%20Rings%20%26%20Companies/features/Companies/flow/BD-15%20Companies%20Backend%20Delivery.md) (Backend Delivery, Critical, blocked by FR-15 Companies Frontend Requirements)
       - ∅ _Companies Backend Integration_ (Backend Integration, blocked by BD-15 Companies Backend Delivery)
       - ∅ _Companies QA Backend_ (QA Backend, blocked by BD-15 Companies Backend Delivery)

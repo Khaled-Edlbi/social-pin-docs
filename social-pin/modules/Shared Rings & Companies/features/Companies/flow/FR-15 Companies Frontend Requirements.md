@@ -3,7 +3,7 @@ id: FR-15
 type: frontend-requirements
 module: shared-rings
 feature: companies
-status: draft
+status: ready
 scope: feature
 screens: [s14, s15, s26, s38, s63, s68, s72, s73, s74]
 blockedBy: []
@@ -13,12 +13,12 @@ related: ["S-29 Companies Story", "D-02 One main profile every Ring starts from"
 pending: []
 created: 2026-10-18
 updated: 2026-11-18
-tags: [frontend-requirements, frontend-requirements/draft, module/shared-rings, layer/frontend]
+tags: [frontend-requirements, frontend-requirements/ready, module/shared-rings, layer/frontend]
 ---
 
-# Companies · Frontend Requirements
+# 📨 Companies · Frontend Requirements
 
-**Feature:** [[F-15 Companies]] · **Status:** Draft, 2026-11-18 (the backend's 2026-11-16 review settled, decided by Omar Fostok; waiting on his word for `ready`) · **Story:** [[S-29 Companies Story]] (approved 2026-11-05) · **Backend Integration:** not yet (no business routes: [[BD-15 Companies Backend Delivery]])
+**Feature:** [[F-15 Companies]] · **Status:** Ready, 2026-11-18 (waiting on the backend's review; its 2026-11-16 points settled) · **Story:** [[S-29 Companies Story]] (approved 2026-11-05) · **Backend Integration:** not yet (no business routes: [[BD-15 Companies Backend Delivery]])
 
 What the client needs from the backend to build every part of [[S-29 Companies Story]], S1 to S14, and whether each need is met today. **Rewritten 2026-11-05** against the approved story and its decisions P1–P11 ([[S-29 Companies Story#Decided in this story|Decided in this story]]). **Brought back to `draft` 2026-11-15** to match the story as of that day: P12 (a team member in no Ring is listed), D-39 (the title switch and "Verified · {domain}" are shown), D-33 (no verified work email, S12 not in this version), D-36 (no "who it's for" for a member), the owner's line in place of *Leave*, "YOUR COLLEAGUES · {n}", the domain from the business's website (P6), and a new `ownsBusiness` need for *Create a business account*. Rows the backend has built since are marked ✅.
 
@@ -254,3 +254,4 @@ The story is approved and its decisions P1–P12 are in it, so this list isn't b
   - (4) The owner's `joinedAt` is when the business was created.
 
   Cleared the sent-back line. Kept `draft`
+- 2026-11-18 · `tickets/frontend/M-03-shared-rings/F-15-companies/FR-15-ready` · set `ready` (📨) on Omar Fostok's word, handed back to the backend; flagged [[BD-15 Companies Backend Delivery]]
