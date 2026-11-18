@@ -81224,7 +81224,7 @@
         {
           "id": "frontend-requirements:companies",
           "title": "FR-15 Companies Frontend Requirements",
-          "why": "FR-15 Companies Frontend Requirements is draft"
+          "why": "FR-15 Companies Frontend Requirements is ready"
         }
       ],
       "card": "BD-15",
@@ -90786,8 +90786,8 @@
         "approved": 1,
         "blocked": 2,
         "decided": 3,
-        "draft": 1,
         "missing": 3,
+        "ready": 1,
         "verified": 3
       },
       "scope": null,
@@ -97262,7 +97262,7 @@
       "depends": [
         "story:companies"
       ],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "ready",
       "effort": null,
       "feature": "companies",
       "foundOn": null,
@@ -97440,11 +97440,11 @@
         "s73",
         "s74"
       ],
-      "status": "draft",
+      "status": "ready",
       "summary": "What the client needs from the backend to build every part of S-29 Companies Story, S1 to S14, and whether each need is met today. Rewritten 2026-11-05 against the approved story and its decisions…",
       "tags": [
         "frontend-requirements",
-        "frontend-requirements/draft",
+        "frontend-requirements/ready",
         "module/shared-rings",
         "layer/frontend"
       ],
@@ -101706,12 +101706,11 @@
         "blocked": 3,
         "current": 1,
         "decided": 9,
-        "draft": 1,
         "in-progress": 3,
         "missing": 8,
         "partial": 2,
         "passing": 1,
-        "ready": 1,
+        "ready": 2,
         "verified": 9
       },
       "scope": null,
@@ -112330,14 +112329,14 @@
         "decided": 38,
         "delivered": 17,
         "done": 45,
-        "draft": 23,
+        "draft": 22,
         "failing": 1,
         "in-progress": 46,
         "missing": 108,
         "needs-decision": 1,
         "partial": 12,
         "passing": 13,
-        "ready": 9,
+        "ready": 10,
         "reference": 32,
         "todo": 2,
         "verified": 39
