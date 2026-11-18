@@ -12,15 +12,13 @@ affects: ["BD-15 Companies Backend Delivery"]
 related: ["S-29 Companies Story", "D-02 One main profile every Ring starts from", "D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "D-16 Files load from signed links that expire in 15 minutes", "D-18 Ring names shown when joined knowingly", "D-33 Work email joining waits for real emails and Companies", "D-34 A member shows one of their own Rings", "D-35 A join code can be shown as a QR", "D-36 Who it's for stays the owner's alone", "D-39 The company domain and the title switch show in the MVP", "S-15 Ring Access Engine Story", "BI-04 Profiles & Pin Name Backend Integration", "BI-06 Ring Members Backend Integration", "BI-07 Ring Projection Backend Integration", "BI-08 Rings Backend Integration", "BI-09 View As & Pin Views Backend Integration", "BI-17 Ring Invitations & Join Backend Integration", "FR-07 Profiles & Pin Name Frontend Requirements", "FR-09 Ring Members Frontend Requirements", "FR-10 Ring Projection Frontend Requirements", "FR-11 Rings Frontend Requirements", "FR-16 Delegated Admins Frontend Requirements", "FR-17 Ring Invitations & Join Frontend Requirements", "FR-24 Exhibitor Frontend Requirements", "S-87 Error Contract Story", "Frontend Contract", "GET /rings", "GET /rings/shared-with-me", "PATCH /rings/:id", "GET /views/ring/:ringId", "GET /rings/:ringId/members", "GET /rings/:ringId/colleagues", "PATCH /rings/:ringId/projection", "GET /profiles", "PATCH /profiles/:id", "E_RING_02", "E_RING_05"]
 pending: []
 created: 2026-10-18
-updated: 2026-11-16
+updated: 2026-11-18
 tags: [frontend-requirements, frontend-requirements/draft, module/shared-rings, layer/frontend]
 ---
 
 # Companies · Frontend Requirements
 
-> **Sent back to `draft` by the backend, 2026-11-16, for `/frontend`.** Reviewed against [[S-29 Companies Story]] (S1–S14, P1–P12) and backend `main` `3cef5d7`: every row marked ✅ exists as described and the rest holds, except four things to settle before it comes back `ready`: **(1)** `rings[]` on `GET /businesses/:id` needs **my admin level per Ring** (S-29, *What the backend has to build*, item 4), e.g. `myAdminLevel`, `null` for a plain member. `adminRights: { level, ringName } | null` gives only the highest and no Ring id, and `rings[].peopleCount` is not null both for a Ring I administer (→ `GET /rings/:ringId/members`) and for a Ring with "members can see each other" (→ `GET /rings/:ringId/colleagues`), so on s73 the app can't choose between the roster and the colleagues list without probing, which rule 3 forbids. **(2)** `POST /businesses/:id/leave` answers **201**, not 204: a POST on this API answers 201, as `POST /rings/:ringId/leave` does. **(3)** The leave confirmation uses `n = rings.length`, which is 0 for a team member in no Ring (P12): say the copy for that case. **(4)** `joinedAt` is defined for a member and a team member, not for the **owner**: say what it is.
-
-**Feature:** [[F-15 Companies]] · **Status:** Draft, 2026-11-16 (sent back by the backend's review: the line above) · **Story:** [[S-29 Companies Story]] (approved 2026-11-05) · **Backend Integration:** not yet (no business routes: [[BD-15 Companies Backend Delivery]])
+**Feature:** [[F-15 Companies]] · **Status:** Draft, 2026-11-18 (the backend's 2026-11-16 review settled, decided by Omar Fostok; waiting on his word for `ready`) · **Story:** [[S-29 Companies Story]] (approved 2026-11-05) · **Backend Integration:** not yet (no business routes: [[BD-15 Companies Backend Delivery]])
 
 What the client needs from the backend to build every part of [[S-29 Companies Story]], S1 to S14, and whether each need is met today. **Rewritten 2026-11-05** against the approved story and its decisions P1–P11 ([[S-29 Companies Story#Decided in this story|Decided in this story]]). **Brought back to `draft` 2026-11-15** to match the story as of that day: P12 (a team member in no Ring is listed), D-39 (the title switch and "Verified · {domain}" are shown), D-33 (no verified work email, S12 not in this version), D-36 (no "who it's for" for a member), the owner's line in place of *Leave*, "YOUR COLLEAGUES · {n}", the domain from the business's website (P6), and a new `ownsBusiness` need for *Create a business account*. Rows the backend has built since are marked ✅.
 
@@ -53,7 +51,7 @@ What the client needs from the backend to build every part of [[S-29 Companies S
   | Name | `name` | |
   | Badge | `myBadge`: `OWNER` / `ADMIN` / `MEMBER` | *Owner*, *Admin*, nothing |
   | People | `peopleCount` | **null** unless rule 3 allows; each person once, me not counted, blocked pairs not counted |
-  | Joined | `joinedAt` | used on s73; for a team member with no Ring, when they accepted the team invitation |
+  | Joined | `joinedAt` | used on s73; for a team member with no Ring, when they accepted the team invitation; **for the owner, when the business was created** |
 
   No verified email on a row in this version (D-33).
 - **My title on a row** comes from my profile (P4, P10), not from the company: the row shows my *role* only on the company whose name matches my profile's *company*; the others show no title (P11). One field, never per company (S4).
@@ -88,12 +86,14 @@ What the client needs from the backend to build every part of [[S-29 Companies S
   ```
   { id, name, logoFileId, domain,            // the business's website domain, "acme.co", or null (P6)
     cardRingId,                               // the company's public card, for the header tap (P9)
-    myBadge, joinedAt,
-    rings: [{ ringId, name, myExpiresAt, peopleCount }],   // in order, top first (S6); [] for a team member in no Ring (P12)
+    myBadge, joinedAt,                        // joinedAt: for the owner, when the business was created
+    rings: [{ ringId, name, myExpiresAt, peopleCount,
+              myAdminLevel }],                // in order, top first (S6); [] for a team member in no Ring (P12)
+                                              // myAdminLevel: my admin level on that Ring, null for a plain member
     adminRights: { level, ringName } | null,  // the highest, S8
     colleagues: { count, alreadyInMyRings } | null }              // null unless rule 3 allows (S7)
   ```
-- **Header** (S5): logo, name, **"Verified · acme.co"** from `domain` (P6, D-39: the domain is the business's website, set in the setup, [[FR-24 Exhibitor Frontend Requirements|FR-24]]; hidden when null), my title (as on s72, P11), "joined 12 Feb 2026" from `joinedAt`, the badge.
+- **Header** (S5): logo, name, **"Verified · acme.co"** from `domain` (P6, D-39: the domain is the business's website, set in the setup, [[FR-24 Exhibitor Frontend Requirements|FR-24]]; hidden when null), my title (as on s72, P11), "joined 12 Feb 2026" from `joinedAt` (for the owner, the day the business was created), the badge.
   - Tap → the company's public card: `GET /views/ring/:cardRingId`. **Every member of the company may read it**, even when they're only in a lower Ring, or in none as a team member ([[S-29 Companies Story#Decided in this story|S-29 P9, P12]]): today the views answer only members of that Ring. ❌ Asked: the access engine answers the company's card Ring for every company member (P1), through the same view; reading it gives no membership, no roster and no other Ring.
   - s73 never repeats the company's address, contacts or files (S5): they're on that card.
 - **RINGS IT SHARES WITH YOU** (S6): `rings`, in the server's order; for the owner, every Ring of the company (S11). **Hidden when `rings` is empty** (a team member in no Ring, P12).
@@ -103,10 +103,11 @@ What the client needs from the backend to build every part of [[S-29 Companies S
   - "Company · Your own Ring": **not shown** (P3).
 - **YOUR COLLEAGUES · {n}** (S7): from `colleagues`; the section reads "YOUR COLLEAGUES · 22" with `count`; hidden when null.
   - "14 already in one of your Rings" (`alreadyInMyRings`, hidden at 0; a number only).
-  - Tap → the people of that company I may see:
-    - **owner or admin**: the Rings I administer; one Ring → its roster on s15 (`GET /rings/:ringId/members` ✅, with names and `?name=`, [[BI-06 Ring Members Backend Integration|BI-06]]); several → pick the Ring first;
-    - **plain member with "members can see each other"**: the member-facing list of that Ring, `GET /rings/:ringId/colleagues` ✅, each colleague as the card of the Ring they picked ([[D-34 A member shows one of their own Rings|D-34]]).
-  - The server says which Rings in `rings[].peopleCount` (not null = I may see that Ring's people); the app never tries a roster and reads a 403.
+  - Tap → the people of that company I may see, chosen per Ring from `rings[]` alone:
+    - **the roster** when `myBadge` is `OWNER` or that Ring's `myAdminLevel` is the member level (`MEMBER_MANAGER`, [[FR-16 Delegated Admins Frontend Requirements|FR-16]]): `GET /rings/:ringId/members` ✅ on s15, with names and `?name=` ([[BI-06 Ring Members Backend Integration|BI-06]]);
+    - **the colleagues list** when `myAdminLevel` is `null` (a plain member) or a level without the roster, and `peopleCount` is not null ("members can see each other" is on): `GET /rings/:ringId/colleagues` ✅, each colleague as the card of the Ring they picked ([[D-34 A member shows one of their own Rings|D-34]]);
+    - nothing for a Ring whose `peopleCount` is `null`.
+  - One such Ring → straight to its list; several → pick the Ring first. The app never tries a roster and reads a 403.
 - **MY ROLE HERE** (S8): *Title* (as in S4, P10; tap edits it); *Admin rights* from `adminRights`: the level in words ("Can edit what the Ring shows" / "Can manage who's in it", [[FR-16 Delegated Admins Frontend Requirements|FR-16]]'s levels) and the Ring's name when not null ("Can manage who's in Acme Team"). No rights line for a member; no *Verified email* line in this version (D-33).
 - **Leave company** (S9): hidden when `myBadge` is `OWNER`; in its place, "You own {company}. Hand it over before you leave." (P5, S11), no action.
 - **Errors on load:** 404 `E_BUSINESS_01` (proposed; not part of it any more, or no such company) → "You're no longer part of this company", back to s72, s72 refetches.
@@ -117,8 +118,9 @@ What the client needs from the backend to build every part of [[S-29 Companies S
 - Confirmation, from the detail: "Leave {company}?" and
   - with `adminRights`: "You leave its {n} Rings and lose your admin rights there. The connections you made stay yours.";
   - without: "You leave its {n} Rings. The connections you made stay yours."
-  - `n` = `rings.length`, "its Ring" for one.
-- `POST /businesses/:id/leave` ❌ → 204. **One transaction** on the server (P5): every membership of mine in its Rings, my admin rights on them, my pending join requests to it, and my place in the company and on its team. All or nothing. My connections and my own Rings: untouched.
+  - `n` = `rings.length`, "its Ring" for one;
+  - **in none of its Rings** (`rings: []`, a team member, P12): "Leave {company}? You'll no longer be on its team."
+- `POST /businesses/:id/leave` ❌ → **201**, as `POST /rings/:ringId/leave` answers. **One transaction** on the server (P5): every membership of mine in its Rings, my admin rights on them, my pending join requests to it, and my place in the company and on its team. All or nothing. My connections and my own Rings: untouched.
 - **No optimistic leave:** *Leaving…* until the answer; then back to s72, the row collapses out (a fade with reduced motion), and the app drops: the businesses list, that company, Shared with me, and the views of its Rings.
 - **The owner:** never sent (hidden); if it is, 409 `E_BUSINESS_02` (proposed) → "The owner can't leave their company", nothing changes.
 - **Already gone** (removed a moment ago): 404 `E_BUSINESS_01` → treated as left.
@@ -163,6 +165,7 @@ What the client needs from the backend to build every part of [[S-29 Companies S
 | "Verified · {domain}" on s73 | `domain`, the business's website (P6) | ❌ |
 | The company's card | `GET /views/ring/:cardRingId`, readable by every company member (P9, P12) | 🟡 the view ✅, the access rule ❌ |
 | Its Rings for me, named or not, in order | `rings[]` (`[]` for a team member in no Ring) | ❌ |
+| Roster or colleagues list, per Ring | `rings[].myAdminLevel` (`null` for a plain member) with `rings[].peopleCount` | ❌ |
 | A Ring's card | `GET /views/ring/:ringId` | ✅ |
 | YOUR COLLEAGUES · {n}, "already in your Rings" | `colleagues` | ❌ |
 | Admin rights | `adminRights` | ❌ |
@@ -177,12 +180,12 @@ What the client needs from the backend to build every part of [[S-29 Companies S
 | **How a membership was made** (invitation, code, owner add, connection accept, owner move) | server side: `RingMember.origin` (`PLACED` for an owner add, a connection accept and an owner move; `INVITATION`, `JOIN_CODE`, `JOIN_REQUEST`); work email is not in this version (D-33) | ✅ | P1, P7, D-18 · shared with [[FR-09 Ring Members Frontend Requirements\|FR-09]], [[FR-17 Ring Invitations & Join Frontend Requirements\|FR-17]] |
 | **Team members as company members** (accepted the owner's team invitation, in no Ring yet) | server side, read by the two routes below | ❌ | P1, P12 · [[S-59 Exhibitor Story\|Exhibitor · S2]] |
 | My companies, paged, with `meta.total` and `meta.ownsBusiness`; team members with no Ring included | `GET /businesses/mine` | ❌ | [[S-29 Companies Story\|S1, S2]] · P1, P11, P12 |
-| Company detail, with its Rings for me, admin rights, colleagues, the website domain | `GET /businesses/:id` | ❌ | S5–S8, S11 · P6, P7, P12 |
+| Company detail, with its Rings for me (each with `myAdminLevel`), admin rights, colleagues, the website domain, `joinedAt` (the owner's: when the business was created) | `GET /businesses/:id` | ❌ | S5–S8, S11 · P6, P7, P12 · S-29 backend item 4 |
 | The company's card, readable by every member | `GET /views/ring/:cardRingId` with a company-member rule in the access engine | 🟡 | S5 · P1, P9, P12 · [[S-15 Ring Access Engine Story]] |
 | A Ring's card | `GET /views/ring/:ringId` | ✅ | S6 |
 | Invitations to me, by company | `GET /rings/invitations/mine`, with `business` (`null` until the business ↔ Ring link) | ✅ | S3 · [[FR-17 Ring Invitations & Join Frontend Requirements\|FR-17]] |
 | My join requests, cancel, dismiss | `GET /rings/join-requests/mine`, `DELETE /rings/join-requests/:id` | ✅ | S3 · [[FR-17 Ring Invitations & Join Frontend Requirements\|FR-17]] |
-| Leave, one transaction, the team place included | `POST /businesses/:id/leave` | ❌ | S9 · P5, P12 |
+| Leave, one transaction, the team place included; answers 201 | `POST /businesses/:id/leave` | ❌ | S9 · P5, P12 |
 | My title (role, company) | `GET` / `PATCH /profiles/:id` | ✅ | S4, S8 · D-02, P10 · [[FR-07 Profiles & Pin Name Frontend Requirements\|FR-07]] |
 | *Company & role* on the default Ring | `PATCH /rings/:ringId/projection` (`showCompany`, `showRole`) | ✅ | S4 · [[FR-10 Ring Projection Frontend Requirements\|FR-10]] |
 | The roster for owner and admin, with names | `GET /rings/:ringId/members` | ✅ | S7 · [[FR-09 Ring Members Frontend Requirements\|FR-09]] |
@@ -244,3 +247,10 @@ The story is approved and its decisions P1–P12 are in it, so this list isn't b
 - 2026-11-08 · `tickets/backend/M-03-shared-rings/F-15-companies/FR-15-f17-rows` · backend `main` `1c460b0` (F-17, [[BI-17 Ring Invitations & Join Backend Integration]]) delivers four rows → ✅: invitations to me with `business`, my join requests with cancel / dismiss, and how a membership was made (`RingMember.origin`). On the wire: cancel answers 200 with no body (not 204), an already-answered request 404 `E_RING_JOIN_REQUEST_01` (not the proposed `E_JOIN_REQUEST_02`), `business` is `null` until the business ↔ Ring link exists, and an invitation carries no "who it's for" label ([[D-36 Who it's for stays the owner's alone|D-36]]). The list stays `ready` for its own backend review
 - 2026-11-15 · `tickets/frontend/M-03-shared-rings/F-15-companies/FR-15-s-29-2026-11-15` · back to `draft` to match S-29 as of 2026-11-15: title switch and "Verified · {domain}" shown, the switch on screen only (D-39); the owner's "You own {company}. Hand it over before you leave."; "YOUR COLLEAGUES · {n}"; the member's Leave copy without the admin clause; no "who it's for" (D-36) and no `verifiedEmail` (D-33); S12 not in this version (D-33); the domain from the business's website (P6); new `meta.ownsBusiness` for *Create a business account*; team members with no Ring listed, with `rings: []` (P12); role, projection switches, roster names, colleagues list and `membersCanSeeEachOther` now ✅; the two proposed join-request codes replaced by the shipped `E_RING_JOIN_REQUEST_01`; Blocked by refreshed. Cleared the S-29 (2026-11-12, 2026-11-15) and D-39 flags. Set `ready` on Omar Fostok's word; flagged [[BD-15 Companies Backend Delivery]]
 - 2026-11-16 · `tickets/backend/M-03-shared-rings/F-15-companies/FR-15-sent-back` · backend review of the `ready` list against S-29 (S1–S14, P1–P12) and backend `main` `3cef5d7`: `ready` → `draft`. Missing, for `/frontend` (the line under the title): my admin level per Ring on `rings[]` of `GET /businesses/:id` (S-29 backend item 4), so s73 can choose the roster or the colleagues list without probing; `POST /businesses/:id/leave` answers 201, not 204; the leave copy when `n` is 0 (a team member in no Ring, P12); `joinedAt` for the owner. Everything else held, and every ✅ row exists on `main` as described. No row changed; [[BD-15 Companies Backend Delivery]] stays blocked until the list is `approved`
+- 2026-11-18 · `tickets/frontend/M-03-shared-rings/F-15-companies/FR-15-backend-review` · the backend's four points settled, decided by Omar Fostok:
+  - (1) `rings[]` on `GET /businesses/:id` carries `myAdminLevel` per Ring, `null` for a plain member. s73 picks the roster (owner, or the member level) or the colleagues list (`peopleCount` not null) from it, never by probing; a new field-map row.
+  - (2) `POST /businesses/:id/leave` answers 201.
+  - (3) The leave confirmation in none of its Rings (P12): "Leave {company}? You'll no longer be on its team."
+  - (4) The owner's `joinedAt` is when the business was created.
+
+  Cleared the sent-back line. Kept `draft`
