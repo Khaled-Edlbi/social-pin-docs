@@ -113509,12 +113509,12 @@
       "pending": [
         {
           "person": null,
-          "text": "B7, B14 · re-run when the fix is ready",
+          "text": "B7, B14 · re-tested and passing on backend main e83682d; the bug waits to be closed",
           "to": "task:B-28"
         },
         {
           "person": null,
-          "text": "B61 · re-run when the fix is ready",
+          "text": "B61 · re-tested and passing on backend main e83682d; the bug waits to be closed",
           "to": "task:B-29"
         }
       ],
