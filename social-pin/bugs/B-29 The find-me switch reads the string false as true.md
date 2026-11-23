@@ -3,7 +3,8 @@ id: B-29
 type: bug
 module: discovery
 feature: discover-hub
-status: ready
+status: done
+resolution: fixed
 priority: medium
 effort: S
 foundOn: "BI-19 Discover Hub & Search Backend Integration"
@@ -14,14 +15,12 @@ related: ["BI-19 Discover Hub & Search Backend Integration", "QB-18 Discover Hub
 pending: []
 created: 2026-11-23
 updated: 2026-11-23
-tags: [bug, bug/ready, module/discovery, priority/medium]
+tags: [bug, bug/done, module/discovery, priority/medium, resolution/fixed]
 ---
 
-# 📨 B-29 · The find-me switch reads the string false as true
+# ✅ B-29 · The find-me switch reads the string false as true
 
-> ⚠ Affected by [[BD-19 Discover Hub & Search Backend Delivery]] (2026-11-23): fixed on backend main e83682d (branch B-29/user/findable-switch-boolean, 812d6a4), ready for re-test: QB-18 row B61
-
-**Found against:** [[BI-19 Discover Hub & Search Backend Integration]] · **Feature:** [[F-19 Discover Hub & Search]] · **Status:** Ready · **Priority:** Medium (`critical | high | medium | low`, from `docs.config.json`) · **Deadline:** — · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
+**Found against:** [[BI-19 Discover Hub & Search Backend Integration]] · **Feature:** [[F-19 Discover Hub & Search]] · **Status:** Done · **Priority:** Medium (`critical | high | medium | low`, from `docs.config.json`) · **Deadline:** — · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
 
 **Found by:** [[QB-18 Discover Hub & Search QA Backend]] row B61, on build backend `main @ c5bc838`.
 
@@ -58,13 +57,14 @@ Output of `node scripts/build-tree.mjs --impact B-29` when the bug was filed: th
 
 ## Definition of done
 
-- [ ] `PATCH /users/me` with a `findableByPinName` that is not `true` or `false` answers 400 and changes nothing
+- [x] `PATCH /users/me` with a `findableByPinName` that is not `true` or `false` answers 400 and changes nothing
 
-- [ ] The behaviour is fixed, or the notes are corrected, as the decision says (`resolution:` set, the tag `resolution/<id>` with it)
-- [ ] The QA row that found it re-run against the fix, on a named build
-- [ ] `depends` / `affects` / `related` declared; notes listed by `--impact` updated or flagged
-- [ ] `node scripts/build-tree.mjs` run; tree, board and backlog committed
+- [x] The behaviour is fixed, or the notes are corrected, as the decision says (`resolution:` set, the tag `resolution/<id>` with it)
+- [x] The QA row that found it re-run against the fix, on a named build
+- [x] `depends` / `affects` / `related` declared; notes listed by `--impact` updated or flagged
+- [x] `node scripts/build-tree.mjs` run; tree, board and backlog committed
 
 ## Log
 
 - 2026-11-23 · filed with --scaffold bug, found against BI-19 Discover Hub & Search Backend Integration
+- 2026-11-23 · backend `main @ e83682d` · re-test passed: [[QB-18 Discover Hub & Search QA Backend]] row B61, in a run of all 63 rows. `"no"`, `0`, `1`, `null` and `""` answer 400 "findableByPinName must be a boolean value" and leave the value as it was, from true and from false; `true`, `false`, `"true"` and `"false"` are saved as sent. The fix is recorded in [[BD-19 Discover Hub & Search Backend Delivery]] (backend branch `B-29/user/findable-switch-boolean`, `812d6a4`); its ready-for-re-test flag cleared. `ready` → `done`, `resolution: fixed`, on khaled's word
