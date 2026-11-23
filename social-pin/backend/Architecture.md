@@ -96,6 +96,7 @@ A service change ships a spec covering every thrown domain error, each query-bui
 | `ring-access` | the engine | [[F-08 Ring Access Engine]] |
 | `ring-invitation` | invitations, join codes (and the join QR), join requests; every way in ends in `RingMemberService.admitKnowingly`, which records the membership's origin | [[F-17 Ring Invitations & Join]] |
 | `search` | `GET /search/pin-names`, people by part of a Pin name; owns no table, reads the default profiles and the connection tables, and takes "who has the searcher in a Ring" from the engine; its per-person limit and the badge scanner's share `common/utils/SlidingWindowLimiter` | [[F-19 Discover Hub & Search]] |
+| `pincast` | `Pincast`, `PincastRecipient`: `/pincasts` (one live broadcast per user, on the server until its end time), `GET /views/pincast/:token`; reach is mutual and decided by `RingAccessService.filterRingsPresentedTo` over the PostGIS GiST index; the PinCast token and the badge code share `common/utils/DerivedToken`. `PincastPresenterModule` (the token's resolve) is its own module so the Connections module resolves `pincastToken` without a cycle | [[F-20 PinCast & Nearby]] |
 
 Every TODO feature becomes a new folder under `src/modules/` and a new row here.
 

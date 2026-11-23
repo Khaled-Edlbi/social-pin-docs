@@ -3,7 +3,7 @@ id: P-17
 type: project
 layer: backend
 created: 2026-10-15
-updated: 2026-11-09
+updated: 2026-11-23
 tags: [project]
 ---
 # Spec → code map
@@ -52,8 +52,8 @@ database/business concept."*
 | `meeting_requests` | Critical | `MeetingRequest` | `meeting.prisma` | schema | — |
 | `meetings` | Critical | `Meeting` | `meeting.prisma` | schema | — |
 | `meeting_participants` | Critical | `MeetingParticipant` | `meeting.prisma` | schema | — |
-| `pincasts` | High | `Pincast` | `discovery.prisma` | schema | — |
-| `pincast_recipients` | High | `PincastRecipient` | `discovery.prisma` | schema | — |
+| `pincasts` | High | `Pincast` | `discovery.prisma` | **schema + API** | `modules/pincast/` |
+| `pincast_recipients` | High | `PincastRecipient` | `discovery.prisma` | **schema + API** | `modules/pincast/` |
 | `files` | High | `File` | `file.prisma` | **schema + API** | `modules/file/` |
 | `notifications` | High | `Notification` | `notification.prisma` | schema | — |
 | `orders` | High | `Order` | `commerce.prisma` | schema | — |
@@ -140,7 +140,7 @@ model instead of turning Social Pin into a generic social network."*
 | File binaries in object storage, metadata in the database | `File.storageKey`; `FileService.persist`/`discard`/`openByLink` are the only methods that touch bytes. Bytes are reached only through a signed, encrypted 15-minute link (`FileLinkService`, `GET /files/content/:token`) made after the request's access check ([[D-16 Files load from signed links that expire in 15 minutes]]). |
 | Transactions for meeting booking and other atomic changes | `@Transactional<PrismaTxAdapter>()`; `availability_slots` additionally has an exclusion constraint, because a service check cannot stop two concurrent inserts. |
 | Idempotency for payment webhooks, notifications and automations | `Payment.providerReference`, `Notification.dedupeKey` and `FollowUpAutomation.dedupeKey` are each unique. |
-| Retention for temporary rings, PinCast recipients, chat, analytics, events | Modelled: `Ring.disposition` + `RING_DISPOSITION`, `PincastRecipient.detectedAt` indexed for purging, `AnalyticsEvent.createdAt` indexed. The jobs are not written. |
+| Retention for temporary rings, PinCast recipients, chat, analytics, events | Modelled: `Ring.disposition` + `RING_DISPOSITION`, `PincastRecipient.detectedAt` indexed for purging (the results route hides rows past 30 days itself, and `Pincast.reachedCount` keeps the number for after the purge), `AnalyticsEvent.createdAt` indexed. The jobs are not written. |
 | Audit logs for sensitive admin, access, payment and AI actions | `AuditLogService` owns the table. Every admin-panel mutation records one, inside the same transaction as the change, so the log cannot claim something the database rolled back. Access, payment and AI writers are not wired yet. |
 
 ## 4. Features list coverage
@@ -172,7 +172,7 @@ model instead of turning Social Pin into a generic social network."*
 | 6 | Connect / follow as an access request | **API** | `POST /connections/requests` (by scanned `qrToken`, `pinName` or `againFor`), accepted into a Ring with `POST /connections/requests/:id/accept`, which writes `ConnectionRequest.grantedRingId`; contacts, detail, disconnect and blocks under `/connections` and `/blocks` ([[BD-14 Connections Backend Delivery]]) |
 | 6 | Re-assignment is live | **API** | `POST /rings/:ringId/members/:userId/reassign` |
 | 6 | Ring membership private to the owner | **API** | Enforced; see the privacy section of `CLAUDE.md` |
-| 6 | PinCast, nearby discovery, search by ring | schema | `Pincast`, `PincastRecipient`, PostGIS index |
+| 6 | PinCast, nearby discovery, search by ring | partial | **PinCast is API** ([[F-20 PinCast & Nearby]], [[BD-20 PinCast & Nearby Backend Delivery]]): `src/modules/pincast`, `/pincasts` (start, current, change, extend, stop, position, people, results), `GET /views/pincast/:token` through `RingAccessService.assertRingPresented`, reach decided by `RingAccessService.filterRingsPresentedTo` over the GiST index, `pincastToken` on Connect, relationship and Block; the 30-day purge of `pincast_recipients` is [[F-31 Cleanup Jobs]]'. Nearby by Ring (the radar) is schema only, later (S-45 N10) |
 | 7 | Notifications | schema | `Notification`, `NotificationPreference` |
 | 8 | Sign up with email or phone | **API** | `POST /auth/sign-up` |
 | 8 | Email OTP → enter code (passwordless; design s01) | **API** | Sign-up: `verify-code` → `complete-registration`. Sign-in: `login` → `login/verify`. **Delivery not wired** — see below |

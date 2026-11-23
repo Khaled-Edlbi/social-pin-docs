@@ -9,6 +9,8 @@ tags: [project]
 
 # Frontend Contract
 
+> ⚠ Affected by [[BD-20 PinCast & Nearby Backend Delivery]] (2026-11-23): /frontend: nine more endpoints on backend main ecd93c0, eight under /pincasts and GET /views/pincast/:token (a PinCast section in the Frontend API Guide), pincastToken on POST /connections/requests, GET /connections/relationship and POST /blocks, and four new codes E_PINCAST_01 (409), E_PINCAST_02 (404), E_PINCAST_03 (400), E_PINCAST_04 (404). The endpoint table, its count, the code list and not yet available: PinCast are out of date
+
 > ⚠ Affected by [[BD-19 Discover Hub & Search Backend Delivery]] (2026-11-23): /frontend: one more endpoint, GET /search/pin-names (a Search section in the Frontend API Guide), findableByPinName on GET and PATCH /users/me, and two new codes, E_SEARCH_01 (400, under 3 letters) and E_SEARCH_02 (429, over 30 searches a minute), on backend branch BD-19/search/pin-name-search (c5bc838), not on main yet. The endpoint table, its count and the code list are out of date once it merges
 
 > ⚠ Affected by [[Frontend API Guide]] (2026-11-09): the Frontend API Guide now has a Connections section: 13 routes on backend main (F-14, 1c460b0), with qrToken on POST /connections/requests, POST /blocks and GET /connections/relationship since ebdca36 (local, not pushed yet); DELETE /users/me ends the account's connections, requests and blocks (D-25). The endpoint count and 'not yet available: connections' are out of date (/frontend)
