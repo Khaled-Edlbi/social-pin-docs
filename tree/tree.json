@@ -7969,7 +7969,7 @@
     },
     "concepts": 376,
     "decisions": 39,
-    "edges": 9892,
+    "edges": 9890,
     "features": 40,
     "layerNotes": 172,
     "modules": 8,
@@ -12164,16 +12164,6 @@
       "from": "qa-backend:discover-hub",
       "kind": "pending",
       "to": "backend-delivery:discover-hub"
-    },
-    {
-      "from": "qa-backend:discover-hub",
-      "kind": "pending",
-      "to": "task:B-28"
-    },
-    {
-      "from": "qa-backend:discover-hub",
-      "kind": "pending",
-      "to": "task:B-29"
     },
     {
       "from": "qa-backend:ring-access",
@@ -90618,10 +90608,7 @@
       "labels": [],
       "layer": "backend",
       "module": "discovery",
-      "openBugs": [
-        "task:B-28",
-        "task:B-29"
-      ],
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:discover-hub"
@@ -96872,11 +96859,10 @@
         "approved": 2,
         "current": 1,
         "decided": 2,
-        "done": 1,
+        "done": 3,
         "failing": 1,
         "missing": 1,
         "partial": 1,
-        "ready": 2,
         "verified": 2
       },
       "scope": null,
@@ -107129,13 +107115,12 @@
         "current": 3,
         "decided": 5,
         "delivered": 2,
-        "done": 3,
+        "done": 5,
         "failing": 1,
         "in-progress": 3,
         "missing": 4,
         "partial": 2,
         "passing": 2,
-        "ready": 2,
         "verified": 5
       },
       "scope": null,
@@ -113506,18 +113491,7 @@
         "feature:discover-hub"
       ],
       "path": "social-pin/modules/Discovery/features/Discover Hub & Search/flow/QB-18 Discover Hub & Search QA Backend.md",
-      "pending": [
-        {
-          "person": null,
-          "text": "B7, B14 · re-run when the fix is ready",
-          "to": "task:B-28"
-        },
-        {
-          "person": null,
-          "text": "B61 · re-run when the fix is ready",
-          "to": "task:B-29"
-        }
-      ],
+      "pending": [],
       "priority": null,
       "related": [
         "task:B-07",
@@ -118355,7 +118329,7 @@
         "current": 7,
         "decided": 38,
         "delivered": 18,
-        "done": 45,
+        "done": 47,
         "draft": 21,
         "failing": 2,
         "in-progress": 46,
@@ -118363,7 +118337,7 @@
         "needs-decision": 1,
         "partial": 13,
         "passing": 14,
-        "ready": 10,
+        "ready": 8,
         "reference": 32,
         "todo": 2,
         "verified": 39
@@ -124148,7 +124122,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "ready",
+      "effectiveStatus": "done",
       "effort": "S",
       "feature": "discover-hub",
       "foundOn": "BI-19 Discover Hub & Search Backend Integration",
@@ -124228,20 +124202,21 @@
         "qa-backend:profiles"
       ],
       "release": "mvp",
-      "resolution": null,
+      "resolution": "fixed",
       "rollup": {},
       "scope": null,
       "screens": [
         "s38",
         "s44"
       ],
-      "status": "ready",
+      "status": "done",
       "summary": "The fix is the backend's: /backend. That agent sets in-progress when it starts and ready when the fix ships (status, tag, H1 and the Status segment only; the fix itself is recorded in its own…",
       "tags": [
         "bug",
-        "bug/ready",
+        "bug/done",
         "module/discovery",
-        "priority/high"
+        "priority/high",
+        "resolution/fixed"
       ],
       "task": null,
       "title": "B-28 A deleted account's card still opens for a member of its Ring",
@@ -124261,7 +124236,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "ready",
+      "effectiveStatus": "done",
       "effort": "S",
       "feature": "discover-hub",
       "foundOn": "BI-19 Discover Hub & Search Backend Integration",
@@ -124307,19 +124282,20 @@
         "qa-frontend:account"
       ],
       "release": "mvp",
-      "resolution": null,
+      "resolution": "fixed",
       "rollup": {},
       "scope": null,
       "screens": [
         "s68"
       ],
-      "status": "ready",
+      "status": "done",
       "summary": "The fix is the backend's: /backend. That agent sets in-progress when it starts and ready when the fix ships (status, tag, H1 and the Status segment only; the fix itself is recorded in its own…",
       "tags": [
         "bug",
-        "bug/ready",
+        "bug/done",
         "module/discovery",
-        "priority/medium"
+        "priority/medium",
+        "resolution/fixed"
       ],
       "task": null,
       "title": "B-29 The find-me switch reads the string false as true",

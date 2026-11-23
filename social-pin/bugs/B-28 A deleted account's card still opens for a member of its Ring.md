@@ -3,7 +3,8 @@ id: B-28
 type: bug
 module: discovery
 feature: discover-hub
-status: ready
+status: done
+resolution: fixed
 priority: high
 effort: S
 foundOn: "BI-19 Discover Hub & Search Backend Integration"
@@ -14,14 +15,12 @@ related: ["BI-19 Discover Hub & Search Backend Integration", "QB-18 Discover Hub
 pending: []
 created: 2026-11-23
 updated: 2026-11-23
-tags: [bug, bug/ready, module/discovery, priority/high]
+tags: [bug, bug/done, module/discovery, priority/high, resolution/fixed]
 ---
 
-# 📨 B-28 · A deleted account's card still opens for a member of its Ring
+# ✅ B-28 · A deleted account's card still opens for a member of its Ring
 
-> ⚠ Affected by [[BD-19 Discover Hub & Search Backend Delivery]] (2026-11-23): fixed on backend main e83682d (branch B-28/ring-access/deleted-owner-not-shared, 9463472), ready for re-test: QB-18 rows B7 and B14
-
-**Found against:** [[BI-19 Discover Hub & Search Backend Integration]] · **Feature:** [[F-19 Discover Hub & Search]] · **Status:** Ready · **Priority:** High (`critical | high | medium | low`, from `docs.config.json`) · **Deadline:** — · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
+**Found against:** [[BI-19 Discover Hub & Search Backend Integration]] · **Feature:** [[F-19 Discover Hub & Search]] · **Status:** Done · **Priority:** High (`critical | high | medium | low`, from `docs.config.json`) · **Deadline:** — · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
 
 **Found by:** [[QB-18 Discover Hub & Search QA Backend]] rows B7 and B14, on build backend `main @ c5bc838`.
 
@@ -53,12 +52,13 @@ Output of `node scripts/build-tree.mjs --impact B-28` when the bug was filed: th
 
 ## Definition of done
 
-- [ ] A deleted account's Pin name answers 404 `E_RING_ACCESS_01` to everyone, a member of its Rings included, whether it was deleted by `DELETE /users/me` or set `DELETED`
-- [ ] The behaviour is fixed, or the notes are corrected, as the decision says (`resolution:` set, the tag `resolution/<id>` with it)
-- [ ] QB-18 rows B7 and B14 re-run against the fix, on a named build
-- [ ] `depends` / `affects` / `related` declared; notes listed by `--impact` updated or flagged
-- [ ] `node scripts/build-tree.mjs` run; tree, board and backlog committed
+- [x] A deleted account's Pin name answers 404 `E_RING_ACCESS_01` to everyone, a member of its Rings included, whether it was deleted by `DELETE /users/me` or set `DELETED`
+- [x] The behaviour is fixed, or the notes are corrected, as the decision says (`resolution:` set, the tag `resolution/<id>` with it)
+- [x] QB-18 rows B7 and B14 re-run against the fix, on a named build
+- [x] `depends` / `affects` / `related` declared; notes listed by `--impact` updated or flagged
+- [x] `node scripts/build-tree.mjs` run; tree, board and backlog committed
 
 ## Log
 
 - 2026-11-23 · filed with --scaffold bug, found against BI-19 Discover Hub & Search Backend Integration
+- 2026-11-23 · backend `main @ e83682d` · re-test passed: [[QB-18 Discover Hub & Search QA Backend]] rows B7 and B14, in a run of all 63 rows. A deleted account's Pin name answers 404 `E_RING_ACCESS_01` to a member of its Ring, byte-identical to an unknown name, for an account set `DELETED` and for one deleted with `DELETE /users/me`; the person also leaves the member's Shared with me and the search. The fix is recorded in [[BD-19 Discover Hub & Search Backend Delivery]] (backend branch `B-28/ring-access/deleted-owner-not-shared`, `9463472`); its ready-for-re-test flag cleared. `ready` → `done`, `resolution: fixed`, on khaled's word
