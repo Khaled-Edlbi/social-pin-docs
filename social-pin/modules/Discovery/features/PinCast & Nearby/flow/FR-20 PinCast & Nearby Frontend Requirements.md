@@ -3,22 +3,24 @@ id: FR-20
 type: frontend-requirements
 module: discovery
 feature: pincast
-status: ready
+status: approved
 scope: feature
 screens: [s11, s39, s40, s41, s42, s44]
+approvedBy: "Omar Fostok"
+approvedAt: 2026-11-23
 blockedBy: []
 depends: ["S-45 PinCast & Nearby Story"]
 affects: ["BD-20 PinCast & Nearby Backend Delivery"]
 related: ["S-45 PinCast & Nearby Story", "D-10 Connect sends what the requester already has", "D-14 Shared with me lists people, never the Ring", "D-18 Ring names shown when joined knowingly", "S-23 Connections Story", "BI-16 Connections Backend Integration", "FR-14 Connections Frontend Requirements", "BI-08 Rings Backend Integration", "S-96 Notifications Story", "S-87 Error Contract Story", "F-31 Cleanup Jobs", "Frontend Contract", "GET /rings", "POST /connections/requests"]
 pending: []
 created: 2026-10-18
-updated: 2026-11-16
-tags: [frontend-requirements, frontend-requirements/ready, module/discovery, layer/frontend]
+updated: 2026-11-23
+tags: [frontend-requirements, frontend-requirements/approved, module/discovery, layer/frontend]
 ---
 
-# 📨 PinCast & Nearby · Frontend Requirements
+# PinCast & Nearby · Frontend Requirements
 
-**Feature:** [[F-20 PinCast & Nearby]] · **Status:** Ready, 2026-11-16 (waiting on the backend's review) · **Story:** [[S-45 PinCast & Nearby Story]] (approved 2026-11-16, N1–N12) · **Backend Integration:** not yet (no PinCast route: [[BD-20 PinCast & Nearby Backend Delivery]])
+**Feature:** [[F-20 PinCast & Nearby]] · **Status:** Approved 2026-11-23 by Omar Fostok (accepted by the backend) · **Story:** [[S-45 PinCast & Nearby Story]] (approved 2026-11-16, N1–N12) · **Backend Integration:** not yet (no PinCast route: [[BD-20 PinCast & Nearby Backend Delivery]])
 
 What the client needs from the backend to build [[S-45 PinCast & Nearby Story]] S1 to S5, and whether each need is met today. **Rewritten 2026-11-16** against the story as rewritten that day and its rules N1–N12 ([[S-45 PinCast & Nearby Story#Decided in this story|Decided in this story]]). Nearby by Ring (S6) is later (N10) and asks for nothing here; the old *PinCast & Nearby · S7* links are gone with that part.
 
@@ -163,9 +165,10 @@ The story is approved (2026-11-16), so this list isn't blocked by it. Rows wait 
 
 ## Sign-off
 
-- Approved by: — · on: —
+- Approved by: Omar Fostok (backend review) · on: 2026-11-23
 
 ## Log
 
 - 2026-11-16 · `tickets/frontend/M-04-discovery/F-20-pincast/FR-20-s-45-2026-11-16` · rewritten from S-45 as rewritten and approved 2026-11-16 (N1–N12): per screen s39, s41, s40, s42 and the Home chip; the endpoints the story lists as not built, proposed as `/pincasts` routes (start, current with `endsAt` and `serverNow`, change, extend, stop, position refresh, people in range with mutual visibility, `GET /views/pincast/:token`, connect and relationship by `pincastToken` like the badge `qrToken`, results kept 30 days then the count); polling while live until notifications exist; the countdown from the server clock; no distance or position ever shown or logged; filters All and New to me only; Nearby by Ring later; proposed `E_PINCAST_01`–`05`. Repointed the Connections links (S-23 S2, S5), dropped the *PinCast & Nearby · S7* links. Cleared the S-45 and S-23 flags. Kept `draft`
 - 2026-11-16 · `tickets/frontend/M-04-discovery/F-20-pincast/FR-20-ready` · every screen, endpoint row and error state is in: set `ready` (📨) on Omar Fostok's word, handed to the backend; flagged [[BD-20 PinCast & Nearby Backend Delivery]] and [[FR-14 Connections Frontend Requirements]] (connect and relationship by `pincastToken`)
+- 2026-11-23 · `tickets/backend/M-04-discovery/F-20-pincast/FR-20-accepted` · reviewed by the backend against [[S-45 PinCast & Nearby Story]] S1–S5 and N1–N12: every screen row, endpoint row and error state maps to a story part or rule, and the eight items of *What the backend has to build* are each covered (start / extend / stop, current with `endsAt` and `serverNow`, position refresh, people in range mutual and without coordinates, the card by token, connect by `pincastToken`, results 30 days then the count, the error codes); nothing missing, nothing beyond the story. Set `approved`; the proposed `/pincasts` routes, shapes and `E_PINCAST_01`–`05` are accepted as the working names, to be confirmed by [[BD-20 PinCast & Nearby Backend Delivery]] as the code spells them; `PATCH /pincasts/current` kept as proposed. The two numbers the story leaves to the backend (`positionRefreshSeconds`, how long a PinCast token stays valid after the end) will be set in BD-20. BD-20 set `in-progress` in the same commit
