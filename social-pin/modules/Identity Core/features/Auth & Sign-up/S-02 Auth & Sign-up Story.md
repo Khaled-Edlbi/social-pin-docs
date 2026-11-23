@@ -3,7 +3,7 @@ id: S-02
 type: story
 module: identity
 feature: auth
-status: approved
+status: verified
 scope: feature
 screens: [s01, s02, s06, s08, s68, s75]
 approvedBy: "khaled"
@@ -11,18 +11,13 @@ approvedAt: 2026-10-25
 owner: "Omar Fostok"
 related: ["D-06 Yearly rename, old name freed, case-insensitive", "FR-02 Auth & Sign-up Frontend Requirements", "F-05 Onboarding Imports", "F-37 Interests", "S-14 Profiles & Pin Name Story"]
 created: 2026-10-18
-updated: 2026-11-09
-tags: [story, story/approved, module/identity, layer/business]
+updated: 2026-11-23
+tags: [story, story/verified, module/identity, layer/business]
 ---
 
 # Auth & Sign-up · User Story
 
-> ⚠ Affected by [[FD-05 Auth & Sign-up Frontend Delivery]] (2026-11-09): S2's layout is shipped in part on social_pin f9c19e3: Verify and "Use a different …" are pinned at the bottom and the content scrolls (B-18 no longer overflows), but Resend and Start sign-up again still sit in the scrolling part; FD-05 keeps them in pending. S3: the s06 suggestions are built on the client and then each checked with the availability call, so only free ones show
-
-> ⚠ Affected by [[QB-05 Auth & Sign-up QA Backend]] (2026-10-27): S2 says the 429 comes "after five wrong tries", and *Rules* says "five wrong tries burn the code". The build answers five wrong guesses with 400 and the **sixth** submission with 429 `E_AUTH_06`, even when that sixth code is right; [[BI-02 Auth & Sign-up Backend Integration]] says "sixth wrong guess". The client sees the lock on the sixth submit. `/pm`: confirm which the story means.
-
-
-**Feature:** [[F-02 Auth & Sign-up]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[FR-02 Auth & Sign-up Frontend Requirements]] · **Backend Integration:** [[BI-02 Auth & Sign-up Backend Integration]]
+**Feature:** [[F-02 Auth & Sign-up]] · **Status:** Fulfilled 2026-11-23 (approved 2026-10-25 by khaled; QB-05 and QF-05 passing, nothing pending) · **Frontend Requirements:** [[FR-02 Auth & Sign-up Frontend Requirements]] · **Backend Integration:** [[BI-02 Auth & Sign-up Backend Integration]]
 
 A person arrives with nothing but an email address or a phone number and leaves with a working identity: an active account, a Pin name, a default Ring and its projection. Coming back later costs them one code, never a password. The welcome screen's promise, *"We send a one-time code. No password to remember"*, is the whole contract ([[ND-01 Passwordless login]], decided 2026-10-15).
 
@@ -64,7 +59,7 @@ The full name is asked **before** this screen, on *Profile basics*, where it is 
 Acceptance criteria:
 - [ ] The `!` is rendered as a prefix and never sent; the field validates 3 to 30 characters of letters, digits, `.` and `_` on the client.
 - [ ] A debounced `GET /profiles/pin-name/:pinName/availability` shows free / taken; it never reveals who holds a taken name. Capitals don't matter (`Omar.Fostok` is `omar.fostok`).
-- [ ] s06 offers suggestions built **only from my own name** (the full name from *Profile basics*), never from anyone else's ([[D-06 Yearly rename, old name freed, case-insensitive]], [[S-14 Profiles & Pin Name Story]] S1). They are built on the client, as chips; no endpoint is needed.
+- [ ] s06 offers suggestions built **only from my own name** (the full name from *Profile basics*), never from anyone else's ([[D-06 Yearly rename, old name freed, case-insensitive]], [[S-14 Profiles & Pin Name Story]] S1). They are built on the client, as chips, and each is checked with the availability call (`GET /profiles/pin-name/:pinName/availability`): only free ones show.
 - [ ] "You can change it once a year." is enforced by [[S-14 Profiles & Pin Name Story|Profiles & Pin Name · S12–S13]]: not available yet.
 - [ ] The full name (up to 120 characters) comes from *Profile basics*; it is the same on every Ring.
 - [ ] Submit calls `POST /auth/complete-registration { onboardingToken, pinName, fullName? }`; a 409 `E_PROFILE_02` returns focus to the handle.
@@ -124,3 +119,6 @@ Acceptance criteria:
 
 - 2026-11-09 · `tickets/pm/M-01-identity/F-02-auth/S-02-verify-buttons-pinned` · S2: the Verify screen's buttons are pinned at the bottom while the content scrolls, the fix for B-18; decided by Omar Fostok, the story stays approved
 - 2026-11-09 · flagged [[B-18 Sign-in Verify overflows when the not-active message shows]] and [[FD-05 Auth & Sign-up Frontend Delivery]]: the fix is the buttons pinned at the bottom with the content scrolling above them (S-02 S2)
+- 2026-11-23 · `tickets/pm/M-01-identity/F-02-auth/S-02-fulfilled` · **fulfilled** on Omar Fostok's word: [[QB-05 Auth & Sign-up QA Backend]] and [[QF-05 Auth & Sign-up QA Frontend]] passing, nothing pending or unmet (QF-05: all 85 rows on `social_pin` `rings/F-11/honest-rings`, 2026-11-23; B-18 to B-22 closed). Two settled flags cleared:
+  - FD-05's (2026-11-09): all three Verify buttons are pinned above the keyboard (QF-05 AU-66) and FD-05 has nothing pending. S3 now says the suggestion chips are each checked with the availability call, and only free ones show (AU-76);
+  - QB-05's (2026-10-27): settled by [[D-30 The fifth wrong code try locks the code|D-30]], where the fifth wrong try itself answers 429 `E_AUTH_06`, as S2 says (QF-05 AU-16).
