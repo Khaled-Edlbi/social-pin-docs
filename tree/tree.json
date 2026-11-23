@@ -71,6 +71,8 @@
     "B-25 The change sheet doesn't focus the field after a taken error": "task:B-25",
     "B-26 The delete sheet doesn't say every Ring, projection and session goes": "task:B-26",
     "B-27 Opening the phone sheet throws an invisible semantics node error": "task:B-27",
+    "B-28 A deleted account's card still opens for a member of its Ring": "task:B-28",
+    "B-29 The find-me switch reads the string false as true": "task:B-29",
     "BD-01 Account Backend Delivery": "backend-delivery:account",
     "BD-02 Auth & Sign-up Backend Delivery": "backend-delivery:auth",
     "BD-03 Counts Backend Delivery": "backend-delivery:counts",
@@ -432,6 +434,8 @@
     "B-25": "task:B-25",
     "B-26": "task:B-26",
     "B-27": "task:B-27",
+    "B-28": "task:B-28",
+    "B-29": "task:B-29",
     "BD-01": "backend-delivery:account",
     "BD-02": "backend-delivery:auth",
     "BD-03": "backend-delivery:counts",
@@ -1037,9 +1041,11 @@
         "feature:badge-qr",
         "feature:connections",
         "feature:counts",
+        "feature:discover-hub",
         "feature:ring-members",
         "project:frontend-api-guide",
-        "task:B-02"
+        "task:B-02",
+        "task:B-28"
       ],
       "kind": "endpoint",
       "notes": [
@@ -1055,10 +1061,12 @@
         "qa-backend:account",
         "qa-backend:connections",
         "qa-backend:counts",
+        "qa-backend:discover-hub",
         "qa-backend:ring-members",
         "qa-frontend:account",
         "story:account",
-        "task:B-02"
+        "task:B-02",
+        "task:B-28"
       ],
       "owner": "feature:account"
     },
@@ -4018,7 +4026,8 @@
         "project:frontend-api-guide",
         "project:frontend-contract",
         "project:status-report-2026-10-15",
-        "task:B-08"
+        "task:B-08",
+        "task:B-28"
       ],
       "kind": "endpoint",
       "notes": [
@@ -4060,7 +4069,8 @@
         "story:connections",
         "story:discover-hub",
         "story:view-as",
-        "task:B-08"
+        "task:B-08",
+        "task:B-28"
       ],
       "owner": "feature:view-as"
     },
@@ -4145,6 +4155,26 @@
       "kind": "endpoint",
       "notes": [
         "qa-backend:profiles"
+      ],
+      "owner": null
+    },
+    "GET /views/pin/goneqb18": {
+      "containers": [
+        "task:B-28"
+      ],
+      "kind": "endpoint",
+      "notes": [
+        "task:B-28"
+      ],
+      "owner": null
+    },
+    "GET /views/pin/gonetwoqb18": {
+      "containers": [
+        "task:B-28"
+      ],
+      "kind": "endpoint",
+      "notes": [
+        "task:B-28"
       ],
       "owner": null
     },
@@ -4546,6 +4576,7 @@
         "feature:account",
         "feature:auth",
         "feature:companies",
+        "feature:discover-hub",
         "feature:files",
         "feature:onboarding-imports",
         "feature:photo-library",
@@ -4564,6 +4595,7 @@
         "frontend-requirements:companies",
         "frontend-requirements:onboarding-imports",
         "frontend-requirements:profiles",
+        "qa-backend:discover-hub",
         "qa-backend:photo-library",
         "qa-backend:ring-projection",
         "qa-backend:view-as",
@@ -4698,7 +4730,8 @@
         "project:frontend-api-guide",
         "project:spec-map",
         "task:B-01",
-        "task:B-25"
+        "task:B-25",
+        "task:B-29"
       ],
       "kind": "endpoint",
       "notes": [
@@ -4717,7 +4750,8 @@
         "qa-backend:discover-hub",
         "story:account",
         "task:B-01",
-        "task:B-25"
+        "task:B-25",
+        "task:B-29"
       ],
       "owner": "feature:account"
     },
@@ -5145,6 +5179,7 @@
     },
     "POST /files": {
       "containers": [
+        "feature:discover-hub",
         "feature:files",
         "feature:onboarding-imports",
         "feature:photo-library",
@@ -5175,6 +5210,7 @@
         "needs-decision:ND-21",
         "project:frontend-contract",
         "project:status-report-2026-10-15",
+        "qa-backend:discover-hub",
         "qa-backend:files",
         "qa-backend:photo-library",
         "qa-backend:profiles",
@@ -6891,7 +6927,8 @@
         "feature:connections",
         "feature:discover-hub",
         "needs-decision:ND-37",
-        "needs-decision:ND-41"
+        "needs-decision:ND-41",
+        "task:B-28"
       ],
       "kind": "screen",
       "notes": [
@@ -6911,7 +6948,8 @@
         "qa-backend:discover-hub",
         "story:companies",
         "story:connections",
-        "story:discover-hub"
+        "story:discover-hub",
+        "task:B-28"
       ],
       "owner": null
     },
@@ -7022,7 +7060,8 @@
         "needs-decision:ND-35",
         "needs-decision:ND-37",
         "task:B-07",
-        "task:B-17"
+        "task:B-17",
+        "task:B-28"
       ],
       "kind": "screen",
       "notes": [
@@ -7076,7 +7115,8 @@
         "story:ring-access",
         "story:view-as",
         "task:B-07",
-        "task:B-17"
+        "task:B-17",
+        "task:B-28"
       ],
       "owner": null
     },
@@ -7534,7 +7574,8 @@
         "task:B-24",
         "task:B-25",
         "task:B-26",
-        "task:B-27"
+        "task:B-27",
+        "task:B-29"
       ],
       "kind": "screen",
       "notes": [
@@ -7608,7 +7649,8 @@
         "task:B-24",
         "task:B-25",
         "task:B-26",
-        "task:B-27"
+        "task:B-27",
+        "task:B-29"
       ],
       "owner": null
     },
@@ -7777,7 +7819,7 @@
   },
   "counts": {
     "blocked": 28,
-    "bugs": 27,
+    "bugs": 29,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 15,
@@ -7791,22 +7833,22 @@
       "qa-backend": 15,
       "qa-frontend": 2,
       "story": 40,
-      "task": 27
+      "task": 29
     },
     "byLayer": {
       "backend": 62,
-      "business": 190,
+      "business": 192,
       "frontend": 63,
       "qa": 17,
       "shared": 10
     },
-    "concepts": 371,
+    "concepts": 373,
     "decisions": 39,
-    "edges": 9466,
+    "edges": 9578,
     "features": 40,
     "layerNotes": 170,
     "modules": 8,
-    "notes": 373,
+    "notes": 375,
     "partial": 12,
     "placeholders": 108,
     "records": 38
@@ -9452,6 +9494,16 @@
       "from": "task:B-17",
       "kind": "affects",
       "to": "qa-backend:view-as"
+    },
+    {
+      "from": "task:B-28",
+      "kind": "affects",
+      "to": "qa-backend:discover-hub"
+    },
+    {
+      "from": "task:B-29",
+      "kind": "affects",
+      "to": "qa-backend:discover-hub"
     },
     {
       "from": "backend-delivery:audit-log",
@@ -11874,6 +11926,21 @@
       "to": "story:widgets"
     },
     {
+      "from": "qa-backend:discover-hub",
+      "kind": "pending",
+      "to": "backend-delivery:discover-hub"
+    },
+    {
+      "from": "qa-backend:discover-hub",
+      "kind": "pending",
+      "to": "task:B-28"
+    },
+    {
+      "from": "qa-backend:discover-hub",
+      "kind": "pending",
+      "to": "task:B-29"
+    },
+    {
       "from": "qa-backend:ring-access",
       "kind": "pending",
       "to": "backend-delivery:ring-access"
@@ -13113,6 +13180,7 @@
       "kind": "related",
       "to": "qa-backend:discover-hub",
       "via": [
+        "DELETE /users/me",
         "GET /views/pin/:pinName",
         "POST /connections/requests"
       ]
@@ -14255,6 +14323,7 @@
       "kind": "related",
       "to": "qa-backend:discover-hub",
       "via": [
+        "DELETE /users/me",
         "GET /views/pin/:pinName",
         "POST /connections/requests",
         "POST /connections/requests/:id/accept"
@@ -16030,6 +16099,14 @@
       "from": "backend-delivery:files",
       "kind": "related",
       "to": "project:status-report-2026-10-15",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "backend-delivery:files",
+      "kind": "related",
+      "to": "qa-backend:discover-hub",
       "via": [
         "POST /files"
       ]
@@ -21505,6 +21582,7 @@
       "kind": "related",
       "to": "qa-backend:discover-hub",
       "via": [
+        "DELETE /users/me",
         "GET /views/pin/:pinName",
         "POST /connections/requests",
         "POST /connections/requests/:id/accept"
@@ -23294,6 +23372,14 @@
     {
       "from": "backend-integration:files",
       "kind": "related",
+      "to": "qa-backend:discover-hub",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "backend-integration:files",
+      "kind": "related",
       "to": "qa-backend:files",
       "via": [
         "DELETE /files/:id",
@@ -23627,6 +23713,15 @@
       "to": "project:status-report-2026-10-15",
       "via": [
         "PATCH /rings/:ringId/projection",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "backend-integration:photo-library",
+      "kind": "related",
+      "to": "qa-backend:discover-hub",
+      "via": [
+        "PATCH /profiles/:id",
         "POST /files"
       ]
     },
@@ -35097,6 +35192,14 @@
     {
       "from": "frontend-requirements:files",
       "kind": "related",
+      "to": "qa-backend:discover-hub",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "frontend-requirements:files",
+      "kind": "related",
       "to": "qa-backend:files",
       "via": [
         "DELETE /files/:id",
@@ -43967,6 +44070,7 @@
       "kind": "related",
       "to": "qa-backend:discover-hub",
       "via": [
+        "DELETE /users/me",
         "GET /views/pin/:pinName",
         "POST /connections/requests",
         "POST /connections/requests/:id/accept"
@@ -44917,6 +45021,7 @@
       "kind": "related",
       "to": "qa-backend:discover-hub",
       "via": [
+        "DELETE /users/me",
         "POST /connections/requests",
         "POST /connections/requests/:id/accept"
       ]
@@ -45149,6 +45254,7 @@
       "kind": "related",
       "to": "backend-delivery:account",
       "via": [
+        "DELETE /users/me",
         "E_AUTH_03",
         "GET /users/me",
         "PATCH /users/me"
@@ -45168,7 +45274,8 @@
       "kind": "related",
       "to": "backend-delivery:photo-library",
       "via": [
-        "GET /profiles"
+        "GET /profiles",
+        "PATCH /profiles/:id"
       ]
     },
     {
@@ -45184,7 +45291,9 @@
       "kind": "related",
       "to": "backend-delivery:profiles",
       "via": [
-        "GET /profiles"
+        "GET /profiles",
+        "PATCH /profiles/:id",
+        "POST /files"
       ]
     },
     {
@@ -45209,6 +45318,7 @@
       "kind": "related",
       "to": "backend-integration:account",
       "via": [
+        "DELETE /users/me",
         "E_AUTH_03",
         "GET /profiles",
         "GET /users/me",
@@ -45229,7 +45339,9 @@
       "to": "backend-integration:profiles",
       "via": [
         "GET /profiles",
-        "GET /views/pin/:pinName"
+        "GET /views/pin/:pinName",
+        "PATCH /profiles/:id",
+        "POST /files"
       ]
     },
     {
@@ -45384,7 +45496,8 @@
       "kind": "related",
       "to": "frontend-requirements:companies",
       "via": [
-        "GET /profiles"
+        "GET /profiles",
+        "PATCH /profiles/:id"
       ]
     },
     {
@@ -45424,7 +45537,9 @@
       "kind": "related",
       "to": "frontend-requirements:photo-library",
       "via": [
-        "GET /profiles"
+        "GET /profiles",
+        "PATCH /profiles/:id",
+        "POST /files"
       ]
     },
     {
@@ -45432,7 +45547,9 @@
       "kind": "related",
       "to": "frontend-requirements:profiles",
       "via": [
-        "GET /profiles"
+        "GET /profiles",
+        "PATCH /profiles/:id",
+        "POST /files"
       ]
     },
     {
@@ -45594,7 +45711,8 @@
       "kind": "related",
       "to": "qa-backend:files",
       "via": [
-        "GET /views/pin/:pinName"
+        "GET /views/pin/:pinName",
+        "POST /files"
       ]
     },
     {
@@ -45603,7 +45721,9 @@
       "to": "qa-backend:profiles",
       "via": [
         "GET /profiles",
-        "GET /views/pin/:pinName"
+        "GET /views/pin/:pinName",
+        "PATCH /profiles/:id",
+        "POST /files"
       ]
     },
     {
@@ -45636,9 +45756,11 @@
       "kind": "related",
       "to": "qa-frontend:account",
       "via": [
+        "DELETE /users/me",
         "E_AUTH_03",
         "GET /profiles",
         "GET /users/me",
+        "PATCH /profiles/:id",
         "PATCH /users/me"
       ]
     },
@@ -47044,7 +47166,9 @@
       "to": "qa-backend:discover-hub",
       "via": [
         "GET /profiles",
-        "GET /views/pin/:pinName"
+        "GET /views/pin/:pinName",
+        "PATCH /profiles/:id",
+        "POST /files"
       ]
     },
     {
@@ -47359,6 +47483,14 @@
       "via": [
         "GET /rings/:ringId/projection",
         "POST /rings"
+      ]
+    },
+    {
+      "from": "qa-backend:photo-library",
+      "kind": "related",
+      "to": "task:B-28",
+      "via": [
+        "GET /views/pin/:pinName"
       ]
     },
     {
@@ -47973,6 +48105,14 @@
       "to": "task:B-05",
       "via": [
         "POST /auth/complete-registration"
+      ]
+    },
+    {
+      "from": "qa-backend:profiles",
+      "kind": "related",
+      "to": "task:B-28",
+      "via": [
+        "GET /views/pin/:pinName"
       ]
     },
     {
@@ -50119,6 +50259,14 @@
     {
       "from": "qa-backend:ring-projection",
       "kind": "related",
+      "to": "qa-backend:discover-hub",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "qa-backend:ring-projection",
+      "kind": "related",
       "to": "qa-backend:ring-invitations",
       "via": [
         "E_RING_02",
@@ -52161,6 +52309,14 @@
       "via": [
         "GET /profiles",
         "PATCH /profiles/:id"
+      ]
+    },
+    {
+      "from": "qa-frontend:account",
+      "kind": "related",
+      "to": "task:B-29",
+      "via": [
+        "PATCH /users/me"
       ]
     },
     {
@@ -54914,6 +55070,14 @@
       "from": "task:B-07",
       "kind": "related",
       "to": "project:status-report-2026-10-15",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "task:B-07",
+      "kind": "related",
+      "to": "qa-backend:discover-hub",
       "via": [
         "POST /files"
       ]
@@ -58723,6 +58887,14 @@
       ]
     },
     {
+      "from": "task:B-25",
+      "kind": "related",
+      "to": "task:B-29",
+      "via": [
+        "PATCH /users/me"
+      ]
+    },
+    {
       "from": "task:B-26",
       "kind": "related",
       "to": "backend-delivery:account",
@@ -58821,6 +58993,14 @@
     {
       "from": "task:B-26",
       "kind": "related",
+      "to": "qa-backend:discover-hub",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "task:B-26",
+      "kind": "related",
       "to": "qa-backend:ring-members",
       "via": [
         "DELETE /users/me"
@@ -58851,6 +59031,14 @@
       ]
     },
     {
+      "from": "task:B-26",
+      "kind": "related",
+      "to": "task:B-28",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
       "from": "task:B-27",
       "kind": "related",
       "to": "frontend-delivery:account"
@@ -58864,6 +59052,533 @@
       "from": "task:B-27",
       "kind": "related",
       "to": "story:account"
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "backend-delivery:account",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "backend-delivery:badge-qr",
+      "via": [
+        "DELETE /users/me",
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "backend-delivery:connections",
+      "via": [
+        "DELETE /users/me",
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "backend-delivery:discover-hub",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "backend-delivery:view-as",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "backend-integration:account",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "backend-integration:badge-qr",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "backend-integration:connections",
+      "via": [
+        "DELETE /users/me",
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "backend-integration:discover-hub",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "backend-integration:profiles",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "backend-integration:view-as",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "decision:D-10",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "decision:D-25"
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "feature:discover-hub",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "frontend-delivery:account",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "frontend-delivery:badge-qr",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "frontend-delivery:connections",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "frontend-delivery:discover-hub",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "frontend-delivery:view-as",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "frontend-requirements:account",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "frontend-requirements:badge-qr",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "frontend-requirements:connections",
+      "via": [
+        "DELETE /users/me",
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "frontend-requirements:discover-hub",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "frontend-requirements:e2e-tests",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "frontend-requirements:ring-access",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "frontend-requirements:view-as",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "needs-decision:ND-10",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "needs-decision:ND-22",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "needs-decision:ND-41",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "DELETE /users/me",
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "project:frontend-contract",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "project:status-report-2026-10-15",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "qa-backend:account",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "qa-backend:badge-qr",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "qa-backend:connections",
+      "via": [
+        "DELETE /users/me",
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "qa-backend:counts",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "qa-backend:discover-hub",
+      "via": [
+        "DELETE /users/me",
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "qa-backend:files",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "qa-backend:ring-access",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "qa-backend:ring-members",
+      "via": [
+        "DELETE /users/me",
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "qa-backend:view-as",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "qa-frontend:account",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "story:account",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "story:badge-qr",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "story:connections",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "story:discover-hub",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "story:view-as",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "task:B-02",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "task:B-28",
+      "kind": "related",
+      "to": "task:B-08",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "task:B-29",
+      "kind": "related",
+      "to": "backend-delivery:account",
+      "via": [
+        "PATCH /users/me"
+      ]
+    },
+    {
+      "from": "task:B-29",
+      "kind": "related",
+      "to": "backend-delivery:discover-hub",
+      "via": [
+        "PATCH /users/me"
+      ]
+    },
+    {
+      "from": "task:B-29",
+      "kind": "related",
+      "to": "backend-integration:account",
+      "via": [
+        "PATCH /users/me"
+      ]
+    },
+    {
+      "from": "task:B-29",
+      "kind": "related",
+      "to": "backend-integration:discover-hub",
+      "via": [
+        "PATCH /users/me"
+      ]
+    },
+    {
+      "from": "task:B-29",
+      "kind": "related",
+      "to": "decision:D-20",
+      "via": [
+        "PATCH /users/me"
+      ]
+    },
+    {
+      "from": "task:B-29",
+      "kind": "related",
+      "to": "frontend-delivery:account",
+      "via": [
+        "PATCH /users/me"
+      ]
+    },
+    {
+      "from": "task:B-29",
+      "kind": "related",
+      "to": "frontend-requirements:account",
+      "via": [
+        "PATCH /users/me"
+      ]
+    },
+    {
+      "from": "task:B-29",
+      "kind": "related",
+      "to": "frontend-requirements:discover-hub",
+      "via": [
+        "PATCH /users/me"
+      ]
+    },
+    {
+      "from": "task:B-29",
+      "kind": "related",
+      "to": "needs-decision:ND-20",
+      "via": [
+        "PATCH /users/me"
+      ]
+    },
+    {
+      "from": "task:B-29",
+      "kind": "related",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "PATCH /users/me"
+      ]
+    },
+    {
+      "from": "task:B-29",
+      "kind": "related",
+      "to": "project:spec-map",
+      "via": [
+        "PATCH /users/me"
+      ]
+    },
+    {
+      "from": "task:B-29",
+      "kind": "related",
+      "to": "qa-backend:account",
+      "via": [
+        "PATCH /users/me"
+      ]
+    },
+    {
+      "from": "task:B-29",
+      "kind": "related",
+      "to": "qa-backend:discover-hub",
+      "via": [
+        "PATCH /users/me"
+      ]
+    },
+    {
+      "from": "task:B-29",
+      "kind": "related",
+      "to": "story:account",
+      "via": [
+        "PATCH /users/me"
+      ]
+    },
+    {
+      "from": "task:B-29",
+      "kind": "related",
+      "to": "task:B-01",
+      "via": [
+        "PATCH /users/me"
+      ]
+    },
+    {
+      "from": "task:B-29",
+      "kind": "related",
+      "to": "task:B-11"
+    },
+    {
+      "from": "task:B-29",
+      "kind": "related",
+      "to": "task:B-13"
     },
     {
       "from": "decision:D-10",
@@ -59024,6 +59739,14 @@
       "from": "decision:D-10",
       "kind": "shares",
       "to": "task:B-08",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "decision:D-10",
+      "kind": "shares",
+      "to": "task:B-28",
       "via": [
         "GET /views/pin/:pinName"
       ]
@@ -59817,6 +60540,14 @@
       ]
     },
     {
+      "from": "decision:D-20",
+      "kind": "shares",
+      "to": "task:B-29",
+      "via": [
+        "PATCH /users/me"
+      ]
+    },
+    {
       "from": "decision:D-24",
       "kind": "shares",
       "to": "feature:badge-qr",
@@ -60179,10 +60910,12 @@
       "kind": "shares",
       "to": "feature:discover-hub",
       "via": [
+        "DELETE /users/me",
         "E_AUTH_03",
         "E_AUTH_04",
         "GET /profiles",
         "GET /users/me",
+        "PATCH /profiles/:id",
         "PATCH /users/me"
       ]
     },
@@ -60608,6 +61341,22 @@
       "via": [
         "E_USER_02",
         "E_USER_03",
+        "PATCH /users/me"
+      ]
+    },
+    {
+      "from": "feature:account",
+      "kind": "shares",
+      "to": "task:B-28",
+      "via": [
+        "DELETE /users/me"
+      ]
+    },
+    {
+      "from": "feature:account",
+      "kind": "shares",
+      "to": "task:B-29",
+      "via": [
         "PATCH /users/me"
       ]
     },
@@ -61092,7 +61841,8 @@
         "E_AUTH_04",
         "GET /profiles",
         "GET /profiles/pin-name/:pinName/availability",
-        "GET /users/me"
+        "GET /users/me",
+        "PATCH /profiles/:id"
       ]
     },
     {
@@ -61660,6 +62410,7 @@
       "kind": "shares",
       "to": "feature:discover-hub",
       "via": [
+        "DELETE /users/me",
         "E_AUTH_04",
         "GET /connections/relationship",
         "GET /users/me",
@@ -62118,6 +62869,15 @@
       "to": "task:B-24",
       "via": [
         "GET /users/me"
+      ]
+    },
+    {
+      "from": "feature:badge-qr",
+      "kind": "shares",
+      "to": "task:B-28",
+      "via": [
+        "DELETE /users/me",
+        "GET /views/pin/:pinName"
       ]
     },
     {
@@ -62608,7 +63368,8 @@
       "to": "feature:discover-hub",
       "via": [
         "E_AUTH_04",
-        "GET /profiles"
+        "GET /profiles",
+        "PATCH /profiles/:id"
       ]
     },
     {
@@ -63066,6 +63827,7 @@
       "kind": "shares",
       "to": "feature:discover-hub",
       "via": [
+        "DELETE /users/me",
         "E_AUTH_04",
         "E_CONNECTION_01",
         "GET /connections/relationship",
@@ -63663,6 +64425,15 @@
       ]
     },
     {
+      "from": "feature:connections",
+      "kind": "shares",
+      "to": "task:B-28",
+      "via": [
+        "DELETE /users/me",
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
       "from": "feature:counts",
       "kind": "shares",
       "to": "feature:delegated-admins",
@@ -63678,6 +64449,7 @@
       "kind": "shares",
       "to": "feature:discover-hub",
       "via": [
+        "DELETE /users/me",
         "GET /users/me"
       ]
     },
@@ -63997,6 +64769,14 @@
       "to": "task:B-24",
       "via": [
         "GET /users/me"
+      ]
+    },
+    {
+      "from": "feature:counts",
+      "kind": "shares",
+      "to": "task:B-28",
+      "via": [
+        "DELETE /users/me"
       ]
     },
     {
@@ -64646,7 +65426,9 @@
       "to": "feature:files",
       "via": [
         "GET /views/pin/:pinName",
-        "GET /views/pin/SaraAz"
+        "GET /views/pin/SaraAz",
+        "PATCH /profiles/:id",
+        "POST /files"
       ]
     },
     {
@@ -64687,7 +65469,9 @@
       "kind": "shares",
       "to": "feature:onboarding-imports",
       "via": [
-        "GET /profiles/pin-name/:pinName/availability"
+        "GET /profiles/pin-name/:pinName/availability",
+        "PATCH /profiles/:id",
+        "POST /files"
       ]
     },
     {
@@ -64704,7 +65488,9 @@
       "to": "feature:photo-library",
       "via": [
         "GET /profiles",
-        "GET /views/pin/SaraAz"
+        "GET /views/pin/SaraAz",
+        "PATCH /profiles/:id",
+        "POST /files"
       ]
     },
     {
@@ -64733,7 +65519,9 @@
         "GET /profiles",
         "GET /profiles/pin-name/:pinName/availability",
         "GET /views/pin/:pinName",
-        "GET /views/pin/SaraAz"
+        "GET /views/pin/SaraAz",
+        "PATCH /profiles/:id",
+        "POST /files"
       ]
     },
     {
@@ -64758,6 +65546,7 @@
       "kind": "shares",
       "to": "feature:ring-members",
       "via": [
+        "DELETE /users/me",
         "GET /views/pin/:pinName",
         "GET /views/pin/SaraAz"
       ]
@@ -64768,7 +65557,9 @@
       "to": "feature:ring-projection",
       "via": [
         "GET /profiles",
-        "GET /users/me"
+        "GET /users/me",
+        "PATCH /profiles/:id",
+        "POST /files"
       ]
     },
     {
@@ -64790,7 +65581,8 @@
         "GET /views/pin/!!bad%20name",
         "GET /views/pin/:pinName",
         "GET /views/pin/SaraAz",
-        "GET /views/pin/saraaz"
+        "GET /views/pin/saraaz",
+        "PATCH /profiles/:id"
       ]
     },
     {
@@ -64809,6 +65601,14 @@
       "via": [
         "E_AUTH_03",
         "PATCH /users/me"
+      ]
+    },
+    {
+      "from": "feature:discover-hub",
+      "kind": "shares",
+      "to": "needs-decision:ND-21",
+      "via": [
+        "POST /files"
       ]
     },
     {
@@ -64864,6 +65664,7 @@
       "kind": "shares",
       "to": "project:frontend-api-guide",
       "via": [
+        "DELETE /users/me",
         "E_AUTH_03",
         "E_AUTH_04",
         "E_SEARCH_01",
@@ -64883,7 +65684,8 @@
         "E_SEARCH_01",
         "E_SEARCH_02",
         "GET /profiles/pin-name/:pinName/availability",
-        "GET /views/pin/:pinName"
+        "GET /views/pin/:pinName",
+        "POST /files"
       ]
     },
     {
@@ -64913,7 +65715,8 @@
       "to": "project:status-report-2026-10-15",
       "via": [
         "GET /profiles/pin-name/:pinName/availability",
-        "GET /views/pin/:pinName"
+        "GET /views/pin/:pinName",
+        "POST /files"
       ]
     },
     {
@@ -64930,6 +65733,7 @@
       "kind": "shares",
       "to": "task:B-02",
       "via": [
+        "DELETE /users/me",
         "E_AUTH_03",
         "GET /profiles",
         "GET /users/me"
@@ -64941,6 +65745,14 @@
       "to": "task:B-03",
       "via": [
         "E_AUTH_04"
+      ]
+    },
+    {
+      "from": "feature:discover-hub",
+      "kind": "shares",
+      "to": "task:B-07",
+      "via": [
+        "POST /files"
       ]
     },
     {
@@ -64980,6 +65792,23 @@
       "from": "feature:discover-hub",
       "kind": "shares",
       "to": "task:B-25",
+      "via": [
+        "PATCH /users/me"
+      ]
+    },
+    {
+      "from": "feature:discover-hub",
+      "kind": "shares",
+      "to": "task:B-28",
+      "via": [
+        "DELETE /users/me",
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "feature:discover-hub",
+      "kind": "shares",
+      "to": "task:B-29",
       "via": [
         "PATCH /users/me"
       ]
@@ -65076,6 +65905,14 @@
       "from": "feature:e2e-tests",
       "kind": "shares",
       "to": "task:B-08",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "feature:e2e-tests",
+      "kind": "shares",
+      "to": "task:B-28",
       "via": [
         "GET /views/pin/:pinName"
       ]
@@ -66730,6 +67567,14 @@
         "GET /rings/:ringId/projection",
         "GET /views/ring/:ringId",
         "POST /rings"
+      ]
+    },
+    {
+      "from": "feature:files",
+      "kind": "shares",
+      "to": "task:B-28",
+      "via": [
+        "GET /views/pin/:pinName"
       ]
     },
     {
@@ -68551,6 +69396,14 @@
       ]
     },
     {
+      "from": "feature:profiles",
+      "kind": "shares",
+      "to": "task:B-28",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
       "from": "feature:ring-access",
       "kind": "shares",
       "to": "feature:ring-invitations",
@@ -68910,6 +69763,14 @@
         "GET /rings/:ringId/projection",
         "GET /views/ring/:ringId",
         "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "feature:ring-access",
+      "kind": "shares",
+      "to": "task:B-28",
+      "via": [
+        "GET /views/pin/:pinName"
       ]
     },
     {
@@ -69398,6 +70259,15 @@
       "to": "task:B-15",
       "via": [
         "E_RING_02"
+      ]
+    },
+    {
+      "from": "feature:ring-members",
+      "kind": "shares",
+      "to": "task:B-28",
+      "via": [
+        "DELETE /users/me",
+        "GET /views/pin/:pinName"
       ]
     },
     {
@@ -70239,6 +71109,14 @@
       ]
     },
     {
+      "from": "feature:view-as",
+      "kind": "shares",
+      "to": "task:B-28",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
       "from": "feature:widgets",
       "kind": "shares",
       "to": "needs-decision:ND-10",
@@ -70503,6 +71381,14 @@
       "via": [
         "GET /views/ring/:ringId",
         "GET /views/user/:userId/perspectives"
+      ]
+    },
+    {
+      "from": "needs-decision:ND-10",
+      "kind": "shares",
+      "to": "task:B-28",
+      "via": [
+        "GET /views/pin/:pinName"
       ]
     },
     {
@@ -70789,6 +71675,14 @@
       ]
     },
     {
+      "from": "needs-decision:ND-20",
+      "kind": "shares",
+      "to": "task:B-29",
+      "via": [
+        "PATCH /users/me"
+      ]
+    },
+    {
       "from": "needs-decision:ND-21",
       "kind": "shares",
       "to": "project:frontend-contract",
@@ -70848,6 +71742,14 @@
       "from": "needs-decision:ND-22",
       "kind": "shares",
       "to": "task:B-08",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "needs-decision:ND-22",
+      "kind": "shares",
+      "to": "task:B-28",
       "via": [
         "GET /views/pin/:pinName"
       ]
@@ -70948,6 +71850,14 @@
       "from": "needs-decision:ND-41",
       "kind": "shares",
       "to": "task:B-08",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "needs-decision:ND-41",
+      "kind": "shares",
+      "to": "task:B-28",
       "via": [
         "GET /views/pin/:pinName"
       ]
@@ -71369,6 +72279,23 @@
       ]
     },
     {
+      "from": "project:frontend-api-guide",
+      "kind": "shares",
+      "to": "task:B-28",
+      "via": [
+        "DELETE /users/me",
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "project:frontend-api-guide",
+      "kind": "shares",
+      "to": "task:B-29",
+      "via": [
+        "PATCH /users/me"
+      ]
+    },
+    {
       "from": "project:frontend-contract",
       "kind": "shares",
       "to": "project:frontend-passwordless-migration",
@@ -71501,6 +72428,14 @@
         "GET /views/ring/:ringId",
         "GET /views/user/:userId/perspectives",
         "POST /rings"
+      ]
+    },
+    {
+      "from": "project:frontend-contract",
+      "kind": "shares",
+      "to": "task:B-28",
+      "via": [
+        "GET /views/pin/:pinName"
       ]
     },
     {
@@ -71725,6 +72660,14 @@
       ]
     },
     {
+      "from": "project:spec-map",
+      "kind": "shares",
+      "to": "task:B-29",
+      "via": [
+        "PATCH /users/me"
+      ]
+    },
+    {
       "from": "project:status-report-2026-10-15",
       "kind": "shares",
       "to": "task:B-02",
@@ -71818,6 +72761,14 @@
       ]
     },
     {
+      "from": "project:status-report-2026-10-15",
+      "kind": "shares",
+      "to": "task:B-28",
+      "via": [
+        "GET /views/pin/:pinName"
+      ]
+    },
+    {
       "from": "backend-delivery:auth",
       "kind": "tree",
       "to": "task:B-06"
@@ -71851,6 +72802,16 @@
       "from": "backend-integration:auth",
       "kind": "tree",
       "to": "task:B-05"
+    },
+    {
+      "from": "backend-integration:discover-hub",
+      "kind": "tree",
+      "to": "task:B-28"
+    },
+    {
+      "from": "backend-integration:discover-hub",
+      "kind": "tree",
+      "to": "task:B-29"
     },
     {
       "from": "backend-integration:ring-members",
@@ -80006,6 +80967,11 @@
       "from": "task:B-27",
       "kind": "wikilink",
       "to": "feature:account"
+    },
+    {
+      "from": "task:B-29",
+      "kind": "wikilink",
+      "to": "feature:discover-hub"
     }
   ],
   "emoji": {
@@ -80248,6 +81214,14 @@
     },
     "social-pin/bugs/B-27 Opening the phone sheet throws an invisible semantics node error.md": {
       "name": "B-27 Opening the phone sheet throws an invisible semantics node error",
+      "type": "bug"
+    },
+    "social-pin/bugs/B-28 A deleted account's card still opens for a member of its Ring.md": {
+      "name": "B-28 A deleted account's card still opens for a member of its Ring",
+      "type": "bug"
+    },
+    "social-pin/bugs/B-29 The find-me switch reads the string false as true.md": {
+      "name": "B-29 The find-me switch reads the string false as true",
       "type": "bug"
     },
     "social-pin/business/Feature Graph.md": {
@@ -81857,6 +82831,8 @@
         "task:B-24",
         "task:B-25",
         "task:B-26",
+        "task:B-28",
+        "task:B-29",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-delivery:connections",
@@ -82191,6 +83167,7 @@
       "related": [
         "task:B-17",
         "task:B-26",
+        "task:B-28",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -82536,6 +83513,7 @@
       "priority": "critical",
       "related": [
         "task:B-26",
+        "task:B-28",
         "needs-decision:ND-38",
         "feature:connections",
         "backend-delivery:ring-access",
@@ -83033,6 +84011,8 @@
         "task:B-23",
         "task:B-24",
         "task:B-25",
+        "task:B-28",
+        "task:B-29",
         "needs-decision:ND-37",
         "needs-decision:ND-41",
         "backend-delivery:connections",
@@ -83555,6 +84535,7 @@
         "frontend-requirements:photo-library",
         "qa-backend:ring-projection",
         "needs-decision:ND-21",
+        "qa-backend:discover-hub",
         "frontend-delivery:files",
         "frontend-requirements:onboarding-imports",
         "backend-integration:photo-library",
@@ -85270,6 +86251,7 @@
         "task:B-18",
         "task:B-23",
         "task:B-24",
+        "task:B-28",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -85449,6 +86431,8 @@
         "task:B-24",
         "task:B-25",
         "task:B-26",
+        "task:B-28",
+        "task:B-29",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-delivery:connections",
@@ -85715,6 +86699,7 @@
         "task:B-03",
         "task:B-13",
         "task:B-17",
+        "task:B-28",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -86030,6 +87015,7 @@
         "task:B-13",
         "task:B-17",
         "task:B-26",
+        "task:B-28",
         "backend-delivery:connections",
         "story:connections",
         "decision:D-10",
@@ -86066,6 +87052,7 @@
         "project:spec-map",
         "project:frontend-api-guide",
         "task:B-02",
+        "qa-backend:discover-hub",
         "backend-integration:account",
         "frontend-delivery:account",
         "frontend-requirements:account",
@@ -86081,7 +87068,6 @@
         "backend-delivery:discover-hub",
         "backend-integration:discover-hub",
         "frontend-requirements:discover-hub",
-        "qa-backend:discover-hub",
         "backend-delivery:pincast",
         "frontend-requirements:pincast",
         "backend-delivery:counts",
@@ -86446,7 +87432,10 @@
       ],
       "blockedBy": [],
       "card": "BI-19",
-      "children": [],
+      "children": [
+        "task:B-28",
+        "task:B-29"
+      ],
       "code": "discover-hub",
       "created": "2026-11-16",
       "deadline": null,
@@ -86469,7 +87458,10 @@
       "labels": [],
       "layer": "backend",
       "module": "discovery",
-      "openBugs": [],
+      "openBugs": [
+        "task:B-28",
+        "task:B-29"
+      ],
       "parentTask": null,
       "parents": [
         "feature:discover-hub"
@@ -86482,6 +87474,8 @@
         "task:B-23",
         "task:B-24",
         "task:B-25",
+        "task:B-28",
+        "task:B-29",
         "needs-decision:ND-41",
         "backend-delivery:connections",
         "backend-integration:connections",
@@ -86928,6 +87922,7 @@
         "frontend-requirements:photo-library",
         "qa-backend:ring-projection",
         "needs-decision:ND-21",
+        "qa-backend:discover-hub",
         "frontend-delivery:files",
         "frontend-requirements:onboarding-imports",
         "backend-delivery:photo-library",
@@ -87407,6 +88402,7 @@
         "qa-backend:view-as",
         "project:spec-map",
         "needs-decision:ND-21",
+        "qa-backend:discover-hub",
         "frontend-delivery:files",
         "frontend-requirements:onboarding-imports",
         "backend-delivery:photo-library",
@@ -87594,6 +88590,7 @@
         "task:B-08",
         "task:B-11",
         "task:B-13",
+        "task:B-28",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -88379,6 +89376,7 @@
         "task:B-13",
         "task:B-16",
         "task:B-17",
+        "task:B-28",
         "decision:D-10",
         "backend-delivery:connections",
         "backend-integration:connections",
@@ -89133,6 +90131,7 @@
       "pending": [],
       "priority": null,
       "related": [
+        "task:B-28",
         "needs-decision:ND-10",
         "needs-decision:ND-28",
         "needs-decision:ND-11",
@@ -89999,6 +90998,7 @@
         "task:B-22",
         "task:B-24",
         "task:B-25",
+        "task:B-29",
         "needs-decision:ND-20",
         "needs-decision:ND-30",
         "backend-integration:auth",
@@ -90283,6 +91283,7 @@
       "pending": [],
       "priority": null,
       "related": [
+        "task:B-28",
         "needs-decision:ND-25",
         "feature:connections",
         "feature:account",
@@ -92530,6 +93531,7 @@
         "project:architecture",
         "project:api-conventions",
         "project:spec-map",
+        "task:B-28",
         "needs-decision:ND-37",
         "needs-decision:ND-41",
         "backend-delivery:connections",
@@ -92563,8 +93565,9 @@
         "decided": 2,
         "delivered": 1,
         "done": 2,
-        "draft": 1,
+        "failing": 1,
         "missing": 1,
+        "todo": 2,
         "verified": 2
       },
       "scope": null,
@@ -94899,6 +95902,8 @@
         "task:B-25",
         "task:B-26",
         "task:B-27",
+        "task:B-28",
+        "task:B-29",
         "needs-decision:ND-20",
         "decision:D-20",
         "backend-delivery:connections",
@@ -95264,6 +96269,7 @@
         "task:B-13",
         "task:B-23",
         "task:B-24",
+        "task:B-28",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -95611,6 +96617,7 @@
       "related": [
         "task:B-13",
         "task:B-17",
+        "task:B-28",
         "needs-decision:ND-38",
         "backend-delivery:connections",
         "backend-integration:connections",
@@ -95942,6 +96949,7 @@
       "priority": null,
       "related": [
         "task:B-03",
+        "task:B-28",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -97768,6 +98776,7 @@
         "task:B-08",
         "task:B-13",
         "task:B-17",
+        "task:B-28",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -98011,6 +99020,8 @@
         "task:B-24",
         "task:B-25",
         "task:B-26",
+        "task:B-28",
+        "task:B-29",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-requirements:connections",
@@ -98353,6 +99364,7 @@
         "task:B-17",
         "task:B-23",
         "task:B-24",
+        "task:B-28",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -98830,6 +99842,7 @@
         "task:B-16",
         "task:B-17",
         "task:B-26",
+        "task:B-28",
         "needs-decision:ND-38",
         "backend-delivery:connections",
         "backend-integration:connections",
@@ -99383,6 +100396,8 @@
         "task:B-23",
         "task:B-24",
         "task:B-25",
+        "task:B-28",
+        "task:B-29",
         "needs-decision:ND-37",
         "needs-decision:ND-41",
         "backend-delivery:connections",
@@ -99496,6 +100511,7 @@
       "pending": [],
       "priority": null,
       "related": [
+        "task:B-28",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -100053,6 +101069,7 @@
         "needs-decision:ND-16",
         "decision:D-03",
         "needs-decision:ND-21",
+        "qa-backend:discover-hub",
         "qa-backend:files",
         "story:files",
         "frontend-requirements:onboarding-imports",
@@ -101257,6 +102274,7 @@
         "task:B-15",
         "task:B-16",
         "task:B-17",
+        "task:B-28",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -102109,6 +103127,7 @@
         "task:B-18",
         "task:B-23",
         "task:B-24",
+        "task:B-28",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -102716,11 +103735,12 @@
         "decided": 5,
         "delivered": 2,
         "done": 3,
-        "draft": 1,
+        "failing": 1,
         "in-progress": 4,
         "missing": 6,
         "partial": 1,
         "passing": 1,
+        "todo": 2,
         "verified": 5
       },
       "scope": null,
@@ -103566,6 +104586,7 @@
       "priority": null,
       "related": [
         "task:B-17",
+        "task:B-28",
         "feature:view-as",
         "feature:connections",
         "decision:D-10",
@@ -104340,6 +105361,7 @@
         "task:B-22",
         "task:B-24",
         "task:B-25",
+        "task:B-29",
         "backend-integration:auth",
         "frontend-delivery:account",
         "project:auth-model",
@@ -104496,6 +105518,7 @@
       "pending": [],
       "priority": null,
       "related": [
+        "task:B-28",
         "feature:profiles",
         "feature:badge-qr",
         "feature:view-as",
@@ -105802,6 +106825,7 @@
       "pending": [],
       "priority": null,
       "related": [
+        "task:B-28",
         "feature:discover-hub",
         "decision:D-37",
         "frontend-requirements:discover-hub",
@@ -106883,6 +107907,8 @@
         "task:B-24",
         "task:B-25",
         "task:B-26",
+        "task:B-28",
+        "task:B-29",
         "needs-decision:ND-30",
         "decision:D-16",
         "decision:D-30",
@@ -107004,6 +108030,7 @@
         "task:B-16",
         "task:B-17",
         "task:B-22",
+        "task:B-28",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -107663,6 +108690,7 @@
         "task:B-17",
         "task:B-22",
         "task:B-25",
+        "task:B-29",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-requirements:connections",
@@ -107775,6 +108803,7 @@
         "task:B-16",
         "task:B-17",
         "task:B-22",
+        "task:B-28",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -107947,6 +108976,8 @@
         "task:B-24",
         "task:B-25",
         "task:B-26",
+        "task:B-28",
+        "task:B-29",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-delivery:connections",
@@ -108254,6 +109285,7 @@
       "related": [
         "task:B-03",
         "task:B-17",
+        "task:B-28",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -108566,6 +109598,7 @@
         "task:B-13",
         "task:B-17",
         "task:B-26",
+        "task:B-28",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -108767,6 +109800,7 @@
       "related": [
         "task:B-13",
         "task:B-26",
+        "task:B-28",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-requirements:connections",
@@ -109015,7 +110049,7 @@
         "backend-delivery:discover-hub",
         "story:discover-hub"
       ],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "failing",
       "effort": null,
       "feature": "discover-hub",
       "foundOn": null,
@@ -109035,13 +110069,28 @@
         "feature:discover-hub"
       ],
       "path": "social-pin/modules/Discovery/features/Discover Hub & Search/flow/QB-18 Discover Hub & Search QA Backend.md",
-      "pending": [],
+      "pending": [
+        {
+          "person": null,
+          "text": "B7, B14 · re-run when the fix is ready",
+          "to": "task:B-28"
+        },
+        {
+          "person": null,
+          "text": "B61 · re-run when the fix is ready",
+          "to": "task:B-29"
+        }
+      ],
       "priority": null,
       "related": [
+        "task:B-07",
         "task:B-18",
         "task:B-23",
         "task:B-24",
         "task:B-25",
+        "task:B-26",
+        "task:B-28",
+        "task:B-29",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -109128,7 +110177,12 @@
         "project:frontend-passwordless-migration",
         "frontend-requirements:pincast",
         "qa-backend:counts",
-        "qa-backend:photo-library"
+        "backend-delivery:files",
+        "backend-integration:files",
+        "frontend-requirements:files",
+        "backend-integration:photo-library",
+        "qa-backend:photo-library",
+        "qa-backend:ring-projection"
       ],
       "release": "mvp",
       "resolution": null,
@@ -109138,17 +110192,23 @@
         "s44",
         "s68"
       ],
-      "status": "draft",
+      "status": "failing",
       "summary": "Expected behaviour of the API, as artefacts a person can check a build against: tables and diagrams, not test code (the specs live in the backend repo). status: passing or failing after a run; the…",
       "tags": [
         "qa-backend",
-        "qa-backend/draft",
+        "qa-backend/failing",
         "module/discovery",
         "layer/qa"
       ],
       "task": null,
       "title": "QB-18 Discover Hub & Search QA Backend",
-      "unmet": [],
+      "unmet": [
+        {
+          "person": null,
+          "text": "S2 · Connect on a not-connected row sends the normal connection request; POST /connections/requests by Pin name answers 404 E_RING_ACCESS_01 unless the requester can already open that person's card, so no request can be made from a stranger's row (B43)",
+          "to": "backend-delivery:discover-hub"
+        }
+      ],
       "updated": "2026-11-23"
     },
     "qa-backend:e2e-tests": {
@@ -109478,6 +110538,7 @@
         "task:B-07",
         "task:B-08",
         "task:B-17",
+        "task:B-28",
         "decision:D-16",
         "backend-delivery:connections",
         "backend-integration:connections",
@@ -110039,6 +111100,7 @@
         "backend-integration:ring-projection",
         "backend-integration:view-as",
         "needs-decision:ND-21",
+        "qa-backend:discover-hub",
         "frontend-delivery:files",
         "story:files",
         "frontend-requirements:onboarding-imports",
@@ -110073,6 +111135,7 @@
         "task:B-11",
         "frontend-requirements:companies",
         "feature:discover-hub",
+        "task:B-28",
         "needs-decision:ND-10",
         "needs-decision:ND-22",
         "needs-decision:ND-41",
@@ -110085,7 +111148,6 @@
         "backend-integration:discover-hub",
         "frontend-delivery:discover-hub",
         "frontend-requirements:discover-hub",
-        "qa-backend:discover-hub",
         "story:discover-hub",
         "frontend-requirements:ring-access",
         "qa-backend:ring-members",
@@ -110368,6 +111430,7 @@
         "story:onboarding-imports",
         "frontend-requirements:error-contract",
         "feature:discover-hub",
+        "task:B-28",
         "needs-decision:ND-10",
         "needs-decision:ND-22",
         "needs-decision:ND-41",
@@ -110473,6 +111536,7 @@
         "task:B-15",
         "task:B-16",
         "task:B-17",
+        "task:B-28",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -110809,6 +111873,7 @@
         "task:B-09",
         "task:B-10",
         "task:B-26",
+        "task:B-28",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -111041,6 +112106,7 @@
         "needs-decision:ND-16",
         "task:B-07",
         "needs-decision:ND-21",
+        "qa-backend:discover-hub",
         "frontend-requirements:onboarding-imports",
         "frontend-delivery:photo-library",
         "story:photo-library",
@@ -111376,6 +112442,7 @@
         "task:B-18",
         "task:B-23",
         "task:B-24",
+        "task:B-28",
         "decision:D-16",
         "backend-delivery:connections",
         "backend-integration:connections",
@@ -111599,6 +112666,7 @@
         "task:B-25",
         "task:B-26",
         "task:B-27",
+        "task:B-28",
         "backend-delivery:connections",
         "backend-integration:connections",
         "qa-backend:connections",
@@ -111626,6 +112694,7 @@
         "story:counts",
         "frontend-requirements:ring-projection",
         "frontend-requirements:linked-accounts",
+        "task:B-29",
         "needs-decision:ND-20",
         "project:spec-map",
         "project:frontend-api-guide",
@@ -113713,8 +114782,8 @@
         "decided": 38,
         "delivered": 18,
         "done": 45,
-        "draft": 22,
-        "failing": 1,
+        "draft": 21,
+        "failing": 2,
         "in-progress": 47,
         "missing": 108,
         "needs-decision": 1,
@@ -113722,7 +114791,7 @@
         "passing": 13,
         "ready": 8,
         "reference": 32,
-        "todo": 2,
+        "todo": 4,
         "verified": 39
       },
       "scope": null,
@@ -113776,6 +114845,8 @@
         "task:B-25",
         "task:B-26",
         "task:B-27",
+        "task:B-28",
+        "task:B-29",
         "needs-decision:ND-30",
         "needs-decision:ND-41",
         "decision:D-30",
@@ -114087,6 +115158,7 @@
       "priority": "critical",
       "related": [
         "task:B-17",
+        "task:B-28",
         "needs-decision:ND-35",
         "backend-delivery:connections",
         "backend-integration:connections",
@@ -114488,6 +115560,7 @@
         "task:B-10",
         "task:B-13",
         "task:B-17",
+        "task:B-28",
         "needs-decision:ND-41",
         "decision:D-11",
         "backend-delivery:connections",
@@ -114916,6 +115989,7 @@
       "pending": [],
       "priority": null,
       "related": [
+        "task:B-28",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -116928,6 +118002,7 @@
       "priority": "critical",
       "related": [
         "task:B-17",
+        "task:B-28",
         "needs-decision:ND-22",
         "decision:D-22",
         "backend-delivery:connections",
@@ -117121,6 +118196,7 @@
         "task:B-22",
         "task:B-24",
         "task:B-25",
+        "task:B-29",
         "needs-decision:ND-30",
         "decision:D-30",
         "backend-delivery:discover-hub",
@@ -117212,6 +118288,7 @@
         "task:B-23",
         "task:B-24",
         "task:B-26",
+        "task:B-28",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-requirements:connections",
@@ -117639,6 +118716,7 @@
         "needs-decision:ND-16",
         "story:files",
         "needs-decision:ND-21",
+        "qa-backend:discover-hub",
         "frontend-delivery:files",
         "frontend-requirements:files",
         "frontend-requirements:onboarding-imports",
@@ -117762,6 +118840,7 @@
         "frontend-requirements:companies",
         "project:spec-map",
         "project:status-report-2026-10-15",
+        "task:B-28",
         "backend-delivery:connections",
         "frontend-delivery:connections",
         "qa-backend:connections",
@@ -118034,6 +119113,7 @@
         "project:status-report-2026-10-15",
         "task:B-12",
         "task:B-17",
+        "task:B-29",
         "backend-delivery:badge-qr",
         "backend-integration:badge-qr",
         "qa-backend:badge-qr",
@@ -118250,6 +119330,7 @@
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
         "story:ring-access",
+        "task:B-29",
         "qa-backend:photo-library"
       ],
       "release": "mvp",
@@ -119269,6 +120350,7 @@
         "qa-frontend:account",
         "story:account",
         "task:B-01",
+        "task:B-29",
         "needs-decision:ND-20",
         "decision:D-20",
         "backend-delivery:discover-hub",
@@ -119343,11 +120425,13 @@
         "qa-frontend:account",
         "story:account",
         "task:B-02",
+        "task:B-28",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-requirements:connections",
         "qa-backend:connections",
         "backend-delivery:badge-qr",
+        "qa-backend:discover-hub",
         "backend-delivery:account",
         "backend-integration:account",
         "frontend-requirements:account",
@@ -119437,6 +120521,196 @@
       "title": "B-27 Opening the phone sheet throws an invisible semantics node error",
       "unmet": [],
       "updated": "2026-11-09"
+    },
+    "task:B-28": {
+      "affects": [
+        "qa-backend:discover-hub"
+      ],
+      "blockedBy": [],
+      "card": "B-28",
+      "children": [],
+      "code": "B-28",
+      "created": "2026-11-23",
+      "deadline": null,
+      "decision": null,
+      "depends": [],
+      "dir": null,
+      "effectiveStatus": "todo",
+      "effort": "S",
+      "feature": "discover-hub",
+      "foundOn": "BI-19 Discover Hub & Search Backend Integration",
+      "frontendOnly": false,
+      "id": "task:B-28",
+      "inherits": {
+        "release": "feature:discover-hub"
+      },
+      "kind": "task",
+      "label": "Bug",
+      "labels": [
+        "bug"
+      ],
+      "layer": "business",
+      "module": "discovery",
+      "openBugs": [],
+      "parentTask": null,
+      "parents": [
+        "backend-integration:discover-hub"
+      ],
+      "path": "social-pin/bugs/B-28 A deleted account's card still opens for a member of its Ring.md",
+      "pending": [],
+      "priority": "high",
+      "related": [
+        "task:B-26",
+        "backend-integration:discover-hub",
+        "qa-backend:discover-hub",
+        "backend-delivery:discover-hub",
+        "backend-integration:view-as",
+        "decision:D-25",
+        "feature:discover-hub",
+        "task:B-08",
+        "needs-decision:ND-10",
+        "needs-decision:ND-22",
+        "needs-decision:ND-41",
+        "decision:D-10",
+        "backend-delivery:connections",
+        "backend-integration:connections",
+        "frontend-delivery:connections",
+        "frontend-requirements:connections",
+        "qa-backend:connections",
+        "story:connections",
+        "backend-delivery:badge-qr",
+        "backend-integration:badge-qr",
+        "frontend-delivery:badge-qr",
+        "frontend-requirements:badge-qr",
+        "qa-backend:badge-qr",
+        "story:badge-qr",
+        "frontend-delivery:discover-hub",
+        "frontend-requirements:discover-hub",
+        "story:discover-hub",
+        "qa-backend:files",
+        "backend-integration:profiles",
+        "frontend-requirements:ring-access",
+        "qa-backend:ring-access",
+        "qa-backend:ring-members",
+        "backend-delivery:view-as",
+        "frontend-delivery:view-as",
+        "frontend-requirements:view-as",
+        "qa-backend:view-as",
+        "story:view-as",
+        "frontend-requirements:e2e-tests",
+        "project:status-report-2026-10-15",
+        "project:frontend-api-guide",
+        "project:frontend-contract",
+        "task:B-02",
+        "backend-delivery:account",
+        "backend-integration:account",
+        "frontend-delivery:account",
+        "frontend-requirements:account",
+        "qa-backend:account",
+        "qa-frontend:account",
+        "story:account",
+        "qa-backend:counts",
+        "qa-backend:photo-library",
+        "qa-backend:profiles"
+      ],
+      "release": "mvp",
+      "resolution": null,
+      "rollup": {},
+      "scope": null,
+      "screens": [
+        "s38",
+        "s44"
+      ],
+      "status": "todo",
+      "summary": "The fix is the backend's: /backend. That agent sets in-progress when it starts and ready when the fix ships (status, tag, H1 and the Status segment only; the fix itself is recorded in its own…",
+      "tags": [
+        "bug",
+        "bug/todo",
+        "module/discovery",
+        "priority/high"
+      ],
+      "task": null,
+      "title": "B-28 A deleted account's card still opens for a member of its Ring",
+      "unmet": [],
+      "updated": "2026-11-23"
+    },
+    "task:B-29": {
+      "affects": [
+        "qa-backend:discover-hub"
+      ],
+      "blockedBy": [],
+      "card": "B-29",
+      "children": [],
+      "code": "B-29",
+      "created": "2026-11-23",
+      "deadline": null,
+      "decision": null,
+      "depends": [],
+      "dir": null,
+      "effectiveStatus": "todo",
+      "effort": "S",
+      "feature": "discover-hub",
+      "foundOn": "BI-19 Discover Hub & Search Backend Integration",
+      "frontendOnly": false,
+      "id": "task:B-29",
+      "inherits": {
+        "release": "feature:discover-hub"
+      },
+      "kind": "task",
+      "label": "Bug",
+      "labels": [
+        "bug"
+      ],
+      "layer": "business",
+      "module": "discovery",
+      "openBugs": [],
+      "parentTask": null,
+      "parents": [
+        "backend-integration:discover-hub"
+      ],
+      "path": "social-pin/bugs/B-29 The find-me switch reads the string false as true.md",
+      "pending": [],
+      "priority": "medium",
+      "related": [
+        "task:B-25",
+        "backend-integration:discover-hub",
+        "qa-backend:discover-hub",
+        "backend-delivery:discover-hub",
+        "task:B-13",
+        "task:B-11",
+        "task:B-01",
+        "needs-decision:ND-20",
+        "decision:D-20",
+        "frontend-requirements:discover-hub",
+        "backend-delivery:account",
+        "backend-integration:account",
+        "frontend-delivery:account",
+        "frontend-requirements:account",
+        "qa-backend:account",
+        "story:account",
+        "project:spec-map",
+        "project:frontend-api-guide",
+        "qa-frontend:account"
+      ],
+      "release": "mvp",
+      "resolution": null,
+      "rollup": {},
+      "scope": null,
+      "screens": [
+        "s68"
+      ],
+      "status": "todo",
+      "summary": "The fix is the backend's: /backend. That agent sets in-progress when it starts and ready when the fix ships (status, tag, H1 and the Status segment only; the fix itself is recorded in its own…",
+      "tags": [
+        "bug",
+        "bug/todo",
+        "module/discovery",
+        "priority/medium"
+      ],
+      "task": null,
+      "title": "B-29 The find-me switch reads the string false as true",
+      "unmet": [],
+      "updated": "2026-11-23"
     }
   },
   "priorities": [
