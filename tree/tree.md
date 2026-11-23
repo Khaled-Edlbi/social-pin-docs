@@ -285,7 +285,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
         - ✅ [B-29 The find-me switch reads the string false as true](social-pin/bugs/B-29%20The%20find-me%20switch%20reads%20the%20string%20false%20as%20true.md) (bug, Fixed, Medium)
       - 🔴 [QB-18 Discover Hub & Search QA Backend](social-pin/modules/Discovery/features/Discover%20Hub%20%26%20Search/flow/QB-18%20Discover%20Hub%20%26%20Search%20QA%20Backend.md) (QA Backend, 1 pending note)
       - ✅ [FD-18 Discover Hub & Search Frontend Delivery](social-pin/modules/Discovery/features/Discover%20Hub%20%26%20Search/flow/FD-18%20Discover%20Hub%20%26%20Search%20Frontend%20Delivery.md) (Frontend Delivery)
-      - ∅ _Discover Hub & Search QA Frontend_ (QA Frontend)
+      - 🟡 [QF-06 Discover Hub & Search QA Frontend](social-pin/modules/Discovery/features/Discover%20Hub%20%26%20Search/flow/QF-06%20Discover%20Hub%20%26%20Search%20QA%20Frontend.md) (QA Frontend, 2 pending notes)
     - 🔵 [F-20 PinCast & Nearby](social-pin/modules/Discovery/features/PinCast%20%26%20Nearby/F-20%20PinCast%20%26%20Nearby.md) (release MVP, Critical)
       - 👍 [S-45 PinCast & Nearby Story](social-pin/modules/Discovery/features/PinCast%20%26%20Nearby/S-45%20PinCast%20%26%20Nearby%20Story.md) (User Story, Critical)
       - ✅ [FR-20 PinCast & Nearby Frontend Requirements](social-pin/modules/Discovery/features/PinCast%20%26%20Nearby/flow/FR-20%20PinCast%20%26%20Nearby%20Frontend%20Requirements.md) (Frontend Requirements, Critical)

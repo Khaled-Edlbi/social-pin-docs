@@ -20,7 +20,9 @@ tags: [frontend-delivery, frontend-delivery/done, module/discovery, layer/fronte
 
 # ✅ Discover Hub & Search · Frontend Delivery
 
-**Feature:** [[F-19 Discover Hub & Search]] · **Status:** Done · **Built from:** [[BI-19 Discover Hub & Search Backend Integration]] (current 2026-11-23, backend `main @ e83682d`) · **Against:** [[S-42 Discover Hub & Search Story]] (approved, [[D-41 Discover searches people by part of their Pin name|D-41]]) · **Requirements:** [[FR-19 Discover Hub & Search Frontend Requirements]] · **QA:** [[Discover Hub & Search QA Frontend]]
+> ⚠ Affected by [[QF-06 Discover Hub & Search QA Frontend]] (2026-11-23): /frontend: QF-06 ran DS-01 to DS-11 on social_pin db62e4d (fake backend), all passing. Two lines to correct here: (1) on that build the Requested button reads "Requested" (connect.requested) and Connect confirms with "Request sent." (connect.requestSent), as S-42 says; s38's note and Deviations say "Request sent" and "Request sent to {name}"; (2) the status line links the QA note as [[Discover Hub & Search QA Frontend]]; it is now QF-06 Discover Hub & Search QA Frontend
+
+**Feature:** [[F-19 Discover Hub & Search]] · **Status:** Done · **Built from:** [[BI-19 Discover Hub & Search Backend Integration]] (current 2026-11-23, backend `main @ e83682d`) · **Against:** [[S-42 Discover Hub & Search Story]] (approved, [[D-41 Discover searches people by part of their Pin name|D-41]]) · **Requirements:** [[FR-19 Discover Hub & Search Frontend Requirements]] · **QA:** [[QF-06 Discover Hub & Search QA Frontend]]
 
 What the client shipped for the Discover tab:
 - the search by part of a Pin name, as you type, with its four kinds of row, Connect and Accept (S2);
