@@ -20,8 +20,6 @@ tags: [frontend-requirements, frontend-requirements/approved, module/discovery, 
 
 # 📨 Discover Hub & Search · Frontend Requirements
 
-> ⚠ Affected by [[S-42 Discover Hub & Search Story]] (2026-11-23): /frontend: decided by Omar Fostok, S-42 Q5–Q7, story stays approved. Q5 every result row, Connected included, shows the sign-up name and photo (accountName, avatarUrl), never a Ring's; the card (s44) shows the Ring's. Q6 no NEW tag on the find-me switch. Q7 loading the next page shows shimmer rows under the results. S2's Connect from a stranger's row is not available yet (B-30)
-
 **Feature:** [[F-19 Discover Hub & Search]] · **Status:** Approved by the backend 2026-11-23 · **Story:** [[S-42 Discover Hub & Search Story]] (approved 2026-11-17 by Omar Fostok) · **Backend Integration:** [[BI-19 Discover Hub & Search Backend Integration]] (the exact-name lookup only) · **Design:** [Discover search, 8 screens](https://claude.ai/artifact/VtuKA2ezgz1snhMbBUmSbd)
 
 What the client needs from the backend to build [[S-42 Discover Hub & Search Story]], and whether each need is met today. **Rewritten 2026-11-17** against the story as of that day and [[D-41 Discover searches people by part of their Pin name|D-41]]: the MVP is S1–S5. **Two routes don't exist yet:** the search by part of a Pin name, and reading and saving "Let people find me by Pin name". Opening a card, Connect and Accept reuse calls that exist. Recent searches stay on the phone. Gemma (S6), Import contacts (S7) and a business Pin opening s55 are later.
@@ -57,12 +55,13 @@ What the client needs from the backend to build [[S-42 Discover Hub & Search Sto
   | `canOpenCard` | `true` only when they have me in one of their Rings |
 
   The result never carries a user id, a Ring id or anything shared in a Ring.
+- **Every row shows the sign-up name and photo** (`accountName`, `avatarUrl`), the Connected row included, never a Ring's: a Ring's name or photo in the list would say which Ring I'm in (S-42 Q5). The card (s44) shows the Ring's.
 - **The four kinds of row:**
-  - **Connected** (`canOpenCard: true`): a tap opens their card (s44) with `GET /views/pin/:pinName` ✅ ([[BI-09 View As & Pin Views Backend Integration|BI-09]]); the person goes into recent searches.
+  - **Connected** (`canOpenCard: true`): the sign-up name and photo, like every row; a tap opens their card (s44), with the Ring's name and photo, read with `GET /views/pin/:pinName` ✅ ([[BI-09 View As & Pin Views Backend Integration|BI-09]]); the person goes into recent searches.
   - **Not connected** (`NONE`): name, photo, Pin name and **Connect**. A tap on the row does nothing; only Connect works (Q2).
   - **Requested:** the button reads **Requested** and does nothing.
   - **Asked to connect** (`ASKED_ME`): "Asked to connect" with **Accept**. Accept opens Accept into a Ring ([[Screen Index#s46|s46]]) for that `requestId`, as on [[S-23 Connections Story|Connections · S5]]. Once accepted, the row becomes Connected.
-- **Connect:** `POST /connections/requests` `{ pinName }` ✅ ([[BI-16 Connections Backend Integration|BI-16]]; [[D-10 Connect sends what the requester already has|D-10]]: what I have is the Pin name). On success the row reads Requested and "Request sent." shows. The button is disabled while it sends.
+- **Connect:** `POST /connections/requests` `{ pinName }` ✅ ([[BI-16 Connections Backend Integration|BI-16]]; [[D-10 Connect sends what the requester already has|D-10]]: what I have is the Pin name). On success the row reads Requested and "Request sent." shows. The button is disabled while it sends. Not available yet on a stranger's row (`canOpenCard: false`): the server answers 404 `E_RING_ACCESS_01` until [[B-30 Connect from a Discover search row is refused for a person you can't already open|B-30]] is fixed; the app shows "This Pin isn't available to you" and the row keeps Connect.
 - **Never in the list:** blocked people (either side), myself, and anyone with the switch off who doesn't have me in a Ring. The **server** filters all three; the app filters nothing and never hides rows on its own.
 - **Demo people:** outside production builds only, from the app's own samples. A production build never shows them and sends nothing for them.
 
@@ -74,7 +73,7 @@ What the client needs from the backend to build [[S-42 Discover Hub & Search Sto
 | Searching (first page) | shimmer rows in place of the list |
 | No matches (`data: []`, `total: 0`) | "No Pin names match "{q}"" |
 | No connection (offline, timeout, 5xx) on the first page | said in place of the list, with **Try again**, which sends the same query |
-| The next page loading | a loading row under the results |
+| The next page loading | shimmer rows under the results (S-42 Q7) |
 | The next page failing | a row under the results with Try again; the rows already shown stay |
 | Connect sent | "Request sent."; the row reads Requested |
 | Connect failing | the row keeps Connect, and a line says it didn't go |
@@ -82,7 +81,7 @@ What the client needs from the backend to build [[S-42 Discover Hub & Search Sto
 
 ### Me › Privacy · "Let people find me by Pin name" ([[Screen Index#s68|s68]], S5)
 
-- A switch under **PEOPLE** on the Privacy screen ([[S-01 Account Story|Account · S1]]), with the line saying what a stranger sees: only my account name and photo from sign-up, and Connect.
+- A switch under **PEOPLE** on the Privacy screen ([[S-01 Account Story|Account · S1]]), with the line saying what a stranger sees: only my account name and photo from sign-up, and Connect. No "NEW" tag on it (S-42 Q6).
 - **Read** (proposed, not built): `findableByPinName` on `GET /users/me`, `true` when never set.
 - **Save** (proposed, not built): `PATCH /users/me` `{ findableByPinName }`, saved at once when the switch moves. Off takes effect on the server at once: I leave the next search anyone makes (Q3, [[S-01 Account Story|Account · S7]]). The switch shows the new value straight away; if the save fails, it goes back and a line says so.
 
@@ -164,3 +163,9 @@ Until [[S-87 Error Contract Story|Error Contract · S4–S8]] puts `ErrorCode` o
 - 2026-11-17 · `tickets/frontend/M-04-discovery/F-19-discover-hub/FR-19-ready` · S-42 approved the same day; every screen, endpoint row and error state is in: set `ready` (📨) on Omar Fostok's word, handed to the backend. `blockedBy` cleared. Flagged [[BD-19 Discover Hub & Search Backend Delivery]]
 - 2026-11-23 · `tickets/backend/M-04-discovery/F-19-discover-hub/FR-19-accepted` · backend review against [[S-42 Discover Hub & Search Story]] (approved 2026-11-17, D-41, Q1–Q4) and backend `main` `3cef5d7`: the list holds, `ready` → `approved` on khaled's word. Every S1–S5 criterion and the six items of *What the backend has to build* have a row; S6, S7 and the s55 path are later as the story says. The reused routes are on `main`: `GET /views/pin/:pinName`, `GET /profiles`, `POST /connections/requests` `{ pinName }`, `POST /connections/requests/:id/accept`. The open question answered in *Blocked by*: the sign-up name and photo exist on the default profile. The four new rows were built the same day on backend branch `BD-19/search/pin-name-search` (`c5bc838`, 1098 unit tests green) and read 🔵 until merged; [[BI-19 Discover Hub & Search Backend Integration]] says how to call them. Two wordings settled for the backend: every result row, the Connected one included, carries the sign-up name and photo, never a Ring's (S-42 S2's Connected row says "their card's name and photo", flagged for /pm); and `ASKED_ME` here is what `GET /connections/relationship` calls `THEY_ASKED`
 - 2026-11-23 · `docs/backend/M-04-discovery/F-19-discover-hub/BD-19-merged` · the backend's branch merged to `main`: the four rows flipped 🔵 → ✅ with their endpoints, *Blocked by* cleared. Still `approved`: ✅ Delivered is the build's once BD-19 and BI-19 are done with nothing pending
+- 2026-11-23 · `tickets/frontend/M-04-discovery/F-19-discover-hub/FR-19-s42-q5-q7` · S-42's Q5–Q7 applied (decided by Omar Fostok 2026-11-23):
+  - Q5: every result row, the Connected one included, shows the sign-up name and photo, never a Ring's; the card (s44) shows the Ring's (*Results*);
+  - Q6: no "NEW" tag on the find-me switch (*Me › Privacy*);
+  - Q7: the next page loads with shimmer rows (*The states*).
+
+  Connect on a stranger's row is noted as not available yet ([[B-30 Connect from a Discover search row is refused for a person you can't already open|B-30]]). Cleared the S-42 flag. It records decisions already made, so the list stays `approved`; no endpoint row changed
