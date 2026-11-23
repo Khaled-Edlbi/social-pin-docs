@@ -95,7 +95,7 @@ A service change ships a spec covering every thrown domain error, each query-bui
 | `file` | uploads | [[F-04 Files Upload]] |
 | `ring-access` | the engine | [[F-08 Ring Access Engine]] |
 | `ring-invitation` | invitations, join codes (and the join QR), join requests; every way in ends in `RingMemberService.admitKnowingly`, which records the membership's origin | [[F-17 Ring Invitations & Join]] |
-| `search` | `GET /search/pin-names`, people by part of a Pin name; owns no table, reads the default profiles and the connection tables, and takes "who has the searcher in a Ring" from the engine; its per-person limit and the badge scanner's share `common/utils/SlidingWindowLimiter` (branch `BD-19/search/pin-name-search` until merged) | [[F-19 Discover Hub & Search]] |
+| `search` | `GET /search/pin-names`, people by part of a Pin name; owns no table, reads the default profiles and the connection tables, and takes "who has the searcher in a Ring" from the engine; its per-person limit and the badge scanner's share `common/utils/SlidingWindowLimiter` | [[F-19 Discover Hub & Search]] |
 
 Every TODO feature becomes a new folder under `src/modules/` and a new row here.
 

@@ -13,7 +13,7 @@ tags: [feature, module/discovery, release/mvp]
 
 # Discover Hub & Search
 
-**Backend:** 🟡 Partial · the exact-name lookup is on `main` (`GET /views/pin/:pinName`); the search by part of a Pin name (`GET /search/pin-names`), its limit and "Let people find me by Pin name" (`findableByPinName` on `/users/me`) are built on backend branch `BD-19/search/pin-name-search` and `pending` on [[BD-19 Discover Hub & Search Backend Delivery]] until merged (FR-19 approved 2026-11-23, D-41); Gemma and contact matching later (D-37) · **Release:** MVP · **Module:** [[M-04 Discovery Module|Discovery]]
+**Backend:** ✅ Done · the exact-name lookup (`GET /views/pin/:pinName`), the search by part of a Pin name (`GET /search/pin-names`) with its per-person limit, and "Let people find me by Pin name" (`findableByPinName` on `/users/me`) are on `main` since 2026-11-23 ([[BD-19 Discover Hub & Search Backend Delivery]], D-41); Gemma and contact matching later (D-37) · **Release:** MVP · **Module:** [[M-04 Discovery Module|Discovery]]
 
 **Layers:** [[S-42 Discover Hub & Search Story|Story]] · [[FR-19 Discover Hub & Search Frontend Requirements|Frontend Requirements]] · [[BD-19 Discover Hub & Search Backend Delivery|Backend Delivery]] · [[BI-19 Discover Hub & Search Backend Integration|Backend Integration]] · [[FD-18 Discover Hub & Search Frontend Delivery|Frontend Delivery]] · [[QB-18 Discover Hub & Search QA Backend|QA Backend]] · [[Discover Hub & Search QA Frontend|QA Frontend]]
 

@@ -222,14 +222,14 @@ it.
 | Method | Path | |
 |---|---|---|
 | GET | `/users/me` | The authenticated account |
-| PATCH | `/users/me` | Email / phone (changing either clears its verified flag), and `findableByPinName` (the Discover switch, see *Search*; branch `BD-19/search/pin-name-search` until merged) |
+| PATCH | `/users/me` | Email / phone (changing either clears its verified flag), and `findableByPinName` (the Discover switch, see *Search*) |
 | DELETE | `/users/me` | Soft-deletes and revokes every session; ends the account's connections, closes its pending requests both ways and removes its blocks, silently (D-25) |
 
 There is no `GET /users/:id`. Another person is reachable by Pin name through
 the search (*Search* below), which hands out a Pin name and a button, and is
 opened only through a ring projection.
 
-### Search — `/search` (branch `BD-19/search/pin-name-search`, `c5bc838`; not on `main` yet)
+### Search — `/search`
 
 | Method | Path | |
 |---|---|---|
@@ -539,7 +539,7 @@ available yet) live in the `social-pin-docs` vault under `frontend/`.
 
 ## Log
 
-- 2026-11-23 · backend branch `BD-19/search/pin-name-search` `c5bc838` ([[BD-19 Discover Hub & Search Backend Delivery]]) · a *Search* section: `GET /search/pin-names` (one more endpoint), `findableByPinName` on `GET` / `PATCH /users/me`, the codes `E_SEARCH_01` (400) and `E_SEARCH_02` (429); "no user search" in *Account* replaced. Flagged [[Frontend Contract]] for the endpoint table, its count and the two codes (/frontend).
+- 2026-11-23 · backend `main`, the merge of `BD-19/search/pin-name-search` `c5bc838` ([[BD-19 Discover Hub & Search Backend Delivery]]) · a *Search* section: `GET /search/pin-names` (one more endpoint), `findableByPinName` on `GET` / `PATCH /users/me`, the codes `E_SEARCH_01` (400) and `E_SEARCH_02` (429); "no user search" in *Account* replaced. Flagged [[Frontend Contract]] for the endpoint table, its count and the two codes (/frontend).
 - 2026-11-05 · backend `main` `12172c6` ([[BD-11 Rings Backend Delivery]]) · Rings table: `GET /rings/shared-with-me` lists people (new shape, no filters), `GET /rings/shared-with-me/count` listed, `POST /rings/:id/copy` added (one more endpoint), the D-04 settings on create and edit, 409 `E_RING_09` on a temporary default. Flagged [[Frontend Contract]] for the endpoint table, its count and the new code (/frontend).
 
 - 2026-11-05 · flagged [[Frontend Contract]]: new endpoints on backend main @ 80e7fa2: GET /files (the library, with usedBy) and the public GET /files/content/:token behind every signed link; url on files, avatarUrl and attachments[].url on the projection and the view (D-16). The F-04 row and the endpoint count (48) need updating (/frontend)
