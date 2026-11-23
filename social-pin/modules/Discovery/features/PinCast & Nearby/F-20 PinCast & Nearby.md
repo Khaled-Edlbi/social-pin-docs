@@ -8,7 +8,7 @@ release: mvp
 screens: [s11, s39, s40, s41, s42]
 related: ["F-11 Rings", "F-12 View As & Pin Views", "MVP Order"]
 created: 2026-10-15
-updated: 2026-11-16
+updated: 2026-11-23
 tags: [feature, module/discovery, priority/critical, release/mvp]
 ---
 
@@ -16,7 +16,7 @@ tags: [feature, module/discovery, priority/critical, release/mvp]
 
 **In the MVP** (moved into the MVP on 2026-11-16 by Omar Fostok, priority critical): **PinCast**, the proximity broadcast limited by distance and time (s39–s42, and Home while broadcasting, s11). **Nearby by Ring** comes later.
 
-**Backend:** TODO · **Module:** [[M-04 Discovery Module|Discovery]]
+**Backend:** in progress since 2026-11-23 ([[BD-20 PinCast & Nearby Backend Delivery|BD-20]]: [[FR-20 PinCast & Nearby Frontend Requirements|FR-20]] accepted; no PinCast route on `main` yet, only the geo column, its trigger and the GiST index) · **Module:** [[M-04 Discovery Module|Discovery]]
 
 **Layers:** [[S-45 PinCast & Nearby Story|Story]] · [[FR-20 PinCast & Nearby Frontend Requirements|Frontend Requirements]] · [[BD-20 PinCast & Nearby Backend Delivery|Backend Delivery]] · [[PinCast & Nearby Backend Integration|Backend Integration]] · [[PinCast & Nearby Frontend Delivery|Frontend Delivery]] · [[PinCast & Nearby QA Backend|QA Backend]] · [[PinCast & Nearby QA Frontend|QA Frontend]]
 

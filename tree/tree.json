@@ -2428,7 +2428,6 @@
       ],
       "kind": "endpoint",
       "notes": [
-        "backend-delivery:pincast",
         "frontend-requirements:pincast"
       ],
       "owner": null
@@ -2864,7 +2863,6 @@
       ],
       "kind": "endpoint",
       "notes": [
-        "backend-delivery:pincast",
         "frontend-requirements:pincast"
       ],
       "owner": null
@@ -2885,7 +2883,6 @@
       ],
       "kind": "endpoint",
       "notes": [
-        "backend-delivery:pincast",
         "frontend-requirements:pincast"
       ],
       "owner": null
@@ -2897,16 +2894,6 @@
       "kind": "endpoint",
       "notes": [
         "frontend-requirements:pincast"
-      ],
-      "owner": null
-    },
-    "GET /pincasts/current/people?filter=ALL|NEW": {
-      "containers": [
-        "feature:pincast"
-      ],
-      "kind": "endpoint",
-      "notes": [
-        "backend-delivery:pincast"
       ],
       "owner": null
     },
@@ -5108,7 +5095,6 @@
       ],
       "kind": "endpoint",
       "notes": [
-        "backend-delivery:pincast",
         "frontend-requirements:pincast"
       ],
       "owner": null
@@ -7686,7 +7672,7 @@
     }
   },
   "counts": {
-    "blocked": 29,
+    "blocked": 28,
     "bugs": 27,
     "byKind": {
       "backend-delivery": 39,
@@ -7710,9 +7696,9 @@
       "qa": 17,
       "shared": 10
     },
-    "concepts": 368,
+    "concepts": 367,
     "decisions": 39,
-    "edges": 9356,
+    "edges": 9355,
     "features": 40,
     "layerNotes": 170,
     "modules": 8,
@@ -9922,11 +9908,6 @@
       "from": "frontend-requirements:payments",
       "kind": "blocks",
       "to": "backend-delivery:payments"
-    },
-    {
-      "from": "frontend-requirements:pincast",
-      "kind": "blocks",
-      "to": "backend-delivery:pincast"
     },
     {
       "from": "frontend-requirements:post-event",
@@ -82883,20 +82864,14 @@
     },
     "backend-delivery:pincast": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "frontend-requirements:pincast",
-          "title": "FR-20 PinCast & Nearby Frontend Requirements",
-          "why": "FR-20 PinCast & Nearby Frontend Requirements is ready"
-        }
-      ],
+      "blockedBy": [],
       "card": "BD-20",
       "children": [],
       "code": "pincast",
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "blocked",
+      "effectiveStatus": "in-progress",
       "effort": null,
       "feature": "pincast",
       "foundOn": null,
@@ -82930,18 +82905,18 @@
         "s41",
         "s42"
       ],
-      "status": "todo",
+      "status": "in-progress",
       "summary": "What the backend shipped for this feature and how it works. The sum of this feature's task-level Backend Delivery notes (see the Tasks table below).",
       "tags": [
         "backend-delivery",
-        "backend-delivery/todo",
+        "backend-delivery/in-progress",
         "module/discovery",
         "layer/backend"
       ],
       "task": null,
       "title": "BD-20 PinCast & Nearby Backend Delivery",
       "unmet": [],
-      "updated": "2026-10-29"
+      "updated": "2026-11-23"
     },
     "backend-delivery:post-event": {
       "affects": [],
@@ -86150,7 +86125,7 @@
         {
           "id": "backend-delivery:pincast",
           "title": "BD-20 PinCast & Nearby Backend Delivery",
-          "why": "BD-20 PinCast & Nearby Backend Delivery is blocked"
+          "why": "BD-20 PinCast & Nearby Backend Delivery is in progress"
         }
       ],
       "card": null,
@@ -92573,10 +92548,9 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "approved": 1,
-        "blocked": 1,
-        "missing": 4,
-        "ready": 1
+        "approved": 2,
+        "in-progress": 1,
+        "missing": 4
       },
       "scope": null,
       "screens": [
@@ -92597,7 +92571,7 @@
       "task": null,
       "title": "F-20 PinCast & Nearby",
       "unmet": [],
-      "updated": "2026-11-16"
+      "updated": "2026-11-23"
     },
     "feature:post-event": {
       "affects": [],
@@ -99517,7 +99491,7 @@
       "depends": [
         "story:pincast"
       ],
-      "effectiveStatus": "ready",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "pincast",
       "foundOn": null,
@@ -99636,18 +99610,18 @@
         "s42",
         "s44"
       ],
-      "status": "ready",
+      "status": "approved",
       "summary": "What the client needs from the backend to build S-45 PinCast & Nearby Story S1 to S5, and whether each need is met today. Rewritten 2026-11-16 against the story as rewritten that day and its rules…",
       "tags": [
         "frontend-requirements",
-        "frontend-requirements/ready",
+        "frontend-requirements/approved",
         "module/discovery",
         "layer/frontend"
       ],
       "task": null,
       "title": "FR-20 PinCast & Nearby Frontend Requirements",
       "unmet": [],
-      "updated": "2026-11-16"
+      "updated": "2026-11-23"
     },
     "frontend-requirements:post-event": {
       "affects": [],
@@ -101368,18 +101342,17 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 3,
-        "blocked": 1,
+        "approved": 4,
         "current": 2,
         "decided": 5,
         "delivered": 1,
         "done": 3,
         "draft": 1,
-        "in-progress": 3,
+        "in-progress": 4,
         "missing": 6,
         "partial": 1,
         "passing": 1,
-        "ready": 2,
+        "ready": 1,
         "verified": 5
       },
       "scope": null,
@@ -108786,7 +108759,7 @@
         {
           "id": "backend-delivery:pincast",
           "title": "BD-20 PinCast & Nearby Backend Delivery",
-          "why": "BD-20 PinCast & Nearby Backend Delivery is blocked"
+          "why": "BD-20 PinCast & Nearby Backend Delivery is in progress"
         }
       ],
       "card": null,
@@ -112323,20 +112296,20 @@
         }
       ],
       "rollup": {
-        "approved": 41,
-        "blocked": 29,
+        "approved": 42,
+        "blocked": 28,
         "current": 6,
         "decided": 38,
         "delivered": 17,
         "done": 45,
         "draft": 22,
         "failing": 1,
-        "in-progress": 46,
+        "in-progress": 47,
         "missing": 108,
         "needs-decision": 1,
         "partial": 12,
         "passing": 13,
-        "ready": 10,
+        "ready": 9,
         "reference": 32,
         "todo": 2,
         "verified": 39
