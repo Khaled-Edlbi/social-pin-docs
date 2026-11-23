@@ -7969,7 +7969,7 @@
     },
     "concepts": 376,
     "decisions": 39,
-    "edges": 9894,
+    "edges": 9892,
     "features": 40,
     "layerNotes": 172,
     "modules": 8,
@@ -12094,16 +12094,6 @@
       "from": "backend-delivery:discover-hub",
       "kind": "pending",
       "to": "story:discover-hub"
-    },
-    {
-      "from": "backend-delivery:discover-hub",
-      "kind": "pending",
-      "to": "task:B-28"
-    },
-    {
-      "from": "backend-delivery:discover-hub",
-      "kind": "pending",
-      "to": "task:B-29"
     },
     {
       "from": "backend-delivery:profiles",
@@ -87047,16 +87037,6 @@
           "person": null,
           "text": "S2 · Connect from a not-connected row is refused (404 E_RING_ACCESS_01): asking by Pin name needs a card the requester can open. Waits on a decision, @pm",
           "to": "story:discover-hub"
-        },
-        {
-          "person": null,
-          "text": "fixed on backend branch B-28/ring-access/deleted-owner-not-shared (9463472), not merged",
-          "to": "task:B-28"
-        },
-        {
-          "person": null,
-          "text": "fixed on backend branch B-29/user/findable-switch-boolean (812d6a4), not merged",
-          "to": "task:B-29"
         }
       ],
       "priority": null,
@@ -96894,9 +96874,9 @@
         "decided": 2,
         "done": 1,
         "failing": 1,
-        "in-progress": 2,
         "missing": 1,
         "partial": 1,
+        "ready": 2,
         "verified": 2
       },
       "scope": null,
@@ -107151,10 +107131,11 @@
         "delivered": 2,
         "done": 3,
         "failing": 1,
-        "in-progress": 5,
+        "in-progress": 3,
         "missing": 4,
         "partial": 2,
         "passing": 2,
+        "ready": 2,
         "verified": 5
       },
       "scope": null,
@@ -118377,12 +118358,12 @@
         "done": 45,
         "draft": 21,
         "failing": 2,
-        "in-progress": 48,
+        "in-progress": 46,
         "missing": 106,
         "needs-decision": 1,
         "partial": 13,
         "passing": 14,
-        "ready": 8,
+        "ready": 10,
         "reference": 32,
         "todo": 2,
         "verified": 39
@@ -124167,7 +124148,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "in-progress",
+      "effectiveStatus": "ready",
       "effort": "S",
       "feature": "discover-hub",
       "foundOn": "BI-19 Discover Hub & Search Backend Integration",
@@ -124254,11 +124235,11 @@
         "s38",
         "s44"
       ],
-      "status": "in-progress",
+      "status": "ready",
       "summary": "The fix is the backend's: /backend. That agent sets in-progress when it starts and ready when the fix ships (status, tag, H1 and the Status segment only; the fix itself is recorded in its own…",
       "tags": [
         "bug",
-        "bug/in-progress",
+        "bug/ready",
         "module/discovery",
         "priority/high"
       ],
@@ -124280,7 +124261,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "in-progress",
+      "effectiveStatus": "ready",
       "effort": "S",
       "feature": "discover-hub",
       "foundOn": "BI-19 Discover Hub & Search Backend Integration",
@@ -124332,11 +124313,11 @@
       "screens": [
         "s68"
       ],
-      "status": "in-progress",
+      "status": "ready",
       "summary": "The fix is the backend's: /backend. That agent sets in-progress when it starts and ready when the fix ships (status, tag, H1 and the Status segment only; the fix itself is recorded in its own…",
       "tags": [
         "bug",
-        "bug/in-progress",
+        "bug/ready",
         "module/discovery",
         "priority/medium"
       ],
