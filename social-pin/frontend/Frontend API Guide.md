@@ -370,6 +370,35 @@ for that ring specifically.
 | GET | `/views/ring/:ringId` | Render one named ring — the owner's "View as" |
 | GET | `/views/user/:userId/perspectives` | Every perspective you hold of one person |
 | GET | `/views/qr/:token` | Resolve a scanned badge code: the ring's view plus the code's `expiresAt` |
+| GET | `/views/pincast/:token` | The card of a person your PinCast reached, by the token from the people or results list: the ring's view plus the token's `expiresAt` |
+
+### PinCast — `/pincasts`
+
+| Method | Path | |
+|---|---|---|
+| POST | `/pincasts` | Start through one of your live rings: `{ ringId, radiusMeters (25–500), durationMinutes (5, 30, 60, 180), lat, lng }` → 201 `PincastEntity` (`ring`, `radiusMeters`, `durationMinutes`, `startedAt`, `endsAt`, `serverNow`, `positionRefreshSeconds`) |
+| GET | `/pincasts/current` | `{ current: PincastEntity \| null, lastEnded: { id, endedAt, resultsUntil } \| null, serverNow }` |
+| PATCH | `/pincasts/current` | `{ ringId?, radiusMeters? }`, the end time kept |
+| POST | `/pincasts/current/extend` | +15 min (200) |
+| POST | `/pincasts/current/stop` | End now → 200 `{ id, endedAt }` |
+| POST | `/pincasts/current/position` | `{ lat, lng }` while the app is open, every `positionRefreshSeconds` (204) |
+| GET | `/pincasts/current/people` | The people reached so far, newest first, `?filter=ALL\|NEW`, paginated: `displayName`, `avatarUrl`, `isConnection`, `token`, `detectedAt` |
+| GET | `/pincasts/:id/results` | One of your PinCasts: `{ pincast, count, data: rows with state NONE \| REQUESTED_ME (with requestId) \| CONNECTED, meta }`; `data` is null once 30 days have passed |
+
+One live PinCast per user; it runs on the server until `endsAt`, and the
+countdown is `endsAt` against `serverNow`, never the device clock alone. Reach
+is mutual: the people listed are those in range who are also broadcasting and
+whom the access engine lets you see (their ring live, no block), and only they
+see you. **Nothing says where**: no coordinate, distance or direction is in any
+body, not even your own position. A person is a **token**, never a user id or a
+Pin name: it opens their card (`GET /views/pincast/:token`) and addresses
+Connect, Block and the relationship (`pincastToken`), for 30 days from the
+detection. Every refusal on the token routes is the views' one 404
+`E_RING_ACCESS_01`, with the same answer time, as for a badge code. Codes:
+`E_PINCAST_01` already live (409), `E_PINCAST_02` no live PinCast (404),
+`E_PINCAST_03` distance or duration off the steps (400), `E_PINCAST_04` no such
+PinCast of yours (404); a ring that is not yours is 404 `E_RING_02`, yours but
+ended 409 `E_RING_03`. Details: BI-20 PinCast & Nearby Backend Integration.
 
 ### Badge — `/rings/:ringId/qr` (owner only)
 
@@ -392,25 +421,27 @@ ended, 409 `E_RING_03`. Details: BI-15 Badge & QR Backend Integration.
 
 | Method | Path | |
 |---|---|---|
-| POST | `/connections/requests` | Ask the person on a card, with **exactly one of** `qrToken` (the card was opened by scan), `pinName` (opened by Pin name) or `againFor` (one of your own requests), plus `note?` (≤ 200). 201 new, 200 yours already pending |
+| POST | `/connections/requests` | Ask the person on a card, with **exactly one of** `qrToken` (the card was opened by scan), `pincastToken` (the person was reached by your PinCast), `pinName` (opened by Pin name) or `againFor` (one of your own requests), plus `note?` (≤ 200). 201 new, 200 yours already pending |
 | GET | `/connections/requests` | `?direction=incoming` or `sent`, paginated |
 | DELETE | `/connections/requests/:id` | Cancel your pending request (204) |
 | POST | `/connections/requests/:id/accept` | `{ ringId, startsAt?, expiresAt? }`: the membership and the connection in one call (201) |
 | POST | `/connections/requests/:id/decline` | 200, no body |
-| GET | `/connections/relationship` | `?pinName=` or `?qrToken=`, exactly one: the card's button, `{ state, requestId }` |
+| GET | `/connections/relationship` | `?pinName=`, `?qrToken=` or `?pincastToken=`, exactly one: the card's button, `{ state, requestId }` |
 | GET | `/connections/count` | Your contacts |
 | GET | `/connections` | Your contacts, `?q=&noAccess=`, paginated |
 | GET | `/connections/:userId` | A contact, or a member of your Rings who is not one |
 | DELETE | `/connections/:userId` | Disconnect (204) |
-| POST | `/blocks` | Block, with exactly one of `qrToken`, `pinName` or `userId`. 201 new, 200 already |
+| POST | `/blocks` | Block, with exactly one of `qrToken`, `pincastToken`, `pinName` or `userId`. 201 new, 200 already |
 | GET | `/blocks` | The people you blocked |
 | DELETE | `/blocks/:id` | Unblock (204); restores nothing |
 
-A card sends back **what it was opened with**: the scanned token or the Pin
-name, never a user id (D-10). By either key, every refusal is the views' one 404
-`E_RING_ACCESS_01`; by `qrToken` the call goes through the badge resolve's own
-check, its 300 ms floor and its limit, so a refused token counts toward the 20 a
-minute (429 `E_BADGE_01`) and a successful call does not. Nothing a connection
+A card sends back **what it was opened with**: the scanned token, the PinCast
+token or the Pin name, never a user id (D-10). By any key, every refusal is the
+views' one 404 `E_RING_ACCESS_01`; by `qrToken` the call goes through the badge
+resolve's own check, its 300 ms floor and its limit, so a refused token counts
+toward the 20 a minute (429 `E_BADGE_01`) and a successful call does not; by
+`pincastToken` through the PinCast resolve's check and its 300 ms floor (no
+limit: the token is bound to your own PinCasts). Nothing a connection
 does is announced to the other person; a deleted account leaves every list on
 the next fetch. Details, shapes and errors: BI-16 Connections Backend
 Integration.
@@ -526,19 +557,22 @@ Worth knowing up front:
 
 Schema exists, endpoints do not: events and
 participation, exhibitors and booths, mini-events, meetings and availability
-slots, PinCast and nearby discovery, businesses, orders and payments,
+slots, nearby discovery by ring (the radar), businesses, orders and payments,
 notifications, analytics, and Gemma. See `Spec Map.md` for the current state of
 each.
 
 Badge codes are available (see *Badge* above), and so are Connect, Block and
-the relationship by a scanned code (see *Connections*); the
-`socialpin.me/q/<token>` web page and the app links are not yet.
+the relationship by a scanned code or a PinCast token (see *Connections*) and
+PinCast itself (see *PinCast*); the `socialpin.me/q/<token>` web page, the app
+links, the PinCast notifications ("PinCast ended", "pins nearby") and the
+30-day purge of PinCast results are not yet.
 
 Per-feature client guides (screens → calls, flows, error tables, what is not
 available yet) live in the `social-pin-docs` vault under `frontend/`.
 
 ## Log
 
+- 2026-11-23 · backend `main` `ecd93c0`, the merge of `BD-20/pincast/pincast-routes` ([[BD-20 PinCast & Nearby Backend Delivery]], [[BI-20 PinCast & Nearby Backend Integration]]) · a *PinCast* section: eight `/pincasts` routes and `GET /views/pincast/:token` (nine more endpoints); `pincastToken` on `POST /connections/requests`, `GET /connections/relationship` and `POST /blocks`; the codes `E_PINCAST_01` (409), `E_PINCAST_02` (404), `E_PINCAST_03` (400), `E_PINCAST_04` (404). *Not yet available* no longer lists PinCast. Flagged [[Frontend Contract]] for the endpoint table, its count and the four codes (/frontend).
 - 2026-11-23 · backend `main`, the merge of `BD-19/search/pin-name-search` `c5bc838` ([[BD-19 Discover Hub & Search Backend Delivery]]) · a *Search* section: `GET /search/pin-names` (one more endpoint), `findableByPinName` on `GET` / `PATCH /users/me`, the codes `E_SEARCH_01` (400) and `E_SEARCH_02` (429); "no user search" in *Account* replaced. Flagged [[Frontend Contract]] for the endpoint table, its count and the two codes (/frontend).
 - 2026-11-05 · backend `main` `12172c6` ([[BD-11 Rings Backend Delivery]]) · Rings table: `GET /rings/shared-with-me` lists people (new shape, no filters), `GET /rings/shared-with-me/count` listed, `POST /rings/:id/copy` added (one more endpoint), the D-04 settings on create and edit, 409 `E_RING_09` on a temporary default. Flagged [[Frontend Contract]] for the endpoint table, its count and the new code (/frontend).
 

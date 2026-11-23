@@ -20,6 +20,8 @@ tags: [frontend-requirements, frontend-requirements/approved, module/connections
 
 # 📨 Connections · Frontend Requirements
 
+> ⚠ Affected by [[BD-20 PinCast & Nearby Backend Delivery]] (2026-11-23): From PinCast is delivered on backend main ecd93c0: GET /views/pincast/:token and pincastToken on POST /connections/requests, GET /connections/relationship and POST /blocks (the line set ✅ by the backend); the app keeps { pincastToken } for a card opened from a PinCast row, as it keeps { qrToken } (/frontend)
+
 > ⚠ Affected by [[FR-20 PinCast & Nearby Frontend Requirements]] (2026-11-16): PinCast (S-45 N1, in the MVP) opens a person by a PinCast token, like a scanned badge: add `{ pincastToken, note? }` to `POST /connections/requests` and `?pincastToken=` to `GET /connections/relationship` (and `POST /blocks`), next to `qrToken`; never by Pin name (S-23 S2)
 
 > ⚠ Affected by [[S-23 Connections Story]] (2026-11-12): S17 Introduce is an MVP part (D-38) and needs an endpoint (its shape waits on what Introduce sends); S8 Discover's People tile opens Contacts ("Requests · N"); the app's wording kept: "Can't add this person.", "…whichever comes first ends their access.", "You can't do that here.", "You haven't blocked anyone.", "Nothing shared with you right now."
@@ -47,7 +49,7 @@ What the client needs from the backend to build every part of [[S-23 Connections
 - Needs: the person's card from a scanned code; from a `!pinname`; from a PinCast row. The same card for all three.
 - **By scan:** `GET /views/qr/:token` → `RingProfileViewEntity` ✅ ([[BD-18 Badge & QR Backend Delivery|BD-18]], [[FR-18 Badge & QR Frontend Requirements|FR-18]], [[S-37 Badge & QR Story|Badge & QR · S13–S18]]). Today the reader is a timer that opens a sample card.
 - **By Pin name:** `GET /views/pin/:pinName` ✅.
-- **From PinCast:** ❌ ([[S-45 PinCast & Nearby Story]]).
+- **From PinCast:** ✅ `GET /views/pincast/:token`, and `{ pincastToken }` on `POST /connections/requests`, `GET /connections/relationship` and `POST /blocks` ([[BD-20 PinCast & Nearby Backend Delivery|BD-20]], [[BI-20 PinCast & Nearby Backend Integration|BI-20]], [[S-45 PinCast & Nearby Story]] N1).
 - The app **keeps what it opened the card with**, `{ qrToken }` or `{ pinName }`, for as long as the card is open; it is what *Connect* and *Block* send (D-10).
 - **The card needs to know where I stand with this person**, to show the right button. Without a user id the app can't work it out, so the view the card is opened with must say so. Asked: `GET /views/qr/:token` and `GET /views/pin/:pinName` carry, **for the viewer only**:
   ```

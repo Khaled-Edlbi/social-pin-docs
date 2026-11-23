@@ -47,6 +47,7 @@
     "backend-integration:discover-hub": "BI-19",
     "backend-integration:files": "BI-03",
     "backend-integration:photo-library": "BI-13",
+    "backend-integration:pincast": "BI-20",
     "backend-integration:profiles": "BI-04",
     "backend-integration:ring-access": "BI-05",
     "backend-integration:ring-invitations": "BI-17",
