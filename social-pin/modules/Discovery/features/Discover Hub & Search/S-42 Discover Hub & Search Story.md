@@ -11,15 +11,13 @@ approvedAt: 2026-11-17
 owner: "Omar Fostok"
 related: ["D-41 Discover searches people by part of their Pin name", "D-37 Discover opens a Pin by its exact Pin name in the MVP", "D-15 Several Rings per connection, remove or disconnect", "S-01 Account Story", "S-23 Connections Story", "S-29 Companies Story", "F-12 View As & Pin Views", "F-14 Connections", "F-15 Companies", "F-20 PinCast & Nearby", "F-36 Gemma AI"]
 created: 2026-10-18
-updated: 2026-11-17
+updated: 2026-11-23
 tags: [story, story/approved, module/discovery, layer/business]
 ---
 
 # Discover Hub & Search · User Story
 
-> ⚠ Affected by [[BD-19 Discover Hub & Search Backend Delivery]] (2026-11-23): /pm: FR-19 approved by the backend 2026-11-23 and the search built on backend branch BD-19/search/pin-name-search (c5bc838). Two wordings for S-42. (1) S2's Connected row says 'their card's name and photo'. The backend returns, for every row (Connected included), the sign-up name and photo from the default profile and nothing from a Ring, since a Ring's name or photo in a list would say which Ring the searcher is in. The card itself (s44) still shows the Ring's. Align S2's wording or decide otherwise. (2) The open question is answered: the sign-up name and photo exist on the default profile (fullName, avatarFileId with a signed link, D-16), so accountName and avatarUrl are real; a person without a photo shows the outline
-
-**Feature:** [[F-19 Discover Hub & Search]] · **Status:** Approved 2026-11-17 by Omar Fostok, as rewritten that day to [[D-41 Discover searches people by part of their Pin name|D-41]] with Q1–Q4 · **Frontend Requirements:** [[FR-19 Discover Hub & Search Frontend Requirements]] · **API Integration:** [[BI-19 Discover Hub & Search Backend Integration]] (the exact-name lookup only; the search is not built yet) · **Design:** [Discover search, 8 screens](https://claude.ai/artifact/VtuKA2ezgz1snhMbBUmSbd)
+**Feature:** [[F-19 Discover Hub & Search]] · **Status:** Approved 2026-11-17 by Omar Fostok, as rewritten that day to [[D-41 Discover searches people by part of their Pin name|D-41]] with Q1–Q4; Q5–Q7 added 2026-11-23 · **Frontend Requirements:** [[FR-19 Discover Hub & Search Frontend Requirements]] · **API Integration:** [[BI-19 Discover Hub & Search Backend Integration]] (the exact-name lookup, and the search on backend `main`; Connect from a stranger's row not yet, [[B-30 Connect from a Discover search row is refused for a person you can't already open|B-30]]) · **Design:** [Discover search, 8 screens](https://claude.ai/artifact/VtuKA2ezgz1snhMbBUmSbd)
 
 Discover is the tab for finding someone on purpose: a person whose Pin name you know or partly remember, an event, a company, an exhibitor, the people around you. You type part of a Pin name and see who matches. Someone who has you in one of their Rings opens as their card. Anyone else shows only the name and photo they signed up with, and a Connect button, so you can ask to connect without seeing anything they share in their Rings.
 
@@ -50,12 +48,13 @@ Acceptance criteria:
 - [ ] **The letters may be anywhere in the Pin name** (`rek` finds `!tareknassar`). **People who have me in one of their Rings come first** (Q1).
 - [ ] **A full Pin name typed** is listed first; no card opens by itself. A tap on a connected person opens their card; a tap on someone I'm not connected with does nothing, and only Connect works (Q2).
 - [ ] Results come **20 per page**; the next page loads when I reach the bottom of the list (S4).
+- [ ] **Every row shows the account name and photo from sign-up**, the Connected row included, never a Ring's: a Ring's name or photo in the list would say which Ring I'm in (Q5). The card (s44) shows the Ring's.
 - [ ] **Four kinds of row:**
-  - **Connected**: someone who has me in one of their Rings. The row shows their card's name and photo, and a tap opens their card (s44), as today.
+  - **Connected**: someone who has me in one of their Rings. The row shows their sign-up name and photo, and a tap opens their card (s44), which shows the name and photo of the Ring I'm in.
   - **Not connected**: only their account name and photo (from sign-up, nothing from their Rings), their Pin name, and **Connect**. The row doesn't open their card.
   - **Requested**: after I tap Connect, or when my request is already waiting, the button reads **Requested** and does nothing more.
   - **Asked to connect**: someone who sent me a request shows "Asked to connect" with **Accept**. Accept accepts their request as on [[S-23 Connections Story|Connections · S5]], and the row becomes Connected.
-- [ ] **Connect** sends the normal connection request ([[S-23 Connections Story|Connections · S2]]), and "Request sent." confirms it (S4).
+- [ ] **Connect** sends the normal connection request ([[S-23 Connections Story|Connections · S2]]), and "Request sent." confirms it (S4). Not available yet for a stranger's row (one that doesn't open a card): the request is refused today, [[B-30 Connect from a Discover search row is refused for a person you can't already open|B-30]].
 - [ ] **No photo:** a person outline. **No name:** the Pin name is shown as the name.
 - [ ] **Never shown:** blocked people, whichever side blocked, and myself.
 - [ ] **Who is found** is set by S5: anyone, unless they turned off "Let people find me by Pin name". Then only people already in their Rings find them.
@@ -82,7 +81,7 @@ Acceptance criteria:
 - [ ] **Searching:** shimmer rows stand in for the results.
 - [ ] **No matches:** "No Pin names match …", with what I typed.
 - [ ] **No connection** (offline, no answer): said in place of the results, with **Try again**.
-- [ ] **The next page:** a loading row under the results while it loads. If it fails, a row there says so and lets me try again, and the results already shown stay.
+- [ ] **The next page:** shimmer rows under the results while it loads (Q7). If it fails, a row there says so and lets me try again, and the results already shown stay.
 - [ ] **Request sent.:** a short confirmation after Connect; the row then reads Requested.
 - [ ] **Too many searches:** past the limit on how many searches one person can make, "Too many searches, try again in a minute" in place of the results (Q4).
 
@@ -91,7 +90,7 @@ Acceptance criteria:
 **As a** person who could be found, **I want** to choose whether strangers can find me by my Pin name, **so that** I decide who reaches me.
 
 Acceptance criteria:
-- [ ] A switch, **"Let people find me by Pin name"**, on the Privacy screen (Me › Privacy, [[S-01 Account Story|Account · S1]]), under **PEOPLE**. On by default.
+- [ ] A switch, **"Let people find me by Pin name"**, on the Privacy screen (Me › Privacy, [[S-01 Account Story|Account · S1]]), under **PEOPLE**. On by default. No "NEW" tag on it (Q6).
 - [ ] Under it, what a stranger sees: only my account name and photo from sign-up and a Connect button, never anything I share in my Rings.
 - [ ] **On:** anyone can find me in Discover (S2).
 - [ ] **Off:** only people already in my Rings find me. I disappear from new searches **at once** (Q3).
@@ -117,7 +116,7 @@ Acceptance criteria:
 
 ## States and motion the design asks for
 
-- State: the hub with recent searches, fewer than 3 letters, searching (shimmer), results, the next page loading or failing, no matches, no connection with Try again, Request sent., the Privacy switch. The 8 screens are in the [design](https://claude.ai/artifact/VtuKA2ezgz1snhMbBUmSbd).
+- State: the hub with recent searches, fewer than 3 letters, searching (shimmer), results, the next page loading (shimmer rows) or failing, no matches, no connection with Try again, Request sent., the Privacy switch. The 8 screens are in the [design](https://claude.ai/artifact/VtuKA2ezgz1snhMbBUmSbd).
 - Motion: the brief gives the hub no signature motion; opening a card reuses the profile-card reveal of the scan flow (QR-to-person) in its reduced form; tiles use the standard push transition.
 
 ## What the decision allows
@@ -136,7 +135,7 @@ What exists today is `GET /views/pin/:pinName`: an exact name, answered only whe
 1. A search by part of a Pin name, paged 20 at a time. The letters match anywhere in the Pin name. People who have the searcher in a Ring come first, and a full Pin name match is listed first (Q1, Q2).
 2. Each result carries:
    - the Pin name;
-   - the account name and photo;
+   - the account name and photo from sign-up, on every row, never a Ring's (Q5);
    - the relationship to me (connected, requested, asked me);
    - whether the row opens a card.
 3. Blocked people (either side), the searcher, and people with the switch off who don't have the searcher in a Ring are never returned.
@@ -146,7 +145,7 @@ What exists today is `GET /views/pin/:pinName`: an exact name, answered only whe
 
 ## Decided in this story
 
-Answers to the open questions D-41 left, decided by Omar Fostok 2026-11-17.
+Answers to the open questions D-41 left, decided by Omar Fostok 2026-11-17 (Q1–Q4); the row's name and photo and two design choices, decided by Omar Fostok 2026-11-23 (Q5–Q7).
 
 | # | Question | Decided |
 |---|---|---|
@@ -154,12 +153,13 @@ Answers to the open questions D-41 left, decided by Omar Fostok 2026-11-17.
 | Q2 | A full Pin name typed | Listed first, no card opens by itself. A tap opens a connected person's card; a tap on someone not connected does nothing, only Connect works (S2). |
 | Q3 | Turning the switch off | They disappear from new searches at once (S5). |
 | Q4 | Abuse | A limit on searches per person, about 30 a minute, the exact number the backend's. Over it: "Too many searches, try again in a minute" (S4). |
+| Q5 | Which name and photo a row shows | Every row, the Connected one included, shows the sign-up name and photo, never a Ring's; the card (s44) then shows the Ring's (S2). |
+| Q6 | A "NEW" tag on the find-me switch | None (S5). |
+| Q7 | Loading more | Shimmer rows under the results while the next page loads (S4). |
 
 ## Open questions
 
-From [[D-41 Discover searches people by part of their Pin name|D-41]]'s *Still open*: matching, a full Pin name, the switch and abuse are answered in *Decided in this story* (Q1–Q4). Still open:
-
-- **The account name and photo:** whether the backend keeps them apart from the Ring profiles today (`/backend`).
+From [[D-41 Discover searches people by part of their Pin name|D-41]]'s *Still open*: matching, a full Pin name, the switch and abuse are answered in *Decided in this story* (Q1–Q4). The account name and photo question is answered by the backend ([[BD-19 Discover Hub & Search Backend Delivery|BD-19]], 2026-11-23): they exist on the default profile from sign-up (`fullName`, and `avatarFileId` with a signed link, [[D-16 Files load from signed links that expire in 15 minutes|D-16]]); a person without a photo shows the outline.
 
 Later, from D-37:
 
@@ -194,3 +194,9 @@ Later, from D-37:
   - Q4 a per-person limit, about 30 a minute, with "Too many searches, try again in a minute" (S4).
 
   *What the backend has to build* follows (items 1, 4 and 6). Only the account name and photo question stays open, for `/backend`. The story stays draft. [[S-01 Account Story|S-01]] S7 (the switch) and [[S-23 Connections Story|S-23]] S1–S2 (Connect from a result) written in the same branch. Flagged [[FR-19 Discover Hub & Search Frontend Requirements]]
+- 2026-11-23 · `tickets/pm/M-04-discovery/F-19-discover-hub/S-42-row-identity` · decided by Omar Fostok 2026-11-23, in *Decided in this story* as Q5–Q7:
+  - Q5: every result row, the Connected one included, shows the sign-up name and photo, never a Ring's, and the card (s44) shows the Ring's (S2, and item 2 of *What the backend has to build*);
+  - Q6: no "NEW" tag on the find-me switch (S5);
+  - Q7: "Loading more" shows shimmer rows (S4).
+
+  Aligned with the BD-19 flag of 2026-11-23 and cleared it: the account name and photo question is answered (the default profile from sign-up). The header's API line and S2's Connect now say a stranger's row can't be asked yet ([[B-30 Connect from a Discover search row is refused for a person you can't already open|B-30]]). The story stays approved: these record what was decided and built. Flagged [[FR-19 Discover Hub & Search Frontend Requirements]]

@@ -20,6 +20,8 @@ tags: [frontend-requirements, frontend-requirements/approved, module/discovery, 
 
 # 📨 Discover Hub & Search · Frontend Requirements
 
+> ⚠ Affected by [[S-42 Discover Hub & Search Story]] (2026-11-23): /frontend: decided by Omar Fostok, S-42 Q5–Q7, story stays approved. Q5 every result row, Connected included, shows the sign-up name and photo (accountName, avatarUrl), never a Ring's; the card (s44) shows the Ring's. Q6 no NEW tag on the find-me switch. Q7 loading the next page shows shimmer rows under the results. S2's Connect from a stranger's row is not available yet (B-30)
+
 **Feature:** [[F-19 Discover Hub & Search]] · **Status:** Approved by the backend 2026-11-23 · **Story:** [[S-42 Discover Hub & Search Story]] (approved 2026-11-17 by Omar Fostok) · **Backend Integration:** [[BI-19 Discover Hub & Search Backend Integration]] (the exact-name lookup only) · **Design:** [Discover search, 8 screens](https://claude.ai/artifact/VtuKA2ezgz1snhMbBUmSbd)
 
 What the client needs from the backend to build [[S-42 Discover Hub & Search Story]], and whether each need is met today. **Rewritten 2026-11-17** against the story as of that day and [[D-41 Discover searches people by part of their Pin name|D-41]]: the MVP is S1–S5. **Two routes don't exist yet:** the search by part of a Pin name, and reading and saving "Let people find me by Pin name". Opening a card, Connect and Accept reuse calls that exist. Recent searches stay on the phone. Gemma (S6), Import contacts (S7) and a business Pin opening s55 are later.
