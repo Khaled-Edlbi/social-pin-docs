@@ -3735,7 +3735,8 @@
         "feature:discover-hub",
         "frontend-requirements:discover-hub",
         "project:architecture",
-        "project:frontend-api-guide"
+        "project:frontend-api-guide",
+        "qa-backend:discover-hub"
       ],
       "owner": null
     },
@@ -3768,6 +3769,16 @@
       "kind": "endpoint",
       "notes": [
         "backend-integration:discover-hub"
+      ],
+      "owner": null
+    },
+    "GET /search/pin-names?q=…": {
+      "containers": [
+        "feature:discover-hub"
+      ],
+      "kind": "endpoint",
+      "notes": [
+        "qa-backend:discover-hub"
       ],
       "owner": null
     },
@@ -3878,6 +3889,7 @@
         "frontend-requirements:ring-projection",
         "qa-backend:account",
         "qa-backend:auth",
+        "qa-backend:discover-hub",
         "qa-frontend:account",
         "qa-frontend:auth",
         "story:account",
@@ -4702,6 +4714,7 @@
         "project:frontend-api-guide",
         "project:spec-map",
         "qa-backend:account",
+        "qa-backend:discover-hub",
         "story:account",
         "task:B-01",
         "task:B-25"
@@ -5093,6 +5106,7 @@
         "needs-decision:ND-10",
         "needs-decision:ND-24",
         "project:spec-map",
+        "qa-backend:discover-hub",
         "story:connections"
       ],
       "owner": "feature:connections"
@@ -5111,7 +5125,8 @@
         "backend-integration:discover-hub",
         "frontend-delivery:connections",
         "frontend-requirements:discover-hub",
-        "project:spec-map"
+        "project:spec-map",
+        "qa-backend:discover-hub"
       ],
       "owner": "feature:connections"
     },
@@ -7568,6 +7583,7 @@
         "qa-backend:auth",
         "qa-backend:connections",
         "qa-backend:counts",
+        "qa-backend:discover-hub",
         "qa-backend:photo-library",
         "qa-backend:profiles",
         "qa-backend:ring-projection",
@@ -7784,9 +7800,9 @@
       "qa": 17,
       "shared": 10
     },
-    "concepts": 370,
+    "concepts": 371,
     "decisions": 39,
-    "edges": 9453,
+    "edges": 9466,
     "features": 40,
     "layerNotes": 170,
     "modules": 8,
@@ -13095,6 +13111,15 @@
     {
       "from": "backend-delivery:badge-qr",
       "kind": "related",
+      "to": "qa-backend:discover-hub",
+      "via": [
+        "GET /views/pin/:pinName",
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "backend-delivery:badge-qr",
+      "kind": "related",
       "to": "qa-backend:files",
       "via": [
         "E_RING_02",
@@ -14230,7 +14255,9 @@
       "kind": "related",
       "to": "qa-backend:discover-hub",
       "via": [
-        "GET /views/pin/:pinName"
+        "GET /views/pin/:pinName",
+        "POST /connections/requests",
+        "POST /connections/requests/:id/accept"
       ]
     },
     {
@@ -15631,7 +15658,12 @@
         "E_SEARCH_01",
         "E_SEARCH_02",
         "GET /profiles",
-        "GET /views/pin/:pinName"
+        "GET /search/pin-names",
+        "GET /users/me",
+        "GET /views/pin/:pinName",
+        "PATCH /users/me",
+        "POST /connections/requests",
+        "POST /connections/requests/:id/accept"
       ]
     },
     {
@@ -20253,7 +20285,8 @@
       "kind": "related",
       "to": "qa-backend:discover-hub",
       "via": [
-        "GET /views/pin/:pinName"
+        "GET /views/pin/:pinName",
+        "POST /connections/requests"
       ]
     },
     {
@@ -21472,7 +21505,9 @@
       "kind": "related",
       "to": "qa-backend:discover-hub",
       "via": [
-        "GET /views/pin/:pinName"
+        "GET /views/pin/:pinName",
+        "POST /connections/requests",
+        "POST /connections/requests/:id/accept"
       ]
     },
     {
@@ -22868,7 +22903,12 @@
         "E_SEARCH_01",
         "E_SEARCH_02",
         "GET /profiles",
-        "GET /views/pin/:pinName"
+        "GET /search/pin-names",
+        "GET /users/me",
+        "GET /views/pin/:pinName",
+        "PATCH /users/me",
+        "POST /connections/requests",
+        "POST /connections/requests/:id/accept"
       ]
     },
     {
@@ -28638,7 +28678,9 @@
       "kind": "related",
       "to": "qa-backend:discover-hub",
       "via": [
-        "GET /views/pin/:pinName"
+        "GET /users/me",
+        "GET /views/pin/:pinName",
+        "POST /connections/requests"
       ]
     },
     {
@@ -29152,7 +29194,9 @@
       "kind": "related",
       "to": "qa-backend:discover-hub",
       "via": [
-        "GET /views/pin/:pinName"
+        "GET /views/pin/:pinName",
+        "POST /connections/requests",
+        "POST /connections/requests/:id/accept"
       ]
     },
     {
@@ -29437,6 +29481,8 @@
       "kind": "related",
       "to": "qa-backend:discover-hub",
       "via": [
+        "E_SEARCH_01",
+        "E_SEARCH_02",
         "GET /profiles",
         "GET /views/pin/:pinName"
       ]
@@ -33288,7 +33334,8 @@
       "kind": "related",
       "to": "qa-backend:discover-hub",
       "via": [
-        "GET /views/pin/:pinName"
+        "GET /views/pin/:pinName",
+        "POST /connections/requests"
       ]
     },
     {
@@ -34245,8 +34292,15 @@
       "kind": "related",
       "to": "qa-backend:discover-hub",
       "via": [
+        "E_SEARCH_01",
+        "E_SEARCH_02",
         "GET /profiles",
-        "GET /views/pin/:pinName"
+        "GET /search/pin-names",
+        "GET /users/me",
+        "GET /views/pin/:pinName",
+        "PATCH /users/me",
+        "POST /connections/requests",
+        "POST /connections/requests/:id/accept"
       ]
     },
     {
@@ -36431,6 +36485,14 @@
       "via": [
         "E_RING_02",
         "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-requirements:pincast",
+      "kind": "related",
+      "to": "qa-backend:discover-hub",
+      "via": [
+        "POST /connections/requests"
       ]
     },
     {
@@ -42752,7 +42814,8 @@
       "kind": "related",
       "to": "qa-backend:discover-hub",
       "via": [
-        "GET /views/pin/:pinName"
+        "GET /views/pin/:pinName",
+        "POST /connections/requests"
       ]
     },
     {
@@ -43904,7 +43967,9 @@
       "kind": "related",
       "to": "qa-backend:discover-hub",
       "via": [
-        "GET /views/pin/:pinName"
+        "GET /views/pin/:pinName",
+        "POST /connections/requests",
+        "POST /connections/requests/:id/accept"
       ]
     },
     {
@@ -44850,6 +44915,15 @@
     {
       "from": "qa-backend:counts",
       "kind": "related",
+      "to": "qa-backend:discover-hub",
+      "via": [
+        "POST /connections/requests",
+        "POST /connections/requests/:id/accept"
+      ]
+    },
+    {
+      "from": "qa-backend:counts",
+      "kind": "related",
       "to": "qa-backend:files",
       "via": [
         "E_RING_02"
@@ -45075,7 +45149,9 @@
       "kind": "related",
       "to": "backend-delivery:account",
       "via": [
-        "E_AUTH_03"
+        "E_AUTH_03",
+        "GET /users/me",
+        "PATCH /users/me"
       ]
     },
     {
@@ -45083,15 +45159,8 @@
       "kind": "related",
       "to": "backend-delivery:auth",
       "via": [
-        "E_AUTH_03"
-      ]
-    },
-    {
-      "from": "qa-backend:discover-hub",
-      "kind": "related",
-      "to": "backend-delivery:badge-qr",
-      "via": [
-        "GET /views/pin/:pinName"
+        "E_AUTH_03",
+        "GET /users/me"
       ]
     },
     {
@@ -45100,6 +45169,14 @@
       "to": "backend-delivery:photo-library",
       "via": [
         "GET /profiles"
+      ]
+    },
+    {
+      "from": "qa-backend:discover-hub",
+      "kind": "related",
+      "to": "backend-delivery:pincast",
+      "via": [
+        "POST /connections/requests"
       ]
     },
     {
@@ -45133,7 +45210,9 @@
       "to": "backend-integration:account",
       "via": [
         "E_AUTH_03",
-        "GET /profiles"
+        "GET /profiles",
+        "GET /users/me",
+        "PATCH /users/me"
       ]
     },
     {
@@ -45174,7 +45253,8 @@
       "kind": "related",
       "to": "decision:D-10",
       "via": [
-        "GET /views/pin/:pinName"
+        "GET /views/pin/:pinName",
+        "POST /connections/requests"
       ]
     },
     {
@@ -45185,9 +45265,26 @@
     {
       "from": "qa-backend:discover-hub",
       "kind": "related",
+      "to": "decision:D-17",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "qa-backend:discover-hub",
+      "kind": "related",
       "to": "decision:D-20",
       "via": [
-        "E_AUTH_03"
+        "E_AUTH_03",
+        "PATCH /users/me"
+      ]
+    },
+    {
+      "from": "qa-backend:discover-hub",
+      "kind": "related",
+      "to": "decision:D-24",
+      "via": [
+        "POST /connections/requests"
       ]
     },
     {
@@ -45198,8 +45295,14 @@
     {
       "from": "qa-backend:discover-hub",
       "kind": "related",
+      "to": "decision:D-41"
+    },
+    {
+      "from": "qa-backend:discover-hub",
+      "kind": "related",
       "to": "feature:discover-hub",
       "via": [
+        "GET /search/pin-names",
         "GET /views/pin/:pinName"
       ]
     },
@@ -45209,7 +45312,9 @@
       "to": "frontend-delivery:account",
       "via": [
         "E_AUTH_03",
-        "GET /profiles"
+        "GET /profiles",
+        "GET /users/me",
+        "PATCH /users/me"
       ]
     },
     {
@@ -45217,7 +45322,8 @@
       "kind": "related",
       "to": "frontend-delivery:auth",
       "via": [
-        "E_AUTH_03"
+        "E_AUTH_03",
+        "GET /users/me"
       ]
     },
     {
@@ -45250,7 +45356,9 @@
       "to": "frontend-requirements:account",
       "via": [
         "E_AUTH_03",
-        "GET /profiles"
+        "GET /profiles",
+        "GET /users/me",
+        "PATCH /users/me"
       ]
     },
     {
@@ -45266,7 +45374,9 @@
       "kind": "related",
       "to": "frontend-requirements:badge-qr",
       "via": [
-        "GET /views/pin/:pinName"
+        "GET /users/me",
+        "GET /views/pin/:pinName",
+        "POST /connections/requests"
       ]
     },
     {
@@ -45304,6 +45414,14 @@
     {
       "from": "qa-backend:discover-hub",
       "kind": "related",
+      "to": "frontend-requirements:linked-accounts",
+      "via": [
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "qa-backend:discover-hub",
+      "kind": "related",
       "to": "frontend-requirements:photo-library",
       "via": [
         "GET /profiles"
@@ -45330,7 +45448,8 @@
       "kind": "related",
       "to": "frontend-requirements:ring-projection",
       "via": [
-        "GET /profiles"
+        "GET /profiles",
+        "GET /users/me"
       ]
     },
     {
@@ -45347,7 +45466,8 @@
       "kind": "related",
       "to": "needs-decision:ND-10",
       "via": [
-        "GET /views/pin/:pinName"
+        "GET /views/pin/:pinName",
+        "POST /connections/requests"
       ]
     },
     {
@@ -45355,7 +45475,8 @@
       "kind": "related",
       "to": "needs-decision:ND-20",
       "via": [
-        "E_AUTH_03"
+        "E_AUTH_03",
+        "PATCH /users/me"
       ]
     },
     {
@@ -45369,9 +45490,25 @@
     {
       "from": "qa-backend:discover-hub",
       "kind": "related",
+      "to": "needs-decision:ND-24",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "qa-backend:discover-hub",
+      "kind": "related",
       "to": "needs-decision:ND-41",
       "via": [
         "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "qa-backend:discover-hub",
+      "kind": "related",
+      "to": "project:architecture",
+      "via": [
+        "GET /search/pin-names"
       ]
     },
     {
@@ -45388,7 +45525,11 @@
       "to": "project:frontend-api-guide",
       "via": [
         "E_AUTH_03",
-        "GET /views/pin/:pinName"
+        "E_SEARCH_01",
+        "E_SEARCH_02",
+        "GET /search/pin-names",
+        "GET /views/pin/:pinName",
+        "PATCH /users/me"
       ]
     },
     {
@@ -45396,6 +45537,8 @@
       "kind": "related",
       "to": "project:frontend-contract",
       "via": [
+        "E_SEARCH_01",
+        "E_SEARCH_02",
         "GET /views/pin/:pinName"
       ]
     },
@@ -45405,6 +45548,16 @@
       "to": "project:frontend-passwordless-migration",
       "via": [
         "E_AUTH_03"
+      ]
+    },
+    {
+      "from": "qa-backend:discover-hub",
+      "kind": "related",
+      "to": "project:spec-map",
+      "via": [
+        "PATCH /users/me",
+        "POST /connections/requests",
+        "POST /connections/requests/:id/accept"
       ]
     },
     {
@@ -45421,7 +45574,9 @@
       "to": "qa-backend:account",
       "via": [
         "E_AUTH_03",
-        "GET /profiles"
+        "GET /profiles",
+        "GET /users/me",
+        "PATCH /users/me"
       ]
     },
     {
@@ -45430,7 +45585,8 @@
       "to": "qa-backend:auth",
       "via": [
         "E_AUTH_03",
-        "GET /profiles"
+        "GET /profiles",
+        "GET /users/me"
       ]
     },
     {
@@ -45481,7 +45637,9 @@
       "to": "qa-frontend:account",
       "via": [
         "E_AUTH_03",
-        "GET /profiles"
+        "GET /profiles",
+        "GET /users/me",
+        "PATCH /users/me"
       ]
     },
     {
@@ -45489,7 +45647,8 @@
       "kind": "related",
       "to": "qa-frontend:auth",
       "via": [
-        "E_AUTH_03"
+        "E_AUTH_03",
+        "GET /users/me"
       ]
     },
     {
@@ -45498,7 +45657,9 @@
       "to": "story:account",
       "via": [
         "E_AUTH_03",
-        "GET /profiles"
+        "GET /profiles",
+        "GET /users/me",
+        "PATCH /users/me"
       ]
     },
     {
@@ -45522,7 +45683,16 @@
       "kind": "related",
       "to": "story:connections",
       "via": [
-        "GET /views/pin/:pinName"
+        "GET /views/pin/:pinName",
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "qa-backend:discover-hub",
+      "kind": "related",
+      "to": "story:counts",
+      "via": [
+        "GET /users/me"
       ]
     },
     {
@@ -45562,7 +45732,8 @@
       "kind": "related",
       "to": "task:B-01",
       "via": [
-        "E_AUTH_03"
+        "E_AUTH_03",
+        "PATCH /users/me"
       ]
     },
     {
@@ -45571,7 +45742,8 @@
       "to": "task:B-02",
       "via": [
         "E_AUTH_03",
-        "GET /profiles"
+        "GET /profiles",
+        "GET /users/me"
       ]
     },
     {
@@ -58043,6 +58215,14 @@
     {
       "from": "task:B-23",
       "kind": "related",
+      "to": "qa-backend:discover-hub",
+      "via": [
+        "GET /users/me"
+      ]
+    },
+    {
+      "from": "task:B-23",
+      "kind": "related",
       "to": "qa-backend:view-as",
       "via": [
         "E_USER_01"
@@ -58320,7 +58500,8 @@
       "kind": "related",
       "to": "qa-backend:discover-hub",
       "via": [
-        "E_AUTH_03"
+        "E_AUTH_03",
+        "GET /users/me"
       ]
     },
     {
@@ -58502,6 +58683,14 @@
       "via": [
         "E_USER_02",
         "E_USER_03",
+        "PATCH /users/me"
+      ]
+    },
+    {
+      "from": "task:B-25",
+      "kind": "related",
+      "to": "qa-backend:discover-hub",
+      "via": [
         "PATCH /users/me"
       ]
     },
@@ -82086,6 +82275,7 @@
         "backend-delivery:discover-hub",
         "backend-integration:discover-hub",
         "frontend-requirements:discover-hub",
+        "qa-backend:discover-hub",
         "backend-delivery:pincast",
         "backend-delivery:ring-invitations",
         "task:B-02",
@@ -82101,7 +82291,6 @@
         "feature:subscription",
         "feature:events-during",
         "frontend-delivery:discover-hub",
-        "qa-backend:discover-hub",
         "qa-backend:profiles",
         "backend-delivery:ring-members",
         "backend-delivery:ring-projection"
@@ -82377,6 +82566,7 @@
         "backend-delivery:discover-hub",
         "backend-integration:discover-hub",
         "frontend-requirements:discover-hub",
+        "qa-backend:discover-hub",
         "backend-delivery:pincast",
         "project:spec-map",
         "qa-backend:connections",
@@ -82416,7 +82606,6 @@
         "qa-backend:badge-qr",
         "story:badge-qr",
         "frontend-delivery:discover-hub",
-        "qa-backend:discover-hub",
         "story:discover-hub",
         "qa-backend:files",
         "backend-integration:profiles",
@@ -82866,6 +83055,7 @@
         "feature:discover-hub",
         "backend-integration:discover-hub",
         "frontend-requirements:discover-hub",
+        "qa-backend:discover-hub",
         "project:architecture",
         "project:frontend-api-guide",
         "task:B-02",
@@ -82894,7 +83084,6 @@
         "story:connections",
         "story:badge-qr",
         "frontend-delivery:discover-hub",
-        "qa-backend:discover-hub",
         "story:discover-hub",
         "qa-backend:files",
         "backend-integration:profiles",
@@ -84010,6 +84199,7 @@
         "qa-backend:badge-qr",
         "backend-delivery:discover-hub",
         "backend-integration:discover-hub",
+        "qa-backend:discover-hub",
         "frontend-requirements:pincast",
         "qa-backend:counts"
       ],
@@ -85891,6 +86081,7 @@
         "backend-delivery:discover-hub",
         "backend-integration:discover-hub",
         "frontend-requirements:discover-hub",
+        "qa-backend:discover-hub",
         "backend-delivery:pincast",
         "frontend-requirements:pincast",
         "backend-delivery:counts",
@@ -85911,7 +86102,6 @@
         "needs-decision:ND-22",
         "needs-decision:ND-41",
         "frontend-delivery:discover-hub",
-        "qa-backend:discover-hub",
         "story:discover-hub",
         "qa-backend:files",
         "backend-integration:profiles",
@@ -86312,6 +86502,7 @@
         "backend-integration:profiles",
         "backend-integration:account",
         "feature:discover-hub",
+        "qa-backend:discover-hub",
         "project:architecture",
         "project:frontend-api-guide",
         "task:B-02",
@@ -86340,7 +86531,6 @@
         "story:connections",
         "story:badge-qr",
         "frontend-delivery:discover-hub",
-        "qa-backend:discover-hub",
         "qa-backend:files",
         "frontend-requirements:ring-access",
         "qa-backend:ring-access",
@@ -89572,6 +89762,7 @@
         "qa-backend:badge-qr",
         "backend-delivery:discover-hub",
         "backend-integration:discover-hub",
+        "qa-backend:discover-hub",
         "frontend-requirements:pincast",
         "qa-backend:counts",
         "story:ring-invitations"
@@ -90033,6 +90224,7 @@
         "qa-backend:badge-qr",
         "backend-delivery:discover-hub",
         "backend-integration:discover-hub",
+        "qa-backend:discover-hub",
         "frontend-requirements:pincast",
         "qa-backend:counts"
       ],
@@ -91252,6 +91444,7 @@
         "story:connections",
         "backend-integration:discover-hub",
         "frontend-requirements:discover-hub",
+        "qa-backend:discover-hub",
         "story:discover-hub",
         "story:account"
       ],
@@ -100107,6 +100300,7 @@
         "task:B-24",
         "backend-delivery:discover-hub",
         "backend-integration:discover-hub",
+        "qa-backend:discover-hub",
         "backend-delivery:account",
         "backend-integration:account",
         "qa-frontend:account",
@@ -100761,6 +100955,7 @@
         "backend-delivery:discover-hub",
         "backend-integration:discover-hub",
         "frontend-requirements:discover-hub",
+        "qa-backend:discover-hub",
         "backend-delivery:pincast",
         "qa-frontend:account",
         "frontend-requirements:photo-library",
@@ -104470,6 +104665,7 @@
         "qa-backend:badge-qr",
         "backend-delivery:discover-hub",
         "backend-integration:discover-hub",
+        "qa-backend:discover-hub",
         "frontend-requirements:pincast",
         "qa-backend:counts"
       ],
@@ -106040,6 +106236,7 @@
         "feature:ring-invitations",
         "backend-delivery:discover-hub",
         "backend-integration:discover-hub",
+        "qa-backend:discover-hub",
         "project:backend-agent"
       ],
       "release": null,
@@ -107476,6 +107673,7 @@
         "qa-backend:badge-qr",
         "backend-delivery:discover-hub",
         "backend-integration:discover-hub",
+        "qa-backend:discover-hub",
         "frontend-requirements:pincast",
         "backend-delivery:account",
         "backend-integration:account",
@@ -108394,6 +108592,7 @@
         "backend-delivery:discover-hub",
         "backend-integration:discover-hub",
         "frontend-requirements:discover-hub",
+        "qa-backend:discover-hub",
         "backend-delivery:pincast",
         "project:spec-map",
         "frontend-requirements:pincast",
@@ -108424,7 +108623,6 @@
         "qa-backend:badge-qr",
         "story:badge-qr",
         "frontend-delivery:discover-hub",
-        "qa-backend:discover-hub",
         "story:discover-hub",
         "qa-backend:files",
         "backend-integration:profiles",
@@ -108662,6 +108860,7 @@
         "backend-delivery:discover-hub",
         "backend-integration:discover-hub",
         "frontend-requirements:discover-hub",
+        "qa-backend:discover-hub",
         "backend-delivery:pincast",
         "decision:D-26",
         "frontend-delivery:account",
@@ -108840,12 +109039,15 @@
       "priority": null,
       "related": [
         "task:B-18",
+        "task:B-23",
         "task:B-24",
+        "task:B-25",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
         "frontend-requirements:connections",
         "qa-backend:connections",
+        "backend-delivery:badge-qr",
         "backend-integration:badge-qr",
         "frontend-delivery:badge-qr",
         "qa-backend:badge-qr",
@@ -108857,6 +109059,8 @@
         "backend-integration:view-as",
         "qa-backend:view-as",
         "decision:D-15",
+        "decision:D-41",
+        "backend-integration:account",
         "feature:discover-hub",
         "task:B-08",
         "needs-decision:ND-10",
@@ -108864,7 +109068,6 @@
         "needs-decision:ND-41",
         "decision:D-10",
         "story:connections",
-        "backend-delivery:badge-qr",
         "frontend-requirements:badge-qr",
         "story:badge-qr",
         "story:discover-hub",
@@ -108882,7 +109085,6 @@
         "project:frontend-api-guide",
         "project:frontend-contract",
         "task:B-02",
-        "backend-integration:account",
         "frontend-delivery:account",
         "frontend-requirements:account",
         "qa-backend:account",
@@ -108901,21 +109103,31 @@
         "backend-integration:ring-projection",
         "frontend-requirements:ring-projection",
         "frontend-requirements:companies",
+        "project:architecture",
+        "backend-delivery:account",
+        "backend-delivery:auth",
+        "frontend-delivery:auth",
+        "qa-frontend:auth",
+        "story:counts",
+        "frontend-requirements:linked-accounts",
         "task:B-01",
         "needs-decision:ND-20",
         "decision:D-20",
-        "backend-delivery:account",
-        "backend-delivery:auth",
+        "project:spec-map",
+        "needs-decision:ND-24",
+        "decision:D-17",
+        "decision:D-24",
+        "backend-delivery:pincast",
         "backend-integration:auth",
-        "frontend-delivery:auth",
         "frontend-requirements:auth",
-        "qa-frontend:auth",
         "story:auth",
         "frontend-requirements:devices",
         "frontend-requirements:error-contract",
         "story:error-contract",
         "project:auth-model",
         "project:frontend-passwordless-migration",
+        "frontend-requirements:pincast",
+        "qa-backend:counts",
         "qa-backend:photo-library"
       ],
       "release": "mvp",
@@ -108923,7 +109135,8 @@
       "scope": "feature",
       "screens": [
         "s38",
-        "s44"
+        "s44",
+        "s68"
       ],
       "status": "draft",
       "summary": "Expected behaviour of the API, as artefacts a person can check a build against: tables and diagrams, not test code (the specs live in the backend repo). status: passing or failing after a run; the…",
@@ -108936,7 +109149,7 @@
       "task": null,
       "title": "QB-18 Discover Hub & Search QA Backend",
       "unmet": [],
-      "updated": "2026-11-16"
+      "updated": "2026-11-23"
     },
     "qa-backend:e2e-tests": {
       "affects": [],
@@ -114430,6 +114643,7 @@
         "qa-backend:connections",
         "backend-delivery:discover-hub",
         "backend-integration:discover-hub",
+        "qa-backend:discover-hub",
         "frontend-requirements:pincast",
         "backend-integration:account",
         "frontend-delivery:account",
@@ -118875,6 +119089,7 @@
         "backend-delivery:discover-hub",
         "backend-integration:discover-hub",
         "frontend-requirements:discover-hub",
+        "qa-backend:discover-hub",
         "backend-delivery:account",
         "backend-integration:account",
         "frontend-requirements:account",
@@ -118964,6 +119179,7 @@
         "backend-delivery:discover-hub",
         "backend-integration:discover-hub",
         "frontend-requirements:discover-hub",
+        "qa-backend:discover-hub",
         "backend-delivery:account",
         "backend-integration:account",
         "frontend-requirements:account",
@@ -118978,7 +119194,6 @@
         "task:B-01",
         "needs-decision:ND-20",
         "decision:D-20",
-        "qa-backend:discover-hub",
         "backend-integration:auth",
         "frontend-requirements:auth",
         "story:auth",
@@ -119059,6 +119274,7 @@
         "backend-delivery:discover-hub",
         "backend-integration:discover-hub",
         "frontend-requirements:discover-hub",
+        "qa-backend:discover-hub",
         "backend-delivery:account",
         "backend-integration:account",
         "frontend-requirements:account",
