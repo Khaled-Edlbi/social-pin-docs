@@ -3,7 +3,8 @@ id: B-20
 type: bug
 module: identity
 feature: auth
-status: ready
+status: done
+resolution: fixed
 priority: high
 effort: S
 foundOn: "FD-05 Auth & Sign-up Frontend Delivery"
@@ -13,15 +14,13 @@ affects: []
 related: ["FD-05 Auth & Sign-up Frontend Delivery", "QF-05 Auth & Sign-up QA Frontend", "S-02 Auth & Sign-up Story"]
 pending: []
 created: 2026-11-08
-updated: 2026-11-09
-tags: [bug, bug/ready, module/identity, priority/high]
+updated: 2026-11-23
+tags: [bug, bug/done, module/identity, priority/high, resolution/fixed]
 ---
 
-# 📨 B-20 · In Arabic the code boxes fill right to left
+# ✅ B-20 · In Arabic the code boxes fill right to left
 
-> ⚠ Affected by [[FD-05 Auth & Sign-up Frontend Delivery]] (2026-11-09): fixed in social_pin f9c19e3, ready for re-test
-
-**Found against:** [[FD-05 Auth & Sign-up Frontend Delivery]] · **Feature:** [[F-02 Auth & Sign-up]] · **Status:** Ready · **Priority:** High · **Deadline:** — · **Effort:** S
+**Found against:** [[FD-05 Auth & Sign-up Frontend Delivery]] · **Feature:** [[F-02 Auth & Sign-up]] · **Status:** Done · **Priority:** High · **Deadline:** — · **Effort:** S
 
 **Found by:** [[QF-05 Auth & Sign-up QA Frontend]] row AU-47, on build `social_pin` `28d4ee7` (emulator Medium_Phone, Android 16, development API), 2026-11-08.
 
@@ -48,10 +47,12 @@ The fix is `/frontend`'s. It sets `in-progress` when it starts and `ready` when 
 
 ## Definition of done
 
-- [ ] In Arabic, the first digit lands in the leftmost box and auto-advance moves right; paste fills left to right
-- [ ] AU-47 re-run against the fix, on a named build
-- [ ] `node scripts/build-tree.mjs` run; generated files committed
+- [x] In Arabic, the first digit lands in the leftmost box and auto-advance moves right; paste fills left to right
+- [x] AU-47 re-run against the fix, on a named build
+- [x] `node scripts/build-tree.mjs` run; generated files committed
 
 ## Log
 
 - 2026-11-08 · filed from QF-05 AU-47, found against FD-05 Auth & Sign-up Frontend Delivery
+- 2026-11-09 · fixed by `/frontend` in `social_pin` `f9c19e3`, set `ready`
+- 2026-11-23 · re-test on `social_pin` `rings/F-11/honest-rings` @ `778d9b4` (with the uncommitted Patrol suite), emulator Medium_Phone (Android 16), development API · **passed**: AU-47, the code boxes fill left to right in Arabic. Closed `done`, `resolution: fixed`, on Omar Fostok's word.
