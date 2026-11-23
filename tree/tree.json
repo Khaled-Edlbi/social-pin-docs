@@ -96669,7 +96669,7 @@
       "deadline": null,
       "depends": [],
       "dir": "social-pin/modules/Identity Core/features/Auth & Sign-up",
-      "effectiveStatus": "in-progress",
+      "effectiveStatus": "done",
       "effort": null,
       "feature": "auth",
       "foundOn": null,
@@ -96717,12 +96717,11 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "approved": 1,
         "decided": 2,
         "delivered": 2,
         "done": 11,
         "passing": 2,
-        "verified": 2
+        "verified": 3
       },
       "scope": null,
       "screens": [
@@ -107933,20 +107932,20 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 14,
+        "approved": 13,
         "blocked": 4,
         "current": 2,
         "decided": 10,
         "delivered": 16,
-        "done": 45,
+        "done": 46,
         "draft": 2,
-        "in-progress": 12,
+        "in-progress": 11,
         "missing": 16,
         "needs-decision": 1,
         "partial": 7,
         "passing": 11,
         "ready": 1,
-        "verified": 11
+        "verified": 12
       },
       "scope": null,
       "screens": [],
@@ -118973,7 +118972,7 @@
       "release": null,
       "releases": [
         {
-          "done": 1,
+          "done": 2,
           "id": "mvp",
           "partial": 0,
           "total": 28
@@ -118998,15 +118997,15 @@
         }
       ],
       "rollup": {
-        "approved": 42,
+        "approved": 41,
         "blocked": 28,
         "current": 7,
         "decided": 38,
         "delivered": 18,
-        "done": 52,
+        "done": 53,
         "draft": 21,
         "failing": 1,
-        "in-progress": 46,
+        "in-progress": 45,
         "missing": 106,
         "needs-decision": 1,
         "partial": 13,
@@ -119014,7 +119013,7 @@
         "ready": 3,
         "reference": 32,
         "todo": 3,
-        "verified": 39
+        "verified": 40
       },
       "scope": null,
       "screens": [],
@@ -119249,7 +119248,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "approved",
+      "effectiveStatus": "verified",
       "effort": null,
       "feature": "auth",
       "foundOn": null,
@@ -119331,18 +119330,18 @@
         "s68",
         "s75"
       ],
-      "status": "approved",
+      "status": "verified",
       "summary": "A person arrives with nothing but an email address or a phone number and leaves with a working identity: an active account, a Pin name, a default Ring and its projection. Coming back later costs…",
       "tags": [
         "story",
-        "story/approved",
+        "story/verified",
         "module/identity",
         "layer/business"
       ],
       "task": null,
       "title": "S-02 Auth & Sign-up Story",
       "unmet": [],
-      "updated": "2026-11-09"
+      "updated": "2026-11-23"
     },
     "story:badge-qr": {
       "affects": [],
