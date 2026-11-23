@@ -19,21 +19,21 @@ tags: [backend-integration, backend-integration/current, module/discovery, layer
 
 **Feature:** [[F-19 Discover Hub & Search]] · **Backend:** [[BD-19 Discover Hub & Search Backend Delivery]] · **Read first:** [[Frontend Contract]], [[Frontend API Guide]], [[BI-09 View As & Pin Views Backend Integration]], [[BI-16 Connections Backend Integration]]
 
-Written by the **backend** team for the frontend: how to call what Discover needs. Two parts. **On `main` (`3cef5d7`):** opening a person by their exact Pin name, View As & Pin Views' `GET /views/pin/:pinName`, and Connect / Accept, Connections' routes. **On branch `BD-19/search/pin-name-search` (`c5bc838`, 2026-11-23), not on `main` yet:** the search by part of a Pin name (`GET /search/pin-names`) and the switch "Let people find me by Pin name" (`findableByPinName` on `/users/me`); build against it from the branch or wait for the merge, which changes nothing below.
+Written by the **backend** team for the frontend: how to call what Discover needs. Matches backend `main` as of 2026-11-23, after the merge of `BD-19/search/pin-name-search` (`c5bc838`): opening a person by their exact Pin name (View As & Pin Views' `GET /views/pin/:pinName`), Connect and Accept (Connections' routes), the search by part of a Pin name (`GET /search/pin-names`) and the switch "Let people find me by Pin name" (`findableByPinName` on `/users/me`). The search needs the migration deployed on the environment the app points at (BD-19, *Gaps*).
 
 ## Screens → calls
 
 | Screen | The user does | Calls |
 |---|---|---|
 | [[Screen Index#s38\|s38]] The hub | opens the tab | nothing: the tiles navigate to other features, recent searches are read from the phone |
-| s38 Results | types 3+ letters (300 ms after the last keystroke) | `GET /search/pin-names?q=<text>&limit=20` · branch |
+| s38 Results | types 3+ letters (300 ms after the last keystroke) | `GET /search/pin-names?q=<text>&limit=20` |
 | s38 Results | reaches the bottom of the list | the same `q`, `skip` moved by 20, until `meta.total` |
 | s38 → [[Screen Index#s44\|s44]] | taps a row with `canOpenCard: true` | `GET /views/pin/:pinName` ([[BI-09 View As & Pin Views Backend Integration\|BI-09]]) |
 | s38 Results | taps **Connect** on a `NONE` row | `POST /connections/requests` `{ pinName }` ([[BI-16 Connections Backend Integration\|BI-16]]) |
 | s38 → [[Screen Index#s46\|s46]] | taps **Accept** on an `ASKED_ME` row | `POST /connections/requests/:id/accept` `{ ringId }` with the row's `requestId` (BI-16) |
 | s38 Recent searches | taps an entry | `GET /views/pin/:pinName` again, every time |
-| [[Screen Index#s68\|s68]] Me › Privacy | opens the screen | `findableByPinName` on `GET /users/me` ([[BI-01 Account Backend Integration\|BI-01]]) · branch |
-| s68 | moves the switch | `PATCH /users/me` `{ "findableByPinName": false }` (or `true`) · branch |
+| [[Screen Index#s68\|s68]] Me › Privacy | opens the screen | `findableByPinName` on `GET /users/me` ([[BI-01 Account Backend Integration\|BI-01]]) |
+| s68 | moves the switch | `PATCH /users/me` `{ "findableByPinName": false }` (or `true`) |
 
 ## Flow
 
@@ -123,3 +123,4 @@ Later, by [[D-37 Discover opens a Pin by its exact Pin name in the MVP|D-37]]; n
 
 - 2026-11-16 · `docs/backend/M-04-discovery/F-19-discover-hub/BD-19-shipped` · written against backend `main` `3cef5d7` and the approved [[FR-19 Discover Hub & Search Frontend Requirements]]: the MVP's one call is View As & Pin Views' `GET /views/pin/:pinName` (shape and rules in [[BI-09 View As & Pin Views Backend Integration]]), plus `pinName` on `GET /profiles`; no route of this feature's own. Set `current` with [[BD-19 Discover Hub & Search Backend Delivery]] `done`
 - 2026-11-23 · `docs/backend/M-04-discovery/F-19-discover-hub/BD-19-pin-name-search` · the search by part of a Pin name added, against backend branch `BD-19/search/pin-name-search` (`c5bc838`, not on `main` yet): `GET /search/pin-names` (screens → calls, flow, `PinNameResultEntity`, errors, rules), Connect and Accept from a row through BI-16, and `findableByPinName` on `/users/me` for Me › Privacy. "Submit only, no partial match" and "my own Pin name opens View as" dropped (D-41: I never see myself); the S-42 and D-41 flags (2026-11-17) cleared. Stays `current`: what is on `main` still matches; the branch part is marked as such until the merge
+- 2026-11-23 · `docs/backend/M-04-discovery/F-19-discover-hub/BD-19-merged` · the branch merged to backend `main` (khaled's word): the branch markers dropped, the note matches `main` whole. `current`

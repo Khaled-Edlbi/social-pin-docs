@@ -3729,6 +3729,7 @@
         "backend-delivery:discover-hub",
         "backend-integration:discover-hub",
         "feature:discover-hub",
+        "frontend-requirements:discover-hub",
         "project:architecture",
         "project:frontend-api-guide"
       ],
@@ -7773,12 +7774,12 @@
     },
     "concepts": 370,
     "decisions": 39,
-    "edges": 9440,
+    "edges": 9439,
     "features": 40,
     "layerNotes": 170,
     "modules": 8,
     "notes": 373,
-    "partial": 13,
+    "partial": 12,
     "placeholders": 108,
     "records": 38
   },
@@ -11785,11 +11786,6 @@
       "to": "story:ring-invitations"
     },
     {
-      "from": "backend-delivery:discover-hub",
-      "kind": "pending",
-      "to": "frontend-requirements:discover-hub"
-    },
-    {
       "from": "backend-delivery:profiles",
       "kind": "pending",
       "to": "decision:D-22"
@@ -15417,6 +15413,7 @@
         "E_SEARCH_01",
         "E_SEARCH_02",
         "GET /profiles",
+        "GET /search/pin-names",
         "GET /users/me",
         "GET /views/pin/:pinName",
         "PATCH /users/me",
@@ -22631,6 +22628,7 @@
         "E_SEARCH_01",
         "E_SEARCH_02",
         "GET /profiles",
+        "GET /search/pin-names",
         "GET /users/me",
         "GET /views/pin/:pinName",
         "PATCH /users/me",
@@ -82664,7 +82662,7 @@
         "story:discover-hub",
         "decision:D-41"
       ],
-      "effectiveStatus": "partial",
+      "effectiveStatus": "done",
       "effort": null,
       "feature": "discover-hub",
       "foundOn": null,
@@ -82684,28 +82682,7 @@
         "feature:discover-hub"
       ],
       "path": "social-pin/modules/Discovery/features/Discover Hub & Search/flow/BD-19 Discover Hub & Search Backend Delivery.md",
-      "pending": [
-        {
-          "person": null,
-          "text": "GET /search/pin-names?q=&limit=20&skip= built on branch BD-19/search/pin-name-search (c5bc838): clear when merged to main",
-          "to": "frontend-requirements:discover-hub"
-        },
-        {
-          "person": null,
-          "text": "the result row (pinName, accountName, avatarUrl, relationship, requestId, canOpenCard) and its server-side filters, same branch: clear when merged",
-          "to": "frontend-requirements:discover-hub"
-        },
-        {
-          "person": null,
-          "text": "the per-person limit, 30 a minute, 429 E_SEARCH_02, and 400 E_SEARCH_01 under 3 letters, same branch: clear when merged",
-          "to": "frontend-requirements:discover-hub"
-        },
-        {
-          "person": null,
-          "text": "findableByPinName on GET and PATCH /users/me with migration 20261123120000_findable_by_pin_name, same branch: clear when merged",
-          "to": "frontend-requirements:discover-hub"
-        }
-      ],
+      "pending": [],
       "priority": null,
       "related": [
         "task:B-23",
@@ -82732,11 +82709,11 @@
         "project:database-migrations",
         "feature:discover-hub",
         "backend-integration:discover-hub",
+        "frontend-requirements:discover-hub",
         "project:architecture",
         "project:frontend-api-guide",
         "task:B-02",
         "frontend-requirements:badge-qr",
-        "frontend-requirements:discover-hub",
         "backend-integration:account",
         "frontend-delivery:account",
         "frontend-requirements:account",
@@ -86240,7 +86217,7 @@
         "s68"
       ],
       "status": "current",
-      "summary": "Written by the backend team for the frontend: how to call what Discover needs. Two parts. On main (3cef5d7): opening a person by their exact Pin name, View As & Pin Views' GET /views/pin/:pinName,…",
+      "summary": "Written by the backend team for the frontend: how to call what Discover needs. Matches backend main as of 2026-11-23, after the merge of BD-19/search/pin-name-search (c5bc838): opening a person by…",
       "tags": [
         "backend-integration",
         "backend-integration/current",
@@ -92222,13 +92199,13 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "approved": 2,
+        "approved": 1,
         "current": 1,
         "decided": 2,
-        "done": 1,
+        "delivered": 1,
+        "done": 2,
         "draft": 1,
         "missing": 1,
-        "partial": 1,
         "verified": 2
       },
       "scope": null,
@@ -99009,6 +98986,7 @@
       "affects": [
         "backend-delivery:discover-hub"
       ],
+      "autoDelivered": true,
       "blockedBy": [],
       "card": "FR-19",
       "children": [],
@@ -99019,7 +98997,7 @@
         "story:discover-hub",
         "decision:D-41"
       ],
-      "effectiveStatus": "approved",
+      "effectiveStatus": "delivered",
       "effort": null,
       "feature": "discover-hub",
       "foundOn": null,
@@ -102371,16 +102349,16 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 4,
+        "approved": 3,
         "blocked": 1,
         "current": 2,
         "decided": 5,
-        "delivered": 1,
-        "done": 2,
+        "delivered": 2,
+        "done": 3,
         "draft": 1,
         "in-progress": 3,
         "missing": 6,
-        "partial": 2,
+        "partial": 1,
         "passing": 1,
         "ready": 1,
         "verified": 5
@@ -113348,18 +113326,18 @@
         }
       ],
       "rollup": {
-        "approved": 42,
+        "approved": 41,
         "blocked": 29,
         "current": 6,
         "decided": 38,
-        "delivered": 17,
-        "done": 44,
+        "delivered": 18,
+        "done": 45,
         "draft": 22,
         "failing": 1,
         "in-progress": 46,
         "missing": 108,
         "needs-decision": 1,
-        "partial": 13,
+        "partial": 12,
         "passing": 13,
         "ready": 9,
         "reference": 32,
