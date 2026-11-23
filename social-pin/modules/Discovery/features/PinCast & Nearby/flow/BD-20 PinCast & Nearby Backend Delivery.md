@@ -18,7 +18,9 @@ tags: [backend-delivery, backend-delivery/done, module/discovery, layer/backend]
 
 # ✅ PinCast & Nearby · Backend Delivery
 
-**Feature:** [[F-20 PinCast & Nearby]] · **Status:** Done · **Integration guide:** [[BI-20 PinCast & Nearby Backend Integration]] · **Requirements:** [[FR-20 PinCast & Nearby Frontend Requirements]] · **QA:** [[PinCast & Nearby QA Backend]]
+> ⚠ Affected by [[QB-19 PinCast & Nearby QA Backend]] (2026-11-23): QB-19 PinCast & Nearby QA Backend is written and passing, 49 of 49, on backend main ecd93c0 run on PostgreSQL 16.15 + PostGIS 3.4.2 (2026-11-23): the migration applied cleanly and the geo query bounded reach as N2 says. The Gaps line 'Not run against PostGIS yet' can go; deployedTo is still empty (not on dev)
+
+**Feature:** [[F-20 PinCast & Nearby]] · **Status:** Done · **Integration guide:** [[BI-20 PinCast & Nearby Backend Integration]] · **Requirements:** [[FR-20 PinCast & Nearby Frontend Requirements]] · **QA:** [[QB-19 PinCast & Nearby QA Backend]]
 
 What the backend shipped for this feature and how it works. **On backend `main` since `ecd93c0`** (2026-11-23): the code branch `BD-20/pincast/pincast-routes` (`ad6e30e`), merged on top of F-19's search; 1163 unit tests green and the typecheck clean on the combination. **Not yet run against a PostGIS database** (the session that wrote it had none): the migration and the geo query are to be exercised on dev before QA. PinCast, S-45 S1 to S5 and the twelve rules N1–N12; Nearby by Ring (S6) is later (N10) and nothing here serves it.
 
@@ -73,7 +75,7 @@ What the backend shipped for this feature and how it works. **On backend `main` 
 
 ### Gaps
 
-- **Not run against PostGIS yet**: `pnpm prisma:deploy` and a two-phone start / position / people pass on dev are owed before [[PinCast & Nearby QA Backend]].
+- **Not run against PostGIS yet**: `pnpm prisma:deploy` and a two-phone start / position / people pass on dev are owed before [[QB-19 PinCast & Nearby QA Backend]].
 - The 30-day purge of `pincast_recipients` → [[F-31 Cleanup Jobs]] (`detectedAt` indexed; `reachedCount` survives it).
 - "PinCast ended" and "pins nearby" notifications, and push in place of the 10 s polling → [[S-96 Notifications Story]] (N11: none in the MVP).
 - Nearby by Ring (S6) → [[S-45 PinCast & Nearby Story#S6 · Nearby by Ring (no prototype screen; §6.2) · later (N10)|S-45 S6]], later.
