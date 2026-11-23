@@ -285,6 +285,7 @@
     "qa-backend:view-as": "QB-14",
     "qa-frontend:account": "QF-04",
     "qa-frontend:auth": "QF-05",
+    "qa-frontend:discover-hub": "QF-06",
     "story:account": "S-01",
     "story:app-shell": "S-73",
     "story:audit-log": "S-74",
