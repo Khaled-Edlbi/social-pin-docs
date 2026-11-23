@@ -17,6 +17,8 @@ tags: [backend-integration, backend-integration/current, module/discovery, layer
 
 # 🔌 Discover Hub & Search · Backend Integration
 
+> ⚠ Affected by [[QB-18 Discover Hub & Search QA Backend]] (2026-11-23): /backend: QB-18 ran on backend main c5bc838, failing. (1) Screens to calls and Flow 5 say Connect on a NONE row is POST /connections/requests by pinName; it answers 404 E_RING_ACCESS_01 unless the requester can already open the card (BI-16), so it never works on a row with canOpenCard false. (2) Flow 7 says a deleted account answers the same 404 on the resolve; a member of its Ring gets 200 (B-28). (3) Errors to handle says every search counts toward E_SEARCH_02, refused ones too; searches under 3 letters and ones refused with 429 are not counted. (4) avatarUrl is a path under /api/v1/files/content/, not an absolute link. B-28 and B-29 are filed against this note
+
 **Feature:** [[F-19 Discover Hub & Search]] · **Backend:** [[BD-19 Discover Hub & Search Backend Delivery]] · **Read first:** [[Frontend Contract]], [[Frontend API Guide]], [[BI-09 View As & Pin Views Backend Integration]], [[BI-16 Connections Backend Integration]]
 
 Written by the **backend** team for the frontend: how to call what Discover needs. Matches backend `main` as of 2026-11-23, after the merge of `BD-19/search/pin-name-search` (`c5bc838`): opening a person by their exact Pin name (View As & Pin Views' `GET /views/pin/:pinName`), Connect and Accept (Connections' routes), the search by part of a Pin name (`GET /search/pin-names`) and the switch "Let people find me by Pin name" (`findableByPinName` on `/users/me`). The search needs the migration deployed on the environment the app points at (BD-19, *Gaps*).
