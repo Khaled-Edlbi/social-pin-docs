@@ -3,7 +3,7 @@ id: B-29
 type: bug
 module: discovery
 feature: discover-hub
-status: todo
+status: in-progress
 priority: medium
 effort: S
 foundOn: "BI-19 Discover Hub & Search Backend Integration"
@@ -14,12 +14,12 @@ related: ["BI-19 Discover Hub & Search Backend Integration", "QB-18 Discover Hub
 pending: []
 created: 2026-11-23
 updated: 2026-11-23
-tags: [bug, bug/todo, module/discovery, priority/medium]
+tags: [bug, bug/in-progress, module/discovery, priority/medium]
 ---
 
-# ⬜ B-29 · The find-me switch reads the string false as true
+# 🟡 B-29 · The find-me switch reads the string false as true
 
-**Found against:** [[BI-19 Discover Hub & Search Backend Integration]] · **Feature:** [[F-19 Discover Hub & Search]] · **Status:** To do · **Priority:** Medium (`critical | high | medium | low`, from `docs.config.json`) · **Deadline:** — · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
+**Found against:** [[BI-19 Discover Hub & Search Backend Integration]] · **Feature:** [[F-19 Discover Hub & Search]] · **Status:** In progress · **Priority:** Medium (`critical | high | medium | low`, from `docs.config.json`) · **Deadline:** — · **Effort:** S (S < 1 day, M 1–3 days, L > 3 days)
 
 **Found by:** [[QB-18 Discover Hub & Search QA Backend]] row B61, on build backend `main @ c5bc838`.
 
