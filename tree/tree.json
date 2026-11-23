@@ -7969,7 +7969,7 @@
     },
     "concepts": 376,
     "decisions": 39,
-    "edges": 9890,
+    "edges": 9885,
     "features": 40,
     "layerNotes": 172,
     "modules": 8,
@@ -12179,31 +12179,6 @@
       "from": "qa-backend:view-as",
       "kind": "pending",
       "to": "backend-delivery:view-as"
-    },
-    {
-      "from": "qa-frontend:auth",
-      "kind": "pending",
-      "to": "task:B-18"
-    },
-    {
-      "from": "qa-frontend:auth",
-      "kind": "pending",
-      "to": "task:B-19"
-    },
-    {
-      "from": "qa-frontend:auth",
-      "kind": "pending",
-      "to": "task:B-20"
-    },
-    {
-      "from": "qa-frontend:auth",
-      "kind": "pending",
-      "to": "task:B-21"
-    },
-    {
-      "from": "qa-frontend:auth",
-      "kind": "pending",
-      "to": "task:B-22"
     },
     {
       "from": "backend-delivery:account",
@@ -96070,10 +96045,8 @@
         "approved": 1,
         "decided": 2,
         "delivered": 2,
-        "done": 6,
-        "failing": 1,
-        "passing": 1,
-        "ready": 5,
+        "done": 11,
+        "passing": 2,
         "verified": 2
       },
       "scope": null,
@@ -99431,13 +99404,7 @@
       "labels": [],
       "layer": "frontend",
       "module": "identity",
-      "openBugs": [
-        "task:B-18",
-        "task:B-19",
-        "task:B-20",
-        "task:B-21",
-        "task:B-22"
-      ],
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:auth"
@@ -107253,15 +107220,14 @@
         "current": 2,
         "decided": 10,
         "delivered": 16,
-        "done": 40,
+        "done": 45,
         "draft": 2,
-        "failing": 1,
         "in-progress": 12,
         "missing": 16,
         "needs-decision": 1,
         "partial": 7,
-        "passing": 10,
-        "ready": 6,
+        "passing": 11,
+        "ready": 1,
         "verified": 11
       },
       "scope": null,
@@ -116412,7 +116378,7 @@
       "depends": [
         "frontend-delivery:auth"
       ],
-      "effectiveStatus": "failing",
+      "effectiveStatus": "passing",
       "effort": null,
       "feature": "auth",
       "foundOn": null,
@@ -116433,33 +116399,7 @@
         "feature:auth"
       ],
       "path": "social-pin/modules/Identity Core/features/Auth & Sign-up/flow/QF-05 Auth & Sign-up QA Frontend.md",
-      "pending": [
-        {
-          "person": null,
-          "text": "AU-23 (/frontend)",
-          "to": "task:B-18"
-        },
-        {
-          "person": null,
-          "text": "AU-26 (/frontend)",
-          "to": "task:B-19"
-        },
-        {
-          "person": null,
-          "text": "AU-47 (/frontend)",
-          "to": "task:B-20"
-        },
-        {
-          "person": null,
-          "text": "AU-55 (/frontend)",
-          "to": "task:B-21"
-        },
-        {
-          "person": null,
-          "text": "AU-60 (/frontend)",
-          "to": "task:B-22"
-        }
-      ],
+      "pending": [],
       "priority": "critical",
       "related": [
         "task:B-03",
@@ -116591,18 +116531,18 @@
         "s68",
         "s75"
       ],
-      "status": "failing",
+      "status": "passing",
       "summary": "Expected behaviour of the screens, as artefacts: journeys, states and copy to check a build against, not test code. status: passing or failing after a run; the verdict tells the PM whether the…",
       "tags": [
         "qa-frontend",
-        "qa-frontend/failing",
+        "qa-frontend/passing",
         "module/identity",
         "layer/qa"
       ],
       "task": null,
       "title": "QF-05 Auth & Sign-up QA Frontend",
       "unmet": [],
-      "updated": "2026-11-08"
+      "updated": "2026-11-23"
     },
     "qa-frontend:badge-qr": {
       "affects": [],
@@ -118329,15 +118269,15 @@
         "current": 7,
         "decided": 38,
         "delivered": 18,
-        "done": 47,
+        "done": 52,
         "draft": 21,
-        "failing": 2,
+        "failing": 1,
         "in-progress": 46,
         "missing": 106,
         "needs-decision": 1,
         "partial": 13,
-        "passing": 14,
-        "ready": 8,
+        "passing": 15,
+        "ready": 3,
         "reference": 32,
         "todo": 2,
         "verified": 39
@@ -123364,7 +123304,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "ready",
+      "effectiveStatus": "done",
       "effort": "S",
       "feature": "auth",
       "foundOn": "FD-05 Auth & Sign-up Frontend Delivery",
@@ -123422,24 +123362,25 @@
         "decision:D-30"
       ],
       "release": "mvp",
-      "resolution": null,
+      "resolution": "fixed",
       "rollup": {},
       "scope": null,
       "screens": [
         "s02"
       ],
-      "status": "ready",
+      "status": "done",
       "summary": "The fix is /frontend's. It sets in-progress when it starts and ready when the fix ships; QA re-runs AU-23 and closes or reopens it.",
       "tags": [
         "bug",
-        "bug/ready",
+        "bug/done",
         "module/identity",
-        "priority/high"
+        "priority/high",
+        "resolution/fixed"
       ],
       "task": null,
       "title": "B-18 Sign-in Verify overflows when the not-active message shows",
       "unmet": [],
-      "updated": "2026-11-09"
+      "updated": "2026-11-23"
     },
     "task:B-19": {
       "affects": [],
@@ -123452,7 +123393,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "ready",
+      "effectiveStatus": "done",
       "effort": "S",
       "feature": "auth",
       "foundOn": "FD-05 Auth & Sign-up Frontend Delivery",
@@ -123482,24 +123423,25 @@
         "story:auth"
       ],
       "release": "mvp",
-      "resolution": null,
+      "resolution": "fixed",
       "rollup": {},
       "scope": null,
       "screens": [
         "s06"
       ],
-      "status": "ready",
+      "status": "done",
       "summary": "The fix is /frontend's. It sets in-progress when it starts and ready when the fix ships; QA re-runs AU-26 and closes or reopens it.",
       "tags": [
         "bug",
-        "bug/ready",
+        "bug/done",
         "module/identity",
-        "priority/high"
+        "priority/high",
+        "resolution/fixed"
       ],
       "task": null,
       "title": "B-19 Claim your Pin shows the prefix @ instead of !",
       "unmet": [],
-      "updated": "2026-11-09"
+      "updated": "2026-11-23"
     },
     "task:B-20": {
       "affects": [],
@@ -123512,7 +123454,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "ready",
+      "effectiveStatus": "done",
       "effort": "S",
       "feature": "auth",
       "foundOn": "FD-05 Auth & Sign-up Frontend Delivery",
@@ -123542,24 +123484,25 @@
         "story:auth"
       ],
       "release": "mvp",
-      "resolution": null,
+      "resolution": "fixed",
       "rollup": {},
       "scope": null,
       "screens": [
         "s02"
       ],
-      "status": "ready",
+      "status": "done",
       "summary": "The fix is /frontend's. It sets in-progress when it starts and ready when the fix ships; QA re-runs AU-47 and closes or reopens it.",
       "tags": [
         "bug",
-        "bug/ready",
+        "bug/done",
         "module/identity",
-        "priority/high"
+        "priority/high",
+        "resolution/fixed"
       ],
       "task": null,
       "title": "B-20 In Arabic the code boxes fill right to left",
       "unmet": [],
-      "updated": "2026-11-09"
+      "updated": "2026-11-23"
     },
     "task:B-21": {
       "affects": [],
@@ -123572,7 +123515,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "ready",
+      "effectiveStatus": "done",
       "effort": "S",
       "feature": "auth",
       "foundOn": "FD-05 Auth & Sign-up Frontend Delivery",
@@ -123610,24 +123553,25 @@
         "task:B-22"
       ],
       "release": "mvp",
-      "resolution": null,
+      "resolution": "fixed",
       "rollup": {},
       "scope": null,
       "screens": [
         "s02"
       ],
-      "status": "ready",
+      "status": "done",
       "summary": "The fix is /frontend's. It sets in-progress when it starts and ready when the fix ships; QA re-runs AU-55 and closes or reopens it.",
       "tags": [
         "bug",
-        "bug/ready",
+        "bug/done",
         "module/identity",
-        "priority/high"
+        "priority/high",
+        "resolution/fixed"
       ],
       "task": null,
       "title": "B-21 A failed resend restarts the countdown",
       "unmet": [],
-      "updated": "2026-11-09"
+      "updated": "2026-11-23"
     },
     "task:B-22": {
       "affects": [],
@@ -123640,7 +123584,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "ready",
+      "effectiveStatus": "done",
       "effort": "S",
       "feature": "auth",
       "foundOn": "FD-05 Auth & Sign-up Frontend Delivery",
@@ -123692,24 +123636,25 @@
         "task:B-21"
       ],
       "release": "mvp",
-      "resolution": null,
+      "resolution": "fixed",
       "rollup": {},
       "scope": null,
       "screens": [
         "s02"
       ],
-      "status": "ready",
+      "status": "done",
       "summary": "The fix is /frontend's. It sets in-progress when it starts and ready when the fix ships; QA re-runs AU-60 and closes or reopens it.",
       "tags": [
         "bug",
-        "bug/ready",
+        "bug/done",
         "module/identity",
-        "priority/high"
+        "priority/high",
+        "resolution/fixed"
       ],
       "task": null,
       "title": "B-22 The code's expiry counts with the phone clock",
       "unmet": [],
-      "updated": "2026-11-09"
+      "updated": "2026-11-23"
     },
     "task:B-23": {
       "affects": [],

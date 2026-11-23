@@ -3,7 +3,8 @@ id: B-19
 type: bug
 module: identity
 feature: auth
-status: ready
+status: done
+resolution: fixed
 priority: high
 effort: S
 foundOn: "FD-05 Auth & Sign-up Frontend Delivery"
@@ -13,15 +14,13 @@ affects: []
 related: ["FD-05 Auth & Sign-up Frontend Delivery", "QF-05 Auth & Sign-up QA Frontend", "S-02 Auth & Sign-up Story"]
 pending: []
 created: 2026-11-08
-updated: 2026-11-09
-tags: [bug, bug/ready, module/identity, priority/high]
+updated: 2026-11-23
+tags: [bug, bug/done, module/identity, priority/high, resolution/fixed]
 ---
 
-# 📨 B-19 · Claim your Pin shows the prefix @ instead of !
+# ✅ B-19 · Claim your Pin shows the prefix @ instead of !
 
-> ⚠ Affected by [[FD-05 Auth & Sign-up Frontend Delivery]] (2026-11-09): fixed in social_pin f9c19e3, ready for re-test
-
-**Found against:** [[FD-05 Auth & Sign-up Frontend Delivery]] · **Feature:** [[F-02 Auth & Sign-up]] · **Status:** Ready · **Priority:** High · **Deadline:** — · **Effort:** S
+**Found against:** [[FD-05 Auth & Sign-up Frontend Delivery]] · **Feature:** [[F-02 Auth & Sign-up]] · **Status:** Done · **Priority:** High · **Deadline:** — · **Effort:** S
 
 **Found by:** [[QF-05 Auth & Sign-up QA Frontend]] row AU-26, on build `social_pin` `28d4ee7` (emulator Medium_Phone, Android 16), 2026-11-08.
 
@@ -48,10 +47,12 @@ The fix is `/frontend`'s. It sets `in-progress` when it starts and `ready` when 
 
 ## Definition of done
 
-- [ ] s06 shows `!` as the prefix, the same as Me and the badge
-- [ ] AU-26 re-run against the fix, on a named build
-- [ ] `node scripts/build-tree.mjs` run; generated files committed
+- [x] s06 shows `!` as the prefix, the same as Me and the badge
+- [x] AU-26 re-run against the fix, on a named build
+- [x] `node scripts/build-tree.mjs` run; generated files committed
 
 ## Log
 
 - 2026-11-08 · filed from QF-05 AU-26, found against FD-05 Auth & Sign-up Frontend Delivery
+- 2026-11-09 · fixed by `/frontend` in `social_pin` `f9c19e3`, set `ready`
+- 2026-11-23 · re-test on `social_pin` `rings/F-11/honest-rings` @ `778d9b4` (with the uncommitted Patrol suite), emulator Medium_Phone (Android 16) · **passed**: AU-26, the prefix reads `!`. Closed `done`, `resolution: fixed`, on Omar Fostok's word.
