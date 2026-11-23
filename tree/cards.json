@@ -275,6 +275,7 @@
     "qa-backend:discover-hub": "QB-18",
     "qa-backend:files": "QB-06",
     "qa-backend:photo-library": "QB-08",
+    "qa-backend:pincast": "QB-19",
     "qa-backend:profiles": "QB-10",
     "qa-backend:ring-access": "QB-09",
     "qa-backend:ring-invitations": "QB-17",

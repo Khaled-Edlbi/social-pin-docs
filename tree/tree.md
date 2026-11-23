@@ -288,7 +288,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
       - ✅ [FR-20 PinCast & Nearby Frontend Requirements](social-pin/modules/Discovery/features/PinCast%20%26%20Nearby/flow/FR-20%20PinCast%20%26%20Nearby%20Frontend%20Requirements.md) (Frontend Requirements, Critical)
       - ✅ [BD-20 PinCast & Nearby Backend Delivery](social-pin/modules/Discovery/features/PinCast%20%26%20Nearby/flow/BD-20%20PinCast%20%26%20Nearby%20Backend%20Delivery.md) (Backend Delivery, Critical)
       - 🔵 [BI-20 PinCast & Nearby Backend Integration](social-pin/modules/Discovery/features/PinCast%20%26%20Nearby/flow/BI-20%20PinCast%20%26%20Nearby%20Backend%20Integration.md) (Backend Integration, Critical)
-      - ∅ _PinCast & Nearby QA Backend_ (QA Backend)
+      - 🟢 [QB-19 PinCast & Nearby QA Backend](social-pin/modules/Discovery/features/PinCast%20%26%20Nearby/flow/QB-19%20PinCast%20%26%20Nearby%20QA%20Backend.md) (QA Backend, Critical)
       - ∅ _PinCast & Nearby Frontend Delivery_ (Frontend Delivery)
       - ∅ _PinCast & Nearby QA Frontend_ (QA Frontend, blocked by PinCast & Nearby Frontend Delivery)
   - 🔵 [M-05 Events Module](social-pin/modules/Events/M-05%20Events%20Module.md)
