@@ -7977,7 +7977,7 @@
     },
     "concepts": 376,
     "decisions": 39,
-    "edges": 9932,
+    "edges": 9933,
     "features": 40,
     "layerNotes": 172,
     "modules": 8,
@@ -83750,6 +83750,11 @@
     {
       "from": "story:discover-hub",
       "kind": "wikilink",
+      "to": "decision:D-16"
+    },
+    {
+      "from": "story:discover-hub",
+      "kind": "wikilink",
       "to": "story:gemma"
     },
     {
@@ -119959,7 +119964,7 @@
       "task": null,
       "title": "S-42 Discover Hub & Search Story",
       "unmet": [],
-      "updated": "2026-11-17"
+      "updated": "2026-11-23"
     },
     "story:e2e-tests": {
       "affects": [],
