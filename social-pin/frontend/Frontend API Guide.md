@@ -3,7 +3,7 @@ id: P-07
 type: project
 layer: frontend
 created: 2026-10-15
-updated: 2026-11-09
+updated: 2026-11-23
 tags: [project]
 ---
 # Frontend API guide
@@ -222,11 +222,27 @@ it.
 | Method | Path | |
 |---|---|---|
 | GET | `/users/me` | The authenticated account |
-| PATCH | `/users/me` | Email / phone. Changing either clears its verified flag |
+| PATCH | `/users/me` | Email / phone (changing either clears its verified flag), and `findableByPinName` (the Discover switch, see *Search*; branch `BD-19/search/pin-name-search` until merged) |
 | DELETE | `/users/me` | Soft-deletes and revokes every session; ends the account's connections, closes its pending requests both ways and removes its blocks, silently (D-25) |
 
-There is no `GET /users/:id` and no user search. Another person is reachable
-only through a ring projection.
+There is no `GET /users/:id`. Another person is reachable by Pin name through
+the search (*Search* below), which hands out a Pin name and a button, and is
+opened only through a ring projection.
+
+### Search — `/search` (branch `BD-19/search/pin-name-search`, `c5bc838`; not on `main` yet)
+
+| Method | Path | |
+|---|---|---|
+| GET | `/search/pin-names` | `?q=&limit=20&skip=`: people by part of a Pin name, 3+ letters matched anywhere, a leading `!`/`@` ignored, any case. The exact name first, then people who have you in one of their Rings, then everyone else, A→Z. Each row: `pinName`, `accountName`, `avatarUrl` (signed, 15 min), `relationship` (`CONNECTED` / `REQUESTED` / `ASKED_ME` / `NONE`), `requestId`, `canOpenCard`. 400 `E_SEARCH_01` under 3 letters, 429 `E_SEARCH_02` past 30 searches a minute |
+
+Never in a result: yourself, a blocked pair either way, or someone who turned
+"Let people find me by Pin name" off (`findableByPinName` on `/users/me`, true
+by default) and does not have you in a Ring. A row carries no user id and
+nothing from any Ring: the name and photo are the sign-up ones, the same for
+every searcher. Opening a row is `GET /views/pin/:pinName`, allowed only when
+`canOpenCard`; Connect and Accept are the Connections routes with the row's
+`pinName` or `requestId`. Details: BI-19 Discover Hub & Search Backend
+Integration.
 
 ### Profiles — `/profiles`
 
@@ -523,6 +539,7 @@ available yet) live in the `social-pin-docs` vault under `frontend/`.
 
 ## Log
 
+- 2026-11-23 · backend branch `BD-19/search/pin-name-search` `c5bc838` ([[BD-19 Discover Hub & Search Backend Delivery]]) · a *Search* section: `GET /search/pin-names` (one more endpoint), `findableByPinName` on `GET` / `PATCH /users/me`, the codes `E_SEARCH_01` (400) and `E_SEARCH_02` (429); "no user search" in *Account* replaced. Flagged [[Frontend Contract]] for the endpoint table, its count and the two codes (/frontend).
 - 2026-11-05 · backend `main` `12172c6` ([[BD-11 Rings Backend Delivery]]) · Rings table: `GET /rings/shared-with-me` lists people (new shape, no filters), `GET /rings/shared-with-me/count` listed, `POST /rings/:id/copy` added (one more endpoint), the D-04 settings on create and edit, 409 `E_RING_09` on a temporary default. Flagged [[Frontend Contract]] for the endpoint table, its count and the new code (/frontend).
 
 - 2026-11-05 · flagged [[Frontend Contract]]: new endpoints on backend main @ 80e7fa2: GET /files (the library, with usedBy) and the public GET /files/content/:token behind every signed link; url on files, avatarUrl and attachments[].url on the projection and the view (D-16). The F-04 row and the endpoint count (48) need updating (/frontend)

@@ -3,22 +3,24 @@ id: FR-19
 type: frontend-requirements
 module: discovery
 feature: discover-hub
-status: ready
+status: approved
 scope: feature
 screens: [s38, s44, s46, s68]
+approvedBy: "khaled"
+approvedAt: 2026-11-23
 blockedBy: []
 depends: ["S-42 Discover Hub & Search Story", "D-41 Discover searches people by part of their Pin name"]
 affects: ["BD-19 Discover Hub & Search Backend Delivery"]
 related: ["S-42 Discover Hub & Search Story", "D-41 Discover searches people by part of their Pin name", "D-37 Discover opens a Pin by its exact Pin name in the MVP", "D-10 Connect sends what the requester already has", "BI-09 View As & Pin Views Backend Integration", "BI-16 Connections Backend Integration", "FR-14 Connections Frontend Requirements", "S-23 Connections Story", "S-01 Account Story", "S-29 Companies Story", "S-89 Gemma AI Story", "S-87 Error Contract Story", "Frontend Contract", "GET /views/pin/:pinName"]
 pending: []
 created: 2026-10-18
-updated: 2026-11-17
-tags: [frontend-requirements, frontend-requirements/ready, module/discovery, layer/frontend]
+updated: 2026-11-23
+tags: [frontend-requirements, frontend-requirements/approved, module/discovery, layer/frontend]
 ---
 
 # 📨 Discover Hub & Search · Frontend Requirements
 
-**Feature:** [[F-19 Discover Hub & Search]] · **Status:** Ready, 2026-11-17 (waiting on the backend's review) · **Story:** [[S-42 Discover Hub & Search Story]] (approved 2026-11-17 by Omar Fostok) · **Backend Integration:** [[BI-19 Discover Hub & Search Backend Integration]] (the exact-name lookup only) · **Design:** [Discover search, 8 screens](https://claude.ai/artifact/VtuKA2ezgz1snhMbBUmSbd)
+**Feature:** [[F-19 Discover Hub & Search]] · **Status:** Approved by the backend 2026-11-23 · **Story:** [[S-42 Discover Hub & Search Story]] (approved 2026-11-17 by Omar Fostok) · **Backend Integration:** [[BI-19 Discover Hub & Search Backend Integration]] (the exact-name lookup only) · **Design:** [Discover search, 8 screens](https://claude.ai/artifact/VtuKA2ezgz1snhMbBUmSbd)
 
 What the client needs from the backend to build [[S-42 Discover Hub & Search Story]], and whether each need is met today. **Rewritten 2026-11-17** against the story as of that day and [[D-41 Discover searches people by part of their Pin name|D-41]]: the MVP is S1–S5. **Two routes don't exist yet:** the search by part of a Pin name, and reading and saving "Let people find me by Pin name". Opening a card, Connect and Accept reuse calls that exist. Recent searches stay on the phone. Gemma (S6), Import contacts (S7) and a business Pin opening s55 are later.
 
@@ -92,11 +94,11 @@ What the client needs from the backend to build [[S-42 Discover Hub & Search Sto
 
 | Need | Endpoint | Available | Story part / decision |
 |---|---|---|---|
-| Search by part of a Pin name, 3+ letters, paged 20; letters anywhere; an exact match first, then people who have me in a Ring | `GET /search/pin-names?q=&limit=&skip=` (proposed) | ❌ not built | S2, S4 · D-41, Q1, Q2 |
-| A per-person limit on searches (about 30 a minute, the number the backend's) | the same, 429 | ❌ | S4 · Q4 |
-| Each result: `pinName`, `accountName`, `avatarUrl`, `relationship`, `requestId`, `canOpenCard`; never blocked people, myself, or the switched-off who don't have me in a Ring | the same | ❌ | S2, S5 · D-41 |
-| Read "Let people find me by Pin name" | `findableByPinName` on `GET /users/me` (proposed field) | ❌ | S5 · D-41 |
-| Save it | `PATCH /users/me` `{ findableByPinName }` (proposed field) | ❌ | S5 · D-41 |
+| Search by part of a Pin name, 3+ letters, paged 20; letters anywhere; an exact match first, then people who have me in a Ring | `GET /search/pin-names?q=&limit=&skip=` | 🔵 built, on backend branch `BD-19/search/pin-name-search` (`c5bc838`), not on `main` yet ([[BI-19 Discover Hub & Search Backend Integration\|BI-19]]) | S2, S4 · D-41, Q1, Q2 |
+| A per-person limit on searches (about 30 a minute, the number the backend's) | the same, 429 `E_SEARCH_02` (30 a minute) | 🔵 on the same branch | S4 · Q4 |
+| Each result: `pinName`, `accountName`, `avatarUrl`, `relationship`, `requestId`, `canOpenCard`; never blocked people, myself, or the switched-off who don't have me in a Ring | the same | 🔵 on the same branch | S2, S5 · D-41 |
+| Read "Let people find me by Pin name" | `findableByPinName` on `GET /users/me` | 🔵 on the same branch | S5 · D-41 |
+| Save it | `PATCH /users/me` `{ findableByPinName }` | 🔵 on the same branch | S5 · D-41 |
 | Open a connected person's card, or a recent search | `GET /views/pin/:pinName` | ✅ | S2, S3 |
 | Connect | `POST /connections/requests` `{ pinName }` | ✅ ([[BI-16 Connections Backend Integration\|BI-16]]) | S2 · S-23 S2 |
 | Accept | `POST /connections/requests/:id/accept` `{ ringId }`, through s46 | ✅ ([[BI-16 Connections Backend Integration\|BI-16]]) | S2 · S-23 S5 |
@@ -118,8 +120,8 @@ Until [[S-87 Error Contract Story|Error Contract · S4–S8]] puts `ErrorCode` o
 
 | Endpoint | Status | ErrorCode | Show |
 |---|---|---|---|
-| search | 400 | `E_SEARCH_01` (proposed): fewer than 3 letters | never reached: the app sends 3 or more; treated like no matches |
-| search | 429 | `E_SEARCH_02` (proposed): over the per-person limit | "Too many searches, try again in a minute" in place of the list; no automatic retry |
+| search | 400 | `E_SEARCH_01`: fewer than 3 letters | never reached: the app sends 3 or more; treated like no matches |
+| search | 429 | `E_SEARCH_02`: over the per-person limit (30 a minute) | "Too many searches, try again in a minute" in place of the list; no automatic retry |
 | search | — | offline, timeout, 5xx | the no-connection state, with Try again |
 | `GET /views/pin/:pinName` | 404 | `E_RING_ACCESS_01` | "This Pin isn't available to you" (a recent entry stays; a result row may have changed since the search) |
 | `POST /connections/requests` | 4xx | `E_CONNECTION_REQUEST_*` ([[BI-16 Connections Backend Integration\|BI-16]]) | as on Connections: already requested → Requested; already connected → refresh the row; otherwise the row keeps Connect with the line |
@@ -129,12 +131,12 @@ Until [[S-87 Error Contract Story|Error Contract · S4–S8]] puts `ErrorCode` o
 ## Blocked by
 
 - Nothing from the story: [[S-42 Discover Hub & Search Story]] was approved 2026-11-17.
-- **The backend's review**, and the four routes it has to build (the endpoints table).
-- **One question left for the backend** (S-42's open questions; Q1–Q4 are answered): whether an account name and photo exist apart from the Ring profiles, which `accountName` and `avatarUrl` need.
+- The backend's review is done (approved 2026-11-23). The four new rows are built on backend branch `BD-19/search/pin-name-search` and wait on its merge to `main`; [[BD-19 Discover Hub & Search Backend Delivery]] keeps them as `pending` until then.
+- **The account name and photo question is answered**: yes, apart from the Ring profiles. The default profile holds the sign-up name (`fullName`) and the main photo (`avatarFileId`, handed out as a signed `avatarUrl`, D-16), the same for every searcher. `accountName` and `avatarUrl` read those.
 
 ## Sign-off
 
-- Approved by: — · on: —
+- Approved by: khaled · on: 2026-11-23
 
 ## Log
 
@@ -158,3 +160,4 @@ Until [[S-87 Error Contract Story|Error Contract · S4–S8]] puts `ErrorCode` o
 
   *Blocked by* is down to the backend's account name and photo question. Cleared the S-42 flag. Kept `draft`
 - 2026-11-17 · `tickets/frontend/M-04-discovery/F-19-discover-hub/FR-19-ready` · S-42 approved the same day; every screen, endpoint row and error state is in: set `ready` (📨) on Omar Fostok's word, handed to the backend. `blockedBy` cleared. Flagged [[BD-19 Discover Hub & Search Backend Delivery]]
+- 2026-11-23 · `tickets/backend/M-04-discovery/F-19-discover-hub/FR-19-accepted` · backend review against [[S-42 Discover Hub & Search Story]] (approved 2026-11-17, D-41, Q1–Q4) and backend `main` `3cef5d7`: the list holds, `ready` → `approved` on khaled's word. Every S1–S5 criterion and the six items of *What the backend has to build* have a row; S6, S7 and the s55 path are later as the story says. The reused routes are on `main`: `GET /views/pin/:pinName`, `GET /profiles`, `POST /connections/requests` `{ pinName }`, `POST /connections/requests/:id/accept`. The open question answered in *Blocked by*: the sign-up name and photo exist on the default profile. The four new rows were built the same day on backend branch `BD-19/search/pin-name-search` (`c5bc838`, 1098 unit tests green) and read 🔵 until merged; [[BI-19 Discover Hub & Search Backend Integration]] says how to call them. Two wordings settled for the backend: every result row, the Connected one included, carries the sign-up name and photo, never a Ring's (S-42 S2's Connected row says "their card's name and photo", flagged for /pm); and `ASKED_ME` here is what `GET /connections/relationship` calls `THEY_ASKED`
