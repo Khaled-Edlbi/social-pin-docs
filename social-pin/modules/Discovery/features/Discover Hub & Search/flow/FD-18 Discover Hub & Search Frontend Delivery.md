@@ -20,6 +20,8 @@ tags: [frontend-delivery, frontend-delivery/done, module/discovery, layer/fronte
 
 # ✅ Discover Hub & Search · Frontend Delivery
 
+> ⚠ Affected by [[BD-19 Discover Hub & Search Backend Delivery]] (2026-11-23): /frontend: the search by part of a Pin name (S-42 S2, S4), Connect and Accept from a row, and the Me - Privacy switch (S5) are built on backend branch BD-19/search/pin-name-search (c5bc838), not on main yet. How to call them is in BI-19 (screens to calls, PinNameResultEntity, errors, rules, checklist): GET /search/pin-names?q=&limit=20&skip=, findableByPinName on GET and PATCH /users/me, codes E_SEARCH_01 (400) and E_SEARCH_02 (429). The exact-name lookup on submit that shipped at 778d9b4 is replaced by the as-you-type search
+
 > ⚠ Affected by [[D-41 Discover searches people by part of their Pin name]] (2026-11-17): /frontend: the exact-name lookup on submit that shipped at `778d9b4` is no longer the MVP's search. The partial search, the Connect states and the opt-out are still to build, once FR-19 is rewritten.
 
 **Feature:** [[F-19 Discover Hub & Search]] · **Status:** Done · **Built from:** [[BI-19 Discover Hub & Search Backend Integration]] (current 2026-11-16), which uses [[BI-09 View As & Pin Views Backend Integration|BI-09]]'s `GET /views/pin/:pinName` · **Against:** [[S-42 Discover Hub & Search Story]] · **Requirements:** [[FR-19 Discover Hub & Search Frontend Requirements]] · **QA:** [[Discover Hub & Search QA Frontend]]

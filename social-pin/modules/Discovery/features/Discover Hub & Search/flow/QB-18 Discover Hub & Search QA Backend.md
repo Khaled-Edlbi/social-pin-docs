@@ -18,6 +18,8 @@ tags: [qa-backend, qa-backend/draft, module/discovery, layer/qa]
 
 # 🧪 Discover Hub & Search · QA Backend
 
+> ⚠ Affected by [[BD-19 Discover Hub & Search Backend Delivery]] (2026-11-23): /qa: new rows to verify once backend branch BD-19/search/pin-name-search (c5bc838) is merged and deployed: GET /search/pin-names (3-letter floor with E_SEARCH_01, letters anywhere, exact name first then people who have the searcher in a Ring then the rest, 20 a page with meta.total, the four relationships with requestId, canOpenCard, never the searcher or a blocked pair or a switched-off stranger), 429 E_SEARCH_02 past 30 searches a minute, and findableByPinName on GET and PATCH /users/me applied to the next search. No e2e was run on the branch: the container had no database; the unit suite (1098) is green
+
 **Feature:** [[F-19 Discover Hub & Search]] · **Verifies:** [[BD-19 Discover Hub & Search Backend Delivery]] against [[S-42 Discover Hub & Search Story]] and [[FR-19 Discover Hub & Search Frontend Requirements]], with the calls and errors of [[BI-19 Discover Hub & Search Backend Integration]] · **Verdict:** Draft · written 2026-11-16, no row run yet
 
 Expected behaviour of the API, as artefacts a person can check a build against: tables and diagrams, **not test code** (the specs live in the backend repo). `status: passing` or `failing` after a run; the verdict tells the PM whether the story can be fulfilled (passing with nothing pending or unmet). A failing row is one of two things: a story part the delivery does not fulfil (not built, or built other than the story says) goes in `unmet` and turns the story's badge ✕; a bug (built as asked, but it breaks) is filed against the Backend Integration and goes in `pending`, and leaves the story alone.
