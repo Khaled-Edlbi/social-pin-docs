@@ -19,6 +19,8 @@ tags: [frontend-requirements, frontend-requirements/approved, module/identity, l
 
 # Counts · Frontend Requirements
 
+> ⚠ Affected by [[S-03 Counts Story]] (2026-11-24): /frontend: S4 and S11 describe the Me profile card as three tiles, Rings · Connections · Photos (app 776e6ca, kept by Omar Fostok 2026-11-24), "–" in a tile until its count is read, never 0 or a sample; the s68 "N Rings · N connections … hidden, not zero" line no longer matches
+
 > ⚠ Affected by [[S-03 Counts Story]] (2026-11-12): S2 and S10 no longer say "never": on Shared with me, "· N people" shows only on a row whose Ring lets members see each other (the server sends memberCount on GET /rings/shared-with-me only then, BI-17); "Not asked, by decision" and the owner-only line here are out of date
 
 **Feature:** [[F-03 Counts]] · **Status:** Approved 2026-11-05 by khaled · **Story:** [[S-03 Counts Story]] · **API Integration:** not yet (backend not built)

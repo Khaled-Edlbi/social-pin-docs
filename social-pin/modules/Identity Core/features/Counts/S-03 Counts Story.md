@@ -9,9 +9,9 @@ screens: [s11, s12, s14, s16, s17, s68]
 approvedBy: "khaled"
 approvedAt: 2026-10-25
 owner: "Omar Fostok"
-related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "S-33 Ring Invitations & Join Story", "BI-17 Ring Invitations & Join Backend Integration"]
+related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "S-33 Ring Invitations & Join Story", "BI-17 Ring Invitations & Join Backend Integration", "S-11 Photo Library Story", "GET /connections/count"]
 created: 2026-10-18
-updated: 2026-11-12
+updated: 2026-11-24
 tags: [story, story/approved, module/identity, layer/business]
 ---
 
@@ -19,7 +19,7 @@ tags: [story, story/approved, module/identity, layer/business]
 
 **Feature:** [[F-03 Counts]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[FR-03 Counts Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
-A Ring owner glances at Home or My Rings and wants a sense of scale: how many people each Ring reaches ("148 people"), how many Rings they own and how many people share with them, and, on Me, how many connections they have ("218 connections"). The numbers are derived from data that exists today; what is missing is a way to read them.
+A Ring owner glances at Home or My Rings and wants a sense of scale: how many people each Ring reaches ("148 people"), how many Rings they own and how many people share with them, and, on Me, how many connections they have (the Connections tile on the profile card). The numbers are derived from data that exists today; what is missing is a way to read them.
 
 **Task stories:** [[S-03 Counts Story|Counts · S6–S10]] (Counts · S6–S10: the member count in S1, S2, S3 and S5). S4 waits on [[S-03 Counts Story|Counts · S11]].
 
@@ -69,13 +69,16 @@ Acceptance criteria:
 
 ### S4 · Connections on Me ([[Screen Index#s68|s68]])
 
-**As a** user **I want** "218 connections" on Me **so that** I see how many people I have exchanged access with.
+**As a** user **I want** a Connections tile on my profile card on Me **so that** I see how many people I have exchanged access with.
 
 **Me only**, decided 2026-10-27 by omar: Home shows no connections count. The wireframe brief lists a "connections counter" on Home (§4.1), but the Home screens (s11, s12) have none; this story follows the screens. [[S-03 Counts Story|Counts · S11]] keeps its title but covers Me only.
 
+**Three tiles**, decided 2026-11-24 by Omar Fostok: since the Me redesign (app `776e6ca`) the profile card shows three tiles, Rings · Connections · Photos, in place of the line "2 Rings · 218 connections"; the tiles stay.
+
 Acceptance criteria:
-- [ ] On the profile card under the name ("2 Rings · 218 connections"), the connections part is hidden, not zero and not a sample number, until connections exist in the backend.
-- [ ] When it ships, the count is the number of accepted connections, not the sum of Ring members.
+- [ ] Under the name, the profile card shows three tiles, **Rings**, **Connections** and **Photos**, each a number over its label; each opens its list (My Rings [[Screen Index#s16|s16]], Contacts, the Photo library).
+- [ ] A count that isn't known yet (still loading, or not read) shows "–" in its tile: never 0 and never a sample number.
+- [ ] The Connections tile is the number of accepted connections, not the sum of Ring members ([[S-03 Counts Story|Counts · S11]]).
 
 ### S5 · Counts stay honest after changes (journey, no prototype screen)
 
@@ -131,14 +134,14 @@ Acceptance criteria:
 
 *From T-005 Connection count on Me and Home (status then: To do), merged 2026-10-27.*
 
-**As a** user **I want** "N connections" on my profile card on Me **so that** I see how many people I have exchanged access with.
+**As a** user **I want** the Connections tile on my profile card on Me to show N **so that** I see how many people I have exchanged access with.
 
 Acceptance criteria:
-- [ ] The profile card under my name reads "2 Rings · 218 connections": the Rings part is `meta.total` of `GET /rings` (exists today), the connections part is the number this task adds.
+- [ ] The profile card has three tiles (S4): **Rings** is `meta.total` of `GET /rings`; **Connections** is `connections` from `GET /connections/count`; **Photos** is `meta.total` of `GET /files?kind=image` ([[S-11 Photo Library Story]]).
 - [ ] N counts **people I have an accepted connection with**, once each, however many of my Rings they are in ([[D-15 Several Rings per connection, remove or disconnect]]).
 - [ ] Someone I removed from all my Rings but kept as a connection ("Remove from Rings") still counts; someone I **disconnected** does not.
 - [ ] Pending, declined, cancelled and expired requests don't count ([[D-17 Requests expire after 30 days, optional note, ask again at once]]).
-- [ ] Until connections exist, the connections part is **hidden**: not "0 connections", not a sample number. The card reads "2 Rings".
+- [ ] Until the count is read, the Connections tile shows "–": not "0", not a sample number. Once read, 0 is a real zero and shows "0".
 - [ ] The number is mine only: nobody else ever sees how many connections I have.
 - [ ] It refetches when Me opens and after I accept a request or disconnect someone.
 
@@ -150,7 +153,7 @@ Acceptance criteria:
 - (Counts · S6–S10) Known: "N people", "N in Ring", "People · N", with "0" a real zero.
 - (Counts · S6–S10) Not known yet (before this ships, or while loading): no number. The app shows "—" in the number's place today ("— people", "— in Ring"); never "0".
 - (Counts · S6–S10) Motion: none; the count moves with its card when the Ring changes.
-- (Counts · S11) State: the connections part appears only once the backend sends a number; 0 is shown as "0 connections" only once connections exist and I have none.
+- (Counts · S11) State: each tile shows "–" until its count is read, then the number; 0 is a real zero and shows "0".
 - (Counts · S11) Motion: none asked for.
 
 ## Rules the backend already enforces
@@ -158,11 +161,11 @@ Acceptance criteria:
 - Access is resolved per request against `now`; a member count must apply the same `membershipLiveFilter` / `ringLiveFilter` logic or it will disagree with what viewers can actually see.
 - Membership is private to the owner. "Members can see each other" is a Ring setting, off by default ([[D-04 Ring settings at launch and their defaults]], not available yet); while it is off, nothing on the member's side counts the Ring's members.
 - `GET /rings/shared-with-me` already returns only live-accessible Rings, so its `meta.total` is a truthful "Shared with me · N".
-- Connections do not exist yet; nothing can be counted.
+- Connections are counted by `GET /connections/count` since backend `main` `1c460b0` (2026-11-08, [[BD-03 Counts Backend Delivery]]).
 - (Counts · S6–S10) Access is resolved per request against `now`; a member is live only while both the membership's and the Ring's windows are open (`membershipLiveFilter`, `ringLiveFilter`). The count must use the same filters.
 - (Counts · S6–S10) The roster (`GET /rings/:ringId/members`) is owner or delegated-admin only, and `status=ACTIVE` still includes members whose window has lapsed; that's why its `meta.total` is not the count.
 - (Counts · S6–S10) Membership is private to the owner.
-- (Counts · S11) Connections don't exist yet: nothing can be counted ([[BD-03 Counts Backend Delivery]]).
+- (Counts · S11) `GET /connections/count` → `{ "connections": N }`, my accepted connections, each person once, equal to `meta.total` of `GET /connections` ([[BD-03 Counts Backend Delivery]]).
 - (Counts · S11) Every visibility decision goes through `RingAccessService`; a count is owner-facing and never part of a view or a perspective.
 
 ## Open questions
@@ -177,6 +180,8 @@ Acceptance criteria:
 
 ## Log
 
+- 2026-11-24 · `tickets/pm/M-01-identity/F-03-counts/S-03-me-tiles` · S4 and S11: the Me profile card's three tiles, Rings · Connections · Photos (app `776e6ca`), in place of "2 Rings · 218 connections"; "–" in a tile until its count is read, never 0 or a sample; connections exist since `1c460b0`, so "hidden until connections exist" is gone. Kept by Omar Fostok 2026-11-24; records what shipped, so the story stays approved
+- 2026-11-24 · flagged [[FR-03 Counts Frontend Requirements]], [[FD-06 Counts Frontend Delivery]], [[BI-14 Counts Backend Integration]], [[F-03 Counts]]: the same
 - 2026-11-12 · `tickets/pm/M-01-identity/F-03-counts/S-03-app-778d9b4` · S2, S10 and the open question: "· N people" on Shared with me only when the Ring lets members see each other (the server sends memberCount only then); the "never" wording is gone. Decided by Omar Fostok 2026-11-11, app 778d9b4
 - 2026-11-12 · flagged [[FR-03 Counts Frontend Requirements]], [[BD-03 Counts Backend Delivery]], [[BI-14 Counts Backend Integration]], [[FD-06 Counts Frontend Delivery]], [[QB-07 Counts QA Backend]]: the same
 
