@@ -145,6 +145,7 @@
     "frontend-delivery:interests": "FD-22",
     "frontend-delivery:notifications": "FD-23",
     "frontend-delivery:photo-library": "FD-08",
+    "frontend-delivery:pincast": "FD-24",
     "frontend-delivery:profiles": "FD-09",
     "frontend-delivery:ring-access": "FD-10",
     "frontend-delivery:ring-invitations": "FD-15",

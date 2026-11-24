@@ -18,7 +18,7 @@ tags: [feature, module/discovery, priority/critical, release/mvp]
 
 **Backend:** done 2026-11-23 ([[BD-20 PinCast & Nearby Backend Delivery|BD-20]], on backend `main` `ecd93c0`: the `/pincasts` routes, the card by PinCast token, `pincastToken` on Connect; run on PostGIS by QB-19, on dev since 2026-11-24; the 30-day purge is [[F-31 Cleanup Jobs]]', the notifications [[F-39 Notifications]]') · **Module:** [[M-04 Discovery Module|Discovery]]
 
-**Layers:** [[S-45 PinCast & Nearby Story|Story]] · [[FR-20 PinCast & Nearby Frontend Requirements|Frontend Requirements]] · [[BD-20 PinCast & Nearby Backend Delivery|Backend Delivery]] · [[BI-20 PinCast & Nearby Backend Integration|Backend Integration]] · [[PinCast & Nearby Frontend Delivery|Frontend Delivery]] · [[QB-19 PinCast & Nearby QA Backend|QA Backend]] · [[PinCast & Nearby QA Frontend|QA Frontend]]
+**Layers:** [[S-45 PinCast & Nearby Story|Story]] · [[FR-20 PinCast & Nearby Frontend Requirements|Frontend Requirements]] · [[BD-20 PinCast & Nearby Backend Delivery|Backend Delivery]] · [[BI-20 PinCast & Nearby Backend Integration|Backend Integration]] · [[FD-24 PinCast & Nearby Frontend Delivery|Frontend Delivery]] · [[QB-19 PinCast & Nearby QA Backend|QA Backend]] · [[PinCast & Nearby QA Frontend|QA Frontend]]
 
 Proximity broadcast limited by distance and time (s39 – s42) and nearby-by-Ring. The PostGIS column, trigger and GiST index are in place.
 
