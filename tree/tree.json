@@ -232,6 +232,7 @@
     "FD-21 App Shell & Onboarding Narrative Frontend Delivery": "frontend-delivery:app-shell",
     "FD-22 Interests Frontend Delivery": "frontend-delivery:interests",
     "FD-23 Notifications Frontend Delivery": "frontend-delivery:notifications",
+    "FD-24 PinCast & Nearby Frontend Delivery": "frontend-delivery:pincast",
     "FR-01 Account Frontend Requirements": "frontend-requirements:account",
     "FR-02 Auth & Sign-up Frontend Requirements": "frontend-requirements:auth",
     "FR-03 Counts Frontend Requirements": "frontend-requirements:counts",
@@ -594,6 +595,7 @@
     "FD-21": "frontend-delivery:app-shell",
     "FD-22": "frontend-delivery:interests",
     "FD-23": "frontend-delivery:notifications",
+    "FD-24": "frontend-delivery:pincast",
     "FR-01": "frontend-requirements:account",
     "FR-02": "frontend-requirements:auth",
     "FR-03": "frontend-requirements:counts",
@@ -2508,6 +2510,7 @@
       "notes": [
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast"
       ],
@@ -2945,6 +2948,7 @@
       "kind": "endpoint",
       "notes": [
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast"
       ],
@@ -2980,6 +2984,7 @@
       "notes": [
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast"
       ],
@@ -3003,6 +3008,7 @@
       ],
       "kind": "endpoint",
       "notes": [
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast"
       ],
       "owner": null
@@ -3215,6 +3221,7 @@
         "frontend-delivery:badge-qr",
         "frontend-delivery:connections",
         "frontend-delivery:counts",
+        "frontend-delivery:pincast",
         "frontend-delivery:ring-invitations",
         "frontend-delivery:ring-members",
         "frontend-delivery:rings",
@@ -4337,6 +4344,7 @@
       "notes": [
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:connections",
         "frontend-requirements:pincast",
         "project:architecture",
@@ -4673,6 +4681,7 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast"
       ],
@@ -5190,6 +5199,7 @@
         "backend-integration:connections",
         "backend-integration:ring-invitations",
         "frontend-delivery:connections",
+        "frontend-delivery:pincast",
         "frontend-requirements:badge-qr",
         "frontend-requirements:connections",
         "frontend-requirements:ring-access",
@@ -5247,6 +5257,7 @@
         "decision:D-24",
         "frontend-delivery:connections",
         "frontend-delivery:discover-hub",
+        "frontend-delivery:pincast",
         "frontend-requirements:badge-qr",
         "frontend-requirements:connections",
         "frontend-requirements:discover-hub",
@@ -5349,6 +5360,7 @@
       "notes": [
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast"
       ],
@@ -5362,6 +5374,7 @@
       "notes": [
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast"
       ],
@@ -5374,6 +5387,7 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast"
       ],
@@ -5387,6 +5401,7 @@
       "notes": [
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast"
       ],
@@ -6286,6 +6301,7 @@
         "feature:pincast",
         "frontend-delivery:connections",
         "frontend-delivery:counts",
+        "frontend-delivery:pincast",
         "frontend-delivery:ring-invitations",
         "frontend-requirements:connections",
         "frontend-requirements:counts",
@@ -7094,6 +7110,7 @@
         "backend-delivery:pincast",
         "backend-integration:pincast",
         "feature:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "story:pincast"
@@ -7109,6 +7126,7 @@
         "backend-delivery:pincast",
         "backend-integration:pincast",
         "feature:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "story:pincast"
@@ -7124,6 +7142,7 @@
         "backend-delivery:pincast",
         "backend-integration:pincast",
         "feature:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "story:pincast"
@@ -7140,6 +7159,7 @@
         "backend-delivery:pincast",
         "backend-integration:pincast",
         "feature:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:connections",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
@@ -7226,6 +7246,7 @@
         "frontend-delivery:connections",
         "frontend-delivery:discover-hub",
         "frontend-delivery:files",
+        "frontend-delivery:pincast",
         "frontend-delivery:ring-access",
         "frontend-delivery:view-as",
         "frontend-requirements:badge-qr",
@@ -7976,7 +7997,7 @@
       "backend-integration": 16,
       "decision": 38,
       "feature": 40,
-      "frontend-delivery": 20,
+      "frontend-delivery": 21,
       "frontend-requirements": 39,
       "module": 8,
       "needs-decision": 39,
@@ -7989,19 +8010,19 @@
     "byLayer": {
       "backend": 63,
       "business": 193,
-      "frontend": 63,
+      "frontend": 64,
       "qa": 19,
       "shared": 10
     },
     "concepts": 376,
     "decisions": 39,
-    "edges": 10029,
+    "edges": 10113,
     "features": 40,
-    "layerNotes": 173,
+    "layerNotes": 174,
     "modules": 8,
-    "notes": 379,
+    "notes": 380,
     "partial": 14,
-    "placeholders": 105,
+    "placeholders": 104,
     "records": 38
   },
   "deadlines": {
@@ -10144,11 +10165,6 @@
       "to": "qa-frontend:payments"
     },
     {
-      "from": "frontend-delivery:pincast",
-      "kind": "blocks",
-      "to": "qa-frontend:pincast"
-    },
-    {
       "from": "frontend-delivery:post-event",
       "kind": "blocks",
       "to": "qa-frontend:post-event"
@@ -11054,6 +11070,11 @@
       "to": "backend-integration:photo-library"
     },
     {
+      "from": "frontend-delivery:pincast",
+      "kind": "depends",
+      "to": "backend-integration:pincast"
+    },
+    {
       "from": "frontend-delivery:profiles",
       "kind": "depends",
       "to": "backend-integration:profiles"
@@ -11607,6 +11628,11 @@
       "from": "backend-integration:photo-library",
       "kind": "flow",
       "to": "frontend-delivery:photo-library"
+    },
+    {
+      "from": "backend-integration:pincast",
+      "kind": "flow",
+      "to": "frontend-delivery:pincast"
     },
     {
       "from": "backend-integration:profiles",
@@ -13089,6 +13115,16 @@
     {
       "from": "backend-delivery:badge-qr",
       "kind": "related",
+      "to": "frontend-delivery:pincast",
+      "via": [
+        "GET /connections/relationship",
+        "POST /blocks",
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "backend-delivery:badge-qr",
+      "kind": "related",
       "to": "frontend-delivery:ring-access",
       "via": [
         "GET /views/qr/:token",
@@ -14136,6 +14172,16 @@
         "GET /views/pin/:pinName",
         "POST /connections/requests",
         "POST /connections/requests/:id/accept"
+      ]
+    },
+    {
+      "from": "backend-delivery:connections",
+      "kind": "related",
+      "to": "frontend-delivery:pincast",
+      "via": [
+        "GET /connections/relationship",
+        "POST /blocks",
+        "POST /connections/requests"
       ]
     },
     {
@@ -15847,6 +15893,15 @@
     {
       "from": "backend-delivery:discover-hub",
       "kind": "related",
+      "to": "frontend-delivery:pincast",
+      "via": [
+        "GET /connections/relationship",
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "backend-delivery:discover-hub",
+      "kind": "related",
       "to": "frontend-delivery:profiles",
       "via": [
         "GET /profiles"
@@ -16967,6 +17022,23 @@
       "to": "frontend-delivery:discover-hub",
       "via": [
         "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "backend-delivery:pincast",
+      "kind": "related",
+      "to": "frontend-delivery:pincast",
+      "via": [
+        "GET /pincasts/:id/results",
+        "GET /pincasts/current",
+        "GET /views/pincast/:token",
+        "PATCH /pincasts/current",
+        "POST /blocks",
+        "POST /connections/requests",
+        "POST /pincasts",
+        "POST /pincasts/current/extend",
+        "POST /pincasts/current/position",
+        "POST /pincasts/current/stop"
       ]
     },
     {
@@ -21166,6 +21238,16 @@
     {
       "from": "backend-integration:badge-qr",
       "kind": "related",
+      "to": "frontend-delivery:pincast",
+      "via": [
+        "GET /rings",
+        "POST /blocks",
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "backend-integration:badge-qr",
+      "kind": "related",
       "to": "frontend-delivery:ring-access",
       "via": [
         "GET /views/qr/:token",
@@ -22237,6 +22319,17 @@
         "GET /views/pin/:pinName",
         "POST /connections/requests",
         "POST /connections/requests/:id/accept"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
+      "to": "frontend-delivery:pincast",
+      "via": [
+        "GET /connections/relationship",
+        "GET /rings",
+        "POST /blocks",
+        "POST /connections/requests"
       ]
     },
     {
@@ -24026,6 +24119,15 @@
     {
       "from": "backend-integration:discover-hub",
       "kind": "related",
+      "to": "frontend-delivery:pincast",
+      "via": [
+        "GET /connections/relationship",
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "backend-integration:discover-hub",
+      "kind": "related",
       "to": "frontend-delivery:profiles",
       "via": [
         "GET /profiles"
@@ -25350,6 +25452,25 @@
       "via": [
         "POST /connections/requests",
         "POST /connections/requests/:id/accept"
+      ]
+    },
+    {
+      "from": "backend-integration:pincast",
+      "kind": "related",
+      "to": "frontend-delivery:pincast",
+      "via": [
+        "GET /pincasts/:id/results",
+        "GET /pincasts/current",
+        "GET /pincasts/current/people",
+        "GET /rings",
+        "GET /views/pincast/:token",
+        "PATCH /pincasts/current",
+        "POST /blocks",
+        "POST /connections/requests",
+        "POST /pincasts",
+        "POST /pincasts/current/extend",
+        "POST /pincasts/current/position",
+        "POST /pincasts/current/stop"
       ]
     },
     {
@@ -30562,6 +30683,16 @@
     {
       "from": "frontend-delivery:badge-qr",
       "kind": "related",
+      "to": "frontend-delivery:pincast",
+      "via": [
+        "GET /rings",
+        "POST /blocks",
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "frontend-delivery:badge-qr",
+      "kind": "related",
       "to": "frontend-delivery:ring-access",
       "via": [
         "GET /views/qr/:token"
@@ -31726,6 +31857,14 @@
     {
       "from": "frontend-delivery:discover-hub",
       "kind": "related",
+      "to": "frontend-delivery:pincast",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "frontend-delivery:discover-hub",
+      "kind": "related",
       "to": "frontend-delivery:view-as",
       "via": [
         "GET /views/pin/:pinName"
@@ -32240,6 +32379,560 @@
       "from": "frontend-delivery:photo-library",
       "kind": "related",
       "to": "story:profiles"
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "backend-delivery:counts",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "backend-delivery:delegated-admins",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "backend-delivery:profiles",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "backend-delivery:ring-invitations",
+      "via": [
+        "POST /blocks"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "backend-delivery:rings",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "backend-integration:counts",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "backend-integration:profiles",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "backend-integration:ring-invitations",
+      "via": [
+        "GET /rings",
+        "POST /blocks"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "backend-integration:rings",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "decision:D-10",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "decision:D-17",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "decision:D-24",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "frontend-delivery:app-shell",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "frontend-delivery:auth",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "frontend-delivery:connections",
+      "via": [
+        "GET /rings",
+        "POST /blocks",
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "frontend-delivery:counts",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "frontend-delivery:ring-invitations",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "frontend-delivery:ring-members",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "frontend-delivery:rings",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "frontend-delivery:view-as",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "frontend-requirements:account",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "frontend-requirements:app-shell",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "frontend-requirements:auth",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "frontend-requirements:badge-qr",
+      "via": [
+        "GET /connections/relationship",
+        "GET /rings",
+        "POST /blocks",
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "frontend-requirements:cleanup-jobs",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "frontend-requirements:companies",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "frontend-requirements:counts",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "frontend-requirements:delegated-admins",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "frontend-requirements:discover-hub",
+      "via": [
+        "GET /connections/relationship",
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "frontend-requirements:event-ring-auto",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "frontend-requirements:events-before",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "frontend-requirements:pincast",
+      "via": [
+        "GET /connections/relationship",
+        "GET /pincasts/:id/results",
+        "GET /pincasts/current",
+        "GET /pincasts/current/people",
+        "GET /rings",
+        "GET /views/pincast/:token",
+        "PATCH /pincasts/current",
+        "POST /connections/requests",
+        "POST /pincasts",
+        "POST /pincasts/current/extend",
+        "POST /pincasts/current/position",
+        "POST /pincasts/current/stop"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "frontend-requirements:post-event",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "frontend-requirements:ring-access",
+      "via": [
+        "POST /blocks"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "frontend-requirements:ring-invitations",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "frontend-requirements:ring-members",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "frontend-requirements:ring-projection",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "frontend-requirements:rings",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "frontend-requirements:view-as",
+      "via": [
+        "GET /connections/relationship",
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "needs-decision:ND-10",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "needs-decision:ND-24",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "project:architecture",
+      "via": [
+        "GET /views/pincast/:token"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "GET /connections/relationship",
+        "GET /rings",
+        "GET /views/pincast/:token",
+        "POST /blocks",
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "project:frontend-contract",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "project:spec-map",
+      "via": [
+        "GET /rings",
+        "GET /views/pincast/:token",
+        "POST /blocks",
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "project:status-report-2026-10-15",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "qa-backend:account",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "qa-backend:auth",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "qa-backend:counts",
+      "via": [
+        "GET /rings",
+        "POST /blocks",
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "qa-backend:pincast",
+      "via": [
+        "GET /connections/relationship",
+        "GET /pincasts/:id/results",
+        "GET /pincasts/current",
+        "GET /pincasts/current/people",
+        "GET /views/pincast/:token",
+        "PATCH /pincasts/current",
+        "POST /blocks",
+        "POST /connections/requests",
+        "POST /pincasts",
+        "POST /pincasts/current/extend",
+        "POST /pincasts/current/position",
+        "POST /pincasts/current/stop"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "qa-backend:profiles",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "qa-backend:ring-access",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "qa-backend:ring-invitations",
+      "via": [
+        "POST /blocks"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "qa-backend:rings",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "qa-frontend:auth",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "story:auth",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "story:connections",
+      "via": [
+        "GET /rings",
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "story:counts",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "story:delegated-admins",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "story:event-ring-auto",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "story:notifications"
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "story:pincast"
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "story:post-event",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "story:rings",
+      "via": [
+        "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "task:B-02",
+      "via": [
+        "GET /rings"
+      ]
     },
     {
       "from": "frontend-delivery:profiles",
@@ -35348,6 +36041,18 @@
       "to": "frontend-delivery:files",
       "via": [
         "GET /rings/:ringId/projection"
+      ]
+    },
+    {
+      "from": "frontend-requirements:connections",
+      "kind": "related",
+      "to": "frontend-delivery:pincast",
+      "via": [
+        "GET /connections/relationship",
+        "GET /rings",
+        "GET /views/pincast/:token",
+        "POST /blocks",
+        "POST /connections/requests"
       ]
     },
     {
@@ -45056,6 +45761,15 @@
     {
       "from": "qa-backend:badge-qr",
       "kind": "related",
+      "to": "frontend-delivery:pincast",
+      "via": [
+        "POST /blocks",
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "qa-backend:badge-qr",
+      "kind": "related",
       "to": "frontend-delivery:ring-access",
       "via": [
         "GET /views/qr/:token",
@@ -46091,6 +46805,16 @@
         "GET /views/pin/:pinName",
         "POST /connections/requests",
         "POST /connections/requests/:id/accept"
+      ]
+    },
+    {
+      "from": "qa-backend:connections",
+      "kind": "related",
+      "to": "frontend-delivery:pincast",
+      "via": [
+        "GET /rings",
+        "POST /blocks",
+        "POST /connections/requests"
       ]
     },
     {
@@ -48040,6 +48764,14 @@
       "to": "frontend-delivery:photo-library",
       "via": [
         "GET /profiles"
+      ]
+    },
+    {
+      "from": "qa-backend:discover-hub",
+      "kind": "related",
+      "to": "frontend-delivery:pincast",
+      "via": [
+        "POST /connections/requests"
       ]
     },
     {
@@ -56602,6 +57334,14 @@
     {
       "from": "qa-frontend:discover-hub",
       "kind": "related",
+      "to": "frontend-delivery:pincast",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "qa-frontend:discover-hub",
+      "kind": "related",
       "to": "frontend-delivery:view-as",
       "via": [
         "GET /views/pin/:pinName"
@@ -59649,6 +60389,14 @@
       "to": "frontend-delivery:files",
       "via": [
         "POST /rings"
+      ]
+    },
+    {
+      "from": "task:B-13",
+      "kind": "related",
+      "to": "frontend-delivery:pincast",
+      "via": [
+        "GET /rings"
       ]
     },
     {
@@ -63381,6 +64129,14 @@
       "from": "task:B-30",
       "kind": "related",
       "to": "frontend-delivery:discover-hub",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "task:B-30",
+      "kind": "related",
+      "to": "frontend-delivery:pincast",
       "via": [
         "POST /connections/requests"
       ]
@@ -81808,6 +82564,11 @@
     {
       "from": "module:discovery",
       "kind": "wikilink",
+      "to": "frontend-delivery:pincast"
+    },
+    {
+      "from": "module:discovery",
+      "kind": "wikilink",
       "to": "frontend-requirements:badge-qr"
     },
     {
@@ -85819,6 +86580,10 @@
       "name": "BI-20 PinCast & Nearby Backend Integration",
       "type": "backend-integration"
     },
+    "social-pin/modules/Discovery/features/PinCast & Nearby/flow/FD-24 PinCast & Nearby Frontend Delivery.md": {
+      "name": "FD-24 PinCast & Nearby Frontend Delivery",
+      "type": "frontend-delivery"
+    },
     "social-pin/modules/Discovery/features/PinCast & Nearby/flow/FR-20 PinCast & Nearby Frontend Requirements.md": {
       "name": "FR-20 PinCast & Nearby Frontend Requirements",
       "type": "frontend-requirements"
@@ -87505,6 +88270,7 @@
         "frontend-requirements:discover-hub",
         "qa-backend:discover-hub",
         "qa-frontend:discover-hub",
+        "frontend-delivery:pincast",
         "backend-delivery:ring-invitations",
         "task:B-02",
         "backend-integration:account",
@@ -87798,6 +88564,7 @@
         "frontend-requirements:discover-hub",
         "qa-backend:discover-hub",
         "qa-frontend:discover-hub",
+        "frontend-delivery:pincast",
         "qa-backend:pincast",
         "project:spec-map",
         "project:frontend-api-guide",
@@ -87970,6 +88737,7 @@
         "qa-backend:badge-qr",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "qa-frontend:auth",
@@ -88128,6 +88896,7 @@
         "frontend-requirements:connections",
         "qa-backend:connections",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-frontend:auth",
         "backend-delivery:counts",
@@ -88361,6 +89130,7 @@
         "frontend-requirements:companies",
         "needs-decision:ND-24",
         "decision:D-17",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "backend-delivery:pincast",
         "backend-integration:pincast",
@@ -89473,6 +90243,7 @@
         "frontend-delivery:badge-qr",
         "qa-backend:badge-qr",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "project:architecture",
@@ -89703,6 +90474,7 @@
         "backend-integration:discover-hub",
         "qa-backend:discover-hub",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-frontend:account",
         "qa-backend:auth",
@@ -90009,6 +90781,7 @@
         "qa-backend:badge-qr",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "qa-backend:pincast",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -90439,6 +91212,7 @@
         "qa-backend:badge-qr",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "qa-frontend:auth",
@@ -91196,6 +91970,7 @@
         "needs-decision:ND-24",
         "decision:D-17",
         "decision:D-24",
+        "frontend-delivery:pincast",
         "backend-delivery:ring-invitations",
         "qa-frontend:account",
         "qa-backend:auth",
@@ -91471,6 +92246,7 @@
         "frontend-delivery:discover-hub",
         "frontend-requirements:discover-hub",
         "qa-frontend:discover-hub",
+        "frontend-delivery:pincast",
         "qa-backend:pincast",
         "frontend-requirements:pincast",
         "backend-delivery:counts",
@@ -91625,6 +92401,7 @@
         "qa-backend:badge-qr",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "qa-frontend:auth",
@@ -91959,6 +92736,7 @@
         "needs-decision:ND-24",
         "decision:D-17",
         "decision:D-24",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "backend-delivery:pincast",
         "backend-integration:pincast",
@@ -92863,6 +93641,7 @@
       "affects": [
         "frontend-requirements:pincast"
       ],
+      "autoDelivered": true,
       "blockedBy": [],
       "card": "BI-20",
       "children": [],
@@ -92874,7 +93653,7 @@
         "frontend-requirements:pincast",
         "story:pincast"
       ],
-      "effectiveStatus": "current",
+      "effectiveStatus": "delivered",
       "effort": null,
       "feature": "pincast",
       "foundOn": null,
@@ -92910,6 +93689,7 @@
         "frontend-delivery:badge-qr",
         "qa-backend:badge-qr",
         "backend-delivery:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "project:architecture",
@@ -93136,6 +93916,7 @@
         "qa-backend:discover-hub",
         "qa-frontend:discover-hub",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:account",
         "qa-frontend:account",
@@ -93346,6 +94127,7 @@
         "qa-backend:badge-qr",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "qa-frontend:auth",
@@ -93736,6 +94518,7 @@
         "qa-backend:badge-qr",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "qa-frontend:auth",
@@ -94710,6 +95493,7 @@
         "qa-frontend:discover-hub",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "story:pincast",
@@ -95319,6 +96103,7 @@
         "qa-frontend:discover-hub",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "qa-backend:counts",
@@ -95790,6 +96575,7 @@
         "qa-frontend:discover-hub",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "qa-backend:counts"
@@ -99476,10 +100262,9 @@
       "resolution": null,
       "rollup": {
         "approved": 1,
-        "current": 1,
-        "delivered": 1,
-        "done": 1,
-        "missing": 2,
+        "delivered": 2,
+        "done": 2,
+        "missing": 1,
         "passing": 1
       },
       "scope": null,
@@ -100586,6 +101371,7 @@
         "frontend-requirements:connections",
         "qa-backend:connections",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-frontend:auth",
         "backend-delivery:counts",
@@ -100739,6 +101525,7 @@
         "frontend-delivery:discover-hub",
         "qa-backend:discover-hub",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "backend-delivery:account",
         "backend-integration:account",
@@ -100904,6 +101691,7 @@
         "needs-decision:ND-24",
         "decision:D-17",
         "decision:D-24",
+        "frontend-delivery:pincast",
         "backend-delivery:ring-invitations",
         "qa-backend:ring-invitations",
         "frontend-requirements:pincast",
@@ -101256,6 +102044,7 @@
         "project:frontend-contract",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-frontend:auth",
         "backend-delivery:counts",
@@ -101346,6 +102135,7 @@
         "qa-backend:badge-qr",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "qa-frontend:auth",
@@ -101607,6 +102397,7 @@
         "needs-decision:ND-24",
         "decision:D-17",
         "decision:D-24",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "backend-delivery:pincast",
         "backend-integration:pincast",
@@ -102533,19 +103324,27 @@
     "frontend-delivery:pincast": {
       "affects": [],
       "blockedBy": [],
-      "card": null,
+      "card": "FD-24",
       "children": [],
       "code": "pincast",
-      "created": null,
+      "created": "2026-11-24",
       "deadline": null,
-      "depends": [],
-      "effectiveStatus": "missing",
+      "depends": [
+        "backend-integration:pincast"
+      ],
+      "deployedTo": [
+        "dev"
+      ],
+      "effectiveStatus": "done",
       "effort": null,
       "feature": "pincast",
       "foundOn": null,
       "frontendOnly": false,
       "id": "frontend-delivery:pincast",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:pincast",
+        "release": "feature:pincast"
+      },
       "kind": "frontend-delivery",
       "label": "Frontend Delivery",
       "labels": [],
@@ -102556,21 +103355,116 @@
       "parents": [
         "feature:pincast"
       ],
-      "path": null,
+      "path": "social-pin/modules/Discovery/features/PinCast & Nearby/flow/FD-24 PinCast & Nearby Frontend Delivery.md",
       "pending": [],
-      "priority": null,
-      "related": [],
-      "release": null,
+      "priority": "critical",
+      "related": [
+        "task:B-13",
+        "task:B-30",
+        "backend-delivery:connections",
+        "backend-integration:connections",
+        "frontend-requirements:connections",
+        "qa-backend:connections",
+        "backend-delivery:badge-qr",
+        "backend-integration:badge-qr",
+        "frontend-delivery:badge-qr",
+        "qa-backend:badge-qr",
+        "backend-delivery:discover-hub",
+        "backend-integration:discover-hub",
+        "frontend-delivery:discover-hub",
+        "qa-backend:discover-hub",
+        "qa-frontend:discover-hub",
+        "backend-delivery:pincast",
+        "backend-integration:pincast",
+        "story:pincast",
+        "frontend-requirements:pincast",
+        "backend-integration:rings",
+        "story:connections",
+        "story:notifications",
+        "qa-backend:pincast",
+        "project:architecture",
+        "project:spec-map",
+        "project:frontend-api-guide",
+        "task:B-02",
+        "frontend-delivery:connections",
+        "frontend-requirements:badge-qr",
+        "frontend-requirements:event-ring-auto",
+        "story:event-ring-auto",
+        "frontend-requirements:events-before",
+        "frontend-requirements:post-event",
+        "story:post-event",
+        "frontend-requirements:account",
+        "qa-backend:account",
+        "frontend-delivery:auth",
+        "frontend-requirements:auth",
+        "qa-backend:auth",
+        "qa-frontend:auth",
+        "story:auth",
+        "backend-delivery:counts",
+        "backend-integration:counts",
+        "frontend-delivery:counts",
+        "frontend-requirements:counts",
+        "qa-backend:counts",
+        "story:counts",
+        "backend-delivery:profiles",
+        "backend-integration:profiles",
+        "qa-backend:profiles",
+        "qa-backend:ring-access",
+        "frontend-delivery:ring-members",
+        "frontend-requirements:ring-members",
+        "frontend-requirements:ring-projection",
+        "backend-delivery:rings",
+        "frontend-delivery:rings",
+        "frontend-requirements:rings",
+        "qa-backend:rings",
+        "story:rings",
+        "frontend-delivery:view-as",
+        "frontend-requirements:view-as",
+        "frontend-delivery:app-shell",
+        "frontend-requirements:app-shell",
+        "frontend-requirements:cleanup-jobs",
+        "frontend-requirements:companies",
+        "backend-delivery:delegated-admins",
+        "frontend-requirements:delegated-admins",
+        "story:delegated-admins",
+        "backend-integration:ring-invitations",
+        "frontend-delivery:ring-invitations",
+        "frontend-requirements:ring-invitations",
+        "project:status-report-2026-10-15",
+        "project:frontend-contract",
+        "needs-decision:ND-10",
+        "needs-decision:ND-24",
+        "decision:D-10",
+        "decision:D-17",
+        "decision:D-24",
+        "frontend-requirements:discover-hub",
+        "frontend-requirements:ring-access",
+        "backend-delivery:ring-invitations",
+        "qa-backend:ring-invitations"
+      ],
+      "release": "mvp",
+      "resolution": null,
       "scope": "feature",
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold frontend-delivery pincast",
-      "tags": [],
+      "screens": [
+        "s11",
+        "s39",
+        "s40",
+        "s41",
+        "s42",
+        "s44"
+      ],
+      "status": "done",
+      "summary": "What the client shipped for PinCast, S-45 S1 to S5:",
+      "tags": [
+        "frontend-delivery",
+        "frontend-delivery/done",
+        "module/discovery",
+        "layer/frontend"
+      ],
       "task": null,
-      "template": "templates/Frontend Delivery Template.md",
-      "title": "PinCast & Nearby Frontend Delivery",
+      "title": "FD-24 PinCast & Nearby Frontend Delivery",
       "unmet": [],
-      "updated": null
+      "updated": "2026-11-24"
     },
     "frontend-delivery:post-event": {
       "affects": [],
@@ -102869,6 +103763,7 @@
         "frontend-requirements:connections",
         "qa-backend:connections",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-frontend:auth",
         "backend-delivery:counts",
@@ -102992,6 +103887,7 @@
         "frontend-requirements:connections",
         "qa-backend:connections",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-frontend:auth",
         "backend-delivery:counts",
@@ -103228,6 +104124,7 @@
         "frontend-requirements:connections",
         "qa-backend:connections",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-frontend:auth",
         "backend-delivery:counts",
@@ -103412,6 +104309,7 @@
         "qa-frontend:discover-hub",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "qa-frontend:auth",
@@ -103655,6 +104553,7 @@
         "qa-backend:discover-hub",
         "qa-frontend:discover-hub",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "backend-delivery:account",
         "backend-integration:account",
@@ -103748,6 +104647,7 @@
         "frontend-requirements:connections",
         "qa-backend:connections",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-frontend:account",
         "qa-backend:auth",
@@ -103891,6 +104791,7 @@
         "qa-backend:connections",
         "qa-backend:discover-hub",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "backend-delivery:account",
         "backend-integration:account",
@@ -104024,6 +104925,7 @@
         "qa-frontend:discover-hub",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "backend-integration:account",
@@ -104123,6 +105025,7 @@
         "qa-backend:badge-qr",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "qa-frontend:auth",
@@ -104287,6 +105190,7 @@
         "qa-backend:discover-hub",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "qa-frontend:account",
@@ -104551,6 +105455,7 @@
         "project:spec-map",
         "task:B-02",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "frontend-requirements:event-ring-auto",
         "story:event-ring-auto",
@@ -104706,6 +105611,7 @@
         "qa-backend:badge-qr",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "qa-frontend:auth",
@@ -104822,6 +105728,7 @@
         "qa-backend:badge-qr",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "qa-frontend:account",
@@ -105096,6 +106003,7 @@
         "project:frontend-api-guide",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "backend-delivery:account",
         "backend-integration:account",
@@ -105378,6 +106286,7 @@
         "qa-backend:badge-qr",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "qa-frontend:auth",
@@ -105462,6 +106371,7 @@
         "frontend-requirements:connections",
         "qa-backend:connections",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-frontend:account",
         "qa-backend:auth",
@@ -106586,6 +107496,7 @@
         "qa-backend:discover-hub",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "story:pincast",
         "decision:D-10",
         "decision:D-14",
@@ -106731,6 +107642,7 @@
         "qa-backend:badge-qr",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "qa-frontend:account",
@@ -106973,6 +107885,7 @@
         "qa-frontend:discover-hub",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "qa-backend:pincast",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -107144,6 +108057,7 @@
         "qa-backend:badge-qr",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "qa-frontend:account",
@@ -107264,6 +108178,7 @@
         "qa-backend:badge-qr",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "qa-frontend:auth",
@@ -107440,6 +108355,7 @@
         "qa-backend:discover-hub",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "backend-integration:account",
@@ -107622,6 +108538,7 @@
         "qa-backend:badge-qr",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "qa-frontend:auth",
@@ -107842,6 +108759,7 @@
         "qa-frontend:discover-hub",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "backend-delivery:account",
@@ -108435,13 +109353,13 @@
       "resolution": null,
       "rollup": {
         "approved": 4,
-        "current": 3,
+        "current": 2,
         "decided": 5,
-        "delivered": 2,
-        "done": 5,
+        "delivered": 3,
+        "done": 6,
         "failing": 1,
         "in-progress": 3,
-        "missing": 3,
+        "missing": 2,
         "partial": 3,
         "passing": 2,
         "todo": 1,
@@ -109313,6 +110231,7 @@
         "qa-frontend:discover-hub",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "qa-backend:counts",
@@ -110405,6 +111324,7 @@
         "qa-frontend:discover-hub",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "qa-backend:counts"
@@ -111990,6 +112910,7 @@
         "qa-frontend:discover-hub",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "qa-backend:pincast",
         "project:backend-agent"
       ],
@@ -112666,6 +113587,7 @@
         "qa-frontend:discover-hub",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "backend-delivery:account",
@@ -112790,6 +113712,7 @@
         "qa-frontend:discover-hub",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "qa-frontend:account",
@@ -113453,6 +114376,7 @@
         "qa-frontend:discover-hub",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "backend-delivery:account",
@@ -113573,6 +114497,7 @@
         "qa-frontend:discover-hub",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "qa-backend:auth",
@@ -113747,6 +114672,7 @@
         "qa-backend:discover-hub",
         "qa-frontend:discover-hub",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "backend-delivery:account",
         "backend-integration:account",
@@ -113903,6 +114829,7 @@
         "frontend-delivery:discover-hub",
         "qa-backend:discover-hub",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "backend-delivery:account",
         "backend-integration:account",
@@ -114127,6 +115054,7 @@
         "needs-decision:ND-24",
         "decision:D-17",
         "decision:D-24",
+        "frontend-delivery:pincast",
         "backend-delivery:ring-invitations",
         "task:B-15",
         "backend-delivery:counts",
@@ -114393,6 +115321,7 @@
         "frontend-requirements:discover-hub",
         "qa-backend:discover-hub",
         "qa-frontend:discover-hub",
+        "frontend-delivery:pincast",
         "qa-backend:pincast",
         "project:spec-map",
         "project:frontend-api-guide",
@@ -114579,6 +115508,7 @@
         "qa-backend:badge-qr",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "backend-delivery:account",
@@ -114937,6 +115867,7 @@
         "needs-decision:ND-24",
         "decision:D-17",
         "decision:D-24",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "backend-integration:auth",
         "frontend-requirements:auth",
@@ -116054,6 +116985,7 @@
         "qa-frontend:discover-hub",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "decision:D-10",
         "decision:D-28",
@@ -116250,6 +117182,7 @@
         "backend-integration:discover-hub",
         "qa-backend:discover-hub",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-frontend:account",
         "qa-backend:auth",
@@ -116440,6 +117373,7 @@
         "qa-frontend:discover-hub",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "qa-frontend:auth",
@@ -116611,6 +117545,7 @@
         "qa-backend:badge-qr",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "qa-backend:pincast",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -117106,6 +118041,7 @@
         "qa-backend:badge-qr",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "backend-delivery:account",
@@ -117818,6 +118754,7 @@
         "frontend-delivery:discover-hub",
         "qa-backend:discover-hub",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "backend-delivery:account",
         "backend-integration:account",
@@ -118400,6 +119337,7 @@
         "needs-decision:ND-24",
         "decision:D-17",
         "decision:D-24",
+        "frontend-delivery:pincast",
         "project:spec-map",
         "task:B-01",
         "needs-decision:ND-20",
@@ -119198,13 +120136,7 @@
     },
     "qa-frontend:pincast": {
       "affects": [],
-      "blockedBy": [
-        {
-          "id": "frontend-delivery:pincast",
-          "title": "PinCast & Nearby Frontend Delivery",
-          "why": "PinCast & Nearby Frontend Delivery is not written yet"
-        }
-      ],
+      "blockedBy": [],
       "card": null,
       "children": [],
       "code": "pincast",
@@ -119754,14 +120686,14 @@
       "rollup": {
         "approved": 41,
         "blocked": 28,
-        "current": 7,
+        "current": 6,
         "decided": 38,
-        "delivered": 18,
-        "done": 53,
+        "delivered": 19,
+        "done": 54,
         "draft": 21,
         "failing": 1,
         "in-progress": 45,
-        "missing": 105,
+        "missing": 104,
         "needs-decision": 1,
         "partial": 14,
         "passing": 15,
@@ -120045,6 +120977,7 @@
         "qa-backend:connections",
         "qa-backend:discover-hub",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "backend-delivery:account",
         "backend-integration:account",
@@ -120586,6 +121519,7 @@
         "qa-frontend:discover-hub",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "story:pincast",
@@ -120709,6 +121643,7 @@
         "frontend-delivery:discover-hub",
         "qa-backend:discover-hub",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "backend-integration:account",
         "frontend-delivery:account",
@@ -120822,6 +121757,7 @@
         "qa-backend:badge-qr",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "qa-frontend:auth",
@@ -121236,6 +122172,7 @@
         "qa-backend:badge-qr",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "qa-frontend:auth",
@@ -121832,6 +122769,7 @@
       "related": [
         "needs-decision:ND-40",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "story:pincast",
         "frontend-delivery:notifications",
@@ -122168,6 +123106,7 @@
       "priority": "critical",
       "related": [
         "frontend-delivery:discover-hub",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "feature:pincast",
         "decision:D-10",
@@ -122243,6 +123182,7 @@
         "qa-backend:badge-qr",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "qa-frontend:auth",
@@ -122841,6 +123781,7 @@
         "frontend-requirements:connections",
         "qa-backend:connections",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-frontend:auth",
         "backend-delivery:counts",
@@ -123314,6 +124255,7 @@
         "frontend-delivery:discover-hub",
         "qa-backend:discover-hub",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "backend-integration:account",
         "backend-delivery:auth",
@@ -124290,6 +125232,7 @@
         "frontend-delivery:badge-qr",
         "frontend-requirements:badge-qr",
         "backend-integration:pincast",
+        "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "frontend-requirements:event-ring-auto",
         "story:event-ring-auto",
@@ -125814,6 +126757,7 @@
         "frontend-requirements:badge-qr",
         "frontend-requirements:discover-hub",
         "qa-frontend:discover-hub",
+        "frontend-delivery:pincast",
         "qa-backend:pincast",
         "project:spec-map",
         "project:frontend-api-guide",
