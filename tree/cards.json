@@ -286,6 +286,7 @@
     "qa-backend:view-as": "QB-14",
     "qa-frontend:account": "QF-04",
     "qa-frontend:auth": "QF-05",
+    "qa-frontend:counts": "QF-08",
     "qa-frontend:discover-hub": "QF-06",
     "qa-frontend:pincast": "QF-07",
     "story:account": "S-01",
