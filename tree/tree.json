@@ -1489,6 +1489,7 @@
         "backend-integration:discover-hub",
         "backend-integration:pincast",
         "frontend-requirements:connections",
+        "frontend-requirements:pincast",
         "qa-backend:connections"
       ],
       "owner": null
@@ -1883,6 +1884,7 @@
         "backend-integration:ring-invitations",
         "frontend-delivery:badge-qr",
         "frontend-requirements:badge-qr",
+        "frontend-requirements:pincast",
         "project:frontend-api-guide",
         "qa-backend:badge-qr",
         "qa-backend:pincast",
@@ -2471,7 +2473,6 @@
         "frontend-requirements:badge-qr",
         "frontend-requirements:connections",
         "frontend-requirements:discover-hub",
-        "frontend-requirements:pincast",
         "frontend-requirements:view-as",
         "project:frontend-api-guide",
         "qa-backend:pincast"
@@ -5297,6 +5298,16 @@
       ],
       "owner": "feature:connections"
     },
+    "POST /connections/requests/:requestId/accept": {
+      "containers": [
+        "feature:pincast"
+      ],
+      "kind": "endpoint",
+      "notes": [
+        "frontend-requirements:pincast"
+      ],
+      "owner": null
+    },
     "POST /files": {
       "containers": [
         "feature:discover-hub",
@@ -7993,7 +8004,7 @@
       "qa": 19,
       "shared": 10
     },
-    "concepts": 376,
+    "concepts": 377,
     "decisions": 39,
     "edges": 10029,
     "features": 40,
@@ -13239,7 +13250,7 @@
       "to": "frontend-requirements:pincast",
       "via": [
         "E_RING_02",
-        "GET /connections/relationship",
+        "E_RING_03",
         "POST /connections/requests"
       ]
     },
@@ -14345,8 +14356,8 @@
       "kind": "related",
       "to": "frontend-requirements:pincast",
       "via": [
+        "E_CONNECTION_01",
         "E_RING_02",
-        "GET /connections/relationship",
         "POST /connections/requests",
         "POST /connections/requests/:id/accept"
       ]
@@ -17101,7 +17112,7 @@
         "E_PINCAST_03",
         "E_PINCAST_04",
         "E_RING_02",
-        "GET /connections/relationship",
+        "E_RING_03",
         "GET /pincasts/:id/results",
         "GET /pincasts/current",
         "GET /pincasts/current/people",
@@ -21321,7 +21332,7 @@
       "to": "frontend-requirements:pincast",
       "via": [
         "E_RING_02",
-        "GET /connections/relationship",
+        "E_RING_03",
         "GET /rings"
       ]
     },
@@ -22493,8 +22504,8 @@
       "kind": "related",
       "to": "frontend-requirements:pincast",
       "via": [
+        "E_CONNECTION_01",
         "E_RING_02",
-        "GET /connections/relationship",
         "GET /rings",
         "POST /connections/requests",
         "POST /connections/requests/:id/accept"
@@ -25520,7 +25531,7 @@
         "E_PINCAST_03",
         "E_PINCAST_04",
         "E_RING_02",
-        "GET /connections/relationship",
+        "E_RING_03",
         "GET /pincasts/:id/results",
         "GET /pincasts/current",
         "GET /pincasts/current/people",
@@ -30684,7 +30695,7 @@
       "to": "frontend-requirements:pincast",
       "via": [
         "E_RING_02",
-        "GET /connections/relationship",
+        "E_RING_03",
         "GET /rings"
       ]
     },
@@ -39083,7 +39094,7 @@
         "E_PINCAST_03",
         "E_PINCAST_04",
         "E_RING_02",
-        "GET /connections/relationship",
+        "E_RING_03",
         "GET /pincasts/:id/results",
         "GET /pincasts/current",
         "GET /pincasts/current/people",
@@ -45208,7 +45219,7 @@
       "to": "frontend-requirements:pincast",
       "via": [
         "E_RING_02",
-        "GET /connections/relationship"
+        "E_RING_03"
       ]
     },
     {
@@ -46314,8 +46325,8 @@
       "kind": "related",
       "to": "frontend-requirements:pincast",
       "via": [
+        "E_CONNECTION_01",
         "E_RING_02",
-        "GET /connections/relationship",
         "GET /rings",
         "POST /connections/requests/:id/accept"
       ]
@@ -52385,7 +52396,8 @@
       "kind": "related",
       "to": "frontend-requirements:pincast",
       "via": [
-        "E_RING_02"
+        "E_RING_02",
+        "E_RING_03"
       ]
     },
     {
@@ -100908,10 +100920,10 @@
         "decision:D-24",
         "backend-delivery:ring-invitations",
         "qa-backend:ring-invitations",
-        "frontend-requirements:pincast",
         "task:B-15",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "frontend-requirements:pincast",
         "frontend-requirements:event-ring-auto",
         "frontend-requirements:exhibitor",
         "frontend-requirements:post-event",
@@ -106687,7 +106699,7 @@
       "task": null,
       "title": "FR-20 PinCast & Nearby Frontend Requirements",
       "unmet": [],
-      "updated": "2026-11-23"
+      "updated": "2026-11-24"
     },
     "frontend-requirements:post-event": {
       "affects": [],
@@ -114124,13 +114136,13 @@
         "backend-integration:profiles",
         "qa-backend:ring-members",
         "frontend-requirements:e2e-tests",
-        "frontend-requirements:pincast",
         "task:B-30",
         "needs-decision:ND-24",
         "decision:D-17",
         "decision:D-24",
         "backend-delivery:ring-invitations",
         "task:B-15",
+        "frontend-requirements:pincast",
         "backend-delivery:counts",
         "backend-integration:counts",
         "frontend-delivery:counts",

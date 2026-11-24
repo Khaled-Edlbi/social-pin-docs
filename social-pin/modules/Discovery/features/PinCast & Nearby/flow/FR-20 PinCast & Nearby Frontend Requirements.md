@@ -14,19 +14,17 @@ affects: ["BD-20 PinCast & Nearby Backend Delivery"]
 related: ["S-45 PinCast & Nearby Story", "D-10 Connect sends what the requester already has", "D-14 Shared with me lists people, never the Ring", "D-18 Ring names shown when joined knowingly", "S-23 Connections Story", "BI-16 Connections Backend Integration", "FR-14 Connections Frontend Requirements", "BI-08 Rings Backend Integration", "S-96 Notifications Story", "S-87 Error Contract Story", "F-31 Cleanup Jobs", "Frontend Contract", "GET /rings", "POST /connections/requests"]
 pending: []
 created: 2026-10-18
-updated: 2026-11-23
+updated: 2026-11-24
 tags: [frontend-requirements, frontend-requirements/approved, module/discovery, layer/frontend]
 ---
 
 # PinCast & Nearby · Frontend Requirements
 
-> ⚠ Affected by [[BD-20 PinCast & Nearby Backend Delivery]] (2026-11-23): on backend main ecd93c0: every endpoint row above is delivered (rows set ✅ by the backend, BI-20 is the guide). The codes are not as proposed: the card, connect, relationship and block by pincastToken answer the views one 404 E_RING_ACCESS_01 for an expired or unknown token too (no E_PINCAST_04 on the token), and the results answer E_PINCAST_04 (not E_PINCAST_05); E_PINCAST_01-03 as proposed. GET /pincasts/current wraps the PinCast in current, lastEnded is { id, endedAt, resultsUntil }, PincastEntity has startedAt, a result row carries requestId. The error table and the per-screen shapes are the frontend's to update (/frontend)
-
 **Feature:** [[F-20 PinCast & Nearby]] · **Status:** Approved 2026-11-23 by Omar Fostok (accepted by the backend) · **Story:** [[S-45 PinCast & Nearby Story]] (approved 2026-11-16, N1–N12) · **Backend Integration:** [[BI-20 PinCast & Nearby Backend Integration]] (on backend `main` since 2026-11-23, [[BD-20 PinCast & Nearby Backend Delivery]])
 
 What the client needs from the backend to build [[S-45 PinCast & Nearby Story]] S1 to S5, and whether each need is met today. **Rewritten 2026-11-16** against the story as rewritten that day and its rules N1–N12 ([[S-45 PinCast & Nearby Story#Decided in this story|Decided in this story]]). Nearby by Ring (S6) is later (N10) and asks for nothing here; the old *PinCast & Nearby · S7* links are gone with that part.
 
-**What exists today.** The geo column, its trigger and the GiST index; no PinCast route. The Ring picker (`GET /rings` ✅) and Connect / Accept by a token on a card ([[BI-16 Connections Backend Integration|BI-16]], the badge's `qrToken`) work today. In the app (`rings/F-11/honest-rings` @ `778d9b4`), s39–s42 and the Home chip are built as screens and send nothing for PinCast.
+**What exists today.** Every PinCast route below, on backend `main` `ecd93c0` since 2026-11-23 ([[BI-20 PinCast & Nearby Backend Integration|BI-20]] is the guide); the shapes and codes here are the ones that shipped (2026-11-24). The Ring picker (`GET /rings` ✅) and Connect / Accept by a token on a card ([[BI-16 Connections Backend Integration|BI-16]], the badge's `qrToken`) work today. In the app (`rings/F-11/honest-rings` @ `778d9b4`), s39–s42 and the Home chip are built as screens and send nothing for PinCast.
 
 **Four rules that shape every row below:**
 
@@ -39,10 +37,10 @@ What the client needs from the backend to build [[S-45 PinCast & Nearby Story]] 
 
 ### [[Screen Index#s39|s39]] PinCast · hidden (S1)
 
-- On open: `GET /pincasts/current` ❌ → my live PinCast or `null`; live → go to s40.
+- On open: `GET /pincasts/current` ✅ → `{ current: PincastEntity | null, lastEnded, serverNow }`; `current` null → hidden; `current` set → go to s40.
 - *Hidden*, "Go visible to see who's around": **no count**, no call for people nearby (N4).
 - **Last settings** (Ring, distance, duration) for the one-tap *Go visible*: kept on the phone per user; no backend need. A Ring that's gone from `GET /rings` drops them, and *Set up a PinCast* shows instead.
-- **"Your last PinCast · See results"** (N11): from `lastEnded` in the same answer (`{ id, endsAt }` while its results last, N12) → s42.
+- **"Your last PinCast · See results"** (N11): from `lastEnded` in the same answer, `{ id, endedAt, resultsUntil }`: the most recent ended PinCast whose 30 days are not over (N12; `resultsUntil` says when they are) → s42 with `lastEnded.id`.
 - Location permission: asked from the primary action; denied → "Open settings". No background permission is ever asked (N9).
 - States: loading; hidden with last settings; first time; permission needed; last PinCast; offline.
 
@@ -50,23 +48,23 @@ What the client needs from the backend to build [[S-45 PinCast & Nearby Story]] 
 
 - **Ring picker:** `GET /rings` ✅, my live Rings (name, colour), default first. Its name is shown to me only.
 - **Distance** 25–500 m and **duration** 5 min, 30 min, 1 hr, 3 hr (N5): fixed on the phone from the story; the server refuses anything else (400 below).
-- *Start PinCast*: the position at that moment (N9), then `POST /pincasts { ringId, radiusMeters, durationMinutes, lat, lng }` ❌ → 201 `PincastEntity` (below), then s40.
-- Opened from s40 with *Change*: `PATCH /pincasts/current { ringId?, radiusMeters? }` ❌ keeps the end time. (Proposed; the backend may prefer stop and start again.)
+- *Start PinCast*: the position at that moment (N9), then `POST /pincasts { ringId, radiusMeters, durationMinutes, lat, lng }` ✅ → 201 `PincastEntity` (below), then s40.
+- Opened from s40 with *Change*: `PATCH /pincasts/current { ringId?, radiusMeters? }` ✅ → `PincastEntity`, the end time kept.
 - States: setup; starting; permission needed; "You already have a live PinCast" (409) → s40.
 
 ### [[Screen Index#s40|s40]] PinCast · live (S3)
 
-- **`PincastEntity`** ❌ (from start, current, extend):
+- **`PincastEntity`** ✅ (from start, `current`, change, extend):
 
   | Shown | Field | Notes |
   |---|---|---|
   | My Ring's name | `ring { id, name, colorHex }` | mine only |
   | My range | `radiusMeters` | "100 m" (N3) |
   | Time left | `endsAt`, `serverNow` | the countdown (rule 4) |
-  | — | `id`, `startedAt`, `durationMinutes` | |
+  | — | `id`, `startedAt`, `durationMinutes` | `startedAt`, not `startsAt` |
   | Position refresh | `positionRefreshSeconds` | the interval the server asks for |
 
-- **People found:** `GET /pincasts/current/people?filter=ALL|NEW&limit=&skip=` ❌ → `{ data: PincastPersonEntity[], meta: { total } }`, newest first:
+- **People found:** `GET /pincasts/current/people?filter=ALL|NEW&limit=&skip=` ✅ → `{ data: PincastPersonEntity[], meta: { total } }`, newest first:
 
   | Shown | Field | Notes |
   |---|---|---|
@@ -76,29 +74,29 @@ What the client needs from the backend to build [[S-45 PinCast & Nearby Story]] 
 
   No distance, no direction, no position (N3).
 - **Filters:** *All* and *New to me* only (N7), sent as `filter`. No match %, no "Worth meeting", no event filter.
-- **A person → s44:** `GET /views/pincast/:token` ❌ → their broadcast Ring's card (`RingProfileViewEntity`, no Ring id or name), readable while the token lasts, giving no membership (N1).
-- ***+15 min*:** `POST /pincasts/current/extend` ❌ → the `PincastEntity` with the new `endsAt` (N6).
-- ***Stop*:** `POST /pincasts/current/stop` ❌ → 200 with the ended PinCast's id → s42.
-- **Position refresh** while the app is open (N9): `POST /pincasts/current/position { lat, lng }` ❌ → 204, every `positionRefreshSeconds`, and when the app comes back to the foreground. **Nothing in the background**; leaving the app doesn't stop the broadcast.
+- **A person → s44:** `GET /views/pincast/:token` ✅ → their broadcast Ring's card (`RingProfileViewEntity`, no Ring id or name) plus `expiresAt`, readable while the token lasts (30 days from `detectedAt`), giving no membership (N1).
+- ***+15 min*:** `POST /pincasts/current/extend` ✅ → 200, the `PincastEntity` with the new `endsAt` (N6).
+- ***Stop*:** `POST /pincasts/current/stop` ✅ → 200 `{ id, endedAt }` → s42 with `id`.
+- **Position refresh** while the app is open (N9): `POST /pincasts/current/position { lat, lng }` ✅ → 204, every `positionRefreshSeconds`, and when the app comes back to the foreground. **Nothing in the background**; leaving the app doesn't stop the broadcast.
 - **Polling** until notifications exist ([[S-96 Notifications Story]]): the people every 10 s while s40 is open; stop on end, stop, or leaving the screen. New rows animate in.
-- **The end:** when `endsAt` passes, refetch `GET /pincasts/current` (→ `null`) and go to s42.
+- **The end:** when `endsAt` passes, refetch `GET /pincasts/current` (→ `current` null, `lastEnded` set) and go to s42 with `lastEnded.id`.
 - States: live with people, live with none yet, filtered, extending, stopping, offline (the list keeps what it had, "You're offline").
 
 ### [[Screen Index#s11|s11]] Home · the PinCast chip (S4)
 
-- From `GET /pincasts/current` ❌ on Home's open and every 30 s while live: my Ring's name and the countdown (rule 4); tap → s40.
+- From `GET /pincasts/current` ✅ (`current`) on Home's open and every 30 s while live: my Ring's name and the countdown (rule 4); tap → s40.
 - When the time ends: **"PinCast ended · See results"** → s42 (N11), from `lastEnded`. No notification in the MVP.
 - Follows *+15 min* and *Stop* done on s40 (the same cache).
 
 ### [[Screen Index#s42|s42]] PinCast results (S5)
 
-- `GET /pincasts/:id/results?limit=&skip=` ❌ → `{ pincast { ring, radiusMeters, startedAt, endedAt }, count, data: PincastResultEntity[] | null, meta: { total } }`. After **30 days** `data` is `null` and only `count` shows (N12).
-- **`PincastResultEntity`:** `displayName`, `avatarUrl`, `token`, `detectedAt` and `state`: `NONE` / `REQUESTED_ME` / `CONNECTED`.
-  - `REQUESTED_ME` → **"Sent you a request"** with *Accept* ([[S-23 Connections Story|Connections · S5]]; the request id for it, as `GET /connections/relationship` gives one today, [[BI-16 Connections Backend Integration|BI-16]]);
+- `GET /pincasts/:id/results?limit=&skip=` ✅ → `{ pincast { ring, radiusMeters, startedAt, endedAt }, count, data: PincastResultEntity[] | null, meta: { total } }`. After **30 days** `data` is `null` and only `count` shows (N12).
+- **`PincastResultEntity`:** `displayName`, `avatarUrl`, `token`, `detectedAt`, `state`: `NONE` / `REQUESTED_ME` / `CONNECTED`, and `requestId` with `REQUESTED_ME`.
+  - `REQUESTED_ME` → **"Sent you a request"** with *Accept* ([[S-23 Connections Story|Connections · S5]]): `POST /connections/requests/:requestId/accept` with the row's `requestId` ([[BI-16 Connections Backend Integration|BI-16]]);
   - `CONNECTED` → **"Connected"**;
   - `NONE` → *Connect*.
   - **Never** "Opened your card" (N8): the backend doesn't send it.
-- ***Connect* by PinCast token** (N1): `POST /connections/requests { pincastToken, note? }` ❌, as `{ qrToken, note? }` works today ([[S-23 Connections Story|Connections · S2]], [[FR-14 Connections Frontend Requirements|FR-14]]); likewise `GET /connections/relationship?pincastToken=` for where we stand. Never a Pin name.
+- ***Connect* by PinCast token** (N1): `POST /connections/requests { pincastToken, note? }` ✅, as `{ qrToken, note? }` works today ([[S-23 Connections Story|Connections · S2]], [[FR-14 Connections Frontend Requirements|FR-14]]); likewise `GET /connections/relationship?pincastToken=` for where we stand. Never a Pin name.
 - Ended-empty: "Nobody was nearby". *Broadcast again* → s41 with the same settings; *Done* → Home.
 - Refetched on open and on focus; paged, `limit` ≤ 50.
 - States: loading, with people, empty, past 30 days (count only), offline.
@@ -125,7 +123,7 @@ What the client needs from the backend to build [[S-45 PinCast & Nearby Story]] 
 | Connect, relationship (and block) by PinCast token | `POST /connections/requests { pincastToken }`, `GET /connections/relationship?pincastToken=` | ✅ `POST /connections/requests { pincastToken }`, `GET /connections/relationship?pincastToken=`, `POST /blocks { pincastToken }` | S5 · N1 · [[S-23 Connections Story\|Connections · S2]] |
 | Accept a request from a result row | the inbox accept route | ✅ `POST /connections/requests/:id/accept` (the row carries `requestId`) | S5 · [[S-23 Connections Story\|Connections · S5]] |
 | Results, with each person's state, complete 30 days then the count | `GET /pincasts/:id/results` | ✅ `GET /pincasts/:id/results` (`data: null` past 30 days; the purge itself is F-31's) | S5 · N8, N12 · [[F-31 Cleanup Jobs]] |
-| PinCast error codes | — | ✅ `E_PINCAST_01`–`04` (see the flag above: not as proposed) | all |
+| PinCast error codes | — | ✅ `E_PINCAST_01`–`04`, as shipped (the error table below); the token routes answer `E_RING_ACCESS_01` | all |
 
 ## Behaviour expectations
 
@@ -140,17 +138,19 @@ What the client needs from the backend to build [[S-45 PinCast & Nearby Story]] 
 
 ## Error states the UI must handle
 
-Until [[S-87 Error Contract Story|Error Contract · S4–S8]] puts `ErrorCode` on the wire, the app branches on status and endpoint ([[Frontend Contract]]). The **proposed** codes are names for the backend to keep or rename.
+Until [[S-87 Error Contract Story|Error Contract · S4–S8]] puts `ErrorCode` on the wire, the app branches on status and endpoint ([[Frontend Contract]]). The codes are the ones that shipped ([[BI-20 PinCast & Nearby Backend Integration|BI-20]], backend `main` `ecd93c0`).
 
 | Status | ErrorCode | Where | Show |
 |---|---|---|---|
-| 409 | `E_PINCAST_01` (proposed) already live | start | refetch current, go to s40 |
-| 404 | `E_PINCAST_02` (proposed) no live PinCast | extend, stop, position, people | it ended: refetch current, go to s42 |
-| 400 | `E_PINCAST_03` (proposed) range or duration not allowed | start, change | should not happen (fixed steps); "Couldn't start" |
+| 409 | `E_PINCAST_01` already live | start | refetch current, go to s40 |
+| 404 | `E_PINCAST_02` no live PinCast | change, extend, stop, position, people | it ended: refetch current; `lastEnded` → s42 |
+| 400 | `E_PINCAST_03` range or duration not allowed | start, change | should not happen (fixed steps); "Couldn't start" |
+| 400 | — (validation) | start, change, position, people | "Couldn't …" |
 | 404 | `E_RING_02` | start, change | the Ring is gone: refetch `GET /rings`, back to s41 |
-| 404 | `E_PINCAST_04` (proposed) token expired or unknown | the card, connect | "This person isn't available any more"; the row stays |
-| 404 | `E_RING_ACCESS_01` | the card | the same neutral line |
-| 404 | `E_PINCAST_05` (proposed) results gone or not mine | results | back to s39 |
+| 409 | `E_RING_03` | start, change | the Ring has ended or was archived: the same |
+| 404 | `E_RING_ACCESS_01` | the card, connect, relationship, block by `pincastToken` | one answer for a malformed, unknown or expired token, a token from another list, an ended Ring, a deleted account and a block either way: "This person isn't available any more"; the row stays |
+| 409 | `E_CONNECTION_01` / `E_CONNECTION_REQUEST_03` | connect | already connected / they already asked: as [[BI-16 Connections Backend Integration\|BI-16]] |
+| 404 | `E_PINCAST_04` no such PinCast of mine | results | back to s39 |
 | 401 | `E_AUTH_04` | all | sign in again |
 | client | location permission denied | s39, s41 | "Open settings" |
 | — | offline, 5xx | all writes | "Couldn't … Try again."; nothing queued |
@@ -159,7 +159,7 @@ Until [[S-87 Error Contract Story|Error Contract · S4–S8]] puts `ErrorCode` o
 
 The story is approved (2026-11-16), so this list isn't blocked by it. Rows wait on:
 
-- [[BD-20 PinCast & Nearby Backend Delivery|BD-20]]: every PinCast route above, the temporary card read (N1), the PinCast token, the results with the 30-day purge.
+- [[BD-20 PinCast & Nearby Backend Delivery|BD-20]]: every PinCast route above, the temporary card read (N1), the PinCast token and the results: delivered on backend `main` `ecd93c0` (2026-11-23).
 - [[S-23 Connections Story|Connections · S2]] ([[FR-14 Connections Frontend Requirements|FR-14]]): connect and relationship by `pincastToken`.
 - [[F-31 Cleanup Jobs]]: the purge at 30 days (N12).
 - [[S-96 Notifications Story]]: push in place of polling, later.
@@ -174,3 +174,4 @@ The story is approved (2026-11-16), so this list isn't blocked by it. Rows wait 
 - 2026-11-16 · `tickets/frontend/M-04-discovery/F-20-pincast/FR-20-s-45-2026-11-16` · rewritten from S-45 as rewritten and approved 2026-11-16 (N1–N12): per screen s39, s41, s40, s42 and the Home chip; the endpoints the story lists as not built, proposed as `/pincasts` routes (start, current with `endsAt` and `serverNow`, change, extend, stop, position refresh, people in range with mutual visibility, `GET /views/pincast/:token`, connect and relationship by `pincastToken` like the badge `qrToken`, results kept 30 days then the count); polling while live until notifications exist; the countdown from the server clock; no distance or position ever shown or logged; filters All and New to me only; Nearby by Ring later; proposed `E_PINCAST_01`–`05`. Repointed the Connections links (S-23 S2, S5), dropped the *PinCast & Nearby · S7* links. Cleared the S-45 and S-23 flags. Kept `draft`
 - 2026-11-16 · `tickets/frontend/M-04-discovery/F-20-pincast/FR-20-ready` · every screen, endpoint row and error state is in: set `ready` (📨) on Omar Fostok's word, handed to the backend; flagged [[BD-20 PinCast & Nearby Backend Delivery]] and [[FR-14 Connections Frontend Requirements]] (connect and relationship by `pincastToken`)
 - 2026-11-23 · `tickets/backend/M-04-discovery/F-20-pincast/FR-20-accepted` · reviewed by the backend against [[S-45 PinCast & Nearby Story]] S1–S5 and N1–N12: every screen row, endpoint row and error state maps to a story part or rule, and the eight items of *What the backend has to build* are each covered (start / extend / stop, current with `endsAt` and `serverNow`, position refresh, people in range mutual and without coordinates, the card by token, connect by `pincastToken`, results 30 days then the count, the error codes); nothing missing, nothing beyond the story. Set `approved`; the proposed `/pincasts` routes, shapes and `E_PINCAST_01`–`05` are accepted as the working names, to be confirmed by [[BD-20 PinCast & Nearby Backend Delivery]] as the code spells them; `PATCH /pincasts/current` kept as proposed. The two numbers the story leaves to the backend (`positionRefreshSeconds`, how long a PinCast token stays valid after the end) will be set in BD-20. BD-20 set `in-progress` in the same commit
+- 2026-11-24 · `tickets/frontend/M-04-discovery/F-20-pincast/FR-20-bd-20-shapes` · BD-20's flag (2026-11-23) applied from [[BI-20 PinCast & Nearby Backend Integration|BI-20]]: `GET /pincasts/current` → `{ current, lastEnded: { id, endedAt, resultsUntil }, serverNow }`; `startedAt`; stop → `{ id, endedAt }`; the card plus `expiresAt`; `requestId` on a `REQUESTED_ME` result row for *Accept*; the error table as shipped (the token routes' one 404 `E_RING_ACCESS_01`, the results' `E_PINCAST_04`, no `E_PINCAST_05`; `E_RING_03` and the Connections 409s added); every per-screen ❌ set ✅; *What exists today* and *Blocked by* say what shipped. Cleared the BD-20 flag. Records what shipped, so it stays `approved` · flagged nothing
