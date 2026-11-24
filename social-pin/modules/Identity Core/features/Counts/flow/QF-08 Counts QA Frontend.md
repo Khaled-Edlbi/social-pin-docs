@@ -19,6 +19,8 @@ tags: [qa-frontend, qa-frontend/passing, module/identity, layer/qa]
 
 # 🧪 Counts · QA Frontend
 
+> ⚠ Affected by [[S-03 Counts Story]] (2026-11-24): /qa: S-03's States now say "Nothing shared with you yet", the app's copy (decided by Omar Fostok 2026-11-24); the pending entry on the empty state is answered and can be cleared (CT-14 already passes on these words)
+
 **Feature:** [[F-03 Counts]] · **Verifies:** [[FD-06 Counts Frontend Delivery]] against [[S-03 Counts Story]] · **Verdict:** Passing on `social_pin` `main` `866240a`, emulator Medium_Phone (Android 16), 2026-11-24: 39 of 39; the empty-state copy pending
 
 Expected behaviour of the screens, as artefacts: journeys, states and copy to check a build against, **not test code**. `status: passing` or `failing` after a run; the verdict tells the PM whether the story can be fulfilled (passing with nothing pending or unmet). A failing row is one of two things: a story part the delivery does not fulfil (not built, or built other than the story says) goes in `unmet` and turns the story's badge ✕; a bug (built as asked, but it breaks) is filed against the Frontend Delivery and goes in `pending`, and leaves the story alone.

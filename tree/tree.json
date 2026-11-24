@@ -8071,7 +8071,7 @@
     },
     "concepts": 377,
     "decisions": 39,
-    "edges": 10346,
+    "edges": 10347,
     "features": 40,
     "layerNotes": 176,
     "modules": 8,
@@ -87410,6 +87410,11 @@
       "from": "story:counts",
       "kind": "wikilink",
       "to": "decision:D-17"
+    },
+    {
+      "from": "story:counts",
+      "kind": "wikilink",
+      "to": "story:rings"
     },
     {
       "from": "story:delegated-admins",
