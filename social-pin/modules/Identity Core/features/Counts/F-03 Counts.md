@@ -7,21 +7,17 @@ priority: critical
 release: mvp
 screens: [s11, s12, s14, s16, s17, s68]
 created: 2026-10-15
-updated: 2026-11-08
+updated: 2026-11-24
 tags: [feature, module/identity, priority/critical, release/mvp]
 ---
 
 # Counts
 
-> ⚠ Affected by [[S-03 Counts Story]] (2026-11-24): /owner: on Me the connection count is the Connections tile of the profile card (three tiles, Rings · Connections · Photos, kept by Omar Fostok 2026-11-24), no longer "218 connections"
-
-> ⚠ Affected by [[S-23 Connections Story]] (2026-11-04): S-23 was rewritten as one set of parts, so the part numbers moved: Connections · S8–S12 (send, blocked pair, inbox, sent, notify) → S2–S4; S13–S18 (accept, window, Ring kept private, decline, errors) → S5–S7; S19–S24 (contacts, detail, shares, roster names, wizard, in common) → S8–S12; S25 (block) → S13; S26 (introduce) → S9 and Open questions. Repoint the links that name the old parts.
-
 **Backend:** Done (S11 with F-14, backend `main` `1c460b0`) · **Priority:** Critical · **Release:** MVP · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
 **Layers:** [[S-03 Counts Story|Story]] · [[FR-03 Counts Frontend Requirements|Frontend Requirements]] · [[BD-03 Counts Backend Delivery|Backend Delivery]] · [[BI-14 Counts Backend Integration|Backend Integration]] · [[FD-06 Counts Frontend Delivery|Frontend Delivery]] · [[QB-07 Counts QA Backend|QA Backend]] · [[QF-08 Counts QA Frontend|QA Frontend]]
 
-Member counts per Ring ("148 people") and connection counts ("218 connections") shown on Home, Ring data, My Rings and Me.
+Member counts per Ring ("148 people") shown on Home, Ring data, My Rings and Shared with me, and on Me the connection count: the Connections tile of the profile card, one of its three tiles, Rings · Connections · Photos (kept by Omar Fostok 2026-11-24).
 
 ## Design reference
 
@@ -53,7 +49,7 @@ One story per feature (since 2026-10-27): all of this feature's work is in [[S-0
 - T-004 · 2026-10-18 · created as the backend half of T-004
 - T-004 · 2026-10-18 · created as the frontend half of T-004
 - T-005 · 2026-10-15 · created from the backend vs design comparison ([[Status Report 2026-10-15]])
-- T-005 · 2026-10-27 · `tickets/pm/…/S-05-written` · story written; What filled in; Me only (Home dropped by decision); the hand-typed `blocked` removed: the build shows it blocked by Connections · S8–S12.
+- T-005 · 2026-10-27 · `tickets/pm/…/S-05-written` · story written; What filled in; Me only (Home dropped by decision); the hand-typed `blocked` removed: the build shows it blocked by [[S-23 Connections Story|Connections · S2–S4]] (then numbered S8–S12).
 - T-005 · 2026-10-18 · created as the backend half of T-005
 - T-005 · 2026-10-18 · created as the frontend half of T-005
 
