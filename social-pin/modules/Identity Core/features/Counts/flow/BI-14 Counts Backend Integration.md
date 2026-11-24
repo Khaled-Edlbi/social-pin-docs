@@ -17,6 +17,8 @@ tags: [backend-integration, backend-integration/current, module/identity, layer/
 
 # 🔌 Counts · Backend Integration
 
+> ⚠ Affected by [[S-03 Counts Story]] (2026-11-24): /backend: on s68 the profile card shows three tiles, Rings · Connections · Photos (app 776e6ca), not "N Rings · N connections"; the endpoints are unchanged
+
 > ⚠ Affected by [[S-03 Counts Story]] (2026-11-12): S2 and S10 now say Shared with me shows "· N people" on a row whose Ring lets members see each other (memberCount set then, BI-17), none otherwise; "no member count on any row" and "Owner-only" here are out of date
 
 > ⚠ Affected by [[QB-07 Counts QA Backend]] (2026-11-05): on backend main f186ba1 the 404 body for GET /rings/:id carries no ErrorCode (statusCode, message, error: HttpException, path, timestamp); the error table reads as if E_RING_02 arrives. Known Error Contract gap (BD-35): say the client branches on 404 + endpoint until S-87 S4–S8 ships

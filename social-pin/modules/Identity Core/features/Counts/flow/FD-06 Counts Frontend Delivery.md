@@ -19,6 +19,8 @@ tags: [frontend-delivery, frontend-delivery/done, module/identity, layer/fronten
 
 # ✅ Counts · Frontend Delivery
 
+> ⚠ Affected by [[S-03 Counts Story]] (2026-11-24): /frontend: S4 and S11 describe the Me profile card as three tiles, Rings · Connections · Photos (app 776e6ca, kept by Omar Fostok 2026-11-24), "–" in a tile until its count is read; the s68 row still says "· N Rings · N connections … hidden until read"
+
 > ⚠ Affected by [[S-03 Counts Story]] (2026-11-12): S2 now says a Shared with me row shows "· N people" when the Ring lets members see each other (memberCount not null); the s17 row "never a member count" is out of date
 
 **Feature:** [[F-03 Counts]] · **Status:** Done · **Built from:** [[BI-14 Counts Backend Integration]] · **Against:** [[S-03 Counts Story]] · **Requirements:** [[FR-03 Counts Frontend Requirements]] · **QA:** [[Counts QA Frontend]]
