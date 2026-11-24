@@ -74,6 +74,7 @@
     "B-28 A deleted account's card still opens for a member of its Ring": "task:B-28",
     "B-29 The find-me switch reads the string false as true": "task:B-29",
     "B-30 Connect from a Discover search row is refused for a person you can't already open": "task:B-30",
+    "B-31 PinCast results offer Connect again for a person I already asked": "task:B-31",
     "BD-01 Account Backend Delivery": "backend-delivery:account",
     "BD-02 Auth & Sign-up Backend Delivery": "backend-delivery:auth",
     "BD-03 Counts Backend Delivery": "backend-delivery:counts",
@@ -442,6 +443,7 @@
     "B-28": "task:B-28",
     "B-29": "task:B-29",
     "B-30": "task:B-30",
+    "B-31": "task:B-31",
     "BD-01": "backend-delivery:account",
     "BD-02": "backend-delivery:auth",
     "BD-03": "backend-delivery:counts",
@@ -2944,14 +2946,16 @@
     },
     "GET /pincasts/:id/results": {
       "containers": [
-        "feature:pincast"
+        "feature:pincast",
+        "task:B-31"
       ],
       "kind": "endpoint",
       "notes": [
         "backend-integration:pincast",
         "frontend-delivery:pincast",
         "frontend-requirements:pincast",
-        "qa-backend:pincast"
+        "qa-backend:pincast",
+        "task:B-31"
       ],
       "owner": null
     },
@@ -7163,7 +7167,8 @@
     "s42": {
       "containers": [
         "feature:connections",
-        "feature:pincast"
+        "feature:pincast",
+        "task:B-31"
       ],
       "kind": "screen",
       "notes": [
@@ -7175,7 +7180,8 @@
         "frontend-requirements:pincast",
         "qa-backend:pincast",
         "story:connections",
-        "story:pincast"
+        "story:pincast",
+        "task:B-31"
       ],
       "owner": null
     },
@@ -8002,7 +8008,7 @@
   },
   "counts": {
     "blocked": 28,
-    "bugs": 30,
+    "bugs": 31,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 16,
@@ -8016,22 +8022,22 @@
       "qa-backend": 16,
       "qa-frontend": 3,
       "story": 40,
-      "task": 30
+      "task": 31
     },
     "byLayer": {
       "backend": 63,
-      "business": 193,
+      "business": 194,
       "frontend": 64,
       "qa": 19,
       "shared": 10
     },
     "concepts": 377,
     "decisions": 39,
-    "edges": 10113,
+    "edges": 10145,
     "features": 40,
     "layerNotes": 174,
     "modules": 8,
-    "notes": 380,
+    "notes": 381,
     "partial": 14,
     "placeholders": 104,
     "records": 38
@@ -8091,6 +8097,8 @@
   "diagnostics": {
     "errors": [],
     "warnings": [
+      "social-pin/bugs/B-31 PinCast results offer Connect again for a person I already asked.md: wikilink [[QF-07 PinCast & Nearby QA Frontend]] resolves to no note",
+      "social-pin/bugs/B-31 PinCast results offer Connect again for a person I already asked.md: wikilink [[QF-07 PinCast & Nearby QA Frontend]] resolves to no note",
       "social-pin/modules/Discovery/features/Discover Hub & Search/flow/FD-18 Discover Hub & Search Frontend Delivery.md: wikilink [[Discover Hub & Search QA Frontend]]: the card is named with its code now, write [[QF-06 Discover Hub & Search QA Frontend]]"
     ]
   },
@@ -9729,6 +9737,16 @@
       "from": "task:B-30",
       "kind": "affects",
       "to": "qa-backend:discover-hub"
+    },
+    {
+      "from": "task:B-31",
+      "kind": "affects",
+      "to": "backend-integration:pincast"
+    },
+    {
+      "from": "task:B-31",
+      "kind": "affects",
+      "to": "frontend-delivery:pincast"
     },
     {
       "from": "backend-delivery:audit-log",
@@ -64258,6 +64276,221 @@
       "to": "story:discover-hub"
     },
     {
+      "from": "task:B-31",
+      "kind": "related",
+      "to": "backend-delivery:badge-qr",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "task:B-31",
+      "kind": "related",
+      "to": "backend-delivery:connections",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "task:B-31",
+      "kind": "related",
+      "to": "backend-delivery:discover-hub",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "task:B-31",
+      "kind": "related",
+      "to": "backend-delivery:pincast",
+      "via": [
+        "GET /pincasts/:id/results"
+      ]
+    },
+    {
+      "from": "task:B-31",
+      "kind": "related",
+      "to": "backend-integration:connections",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "task:B-31",
+      "kind": "related",
+      "to": "backend-integration:discover-hub",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "task:B-31",
+      "kind": "related",
+      "to": "backend-integration:pincast",
+      "via": [
+        "GET /pincasts/:id/results"
+      ]
+    },
+    {
+      "from": "task:B-31",
+      "kind": "related",
+      "to": "decision:D-10",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "task:B-31",
+      "kind": "related",
+      "to": "decision:D-17",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "task:B-31",
+      "kind": "related",
+      "to": "decision:D-24",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "task:B-31",
+      "kind": "related",
+      "to": "frontend-delivery:connections",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "task:B-31",
+      "kind": "related",
+      "to": "frontend-delivery:discover-hub",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "task:B-31",
+      "kind": "related",
+      "to": "frontend-delivery:pincast",
+      "via": [
+        "GET /pincasts/:id/results",
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "task:B-31",
+      "kind": "related",
+      "to": "frontend-requirements:badge-qr",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "task:B-31",
+      "kind": "related",
+      "to": "frontend-requirements:connections",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "task:B-31",
+      "kind": "related",
+      "to": "frontend-requirements:discover-hub",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "task:B-31",
+      "kind": "related",
+      "to": "frontend-requirements:pincast",
+      "via": [
+        "GET /pincasts/:id/results"
+      ]
+    },
+    {
+      "from": "task:B-31",
+      "kind": "related",
+      "to": "needs-decision:ND-10",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "task:B-31",
+      "kind": "related",
+      "to": "needs-decision:ND-24",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "task:B-31",
+      "kind": "related",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "task:B-31",
+      "kind": "related",
+      "to": "project:spec-map",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "task:B-31",
+      "kind": "related",
+      "to": "qa-backend:discover-hub",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "task:B-31",
+      "kind": "related",
+      "to": "qa-backend:pincast",
+      "via": [
+        "GET /pincasts/:id/results",
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "task:B-31",
+      "kind": "related",
+      "to": "qa-frontend:discover-hub",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "task:B-31",
+      "kind": "related",
+      "to": "story:connections",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "task:B-31",
+      "kind": "related",
+      "to": "story:pincast"
+    },
+    {
+      "from": "task:B-31",
+      "kind": "related",
+      "to": "task:B-30",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
       "from": "decision:D-10",
       "kind": "shares",
       "to": "decision:D-17",
@@ -73849,6 +74082,14 @@
       ]
     },
     {
+      "from": "feature:pincast",
+      "kind": "shares",
+      "to": "task:B-31",
+      "via": [
+        "GET /pincasts/:id/results"
+      ]
+    },
+    {
       "from": "feature:post-event",
       "kind": "shares",
       "to": "feature:profiles",
@@ -77736,6 +77977,11 @@
       "from": "backend-delivery:files",
       "kind": "tree",
       "to": "task:B-07"
+    },
+    {
+      "from": "backend-delivery:pincast",
+      "kind": "tree",
+      "to": "task:B-31"
     },
     {
       "from": "backend-integration:account",
@@ -85971,6 +86217,11 @@
       "from": "task:B-29",
       "kind": "wikilink",
       "to": "feature:discover-hub"
+    },
+    {
+      "from": "task:B-31",
+      "kind": "wikilink",
+      "to": "feature:pincast"
     }
   ],
   "emoji": {
@@ -86225,6 +86476,10 @@
     },
     "social-pin/bugs/B-30 Connect from a Discover search row is refused for a person you can't already open.md": {
       "name": "B-30 Connect from a Discover search row is refused for a person you can't already open",
+      "type": "bug"
+    },
+    "social-pin/bugs/B-31 PinCast results offer Connect again for a person I already asked.md": {
+      "name": "B-31 PinCast results offer Connect again for a person I already asked",
       "type": "bug"
     },
     "social-pin/business/Feature Graph.md": {
@@ -88191,6 +88446,7 @@
         "task:B-26",
         "task:B-28",
         "task:B-30",
+        "task:B-31",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -88542,6 +88798,7 @@
         "task:B-26",
         "task:B-28",
         "task:B-30",
+        "task:B-31",
         "needs-decision:ND-38",
         "feature:connections",
         "backend-delivery:ring-access",
@@ -89062,6 +89319,7 @@
         "task:B-28",
         "task:B-29",
         "task:B-30",
+        "task:B-31",
         "needs-decision:ND-37",
         "needs-decision:ND-41",
         "backend-delivery:connections",
@@ -90203,7 +90461,9 @@
       ],
       "blockedBy": [],
       "card": "BD-20",
-      "children": [],
+      "children": [
+        "task:B-31"
+      ],
       "code": "pincast",
       "created": "2026-10-18",
       "deadline": null,
@@ -90237,7 +90497,9 @@
       "labels": [],
       "layer": "backend",
       "module": "discovery",
-      "openBugs": [],
+      "openBugs": [
+        "task:B-31"
+      ],
       "parentTask": null,
       "parents": [
         "feature:pincast"
@@ -90247,6 +90509,7 @@
       "priority": "critical",
       "related": [
         "task:B-17",
+        "task:B-31",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-requirements:connections",
@@ -92205,6 +92468,7 @@
         "task:B-26",
         "task:B-28",
         "task:B-30",
+        "task:B-31",
         "backend-delivery:connections",
         "story:connections",
         "decision:D-10",
@@ -92671,6 +92935,7 @@
         "task:B-28",
         "task:B-29",
         "task:B-30",
+        "task:B-31",
         "needs-decision:ND-41",
         "backend-delivery:connections",
         "backend-integration:connections",
@@ -93693,6 +93958,7 @@
         "task:B-03",
         "task:B-13",
         "task:B-17",
+        "task:B-31",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-requirements:connections",
@@ -95476,6 +95742,7 @@
       "related": [
         "task:B-28",
         "task:B-30",
+        "task:B-31",
         "needs-decision:ND-10",
         "needs-decision:ND-28",
         "needs-decision:ND-11",
@@ -96093,6 +96360,7 @@
       "priority": null,
       "related": [
         "task:B-30",
+        "task:B-31",
         "needs-decision:ND-24",
         "needs-decision:ND-27",
         "needs-decision:ND-17",
@@ -96569,6 +96837,7 @@
       "priority": null,
       "related": [
         "task:B-30",
+        "task:B-31",
         "needs-decision:ND-24",
         "feature:connections",
         "backend-delivery:connections",
@@ -100278,7 +100547,8 @@
         "delivered": 2,
         "done": 2,
         "missing": 1,
-        "passing": 1
+        "passing": 1,
+        "todo": 1
       },
       "scope": null,
       "screens": [
@@ -101999,6 +102269,7 @@
         "task:B-17",
         "task:B-28",
         "task:B-30",
+        "task:B-31",
         "needs-decision:ND-38",
         "backend-delivery:connections",
         "backend-integration:connections",
@@ -102344,6 +102615,7 @@
         "task:B-28",
         "task:B-29",
         "task:B-30",
+        "task:B-31",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -103374,6 +103646,7 @@
       "related": [
         "task:B-13",
         "task:B-30",
+        "task:B-31",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-requirements:connections",
@@ -104907,6 +105180,7 @@
         "task:B-24",
         "task:B-28",
         "task:B-30",
+        "task:B-31",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -105399,6 +105673,7 @@
         "task:B-26",
         "task:B-28",
         "task:B-30",
+        "task:B-31",
         "needs-decision:ND-38",
         "backend-delivery:connections",
         "backend-integration:connections",
@@ -105967,6 +106242,7 @@
         "task:B-28",
         "task:B-29",
         "task:B-30",
+        "task:B-31",
         "needs-decision:ND-37",
         "needs-decision:ND-41",
         "backend-delivery:connections",
@@ -107495,6 +107771,7 @@
       "related": [
         "task:B-03",
         "task:B-13",
+        "task:B-31",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-requirements:connections",
@@ -109375,7 +109652,7 @@
         "missing": 2,
         "partial": 3,
         "passing": 2,
-        "todo": 1,
+        "todo": 2,
         "verified": 5
       },
       "scope": null,
@@ -110222,6 +110499,7 @@
         "task:B-17",
         "task:B-28",
         "task:B-30",
+        "task:B-31",
         "feature:view-as",
         "feature:connections",
         "decision:D-10",
@@ -111320,6 +111598,7 @@
       "priority": null,
       "related": [
         "task:B-30",
+        "task:B-31",
         "feature:connections",
         "decision:D-17",
         "decision:D-24",
@@ -113580,6 +113859,7 @@
         "task:B-28",
         "task:B-29",
         "task:B-30",
+        "task:B-31",
         "needs-decision:ND-30",
         "decision:D-16",
         "decision:D-30",
@@ -114374,6 +114654,7 @@
         "task:B-25",
         "task:B-29",
         "task:B-30",
+        "task:B-31",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-requirements:connections",
@@ -115803,6 +116084,7 @@
         "task:B-28",
         "task:B-29",
         "task:B-30",
+        "task:B-31",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -116981,6 +117263,7 @@
       "related": [
         "task:B-28",
         "task:B-30",
+        "task:B-31",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -119305,6 +119588,7 @@
         "task:B-28",
         "task:B-29",
         "task:B-30",
+        "task:B-31",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -120712,7 +120996,7 @@
         "passing": 15,
         "ready": 3,
         "reference": 32,
-        "todo": 3,
+        "todo": 4,
         "verified": 40
       },
       "scope": null,
@@ -121493,6 +121777,7 @@
         "task:B-17",
         "task:B-28",
         "task:B-30",
+        "task:B-31",
         "needs-decision:ND-41",
         "decision:D-11",
         "backend-delivery:connections",
@@ -123118,6 +123403,7 @@
       "pending": [],
       "priority": "critical",
       "related": [
+        "task:B-31",
         "frontend-delivery:discover-hub",
         "frontend-delivery:pincast",
         "frontend-requirements:pincast",
@@ -126776,6 +127062,7 @@
         "project:frontend-api-guide",
         "feature:discover-hub",
         "project:architecture",
+        "task:B-31",
         "qa-backend:connections",
         "backend-integration:badge-qr",
         "frontend-delivery:badge-qr",
@@ -126805,6 +127092,93 @@
       "title": "B-30 Connect from a Discover search row is refused for a person you can't already open",
       "unmet": [],
       "updated": "2026-11-23"
+    },
+    "task:B-31": {
+      "affects": [
+        "backend-integration:pincast",
+        "frontend-delivery:pincast"
+      ],
+      "blockedBy": [],
+      "card": "B-31",
+      "children": [],
+      "code": "B-31",
+      "created": "2026-11-24",
+      "deadline": null,
+      "decision": null,
+      "depends": [],
+      "dir": null,
+      "effectiveStatus": "todo",
+      "effort": "S",
+      "feature": "pincast",
+      "foundOn": "BD-20 PinCast & Nearby Backend Delivery",
+      "frontendOnly": false,
+      "id": "task:B-31",
+      "inherits": {
+        "release": "feature:pincast"
+      },
+      "kind": "task",
+      "label": "Bug",
+      "labels": [
+        "bug"
+      ],
+      "layer": "business",
+      "module": "discovery",
+      "openBugs": [],
+      "parentTask": null,
+      "parents": [
+        "backend-delivery:pincast"
+      ],
+      "path": "social-pin/bugs/B-31 PinCast results offer Connect again for a person I already asked.md",
+      "pending": [],
+      "priority": "high",
+      "related": [
+        "backend-delivery:pincast",
+        "story:pincast",
+        "backend-integration:pincast",
+        "frontend-delivery:pincast",
+        "frontend-requirements:pincast",
+        "qa-backend:pincast",
+        "task:B-30",
+        "needs-decision:ND-10",
+        "needs-decision:ND-24",
+        "decision:D-10",
+        "decision:D-17",
+        "decision:D-24",
+        "backend-delivery:connections",
+        "backend-integration:connections",
+        "frontend-delivery:connections",
+        "frontend-requirements:connections",
+        "story:connections",
+        "backend-delivery:badge-qr",
+        "frontend-requirements:badge-qr",
+        "backend-delivery:discover-hub",
+        "backend-integration:discover-hub",
+        "frontend-delivery:discover-hub",
+        "frontend-requirements:discover-hub",
+        "qa-backend:discover-hub",
+        "qa-frontend:discover-hub",
+        "project:spec-map",
+        "project:frontend-api-guide"
+      ],
+      "release": "mvp",
+      "resolution": null,
+      "rollup": {},
+      "scope": null,
+      "screens": [
+        "s42"
+      ],
+      "status": "todo",
+      "summary": "The fix is the backend's work (/backend). Once it ships, BI-20 lists the new state and the frontend shows it on the row.",
+      "tags": [
+        "bug",
+        "bug/todo",
+        "module/discovery",
+        "priority/high"
+      ],
+      "task": null,
+      "title": "B-31 PinCast results offer Connect again for a person I already asked",
+      "unmet": [],
+      "updated": "2026-11-24"
     }
   },
   "priorities": [
