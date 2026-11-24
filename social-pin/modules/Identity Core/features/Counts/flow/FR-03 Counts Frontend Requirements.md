@@ -3,7 +3,7 @@ id: FR-03
 type: frontend-requirements
 module: identity
 feature: counts
-status: approved
+status: draft
 scope: feature
 screens: [s11, s12, s14, s16, s17, s68]
 approvedBy: "khaled"
@@ -11,23 +11,19 @@ approvedAt: 2026-11-05
 owner: "Omar Fostok"
 depends: []
 affects: ["S-03 Counts Story"]
-related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "F-11 Rings", "F-14 Connections", "S-23 Connections Story", "S-87 Error Contract Story"]
+related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "F-11 Rings", "F-14 Connections", "S-23 Connections Story", "S-87 Error Contract Story", "BI-17 Ring Invitations & Join Backend Integration", "S-11 Photo Library Story", "GET /rings/shared-with-me", "GET /connections/count"]
 created: 2026-10-18
-updated: 2026-11-09
-tags: [frontend-requirements, frontend-requirements/approved, module/identity, layer/frontend]
+updated: 2026-11-24
+tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
 ---
 
 # Counts · Frontend Requirements
 
-> ⚠ Affected by [[S-03 Counts Story]] (2026-11-24): /frontend: S4 and S11 describe the Me profile card as three tiles, Rings · Connections · Photos (app 776e6ca, kept by Omar Fostok 2026-11-24), "–" in a tile until its count is read, never 0 or a sample; the s68 "N Rings · N connections … hidden, not zero" line no longer matches
-
-> ⚠ Affected by [[S-03 Counts Story]] (2026-11-12): S2 and S10 no longer say "never": on Shared with me, "· N people" shows only on a row whose Ring lets members see each other (the server sends memberCount on GET /rings/shared-with-me only then, BI-17); "Not asked, by decision" and the owner-only line here are out of date
-
-**Feature:** [[F-03 Counts]] · **Status:** Approved 2026-11-05 by khaled · **Story:** [[S-03 Counts Story]] · **API Integration:** not yet (backend not built)
+**Feature:** [[F-03 Counts]] · **Status:** Draft 2026-11-24 (approved 2026-11-05 by khaled; reopened for the S-03 changes of 2026-11-12 and 2026-11-24) · **Story:** [[S-03 Counts Story]] · **API Integration:** not yet (backend not built)
 
 What the client needs to show the numbers the design puts on Home, the Ring picker, My Rings, Shared with me, Ring data and Me, and which of them can be read today. The feature has no endpoints of its own; two of the numbers fall out of list envelopes that already exist, the rest wait on tasks. In the MVP since 2026-10-27.
 
-Every count here is **owner-facing**: a person only ever sees how many people are in **their own** Rings. A Ring shared with them never shows a member count ([[D-14 Shared with me lists people, never the Ring]]), and members don't see each other while the Ring's "members can see each other" setting is off, which is the default ([[D-04 Ring settings at launch and their defaults]]).
+The member counts are **owner-facing**, with one exception. A person sees how many people are in **their own** Rings. On Shared with me, a row shows how many are in someone else's Ring only when that Ring lets members see each other: the server sends `memberCount` on that row then, and `null` otherwise ([[S-03 Counts Story|Counts · S2, S10]], [[BI-17 Ring Invitations & Join Backend Integration]]). That setting is off by default ([[D-04 Ring settings at launch and their defaults]]), and a row is still a person, never a Ring ([[D-14 Shared with me lists people, never the Ring]]).
 
 ## Per screen
 
@@ -54,13 +50,14 @@ Every count here is **owner-facing**: a person only ever sees how many people ar
 ### [[Screen Index#s17|s17]] Shared with me
 
 - Needs: "Shared with me · N", N being **how many people** share a Ring with the person right now (one per person, since the list shows people, not Rings: [[D-14 Shared with me lists people, never the Ring]]).
-- **No member count on a row.** A row is a person, never a Ring; how many are in someone else's Ring is never shown.
-- Source today: `meta.total` of `GET /rings/shared-with-me` counts live **Rings**, so a person sharing two Rings counts twice: not the number asked for.
+- **"· N people" on a row only when the Ring lets members see each other.** A row is a person, never a Ring. When the row's `memberCount` is set (a Ring I joined knowingly, with `ringName`, whose "members can see each other" is on), the row shows "· N people"; when it is `null`, which includes every Ring I was placed in, the row shows no number, never "0" or a sample.
+- Source today: the chip from `GET /rings/shared-with-me/count` → `people` ✅ ([[BI-14 Counts Backend Integration]]); the row's count from `GET /rings/shared-with-me` → `data[].memberCount` ✅, set or `null` as above ([[BI-17 Ring Invitations & Join Backend Integration]]).
 
 ### [[Screen Index#s68|s68]] Me / Account
 
-- Needs: "N Rings · N connections" under the name on the profile card. The Rings part from `meta.total` of `GET /rings` ✅; the connections part **hidden, not zero,** until connections exist.
-- Source today: `GET /connections/count` ✅ ([[S-03 Counts Story|Counts · S11]]); shipped in [[FD-06 Counts Frontend Delivery]] (2026-11-09).
+- Needs: under the name, the profile card's three tiles, **Rings · Connections · Photos** (app `776e6ca`, [[S-03 Counts Story|Counts · S4]]), each a number over its label that opens its list: My Rings ([[Screen Index#s16|s16]]), Contacts, the Photo library.
+- A tile whose count isn't read yet shows "–": never 0 and never a sample. Once read, 0 is a real zero and shows "0".
+- Source today: Rings from `meta.total` of `GET /rings` ✅; Connections from `GET /connections/count` → `connections` ✅ ([[S-03 Counts Story|Counts · S11]]); Photos from `meta.total` of `GET /files?kind=image` ✅ ([[S-11 Photo Library Story]], not a Counts number).
 
 ## Endpoints required
 
@@ -69,9 +66,10 @@ Every count here is **owner-facing**: a person only ever sees how many people ar
 | Number of Rings I own (Home "All N", My Rings tab, Me) | `GET /rings` → `meta.total` | ✅ | — (listed under [[F-11 Rings]]) |
 | Live member count per owned Ring, on the list and the detail | `GET /rings` → `data[].memberCount`, `GET /rings/:id` → `memberCount` | ✅ | [[S-03 Counts Story|Counts · S6–S10]] ([[BI-14 Counts Backend Integration]]) |
 | Number of **people** sharing a Ring with me, live now | `GET /rings/shared-with-me/count` → `people` | ✅ | [[S-03 Counts Story|Counts · S2]] ([[BI-14 Counts Backend Integration]]); not `meta.total` of `GET /rings/shared-with-me`, which counts Rings |
-| Connection count on Me (Me only, no count on Home: [[S-03 Counts Story|Counts · S4]]) | `GET /connections/count` → `connections` (or `meta.total` of `GET /connections`) | ✅ | [[S-03 Counts Story|Counts · S11]] ([[BD-14 Connections Backend Delivery]], backend `main` `1c460b0`) |
+| Member count on a Shared with me row, only when the Ring lets members see each other | `GET /rings/shared-with-me` → `data[].memberCount` (`null` otherwise) | ✅ | [[S-03 Counts Story|Counts · S2, S10]] ([[BI-17 Ring Invitations & Join Backend Integration]]) |
+| Connection count on Me, the Connections tile (Me only, no count on Home: [[S-03 Counts Story|Counts · S4]]) | `GET /connections/count` → `connections` (or `meta.total` of `GET /connections`) | ✅ | [[S-03 Counts Story|Counts · S11]] ([[BD-14 Connections Backend Delivery]], backend `main` `1c460b0`) |
 
-Not asked, by decision: a member count on a Ring shared with me ([[D-14 Shared with me lists people, never the Ring]]).
+The Photos tile on Me is `meta.total` of `GET /files?kind=image`, the Photo Library's number ([[S-11 Photo Library Story]]); it is not asked here.
 
 ## Behaviour expectations
 
@@ -80,7 +78,7 @@ Not asked, by decision: a member count on a Ring shared with me ([[D-14 Shared w
 - **Refetch:** with their lists (screen focus; after create, delete, a disposition); member counts also after every add, reassign or revoke on s15 / s47.
 - **Caching:** counts are not cached on their own; they live on the list response (`rings:<userId>`, `rings-shared:<userId>`) and expire with it.
 - **Paging:** `meta.total` is the unpaginated count, so a tab or "All N" is right even when the list is paged (`limit` ≤ 50).
-- **No made-up numbers:** where the backend has no number, show none ("— people", "People"), never "0 people", "0 connections" or a sample value.
+- **No made-up numbers:** where the backend has no number, show none ("— people", "People"; "–" in a Me tile), never "0 people", "0" or a sample value.
 
 ## Error states the UI must handle
 
@@ -96,3 +94,7 @@ No code of its own exists yet; the rows above are the codes of the list endpoint
 - [[S-03 Counts Story|Counts · S6–S10]] — every "N people" on Home, the Ring picker, Ring data and My Rings.
 - [[S-03 Counts Story|Counts · S11]] — "N connections" on Me; itself waiting on [[S-23 Connections Story|Connections · S2–S7]].
 - The people count on Shared with me has no task yet.
+
+## Log
+
+- 2026-11-24 · `tickets/frontend/M-01-identity/F-03-counts/FR-03-s-03-flags` · back to `draft` for review. Cleared [[S-03 Counts Story]]'s 2026-11-12 flag: s17 shows "· N people" on a row only when `memberCount` is set (the Ring lets members see each other, [[BI-17 Ring Invitations & Join Backend Integration]]); "Not asked, by decision" and the owner-only line replaced, endpoint row added. Cleared its 2026-11-24 flag: s68 is the profile card's three tiles, Rings · Connections · Photos (app `776e6ca`), "–" until read
