@@ -51,7 +51,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
       - ✅ [BI-14 Counts Backend Integration](social-pin/modules/Identity%20Core/features/Counts/flow/BI-14%20Counts%20Backend%20Integration.md) (Backend Integration, Critical)
       - 🟢 [QB-07 Counts QA Backend](social-pin/modules/Identity%20Core/features/Counts/flow/QB-07%20Counts%20QA%20Backend.md) (QA Backend, Critical)
       - ✅ [FD-06 Counts Frontend Delivery](social-pin/modules/Identity%20Core/features/Counts/flow/FD-06%20Counts%20Frontend%20Delivery.md) (Frontend Delivery, Critical)
-      - ∅ _Counts QA Frontend_ (QA Frontend)
+      - 🟡 [QF-08 Counts QA Frontend](social-pin/modules/Identity%20Core/features/Counts/flow/QF-08%20Counts%20QA%20Frontend.md) (QA Frontend, 1 pending note, Critical)
     - 🔵 [F-04 Files Upload](social-pin/modules/Identity%20Core/features/Files%20Upload/F-04%20Files%20Upload.md) (release MVP, Critical)
       - 👍 [S-06 Files Upload Story](social-pin/modules/Identity%20Core/features/Files%20Upload/S-06%20Files%20Upload%20Story.md) (User Story, Critical)
         - ✅ [ND-16 Viewer access to file bytes](social-pin/needs-decisions/ND-16%20Viewer%20access%20to%20file%20bytes.md) (Needs decision)

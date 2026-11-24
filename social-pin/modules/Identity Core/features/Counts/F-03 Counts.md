@@ -19,7 +19,7 @@ tags: [feature, module/identity, priority/critical, release/mvp]
 
 **Backend:** Done (S11 with F-14, backend `main` `1c460b0`) · **Priority:** Critical · **Release:** MVP · **Module:** [[M-01 Identity Core Module|Identity Core]]
 
-**Layers:** [[S-03 Counts Story|Story]] · [[FR-03 Counts Frontend Requirements|Frontend Requirements]] · [[BD-03 Counts Backend Delivery|Backend Delivery]] · [[BI-14 Counts Backend Integration|Backend Integration]] · [[FD-06 Counts Frontend Delivery|Frontend Delivery]] · [[QB-07 Counts QA Backend|QA Backend]] · [[Counts QA Frontend|QA Frontend]]
+**Layers:** [[S-03 Counts Story|Story]] · [[FR-03 Counts Frontend Requirements|Frontend Requirements]] · [[BD-03 Counts Backend Delivery|Backend Delivery]] · [[BI-14 Counts Backend Integration|Backend Integration]] · [[FD-06 Counts Frontend Delivery|Frontend Delivery]] · [[QB-07 Counts QA Backend|QA Backend]] · [[QF-08 Counts QA Frontend|QA Frontend]]
 
 Member counts per Ring ("148 people") and connection counts ("218 connections") shown on Home, Ring data, My Rings and Me.
 

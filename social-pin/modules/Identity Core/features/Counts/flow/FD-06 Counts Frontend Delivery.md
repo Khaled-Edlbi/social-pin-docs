@@ -19,7 +19,7 @@ tags: [frontend-delivery, frontend-delivery/done, module/identity, layer/fronten
 
 # ✅ Counts · Frontend Delivery
 
-**Feature:** [[F-03 Counts]] · **Status:** Done · **Built from:** [[BI-14 Counts Backend Integration]] · **Against:** [[S-03 Counts Story]] · **Requirements:** [[FR-03 Counts Frontend Requirements]] · **QA:** [[Counts QA Frontend]]
+**Feature:** [[F-03 Counts]] · **Status:** Done · **Built from:** [[BI-14 Counts Backend Integration]] · **Against:** [[S-03 Counts Story]] · **Requirements:** [[FR-03 Counts Frontend Requirements]] · **QA:** [[QF-08 Counts QA Frontend]]
 
 What the client shipped for the numbers on Home, the Ring picker, My Rings, Shared with me, Ring data and Me, on `social_pin` `main` @ `866240a` since 2026-11-24 (built on `rings/F-11/honest-rings`, first @ `f2c2ad5`, 2026-11-05, then fast-forwarded into `main`; the merge is local and not on `origin/main` yet). Every number comes from the API ([[BI-14 Counts Backend Integration]], backend `main` @ `f186ba1`; the connections count from [[BI-16 Connections Backend Integration]]); none is computed from a roster and none is a sample: since `dde0533` the app has no sample Rings at all, and before `GET /rings` answers it shows a loading state, an error with retry when it fails. The QA checklist is RG-10…RG-13 in the client's `docs/TEST_CASES_2026-10-18.md`.
 
