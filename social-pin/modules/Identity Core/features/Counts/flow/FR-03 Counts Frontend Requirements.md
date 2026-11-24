@@ -3,23 +3,23 @@ id: FR-03
 type: frontend-requirements
 module: identity
 feature: counts
-status: draft
+status: approved
 scope: feature
 screens: [s11, s12, s14, s16, s17, s68]
-approvedBy: "khaled"
-approvedAt: 2026-11-05
+approvedBy: "Omar Fostok"
+approvedAt: 2026-11-24
 owner: "Omar Fostok"
 depends: []
 affects: ["S-03 Counts Story"]
 related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "F-11 Rings", "F-14 Connections", "S-23 Connections Story", "S-87 Error Contract Story", "BI-17 Ring Invitations & Join Backend Integration", "S-11 Photo Library Story", "GET /rings/shared-with-me", "GET /connections/count"]
 created: 2026-10-18
 updated: 2026-11-24
-tags: [frontend-requirements, frontend-requirements/draft, module/identity, layer/frontend]
+tags: [frontend-requirements, frontend-requirements/approved, module/identity, layer/frontend]
 ---
 
 # Counts · Frontend Requirements
 
-**Feature:** [[F-03 Counts]] · **Status:** Draft 2026-11-24 (approved 2026-11-05 by khaled; reopened for the S-03 changes of 2026-11-12 and 2026-11-24) · **Story:** [[S-03 Counts Story]] · **API Integration:** not yet (backend not built)
+**Feature:** [[F-03 Counts]] · **Status:** Approved 2026-11-24 by Omar Fostok (first approved 2026-11-05 by khaled; reopened for the S-03 changes of 2026-11-12 and 2026-11-24) · **Story:** [[S-03 Counts Story]] · **API Integration:** not yet (backend not built)
 
 What the client needs to show the numbers the design puts on Home, the Ring picker, My Rings, Shared with me, Ring data and Me, and which of them can be read today. The feature has no endpoints of its own; two of the numbers fall out of list envelopes that already exist, the rest wait on tasks. In the MVP since 2026-10-27.
 
