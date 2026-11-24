@@ -8061,7 +8061,7 @@
     },
     "concepts": 377,
     "decisions": 39,
-    "edges": 10242,
+    "edges": 10243,
     "features": 40,
     "layerNotes": 175,
     "modules": 8,
@@ -86170,6 +86170,11 @@
     {
       "from": "qa-backend:counts",
       "kind": "wikilink",
+      "to": "decision:D-04"
+    },
+    {
+      "from": "qa-backend:counts",
+      "kind": "wikilink",
       "to": "story:error-contract"
     },
     {
@@ -116914,7 +116919,7 @@
       "task": null,
       "title": "QB-07 Counts QA Backend",
       "unmet": [],
-      "updated": "2026-11-09"
+      "updated": "2026-11-24"
     },
     "qa-backend:delegated-admins": {
       "affects": [],
