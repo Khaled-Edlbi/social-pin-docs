@@ -13,7 +13,7 @@ affects: []
 related: ["S-96 Notifications Story", "FR-39 Notifications Frontend Requirements", "BD-39 Notifications Backend Delivery", "D-40 The bell count, the tab cross-fade and Go Pro coming soon stay", "F-29 App Shell & Onboarding Narrative", "S-73 App Shell & Onboarding Narrative Story"]
 pending: []
 created: 2026-11-15
-updated: 2026-11-15
+updated: 2026-11-24
 tags: [frontend-delivery, frontend-delivery/in-progress, module/platform, layer/frontend]
 ---
 
@@ -23,7 +23,7 @@ tags: [frontend-delivery, frontend-delivery/in-progress, module/platform, layer/
 
 **Feature:** [[F-39 Notifications]] · **Status:** In progress · **Built from:** [[Notifications Backend Integration]] (not written yet: the inbox has no API) · **Against:** [[S-96 Notifications Story]] · **Requirements:** [[FR-39 Notifications Frontend Requirements]] · **QA:** [[Notifications QA Frontend]]
 
-The inbox (s69) and the bell are built **on demo data**: the inbox has no API yet ([[BD-39 Notifications Backend Delivery]]). The note stays `in-progress`, and blocked by the flow, until the Backend Integration exists. It is on `social_pin` `rings/F-11/honest-rings` @ `778d9b4` (2026-11-12), not on `main` yet. The demo inbox came in `e03ddf9`. The owner kept the bell's count before this feature ships ([[D-40 The bell count, the tab cross-fade and Go Pro coming soon stay|D-40]]). At `778d9b4`: `dart analyze` 0 errors, `flutter test` 1752 passed.
+The inbox (s69) and the bell are built **on demo data**: the inbox has no API yet ([[BD-39 Notifications Backend Delivery]]). The note stays `in-progress`, and blocked by the flow, until the Backend Integration exists. It is on `social_pin` `rings/F-11/honest-rings` @ `778d9b4` (2026-11-12), on `main` since 2026-11-24 at `866240a`. The demo inbox came in `e03ddf9`. The owner kept the bell's count before this feature ships ([[D-40 The bell count, the tab cross-fade and Go Pro coming soon stay|D-40]]). At `778d9b4`: `dart analyze` 0 errors, `flutter test` 1752 passed.
 
 ## Screens shipped
 
@@ -59,4 +59,4 @@ At `778d9b4`: `notifications_test` (the two groups, the unread rule, *Mark all r
 
 ## Log
 
-- 2026-11-15 · app branch `rings/F-11/honest-rings` @ `e03ddf9`, `778d9b4` (social_pin, not on `main` yet; analyze 0 errors, 1752 tests pass) · S1–S4 on demo data · s69 (today and earlier, unread dots, rows open their place, *Mark all read*), the Home bell count (D-40) · written; `in-progress` and blocked until the inbox has an API and its Backend Integration exists · flagged nothing
+- 2026-11-15 · app branch `rings/F-11/honest-rings` @ `e03ddf9`, `778d9b4` (social_pin, on `main` since 2026-11-24 at `866240a`; analyze 0 errors, 1752 tests pass) · S1–S4 on demo data · s69 (today and earlier, unread dots, rows open their place, *Mark all read*), the Home bell count (D-40) · written; `in-progress` and blocked until the inbox has an API and its Backend Integration exists · flagged nothing

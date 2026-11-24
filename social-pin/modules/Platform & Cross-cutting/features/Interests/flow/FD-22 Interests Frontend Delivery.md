@@ -13,7 +13,7 @@ affects: []
 related: ["S-92 Interests Story", "FR-37 Interests Frontend Requirements", "BD-37 Interests Backend Delivery", "F-36 Gemma AI", "F-02 Auth & Sign-up"]
 pending: []
 created: 2026-11-15
-updated: 2026-11-15
+updated: 2026-11-24
 tags: [frontend-delivery, frontend-delivery/in-progress, module/platform, layer/frontend]
 ---
 
@@ -23,7 +23,7 @@ tags: [frontend-delivery, frontend-delivery/in-progress, module/platform, layer/
 
 **Feature:** [[F-37 Interests]] · **Status:** In progress · **Built from:** [[Interests Backend Integration]] (not written yet: the interests endpoints don't exist) · **Against:** [[S-92 Interests Story]] · **Requirements:** [[FR-37 Interests Frontend Requirements]] · **QA:** [[Interests QA Frontend]]
 
-Both pickers are built, but on a sample list, and **nothing is saved or sent**: `GET /interests`, `GET /users/me/interests` and `PUT /users/me/interests` don't exist yet ([[S-92 Interests Story|Interests · S5]]). The note stays `in-progress`, and blocked by the flow, until they do. It is on `social_pin` `rings/F-11/honest-rings` @ `778d9b4` (2026-11-12), not on `main` yet. `778d9b4` gave both screens one shared vocabulary. At `778d9b4`: `dart analyze` 0 errors, `flutter test` 1752 passed.
+Both pickers are built, but on a sample list, and **nothing is saved or sent**: `GET /interests`, `GET /users/me/interests` and `PUT /users/me/interests` don't exist yet ([[S-92 Interests Story|Interests · S5]]). The note stays `in-progress`, and blocked by the flow, until they do. It is on `social_pin` `rings/F-11/honest-rings` @ `778d9b4` (2026-11-12), on `main` since 2026-11-24 at `866240a`. `778d9b4` gave both screens one shared vocabulary. At `778d9b4`: `dart analyze` 0 errors, `flutter test` 1752 passed.
 
 ## Screens shipped
 
@@ -59,4 +59,4 @@ At `778d9b4`: `interest_vocabulary_test` (new: unique ids, every group has inter
 
 ## Log
 
-- 2026-11-15 · app branch `rings/F-11/honest-rings` @ `778d9b4` (social_pin, not on `main` yet; analyze 0 errors, 1752 tests pass) · S1–S3 (the pickers, on a sample) · s07, s71 (one vocabulary of 20 interests in three groups, en and ar; not saved) · written; `in-progress` and blocked until the interests endpoints and their Backend Integration exist · flagged nothing
+- 2026-11-15 · app branch `rings/F-11/honest-rings` @ `778d9b4` (social_pin, on `main` since 2026-11-24 at `866240a`; analyze 0 errors, 1752 tests pass) · S1–S3 (the pickers, on a sample) · s07, s71 (one vocabulary of 20 interests in three groups, en and ar; not saved) · written; `in-progress` and blocked until the interests endpoints and their Backend Integration exist · flagged nothing

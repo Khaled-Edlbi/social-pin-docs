@@ -13,7 +13,7 @@ affects: []
 related: ["FR-07 Profiles & Pin Name Frontend Requirements", "S-14 Profiles & Pin Name Story", "D-02 One main profile every Ring starts from", "D-05 Inherit per field, copy without members", "D-06 Yearly rename, old name freed, case-insensitive", "D-22 The public page only says the Pin exists", "FD-04 Account Frontend Delivery", "FD-05 Auth & Sign-up Frontend Delivery", "FD-08 Photo Library Frontend Delivery", "FD-11 Ring Projection Frontend Delivery", "F-10 Ring Projection"]
 pending: []
 created: 2026-11-06
-updated: 2026-11-09
+updated: 2026-11-24
 tags: [frontend-delivery, frontend-delivery/done, module/identity, layer/frontend]
 ---
 
@@ -21,7 +21,7 @@ tags: [frontend-delivery, frontend-delivery/done, module/identity, layer/fronten
 
 **Feature:** [[F-07 Profiles & Pin Name]] · **Status:** Done · **Built from:** [[BI-04 Profiles & Pin Name Backend Integration]] · **Against:** [[S-14 Profiles & Pin Name Story]] · **Requirements:** [[FR-07 Profiles & Pin Name Frontend Requirements]] · **QA:** [[Profiles & Pin Name QA Frontend]]
 
-What the client shipped for the main profile, the profile editor, renaming the Pin name and the privacy rows, on `social_pin` `rings/F-11/honest-rings` @ `bf5088d` (2026-11-06), the per-Ring privacy switches, rename chips and copy @ `f9c19e3` and Clear-hides-first @ `0005f00` (2026-11-09), not on `main` yet. Claiming the Pin name at sign-up (s06) shipped with [[FD-05 Auth & Sign-up Frontend Delivery]]; the privacy rows on Me first shipped with [[FD-04 Account Frontend Delivery]]. The QA checklist is PF-01…PF-13 in the client's `docs/TEST_CASES_2026-10-18.md`.
+What the client shipped for the main profile, the profile editor, renaming the Pin name and the privacy rows, on `social_pin` `rings/F-11/honest-rings` @ `bf5088d` (2026-11-06), the per-Ring privacy switches, rename chips and copy @ `f9c19e3` and Clear-hides-first @ `0005f00` (2026-11-09), on `main` since 2026-11-24 at `866240a`. Claiming the Pin name at sign-up (s06) shipped with [[FD-05 Auth & Sign-up Frontend Delivery]]; the privacy rows on Me first shipped with [[FD-04 Account Frontend Delivery]]. The QA checklist is PF-01…PF-13 in the client's `docs/TEST_CASES_2026-10-18.md`.
 
 ## Screens shipped
 
@@ -63,5 +63,5 @@ What the client shipped for the main profile, the profile editor, renaming the P
 
 ## Log
 
-- 2026-11-06 · `rings/F-11/honest-rings` @ `bf5088d` (social_pin, not on `main` yet) · the main profile read and edited, the profile editor from the Me card, the main photo, Pin rename once a year, *Profile basics* sent after registering, Me · Privacy with Clear and ring-privacy; PF-01…PF-13 · flagged nothing
-- 2026-11-09 · `rings/F-11/honest-rings` @ `f9c19e3`, `0005f00` (social_pin, not on `main` yet) · S4 Me privacy rows with the value and a switch per Ring; S4 Clear hides on every Ring first, then sends `null`, the value kept if a Ring fails (decided 2026-11-09); S12 rename suggestion chips from my own name checked as free, 300 ms, the full rename warning; S3 / S10 editor copy (the name's fallback line, "Add"); s68 and the profile editor · the S-14 flag cleared; a Ring's own headline, role, company and location shipped with [[FD-11 Ring Projection Frontend Delivery]] · flagged [[S-14 Profiles & Pin Name Story]] (a failed Clear says why as an error message, not under the field)
+- 2026-11-06 · `rings/F-11/honest-rings` @ `bf5088d` (social_pin, on `main` since 2026-11-24 at `866240a`) · the main profile read and edited, the profile editor from the Me card, the main photo, Pin rename once a year, *Profile basics* sent after registering, Me · Privacy with Clear and ring-privacy; PF-01…PF-13 · flagged nothing
+- 2026-11-09 · `rings/F-11/honest-rings` @ `f9c19e3`, `0005f00` (social_pin, on `main` since 2026-11-24 at `866240a`) · S4 Me privacy rows with the value and a switch per Ring; S4 Clear hides on every Ring first, then sends `null`, the value kept if a Ring fails (decided 2026-11-09); S12 rename suggestion chips from my own name checked as free, 300 ms, the full rename warning; S3 / S10 editor copy (the name's fallback line, "Add"); s68 and the profile editor · the S-14 flag cleared; a Ring's own headline, role, company and location shipped with [[FD-11 Ring Projection Frontend Delivery]] · flagged [[S-14 Profiles & Pin Name Story]] (a failed Clear says why as an error message, not under the field)

@@ -14,7 +14,7 @@ affects: []
 related: ["S-73 App Shell & Onboarding Narrative Story", "FR-29 App Shell & Onboarding Narrative Frontend Requirements", "BD-29 App Shell & Onboarding Narrative Backend Delivery", "D-40 The bell count, the tab cross-fade and Go Pro coming soon stay", "F-39 Notifications", "F-11 Rings", "F-02 Auth & Sign-up"]
 pending: []
 created: 2026-11-15
-updated: 2026-11-15
+updated: 2026-11-24
 tags: [frontend-delivery, frontend-delivery/done, module/platform, layer/frontend]
 ---
 
@@ -22,7 +22,7 @@ tags: [frontend-delivery, frontend-delivery/done, module/platform, layer/fronten
 
 **Feature:** [[F-29 App Shell & Onboarding Narrative]] · **Status:** Done · **Built from:** no endpoint (the local session; [[BD-29 App Shell & Onboarding Narrative Backend Delivery|BD-29]] adds none) · **Against:** [[S-73 App Shell & Onboarding Narrative Story]] · **Requirements:** [[FR-29 App Shell & Onboarding Narrative Frontend Requirements]] · **QA:** [[App Shell & Onboarding Narrative QA Frontend]]
 
-What the client shipped for the splash, the three value panels, the tab bar and the chrome around it. It is on `social_pin` `rings/F-11/honest-rings` @ `778d9b4` (2026-11-12), not on `main` yet. The shell, the launch flow and the tab bar date from the first builds (`271b518`, laid out again in `814e81f`). `778d9b4` adds the intro shown once, the active Ring kept across restarts, and the 1.8 s splash. At `778d9b4`: `dart analyze` 0 errors, `flutter test` 1752 passed. Unit and widget tests only; not yet tried on a device.
+What the client shipped for the splash, the three value panels, the tab bar and the chrome around it. It is on `social_pin` `rings/F-11/honest-rings` @ `778d9b4` (2026-11-12), on `main` since 2026-11-24 at `866240a`. The shell, the launch flow and the tab bar date from the first builds (`271b518`, laid out again in `814e81f`). `778d9b4` adds the intro shown once, the active Ring kept across restarts, and the 1.8 s splash. At `778d9b4`: `dart analyze` 0 errors, `flutter test` 1752 passed. Unit and widget tests only; not yet tried on a device.
 
 **Why it isn't blocked by the flow:** `blockedBy: []`. The shell calls no endpoint, so there is no Backend Integration to wait on (FR-29: "This feature calls no endpoint").
 
@@ -62,4 +62,4 @@ Unit and widget, at `778d9b4`: `startup_test` (new: where the app opens, intro o
 
 ## Log
 
-- 2026-11-15 · app branch `rings/F-11/honest-rings` @ `778d9b4` (with the shell from `271b518` and `814e81f`; social_pin, not on `main` yet; analyze 0 errors, 1752 tests pass) · S1–S5 · s00a (1.8 s splash, tap to skip, launch routing), s00b–s00d (show once with `onboardingIntroSeen`), tab bar (cross-fade, bell count from the demo inbox, active Ring restored) · written; `blockedBy: []` because the shell calls no endpoint · flagged nothing (S-73's 2026-11-12 update, `S-73-app-778d9b4`, already says this; the bell's source is its open question)
+- 2026-11-15 · app branch `rings/F-11/honest-rings` @ `778d9b4` (with the shell from `271b518` and `814e81f`; social_pin, on `main` since 2026-11-24 at `866240a`; analyze 0 errors, 1752 tests pass) · S1–S5 · s00a (1.8 s splash, tap to skip, launch routing), s00b–s00d (show once with `onboardingIntroSeen`), tab bar (cross-fade, bell count from the demo inbox, active Ring restored) · written; `blockedBy: []` because the shell calls no endpoint · flagged nothing (S-73's 2026-11-12 update, `S-73-app-778d9b4`, already says this; the bell's source is its open question)

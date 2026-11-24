@@ -103461,7 +103461,7 @@
       "task": null,
       "title": "FD-04 Account Frontend Delivery",
       "unmet": [],
-      "updated": "2026-11-15"
+      "updated": "2026-11-24"
     },
     "frontend-delivery:app-shell": {
       "affects": [],
@@ -103534,7 +103534,7 @@
         "s00d"
       ],
       "status": "done",
-      "summary": "What the client shipped for the splash, the three value panels, the tab bar and the chrome around it. It is on socialpin rings/F-11/honest-rings @ 778d9b4 (2026-11-12), not on main yet. The shell,…",
+      "summary": "What the client shipped for the splash, the three value panels, the tab bar and the chrome around it. It is on socialpin rings/F-11/honest-rings @ 778d9b4 (2026-11-12), on main since 2026-11-24 at…",
       "tags": [
         "frontend-delivery",
         "frontend-delivery/done",
@@ -103544,7 +103544,7 @@
       "task": null,
       "title": "FD-21 App Shell & Onboarding Narrative Frontend Delivery",
       "unmet": [],
-      "updated": "2026-11-15"
+      "updated": "2026-11-24"
     },
     "frontend-delivery:audit-log": {
       "affects": [],
@@ -103717,7 +103717,7 @@
       "task": null,
       "title": "FD-05 Auth & Sign-up Frontend Delivery",
       "unmet": [],
-      "updated": "2026-11-15"
+      "updated": "2026-11-24"
     },
     "frontend-delivery:badge-qr": {
       "affects": [],
@@ -103882,7 +103882,7 @@
         "s56"
       ],
       "status": "done",
-      "summary": "What the client shipped for the badge, the scanner and the scanned card, on socialpin rings/F-11/honest-rings @ 0005f00 (2026-11-09), not on main yet: the badge work came in 875d8ee, Connect,…",
+      "summary": "What the client shipped for the badge, the scanner and the scanned card, on socialpin rings/F-11/honest-rings @ 0005f00 (2026-11-09), on main since 2026-11-24 at 866240a: the badge work came in…",
       "tags": [
         "frontend-delivery",
         "frontend-delivery/done",
@@ -103892,7 +103892,7 @@
       "task": null,
       "title": "FD-16 Badge & QR Frontend Delivery",
       "unmet": [],
-      "updated": "2026-11-15"
+      "updated": "2026-11-24"
     },
     "frontend-delivery:cleanup-jobs": {
       "affects": [],
@@ -104052,7 +104052,7 @@
         "s74"
       ],
       "status": "todo",
-      "summary": "What the client has for companies, on socialpin rings/F-11/honest-rings (not on main yet): s72 My companies, s73 Company detail and s74 Join a company Ring, on demo data only…",
+      "summary": "What the client has for companies, on socialpin rings/F-11/honest-rings (on main since 2026-11-24 at 866240a): s72 My companies, s73 Company detail and s74 Join a company Ring, on demo data only…",
       "tags": [
         "frontend-delivery",
         "frontend-delivery/todo",
@@ -104062,7 +104062,7 @@
       "task": null,
       "title": "FD-20 Companies Frontend Delivery",
       "unmet": [],
-      "updated": "2026-11-15"
+      "updated": "2026-11-24"
     },
     "frontend-delivery:connections": {
       "affects": [],
@@ -104214,7 +104214,7 @@
         "s68"
       ],
       "status": "done",
-      "summary": "What the client shipped for asking, answering and keeping connections, on socialpin rings/F-11/honest-rings, not on main yet: first @ f70c791 (2026-11-09) against backend main 1c460b0, then @…",
+      "summary": "What the client shipped for asking, answering and keeping connections, on socialpin rings/F-11/honest-rings, on main since 2026-11-24 at 866240a: first @ f70c791 (2026-11-09) against backend main…",
       "tags": [
         "frontend-delivery",
         "frontend-delivery/done",
@@ -104224,7 +104224,7 @@
       "task": null,
       "title": "FD-13 Connections Frontend Delivery",
       "unmet": [],
-      "updated": "2026-11-15"
+      "updated": "2026-11-24"
     },
     "frontend-delivery:counts": {
       "affects": [],
@@ -104591,7 +104591,7 @@
       "task": null,
       "title": "FD-18 Discover Hub & Search Frontend Delivery",
       "unmet": [],
-      "updated": "2026-11-23"
+      "updated": "2026-11-24"
     },
     "frontend-delivery:e2e-tests": {
       "affects": [],
@@ -104975,7 +104975,7 @@
       "task": null,
       "title": "FD-07 Files Upload Frontend Delivery",
       "unmet": [],
-      "updated": "2026-11-15"
+      "updated": "2026-11-24"
     },
     "frontend-delivery:gemma": {
       "affects": [],
@@ -105089,7 +105089,7 @@
       "task": null,
       "title": "FD-22 Interests Frontend Delivery",
       "unmet": [],
-      "updated": "2026-11-15"
+      "updated": "2026-11-24"
     },
     "frontend-delivery:linked-accounts": {
       "affects": [],
@@ -105251,7 +105251,7 @@
       "task": null,
       "title": "FD-23 Notifications Frontend Delivery",
       "unmet": [],
-      "updated": "2026-11-15"
+      "updated": "2026-11-24"
     },
     "frontend-delivery:onboarding-imports": {
       "affects": [],
@@ -105471,7 +105471,7 @@
         "s68"
       ],
       "status": "done",
-      "summary": "What the client shipped for a Ring's photo and the photo library, on socialpin rings/F-11/honest-rings @ 3369288 (2026-11-05), not on main yet: the library and the Ring photo in 8939d8e (shared…",
+      "summary": "What the client shipped for a Ring's photo and the photo library, on socialpin rings/F-11/honest-rings @ 3369288 (2026-11-05), on main since 2026-11-24 at 866240a: the library and the Ring photo…",
       "tags": [
         "frontend-delivery",
         "frontend-delivery/done",
@@ -105481,7 +105481,7 @@
       "task": null,
       "title": "FD-08 Photo Library Frontend Delivery",
       "unmet": [],
-      "updated": "2026-11-09"
+      "updated": "2026-11-24"
     },
     "frontend-delivery:pincast": {
       "affects": [],
@@ -105772,7 +105772,7 @@
       "task": null,
       "title": "FD-09 Profiles & Pin Name Frontend Delivery",
       "unmet": [],
-      "updated": "2026-11-09"
+      "updated": "2026-11-24"
     },
     "frontend-delivery:ring-access": {
       "affects": [],
@@ -105871,7 +105871,7 @@
         "s62"
       ],
       "status": "done",
-      "summary": "The engine has no screen of its own: this note is where the client keeps its promises, on socialpin rings/F-11/honest-rings @ 0005f00 (2026-11-09), not on main yet. Shared with me as people…",
+      "summary": "The engine has no screen of its own: this note is where the client keeps its promises, on socialpin rings/F-11/honest-rings @ 0005f00 (2026-11-09), on main since 2026-11-24 at 866240a. Shared with…",
       "tags": [
         "frontend-delivery",
         "frontend-delivery/done",
@@ -105881,7 +105881,7 @@
       "task": null,
       "title": "FD-10 Ring Access Engine Frontend Delivery",
       "unmet": [],
-      "updated": "2026-11-09"
+      "updated": "2026-11-24"
     },
     "frontend-delivery:ring-invitations": {
       "affects": [],
@@ -106011,7 +106011,7 @@
       "task": null,
       "title": "FD-15 Ring Invitations & Join Frontend Delivery",
       "unmet": [],
-      "updated": "2026-11-15"
+      "updated": "2026-11-24"
     },
     "frontend-delivery:ring-members": {
       "affects": [],
@@ -106143,7 +106143,7 @@
         "s47"
       ],
       "status": "done",
-      "summary": "What the client shipped for the owner's roster of a Ring, on socialpin rings/F-11/honest-rings @ 0005f00 (2026-11-09; first b646053, then f801aaa, f9c19e3), not on main yet, against backend main…",
+      "summary": "What the client shipped for the owner's roster of a Ring, on socialpin rings/F-11/honest-rings @ 0005f00 (2026-11-09; first b646053, then f801aaa, f9c19e3), on main since 2026-11-24 at 866240a,…",
       "tags": [
         "frontend-delivery",
         "frontend-delivery/done",
@@ -106153,7 +106153,7 @@
       "task": null,
       "title": "FD-14 Ring Members Frontend Delivery",
       "unmet": [],
-      "updated": "2026-11-15"
+      "updated": "2026-11-24"
     },
     "frontend-delivery:ring-projection": {
       "affects": [],
@@ -106245,7 +106245,7 @@
       "task": null,
       "title": "FD-11 Ring Projection Frontend Delivery",
       "unmet": [],
-      "updated": "2026-11-15"
+      "updated": "2026-11-24"
     },
     "frontend-delivery:rings": {
       "affects": [],
@@ -106369,7 +106369,7 @@
       "task": null,
       "title": "FD-12 Rings Frontend Delivery",
       "unmet": [],
-      "updated": "2026-11-15"
+      "updated": "2026-11-24"
     },
     "frontend-delivery:subscription": {
       "affects": [],
@@ -106604,7 +106604,7 @@
       "task": null,
       "title": "FD-17 View As & Pin Views Frontend Delivery",
       "unmet": [],
-      "updated": "2026-11-15"
+      "updated": "2026-11-24"
     },
     "frontend-delivery:widgets": {
       "affects": [],
@@ -106669,7 +106669,7 @@
       "task": null,
       "title": "FD-19 Widgets Frontend Delivery",
       "unmet": [],
-      "updated": "2026-11-15"
+      "updated": "2026-11-24"
     },
     "frontend-requirements:account": {
       "affects": [],

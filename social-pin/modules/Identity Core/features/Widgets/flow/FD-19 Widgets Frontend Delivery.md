@@ -13,7 +13,7 @@ affects: []
 related: ["S-20 Widgets Story", "FR-13 Widgets Frontend Requirements", "BD-13 Widgets Backend Delivery", "F-36 Gemma AI"]
 pending: []
 created: 2026-11-15
-updated: 2026-11-15
+updated: 2026-11-24
 tags: [frontend-delivery, frontend-delivery/todo, module/identity, layer/frontend]
 ---
 
@@ -23,7 +23,7 @@ tags: [frontend-delivery, frontend-delivery/todo, module/identity, layer/fronten
 
 **Feature:** [[F-13 Widgets]] · **Status:** To do · **Built from:** [[Widgets Backend Integration]] (not written yet) · **Against:** [[S-20 Widgets Story]] · **Requirements:** [[FR-13 Widgets Frontend Requirements]] · **QA:** [[Widgets QA Frontend]]
 
-Widgets aren't built: they have no endpoints yet. The note stays `todo` and blocked by the flow until the Backend Integration is written. What the app has today, on `social_pin` `rings/F-11/honest-rings` @ `778d9b4` (2026-11-12, not on `main` yet), is the way in, shown switched off (S-20 S1), plus a preview screen nothing opens. At `778d9b4`: `dart analyze` 0 errors, `flutter test` 1752 passed.
+Widgets aren't built: they have no endpoints yet. The note stays `todo` and blocked by the flow until the Backend Integration is written. What the app has today, on `social_pin` `rings/F-11/honest-rings` @ `778d9b4` (2026-11-12, on `main` since 2026-11-24 at `866240a`), is the way in, shown switched off (S-20 S1), plus a preview screen nothing opens. At `778d9b4`: `dart analyze` 0 errors, `flutter test` 1752 passed.
 
 ## Screens shipped
 
@@ -57,4 +57,4 @@ Widget test at `778d9b4`: `widget_entry_test` (new: the Widget row and the Booki
 
 ## Log
 
-- 2026-11-15 · app branch `rings/F-11/honest-rings` @ `e03ddf9`, `778d9b4` (social_pin, not on `main` yet; analyze 0 errors, 1752 tests pass) · S1 (the entry only) · s36 (Widget and Booking availability dimmed, "Coming soon"), s37 not reachable · written; stays `todo`, blocked until the Widgets Backend Integration exists · flagged nothing
+- 2026-11-15 · app branch `rings/F-11/honest-rings` @ `e03ddf9`, `778d9b4` (social_pin, on `main` since 2026-11-24 at `866240a`; analyze 0 errors, 1752 tests pass) · S1 (the entry only) · s36 (Widget and Booking availability dimmed, "Coming soon"), s37 not reachable · written; stays `todo`, blocked until the Widgets Backend Integration exists · flagged nothing

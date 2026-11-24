@@ -29,7 +29,7 @@ What the client shipped for PinCast, S-45 S1 to S5:
 - Home's chip and its *Go visible* card (S4);
 - the results on s42 (S5).
 
-It is on `social_pin` `rings/F-11/honest-rings`, commits `8f61e9a`, `2568494` and the sign-out fix after them; not on `main` yet. The demo data the screens showed before is removed.
+It is on `social_pin` `rings/F-11/honest-rings`, commits `8f61e9a`, `2568494` and the sign-out fix after them; on `main` since 2026-11-24 at `866240a`. The demo data the screens showed before is removed.
 
 Tested with Patrol against a fake backend, and in a two-device run on the development API (2026-11-24).
 
@@ -85,4 +85,4 @@ Tested with Patrol against a fake backend, and in a two-device run on the develo
 
 ## Log
 
-- 2026-11-24 · `docs/frontend/M-04-discovery/F-20-pincast/FD-24-built-from-bi-20` · app branch `rings/F-11/honest-rings` @ `8f61e9a`, `2568494` and the sign-out fix after them (social_pin, not on `main` yet) · S-45 S1–S5, built against [[BI-20 PinCast & Nearby Backend Integration|BI-20]] (current, backend `main` @ `ecd93c0`) · s39, s41, s40, s44 by token, s42, Home's chip and *Go visible* card; signing out stops a live PinCast first; demo data removed. Patrol PC-01 to PC-24 pass on the fake backend; a two-device run on the development API (2026-11-24); `deployedTo: [dev]`. Not done: notifications (S-96), Nearby by Ring (N10) · flagged nothing
+- 2026-11-24 · `docs/frontend/M-04-discovery/F-20-pincast/FD-24-built-from-bi-20` · app branch `rings/F-11/honest-rings` @ `8f61e9a`, `2568494` and the sign-out fix after them (social_pin, on `main` since 2026-11-24 at `866240a`) · S-45 S1–S5, built against [[BI-20 PinCast & Nearby Backend Integration|BI-20]] (current, backend `main` @ `ecd93c0`) · s39, s41, s40, s44 by token, s42, Home's chip and *Go visible* card; signing out stops a live PinCast first; demo data removed. Patrol PC-01 to PC-24 pass on the fake backend; a two-device run on the development API (2026-11-24); `deployedTo: [dev]`. Not done: notifications (S-96), Nearby by Ring (N10) · flagged nothing

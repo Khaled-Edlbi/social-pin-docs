@@ -14,7 +14,7 @@ affects: []
 related: ["S-42 Discover Hub & Search Story", "FR-19 Discover Hub & Search Frontend Requirements", "BD-19 Discover Hub & Search Backend Delivery", "D-41 Discover searches people by part of their Pin name", "D-37 Discover opens a Pin by its exact Pin name in the MVP", "B-30 Connect from a Discover search row is refused for a person you can't already open", "BI-16 Connections Backend Integration", "FD-17 View As & Pin Views Frontend Delivery", "FD-13 Connections Frontend Delivery", "S-01 Account Story", "S-23 Connections Story", "S-45 PinCast & Nearby Story", "GET /search/pin-names", "GET /views/pin/:pinName", "GET /users/me", "PATCH /users/me", "POST /connections/requests", "POST /connections/requests/:id/accept", E_SEARCH_01, E_SEARCH_02]
 pending: []
 created: 2026-11-15
-updated: 2026-11-23
+updated: 2026-11-24
 tags: [frontend-delivery, frontend-delivery/done, module/discovery, layer/frontend]
 ---
 
@@ -30,7 +30,7 @@ What the client shipped for the Discover tab:
 - recent searches kept on the phone (S3);
 - the switch "Let people find me by Pin name" on Me › Privacy (S5).
 
-It is on `social_pin` `rings/F-11/honest-rings` @ `db62e4d` (2026-11-23), not on `main` yet. Earlier work on the same branch:
+It is on `social_pin` `rings/F-11/honest-rings` @ `db62e4d` (2026-11-23), on `main` since 2026-11-24 at `866240a`. Earlier work on the same branch:
 - the hub and its demo came in `e03ddf9`;
 - the exact-name lookup, recent searches and People → Contacts came in `778d9b4`;
 - the as-you-type search replaces that lookup.
@@ -121,6 +121,6 @@ At `db62e4d`:
 
 ## Log
 
-- 2026-11-15 · app branch `rings/F-11/honest-rings` @ `e03ddf9`, `778d9b4` (social_pin, not on `main` yet; analyze 0 errors, 1752 tests pass) · S1–S3 (D-37's MVP) · s38 (Pin name lookup before opening, "This Pin isn't available to you", recent searches on the phone per user, People → Contacts, Import contacts "Coming soon", demo people outside production) · written; `blockedBy: []` because the MVP calls only BI-09's `GET /views/pin/:pinName` · flagged nothing (S-42's 2026-11-12 update, `S-42-app-778d9b4`, already says this)
+- 2026-11-15 · app branch `rings/F-11/honest-rings` @ `e03ddf9`, `778d9b4` (social_pin, on `main` since 2026-11-24 at `866240a`; analyze 0 errors, 1752 tests pass) · S1–S3 (D-37's MVP) · s38 (Pin name lookup before opening, "This Pin isn't available to you", recent searches on the phone per user, People → Contacts, Import contacts "Coming soon", demo people outside production) · written; `blockedBy: []` because the MVP calls only BI-09's `GET /views/pin/:pinName` · flagged nothing (S-42's 2026-11-12 update, `S-42-app-778d9b4`, already says this)
 - 2026-11-16 · `docs/frontend/M-04-discovery/F-19-discover-hub/FD-18-built-from-bi-19` · built from [[BI-19 Discover Hub & Search Backend Integration]] (current 2026-11-16), which uses BI-09's `GET /views/pin/:pinName`; the app at `778d9b4` matches its checklist; the route answers no 400, so the 400 row is never hit; own Pin name compared with `GET /profiles`, `displayName` `null` and the 401 written in · flagged nothing (BI-19 already names FD-18 in `affects`)
-- 2026-11-23 · `docs/frontend/M-04-discovery/F-19-discover-hub/FD-18-pin-name-search` · app branch `rings/F-11/honest-rings` @ `db62e4d` (social_pin, not on `main` yet) · S-42 S2, S4, S5 (D-41), built against [[BI-19 Discover Hub & Search Backend Integration|BI-19]] (current, backend `main @ e83682d`) · s38: the search by part of a Pin name, the four rows, Connect in place, every state; s46: Accept; s68: "Let people find me by Pin name". 13 widget tests and 11 Patrol tests (DS-01 … DS-11, fake backend) pass. Not yet tried against the development server. Connect on a stranger's row is refused until [[B-30 Connect from a Discover search row is refused for a person you can't already open|B-30]] is fixed. BI-19's checklist ticked. Cleared the D-41 and BD-19 flags · flagged nothing
+- 2026-11-23 · `docs/frontend/M-04-discovery/F-19-discover-hub/FD-18-pin-name-search` · app branch `rings/F-11/honest-rings` @ `db62e4d` (social_pin, on `main` since 2026-11-24 at `866240a`) · S-42 S2, S4, S5 (D-41), built against [[BI-19 Discover Hub & Search Backend Integration|BI-19]] (current, backend `main @ e83682d`) · s38: the search by part of a Pin name, the four rows, Connect in place, every state; s46: Accept; s68: "Let people find me by Pin name". 13 widget tests and 11 Patrol tests (DS-01 … DS-11, fake backend) pass. Not yet tried against the development server. Connect on a stranger's row is refused until [[B-30 Connect from a Discover search row is refused for a person you can't already open|B-30]] is fixed. BI-19's checklist ticked. Cleared the D-41 and BD-19 flags · flagged nothing
