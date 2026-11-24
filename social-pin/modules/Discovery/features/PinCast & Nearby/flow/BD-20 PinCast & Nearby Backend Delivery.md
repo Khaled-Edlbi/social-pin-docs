@@ -5,24 +5,22 @@ module: discovery
 feature: pincast
 status: done
 scope: feature
-deployedTo: []
+deployedTo: [dev]
 screens: [s11, s39, s40, s41, s42, s44]
 depends: ["FR-20 PinCast & Nearby Frontend Requirements", "S-45 PinCast & Nearby Story", "D-10 Connect sends what the requester already has", "D-14 Shared with me lists people, never the Ring", "D-18 Ring names shown when joined knowingly", "D-28 Scan someone in is not in the MVP", "BD-08 Ring Access Engine Backend Delivery", "BD-12 View As & Pin Views Backend Delivery", "BD-14 Connections Backend Delivery", "BD-18 Badge & QR Backend Delivery"]
 affects: ["FR-20 PinCast & Nearby Frontend Requirements", "FR-14 Connections Frontend Requirements", "BI-20 PinCast & Nearby Backend Integration", "Frontend API Guide"]
 related: ["POST /pincasts", "GET /pincasts/current", "PATCH /pincasts/current", "POST /pincasts/current/extend", "POST /pincasts/current/stop", "POST /pincasts/current/position", "GET /pincasts/current/people", "GET /pincasts/:id/results", "GET /views/pincast/:token", "GET /views/ring/:ringId", "POST /connections/requests", "GET /connections/relationship", "POST /blocks", "E_PINCAST_01", "E_PINCAST_02", "E_PINCAST_03", "E_PINCAST_04", "E_RING_02", "E_RING_03", "Ring Access Model", "F-31 Cleanup Jobs", "F-39 Notifications", "F-08 Ring Access Engine"]
 pending: []
 created: 2026-10-18
-updated: 2026-11-23
+updated: 2026-11-24
 tags: [backend-delivery, backend-delivery/done, module/discovery, layer/backend]
 ---
 
 # ✅ PinCast & Nearby · Backend Delivery
 
-> ⚠ Affected by [[QB-19 PinCast & Nearby QA Backend]] (2026-11-23): QB-19 PinCast & Nearby QA Backend is written and passing, 49 of 49, on backend main ecd93c0 run on PostgreSQL 16.15 + PostGIS 3.4.2 (2026-11-23): the migration applied cleanly and the geo query bounded reach as N2 says. The Gaps line 'Not run against PostGIS yet' can go; deployedTo is still empty (not on dev)
-
 **Feature:** [[F-20 PinCast & Nearby]] · **Status:** Done · **Integration guide:** [[BI-20 PinCast & Nearby Backend Integration]] · **Requirements:** [[FR-20 PinCast & Nearby Frontend Requirements]] · **QA:** [[QB-19 PinCast & Nearby QA Backend]]
 
-What the backend shipped for this feature and how it works. **On backend `main` since `ecd93c0`** (2026-11-23): the code branch `BD-20/pincast/pincast-routes` (`ad6e30e`), merged on top of F-19's search; 1163 unit tests green and the typecheck clean on the combination. **Not yet run against a PostGIS database** (the session that wrote it had none): the migration and the geo query are to be exercised on dev before QA. PinCast, S-45 S1 to S5 and the twelve rules N1–N12; Nearby by Ring (S6) is later (N10) and nothing here serves it.
+What the backend shipped for this feature and how it works. **On backend `main` since `ecd93c0`** (2026-11-23): the code branch `BD-20/pincast/pincast-routes` (`ad6e30e`), merged on top of F-19's search; 1163 unit tests green and the typecheck clean on the combination. Run on PostgreSQL 16.15 + PostGIS 3.4.2 by [[QB-19 PinCast & Nearby QA Backend|QB-19]] (49 of 49, 2026-11-23): the migration applied cleanly and the geo query bounded reach as N2 says. **On the development API since 2026-11-24:** `GET /pincasts/current` answers there, tried from two devices. PinCast, S-45 S1 to S5 and the twelve rules N1–N12; Nearby by Ring (S6) is later (N10) and nothing here serves it.
 
 ## Endpoints, tables and code
 
@@ -75,12 +73,10 @@ What the backend shipped for this feature and how it works. **On backend `main` 
 
 ### Gaps
 
-- **Not run against PostGIS yet**: `pnpm prisma:deploy` and a two-phone start / position / people pass on dev are owed before [[QB-19 PinCast & Nearby QA Backend]].
 - The 30-day purge of `pincast_recipients` → [[F-31 Cleanup Jobs]] (`detectedAt` indexed; `reachedCount` survives it).
 - "PinCast ended" and "pins nearby" notifications, and push in place of the 10 s polling → [[S-96 Notifications Story]] (N11: none in the MVP).
 - Nearby by Ring (S6) → [[S-45 PinCast & Nearby Story#S6 · Nearby by Ring (no prototype screen; §6.2) · later (N10)|S-45 S6]], later.
 - No rate limit on the token resolve (the badge has 20 a minute): a PinCast token is bound to the viewer's own rows, so walking the token space gains nothing; the floor alone holds. Revisit with the badge's limiter if abuse appears.
-- `deployedTo` empty: on `main`, not yet on dev.
 
 ## Log
 
@@ -92,3 +88,4 @@ What the backend shipped for this feature and how it works. **On backend `main` 
 - 2026-11-23 · flagged [[FR-14 Connections Frontend Requirements]]: From PinCast is delivered on backend main ecd93c0: GET /views/pincast/:token and pincastToken on POST /connections/requests, GET /connections/relationship and POST /blocks (the line set ✅ by the backend); the app keeps { pincastToken } for a card opened from a PinCast row, as it keeps { qrToken } (/frontend)
 - 2026-11-23 · flagged [[FD-13 Connections Frontend Delivery]]: backend main ecd93c0 adds pincastToken as a third key on POST /connections/requests, GET /connections/relationship and POST /blocks (exactly one of pinName, qrToken, pincastToken, plus againFor / userId where they exist); additive, nothing the app sends today changes. A card opened from a PinCast row sends it as it sends qrToken after a scan (/frontend)
 - 2026-11-23 · flagged [[Frontend Contract]]: /frontend: nine more endpoints on backend main ecd93c0, eight under /pincasts and GET /views/pincast/:token (a PinCast section in the Frontend API Guide), pincastToken on POST /connections/requests, GET /connections/relationship and POST /blocks, and four new codes E_PINCAST_01 (409), E_PINCAST_02 (404), E_PINCAST_03 (400), E_PINCAST_04 (404). The endpoint table, its count, the code list and not yet available: PinCast are out of date
+- 2026-11-24 · `docs/backend/M-04-discovery/F-20-pincast/BD-20-deployed-dev` · on the development API: `GET /pincasts/current` answers there, tried from two devices on 2026-11-24; `deployedTo: [dev]`. Cleared the [[QB-19 PinCast & Nearby QA Backend|QB-19]] flag: its run on PostgreSQL 16.15 + PostGIS 3.4.2 (49 of 49) settled the Gaps line "Not run against PostGIS yet", which is gone · flagged nothing

@@ -289,7 +289,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
     - 🔵 [F-20 PinCast & Nearby](social-pin/modules/Discovery/features/PinCast%20%26%20Nearby/F-20%20PinCast%20%26%20Nearby.md) (release MVP, Critical)
       - 👍 [S-45 PinCast & Nearby Story](social-pin/modules/Discovery/features/PinCast%20%26%20Nearby/S-45%20PinCast%20%26%20Nearby%20Story.md) (User Story, Critical)
       - ✅ [FR-20 PinCast & Nearby Frontend Requirements](social-pin/modules/Discovery/features/PinCast%20%26%20Nearby/flow/FR-20%20PinCast%20%26%20Nearby%20Frontend%20Requirements.md) (Frontend Requirements, Critical)
-      - ✅ [BD-20 PinCast & Nearby Backend Delivery](social-pin/modules/Discovery/features/PinCast%20%26%20Nearby/flow/BD-20%20PinCast%20%26%20Nearby%20Backend%20Delivery.md) (Backend Delivery, Critical)
+      - ✅ [BD-20 PinCast & Nearby Backend Delivery](social-pin/modules/Discovery/features/PinCast%20%26%20Nearby/flow/BD-20%20PinCast%20%26%20Nearby%20Backend%20Delivery.md) (Backend Delivery, on dev, Critical)
       - 🔵 [BI-20 PinCast & Nearby Backend Integration](social-pin/modules/Discovery/features/PinCast%20%26%20Nearby/flow/BI-20%20PinCast%20%26%20Nearby%20Backend%20Integration.md) (Backend Integration, Critical)
       - 🟢 [QB-19 PinCast & Nearby QA Backend](social-pin/modules/Discovery/features/PinCast%20%26%20Nearby/flow/QB-19%20PinCast%20%26%20Nearby%20QA%20Backend.md) (QA Backend, Critical)
       - ∅ _PinCast & Nearby Frontend Delivery_ (Frontend Delivery)

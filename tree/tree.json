@@ -89438,7 +89438,9 @@
         "backend-delivery:connections",
         "backend-delivery:badge-qr"
       ],
-      "deployedTo": [],
+      "deployedTo": [
+        "dev"
+      ],
       "effectiveStatus": "done",
       "effort": null,
       "feature": "pincast",
@@ -89580,7 +89582,7 @@
       "task": null,
       "title": "BD-20 PinCast & Nearby Backend Delivery",
       "unmet": [],
-      "updated": "2026-11-23"
+      "updated": "2026-11-24"
     },
     "backend-delivery:post-event": {
       "affects": [],
@@ -99501,7 +99503,7 @@
       "task": null,
       "title": "F-20 PinCast & Nearby",
       "unmet": [],
-      "updated": "2026-11-23"
+      "updated": "2026-11-24"
     },
     "feature:post-event": {
       "affects": [],

@@ -8,7 +8,7 @@ release: mvp
 screens: [s11, s39, s40, s41, s42]
 related: ["F-11 Rings", "F-12 View As & Pin Views", "MVP Order"]
 created: 2026-10-15
-updated: 2026-11-23
+updated: 2026-11-24
 tags: [feature, module/discovery, priority/critical, release/mvp]
 ---
 
@@ -16,7 +16,7 @@ tags: [feature, module/discovery, priority/critical, release/mvp]
 
 **In the MVP** (moved into the MVP on 2026-11-16 by Omar Fostok, priority critical): **PinCast**, the proximity broadcast limited by distance and time (s39–s42, and Home while broadcasting, s11). **Nearby by Ring** comes later.
 
-**Backend:** done 2026-11-23 ([[BD-20 PinCast & Nearby Backend Delivery|BD-20]], on backend `main` `ecd93c0`: the `/pincasts` routes, the card by PinCast token, `pincastToken` on Connect; not yet run on a PostGIS database, not yet on dev; the 30-day purge is [[F-31 Cleanup Jobs]]', the notifications [[F-39 Notifications]]') · **Module:** [[M-04 Discovery Module|Discovery]]
+**Backend:** done 2026-11-23 ([[BD-20 PinCast & Nearby Backend Delivery|BD-20]], on backend `main` `ecd93c0`: the `/pincasts` routes, the card by PinCast token, `pincastToken` on Connect; run on PostGIS by QB-19, on dev since 2026-11-24; the 30-day purge is [[F-31 Cleanup Jobs]]', the notifications [[F-39 Notifications]]') · **Module:** [[M-04 Discovery Module|Discovery]]
 
 **Layers:** [[S-45 PinCast & Nearby Story|Story]] · [[FR-20 PinCast & Nearby Frontend Requirements|Frontend Requirements]] · [[BD-20 PinCast & Nearby Backend Delivery|Backend Delivery]] · [[BI-20 PinCast & Nearby Backend Integration|Backend Integration]] · [[PinCast & Nearby Frontend Delivery|Frontend Delivery]] · [[QB-19 PinCast & Nearby QA Backend|QA Backend]] · [[PinCast & Nearby QA Frontend|QA Frontend]]
 
