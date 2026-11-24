@@ -100753,7 +100753,7 @@
       "deadline": null,
       "depends": [],
       "dir": "social-pin/modules/Identity Core/features/Counts",
-      "effectiveStatus": "in-progress",
+      "effectiveStatus": "done",
       "effort": null,
       "feature": "counts",
       "foundOn": null,
@@ -100787,10 +100787,10 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "approved": 1,
         "delivered": 2,
         "done": 2,
-        "passing": 2
+        "passing": 2,
+        "verified": 1
       },
       "scope": null,
       "screens": [
@@ -111720,20 +111720,20 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 13,
+        "approved": 12,
         "blocked": 4,
         "current": 2,
         "decided": 10,
         "delivered": 16,
-        "done": 46,
+        "done": 47,
         "draft": 2,
-        "in-progress": 11,
+        "in-progress": 10,
         "missing": 15,
         "needs-decision": 1,
         "partial": 7,
         "passing": 12,
         "ready": 1,
-        "verified": 12
+        "verified": 13
       },
       "scope": null,
       "screens": [],
@@ -123125,7 +123125,7 @@
       "release": null,
       "releases": [
         {
-          "done": 2,
+          "done": 3,
           "id": "mvp",
           "partial": 0,
           "total": 28
@@ -123150,15 +123150,15 @@
         }
       ],
       "rollup": {
-        "approved": 41,
+        "approved": 40,
         "blocked": 28,
         "current": 6,
         "decided": 38,
         "delivered": 19,
-        "done": 54,
+        "done": 55,
         "draft": 21,
         "failing": 1,
-        "in-progress": 45,
+        "in-progress": 44,
         "missing": 102,
         "needs-decision": 1,
         "partial": 15,
@@ -123166,7 +123166,7 @@
         "ready": 3,
         "reference": 32,
         "todo": 5,
-        "verified": 40
+        "verified": 41
       },
       "scope": null,
       "screens": [],
@@ -124082,7 +124082,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "approved",
+      "effectiveStatus": "verified",
       "effort": null,
       "feature": "counts",
       "foundOn": null,
@@ -124169,11 +124169,11 @@
         "s17",
         "s68"
       ],
-      "status": "approved",
+      "status": "verified",
       "summary": "A Ring owner glances at Home or My Rings and wants a sense of scale: how many people each Ring reaches (\"148 people\"), how many Rings they own and how many people share with them, and, on Me, how…",
       "tags": [
         "story",
-        "story/approved",
+        "story/verified",
         "module/identity",
         "layer/business"
       ],
