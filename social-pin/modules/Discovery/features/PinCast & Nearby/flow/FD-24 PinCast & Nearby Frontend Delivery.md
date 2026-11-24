@@ -18,7 +18,9 @@ tags: [frontend-delivery, frontend-delivery/done, module/discovery, layer/fronte
 
 # ✅ PinCast & Nearby · Frontend Delivery
 
-**Feature:** [[F-20 PinCast & Nearby]] · **Status:** Done · **Built from:** [[BI-20 PinCast & Nearby Backend Integration]] (current, backend `main` @ `ecd93c0`) · **Against:** [[S-45 PinCast & Nearby Story]] (approved, N1–N12) · **Requirements:** [[FR-20 PinCast & Nearby Frontend Requirements]] · **QA:** [[PinCast & Nearby QA Frontend]]
+> ⚠ Affected by [[QF-07 PinCast & Nearby QA Frontend]] (2026-11-24): /frontend: on the build, the s42 row "Sent you a request" has Accept (s46), and Accept turns it to Connected "Met on PinCast" (PC-18, and the two-device run on the development API); the s42 row and the Calls table (POST /connections/requests/:id/accept with the row's requestId) don't say so
+
+**Feature:** [[F-20 PinCast & Nearby]] · **Status:** Done · **Built from:** [[BI-20 PinCast & Nearby Backend Integration]] (current, backend `main` @ `ecd93c0`) · **Against:** [[S-45 PinCast & Nearby Story]] (approved, N1–N12) · **Requirements:** [[FR-20 PinCast & Nearby Frontend Requirements]] · **QA:** [[QF-07 PinCast & Nearby QA Frontend]]
 
 What the client shipped for PinCast, S-45 S1 to S5:
 - going visible from s39, with a one-tap *Go visible* on the last settings (S1);
