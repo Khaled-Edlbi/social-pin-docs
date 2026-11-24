@@ -100788,9 +100788,8 @@
       "resolution": null,
       "rollup": {
         "approved": 1,
-        "delivered": 1,
+        "delivered": 2,
         "done": 2,
-        "draft": 1,
         "partial": 1,
         "passing": 1
       },
@@ -107755,6 +107754,7 @@
       "affects": [
         "story:counts"
       ],
+      "autoDelivered": true,
       "blockedBy": [],
       "card": "FR-03",
       "children": [],
@@ -107762,7 +107762,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "delivered",
       "effort": null,
       "feature": "counts",
       "foundOn": null,
@@ -107867,11 +107867,11 @@
         "s17",
         "s68"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "What the client needs to show the numbers the design puts on Home, the Ring picker, My Rings, Shared with me, Ring data and Me, and which of them can be read today. The feature has no endpoints of…",
       "tags": [
         "frontend-requirements",
-        "frontend-requirements/draft",
+        "frontend-requirements/approved",
         "module/identity",
         "layer/frontend"
       ],
@@ -111725,9 +111725,9 @@
         "blocked": 4,
         "current": 2,
         "decided": 10,
-        "delivered": 15,
+        "delivered": 16,
         "done": 46,
-        "draft": 3,
+        "draft": 2,
         "in-progress": 11,
         "missing": 15,
         "needs-decision": 1,
@@ -123161,9 +123161,9 @@
         "blocked": 28,
         "current": 6,
         "decided": 38,
-        "delivered": 18,
+        "delivered": 19,
         "done": 54,
-        "draft": 22,
+        "draft": 21,
         "failing": 1,
         "in-progress": 45,
         "missing": 102,

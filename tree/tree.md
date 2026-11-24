@@ -46,7 +46,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
         - ⚖️ [D-01 Code-only login](social-pin/decisions/D-01%20Code-only%20login.md) (Decision)
     - 🔵 [F-03 Counts](social-pin/modules/Identity%20Core/features/Counts/F-03%20Counts.md) (release MVP, Critical)
       - 👍 [S-03 Counts Story](social-pin/modules/Identity%20Core/features/Counts/S-03%20Counts%20Story.md) (User Story, Critical)
-      - ✏️ [FR-03 Counts Frontend Requirements](social-pin/modules/Identity%20Core/features/Counts/flow/FR-03%20Counts%20Frontend%20Requirements.md) (Frontend Requirements, Critical)
+      - ✅ [FR-03 Counts Frontend Requirements](social-pin/modules/Identity%20Core/features/Counts/flow/FR-03%20Counts%20Frontend%20Requirements.md) (Frontend Requirements, Critical)
       - ✅ [BD-03 Counts Backend Delivery](social-pin/modules/Identity%20Core/features/Counts/flow/BD-03%20Counts%20Backend%20Delivery.md) (Backend Delivery, Critical)
       - ✅ [BI-14 Counts Backend Integration](social-pin/modules/Identity%20Core/features/Counts/flow/BI-14%20Counts%20Backend%20Integration.md) (Backend Integration, Critical)
       - 🟢 [QB-07 Counts QA Backend](social-pin/modules/Identity%20Core/features/Counts/flow/QB-07%20Counts%20QA%20Backend.md) (QA Backend, Critical)
