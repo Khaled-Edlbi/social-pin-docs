@@ -3,7 +3,7 @@ id: S-03
 type: story
 module: identity
 feature: counts
-status: approved
+status: verified
 scope: feature
 screens: [s11, s12, s14, s16, s17, s68]
 approvedBy: "khaled"
@@ -12,12 +12,12 @@ owner: "Omar Fostok"
 related: ["D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "S-33 Ring Invitations & Join Story", "BI-17 Ring Invitations & Join Backend Integration", "S-11 Photo Library Story", "GET /connections/count"]
 created: 2026-10-18
 updated: 2026-11-24
-tags: [story, story/approved, module/identity, layer/business]
+tags: [story, story/verified, module/identity, layer/business]
 ---
 
 # Counts · User Story
 
-**Feature:** [[F-03 Counts]] · **Status:** Approved 2026-10-25 by khaled · **Frontend Requirements:** [[FR-03 Counts Frontend Requirements]] · **API Integration:** not yet (backend not built)
+**Feature:** [[F-03 Counts]] · **Status:** Fulfilled 2026-11-24 by Omar Fostok (approved 2026-10-25 by khaled) · **Frontend Requirements:** [[FR-03 Counts Frontend Requirements]] · **API Integration:** not yet (backend not built)
 
 A Ring owner glances at Home or My Rings and wants a sense of scale: how many people each Ring reaches ("148 people"), how many Rings they own and how many people share with them, and, on Me, how many connections they have (the Connections tile on the profile card). The numbers are derived from data that exists today; what is missing is a way to read them.
 
@@ -180,6 +180,7 @@ Acceptance criteria:
 
 ## Log
 
+- 2026-11-24 · `tickets/pm/M-01-identity/F-03-counts/S-03-fulfilled` · **fulfilled** on Omar Fostok's word: [[QB-07 Counts QA Backend]] and [[QF-08 Counts QA Frontend]] both passing with nothing pending or unmet (QF-08: 39 of 39 on `social_pin` `main` `866240a`)
 - 2026-11-24 · `tickets/pm/M-01-identity/F-03-counts/S-03-empty-state` · States: the Shared with me empty state is "Nothing shared with you yet", not "No Rings shared with you yet". Decided by Omar Fostok 2026-11-24: keep the app's wording, which S-18 and S-33 already use; nothing in the app changes. Records what shipped, so the story stays approved. Answers [[QF-08 Counts QA Frontend]]'s pending entry (CT-14 already passes on these words; /qa clears it)
 - 2026-11-24 · flagged [[QF-08 Counts QA Frontend]]: the same
 - 2026-11-24 · `tickets/pm/M-01-identity/F-03-counts/S-03-me-tiles` · S4 and S11: the Me profile card's three tiles, Rings · Connections · Photos (app `776e6ca`), in place of "2 Rings · 218 connections"; "–" in a tile until its count is read, never 0 or a sample; connections exist since `1c460b0`, so "hidden until connections exist" is gone. Kept by Omar Fostok 2026-11-24; records what shipped, so the story stays approved
