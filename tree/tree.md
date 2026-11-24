@@ -295,7 +295,7 @@ Layers: **Business** (User Story) · **Frontend** (Frontend Requirements, Fronte
       - ✅ [BI-20 PinCast & Nearby Backend Integration](social-pin/modules/Discovery/features/PinCast%20%26%20Nearby/flow/BI-20%20PinCast%20%26%20Nearby%20Backend%20Integration.md) (Backend Integration, Critical)
       - 🟢 [QB-19 PinCast & Nearby QA Backend](social-pin/modules/Discovery/features/PinCast%20%26%20Nearby/flow/QB-19%20PinCast%20%26%20Nearby%20QA%20Backend.md) (QA Backend, Critical)
       - ✅ [FD-24 PinCast & Nearby Frontend Delivery](social-pin/modules/Discovery/features/PinCast%20%26%20Nearby/flow/FD-24%20PinCast%20%26%20Nearby%20Frontend%20Delivery.md) (Frontend Delivery, on dev, Critical)
-      - ∅ _PinCast & Nearby QA Frontend_ (QA Frontend)
+      - 🟡 [QF-07 PinCast & Nearby QA Frontend](social-pin/modules/Discovery/features/PinCast%20%26%20Nearby/flow/QF-07%20PinCast%20%26%20Nearby%20QA%20Frontend.md) (QA Frontend, 2 pending notes, Critical)
   - 🔵 [M-05 Events Module](social-pin/modules/Events/M-05%20Events%20Module.md)
     - 🔵 [F-21 Event Ring Auto-creation](social-pin/modules/Events/features/Event%20Ring%20Auto-creation/F-21%20Event%20Ring%20Auto-creation.md) (release No release)
       - 👍 [S-47 Event Ring Auto-creation Story](social-pin/modules/Events/features/Event%20Ring%20Auto-creation/S-47%20Event%20Ring%20Auto-creation%20Story.md) (User Story)

@@ -353,6 +353,7 @@
     "QF-04 Account QA Frontend": "qa-frontend:account",
     "QF-05 Auth & Sign-up QA Frontend": "qa-frontend:auth",
     "QF-06 Discover Hub & Search QA Frontend": "qa-frontend:discover-hub",
+    "QF-07 PinCast & Nearby QA Frontend": "qa-frontend:pincast",
     "Ring Access Model": "project:ring-access-model",
     "S-01 Account Story": "story:account",
     "S-02 Auth & Sign-up Story": "story:auth",
@@ -733,6 +734,7 @@
     "QF-04": "qa-frontend:account",
     "QF-05": "qa-frontend:auth",
     "QF-06": "qa-frontend:discover-hub",
+    "QF-07": "qa-frontend:pincast",
     "S-01": "story:account",
     "S-02": "story:auth",
     "S-03": "story:counts",
@@ -4357,7 +4359,8 @@
         "project:architecture",
         "project:frontend-api-guide",
         "project:spec-map",
-        "qa-backend:pincast"
+        "qa-backend:pincast",
+        "qa-frontend:pincast"
       ],
       "owner": "feature:pincast"
     },
@@ -5023,6 +5026,7 @@
       "containers": [
         "feature:account",
         "feature:auth",
+        "feature:pincast",
         "project:frontend-passwordless-migration",
         "task:B-32"
       ],
@@ -5037,6 +5041,7 @@
         "project:frontend-passwordless-migration",
         "qa-backend:auth",
         "qa-frontend:account",
+        "qa-frontend:pincast",
         "story:auth",
         "task:B-32"
       ],
@@ -5424,6 +5429,7 @@
         "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
+        "qa-frontend:pincast",
         "task:B-32"
       ],
       "owner": "feature:pincast"
@@ -6332,6 +6338,7 @@
         "qa-backend:counts",
         "qa-backend:pincast",
         "qa-frontend:account",
+        "qa-frontend:pincast",
         "story:connections",
         "story:counts",
         "story:pincast",
@@ -7134,6 +7141,7 @@
         "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
+        "qa-frontend:pincast",
         "story:pincast"
       ],
       "owner": null
@@ -7151,6 +7159,7 @@
         "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
+        "qa-frontend:pincast",
         "story:pincast",
         "task:B-32"
       ],
@@ -7168,6 +7177,7 @@
         "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
+        "qa-frontend:pincast",
         "story:pincast"
       ],
       "owner": null
@@ -7187,6 +7197,7 @@
         "frontend-requirements:connections",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
+        "qa-frontend:pincast",
         "story:connections",
         "story:pincast",
         "task:B-31"
@@ -7299,6 +7310,7 @@
         "qa-backend:ring-access",
         "qa-backend:view-as",
         "qa-frontend:discover-hub",
+        "qa-frontend:pincast",
         "story:badge-qr",
         "story:connections",
         "story:discover-hub",
@@ -8028,7 +8040,7 @@
       "needs-decision": 39,
       "project": 28,
       "qa-backend": 16,
-      "qa-frontend": 3,
+      "qa-frontend": 4,
       "story": 40,
       "task": 32
     },
@@ -8036,18 +8048,18 @@
       "backend": 63,
       "business": 195,
       "frontend": 64,
-      "qa": 19,
+      "qa": 20,
       "shared": 10
     },
     "concepts": 377,
     "decisions": 39,
-    "edges": 10160,
+    "edges": 10199,
     "features": 40,
-    "layerNotes": 174,
+    "layerNotes": 175,
     "modules": 8,
-    "notes": 382,
-    "partial": 14,
-    "placeholders": 104,
+    "notes": 383,
+    "partial": 15,
+    "placeholders": 103,
     "records": 38
   },
   "deadlines": {
@@ -8105,10 +8117,6 @@
   "diagnostics": {
     "errors": [],
     "warnings": [
-      "social-pin/bugs/B-31 PinCast results offer Connect again for a person I already asked.md: wikilink [[QF-07 PinCast & Nearby QA Frontend]] resolves to no note",
-      "social-pin/bugs/B-31 PinCast results offer Connect again for a person I already asked.md: wikilink [[QF-07 PinCast & Nearby QA Frontend]] resolves to no note",
-      "social-pin/bugs/B-32 A live PinCast outlives its session.md: wikilink [[QF-07 PinCast & Nearby QA Frontend]] resolves to no note",
-      "social-pin/bugs/B-32 A live PinCast outlives its session.md: wikilink [[QF-07 PinCast & Nearby QA Frontend]] resolves to no note",
       "social-pin/modules/Discovery/features/Discover Hub & Search/flow/FD-18 Discover Hub & Search Frontend Delivery.md: wikilink [[Discover Hub & Search QA Frontend]]: the card is named with its code now, write [[QF-06 Discover Hub & Search QA Frontend]]"
     ]
   },
@@ -11459,6 +11467,11 @@
       "to": "frontend-delivery:discover-hub"
     },
     {
+      "from": "qa-frontend:pincast",
+      "kind": "depends",
+      "to": "frontend-delivery:pincast"
+    },
+    {
       "from": "story:connections",
       "kind": "depends",
       "to": "decision:D-10"
@@ -11727,6 +11740,11 @@
       "from": "frontend-delivery:discover-hub",
       "kind": "flow",
       "to": "qa-frontend:discover-hub"
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "flow",
+      "to": "qa-frontend:pincast"
     },
     {
       "from": "frontend-requirements:account",
@@ -12017,6 +12035,11 @@
       "from": "qa-frontend:discover-hub",
       "kind": "flow",
       "to": "story:discover-hub"
+    },
+    {
+      "from": "qa-frontend:pincast",
+      "kind": "flow",
+      "to": "story:pincast"
     },
     {
       "from": "story:account",
@@ -12312,6 +12335,16 @@
       "from": "qa-frontend:discover-hub",
       "kind": "pending",
       "to": "task:B-30"
+    },
+    {
+      "from": "qa-frontend:pincast",
+      "kind": "pending",
+      "to": "task:B-31"
+    },
+    {
+      "from": "qa-frontend:pincast",
+      "kind": "pending",
+      "to": "task:B-32"
     },
     {
       "from": "backend-delivery:account",
@@ -17529,6 +17562,19 @@
       "to": "qa-frontend:discover-hub",
       "via": [
         "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "backend-delivery:pincast",
+      "kind": "related",
+      "to": "qa-frontend:pincast",
+      "via": [
+        "GET /pincasts/current",
+        "GET /views/pincast/:token",
+        "POST /pincasts",
+        "POST /pincasts/current/extend",
+        "POST /pincasts/current/position",
+        "POST /pincasts/current/stop"
       ]
     },
     {
@@ -26032,6 +26078,20 @@
     {
       "from": "backend-integration:pincast",
       "kind": "related",
+      "to": "qa-frontend:pincast",
+      "via": [
+        "GET /pincasts/:id/results",
+        "GET /pincasts/current",
+        "GET /pincasts/current/people",
+        "GET /views/pincast/:token",
+        "POST /pincasts",
+        "POST /pincasts/current/extend",
+        "POST /pincasts/current/stop"
+      ]
+    },
+    {
+      "from": "backend-integration:pincast",
+      "kind": "related",
       "to": "story:auth",
       "via": [
         "GET /rings"
@@ -32900,6 +32960,21 @@
       "to": "qa-frontend:auth",
       "via": [
         "GET /rings"
+      ]
+    },
+    {
+      "from": "frontend-delivery:pincast",
+      "kind": "related",
+      "to": "qa-frontend:pincast",
+      "via": [
+        "GET /pincasts/:id/results",
+        "GET /pincasts/current",
+        "GET /views/pincast/:token",
+        "POST /connections/requests",
+        "POST /pincasts",
+        "POST /pincasts/current/extend",
+        "POST /pincasts/current/position",
+        "POST /pincasts/current/stop"
       ]
     },
     {
@@ -45453,6 +45528,14 @@
     {
       "from": "qa-backend:auth",
       "kind": "related",
+      "to": "qa-frontend:pincast",
+      "via": [
+        "POST /auth/logout"
+      ]
+    },
+    {
+      "from": "qa-backend:auth",
+      "kind": "related",
       "to": "story:account",
       "via": [
         "E_AUTH_03",
@@ -51438,6 +51521,22 @@
     {
       "from": "qa-backend:pincast",
       "kind": "related",
+      "to": "qa-frontend:pincast",
+      "via": [
+        "GET /pincasts/:id/results",
+        "GET /pincasts/current",
+        "GET /pincasts/current/people",
+        "GET /views/pincast/:token",
+        "POST /connections/requests",
+        "POST /pincasts",
+        "POST /pincasts/current/extend",
+        "POST /pincasts/current/position",
+        "POST /pincasts/current/stop"
+      ]
+    },
+    {
+      "from": "qa-backend:pincast",
+      "kind": "related",
       "to": "story:badge-qr",
       "via": [
         "E_RING_02",
@@ -57114,6 +57213,14 @@
     {
       "from": "qa-frontend:auth",
       "kind": "related",
+      "to": "qa-frontend:pincast",
+      "via": [
+        "POST /auth/logout"
+      ]
+    },
+    {
+      "from": "qa-frontend:auth",
+      "kind": "related",
       "to": "story:account",
       "via": [
         "E_AUTH_03",
@@ -57639,6 +57746,213 @@
       "to": "task:B-08",
       "via": [
         "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "qa-frontend:pincast",
+      "kind": "related",
+      "to": "backend-delivery:badge-qr",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "qa-frontend:pincast",
+      "kind": "related",
+      "to": "backend-delivery:connections",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "qa-frontend:pincast",
+      "kind": "related",
+      "to": "backend-delivery:discover-hub",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "qa-frontend:pincast",
+      "kind": "related",
+      "to": "backend-integration:connections",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "qa-frontend:pincast",
+      "kind": "related",
+      "to": "backend-integration:discover-hub",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "qa-frontend:pincast",
+      "kind": "related",
+      "to": "decision:D-10",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "qa-frontend:pincast",
+      "kind": "related",
+      "to": "decision:D-17",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "qa-frontend:pincast",
+      "kind": "related",
+      "to": "decision:D-24",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "qa-frontend:pincast",
+      "kind": "related",
+      "to": "frontend-delivery:connections",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "qa-frontend:pincast",
+      "kind": "related",
+      "to": "frontend-delivery:discover-hub",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "qa-frontend:pincast",
+      "kind": "related",
+      "to": "frontend-requirements:badge-qr",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "qa-frontend:pincast",
+      "kind": "related",
+      "to": "frontend-requirements:connections",
+      "via": [
+        "GET /views/pincast/:token",
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "qa-frontend:pincast",
+      "kind": "related",
+      "to": "frontend-requirements:discover-hub",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "qa-frontend:pincast",
+      "kind": "related",
+      "to": "frontend-requirements:pincast",
+      "via": [
+        "GET /pincasts/:id/results",
+        "GET /pincasts/current",
+        "GET /pincasts/current/people",
+        "GET /views/pincast/:token",
+        "POST /pincasts",
+        "POST /pincasts/current/extend",
+        "POST /pincasts/current/position",
+        "POST /pincasts/current/stop"
+      ]
+    },
+    {
+      "from": "qa-frontend:pincast",
+      "kind": "related",
+      "to": "needs-decision:ND-10",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "qa-frontend:pincast",
+      "kind": "related",
+      "to": "needs-decision:ND-24",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "qa-frontend:pincast",
+      "kind": "related",
+      "to": "project:architecture",
+      "via": [
+        "GET /views/pincast/:token"
+      ]
+    },
+    {
+      "from": "qa-frontend:pincast",
+      "kind": "related",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "GET /views/pincast/:token",
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "qa-frontend:pincast",
+      "kind": "related",
+      "to": "project:spec-map",
+      "via": [
+        "GET /views/pincast/:token",
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "qa-frontend:pincast",
+      "kind": "related",
+      "to": "qa-backend:discover-hub",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "qa-frontend:pincast",
+      "kind": "related",
+      "to": "qa-frontend:discover-hub",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "qa-frontend:pincast",
+      "kind": "related",
+      "to": "story:connections",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "qa-frontend:pincast",
+      "kind": "related",
+      "to": "story:pincast"
+    },
+    {
+      "from": "qa-frontend:pincast",
+      "kind": "related",
+      "to": "task:B-30",
+      "via": [
+        "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "qa-frontend:pincast",
+      "kind": "related",
+      "to": "task:B-31",
+      "via": [
+        "GET /pincasts/:id/results"
       ]
     },
     {
@@ -64564,6 +64878,14 @@
     {
       "from": "task:B-32",
       "kind": "related",
+      "to": "qa-frontend:pincast",
+      "via": [
+        "POST /pincasts/current/stop"
+      ]
+    },
+    {
+      "from": "task:B-32",
+      "kind": "related",
       "to": "story:pincast"
     },
     {
@@ -66045,7 +66367,8 @@
       "to": "feature:pincast",
       "via": [
         "E_AUTH_04",
-        "GET /rings"
+        "GET /rings",
+        "POST /auth/logout"
       ]
     },
     {
@@ -67014,7 +67337,8 @@
       "to": "feature:pincast",
       "via": [
         "E_AUTH_04",
-        "GET /rings"
+        "GET /rings",
+        "POST /auth/logout"
       ]
     },
     {
@@ -74075,7 +74399,8 @@
       "kind": "shares",
       "to": "project:frontend-passwordless-migration",
       "via": [
-        "E_AUTH_04"
+        "E_AUTH_04",
+        "POST /auth/logout"
       ]
     },
     {
@@ -74186,6 +74511,7 @@
       "kind": "shares",
       "to": "task:B-32",
       "via": [
+        "POST /auth/logout",
         "POST /pincasts/current/stop"
       ]
     },
@@ -82999,6 +83325,11 @@
     {
       "from": "module:discovery",
       "kind": "wikilink",
+      "to": "qa-frontend:pincast"
+    },
+    {
+      "from": "module:discovery",
+      "kind": "wikilink",
       "to": "story:badge-qr"
     },
     {
@@ -85537,6 +85868,11 @@
       "to": "feature:badge-qr"
     },
     {
+      "from": "qa-frontend:pincast",
+      "kind": "wikilink",
+      "to": "story:notifications"
+    },
+    {
       "from": "story:account",
       "kind": "wikilink",
       "to": "decision:D-40"
@@ -86979,6 +87315,10 @@
     "social-pin/modules/Discovery/features/PinCast & Nearby/flow/QB-19 PinCast & Nearby QA Backend.md": {
       "name": "QB-19 PinCast & Nearby QA Backend",
       "type": "qa-backend"
+    },
+    "social-pin/modules/Discovery/features/PinCast & Nearby/flow/QF-07 PinCast & Nearby QA Frontend.md": {
+      "name": "QF-07 PinCast & Nearby QA Frontend",
+      "type": "qa-frontend"
     },
     "social-pin/modules/Events/M-05 Events Module.md": {
       "name": "M-05 Events Module",
@@ -88673,6 +89013,7 @@
         "decision:D-35",
         "feature:subscription",
         "feature:events-during",
+        "qa-frontend:pincast",
         "qa-backend:profiles",
         "backend-delivery:ring-members",
         "backend-delivery:ring-projection"
@@ -89046,6 +89387,7 @@
         "backend-integration:ring-access",
         "story:ring-access",
         "backend-delivery:ring-projection",
+        "qa-frontend:pincast",
         "qa-backend:profiles"
       ],
       "release": "mvp",
@@ -89525,6 +89867,7 @@
         "frontend-requirements:pincast",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "qa-frontend:pincast",
         "qa-backend:counts",
         "qa-backend:photo-library"
       ],
@@ -90647,6 +90990,7 @@
         "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
+        "qa-frontend:pincast",
         "project:architecture",
         "project:spec-map",
         "project:frontend-api-guide",
@@ -92724,7 +93068,8 @@
         "backend-integration:ring-access",
         "story:ring-access",
         "backend-delivery:ring-projection",
-        "story:companies"
+        "story:companies",
+        "qa-frontend:pincast"
       ],
       "release": "mvp",
       "resolution": null,
@@ -93143,6 +93488,7 @@
         "frontend-requirements:pincast",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "qa-frontend:pincast",
         "qa-backend:counts",
         "qa-backend:photo-library",
         "frontend-requirements:error-contract"
@@ -94097,6 +94443,7 @@
         "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
+        "qa-frontend:pincast",
         "project:architecture",
         "project:spec-map",
         "project:frontend-api-guide",
@@ -95902,6 +96249,7 @@
         "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
+        "qa-frontend:pincast",
         "story:pincast",
         "qa-backend:counts",
         "qa-backend:files",
@@ -96513,6 +96861,7 @@
         "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
+        "qa-frontend:pincast",
         "qa-backend:counts",
         "story:ring-invitations"
       ],
@@ -96986,6 +97335,7 @@
         "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
+        "qa-frontend:pincast",
         "qa-backend:counts"
       ],
       "release": null,
@@ -100672,7 +101022,7 @@
         "approved": 1,
         "delivered": 2,
         "done": 2,
-        "missing": 1,
+        "partial": 1,
         "passing": 1,
         "todo": 2
       },
@@ -102456,6 +102806,7 @@
         "backend-integration:pincast",
         "frontend-delivery:pincast",
         "frontend-requirements:pincast",
+        "qa-frontend:pincast",
         "qa-frontend:auth",
         "backend-delivery:counts",
         "backend-integration:counts",
@@ -102812,6 +103163,7 @@
         "frontend-requirements:pincast",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "qa-frontend:pincast",
         "qa-backend:counts",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
@@ -103795,6 +104147,7 @@
         "story:connections",
         "story:notifications",
         "qa-backend:pincast",
+        "qa-frontend:pincast",
         "project:architecture",
         "project:spec-map",
         "project:frontend-api-guide",
@@ -105342,6 +105695,7 @@
         "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
+        "qa-frontend:pincast",
         "backend-integration:account",
         "qa-frontend:account",
         "qa-backend:auth",
@@ -105941,6 +106295,7 @@
         "project:frontend-agent-prompt",
         "backend-integration:ring-access",
         "story:ring-access",
+        "qa-frontend:pincast",
         "backend-delivery:account",
         "backend-integration:account",
         "qa-frontend:account",
@@ -106421,6 +106776,7 @@
         "backend-integration:pincast",
         "frontend-delivery:pincast",
         "frontend-requirements:pincast",
+        "qa-frontend:pincast",
         "backend-delivery:account",
         "backend-integration:account",
         "qa-frontend:account",
@@ -107981,6 +108337,7 @@
         "frontend-requirements:discover-hub",
         "qa-frontend:discover-hub",
         "qa-backend:pincast",
+        "qa-frontend:pincast",
         "qa-frontend:account",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
@@ -109777,8 +110134,8 @@
         "done": 6,
         "failing": 1,
         "in-progress": 3,
-        "missing": 2,
-        "partial": 3,
+        "missing": 1,
+        "partial": 4,
         "passing": 2,
         "todo": 3,
         "verified": 5
@@ -110653,6 +111010,7 @@
         "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
+        "qa-frontend:pincast",
         "qa-backend:counts",
         "qa-backend:files",
         "qa-backend:photo-library",
@@ -111747,6 +112105,7 @@
         "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
+        "qa-frontend:pincast",
         "qa-backend:counts"
       ],
       "release": null,
@@ -113332,6 +113691,7 @@
         "backend-integration:pincast",
         "frontend-delivery:pincast",
         "qa-backend:pincast",
+        "qa-frontend:pincast",
         "project:backend-agent"
       ],
       "release": null,
@@ -114011,6 +114371,7 @@
         "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
+        "qa-frontend:pincast",
         "backend-delivery:account",
         "backend-integration:account",
         "qa-frontend:account",
@@ -114801,6 +115162,7 @@
         "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
+        "qa-frontend:pincast",
         "backend-delivery:account",
         "backend-integration:account",
         "qa-frontend:account",
@@ -115294,6 +115656,7 @@
         "project:frontend-agent-prompt",
         "project:frontend-api-guide",
         "task:B-32",
+        "qa-frontend:pincast",
         "frontend-delivery:account",
         "frontend-requirements:account",
         "backend-delivery:devices",
@@ -116303,6 +116666,7 @@
         "project:frontend-passwordless-migration",
         "backend-delivery:pincast",
         "backend-integration:pincast",
+        "qa-frontend:pincast",
         "qa-backend:counts",
         "backend-delivery:files",
         "backend-integration:files",
@@ -117417,6 +117781,7 @@
         "decision:D-28",
         "story:error-contract",
         "feature:cleanup-jobs",
+        "qa-frontend:pincast",
         "project:architecture",
         "project:spec-map",
         "project:frontend-api-guide",
@@ -119223,6 +119588,7 @@
         "project:frontend-agent-prompt",
         "project:frontend-api-guide",
         "task:B-32",
+        "qa-frontend:pincast",
         "frontend-delivery:account",
         "frontend-requirements:account",
         "backend-delivery:devices",
@@ -119779,6 +120145,7 @@
         "backend-delivery:pincast",
         "backend-integration:pincast",
         "frontend-requirements:pincast",
+        "qa-frontend:pincast",
         "qa-frontend:account",
         "qa-backend:counts",
         "qa-backend:photo-library",
@@ -120565,19 +120932,24 @@
     "qa-frontend:pincast": {
       "affects": [],
       "blockedBy": [],
-      "card": null,
+      "card": "QF-07",
       "children": [],
       "code": "pincast",
-      "created": null,
+      "created": "2026-11-24",
       "deadline": null,
-      "depends": [],
-      "effectiveStatus": "missing",
+      "depends": [
+        "frontend-delivery:pincast"
+      ],
+      "effectiveStatus": "partial",
       "effort": null,
       "feature": "pincast",
       "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:pincast",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:pincast",
+        "release": "feature:pincast"
+      },
       "kind": "qa-frontend",
       "label": "QA Frontend",
       "labels": [],
@@ -120588,21 +120960,77 @@
       "parents": [
         "feature:pincast"
       ],
-      "path": null,
-      "pending": [],
-      "priority": null,
-      "related": [],
-      "release": null,
+      "path": "social-pin/modules/Discovery/features/PinCast & Nearby/flow/QF-07 PinCast & Nearby QA Frontend.md",
+      "pending": [
+        {
+          "person": null,
+          "text": "a REQUESTED state with requestId on result rows, re-run PC-18 and the dev run's results once fixed (/backend)",
+          "to": "task:B-31"
+        },
+        {
+          "person": null,
+          "text": "logout, logout everywhere, a suspended or deleted account end the ACTIVE PinCast, re-run once fixed (/backend)",
+          "to": "task:B-32"
+        }
+      ],
+      "priority": "critical",
+      "related": [
+        "task:B-32",
+        "backend-delivery:pincast",
+        "backend-integration:pincast",
+        "frontend-delivery:pincast",
+        "qa-backend:pincast",
+        "story:pincast",
+        "task:B-31",
+        "frontend-requirements:pincast",
+        "frontend-requirements:connections",
+        "project:architecture",
+        "project:spec-map",
+        "project:frontend-api-guide",
+        "task:B-30",
+        "needs-decision:ND-10",
+        "needs-decision:ND-24",
+        "decision:D-10",
+        "decision:D-17",
+        "decision:D-24",
+        "backend-delivery:connections",
+        "backend-integration:connections",
+        "frontend-delivery:connections",
+        "story:connections",
+        "backend-delivery:badge-qr",
+        "frontend-requirements:badge-qr",
+        "backend-delivery:discover-hub",
+        "backend-integration:discover-hub",
+        "frontend-delivery:discover-hub",
+        "frontend-requirements:discover-hub",
+        "qa-backend:discover-hub",
+        "qa-frontend:discover-hub",
+        "qa-backend:auth",
+        "qa-frontend:auth"
+      ],
+      "release": "mvp",
+      "resolution": null,
       "scope": "feature",
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold qa-frontend pincast",
-      "tags": [],
+      "screens": [
+        "s11",
+        "s39",
+        "s40",
+        "s41",
+        "s42",
+        "s44"
+      ],
+      "status": "passing",
+      "summary": "Expected behaviour of the screens, as artefacts: journeys, states and copy to check a build against, not test code. status: passing or failing after a run; the verdict tells the PM whether the…",
+      "tags": [
+        "qa-frontend",
+        "qa-frontend/passing",
+        "module/discovery",
+        "layer/qa"
+      ],
       "task": null,
-      "template": "templates/QA Frontend Template.md",
-      "title": "PinCast & Nearby QA Frontend",
+      "title": "QF-07 PinCast & Nearby QA Frontend",
       "unmet": [],
-      "updated": null
+      "updated": "2026-11-24"
     },
     "qa-frontend:post-event": {
       "affects": [],
@@ -121121,9 +121549,9 @@
         "draft": 21,
         "failing": 1,
         "in-progress": 45,
-        "missing": 104,
+        "missing": 103,
         "needs-decision": 1,
-        "partial": 14,
+        "partial": 15,
         "passing": 15,
         "ready": 3,
         "reference": 32,
@@ -121951,6 +122379,7 @@
         "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
+        "qa-frontend:pincast",
         "story:pincast",
         "qa-frontend:auth",
         "backend-delivery:counts",
@@ -123539,6 +123968,7 @@
         "frontend-delivery:discover-hub",
         "frontend-delivery:pincast",
         "frontend-requirements:pincast",
+        "qa-frontend:pincast",
         "feature:pincast",
         "decision:D-10",
         "decision:D-14",
@@ -127202,6 +127632,7 @@
         "backend-delivery:pincast",
         "backend-integration:pincast",
         "frontend-requirements:pincast",
+        "qa-frontend:pincast",
         "qa-backend:counts"
       ],
       "release": "mvp",
@@ -127290,7 +127721,8 @@
         "qa-backend:discover-hub",
         "qa-frontend:discover-hub",
         "project:spec-map",
-        "project:frontend-api-guide"
+        "project:frontend-api-guide",
+        "qa-frontend:pincast"
       ],
       "release": "mvp",
       "resolution": null,
@@ -127356,6 +127788,7 @@
         "backend-integration:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
+        "qa-frontend:pincast",
         "qa-backend:auth",
         "qa-frontend:auth"
       ],
