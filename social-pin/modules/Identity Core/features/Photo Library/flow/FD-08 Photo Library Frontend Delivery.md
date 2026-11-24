@@ -13,7 +13,7 @@ affects: []
 related: ["FR-06 Photo Library Frontend Requirements", "S-11 Photo Library Story", "FD-07 Files Upload Frontend Delivery", "D-02 One main profile every Ring starts from", "D-16 Files load from signed links that expire in 15 minutes", "S-14 Profiles & Pin Name Story", "S-94 Linked Accounts (OAuth) Story"]
 pending: []
 created: 2026-11-05
-updated: 2026-11-09
+updated: 2026-11-24
 tags: [frontend-delivery, frontend-delivery/done, module/identity, layer/frontend]
 ---
 
@@ -21,7 +21,7 @@ tags: [frontend-delivery, frontend-delivery/done, module/identity, layer/fronten
 
 **Feature:** [[F-06 Photo Library]] · **Status:** Done · **Built from:** [[BI-13 Photo Library Backend Integration]] · **Against:** [[S-11 Photo Library Story]] · **Requirements:** [[FR-06 Photo Library Frontend Requirements]] · **QA:** [[Photo Library QA Frontend]]
 
-What the client shipped for a Ring's photo and the photo library, on `social_pin` `rings/F-11/honest-rings` @ `3369288` (2026-11-05), not on `main` yet: the library and the Ring photo in `8939d8e` (shared with [[FD-07 Files Upload Frontend Delivery]]), the polish from [[BI-13 Photo Library Backend Integration]] in `3369288`; the main photo and the camera on every upload in `f801aaa`, s29 as a picker and s30's picking mode in `0005f00` (2026-11-09). The QA checklist is PH-01…PH-15 in the client's `docs/TEST_CASES_2026-10-18.md`.
+What the client shipped for a Ring's photo and the photo library, on `social_pin` `rings/F-11/honest-rings` @ `3369288` (2026-11-05), on `main` since 2026-11-24 at `866240a`: the library and the Ring photo in `8939d8e` (shared with [[FD-07 Files Upload Frontend Delivery]]), the polish from [[BI-13 Photo Library Backend Integration]] in `3369288`; the main photo and the camera on every upload in `f801aaa`, s29 as a picker and s30's picking mode in `0005f00` (2026-11-09). The QA checklist is PH-01…PH-15 in the client's `docs/TEST_CASES_2026-10-18.md`.
 
 ## Screens shipped
 
@@ -61,6 +61,6 @@ What the client shipped for a Ring's photo and the photo library, on `social_pin
 
 ## Log
 
-- 2026-11-05 · `rings/F-11/honest-rings` @ `8939d8e` (social_pin, not on `main` yet) · s29 Ring photo (gallery, camera, library, remove), s30 library with usage and delete, the count on Me; PH-01…PH-11 · flagged nothing
+- 2026-11-05 · `rings/F-11/honest-rings` @ `8939d8e` (social_pin, on `main` since 2026-11-24 at `866240a`) · s29 Ring photo (gallery, camera, library, remove), s30 library with usage and delete, the count on Me; PH-01…PH-11 · flagged nothing
 - 2026-11-05 · `rings/F-11/honest-rings` @ `3369288` · usage line with two names then "+N", re-read on return to the app, a photo deleted elsewhere just leaves, s29 asks for another photo when one is no longer mine; PH-12…PH-15 · flagged nothing
-- 2026-11-09 · `rings/F-11/honest-rings` @ `f801aaa`, `0005f00` (social_pin, not on `main` yet) · S2 / S4 the main photo (PIN mark, "N Rings inherit it", Make this my main photo, the management mode's tile sheet), S1 / S6 Use my Pin photo and Reset to Pin, S5 main-photo-safe delete, S3 Camera or Library on every upload (`f801aaa`); S1 s29 as a picker (select, then Use for <Ring>), S2 s30's picking mode with Done / Cancel (`0005f00`); s29, s30 · the BD-06 flag cleared · flagged [[S-11 Photo Library Story]] (camera always offered; the Settings link on iOS only)
+- 2026-11-09 · `rings/F-11/honest-rings` @ `f801aaa`, `0005f00` (social_pin, on `main` since 2026-11-24 at `866240a`) · S2 / S4 the main photo (PIN mark, "N Rings inherit it", Make this my main photo, the management mode's tile sheet), S1 / S6 Use my Pin photo and Reset to Pin, S5 main-photo-safe delete, S3 Camera or Library on every upload (`f801aaa`); S1 s29 as a picker (select, then Use for <Ring>), S2 s30's picking mode with Done / Cancel (`0005f00`); s29, s30 · the BD-06 flag cleared · flagged [[S-11 Photo Library Story]] (camera always offered; the Settings link on iOS only)

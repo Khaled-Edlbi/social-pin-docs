@@ -13,7 +13,7 @@ affects: []
 related: ["FR-15 Companies Frontend Requirements", "S-29 Companies Story", "BD-15 Companies Backend Delivery", "FD-15 Ring Invitations & Join Frontend Delivery", "S-31 Delegated Admins Story", "D-33 Work email joining waits for real emails and Companies", "D-35 A join code can be shown as a QR", "D-36 Who it's for stays the owner's alone", "D-39 The company domain and the title switch show in the MVP"]
 pending: []
 created: 2026-11-15
-updated: 2026-11-15
+updated: 2026-11-24
 tags: [frontend-delivery, frontend-delivery/todo, module/shared-rings, layer/frontend]
 ---
 
@@ -23,7 +23,7 @@ tags: [frontend-delivery, frontend-delivery/todo, module/shared-rings, layer/fro
 
 **Feature:** [[F-15 Companies]] · **Status:** To do · **Built from:** [[Companies Backend Integration]] (not written: no company Ring API yet) · **Against:** [[S-29 Companies Story]] · **Requirements:** [[FR-15 Companies Frontend Requirements]] · **QA:** [[Companies QA Frontend]]
 
-What the client has for companies, on `social_pin` `rings/F-11/honest-rings` (not on `main` yet): s72 My companies, s73 Company detail and s74 Join a company Ring, **on demo data only** (`my_companies_data.dart`, the TechSummit '26 demo world of `e03ddf9`). There is no company Ring API, so nothing here is delivered against a backend: the note stays `todo` and blocked by the flow until [[Companies Backend Integration]] exists, and records what the demo screens show so the story, the requirements and QA can read it. Recorded in [[FD-15 Ring Invitations & Join Frontend Delivery|FD-15]] until 2026-11-15; built in `dbef63e` and `778d9b4` (at `778d9b4`: `dart analyze` 0 errors, `flutter test` 1752 passed).
+What the client has for companies, on `social_pin` `rings/F-11/honest-rings` (on `main` since 2026-11-24 at `866240a`): s72 My companies, s73 Company detail and s74 Join a company Ring, **on demo data only** (`my_companies_data.dart`, the TechSummit '26 demo world of `e03ddf9`). There is no company Ring API, so nothing here is delivered against a backend: the note stays `todo` and blocked by the flow until [[Companies Backend Integration]] exists, and records what the demo screens show so the story, the requirements and QA can read it. Recorded in [[FD-15 Ring Invitations & Join Frontend Delivery|FD-15]] until 2026-11-15; built in `dbef63e` and `778d9b4` (at `778d9b4`: `dart analyze` 0 errors, `flutter test` 1752 passed).
 
 ## Screens shipped
 
@@ -58,4 +58,4 @@ What the client has for companies, on `social_pin` `rings/F-11/honest-rings` (no
 
 ## Log
 
-- 2026-11-15 · `rings/F-11/honest-rings` @ `dbef63e`, `778d9b4` (social_pin, not on `main` yet; at `778d9b4` `dart analyze` 0 errors, `flutter test` 1752 passed; tests `test/features/account/my_companies_demo_test.dart`) · S-29 S1–S4, S6, S7, S9–S11, P3–P5, P8 · s72, s73, s74 on demo data: roles owner / admin / member with the Owner badge and the rights lines, colleagues only when allowed, no own-Ring row, the owner line with no Leave, the Leave copy, s74 ways in (invitation, code, join QR), the card step after Join · written from what [[FD-15 Ring Invitations & Join Frontend Delivery|FD-15]] recorded until today; status stays `todo` (blocked by the flow: no company Ring API)
+- 2026-11-15 · `rings/F-11/honest-rings` @ `dbef63e`, `778d9b4` (social_pin, on `main` since 2026-11-24 at `866240a`; at `778d9b4` `dart analyze` 0 errors, `flutter test` 1752 passed; tests `test/features/account/my_companies_demo_test.dart`) · S-29 S1–S4, S6, S7, S9–S11, P3–P5, P8 · s72, s73, s74 on demo data: roles owner / admin / member with the Owner badge and the rights lines, colleagues only when allowed, no own-Ring row, the owner line with no Leave, the Leave copy, s74 ways in (invitation, code, join QR), the card step after Join · written from what [[FD-15 Ring Invitations & Join Frontend Delivery|FD-15]] recorded until today; status stays `todo` (blocked by the flow: no company Ring API)

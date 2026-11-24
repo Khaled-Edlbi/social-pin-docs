@@ -13,7 +13,7 @@ affects: []
 related: ["FR-08 Ring Access Engine Frontend Requirements", "S-15 Ring Access Engine Story", "D-14 Shared with me lists people, never the Ring", "D-18 Ring names shown when joined knowingly", "FD-06 Counts Frontend Delivery", "FD-12 Rings Frontend Delivery", "S-18 Rings Story", "S-23 Connections Story", "S-31 Delegated Admins Story", "S-37 Badge & QR Story", "S-87 Error Contract Story", "S-19 View As & Pin Views Story", "S-33 Ring Invitations & Join Story"]
 pending: []
 created: 2026-11-08
-updated: 2026-11-09
+updated: 2026-11-24
 tags: [frontend-delivery, frontend-delivery/done, module/identity, layer/frontend]
 ---
 
@@ -21,7 +21,7 @@ tags: [frontend-delivery, frontend-delivery/done, module/identity, layer/fronten
 
 **Feature:** [[F-08 Ring Access Engine]] · **Status:** Done · **Built from:** [[BI-05 Ring Access Engine Backend Integration]] · **Against:** [[S-15 Ring Access Engine Story]] · **Requirements:** [[FR-08 Ring Access Engine Frontend Requirements]] · **QA:** [[Ring Access Engine QA Frontend]]
 
-The engine has no screen of its own: this note is where the client keeps its promises, on `social_pin` `rings/F-11/honest-rings` @ `0005f00` (2026-11-09), not on `main` yet. Shared with me as people (`1f3a88d`, 2026-11-01, on `main`); someone's card on the dark card (`eb9bdc4`, on `main`); the card read again when the app comes back (`2a10750`); View as from the view route with its expired state (`f801aaa`). The QA checklist is `test/features/rings/access_refresh_test.dart` and `test/features/ring_detail/view_as_test.dart` in the client.
+The engine has no screen of its own: this note is where the client keeps its promises, on `social_pin` `rings/F-11/honest-rings` @ `0005f00` (2026-11-09), on `main` since 2026-11-24 at `866240a`. Shared with me as people (`1f3a88d`, 2026-11-01, on `main`); someone's card on the dark card (`eb9bdc4`, on `main`); the card read again when the app comes back (`2a10750`); View as from the view route with its expired state (`f801aaa`). The QA checklist is `test/features/rings/access_refresh_test.dart` and `test/features/ring_detail/view_as_test.dart` in the client.
 
 ## Screens shipped
 
@@ -59,12 +59,11 @@ The engine has no screen of its own: this note is where the client keeps its pro
 
 - The Ring's access settings are shown and saved on Edit Ring ([[FD-12 Rings Frontend Delivery]]); joining by code or invitation, join requests and member invitations are in the app now (`f801aaa`, `0005f00`, [[S-33 Ring Invitations & Join Story]]); saving files has no flow yet.
 - Telling a suspended viewer apart, and branching on `E_RING_ACCESS_*` → [[S-87 Error Contract Story|Error Contract · S4–S8]] (the client shows one message either way).
-- On `main` with `rings/F-11/honest-rings`.
 
 ## Log
 
 - 2026-11-01 · `main` @ `1f3a88d` (social_pin) · s17 lists people, never the Ring; someone's card opens from it · flagged nothing
 - 2026-11-04 · `main` @ `eb9bdc4` · someone's card and the scanned Pin on the dark card · flagged nothing
-- 2026-11-08 · `rings/F-11/honest-rings` @ `2a10750` (social_pin, not on `main` yet) · an open card is read again on return to the app; access ended → "This profile isn't available to you." · flagged nothing
+- 2026-11-08 · `rings/F-11/honest-rings` @ `2a10750` (social_pin, on `main` since 2026-11-24 at `866240a`) · an open card is read again on return to the app; access ended → "This profile isn't available to you." · flagged nothing
 - 2026-11-08 · `rings/F-11/honest-rings` @ `bf5b5ae` · s17 from the API's person rows, no view call per row; s62 Keep / Merge / Let it go; the settings on Edit Ring ([[FD-12 Rings Frontend Delivery]]) · flagged nothing
-- 2026-11-09 · app branch `rings/F-11/honest-rings` @ `dde0533`, `f801aaa`, `0005f00` (with `875d8ee`, `d4cbd1f`, `f70c791`; not on `main` yet) · S1, S2, S5, S7 · s31 View as on `GET /views/ring/:ringId` with "This Ring has expired" for the owner; s17 named rows for a Ring joined knowingly (D-18); s44 from a real scan with its one 404; s47 IN RING from the API; [[FR-08 Ring Access Engine Frontend Requirements]] source lines updated, its [[BD-11 Rings Backend Delivery]] and [[BD-14 Connections Backend Delivery]] flags cleared · flagged nothing
+- 2026-11-09 · app branch `rings/F-11/honest-rings` @ `dde0533`, `f801aaa`, `0005f00` (with `875d8ee`, `d4cbd1f`, `f70c791`; on `main` since 2026-11-24 at `866240a`) · S1, S2, S5, S7 · s31 View as on `GET /views/ring/:ringId` with "This Ring has expired" for the owner; s17 named rows for a Ring joined knowingly (D-18); s44 from a real scan with its one 404; s47 IN RING from the API; [[FR-08 Ring Access Engine Frontend Requirements]] source lines updated, its [[BD-11 Rings Backend Delivery]] and [[BD-14 Connections Backend Delivery]] flags cleared · flagged nothing

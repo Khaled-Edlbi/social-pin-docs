@@ -13,7 +13,7 @@ affects: []
 related: ["FR-04 Files Upload Frontend Requirements", "S-06 Files Upload Story", "D-16 Files load from signed links that expire in 15 minutes", "D-03 Links entered once, switched on or off per Ring", "BI-07 Ring Projection Backend Integration", "S-11 Photo Library Story", "S-20 Widgets Story", "S-17 Ring Projection Story", "S-18 Rings Story"]
 pending: []
 created: 2026-11-05
-updated: 2026-11-15
+updated: 2026-11-24
 tags: [frontend-delivery, frontend-delivery/done, module/identity, layer/frontend]
 ---
 
@@ -21,7 +21,7 @@ tags: [frontend-delivery, frontend-delivery/done, module/identity, layer/fronten
 
 **Feature:** [[F-04 Files Upload]] · **Status:** Done · **Built from:** [[BI-03 Files Upload Backend Integration]] · **Against:** [[S-06 Files Upload Story]] · **Requirements:** [[FR-04 Files Upload Frontend Requirements]] · **QA:** [[Files Upload QA Frontend]]
 
-What the client shipped for uploading, attaching, showing and opening photos and files. Attaching from s36, the files on Ring data and switching them on s24 are on `social_pin` `main` (`aae765d`, `2a5d690`, `4887fcb`, 2026-11-01 to 11-03); the signed links, the photos, the library and the documents list are on `rings/F-11/honest-rings` @ `8939d8e` (2026-11-05), not on `main` yet. The QA checklist is PH-01…PH-11 and FL-01…FL-08 in the client's test cases.
+What the client shipped for uploading, attaching, showing and opening photos and files. Attaching from s36, the files on Ring data and switching them on s24 are on `social_pin` `main` (`aae765d`, `2a5d690`, `4887fcb`, 2026-11-01 to 11-03); the signed links, the photos, the library and the documents list are on `rings/F-11/honest-rings` @ `8939d8e` (2026-11-05), on `main` since 2026-11-24 at `866240a`. The QA checklist is PH-01…PH-11 and FL-01…FL-08 in the client's test cases.
 
 ## Screens shipped
 
@@ -71,6 +71,6 @@ What the client shipped for uploading, attaching, showing and opening photos and
 
 - 2026-11-01 · `main` @ `aae765d` (social_pin) · s36 attach a file, reviewed and named first; `2a5d690` s14 file chips and sheet, s24 switch off and rename · flagged nothing
 - 2026-11-03 · `main` @ `4887fcb` (social_pin) · s24 redrawn with its Files section and "+ Add a file" · flagged nothing
-- 2026-11-05 · `rings/F-11/honest-rings` @ `8939d8e` (social_pin, not on `main` yet) · signed links everywhere, photos for real (s29, header, switcher, My Rings, Home, s31, s44), s30 library, files open in the phone's viewer, all documents on s24 and in New Ring step 3; PH-01…PH-11, FL-01…FL-08 · flagged nothing
-- 2026-11-09 · app branch `rings/F-11/honest-rings` @ `461673e`, `bf5b5ae`, `875d8ee`, `f801aaa`, `0005f00` (not on `main` yet) · S4, S7, S8, S9 · s24 (links and fields one library beside the files, `461673e`), New Ring (copy a Ring, `bf5b5ae`), s44 scanned card and Saved scans (`875d8ee`), s30 main photo with `isMainPhoto` and `followerCount` (`f801aaa`; cleared the [[BD-04 Files Upload Backend Delivery]] flag), s31 each file its own row opening on tap (`f801aaa`), s29 picker and s30 picking mode (`0005f00`) · pending: S9 file size on s31 / s44 · flagged [[S-06 Files Upload Story]] (scanned card never re-reads a dead link)
-- 2026-11-15 · `rings/F-11/honest-rings` @ `778d9b4` (with `9e0f3be`, `c1f152c`, `4aac99d`; social_pin, not on `main` yet; dart analyze 0 errors, flutter test 1752 passed) · [[S-06 Files Upload Story|Files Upload · S2, S9, S10, S12]] · s31 and s44 file size from `sizeBytes` (`9e0f3be`): the pending item is cleared; s14 files as rows "name · size" with Open and "+ Add a link or file" to s24 (`4aac99d`); s20 step 3 uploads (`4aac99d`); s24 delete a document from the library (`c1f152c`) · flagged [[S-06 Files Upload Story]] (step 3 uploads; a document can be deleted from s24)
+- 2026-11-05 · `rings/F-11/honest-rings` @ `8939d8e` (social_pin, on `main` since 2026-11-24 at `866240a`) · signed links everywhere, photos for real (s29, header, switcher, My Rings, Home, s31, s44), s30 library, files open in the phone's viewer, all documents on s24 and in New Ring step 3; PH-01…PH-11, FL-01…FL-08 · flagged nothing
+- 2026-11-09 · app branch `rings/F-11/honest-rings` @ `461673e`, `bf5b5ae`, `875d8ee`, `f801aaa`, `0005f00` (on `main` since 2026-11-24 at `866240a`) · S4, S7, S8, S9 · s24 (links and fields one library beside the files, `461673e`), New Ring (copy a Ring, `bf5b5ae`), s44 scanned card and Saved scans (`875d8ee`), s30 main photo with `isMainPhoto` and `followerCount` (`f801aaa`; cleared the [[BD-04 Files Upload Backend Delivery]] flag), s31 each file its own row opening on tap (`f801aaa`), s29 picker and s30 picking mode (`0005f00`) · pending: S9 file size on s31 / s44 · flagged [[S-06 Files Upload Story]] (scanned card never re-reads a dead link)
+- 2026-11-15 · `rings/F-11/honest-rings` @ `778d9b4` (with `9e0f3be`, `c1f152c`, `4aac99d`; social_pin, on `main` since 2026-11-24 at `866240a`; dart analyze 0 errors, flutter test 1752 passed) · [[S-06 Files Upload Story|Files Upload · S2, S9, S10, S12]] · s31 and s44 file size from `sizeBytes` (`9e0f3be`): the pending item is cleared; s14 files as rows "name · size" with Open and "+ Add a link or file" to s24 (`4aac99d`); s20 step 3 uploads (`4aac99d`); s24 delete a document from the library (`c1f152c`) · flagged [[S-06 Files Upload Story]] (step 3 uploads; a document can be deleted from s24)
