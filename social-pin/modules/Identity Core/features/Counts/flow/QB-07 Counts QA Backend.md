@@ -12,13 +12,11 @@ related: ["FR-03 Counts Frontend Requirements", "BD-11 Rings Backend Delivery", 
 pending: []
 unmet: []
 created: 2026-11-05
-updated: 2026-11-09
+updated: 2026-11-24
 tags: [qa-backend, qa-backend/passing, module/identity, layer/qa]
 ---
 
 # 🧪 Counts · QA Backend
-
-> ⚠ Affected by [[S-03 Counts Story]] (2026-11-12): S10 now says GET /rings/shared-with-me carries memberCount on a row whose Ring lets members see each other; B12 ("no item carries memberCount") holds only for a Ring without that setting
 
 > Blocked by default until [[BD-03 Counts Backend Delivery]] is `done` (the hand-off order in `docs.config.json`); `blockedBy: []` opts out, `blockedBy: [...]` names other blockers.
 
@@ -53,7 +51,7 @@ The owner is Sara; Omar, the organizer and the admin are the members. "Count" is
 | B9 | a Ring whose own `expiresAt` has passed, its member row still `ACTIVE` | `GET /rings/:id` and `GET /rings` | 200 for the owner; `memberCount` 0 on both | ✅ |
 | B10 | Family 2, Empty 0 | `POST /rings/:ringId/members/:userId/reassign` Family → Empty, then refetch | Family 2 → 1, Empty 0 → 1 on the next fetch (S5) | ✅ |
 | B11 | a Ring of Sara's | Omar calls `GET /rings/:id` on it, and on an id that does not exist | 404 both; the bodies are identical but for `path` and `timestamp`; no `memberCount` | ✅ |
-| B12 | Omar is a live member of Sara's Rings | `GET /rings/shared-with-me` as Omar | 200; no item carries `memberCount` (S10) | ✅ |
+| B12 | Omar is a live member of Sara's Rings, none of which lets members see each other (the default, [[D-04 Ring settings at launch and their defaults]]) | `GET /rings/shared-with-me` as Omar | 200; no row carries a member count: `memberCount` is `null` on every row (S10). With the setting on, a named row carries the live count: [[QB-17 Ring Invitations & Join QA Backend]] B76–B77 | ✅ |
 | B13 | Omar is in three of Sara's Rings | `GET /rings/shared-with-me/count` as Omar | `{ "people": 1 }`: Sara once; the list's `meta.total` is 3 (Rings) | ✅ |
 | B14 | — | the same call | the body has the one key `people`, nothing naming a Ring | ✅ |
 | B15 | Sara has blocked Omar (then: Omar has blocked Sara) | the count, the list as Omar, and Family's count as Sara | Sara's Rings leave Omar's list, `people` drops to match the list, Omar leaves Family's count; the same in the other direction | ✅ |
@@ -108,7 +106,7 @@ On `f186ba1` the 404 body is `{ statusCode, message: "Ring not found", error: "H
 
 ## Privacy and access checks
 
-- A member never sees a member count: `GET /rings/shared-with-me` carries none (B12), and `GET /rings/:id` on someone else's Ring is a 404 with no number (B11).
+- A member sees no member count unless the Ring lets members see each other: `GET /rings/shared-with-me` carries none then (B12; with the setting on, [[QB-17 Ring Invitations & Join QA Backend]] B77), and `GET /rings/:id` on someone else's Ring is a 404 with no number (B11).
 - "Not yours" and "does not exist" answer the same body (B11): the route is not an oracle for which Ring ids exist.
 - The people count names no Ring (B14), and counts a person once however many of their Rings you are in (B13).
 - A block hides both ways at once: the Ring leaves the list, the person leaves the people count, the member leaves the owner's count (B15); a blocked connection leaves both sides' connection count (B25).
@@ -125,3 +123,4 @@ On `f186ba1` the 404 body is `{ statusCode, message: "Ring not found", error: "H
 
 - 2026-11-05 · flagged [[BI-14 Counts Backend Integration]]: on backend main f186ba1 the 404 body for GET /rings/:id carries no ErrorCode (statusCode, message, error: HttpException, path, timestamp); the error table reads as if E_RING_02 arrives. Known Error Contract gap (BD-35): say the client branches on 404 + endpoint until S-87 S4–S8 ships
 - 2026-11-09 · vault branch `docs/qa/M-01-identity/F-03-counts/QB-07-rerun-b20` · re-ran Counts · S11 on backend `main` `516a78f` (fresh throwaway database): `GET /connections/count` passing, B20 run and B21–B27 added (pending, declined, cancelled, expired, blocked, disconnected and deleted not counted; Remove from Rings still counted; once per person; mine only; 401). The B20 entry leaves `pending`, which is now empty, so this note reads Passing. Flagged nothing.
+- 2026-11-24 · vault branch `docs/qa/M-01-identity/F-03-counts/QB-07-b12-reworded` · cleared the [[S-03 Counts Story]] 2026-11-12 flag: B12 reworded to a Ring without "members can see each other" (the default), where every Shared with me row's `memberCount` is `null`; the case with the setting on is [[QB-17 Ring Invitations & Join QA Backend]] B76–B77. The privacy line under *Privacy and access checks* matches. No row re-run: the expectation narrowed to what B12 tested on `f186ba1`, when the setting did not exist · flagged nothing
