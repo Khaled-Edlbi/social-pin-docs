@@ -10,7 +10,7 @@ owner: "Omar Fostok"
 depends: ["FD-06 Counts Frontend Delivery", "S-03 Counts Story"]
 affects: ["S-03 Counts Story"]
 related: ["QB-07 Counts QA Backend", "BI-14 Counts Backend Integration", "FR-03 Counts Frontend Requirements", "BI-17 Ring Invitations & Join Backend Integration", "D-14 Shared with me lists people, never the Ring", "GET /rings", "GET /rings/:id", "GET /rings/shared-with-me", "GET /rings/shared-with-me/count", "GET /connections/count", E_RING_02]
-pending: ["[[S-03 Counts Story]]: the Shared with me empty state: S-03's States say \"No Rings shared with you yet\", the app says \"Nothing shared with you yet\" (as S-18 and S-33 do); the copy is not decided (/pm, Omar Fostok). CT-14 passes on the app's words"]
+pending: []
 unmet: []
 created: 2026-11-24
 updated: 2026-11-24
@@ -19,9 +19,7 @@ tags: [qa-frontend, qa-frontend/passing, module/identity, layer/qa]
 
 # 🧪 Counts · QA Frontend
 
-> ⚠ Affected by [[S-03 Counts Story]] (2026-11-24): /qa: S-03's States now say "Nothing shared with you yet", the app's copy (decided by Omar Fostok 2026-11-24); the pending entry on the empty state is answered and can be cleared (CT-14 already passes on these words)
-
-**Feature:** [[F-03 Counts]] · **Verifies:** [[FD-06 Counts Frontend Delivery]] against [[S-03 Counts Story]] · **Verdict:** Passing on `social_pin` `main` `866240a`, emulator Medium_Phone (Android 16), 2026-11-24: 39 of 39; the empty-state copy pending
+**Feature:** [[F-03 Counts]] · **Verifies:** [[FD-06 Counts Frontend Delivery]] against [[S-03 Counts Story]] · **Verdict:** Passing on `social_pin` `main` `866240a`, emulator Medium_Phone (Android 16), 2026-11-24: 39 of 39
 
 Expected behaviour of the screens, as artefacts: journeys, states and copy to check a build against, **not test code**. `status: passing` or `failing` after a run; the verdict tells the PM whether the story can be fulfilled (passing with nothing pending or unmet). A failing row is one of two things: a story part the delivery does not fulfil (not built, or built other than the story says) goes in `unmet` and turns the story's badge ✕; a bug (built as asked, but it breaks) is filed against the Frontend Delivery and goes in `pending`, and leaves the story alone.
 
@@ -65,7 +63,7 @@ Every number S-03 asks for, as the app shows it: "N people" on Home's *Recent Ri
 | CT-11c | S2 | `ringName`, `memberCount: 1` | "1 person" | F | ✅ |
 | CT-12 | S2 | "· 2"; one stops sharing; switch tabs; then 4 | "· 1", then "· 4"; a count call on each switch | F | ✅ |
 | CT-13 | S2 | "· 2"; count becomes 3; background and resume | "· 3" | F | ✅ |
-| CT-14 | S2, States | count 0 → Shared with me | "Shared with me · 0", no rows, the empty state "Nothing shared with you yet" (the app's copy; S-03 says otherwise, see *pending*) | F | ✅ |
+| CT-14 | S2, States | count 0 → Shared with me | "Shared with me · 0", no rows, the empty state "Nothing shared with you yet" | F | ✅ |
 | CT-15 | S2, States | count 500; then 2; then offline | "—", never "0"; then "· 2"; offline "· 2" stays | F | ✅ |
 | CT-16 | S1, S2, S11 | 60 Rings | pages of ≤ 50 until all are read; "All 60", Me *Rings* 60, "My Rings · 60" | F | ✅ |
 | CT-17 | S1, S2 | `GET /rings` drops → My Rings | the chip shows no number, no sample | F | ✅ |
@@ -114,7 +112,7 @@ The profile card shows three tiles, **Rings · Connections · Photos** (app `776
 | [[Screen Index#s11|s11]] / [[Screen Index#s12|s12]] | count not sent | "— people" (CT-03) |
 | [[Screen Index#s16|s16]] | list failed | the chip without a number (CT-17) |
 | [[Screen Index#s16|s16]] / [[Screen Index#s17|s17]] | count failed | "—", then the number once it answers; offline keeps the last (CT-15) |
-| [[Screen Index#s17|s17]] | empty | "Shared with me · 0", "Nothing shared with you yet" (CT-14; copy pending) |
+| [[Screen Index#s17|s17]] | empty | "Shared with me · 0", "Nothing shared with you yet" (CT-14) |
 | [[Screen Index#s17|s17]] | row with `memberCount` | "· N people" (CT-11, CT-11c); without, no number (CT-11b) |
 | [[Screen Index#s14|s14]] | count not sent / offline | "People · —", "— in Ring" (CT-23); the list's number stays offline (CT-22) |
 | [[Screen Index#s14|s14]] | gone (404) | "This Ring no longer exists.", the screen leaves (CT-21) |
@@ -149,8 +147,8 @@ flowchart LR
 - Run on: 2026-11-24 · build: `social_pin` `main` `866240a`, `development` flavor, emulator Medium_Phone (Android 16) · result: **39 of 39 pass**, 32 faked and 7 against the development API · failing rows: none · story parts unmet: none · bugs: none open.
 - **App bug found and fixed in `866240a`** (no B-NN card: found and fixed before the run recorded here). CT-19's first real run: after someone added me, "Shared with me · 1" showed over an empty list ("Nothing shared with you yet"). Shared with me read the count again on the tab's first focus but not the list, which was read only when My Rings opened. Fixed in `RingsController.onTabChanged`: the list is read on every focus of the tab, so the chip and the rows agree ([[S-03 Counts Story|Counts · S2]]); [[FD-06 Counts Frontend Delivery]] records it.
 - The other first-run failures were the tests' own (CT-13, CT-14, CT-20, CT-29, CT-30, CT-37, and CT-04 / CT-08 needing the S-33 routes answered), fixed in the suite; the test-case file has them. The Xiaomi phone could not run Patrol (the Dart side never starts), so the run moved to the emulator.
-- **Pending:** the Shared with me empty-state copy. S-03's States say "No Rings shared with you yet"; the app, [[S-18 Rings Story]] and [[S-33 Ring Invitations & Join Story]] say "Nothing shared with you yet". Not decided: for /pm (Omar Fostok). The note stays Partial until it is, and S-03 is not ready to fulfil.
 
 ## Log
 
 - 2026-11-24 · vault branch `docs/qa/M-01-identity/F-03-counts/QF-08-passing` · written from `social_pin` `docs/testing/patrol/F-03 Counts test cases.md` (39 cases, approved by Omar Fostok 2026-11-24) against [[FD-06 Counts Frontend Delivery]] and [[S-03 Counts Story]]; run on `main` `866240a`, Medium_Phone: 39 of 39; the CT-19 app bug, fixed in `866240a`, recorded; the empty-state copy in `pending` · flagged nothing
+- 2026-11-24 · vault branch `docs/qa/M-01-identity/F-03-counts/QF-08-copy-decided` · cleared the [[S-03 Counts Story]] flag and the `pending` entry on the Shared with me empty state: Omar Fostok kept the app's wording "Nothing shared with you yet" on 2026-11-24, and S-03's States now say the same. CT-14 passed on those words in the run of 2026-11-24 (`social_pin` `main` `866240a`, Medium_Phone, Android 16); no re-run. Passing with nothing pending or unmet · flagged nothing

@@ -8071,12 +8071,12 @@
     },
     "concepts": 377,
     "decisions": 39,
-    "edges": 10347,
+    "edges": 10346,
     "features": 40,
     "layerNotes": 176,
     "modules": 8,
     "notes": 384,
-    "partial": 16,
+    "partial": 15,
     "placeholders": 102,
     "records": 38
   },
@@ -12373,11 +12373,6 @@
       "from": "qa-backend:view-as",
       "kind": "pending",
       "to": "backend-delivery:view-as"
-    },
-    {
-      "from": "qa-frontend:counts",
-      "kind": "pending",
-      "to": "story:counts"
     },
     {
       "from": "qa-frontend:discover-hub",
@@ -100795,8 +100790,7 @@
         "approved": 1,
         "delivered": 2,
         "done": 2,
-        "partial": 1,
-        "passing": 1
+        "passing": 2
       },
       "scope": null,
       "screens": [
@@ -111736,8 +111730,8 @@
         "in-progress": 11,
         "missing": 15,
         "needs-decision": 1,
-        "partial": 8,
-        "passing": 11,
+        "partial": 7,
+        "passing": 12,
         "ready": 1,
         "verified": 12
       },
@@ -121411,7 +121405,7 @@
         "frontend-delivery:counts",
         "story:counts"
       ],
-      "effectiveStatus": "partial",
+      "effectiveStatus": "passing",
       "effort": null,
       "feature": "counts",
       "foundOn": null,
@@ -121432,13 +121426,7 @@
         "feature:counts"
       ],
       "path": "social-pin/modules/Identity Core/features/Counts/flow/QF-08 Counts QA Frontend.md",
-      "pending": [
-        {
-          "person": null,
-          "text": "the Shared with me empty state: S-03's States say \"No Rings shared with you yet\", the app says \"Nothing shared with you yet\" (as S-18 and S-33 do); the copy is not decided (/pm, Omar Fostok). CT-14 passes on the app's words",
-          "to": "story:counts"
-        }
-      ],
+      "pending": [],
       "priority": "critical",
       "related": [
         "task:B-13",
@@ -123173,8 +123161,8 @@
         "in-progress": 45,
         "missing": 102,
         "needs-decision": 1,
-        "partial": 16,
-        "passing": 15,
+        "partial": 15,
+        "passing": 16,
         "ready": 3,
         "reference": 32,
         "todo": 5,
