@@ -100804,7 +100804,7 @@
         "s68"
       ],
       "status": null,
-      "summary": "Member counts per Ring (\"148 people\") and connection counts (\"218 connections\") shown on Home, Ring data, My Rings and Me.",
+      "summary": "Member counts per Ring (\"148 people\") shown on Home, Ring data, My Rings and Shared with me, and on Me the connection count: the Connections tile of the profile card, one of its three tiles, Rings…",
       "tags": [
         "feature",
         "module/identity",
@@ -100814,7 +100814,7 @@
       "task": null,
       "title": "F-03 Counts",
       "unmet": [],
-      "updated": "2026-11-08"
+      "updated": "2026-11-24"
     },
     "feature:delegated-admins": {
       "affects": [],
