@@ -74,6 +74,7 @@
     "B-28 A deleted account's card still opens for a member of its Ring": "task:B-28",
     "B-29 The find-me switch reads the string false as true": "task:B-29",
     "B-30 Connect from a Discover search row is refused for a person you can't already open": "task:B-30",
+    "B-32 A live PinCast outlives its session": "task:B-32",
     "BD-01 Account Backend Delivery": "backend-delivery:account",
     "BD-02 Auth & Sign-up Backend Delivery": "backend-delivery:auth",
     "BD-03 Counts Backend Delivery": "backend-delivery:counts",
@@ -442,6 +443,7 @@
     "B-28": "task:B-28",
     "B-29": "task:B-29",
     "B-30": "task:B-30",
+    "B-32": "task:B-32",
     "BD-01": "backend-delivery:account",
     "BD-02": "backend-delivery:auth",
     "BD-03": "backend-delivery:counts",
@@ -5017,7 +5019,8 @@
       "containers": [
         "feature:account",
         "feature:auth",
-        "project:frontend-passwordless-migration"
+        "project:frontend-passwordless-migration",
+        "task:B-32"
       ],
       "kind": "endpoint",
       "notes": [
@@ -5030,7 +5033,8 @@
         "project:frontend-passwordless-migration",
         "qa-backend:auth",
         "qa-frontend:account",
-        "story:auth"
+        "story:auth",
+        "task:B-32"
       ],
       "owner": "feature:auth"
     },
@@ -5406,7 +5410,8 @@
     },
     "POST /pincasts/current/stop": {
       "containers": [
-        "feature:pincast"
+        "feature:pincast",
+        "task:B-32"
       ],
       "kind": "endpoint",
       "notes": [
@@ -5414,7 +5419,8 @@
         "backend-integration:pincast",
         "frontend-delivery:pincast",
         "frontend-requirements:pincast",
-        "qa-backend:pincast"
+        "qa-backend:pincast",
+        "task:B-32"
       ],
       "owner": "feature:pincast"
     },
@@ -7130,7 +7136,8 @@
     },
     "s40": {
       "containers": [
-        "feature:pincast"
+        "feature:pincast",
+        "task:B-32"
       ],
       "kind": "screen",
       "notes": [
@@ -7140,7 +7147,8 @@
         "frontend-delivery:pincast",
         "frontend-requirements:pincast",
         "qa-backend:pincast",
-        "story:pincast"
+        "story:pincast",
+        "task:B-32"
       ],
       "owner": null
     },
@@ -8002,7 +8010,7 @@
   },
   "counts": {
     "blocked": 28,
-    "bugs": 30,
+    "bugs": 31,
     "byKind": {
       "backend-delivery": 39,
       "backend-integration": 16,
@@ -8016,22 +8024,22 @@
       "qa-backend": 16,
       "qa-frontend": 3,
       "story": 40,
-      "task": 30
+      "task": 31
     },
     "byLayer": {
       "backend": 63,
-      "business": 193,
+      "business": 194,
       "frontend": 64,
       "qa": 19,
       "shared": 10
     },
     "concepts": 377,
     "decisions": 39,
-    "edges": 10113,
+    "edges": 10128,
     "features": 40,
     "layerNotes": 174,
     "modules": 8,
-    "notes": 380,
+    "notes": 381,
     "partial": 14,
     "placeholders": 104,
     "records": 38
@@ -8091,6 +8099,8 @@
   "diagnostics": {
     "errors": [],
     "warnings": [
+      "social-pin/bugs/B-32 A live PinCast outlives its session.md: wikilink [[QF-07 PinCast & Nearby QA Frontend]] resolves to no note",
+      "social-pin/bugs/B-32 A live PinCast outlives its session.md: wikilink [[QF-07 PinCast & Nearby QA Frontend]] resolves to no note",
       "social-pin/modules/Discovery/features/Discover Hub & Search/flow/FD-18 Discover Hub & Search Frontend Delivery.md: wikilink [[Discover Hub & Search QA Frontend]]: the card is named with its code now, write [[QF-06 Discover Hub & Search QA Frontend]]"
     ]
   },
@@ -9729,6 +9739,11 @@
       "from": "task:B-30",
       "kind": "affects",
       "to": "qa-backend:discover-hub"
+    },
+    {
+      "from": "task:B-32",
+      "kind": "affects",
+      "to": "backend-integration:pincast"
     },
     {
       "from": "backend-delivery:audit-log",
@@ -45534,6 +45549,14 @@
       ]
     },
     {
+      "from": "qa-backend:auth",
+      "kind": "related",
+      "to": "task:B-32",
+      "via": [
+        "POST /auth/logout"
+      ]
+    },
+    {
       "from": "qa-backend:badge-qr",
       "kind": "related",
       "to": "backend-delivery:account",
@@ -57248,6 +57271,14 @@
       ]
     },
     {
+      "from": "qa-frontend:auth",
+      "kind": "related",
+      "to": "task:B-32",
+      "via": [
+        "POST /auth/logout"
+      ]
+    },
+    {
       "from": "qa-frontend:discover-hub",
       "kind": "related",
       "to": "backend-delivery:account",
@@ -64258,6 +64289,51 @@
       "to": "story:discover-hub"
     },
     {
+      "from": "task:B-32",
+      "kind": "related",
+      "to": "backend-delivery:pincast",
+      "via": [
+        "POST /pincasts/current/stop"
+      ]
+    },
+    {
+      "from": "task:B-32",
+      "kind": "related",
+      "to": "backend-integration:pincast",
+      "via": [
+        "POST /pincasts/current/stop"
+      ]
+    },
+    {
+      "from": "task:B-32",
+      "kind": "related",
+      "to": "frontend-delivery:pincast",
+      "via": [
+        "POST /pincasts/current/stop"
+      ]
+    },
+    {
+      "from": "task:B-32",
+      "kind": "related",
+      "to": "frontend-requirements:pincast",
+      "via": [
+        "POST /pincasts/current/stop"
+      ]
+    },
+    {
+      "from": "task:B-32",
+      "kind": "related",
+      "to": "qa-backend:pincast",
+      "via": [
+        "POST /pincasts/current/stop"
+      ]
+    },
+    {
+      "from": "task:B-32",
+      "kind": "related",
+      "to": "story:pincast"
+    },
+    {
       "from": "decision:D-10",
       "kind": "shares",
       "to": "decision:D-17",
@@ -66080,6 +66156,14 @@
       ]
     },
     {
+      "from": "feature:account",
+      "kind": "shares",
+      "to": "task:B-32",
+      "via": [
+        "POST /auth/logout"
+      ]
+    },
+    {
       "from": "feature:app-shell",
       "kind": "shares",
       "to": "feature:auth",
@@ -67053,6 +67137,14 @@
       "via": [
         "E_AUTH_03",
         "GET /users/me"
+      ]
+    },
+    {
+      "from": "feature:auth",
+      "kind": "shares",
+      "to": "task:B-32",
+      "via": [
+        "POST /auth/logout"
       ]
     },
     {
@@ -73849,6 +73941,14 @@
       ]
     },
     {
+      "from": "feature:pincast",
+      "kind": "shares",
+      "to": "task:B-32",
+      "via": [
+        "POST /pincasts/current/stop"
+      ]
+    },
+    {
       "from": "feature:post-event",
       "kind": "shares",
       "to": "feature:profiles",
@@ -77474,6 +77574,14 @@
       ]
     },
     {
+      "from": "project:frontend-passwordless-migration",
+      "kind": "shares",
+      "to": "task:B-32",
+      "via": [
+        "POST /auth/logout"
+      ]
+    },
+    {
       "from": "project:ring-access-model",
       "kind": "shares",
       "to": "project:spec-map",
@@ -77736,6 +77844,11 @@
       "from": "backend-delivery:files",
       "kind": "tree",
       "to": "task:B-07"
+    },
+    {
+      "from": "backend-delivery:pincast",
+      "kind": "tree",
+      "to": "task:B-32"
     },
     {
       "from": "backend-integration:account",
@@ -85971,6 +86084,11 @@
       "from": "task:B-29",
       "kind": "wikilink",
       "to": "feature:discover-hub"
+    },
+    {
+      "from": "task:B-32",
+      "kind": "wikilink",
+      "to": "feature:pincast"
     }
   ],
   "emoji": {
@@ -86225,6 +86343,10 @@
     },
     "social-pin/bugs/B-30 Connect from a Discover search row is refused for a person you can't already open.md": {
       "name": "B-30 Connect from a Discover search row is refused for a person you can't already open",
+      "type": "bug"
+    },
+    "social-pin/bugs/B-32 A live PinCast outlives its session.md": {
+      "name": "B-32 A live PinCast outlives its session",
       "type": "bug"
     },
     "social-pin/business/Feature Graph.md": {
@@ -90203,7 +90325,9 @@
       ],
       "blockedBy": [],
       "card": "BD-20",
-      "children": [],
+      "children": [
+        "task:B-32"
+      ],
       "code": "pincast",
       "created": "2026-10-18",
       "deadline": null,
@@ -90237,7 +90361,9 @@
       "labels": [],
       "layer": "backend",
       "module": "discovery",
-      "openBugs": [],
+      "openBugs": [
+        "task:B-32"
+      ],
       "parentTask": null,
       "parents": [
         "feature:pincast"
@@ -90247,6 +90373,7 @@
       "priority": "critical",
       "related": [
         "task:B-17",
+        "task:B-32",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-requirements:connections",
@@ -93693,6 +93820,7 @@
         "task:B-03",
         "task:B-13",
         "task:B-17",
+        "task:B-32",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-requirements:connections",
@@ -100278,7 +100406,8 @@
         "delivered": 2,
         "done": 2,
         "missing": 1,
-        "passing": 1
+        "passing": 1,
+        "todo": 1
       },
       "scope": null,
       "screens": [
@@ -103374,6 +103503,7 @@
       "related": [
         "task:B-13",
         "task:B-30",
+        "task:B-32",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-requirements:connections",
@@ -107495,6 +107625,7 @@
       "related": [
         "task:B-03",
         "task:B-13",
+        "task:B-32",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-requirements:connections",
@@ -109375,7 +109506,7 @@
         "missing": 2,
         "partial": 3,
         "passing": 2,
-        "todo": 1,
+        "todo": 2,
         "verified": 5
       },
       "scope": null,
@@ -114884,6 +115015,7 @@
         "frontend-requirements:devices",
         "project:frontend-agent-prompt",
         "project:frontend-api-guide",
+        "task:B-32",
         "frontend-delivery:account",
         "frontend-requirements:account",
         "backend-delivery:devices",
@@ -116981,6 +117113,7 @@
       "related": [
         "task:B-28",
         "task:B-30",
+        "task:B-32",
         "backend-delivery:connections",
         "backend-integration:connections",
         "frontend-delivery:connections",
@@ -118809,6 +118942,7 @@
         "frontend-requirements:devices",
         "project:frontend-agent-prompt",
         "project:frontend-api-guide",
+        "task:B-32",
         "frontend-delivery:account",
         "frontend-requirements:account",
         "backend-delivery:devices",
@@ -120712,7 +120846,7 @@
         "passing": 15,
         "ready": 3,
         "reference": 32,
-        "todo": 3,
+        "todo": 4,
         "verified": 40
       },
       "scope": null,
@@ -123118,6 +123252,7 @@
       "pending": [],
       "priority": "critical",
       "related": [
+        "task:B-32",
         "frontend-delivery:discover-hub",
         "frontend-delivery:pincast",
         "frontend-requirements:pincast",
@@ -126805,6 +126940,73 @@
       "title": "B-30 Connect from a Discover search row is refused for a person you can't already open",
       "unmet": [],
       "updated": "2026-11-23"
+    },
+    "task:B-32": {
+      "affects": [
+        "backend-integration:pincast"
+      ],
+      "blockedBy": [],
+      "card": "B-32",
+      "children": [],
+      "code": "B-32",
+      "created": "2026-11-24",
+      "deadline": null,
+      "decision": null,
+      "depends": [],
+      "dir": null,
+      "effectiveStatus": "todo",
+      "effort": "S",
+      "feature": "pincast",
+      "foundOn": "BD-20 PinCast & Nearby Backend Delivery",
+      "frontendOnly": false,
+      "id": "task:B-32",
+      "inherits": {
+        "release": "feature:pincast"
+      },
+      "kind": "task",
+      "label": "Bug",
+      "labels": [
+        "bug"
+      ],
+      "layer": "business",
+      "module": "discovery",
+      "openBugs": [],
+      "parentTask": null,
+      "parents": [
+        "backend-delivery:pincast"
+      ],
+      "path": "social-pin/bugs/B-32 A live PinCast outlives its session.md",
+      "pending": [],
+      "priority": "high",
+      "related": [
+        "backend-delivery:pincast",
+        "frontend-delivery:pincast",
+        "story:pincast",
+        "backend-integration:pincast",
+        "frontend-requirements:pincast",
+        "qa-backend:pincast",
+        "qa-backend:auth",
+        "qa-frontend:auth"
+      ],
+      "release": "mvp",
+      "resolution": null,
+      "rollup": {},
+      "scope": null,
+      "screens": [
+        "s40"
+      ],
+      "status": "todo",
+      "summary": "Nobody finds a person who is no longer signed in or whose account is gone.",
+      "tags": [
+        "bug",
+        "bug/todo",
+        "module/discovery",
+        "priority/high"
+      ],
+      "task": null,
+      "title": "B-32 A live PinCast outlives its session",
+      "unmet": [],
+      "updated": "2026-11-24"
     }
   },
   "priorities": [
