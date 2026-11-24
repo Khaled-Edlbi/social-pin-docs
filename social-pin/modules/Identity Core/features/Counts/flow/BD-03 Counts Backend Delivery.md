@@ -8,16 +8,14 @@ scope: feature
 screens: [s11, s12, s14, s16, s17, s68]
 depends: ["FR-03 Counts Frontend Requirements", "S-03 Counts Story"]
 affects: ["BI-14 Counts Backend Integration", "FR-03 Counts Frontend Requirements"]
-related: ["F-11 Rings", "BD-11 Rings Backend Delivery", "D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "GET /rings", "GET /rings/:id", "GET /rings/shared-with-me", "GET /rings/shared-with-me/count", "GET /connections/count", "GET /connections", "BD-14 Connections Backend Delivery", E_RING_02]
+related: ["F-11 Rings", "BD-11 Rings Backend Delivery", "D-04 Ring settings at launch and their defaults", "D-14 Shared with me lists people, never the Ring", "GET /rings", "GET /rings/:id", "GET /rings/shared-with-me", "GET /rings/shared-with-me/count", "GET /connections/count", "GET /connections", "BD-14 Connections Backend Delivery", E_RING_02, "BD-17 Ring Invitations & Join Backend Delivery"]
 pending: []
 created: 2026-10-18
-updated: 2026-11-08
+updated: 2026-11-24
 tags: [backend-delivery, backend-delivery/done, module/identity, layer/backend]
 ---
 
 # ✅ Counts · Backend Delivery
-
-> ⚠ Affected by [[S-03 Counts Story]] (2026-11-12): S10 now says GET /rings/shared-with-me carries memberCount on a row whose Ring lets members see each other (as BD-17 shipped), null otherwise; the "no memberCount, by design" row and the owner-only rule here are out of date
 
 **Feature:** [[F-03 Counts]] · **Status:** Done · **Integration guide:** [[BI-14 Counts Backend Integration]] · **Requirements:** [[FR-03 Counts Frontend Requirements]] · **QA:** [[QB-07 Counts QA Backend]]
 
@@ -31,7 +29,7 @@ What the backend shipped for this feature and how it works. On `main` since 2026
 |---|---|---|---|---|
 | `GET` | `/rings` | bearer | any signed-in user, for their own Rings | every Ring carries `memberCount`; `meta.total` is the number of Rings I own |
 | `GET` | `/rings/:id` | bearer | the Ring's owner; anyone else gets 404 `E_RING_02` | the Ring carries `memberCount` |
-| `GET` | `/rings/shared-with-me` | bearer | any signed-in user | **no** `memberCount`, by design (S10) |
+| `GET` | `/rings/shared-with-me` | bearer | any signed-in user | `memberCount` on a row whose Ring lets members see each other, `null` otherwise (S2, S10; since `1c460b0`, built by [[BD-17 Ring Invitations & Join Backend Delivery]]) |
 | `GET` | `/rings/shared-with-me/count` | bearer | any signed-in user, about themselves | `{ "people": N }`, the people sharing with me (S2) |
 | `GET` | `/connections/count` | bearer | any signed-in user, about themselves | `{ "connections": N }`, "N connections" on Me (S11); built by [[BD-14 Connections Backend Delivery]] |
 
@@ -45,7 +43,7 @@ What the backend shipped for this feature and how it works. On `main` since 2026
 - **Live members only, with the engine's own filters.** A member counts while `membershipLiveFilter(now)` holds (status `ACTIVE`, the membership's `startsAt` ≤ now < `expiresAt`), the Ring passes `ringLiveFilter(now)` (status `ACTIVE`, not deleted, the Ring's own window open) and no block stands between the member and the owner, in either direction: the same three rules every read path applies. So a removed, left or pending member is not counted, nor one whose window closed, and an expired, archived or deleted Ring counts 0. Expiry is exclusive, as on read: at the `expiresAt` instant the member (or the Ring) no longer counts.
 - **Evaluated against `now` on every request**, nothing cached: an add, remove, reassign or an expiry shows on the next fetch.
 - **One grouped query per page.** `GET /rings` reads the page, then one `groupBy` on `ring_members` by `ringId` for all the page's Ring ids; a Ring absent from the result is a real 0. `GET /rings/:id` runs the same count for one id. Never a query per Ring.
-- **Owner-only.** The owner's routes return `OwnedRingEntity` (`RingEntity` + `memberCount`); `GET /rings/shared-with-me` keeps `RingEntity`, which has no such field, so the size of someone else's Ring cannot reach a member even if a service handed it one (the serializer's allow-list drops it). The count is also scoped to `ownerUserId` in the query itself.
+- **The owner's count, and a member's only when the Ring allows it.** The owner's routes return `OwnedRingEntity` (`RingEntity` + `memberCount`), the count scoped to `ownerUserId` in the query itself. On `GET /rings/shared-with-me` a row gives `memberCount` only when it names its Ring (`ringName`, a membership that is not `PLACED`) and that Ring has `membersCanSeeEachOther` on; every other row carries `null`, so the size of a Ring stays hidden from its members unless the owner turned the setting on (off by default, [[D-04 Ring settings at launch and their defaults]]). Built with S-33 by [[BD-17 Ring Invitations & Join Backend Delivery]] on `main` `1c460b0`.
 - **People sharing with me (S2).** `GET /rings/shared-with-me/count` → `{ "people": N }`: one `COUNT` over the users who own at least one Ring matching `RingAccessService.sharedWithFilter(viewer, now)` (the Ring is live, the caller's membership in it is live, no block between the caller and the owner either way, never the caller's own Ring). A person sharing two Rings counts once. The body is the number only: nothing that names or counts a Ring. The list `GET /rings/shared-with-me` uses the same filter ([[BD-11 Rings Backend Delivery]]), so the people count and the list cannot disagree; the list's `meta.total` counts Rings, the count route counts people.
 - **Errors.** `GET /rings/:id` answers 404 `E_RING_02` for a Ring that is gone and for one that is not yours alike, and counts nothing in that case. No count adds an error of its own.
 - **Connections on Me (S11).** `GET /connections/count` → `{ "connections": N }`: my `ACTIVE` connections whose other side still has an account, each person once (one row per pair). A contact with *No access* (in none of my Rings) counts; a disconnected, blocked or deleted person and every request (pending, declined, expired) do not. It uses the same `where` as `GET /connections`, so it always equals that list's `meta.total`. The code is F-14's (`ConnectionService.count`); see [[BD-14 Connections Backend Delivery]].
@@ -61,7 +59,6 @@ What the backend shipped for this feature and how it works. On `main` since 2026
 
 - `GET /rings/shared-with-me` itself still lists Rings, not people; the people list is [[S-15 Ring Access Engine Story|Ring Access Engine · S1]] ([[D-14 Shared with me lists people, never the Ring]]).
 - **"N added today"** on Home is not built (an open question of the story).
-- A member-side count for a Ring with "members can see each other" on is not built; that setting does not exist yet ([[D-04 Ring settings at launch and their defaults]]).
 
 ## Log
 
@@ -71,3 +68,4 @@ What the backend shipped for this feature and how it works. On `main` since 2026
 - 2026-11-05 · backend branch `FR-03/ring/shared-with-me-blocks` (`0747754`, stacked on `FR-03/ring/shared-people-count`), pushed, **not merged** · the block rule on `GET /rings/shared-with-me`, found above: `RingAccessService.sharedWithFilter` now defines "shared with me" once, for the list, its `meta.total` and `GET /rings/shared-with-me/count`. 288 tests pass; checked on a local PostgreSQL in a rolled-back transaction. Recorded on [[BD-11 Rings Backend Delivery]] (Partial until the merge) and corrected in [[BI-08 Rings Backend Integration]]. Merge order: `FR-03/ring/member-count`, `FR-03/ring/shared-people-count`, `FR-03/ring/shared-with-me-blocks`.
 - 2026-11-05 · backend `main` `f186ba1` (merge of `FR-03/ring/shared-with-me-blocks`, carrying `f5b48c7`, `f516afd`, `0747754`) · **shipped**: Counts · S6–S10 `memberCount` on `GET /rings` and `GET /rings/:id`, and the Shared-with-me people count `GET /rings/shared-with-me/count` (S2). Typecheck clean, 288/288 tests, rerun on `main` `f186ba1` itself. This note → `done`; the merge entries leave `pending`, which keeps only Counts · S11 (connections, waits on [[BD-14 Connections Backend Delivery]]), so the note reads Partial. [[BI-14 Counts Backend Integration]] → `current`. The rows of [[FR-03 Counts Frontend Requirements]] that shipped → ✅ with the endpoint; connections stay ❌. The feature's `**Backend:**` line and the module's *Backend* column stay Partial (S11 is open). Flagged nothing.
 - 2026-11-08 · backend `main` `1c460b0` (F-14 merged as `25fcc8c`; S11 came with `FR-14/connection/requests-accept-contacts-block`, `4beb29e`) · **shipped** Counts · S11: `GET /connections/count` → `{ connections }`, accepted connections, each person once, equal to `meta.total` of `GET /connections`. The S11 entry leaves `pending`, which is now empty, so this note reads Done. The connections row of [[FR-03 Counts Frontend Requirements]] → ✅ with the endpoint. [[BI-14 Counts Backend Integration]] is corrected on its own branch. Rerun on `main` by the parent session: typecheck clean, 981/981 tests.
+- 2026-11-24 · vault branch `docs/backend/M-01-identity/F-03-counts/BD-03-s-03-flag` · cleared the [[S-03 Counts Story]] 2026-11-12 flag: `GET /rings/shared-with-me` carries `memberCount` on a row whose Ring lets members see each other, `null` otherwise, as [[BD-17 Ring Invitations & Join Backend Delivery]] shipped on `main` `1c460b0`. The "no `memberCount`, by design" row and the owner-only rule replaced; the *Gaps* line "a member-side count … is not built" removed, since it is built · flagged nothing
