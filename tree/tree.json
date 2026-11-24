@@ -2860,6 +2860,7 @@
       "kind": "endpoint",
       "notes": [
         "backend-delivery:photo-library",
+        "backend-integration:counts",
         "backend-integration:files",
         "backend-integration:photo-library",
         "frontend-delivery:counts",
@@ -8060,7 +8061,7 @@
     },
     "concepts": 377,
     "decisions": 39,
-    "edges": 10241,
+    "edges": 10242,
     "features": 40,
     "layerNotes": 175,
     "modules": 8,
@@ -23965,6 +23966,11 @@
         "GET /rings",
         "GET /rings/:id"
       ]
+    },
+    {
+      "from": "backend-integration:counts",
+      "kind": "related",
+      "to": "story:error-contract"
     },
     {
       "from": "backend-integration:counts",
@@ -93648,6 +93654,7 @@
         "project:docs-tree",
         "project:api-conventions",
         "project:frontend-agent-prompt",
+        "story:error-contract",
         "backend-delivery:ring-members",
         "backend-delivery:ring-projection",
         "backend-integration:view-as"
@@ -93674,7 +93681,7 @@
       "task": null,
       "title": "BI-14 Counts Backend Integration",
       "unmet": [],
-      "updated": "2026-11-08"
+      "updated": "2026-11-24"
     },
     "backend-integration:delegated-admins": {
       "affects": [],
@@ -123437,6 +123444,7 @@
         "frontend-requirements:auth",
         "qa-backend:auth",
         "qa-frontend:auth",
+        "backend-integration:counts",
         "frontend-requirements:counts",
         "frontend-requirements:onboarding-imports",
         "qa-backend:photo-library",
