@@ -148,7 +148,7 @@ Acceptance criteria:
 ## States and motion the design asks for
 
 - State: counts on carousel cards, tab chips and the Ring data header; a shared Ring card shows no member count.
-- State: empty ("No Rings shared with you yet") when the shared count is 0.
+- State: empty ("Nothing shared with you yet", the app's copy, as in [[S-18 Rings Story]] and [[S-33 Ring Invitations & Join Story]]; decided 2026-11-24 by Omar Fostok) when the shared count is 0.
 - Motion: counts ride on their cards during the Ring re-compose; no counter animation is asked for.
 - (Counts · S6–S10) Known: "N people", "N in Ring", "People · N", with "0" a real zero.
 - (Counts · S6–S10) Not known yet (before this ships, or while loading): no number. The app shows "—" in the number's place today ("— people", "— in Ring"); never "0".
@@ -180,6 +180,8 @@ Acceptance criteria:
 
 ## Log
 
+- 2026-11-24 · `tickets/pm/M-01-identity/F-03-counts/S-03-empty-state` · States: the Shared with me empty state is "Nothing shared with you yet", not "No Rings shared with you yet". Decided by Omar Fostok 2026-11-24: keep the app's wording, which S-18 and S-33 already use; nothing in the app changes. Records what shipped, so the story stays approved. Answers [[QF-08 Counts QA Frontend]]'s pending entry (CT-14 already passes on these words; /qa clears it)
+- 2026-11-24 · flagged [[QF-08 Counts QA Frontend]]: the same
 - 2026-11-24 · `tickets/pm/M-01-identity/F-03-counts/S-03-me-tiles` · S4 and S11: the Me profile card's three tiles, Rings · Connections · Photos (app `776e6ca`), in place of "2 Rings · 218 connections"; "–" in a tile until its count is read, never 0 or a sample; connections exist since `1c460b0`, so "hidden until connections exist" is gone. Kept by Omar Fostok 2026-11-24; records what shipped, so the story stays approved
 - 2026-11-24 · flagged [[FR-03 Counts Frontend Requirements]], [[FD-06 Counts Frontend Delivery]], [[BI-14 Counts Backend Integration]], [[F-03 Counts]]: the same
 - 2026-11-12 · `tickets/pm/M-01-identity/F-03-counts/S-03-app-778d9b4` · S2, S10 and the open question: "· N people" on Shared with me only when the Ring lets members see each other (the server sends memberCount only then); the "never" wording is gone. Decided by Omar Fostok 2026-11-11, app 778d9b4
