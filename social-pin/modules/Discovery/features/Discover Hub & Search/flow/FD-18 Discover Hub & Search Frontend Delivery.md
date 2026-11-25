@@ -20,6 +20,8 @@ tags: [frontend-delivery, frontend-delivery/done, module/discovery, layer/fronte
 
 # ✅ Discover Hub & Search · Frontend Delivery
 
+> ⚠ Affected by [[BI-19 Discover Hub & Search Backend Integration]] (2026-11-25): /frontend: Connect from a search row is accepted for every NONE row since backend main 198d76f (B-30), canOpenCard false included: 201 with the request. A 404 on Connect now means a stale row. Do not call GET /connections/relationship for a search row (404 for a stranger, also after the request); a stranger's Sent row has the Pin name only. BI-19 Flow 5, Errors, Checklist
+
 > ⚠ Affected by [[QF-06 Discover Hub & Search QA Frontend]] (2026-11-23): /frontend: QF-06 ran DS-01 to DS-11 on social_pin db62e4d (fake backend), all passing. Two lines to correct here: (1) on that build the Requested button reads "Requested" (connect.requested) and Connect confirms with "Request sent." (connect.requestSent), as S-42 says; s38's note and Deviations say "Request sent" and "Request sent to {name}"; (2) the status line links the QA note as [[Discover Hub & Search QA Frontend]]; it is now QF-06 Discover Hub & Search QA Frontend
 
 **Feature:** [[F-19 Discover Hub & Search]] · **Status:** Done · **Built from:** [[BI-19 Discover Hub & Search Backend Integration]] (current 2026-11-23, backend `main @ e83682d`) · **Against:** [[S-42 Discover Hub & Search Story]] (approved, [[D-41 Discover searches people by part of their Pin name|D-41]]) · **Requirements:** [[FR-19 Discover Hub & Search Frontend Requirements]] · **QA:** [[QF-06 Discover Hub & Search QA Frontend]]

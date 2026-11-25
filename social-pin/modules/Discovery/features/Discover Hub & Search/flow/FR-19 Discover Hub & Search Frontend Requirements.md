@@ -14,7 +14,7 @@ affects: ["BD-19 Discover Hub & Search Backend Delivery"]
 related: ["S-42 Discover Hub & Search Story", "D-41 Discover searches people by part of their Pin name", "D-37 Discover opens a Pin by its exact Pin name in the MVP", "D-10 Connect sends what the requester already has", "BI-09 View As & Pin Views Backend Integration", "BI-16 Connections Backend Integration", "FR-14 Connections Frontend Requirements", "S-23 Connections Story", "S-01 Account Story", "S-29 Companies Story", "S-89 Gemma AI Story", "S-87 Error Contract Story", "Frontend Contract", "GET /views/pin/:pinName"]
 pending: []
 created: 2026-10-18
-updated: 2026-11-23
+updated: 2026-11-25
 tags: [frontend-requirements, frontend-requirements/approved, module/discovery, layer/frontend]
 ---
 
@@ -61,7 +61,7 @@ What the client needs from the backend to build [[S-42 Discover Hub & Search Sto
   - **Not connected** (`NONE`): name, photo, Pin name and **Connect**. A tap on the row does nothing; only Connect works (Q2).
   - **Requested:** the button reads **Requested** and does nothing.
   - **Asked to connect** (`ASKED_ME`): "Asked to connect" with **Accept**. Accept opens Accept into a Ring ([[Screen Index#s46|s46]]) for that `requestId`, as on [[S-23 Connections Story|Connections · S5]]. Once accepted, the row becomes Connected.
-- **Connect:** `POST /connections/requests` `{ pinName }` ✅ ([[BI-16 Connections Backend Integration|BI-16]]; [[D-10 Connect sends what the requester already has|D-10]]: what I have is the Pin name). On success the row reads Requested and "Request sent." shows. The button is disabled while it sends. Not available yet on a stranger's row (`canOpenCard: false`): the server answers 404 `E_RING_ACCESS_01` until [[B-30 Connect from a Discover search row is refused for a person you can't already open|B-30]] is fixed; the app shows "This Pin isn't available to you" and the row keeps Connect.
+- **Connect:** `POST /connections/requests` `{ pinName }` ✅ ([[BI-16 Connections Backend Integration|BI-16]]; [[D-10 Connect sends what the requester already has|D-10]]: what I have is the Pin name). On success the row reads Requested and "Request sent." shows. The button is disabled while it sends. A stranger's row (`canOpenCard: false`) is accepted too since backend `main @ 198d76f` ([[B-30 Connect from a Discover search row is refused for a person you can't already open|B-30]], fixed 2026-11-25, waiting on QA's re-test); an older build answers 404 `E_RING_ACCESS_01` there. A 404 on Connect now means the row went stale: the app shows "This Pin isn't available to you" and the row keeps Connect.
 - **Never in the list:** blocked people (either side), myself, and anyone with the switch off who doesn't have me in a Ring. The **server** filters all three; the app filters nothing and never hides rows on its own.
 - **Demo people:** outside production builds only, from the app's own samples. A production build never shows them and sends nothing for them.
 

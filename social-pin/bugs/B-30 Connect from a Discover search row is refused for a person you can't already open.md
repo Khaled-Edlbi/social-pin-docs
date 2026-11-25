@@ -3,7 +3,7 @@ id: B-30
 type: bug
 module: discovery
 feature: discover-hub
-status: todo
+status: ready
 priority: high
 effort: S
 foundOn: "BD-19 Discover Hub & Search Backend Delivery"
@@ -13,13 +13,15 @@ affects: ["QB-18 Discover Hub & Search QA Backend", "BI-19 Discover Hub & Search
 related: ["BD-19 Discover Hub & Search Backend Delivery", "QB-18 Discover Hub & Search QA Backend", "BI-19 Discover Hub & Search Backend Integration", "BI-16 Connections Backend Integration", "S-42 Discover Hub & Search Story", "D-41 Discover searches people by part of their Pin name", "FD-18 Discover Hub & Search Frontend Delivery", "POST /connections/requests", "GET /search/pin-names"]
 pending: []
 created: 2026-11-23
-updated: 2026-11-23
-tags: [bug, bug/todo, module/discovery, priority/high]
+updated: 2026-11-25
+tags: [bug, bug/ready, module/discovery, priority/high]
 ---
 
-# ⬜ B-30 · Connect from a Discover search row is refused for a person you can't already open
+# 📨 B-30 · Connect from a Discover search row is refused for a person you can't already open
 
-**Found against:** [[BD-19 Discover Hub & Search Backend Delivery]] · **Feature:** [[F-19 Discover Hub & Search]] · **Status:** To do · **Priority:** High · **Deadline:** — · **Effort:** S
+> ⚠ Affected by [[BD-19 Discover Hub & Search Backend Delivery]] (2026-11-25): fixed on backend main 198d76f (branch B-30/connection/connect-from-search, 45f6fa2), ready for re-test: QB-18 rows B43 and B44. POST /connections/requests { pinName } answers 201 for anyone the requester's search can show; unit specs only, no live run by the backend
+
+**Found against:** [[BD-19 Discover Hub & Search Backend Delivery]] · **Feature:** [[F-19 Discover Hub & Search]] · **Status:** Ready · **Priority:** High · **Deadline:** — · **Effort:** S
 
 **Found by:** [[QB-18 Discover Hub & Search QA Backend]] row B43, on build backend `main @ e83682d` (and before it `c5bc838`), 2026-11-23.
 
