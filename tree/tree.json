@@ -103268,7 +103268,7 @@
       "deadline": null,
       "depends": [],
       "dir": "social-pin/modules/Identity Core/features/Photo Library",
-      "effectiveStatus": "in-progress",
+      "effectiveStatus": "done",
       "effort": null,
       "feature": "photo-library",
       "foundOn": null,
@@ -103301,12 +103301,11 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "approved": 1,
         "decided": 2,
         "delivered": 2,
         "done": 2,
         "passing": 2,
-        "verified": 2
+        "verified": 3
       },
       "scope": null,
       "screens": [
@@ -112745,20 +112744,20 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 12,
+        "approved": 11,
         "blocked": 4,
         "current": 2,
         "decided": 10,
         "delivered": 16,
-        "done": 47,
+        "done": 48,
         "draft": 2,
-        "in-progress": 10,
+        "in-progress": 9,
         "missing": 14,
         "needs-decision": 1,
         "partial": 7,
         "passing": 13,
         "ready": 1,
-        "verified": 13
+        "verified": 14
       },
       "scope": null,
       "screens": [],
@@ -124283,7 +124282,7 @@
       "release": null,
       "releases": [
         {
-          "done": 3,
+          "done": 4,
           "id": "mvp",
           "partial": 0,
           "total": 28
@@ -124308,14 +124307,14 @@
         }
       ],
       "rollup": {
-        "approved": 39,
+        "approved": 38,
         "blocked": 28,
         "current": 5,
         "decided": 38,
         "delivered": 21,
-        "done": 57,
+        "done": 58,
         "draft": 21,
-        "in-progress": 44,
+        "in-progress": 43,
         "missing": 101,
         "needs-decision": 1,
         "partial": 14,
@@ -124323,7 +124322,7 @@
         "ready": 3,
         "reference": 32,
         "todo": 4,
-        "verified": 41
+        "verified": 42
       },
       "scope": null,
       "screens": [],
@@ -126644,7 +126643,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "approved",
+      "effectiveStatus": "verified",
       "effort": null,
       "feature": "photo-library",
       "foundOn": null,
@@ -126712,11 +126711,11 @@
         "s30",
         "s68"
       ],
-      "status": "approved",
+      "status": "verified",
       "summary": "A Ring owner keeps a handful of photos, a formal headshot, a casual one, a team picture, and picks a different one per Ring. The library is the owner's private pool of uploads; a photo reaches an…",
       "tags": [
         "story",
-        "story/approved",
+        "story/verified",
         "module/identity",
         "layer/business"
       ],
