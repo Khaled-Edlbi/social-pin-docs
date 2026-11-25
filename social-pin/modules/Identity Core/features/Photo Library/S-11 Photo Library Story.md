@@ -3,7 +3,7 @@ id: S-11
 type: story
 module: identity
 feature: photo-library
-status: approved
+status: verified
 scope: feature
 screens: [s23, s29, s30, s68]
 approvedBy: "Omar Fostok"
@@ -12,12 +12,12 @@ owner: "Omar Fostok"
 related: ["D-02 One main profile every Ring starts from", "D-05 Inherit per field, copy without members", "D-16 Files load from signed links that expire in 15 minutes", "S-06 Files Upload Story", "S-08 Onboarding Imports Story", "S-14 Profiles & Pin Name Story", "S-94 Linked Accounts (OAuth) Story", "BD-06 Photo Library Backend Delivery", "BD-07 Profiles & Pin Name Backend Delivery", "FD-08 Photo Library Frontend Delivery"]
 created: 2026-10-18
 updated: 2026-11-25
-tags: [story, story/approved, module/identity, layer/business]
+tags: [story, story/verified, module/identity, layer/business]
 ---
 
 # Photo Library · User Story
 
-**Feature:** [[F-06 Photo Library]] · **Status:** Approved 2026-11-25 by Omar Fostok, rewritten that day to match what shipped and his decisions (earlier approved 2026-10-29 by Omar Fostok; first approved 2026-10-25 by khaled) · **Frontend Requirements:** [[FR-06 Photo Library Frontend Requirements]] · **API Integration:** [[BI-13 Photo Library Backend Integration]]
+**Feature:** [[F-06 Photo Library]] · **Status:** Fulfilled 2026-11-25 by Omar Fostok (QB-08 and QF-09 passing); approved 2026-11-25 by Omar Fostok, rewritten that day to match what shipped and his decisions (earlier approved 2026-10-29 by Omar Fostok; first approved 2026-10-25 by khaled) · **Frontend Requirements:** [[FR-06 Photo Library Frontend Requirements]] · **API Integration:** [[BI-13 Photo Library Backend Integration]]
 
 A Ring owner keeps a handful of photos, a formal headshot, a casual one, a team picture, and picks a different one per Ring. The library is the owner's private pool of uploads; a photo reaches an audience only when a Ring's projection points at it. One of them is the **main photo** of the main profile, which every Ring shows until the Ring picks its own ([[D-02 One main profile every Ring starts from]], [[D-05 Inherit per field, copy without members]]). The library screen shows each photo with the Rings that use it, and the per-Ring screen is a picker: the main photo, a new photo, or any photo of the library.
 
@@ -146,3 +146,4 @@ Acceptance criteria:
 - 2026-11-25 · cleared the flags from [[FD-08 Photo Library Frontend Delivery]] (2026-11-09, S3's deviations, settled by decisions 1 and 2) and [[D-16 Files load from signed links that expire in 15 minutes]] (2026-10-29, settled in S2, S7 and *Rules*).
 - 2026-11-25 · flagged [[FD-08 Photo Library Frontend Delivery]] (S3's two deviations: no camera still open in the app, Settings on Android shipped in `9e0f3be`) and [[FR-06 Photo Library Frontend Requirements]] ("coming soon" rows, S1's no-Pin-photo row, S3's Settings link); for `/frontend`. Written down late: the log line was refused when the flags were set.
 - 2026-11-25 · decided by Omar Fostok when approving the F-06 test cases: s29's "+ Upload" tile opens s30 in picking mode, where "+ Add" offers Camera or Library; it does not open the Camera / Library sheet itself (s29's "Pick a photo" and "Take a photo" rows do that). S3's first criterion and S1's "+ Upload" line reworded. It matches what shipped, so the story stays approved. Flagged [[FD-08 Photo Library Frontend Delivery]]: its s29 row says "+ Upload" offers Camera or Library.
+- 2026-11-25 · fulfilled on Omar Fostok's word: [[QB-08 Photo Library QA Backend]] and [[QF-09 Photo Library QA Frontend]] both passing with nothing pending or unmet (QF-09 56 of 56 on `social_pin` `main` `d790c11`).
