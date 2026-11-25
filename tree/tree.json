@@ -1556,6 +1556,7 @@
         "backend-integration:files",
         "backend-integration:photo-library",
         "backend-integration:profiles",
+        "frontend-delivery:photo-library",
         "frontend-requirements:files",
         "frontend-requirements:photo-library",
         "qa-backend:files",
@@ -1575,6 +1576,7 @@
         "backend-delivery:files",
         "backend-integration:files",
         "backend-integration:photo-library",
+        "frontend-delivery:photo-library",
         "frontend-requirements:files",
         "frontend-requirements:photo-library",
         "qa-backend:files",
@@ -17898,6 +17900,7 @@
       "kind": "related",
       "to": "frontend-delivery:photo-library",
       "via": [
+        "E_FILE_02",
         "E_FILE_04",
         "GET /profiles",
         "POST /files"
@@ -24840,6 +24843,8 @@
       "to": "frontend-delivery:photo-library",
       "via": [
         "DELETE /files/:id",
+        "E_FILE_02",
+        "E_FILE_03",
         "E_FILE_04",
         "POST /files"
       ]
@@ -26395,6 +26400,7 @@
       "kind": "related",
       "to": "frontend-delivery:photo-library",
       "via": [
+        "E_FILE_02",
         "E_FILE_04",
         "GET /profiles",
         "POST /files"
@@ -32830,6 +32836,8 @@
       "to": "frontend-requirements:photo-library",
       "via": [
         "DELETE /files/:id",
+        "E_FILE_02",
+        "E_FILE_03",
         "E_FILE_04",
         "GET /profiles",
         "POST /files"
@@ -38938,6 +38946,8 @@
       "to": "frontend-delivery:photo-library",
       "via": [
         "DELETE /files/:id",
+        "E_FILE_02",
+        "E_FILE_03",
         "E_FILE_04",
         "POST /files"
       ]
@@ -50165,6 +50175,8 @@
       "to": "frontend-delivery:photo-library",
       "via": [
         "DELETE /files/:id",
+        "E_FILE_02",
+        "E_FILE_03",
         "E_FILE_04",
         "POST /files"
       ]
@@ -50887,6 +50899,8 @@
       "to": "frontend-delivery:photo-library",
       "via": [
         "DELETE /files/:id",
+        "E_FILE_02",
+        "E_FILE_03",
         "E_FILE_04",
         "GET /profiles",
         "POST /files"
@@ -52463,6 +52477,7 @@
       "kind": "related",
       "to": "frontend-delivery:photo-library",
       "via": [
+        "E_FILE_02",
         "E_FILE_04",
         "GET /profiles",
         "POST /files"
