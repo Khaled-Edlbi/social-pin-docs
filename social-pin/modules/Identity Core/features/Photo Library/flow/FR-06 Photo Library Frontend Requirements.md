@@ -13,7 +13,7 @@ depends: ["S-11 Photo Library Story"]
 affects: ["BD-06 Photo Library Backend Delivery"]
 related: ["BI-03 Files Upload Backend Integration", "BI-07 Ring Projection Backend Integration", "FR-04 Files Upload Frontend Requirements", "FR-07 Profiles & Pin Name Frontend Requirements", "FR-10 Ring Projection Frontend Requirements", "FR-01 Account Frontend Requirements", "S-14 Profiles & Pin Name Story", "ND-16 Viewer access to file bytes", "D-16 Files load from signed links that expire in 15 minutes", "D-02 One main profile every Ring starts from", "D-05 Inherit per field, copy without members", "POST /files", "GET /files", "GET /files/:id", "DELETE /files/:id", "GET /rings/:ringId/projection", "PATCH /rings/:ringId/projection", "GET /profiles", "PATCH /profiles/:id", E_FILE_01, E_FILE_02, E_FILE_03, E_FILE_04, E_RING_02, E_RING_05]
 created: 2026-10-18
-updated: 2026-11-08
+updated: 2026-11-25
 tags: [frontend-requirements, frontend-requirements/approved, module/identity, layer/frontend]
 ---
 
@@ -104,7 +104,7 @@ The screen is [[FR-01 Account Frontend Requirements|Account's]]; this section is
 | 404 | `E_FILE_01` | tile removed: "This photo is no longer available"; on delete, already gone |
 | 400 | `E_FILE_04` | "Choose a photo from your library" |
 | 403 | `E_RING_05` | the Ring is not editable by this user: picker read-only |
-| 404 | `E_RING_02` | the Ring is gone: back to My Rings (on delete, skip that Ring and go on) |
+| 404 | `E_RING_02` | the Ring is gone: back to My Rings. On a delete, a Ring deleted meanwhile stops the delete like any failed step ([[S-11 Photo Library Story|Photo Library · S5]]) and the photo is kept; the list read again no longer names that Ring, so deleting again works |
 
 Until [[S-87 Error Contract Story|Error Contract · S4–S8]] ships, branch on status and endpoint.
 
@@ -114,3 +114,7 @@ Until [[S-87 Error Contract Story|Error Contract · S4–S8]] ships, branch on s
 - [[S-11 Photo Library Story|Photo Library · S8]]: the usage line and Delete.
 - [[S-14 Profiles & Pin Name Story|Profiles & Pin Name · S9–S11]]: the main photo, for "Use my Pin photo", "Reset to Pin" and "Make this my main photo".
 - [[D-16 Files load from signed links that expire in 15 minutes]] (decided, not built): every thumbnail and photo.
+
+## Log
+
+- 2026-11-25 · error table, 404 `E_RING_02`: decided by Omar Fostok: on a delete, a Ring deleted meanwhile stops the delete like any failed step ([[S-11 Photo Library Story|S-11 S5]]) and the photo is kept; the list read again no longer names that Ring, so deleting again works. Replaces "on delete, skip that Ring and go on". The list stays approved.
