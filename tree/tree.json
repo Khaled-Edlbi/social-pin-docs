@@ -355,6 +355,7 @@
     "QF-06 Discover Hub & Search QA Frontend": "qa-frontend:discover-hub",
     "QF-07 PinCast & Nearby QA Frontend": "qa-frontend:pincast",
     "QF-08 Counts QA Frontend": "qa-frontend:counts",
+    "QF-09 Photo Library QA Frontend": "qa-frontend:photo-library",
     "Ring Access Model": "project:ring-access-model",
     "S-01 Account Story": "story:account",
     "S-02 Auth & Sign-up Story": "story:auth",
@@ -737,6 +738,7 @@
     "QF-06": "qa-frontend:discover-hub",
     "QF-07": "qa-frontend:pincast",
     "QF-08": "qa-frontend:counts",
+    "QF-09": "qa-frontend:photo-library",
     "S-01": "story:account",
     "S-02": "story:auth",
     "S-03": "story:counts",
@@ -889,6 +891,7 @@
         "frontend-requirements:photo-library",
         "qa-backend:files",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "story:files",
         "story:photo-library"
       ],
@@ -1538,6 +1541,7 @@
         "qa-backend:files",
         "qa-backend:photo-library",
         "qa-backend:view-as",
+        "qa-frontend:photo-library",
         "story:files",
         "story:photo-library"
       ],
@@ -1562,6 +1566,7 @@
         "qa-backend:files",
         "qa-backend:photo-library",
         "qa-backend:profiles",
+        "qa-frontend:photo-library",
         "story:files"
       ],
       "owner": null
@@ -1581,6 +1586,7 @@
         "frontend-requirements:photo-library",
         "qa-backend:files",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "story:files"
       ],
       "owner": null
@@ -1608,6 +1614,7 @@
         "qa-backend:photo-library",
         "qa-backend:profiles",
         "qa-backend:ring-projection",
+        "qa-frontend:photo-library",
         "story:files",
         "story:photo-library",
         "story:ring-projection"
@@ -1874,6 +1881,7 @@
         "qa-backend:ring-members",
         "qa-backend:ring-projection",
         "qa-backend:rings",
+        "qa-frontend:photo-library",
         "story:badge-qr",
         "story:connections",
         "story:delegated-admins",
@@ -4765,6 +4773,7 @@
         "qa-backend:photo-library",
         "qa-backend:ring-projection",
         "qa-backend:view-as",
+        "qa-frontend:photo-library",
         "story:account",
         "story:profiles"
       ],
@@ -4871,6 +4880,7 @@
         "project:status-report-2026-10-15",
         "qa-backend:profiles",
         "qa-backend:ring-access",
+        "qa-frontend:photo-library",
         "story:ring-projection",
         "task:B-08",
         "task:B-11"
@@ -5409,6 +5419,7 @@
         "qa-backend:files",
         "qa-backend:photo-library",
         "qa-backend:profiles",
+        "qa-frontend:photo-library",
         "story:files",
         "story:photo-library",
         "story:profiles",
@@ -6779,6 +6790,7 @@
         "qa-backend:photo-library",
         "qa-backend:profiles",
         "qa-backend:ring-projection",
+        "qa-frontend:photo-library",
         "story:photo-library",
         "story:profiles",
         "story:ring-projection"
@@ -6964,6 +6976,7 @@
         "qa-backend:files",
         "qa-backend:photo-library",
         "qa-backend:ring-projection",
+        "qa-frontend:photo-library",
         "story:files",
         "story:photo-library",
         "story:ring-projection",
@@ -6996,6 +7009,7 @@
         "qa-backend:files",
         "qa-backend:photo-library",
         "qa-backend:ring-projection",
+        "qa-frontend:photo-library",
         "story:files",
         "story:photo-library",
         "story:ring-projection",
@@ -7885,6 +7899,7 @@
         "qa-frontend:auth",
         "qa-frontend:counts",
         "qa-frontend:discover-hub",
+        "qa-frontend:photo-library",
         "story:account",
         "story:auth",
         "story:companies",
@@ -8086,7 +8101,7 @@
       "needs-decision": 39,
       "project": 28,
       "qa-backend": 16,
-      "qa-frontend": 5,
+      "qa-frontend": 6,
       "story": 40,
       "task": 32
     },
@@ -8094,18 +8109,18 @@
       "backend": 63,
       "business": 195,
       "frontend": 64,
-      "qa": 21,
+      "qa": 22,
       "shared": 10
     },
     "concepts": 379,
     "decisions": 39,
-    "edges": 10349,
+    "edges": 10448,
     "features": 40,
-    "layerNotes": 176,
+    "layerNotes": 177,
     "modules": 8,
-    "notes": 384,
+    "notes": 385,
     "partial": 14,
-    "placeholders": 102,
+    "placeholders": 101,
     "records": 38
   },
   "deadlines": {
@@ -9511,6 +9526,11 @@
       "from": "qa-frontend:counts",
       "kind": "affects",
       "to": "story:counts"
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "affects",
+      "to": "story:photo-library"
     },
     {
       "from": "story:companies",
@@ -11528,6 +11548,16 @@
       "to": "frontend-delivery:discover-hub"
     },
     {
+      "from": "qa-frontend:photo-library",
+      "kind": "depends",
+      "to": "frontend-delivery:photo-library"
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "depends",
+      "to": "story:photo-library"
+    },
+    {
       "from": "qa-frontend:pincast",
       "kind": "depends",
       "to": "frontend-delivery:pincast"
@@ -11806,6 +11836,11 @@
       "from": "frontend-delivery:discover-hub",
       "kind": "flow",
       "to": "qa-frontend:discover-hub"
+    },
+    {
+      "from": "frontend-delivery:photo-library",
+      "kind": "flow",
+      "to": "qa-frontend:photo-library"
     },
     {
       "from": "frontend-delivery:pincast",
@@ -12106,6 +12141,11 @@
       "from": "qa-frontend:discover-hub",
       "kind": "flow",
       "to": "story:discover-hub"
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "flow",
+      "to": "story:photo-library"
     },
     {
       "from": "qa-frontend:pincast",
@@ -13758,6 +13798,14 @@
     {
       "from": "backend-delivery:badge-qr",
       "kind": "related",
+      "to": "qa-frontend:photo-library",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "backend-delivery:badge-qr",
+      "kind": "related",
       "to": "story:account",
       "via": [
         "DELETE /users/me"
@@ -14960,6 +15008,14 @@
     {
       "from": "backend-delivery:connections",
       "kind": "related",
+      "to": "qa-frontend:photo-library",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "backend-delivery:connections",
+      "kind": "related",
       "to": "story:account",
       "via": [
         "DELETE /users/me"
@@ -15751,6 +15807,14 @@
         "GET /rings/:id",
         "GET /rings/shared-with-me",
         "GET /rings/shared-with-me/count"
+      ]
+    },
+    {
+      "from": "backend-delivery:counts",
+      "kind": "related",
+      "to": "qa-frontend:photo-library",
+      "via": [
+        "E_RING_02"
       ]
     },
     {
@@ -16782,6 +16846,18 @@
     {
       "from": "backend-delivery:files",
       "kind": "related",
+      "to": "qa-frontend:photo-library",
+      "via": [
+        "DELETE /files/:id",
+        "E_FILE_01",
+        "E_FILE_02",
+        "E_FILE_03",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "backend-delivery:files",
+      "kind": "related",
       "to": "story:files",
       "via": [
         "E_FILE_01",
@@ -16963,6 +17039,17 @@
       "via": [
         "GET /files/content/:token",
         "PATCH /profiles/:id"
+      ]
+    },
+    {
+      "from": "backend-delivery:photo-library",
+      "kind": "related",
+      "to": "qa-frontend:photo-library",
+      "via": [
+        "DELETE /files/:id",
+        "GET /files?kind=image",
+        "PATCH /profiles/:id",
+        "POST /files"
       ]
     },
     {
@@ -17657,6 +17744,14 @@
       "to": "qa-frontend:discover-hub",
       "via": [
         "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "backend-delivery:pincast",
+      "kind": "related",
+      "to": "qa-frontend:photo-library",
+      "via": [
+        "E_RING_02"
       ]
     },
     {
@@ -19571,6 +19666,14 @@
         "E_RING_02",
         "E_RING_05",
         "E_RING_07"
+      ]
+    },
+    {
+      "from": "backend-delivery:ring-members",
+      "kind": "related",
+      "to": "qa-frontend:photo-library",
+      "via": [
+        "E_RING_02"
       ]
     },
     {
@@ -21902,6 +22005,14 @@
     {
       "from": "backend-integration:badge-qr",
       "kind": "related",
+      "to": "qa-frontend:photo-library",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "backend-integration:badge-qr",
+      "kind": "related",
       "to": "story:badge-qr",
       "via": [
         "E_RING_02",
@@ -23243,6 +23354,14 @@
     {
       "from": "backend-integration:connections",
       "kind": "related",
+      "to": "qa-frontend:photo-library",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "backend-integration:connections",
+      "kind": "related",
       "to": "story:account",
       "via": [
         "DELETE /users/me"
@@ -24002,6 +24121,15 @@
         "GET /rings/:id",
         "GET /rings/shared-with-me",
         "GET /rings/shared-with-me/count"
+      ]
+    },
+    {
+      "from": "backend-integration:counts",
+      "kind": "related",
+      "to": "qa-frontend:photo-library",
+      "via": [
+        "E_RING_02",
+        "GET /files?kind=image"
       ]
     },
     {
@@ -25046,6 +25174,21 @@
     {
       "from": "backend-integration:files",
       "kind": "related",
+      "to": "qa-frontend:photo-library",
+      "via": [
+        "DELETE /files/:id",
+        "E_FILE_01",
+        "E_FILE_02",
+        "E_FILE_03",
+        "E_FILE_04",
+        "GET /files?kind=image",
+        "PATCH /profiles/:id",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "backend-integration:files",
+      "kind": "related",
       "to": "story:files",
       "via": [
         "DELETE /files/:id",
@@ -25380,6 +25523,22 @@
         "E_FILE_01",
         "GET /files/content/:token",
         "PATCH /profiles/:id"
+      ]
+    },
+    {
+      "from": "backend-integration:photo-library",
+      "kind": "related",
+      "to": "qa-frontend:photo-library",
+      "via": [
+        "DELETE /files/:id",
+        "E_FILE_01",
+        "E_FILE_02",
+        "E_FILE_03",
+        "E_FILE_04",
+        "GET /files?kind=image",
+        "PATCH /profiles/:id",
+        "PATCH /rings/:ringId/projection",
+        "POST /files"
       ]
     },
     {
@@ -26190,6 +26349,14 @@
       "to": "qa-frontend:discover-hub",
       "via": [
         "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "backend-integration:pincast",
+      "kind": "related",
+      "to": "qa-frontend:photo-library",
+      "via": [
+        "E_RING_02"
       ]
     },
     {
@@ -28369,6 +28536,14 @@
       "from": "decision:D-16",
       "kind": "related",
       "to": "qa-backend:view-as",
+      "via": [
+        "E_FILE_01"
+      ]
+    },
+    {
+      "from": "decision:D-16",
+      "kind": "related",
+      "to": "qa-frontend:photo-library",
       "via": [
         "E_FILE_01"
       ]
@@ -31345,6 +31520,14 @@
       "via": [
         "GET /views/pin/:pinName",
         "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "frontend-delivery:badge-qr",
+      "kind": "related",
+      "to": "qa-frontend:photo-library",
+      "via": [
+        "E_RING_02"
       ]
     },
     {
@@ -37230,6 +37413,14 @@
     {
       "from": "frontend-requirements:connections",
       "kind": "related",
+      "to": "qa-frontend:photo-library",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "frontend-requirements:connections",
+      "kind": "related",
       "to": "story:auth",
       "via": [
         "GET /rings"
@@ -39278,6 +39469,21 @@
     {
       "from": "frontend-requirements:files",
       "kind": "related",
+      "to": "qa-frontend:photo-library",
+      "via": [
+        "DELETE /files/:id",
+        "E_FILE_01",
+        "E_FILE_02",
+        "E_FILE_03",
+        "E_FILE_04",
+        "GET /files?kind=image",
+        "PATCH /rings/:ringId/projection",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "frontend-requirements:files",
+      "kind": "related",
       "to": "story:companies",
       "via": [
         "E_RING_05"
@@ -40020,6 +40226,23 @@
       "via": [
         "E_FILE_01",
         "PATCH /profiles/:id"
+      ]
+    },
+    {
+      "from": "frontend-requirements:photo-library",
+      "kind": "related",
+      "to": "qa-frontend:photo-library",
+      "via": [
+        "DELETE /files/:id",
+        "E_FILE_01",
+        "E_FILE_02",
+        "E_FILE_03",
+        "E_FILE_04",
+        "E_RING_02",
+        "GET /files?kind=image",
+        "PATCH /profiles/:id",
+        "PATCH /rings/:ringId/projection",
+        "POST /files"
       ]
     },
     {
@@ -47007,6 +47230,14 @@
     {
       "from": "qa-backend:badge-qr",
       "kind": "related",
+      "to": "qa-frontend:photo-library",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-backend:badge-qr",
+      "kind": "related",
       "to": "story:badge-qr",
       "via": [
         "E_RING_02",
@@ -48264,6 +48495,14 @@
     {
       "from": "qa-backend:connections",
       "kind": "related",
+      "to": "qa-frontend:photo-library",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-backend:connections",
+      "kind": "related",
       "to": "story:account",
       "via": [
         "DELETE /users/me"
@@ -49187,6 +49426,14 @@
       "to": "qa-frontend:discover-hub",
       "via": [
         "POST /connections/requests"
+      ]
+    },
+    {
+      "from": "qa-backend:counts",
+      "kind": "related",
+      "to": "qa-frontend:photo-library",
+      "via": [
+        "E_RING_02"
       ]
     },
     {
@@ -50526,6 +50773,21 @@
     {
       "from": "qa-backend:files",
       "kind": "related",
+      "to": "qa-frontend:photo-library",
+      "via": [
+        "DELETE /files/:id",
+        "E_FILE_01",
+        "E_FILE_02",
+        "E_FILE_03",
+        "E_FILE_04",
+        "E_RING_02",
+        "PATCH /rings/:ringId/projection",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "qa-backend:files",
+      "kind": "related",
       "to": "story:badge-qr",
       "via": [
         "GET /views/pin/:pinName"
@@ -51403,6 +51665,23 @@
     {
       "from": "qa-backend:photo-library",
       "kind": "related",
+      "to": "qa-frontend:photo-library",
+      "via": [
+        "DELETE /files/:id",
+        "E_FILE_01",
+        "E_FILE_02",
+        "E_FILE_03",
+        "E_FILE_04",
+        "E_RING_02",
+        "GET /files?kind=image",
+        "PATCH /profiles/:id",
+        "PATCH /rings/:ringId/projection",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "qa-backend:photo-library",
+      "kind": "related",
       "to": "story:account",
       "via": [
         "GET /profiles",
@@ -52158,6 +52437,14 @@
       "via": [
         "GET /views/pin/:pinName",
         "GET /views/ring/:ringId"
+      ]
+    },
+    {
+      "from": "qa-backend:pincast",
+      "kind": "related",
+      "to": "qa-frontend:photo-library",
+      "via": [
+        "E_RING_02"
       ]
     },
     {
@@ -57022,6 +57309,14 @@
     {
       "from": "qa-frontend:account",
       "kind": "related",
+      "to": "qa-frontend:photo-library",
+      "via": [
+        "PATCH /profiles/:id"
+      ]
+    },
+    {
+      "from": "qa-frontend:account",
+      "kind": "related",
       "to": "story:account",
       "via": [
         "DELETE /users/me",
@@ -58657,6 +58952,14 @@
     {
       "from": "qa-frontend:counts",
       "kind": "related",
+      "to": "qa-frontend:photo-library",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-frontend:counts",
+      "kind": "related",
       "to": "story:auth",
       "via": [
         "GET /rings"
@@ -59102,6 +59405,565 @@
       "to": "task:B-08",
       "via": [
         "GET /views/pin/:pinName"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "backend-delivery:auth",
+      "via": [
+        "PATCH /profiles/:id"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "backend-delivery:error-contract",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "backend-delivery:profiles",
+      "via": [
+        "E_FILE_02",
+        "E_FILE_04",
+        "PATCH /profiles/:id",
+        "PATCH /rings/:ringId/projection",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "backend-delivery:ring-access",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "backend-delivery:ring-projection",
+      "via": [
+        "E_FILE_04",
+        "E_RING_02",
+        "PATCH /rings/:ringId/projection"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "backend-delivery:rings",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "backend-integration:profiles",
+      "via": [
+        "E_FILE_02",
+        "E_FILE_04",
+        "PATCH /profiles/:id",
+        "PATCH /rings/:ringId/projection",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "backend-integration:ring-members",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "backend-integration:ring-projection",
+      "via": [
+        "E_FILE_04",
+        "E_RING_02",
+        "PATCH /rings/:ringId/projection",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "backend-integration:rings",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "decision:D-02"
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "decision:D-05"
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "frontend-delivery:account",
+      "via": [
+        "PATCH /profiles/:id"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "frontend-delivery:counts",
+      "via": [
+        "E_RING_02",
+        "GET /files?kind=image"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "frontend-delivery:files",
+      "via": [
+        "DELETE /files/:id",
+        "GET /files?kind=image",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "frontend-delivery:photo-library",
+      "via": [
+        "DELETE /files/:id",
+        "E_FILE_02",
+        "E_FILE_03",
+        "E_FILE_04",
+        "GET /files?kind=image",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "frontend-delivery:profiles",
+      "via": [
+        "PATCH /profiles/:id",
+        "PATCH /rings/:ringId/projection",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "frontend-delivery:ring-projection",
+      "via": [
+        "PATCH /rings/:ringId/projection"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "frontend-requirements:badge-qr",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "frontend-requirements:cleanup-jobs",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "frontend-requirements:companies",
+      "via": [
+        "E_RING_02",
+        "PATCH /profiles/:id",
+        "PATCH /rings/:ringId/projection"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "frontend-requirements:counts",
+      "via": [
+        "E_RING_02",
+        "GET /files?kind=image"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "frontend-requirements:delegated-admins",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "frontend-requirements:event-ring-auto",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "frontend-requirements:exhibitor",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "frontend-requirements:meetings",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "frontend-requirements:onboarding-imports",
+      "via": [
+        "PATCH /profiles/:id",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "frontend-requirements:pincast",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "frontend-requirements:post-event",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "frontend-requirements:profiles",
+      "via": [
+        "PATCH /profiles/:id",
+        "PATCH /rings/:ringId/projection",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "frontend-requirements:ring-access",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "frontend-requirements:ring-members",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "frontend-requirements:ring-projection",
+      "via": [
+        "E_FILE_04",
+        "E_RING_02",
+        "PATCH /rings/:ringId/projection",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "frontend-requirements:rings",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "frontend-requirements:widgets",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "needs-decision:ND-16",
+      "via": [
+        "E_FILE_01"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "needs-decision:ND-21",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "project:agent-rules",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "project:api-conventions",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "project:docs-tree",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "project:frontend-agent-prompt",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "project:frontend-api-guide",
+      "via": [
+        "E_FILE_01",
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "project:frontend-contract",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "project:spec-map",
+      "via": [
+        "PATCH /rings/:ringId/projection"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "project:status-report-2026-10-15",
+      "via": [
+        "PATCH /rings/:ringId/projection",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "qa-backend:discover-hub",
+      "via": [
+        "PATCH /profiles/:id",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "qa-backend:profiles",
+      "via": [
+        "E_FILE_02",
+        "E_FILE_04",
+        "PATCH /profiles/:id",
+        "PATCH /rings/:ringId/projection",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "qa-backend:ring-access",
+      "via": [
+        "E_RING_02",
+        "PATCH /rings/:ringId/projection"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "qa-backend:ring-invitations",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "qa-backend:ring-members",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "qa-backend:ring-projection",
+      "via": [
+        "E_FILE_04",
+        "E_RING_02",
+        "PATCH /profiles/:id",
+        "PATCH /rings/:ringId/projection",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "qa-backend:rings",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "qa-backend:view-as",
+      "via": [
+        "E_FILE_01",
+        "PATCH /profiles/:id"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "story:account",
+      "via": [
+        "PATCH /profiles/:id"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "story:badge-qr",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "story:connections",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "story:counts",
+      "via": [
+        "GET /files?kind=image"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "story:delegated-admins",
+      "via": [
+        "E_RING_02"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "story:files",
+      "via": [
+        "DELETE /files/:id",
+        "E_FILE_01",
+        "E_FILE_02",
+        "E_FILE_03",
+        "E_FILE_04",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "story:onboarding-imports"
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "story:photo-library",
+      "via": [
+        "DELETE /files/:id",
+        "E_FILE_01",
+        "E_FILE_04",
+        "GET /files?kind=image",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "story:profiles",
+      "via": [
+        "PATCH /profiles/:id",
+        "POST /files"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "story:ring-projection",
+      "via": [
+        "E_FILE_04",
+        "PATCH /rings/:ringId/projection"
+      ]
+    },
+    {
+      "from": "qa-frontend:photo-library",
+      "kind": "related",
+      "to": "task:B-15",
+      "via": [
+        "E_RING_02"
       ]
     },
     {
@@ -61240,6 +62102,14 @@
     {
       "from": "task:B-07",
       "kind": "related",
+      "to": "qa-frontend:photo-library",
+      "via": [
+        "POST /files"
+      ]
+    },
+    {
+      "from": "task:B-07",
+      "kind": "related",
       "to": "story:files",
       "via": [
         "POST /files"
@@ -61507,6 +62377,14 @@
         "GET /rings/:ringId/projection",
         "PATCH /rings/:ringId/projection",
         "POST /rings/:ringId/projection/attachments"
+      ]
+    },
+    {
+      "from": "task:B-08",
+      "kind": "related",
+      "to": "qa-frontend:photo-library",
+      "via": [
+        "PATCH /rings/:ringId/projection"
       ]
     },
     {
@@ -61953,6 +62831,14 @@
       "to": "qa-backend:ring-projection",
       "via": [
         "GET /views/ring/:ringId",
+        "PATCH /rings/:ringId/projection"
+      ]
+    },
+    {
+      "from": "task:B-11",
+      "kind": "related",
+      "to": "qa-frontend:photo-library",
+      "via": [
         "PATCH /rings/:ringId/projection"
       ]
     },
@@ -85186,6 +86072,11 @@
     {
       "from": "module:identity",
       "kind": "wikilink",
+      "to": "qa-frontend:photo-library"
+    },
+    {
+      "from": "module:identity",
+      "kind": "wikilink",
       "to": "story:account"
     },
     {
@@ -88992,6 +89883,10 @@
       "name": "QB-08 Photo Library QA Backend",
       "type": "qa-backend"
     },
+    "social-pin/modules/Identity Core/features/Photo Library/flow/QF-09 Photo Library QA Frontend.md": {
+      "name": "QF-09 Photo Library QA Frontend",
+      "type": "qa-frontend"
+    },
     "social-pin/modules/Identity Core/features/Profiles & Pin Name/F-07 Profiles & Pin Name.md": {
       "name": "F-07 Profiles & Pin Name",
       "type": "feature"
@@ -90254,6 +91149,7 @@
         "backend-integration:photo-library",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
         "frontend-requirements:profiles",
@@ -90401,6 +91297,7 @@
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-integration:ring-members",
         "frontend-requirements:ring-members",
         "qa-backend:ring-members",
@@ -90794,6 +91691,7 @@
         "frontend-requirements:post-event",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-integration:ring-projection",
         "frontend-requirements:ring-projection",
         "qa-backend:ring-projection",
@@ -90973,6 +91871,7 @@
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-integration:ring-members",
         "qa-backend:ring-members",
         "backend-integration:ring-projection",
@@ -91421,6 +92320,7 @@
         "qa-frontend:counts",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "frontend-requirements:ring-access",
         "qa-backend:ring-access",
         "backend-delivery:ring-members",
@@ -91743,6 +92643,7 @@
         "backend-integration:photo-library",
         "frontend-delivery:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "story:photo-library",
         "backend-integration:profiles",
         "frontend-delivery:profiles",
@@ -92307,6 +93208,7 @@
         "backend-delivery:auth",
         "frontend-requirements:onboarding-imports",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-integration:profiles",
         "frontend-delivery:profiles",
         "frontend-requirements:profiles",
@@ -92480,6 +93382,7 @@
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-integration:ring-members",
         "frontend-requirements:ring-members",
         "qa-backend:ring-members",
@@ -92661,6 +93564,7 @@
         "backend-integration:photo-library",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "story:photo-library",
         "story:profiles",
         "decision:D-22",
@@ -92804,6 +93708,7 @@
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "story:companies",
         "backend-delivery:rings",
         "frontend-requirements:ring-access",
@@ -93127,6 +94032,7 @@
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:ring-access",
         "backend-integration:ring-projection",
         "frontend-requirements:ring-projection",
@@ -93232,6 +94138,7 @@
         "backend-integration:photo-library",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
         "frontend-requirements:profiles",
@@ -93401,6 +94308,7 @@
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
         "qa-backend:ring-access",
@@ -94129,6 +95037,7 @@
         "qa-backend:counts",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-integration:ring-members",
         "frontend-requirements:ring-members",
         "frontend-requirements:cleanup-jobs",
@@ -94487,6 +95396,7 @@
         "frontend-requirements:exhibitor",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:ring-access",
         "backend-integration:ring-projection",
         "qa-backend:ring-projection",
@@ -94657,6 +95567,7 @@
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-integration:ring-members",
         "qa-backend:ring-members",
         "backend-integration:ring-projection",
@@ -95300,6 +96211,7 @@
         "backend-delivery:photo-library",
         "frontend-delivery:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "story:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
@@ -95780,6 +96692,7 @@
         "backend-delivery:photo-library",
         "frontend-delivery:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "story:photo-library",
         "backend-delivery:profiles",
         "frontend-delivery:profiles",
@@ -95955,6 +96868,7 @@
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:ring-access",
         "backend-integration:ring-members",
         "qa-backend:ring-members",
@@ -96124,6 +97038,7 @@
         "backend-integration:photo-library",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:profiles",
         "decision:D-02",
         "decision:D-06",
@@ -96465,6 +97380,7 @@
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "frontend-requirements:ring-access",
         "qa-backend:ring-access",
         "backend-delivery:ring-members",
@@ -96579,6 +97495,7 @@
         "backend-integration:photo-library",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
         "frontend-requirements:profiles",
@@ -96727,6 +97644,7 @@
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
         "qa-backend:ring-access",
@@ -97178,6 +98096,7 @@
         "frontend-delivery:photo-library",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "story:photo-library",
         "backend-integration:profiles",
         "frontend-delivery:profiles",
@@ -97447,6 +98366,7 @@
         "backend-integration:photo-library",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "story:photo-library",
         "frontend-delivery:profiles",
         "frontend-requirements:profiles",
@@ -98201,6 +99121,7 @@
         "backend-integration:photo-library",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "story:photo-library",
         "qa-backend:view-as",
         "project:frontend-api-guide",
@@ -102384,8 +103305,7 @@
         "decided": 2,
         "delivered": 2,
         "done": 2,
-        "missing": 1,
-        "passing": 1,
+        "passing": 2,
         "verified": 2
       },
       "scope": null,
@@ -103507,6 +104427,7 @@
         "backend-integration:photo-library",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
         "frontend-delivery:profiles",
@@ -103918,6 +104839,7 @@
         "qa-backend:counts",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:ring-access",
         "backend-integration:ring-members",
         "frontend-requirements:ring-members",
@@ -104395,6 +105317,7 @@
         "qa-frontend:counts",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:ring-members",
         "frontend-delivery:ring-members",
         "frontend-requirements:ring-members",
@@ -105016,6 +105939,7 @@
         "frontend-delivery:photo-library",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
         "frontend-requirements:profiles",
@@ -105528,6 +106452,7 @@
         "story:profiles",
         "story:linked-accounts",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
         "frontend-delivery:profiles",
@@ -105810,6 +106735,7 @@
         "backend-integration:photo-library",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
         "frontend-requirements:profiles",
@@ -106277,6 +107203,7 @@
         "backend-integration:photo-library",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
         "frontend-delivery:profiles",
@@ -107195,6 +108122,7 @@
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "qa-backend:profiles",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
@@ -107292,6 +108220,7 @@
         "qa-frontend:counts",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "frontend-requirements:ring-access",
         "qa-backend:ring-access",
         "backend-delivery:ring-members",
@@ -107466,6 +108395,7 @@
         "backend-integration:photo-library",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
         "frontend-requirements:profiles",
@@ -107781,6 +108711,7 @@
         "backend-delivery:pincast",
         "frontend-requirements:exhibitor",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:error-contract",
         "project:agent-rules",
         "project:docs-tree",
@@ -107922,6 +108853,7 @@
         "qa-frontend:counts",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:ring-members",
         "frontend-delivery:ring-members",
         "frontend-requirements:ring-members",
@@ -108026,6 +108958,7 @@
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
         "qa-backend:ring-access",
@@ -108582,6 +109515,7 @@
         "qa-frontend:counts",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
         "qa-backend:ring-access",
@@ -108832,6 +109766,7 @@
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
         "qa-backend:ring-access",
@@ -108942,6 +109877,7 @@
         "backend-integration:photo-library",
         "frontend-delivery:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "story:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
@@ -109264,6 +110200,7 @@
         "qa-frontend:counts",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
         "qa-backend:ring-access",
@@ -109431,6 +110368,7 @@
         "backend-integration:photo-library",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
         "frontend-requirements:profiles",
@@ -109649,6 +110587,7 @@
         "frontend-requirements:onboarding-imports",
         "backend-delivery:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "story:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
@@ -109864,6 +110803,7 @@
         "qa-frontend:account",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "frontend-requirements:ring-access",
         "backend-delivery:ring-members",
         "qa-backend:ring-members",
@@ -109952,6 +110892,7 @@
         "qa-frontend:counts",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
         "qa-backend:ring-access",
@@ -110048,6 +110989,7 @@
         "backend-integration:photo-library",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
         "frontend-delivery:profiles",
@@ -110196,6 +111138,7 @@
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "qa-backend:profiles",
         "backend-delivery:ring-access",
         "frontend-delivery:ring-access",
@@ -110493,6 +111436,7 @@
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "frontend-requirements:ring-access",
         "qa-backend:ring-access",
         "backend-delivery:ring-members",
@@ -110676,6 +111620,7 @@
         "backend-integration:photo-library",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
         "frontend-requirements:profiles",
@@ -110857,6 +111802,7 @@
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
         "qa-backend:ring-access",
@@ -111262,6 +112208,7 @@
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
         "qa-backend:ring-access",
@@ -111806,10 +112753,10 @@
         "done": 47,
         "draft": 2,
         "in-progress": 10,
-        "missing": 15,
+        "missing": 14,
         "needs-decision": 1,
         "partial": 7,
-        "passing": 12,
+        "passing": 13,
         "ready": 1,
         "verified": 13
       },
@@ -113006,6 +113953,7 @@
         "backend-integration:photo-library",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "frontend-requirements:profiles",
         "backend-integration:ring-projection",
         "frontend-requirements:ring-projection",
@@ -113398,6 +114346,7 @@
         "backend-integration:photo-library",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
         "frontend-requirements:profiles",
@@ -114996,6 +115945,7 @@
         "qa-frontend:counts",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "frontend-requirements:ring-access",
         "qa-backend:ring-access",
         "backend-delivery:ring-members",
@@ -115122,6 +116072,7 @@
         "qa-frontend:counts",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "frontend-requirements:ring-access",
         "qa-backend:ring-access",
         "backend-delivery:ring-members",
@@ -115582,6 +116533,7 @@
         "qa-frontend:counts",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "frontend-requirements:ring-access",
         "qa-backend:ring-access",
         "backend-delivery:ring-members",
@@ -115814,6 +116766,7 @@
         "qa-frontend:counts",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "frontend-requirements:ring-access",
         "qa-backend:ring-access",
         "backend-delivery:ring-members",
@@ -115932,6 +116885,7 @@
         "backend-integration:photo-library",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
         "frontend-requirements:profiles",
@@ -116058,6 +117012,7 @@
         "backend-integration:photo-library",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
         "frontend-requirements:profiles",
@@ -116731,6 +117686,7 @@
         "backend-integration:photo-library",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
         "frontend-requirements:profiles",
@@ -116851,6 +117807,7 @@
         "backend-integration:photo-library",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
         "frontend-requirements:profiles",
@@ -117407,6 +118364,7 @@
         "qa-backend:counts",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-integration:ring-members",
         "frontend-requirements:ring-members",
         "frontend-requirements:cleanup-jobs",
@@ -117760,6 +118718,7 @@
         "frontend-requirements:exhibitor",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-integration:ring-projection",
         "qa-backend:ring-projection",
         "frontend-requirements:widgets",
@@ -117954,6 +118913,7 @@
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-integration:ring-projection",
         "qa-backend:ring-projection",
         "frontend-requirements:widgets",
@@ -118228,6 +119188,7 @@
         "frontend-requirements:files",
         "backend-integration:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "qa-backend:ring-projection"
       ],
       "release": "mvp",
@@ -118617,6 +119578,7 @@
         "frontend-delivery:photo-library",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "story:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
@@ -119154,6 +120116,7 @@
         "story:files",
         "frontend-requirements:onboarding-imports",
         "frontend-delivery:photo-library",
+        "qa-frontend:photo-library",
         "story:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
@@ -119396,6 +120359,7 @@
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-integration:ring-members",
         "frontend-requirements:ring-members",
         "qa-backend:ring-members",
@@ -119547,6 +120511,7 @@
         "backend-integration:photo-library",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
         "frontend-requirements:profiles",
@@ -119738,6 +120703,7 @@
         "backend-integration:photo-library",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
         "qa-backend:profiles",
@@ -119908,6 +120874,7 @@
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
         "qa-backend:ring-access",
@@ -120083,6 +121050,7 @@
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "qa-backend:profiles",
         "frontend-requirements:ring-access",
         "qa-backend:ring-access",
@@ -120234,6 +121202,7 @@
         "backend-integration:photo-library",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
         "frontend-requirements:profiles",
@@ -120412,6 +121381,7 @@
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
         "qa-backend:ring-access",
@@ -120670,6 +121640,7 @@
         "backend-integration:photo-library",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
         "frontend-requirements:profiles",
@@ -120917,6 +121888,7 @@
         "backend-integration:files",
         "frontend-requirements:onboarding-imports",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "qa-backend:ring-projection",
         "qa-backend:view-as",
         "feature:account",
@@ -121588,6 +122560,7 @@
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-integration:ring-members",
         "qa-backend:ring-members",
         "backend-integration:ring-projection",
@@ -122571,21 +123544,29 @@
       "updated": null
     },
     "qa-frontend:photo-library": {
-      "affects": [],
+      "affects": [
+        "story:photo-library"
+      ],
       "blockedBy": [],
-      "card": null,
+      "card": "QF-09",
       "children": [],
       "code": "photo-library",
-      "created": null,
+      "created": "2026-11-25",
       "deadline": null,
-      "depends": [],
-      "effectiveStatus": "missing",
+      "depends": [
+        "frontend-delivery:photo-library",
+        "story:photo-library"
+      ],
+      "effectiveStatus": "passing",
       "effort": null,
       "feature": "photo-library",
       "foundOn": null,
       "frontendOnly": false,
       "id": "qa-frontend:photo-library",
-      "inherits": {},
+      "inherits": {
+        "priority": "feature:photo-library",
+        "release": "feature:photo-library"
+      },
       "kind": "qa-frontend",
       "label": "QA Frontend",
       "labels": [],
@@ -122596,21 +123577,125 @@
       "parents": [
         "feature:photo-library"
       ],
-      "path": null,
+      "path": "social-pin/modules/Identity Core/features/Photo Library/flow/QF-09 Photo Library QA Frontend.md",
       "pending": [],
-      "priority": null,
-      "related": [],
-      "release": null,
+      "priority": "critical",
+      "related": [
+        "task:B-07",
+        "task:B-08",
+        "task:B-11",
+        "decision:D-16",
+        "backend-delivery:connections",
+        "backend-integration:connections",
+        "frontend-requirements:connections",
+        "qa-backend:connections",
+        "backend-delivery:badge-qr",
+        "backend-integration:badge-qr",
+        "frontend-delivery:badge-qr",
+        "qa-backend:badge-qr",
+        "backend-delivery:pincast",
+        "backend-integration:pincast",
+        "qa-backend:pincast",
+        "qa-frontend:account",
+        "backend-delivery:counts",
+        "backend-integration:counts",
+        "qa-backend:counts",
+        "qa-frontend:counts",
+        "backend-delivery:files",
+        "backend-integration:files",
+        "frontend-requirements:files",
+        "qa-backend:files",
+        "backend-delivery:photo-library",
+        "backend-integration:photo-library",
+        "frontend-requirements:photo-library",
+        "qa-backend:photo-library",
+        "decision:D-02",
+        "decision:D-05",
+        "story:onboarding-imports",
+        "story:profiles",
+        "frontend-delivery:counts",
+        "frontend-requirements:counts",
+        "story:counts",
+        "frontend-delivery:files",
+        "frontend-delivery:photo-library",
+        "story:photo-library",
+        "needs-decision:ND-21",
+        "qa-backend:discover-hub",
+        "story:files",
+        "frontend-requirements:onboarding-imports",
+        "backend-delivery:profiles",
+        "backend-integration:profiles",
+        "frontend-delivery:profiles",
+        "frontend-requirements:profiles",
+        "qa-backend:profiles",
+        "backend-integration:ring-projection",
+        "frontend-requirements:ring-projection",
+        "project:status-report-2026-10-15",
+        "project:frontend-contract",
+        "qa-backend:ring-access",
+        "backend-delivery:ring-projection",
+        "frontend-delivery:ring-projection",
+        "story:ring-projection",
+        "frontend-requirements:companies",
+        "project:spec-map",
+        "frontend-delivery:account",
+        "story:account",
+        "backend-delivery:auth",
+        "qa-backend:ring-projection",
+        "qa-backend:view-as",
+        "needs-decision:ND-16",
+        "project:frontend-api-guide",
+        "task:B-15",
+        "story:connections",
+        "frontend-requirements:badge-qr",
+        "story:badge-qr",
+        "frontend-requirements:pincast",
+        "frontend-requirements:event-ring-auto",
+        "frontend-requirements:exhibitor",
+        "frontend-requirements:post-event",
+        "backend-delivery:ring-access",
+        "frontend-requirements:ring-access",
+        "backend-integration:ring-members",
+        "frontend-requirements:ring-members",
+        "qa-backend:ring-members",
+        "backend-delivery:rings",
+        "backend-integration:rings",
+        "frontend-requirements:rings",
+        "qa-backend:rings",
+        "frontend-requirements:widgets",
+        "frontend-requirements:meetings",
+        "frontend-requirements:cleanup-jobs",
+        "backend-delivery:error-contract",
+        "frontend-requirements:delegated-admins",
+        "story:delegated-admins",
+        "qa-backend:ring-invitations",
+        "project:agent-rules",
+        "project:docs-tree",
+        "project:api-conventions",
+        "project:frontend-agent-prompt",
+        "backend-delivery:ring-members"
+      ],
+      "release": "mvp",
+      "resolution": null,
       "scope": "feature",
-      "screens": [],
-      "status": null,
-      "summary": "Not written yet. Create it with: node scripts/build-tree.mjs --scaffold qa-frontend photo-library",
-      "tags": [],
+      "screens": [
+        "s23",
+        "s29",
+        "s30",
+        "s68"
+      ],
+      "status": "passing",
+      "summary": "Expected behaviour of the screens, as artefacts: journeys, states and copy to check a build against, not test code. status: passing or failing after a run; the verdict tells the PM whether the…",
+      "tags": [
+        "qa-frontend",
+        "qa-frontend/passing",
+        "module/identity",
+        "layer/qa"
+      ],
       "task": null,
-      "template": "templates/QA Frontend Template.md",
-      "title": "Photo Library QA Frontend",
+      "title": "QF-09 Photo Library QA Frontend",
       "unmet": [],
-      "updated": null
+      "updated": "2026-11-25"
     },
     "qa-frontend:pincast": {
       "affects": [],
@@ -123231,10 +124316,10 @@
         "done": 57,
         "draft": 21,
         "in-progress": 44,
-        "missing": 102,
+        "missing": 101,
         "needs-decision": 1,
         "partial": 14,
-        "passing": 17,
+        "passing": 18,
         "ready": 3,
         "reference": 32,
         "todo": 4,
@@ -123323,6 +124408,7 @@
         "backend-integration:photo-library",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
         "frontend-requirements:profiles",
@@ -123655,6 +124741,7 @@
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "qa-backend:profiles",
         "backend-delivery:ring-access",
         "frontend-delivery:ring-access",
@@ -124079,6 +125166,7 @@
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "qa-backend:profiles",
         "backend-delivery:ring-access",
         "frontend-delivery:ring-access",
@@ -124210,6 +125298,7 @@
         "frontend-delivery:connections",
         "backend-delivery:account",
         "project:spec-map",
+        "qa-frontend:photo-library",
         "backend-delivery:ring-access",
         "frontend-requirements:ring-access",
         "qa-backend:ring-access",
@@ -124322,6 +125411,7 @@
         "qa-backend:files",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "frontend-delivery:ring-access",
         "frontend-requirements:ring-access",
         "qa-backend:ring-access",
@@ -125006,6 +126096,7 @@
         "backend-integration:photo-library",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
         "frontend-requirements:profiles",
@@ -125397,6 +126488,7 @@
         "qa-backend:auth",
         "qa-frontend:auth",
         "decision:D-02",
+        "qa-frontend:photo-library",
         "story:photo-library",
         "frontend-requirements:profiles",
         "qa-backend:profiles",
@@ -125594,6 +126686,7 @@
         "frontend-delivery:photo-library",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "decision:D-02",
         "decision:D-05",
         "story:onboarding-imports",
@@ -125851,6 +126944,7 @@
         "frontend-delivery:photo-library",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "story:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
@@ -126252,6 +127346,7 @@
         "backend-integration:photo-library",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
         "qa-backend:profiles",
@@ -127258,6 +128353,7 @@
         "frontend-delivery:photo-library",
         "frontend-requirements:photo-library",
         "qa-backend:photo-library",
+        "qa-frontend:photo-library",
         "story:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
@@ -127365,6 +128461,7 @@
         "frontend-requirements:widgets",
         "story:widgets",
         "task:B-11",
+        "qa-frontend:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
         "frontend-delivery:profiles",
@@ -127634,6 +128731,7 @@
         "story:ring-projection",
         "frontend-requirements:files",
         "frontend-requirements:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:profiles",
         "backend-integration:profiles",
         "frontend-delivery:profiles",
@@ -128051,6 +129149,7 @@
         "qa-backend:counts",
         "qa-frontend:counts",
         "frontend-requirements:photo-library",
+        "qa-frontend:photo-library",
         "backend-delivery:ring-members",
         "frontend-requirements:ring-members",
         "qa-backend:ring-members",
