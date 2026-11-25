@@ -1500,7 +1500,8 @@
         "backend-integration:pincast",
         "frontend-requirements:connections",
         "frontend-requirements:pincast",
-        "qa-backend:connections"
+        "qa-backend:connections",
+        "qa-backend:discover-hub"
       ],
       "owner": null
     },
@@ -2493,13 +2494,27 @@
     },
     "GET /connections/relationship?pinName=": {
       "containers": [
-        "feature:connections"
+        "feature:connections",
+        "feature:discover-hub"
       ],
       "kind": "endpoint",
       "notes": [
         "backend-delivery:connections",
+        "backend-delivery:discover-hub",
+        "backend-integration:connections",
+        "backend-integration:discover-hub",
         "frontend-delivery:connections",
         "frontend-requirements:connections"
+      ],
+      "owner": "feature:discover-hub"
+    },
+    "GET /connections/relationship?pinName=BetaQax": {
+      "containers": [
+        "feature:discover-hub"
+      ],
+      "kind": "endpoint",
+      "notes": [
+        "qa-backend:discover-hub"
       ],
       "owner": null
     },
@@ -2615,6 +2630,16 @@
       "kind": "endpoint",
       "notes": [
         "story:connections"
+      ],
+      "owner": null
+    },
+    "GET /connections/requests?direction=outgoing": {
+      "containers": [
+        "feature:discover-hub"
+      ],
+      "kind": "endpoint",
+      "notes": [
+        "backend-integration:discover-hub"
       ],
       "owner": null
     },
@@ -8070,14 +8095,14 @@
       "qa": 21,
       "shared": 10
     },
-    "concepts": 377,
+    "concepts": 379,
     "decisions": 39,
-    "edges": 10351,
+    "edges": 10349,
     "features": 40,
     "layerNotes": 176,
     "modules": 8,
     "notes": 384,
-    "partial": 15,
+    "partial": 14,
     "placeholders": 102,
     "records": 38
   },
@@ -12286,11 +12311,6 @@
       "to": "story:ring-invitations"
     },
     {
-      "from": "backend-delivery:discover-hub",
-      "kind": "pending",
-      "to": "story:discover-hub"
-    },
-    {
       "from": "backend-delivery:profiles",
       "kind": "pending",
       "to": "decision:D-22"
@@ -12354,11 +12374,6 @@
       "from": "frontend-delivery:view-as",
       "kind": "pending",
       "to": "story:widgets"
-    },
-    {
-      "from": "qa-backend:discover-hub",
-      "kind": "pending",
-      "to": "task:B-30"
     },
     {
       "from": "qa-backend:ring-access",
@@ -14824,6 +14839,7 @@
       "to": "qa-backend:discover-hub",
       "via": [
         "DELETE /users/me",
+        "E_CONNECTION_01",
         "GET /views/pin/:pinName",
         "POST /connections/requests",
         "POST /connections/requests/:id/accept"
@@ -23063,6 +23079,7 @@
       "to": "qa-backend:discover-hub",
       "via": [
         "DELETE /users/me",
+        "E_CONNECTION_01",
         "GET /views/pin/:pinName",
         "POST /connections/requests",
         "POST /connections/requests/:id/accept"
@@ -48085,6 +48102,7 @@
       "to": "qa-backend:discover-hub",
       "via": [
         "DELETE /users/me",
+        "E_CONNECTION_01",
         "GET /views/pin/:pinName",
         "POST /connections/requests",
         "POST /connections/requests/:id/accept"
@@ -70584,6 +70602,7 @@
         "E_AUTH_04",
         "E_CONNECTION_01",
         "GET /connections/relationship",
+        "GET /connections/relationship?pinName=",
         "GET /views/pin/:pinName",
         "POST /connections/requests",
         "POST /connections/requests/:id/accept"
@@ -90810,7 +90829,7 @@
       "task": null,
       "title": "BD-14 Connections Backend Delivery",
       "unmet": [],
-      "updated": "2026-11-09"
+      "updated": "2026-11-25"
     },
     "backend-delivery:counts": {
       "affects": [
@@ -91141,7 +91160,7 @@
         "story:discover-hub",
         "decision:D-41"
       ],
-      "effectiveStatus": "partial",
+      "effectiveStatus": "done",
       "effort": null,
       "feature": "discover-hub",
       "foundOn": null,
@@ -91155,21 +91174,13 @@
       "labels": [],
       "layer": "backend",
       "module": "discovery",
-      "openBugs": [
-        "task:B-30"
-      ],
+      "openBugs": [],
       "parentTask": null,
       "parents": [
         "feature:discover-hub"
       ],
       "path": "social-pin/modules/Discovery/features/Discover Hub & Search/flow/BD-19 Discover Hub & Search Backend Delivery.md",
-      "pending": [
-        {
-          "person": null,
-          "text": "S2 · Connect from a not-connected row is refused (404 E_RING_ACCESS_01): asking by Pin name needs a card the requester can open. Waits on a decision, @pm",
-          "to": "story:discover-hub"
-        }
-      ],
+      "pending": [],
       "priority": null,
       "related": [
         "task:B-23",
@@ -91286,7 +91297,7 @@
       "task": null,
       "title": "BD-19 Discover Hub & Search Backend Delivery",
       "unmet": [],
-      "updated": "2026-11-23"
+      "updated": "2026-11-25"
     },
     "backend-delivery:e2e-tests": {
       "affects": [],
@@ -94504,7 +94515,7 @@
       "task": null,
       "title": "BI-16 Connections Backend Integration",
       "unmet": [],
-      "updated": "2026-11-09"
+      "updated": "2026-11-25"
     },
     "backend-integration:counts": {
       "affects": [
@@ -94770,6 +94781,7 @@
       "affects": [
         "frontend-delivery:discover-hub"
       ],
+      "autoDelivered": true,
       "blockedBy": [],
       "card": "BI-19",
       "children": [
@@ -94784,7 +94796,7 @@
         "backend-integration:view-as",
         "backend-integration:connections"
       ],
-      "effectiveStatus": "current",
+      "effectiveStatus": "delivered",
       "effort": null,
       "feature": "discover-hub",
       "foundOn": null,
@@ -94912,7 +94924,7 @@
         "s68"
       ],
       "status": "current",
-      "summary": "Written by the backend team for the frontend: how to call what Discover needs. Matches backend main as of 2026-11-23, after the merge of BD-19/search/pin-name-search (c5bc838): opening a person by…",
+      "summary": "Written by the backend team for the frontend: how to call what Discover needs. Matches backend main @ 198d76f (2026-11-25), after the merge of BD-19/search/pin-name-search (c5bc838) and the fixes…",
       "tags": [
         "backend-integration",
         "backend-integration/current",
@@ -94922,7 +94934,7 @@
       "task": null,
       "title": "BI-19 Discover Hub & Search Backend Integration",
       "unmet": [],
-      "updated": "2026-11-23"
+      "updated": "2026-11-25"
     },
     "backend-integration:e2e-tests": {
       "affects": [],
@@ -101097,13 +101109,12 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
-        "approved": 2,
-        "current": 1,
+        "approved": 1,
         "decided": 2,
-        "done": 3,
-        "failing": 1,
-        "partial": 2,
-        "todo": 1,
+        "delivered": 2,
+        "done": 5,
+        "partial": 1,
+        "passing": 1,
         "verified": 2
       },
       "scope": null,
@@ -108171,6 +108182,7 @@
       "affects": [
         "backend-delivery:discover-hub"
       ],
+      "autoDelivered": true,
       "blockedBy": [],
       "card": "FR-19",
       "children": [],
@@ -108181,7 +108193,7 @@
         "story:discover-hub",
         "decision:D-41"
       ],
-      "effectiveStatus": "approved",
+      "effectiveStatus": "delivered",
       "effort": null,
       "feature": "discover-hub",
       "foundOn": null,
@@ -108299,7 +108311,7 @@
       "task": null,
       "title": "FR-19 Discover Hub & Search Frontend Requirements",
       "unmet": [],
-      "updated": "2026-11-23"
+      "updated": "2026-11-25"
     },
     "frontend-requirements:e2e-tests": {
       "affects": [],
@@ -111634,17 +111646,16 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 4,
-        "current": 2,
+        "approved": 3,
+        "current": 1,
         "decided": 5,
-        "delivered": 3,
-        "done": 6,
-        "failing": 1,
+        "delivered": 5,
+        "done": 8,
         "in-progress": 3,
         "missing": 1,
-        "partial": 4,
-        "passing": 2,
-        "todo": 3,
+        "partial": 3,
+        "passing": 3,
+        "todo": 2,
         "verified": 5
       },
       "scope": null,
@@ -118072,7 +118083,7 @@
         "backend-delivery:discover-hub",
         "story:discover-hub"
       ],
-      "effectiveStatus": "failing",
+      "effectiveStatus": "passing",
       "effort": null,
       "feature": "discover-hub",
       "foundOn": null,
@@ -118092,13 +118103,7 @@
         "feature:discover-hub"
       ],
       "path": "social-pin/modules/Discovery/features/Discover Hub & Search/flow/QB-18 Discover Hub & Search QA Backend.md",
-      "pending": [
-        {
-          "person": null,
-          "text": "B43 (/backend)",
-          "to": "task:B-30"
-        }
-      ],
+      "pending": [],
       "priority": null,
       "related": [
         "task:B-07",
@@ -118218,18 +118223,18 @@
         "s44",
         "s68"
       ],
-      "status": "failing",
+      "status": "passing",
       "summary": "Expected behaviour of the API, as artefacts a person can check a build against: tables and diagrams, not test code (the specs live in the backend repo). status: passing or failing after a run; the…",
       "tags": [
         "qa-backend",
-        "qa-backend/failing",
+        "qa-backend/passing",
         "module/discovery",
         "layer/qa"
       ],
       "task": null,
       "title": "QB-18 Discover Hub & Search QA Backend",
       "unmet": [],
-      "updated": "2026-11-23"
+      "updated": "2026-11-25"
     },
     "qa-backend:e2e-tests": {
       "affects": [],
@@ -123203,22 +123208,21 @@
         }
       ],
       "rollup": {
-        "approved": 40,
+        "approved": 39,
         "blocked": 28,
-        "current": 6,
+        "current": 5,
         "decided": 38,
-        "delivered": 19,
-        "done": 55,
+        "delivered": 21,
+        "done": 57,
         "draft": 21,
-        "failing": 1,
         "in-progress": 44,
         "missing": 102,
         "needs-decision": 1,
-        "partial": 15,
-        "passing": 16,
+        "partial": 14,
+        "passing": 17,
         "ready": 3,
         "reference": 32,
-        "todo": 5,
+        "todo": 4,
         "verified": 41
       },
       "scope": null,
@@ -129269,7 +129273,7 @@
       "decision": null,
       "depends": [],
       "dir": null,
-      "effectiveStatus": "todo",
+      "effectiveStatus": "done",
       "effort": "S",
       "feature": "discover-hub",
       "foundOn": "BD-19 Discover Hub & Search Backend Delivery",
@@ -129332,25 +129336,26 @@
         "qa-backend:counts"
       ],
       "release": "mvp",
-      "resolution": null,
+      "resolution": "fixed",
       "rollup": {},
       "scope": null,
       "screens": [
         "s38",
         "s44"
       ],
-      "status": "todo",
+      "status": "done",
       "summary": "The answer is 201 with the request, as for a scanned badge. Afterwards the requester's row reads REQUESTED with its requestId, and the other person's row reads ASKEDME with the same requestId.",
       "tags": [
         "bug",
-        "bug/todo",
+        "bug/done",
         "module/discovery",
-        "priority/high"
+        "priority/high",
+        "resolution/fixed"
       ],
       "task": null,
       "title": "B-30 Connect from a Discover search row is refused for a person you can't already open",
       "unmet": [],
-      "updated": "2026-11-23"
+      "updated": "2026-11-25"
     },
     "task:B-31": {
       "affects": [
