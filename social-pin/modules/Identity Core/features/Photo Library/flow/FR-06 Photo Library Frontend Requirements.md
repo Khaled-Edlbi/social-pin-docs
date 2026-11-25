@@ -19,6 +19,8 @@ tags: [frontend-requirements, frontend-requirements/approved, module/identity, l
 
 # Photo Library · Frontend Requirements
 
+> ⚠ Affected by [[S-11 Photo Library Story]] (2026-11-25): rewritten to what shipped, as a draft for Omar Fostok's review: no "coming soon" left (Make main, Delete, Use my Pin photo and Reset to Pin are live); S1 s29 has Pick a photo / Take a photo under "Use my Pin photo", which with no Pin photo yet reads "You have no Pin photo yet, so the Ring shows its colour"; S3 a denied camera links to Settings on iOS and Android, no camera means Library only. For /frontend
+
 **Feature:** [[F-06 Photo Library]] · **Status:** Approved 2026-11-05 by khaled · **Story:** [[S-11 Photo Library Story]] · **API Integration:** not yet (backend not built)
 
 What the client needs to build the per-Ring photo picker, the library grid and its management mode, and which of it exists. Upload works ([[BI-03 Files Upload Backend Integration]]); setting a Ring's photo works ([[BI-07 Ring Projection Backend Integration]]); listing, the Rings per photo, the main photo and displaying do not.

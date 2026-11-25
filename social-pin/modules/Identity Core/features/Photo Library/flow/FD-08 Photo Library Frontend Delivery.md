@@ -19,6 +19,8 @@ tags: [frontend-delivery, frontend-delivery/done, module/identity, layer/fronten
 
 # ✅ Photo Library · Frontend Delivery
 
+> ⚠ Affected by [[S-11 Photo Library Story]] (2026-11-25): decided by Omar Fostok: S3 stays as written, with no camera on the device Camera is not offered and Library opens directly (the app is being changed, so the "Camera is always offered" deviation stays until it ships); a denied camera's message links to Settings on iOS and Android (app 9e0f3be), so the "iOS only" deviation is out of date; S1 s29 keeps Pick a photo / Take a photo, and "Use my Pin photo" without a Pin photo shows the Ring's colour, as shipped. For /frontend
+
 **Feature:** [[F-06 Photo Library]] · **Status:** Done · **Built from:** [[BI-13 Photo Library Backend Integration]] · **Against:** [[S-11 Photo Library Story]] · **Requirements:** [[FR-06 Photo Library Frontend Requirements]] · **QA:** [[Photo Library QA Frontend]]
 
 What the client shipped for a Ring's photo and the photo library, on `social_pin` `rings/F-11/honest-rings` @ `3369288` (2026-11-05), on `main` since 2026-11-24 at `866240a`: the library and the Ring photo in `8939d8e` (shared with [[FD-07 Files Upload Frontend Delivery]]), the polish from [[BI-13 Photo Library Backend Integration]] in `3369288`; the main photo and the camera on every upload in `f801aaa`, s29 as a picker and s30's picking mode in `0005f00` (2026-11-09). The QA checklist is PH-01…PH-15 in the client's `docs/TEST_CASES_2026-10-18.md`.
