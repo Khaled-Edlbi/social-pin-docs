@@ -17,6 +17,8 @@ tags: [backend-integration, backend-integration/current, module/discovery, layer
 
 # 🔌 Discover Hub & Search · Backend Integration
 
+> ⚠ Affected by [[QB-18 Discover Hub & Search QA Backend]] (2026-11-25): /backend: third run on backend main 198d76f, passing; Connect from every NONE row confirmed live (B43), B-30 closed. The first paragraph's 'QA's re-test of it is pending' and 'Checked by QB-18 on main @ e83682d' are out of date
+
 **Feature:** [[F-19 Discover Hub & Search]] · **Backend:** [[BD-19 Discover Hub & Search Backend Delivery]] · **Read first:** [[Frontend Contract]], [[Frontend API Guide]], [[BI-09 View As & Pin Views Backend Integration]], [[BI-16 Connections Backend Integration]]
 
 Written by the **backend** team for the frontend: how to call what Discover needs. Matches backend `main @ 198d76f` (2026-11-25), after the merge of `BD-19/search/pin-name-search` (`c5bc838`) and the fixes that followed it: opening a person by their exact Pin name (View As & Pin Views' `GET /views/pin/:pinName`), Connect and Accept (Connections' routes), the search by part of a Pin name (`GET /search/pin-names`) and the switch "Let people find me by Pin name" (`findableByPinName` on `/users/me`). The search needs the migration deployed on the environment the app points at (BD-19, *Gaps*). Checked by [[QB-18 Discover Hub & Search QA Backend]] on `main @ e83682d` (2026-11-23). **Connect works on every `NONE` row since `main @ 198d76f`** ([[B-30 Connect from a Discover search row is refused for a person you can't already open|B-30]]), a row that cannot open included; QA's re-test of it is pending, and an older build answers 404 there.
