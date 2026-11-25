@@ -102354,10 +102354,10 @@
       "release": "mvp",
       "resolution": null,
       "rollup": {
+        "approved": 1,
         "decided": 2,
         "delivered": 2,
         "done": 2,
-        "draft": 1,
         "missing": 1,
         "passing": 1,
         "verified": 2
@@ -111772,13 +111772,13 @@
       "release": null,
       "resolution": null,
       "rollup": {
-        "approved": 11,
+        "approved": 12,
         "blocked": 4,
         "current": 2,
         "decided": 10,
         "delivered": 16,
         "done": 47,
-        "draft": 3,
+        "draft": 2,
         "in-progress": 10,
         "missing": 15,
         "needs-decision": 1,
@@ -123203,13 +123203,13 @@
         }
       ],
       "rollup": {
-        "approved": 39,
+        "approved": 40,
         "blocked": 28,
         "current": 6,
         "decided": 38,
         "delivered": 19,
         "done": 55,
-        "draft": 22,
+        "draft": 21,
         "failing": 1,
         "in-progress": 44,
         "missing": 102,
@@ -125533,7 +125533,7 @@
       "created": "2026-10-18",
       "deadline": null,
       "depends": [],
-      "effectiveStatus": "draft",
+      "effectiveStatus": "approved",
       "effort": null,
       "feature": "photo-library",
       "foundOn": null,
@@ -125600,11 +125600,11 @@
         "s30",
         "s68"
       ],
-      "status": "draft",
+      "status": "approved",
       "summary": "A Ring owner keeps a handful of photos, a formal headshot, a casual one, a team picture, and picks a different one per Ring. The library is the owner's private pool of uploads; a photo reaches an…",
       "tags": [
         "story",
-        "story/draft",
+        "story/approved",
         "module/identity",
         "layer/business"
       ],

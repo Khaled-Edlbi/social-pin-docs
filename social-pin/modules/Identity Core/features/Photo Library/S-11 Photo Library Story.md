@@ -3,19 +3,21 @@ id: S-11
 type: story
 module: identity
 feature: photo-library
-status: draft
+status: approved
 scope: feature
 screens: [s23, s29, s30, s68]
+approvedBy: "Omar Fostok"
+approvedAt: 2026-11-25
 owner: "Omar Fostok"
 related: ["D-02 One main profile every Ring starts from", "D-05 Inherit per field, copy without members", "D-16 Files load from signed links that expire in 15 minutes", "S-06 Files Upload Story", "S-08 Onboarding Imports Story", "S-14 Profiles & Pin Name Story", "S-94 Linked Accounts (OAuth) Story", "BD-06 Photo Library Backend Delivery", "BD-07 Profiles & Pin Name Backend Delivery", "FD-08 Photo Library Frontend Delivery"]
 created: 2026-10-18
 updated: 2026-11-25
-tags: [story, story/draft, module/identity, layer/business]
+tags: [story, story/approved, module/identity, layer/business]
 ---
 
 # Photo Library · User Story
 
-**Feature:** [[F-06 Photo Library]] · **Status:** Draft, rewritten 2026-11-25 to match what shipped and Omar Fostok's decisions of that day, for his review (approved 2026-10-29 by Omar Fostok; first approved 2026-10-25 by khaled) · **Frontend Requirements:** [[FR-06 Photo Library Frontend Requirements]] · **API Integration:** [[BI-13 Photo Library Backend Integration]]
+**Feature:** [[F-06 Photo Library]] · **Status:** Approved 2026-11-25 by Omar Fostok, rewritten that day to match what shipped and his decisions (earlier approved 2026-10-29 by Omar Fostok; first approved 2026-10-25 by khaled) · **Frontend Requirements:** [[FR-06 Photo Library Frontend Requirements]] · **API Integration:** [[BI-13 Photo Library Backend Integration]]
 
 A Ring owner keeps a handful of photos, a formal headshot, a casual one, a team picture, and picks a different one per Ring. The library is the owner's private pool of uploads; a photo reaches an audience only when a Ring's projection points at it. One of them is the **main photo** of the main profile, which every Ring shows until the Ring picks its own ([[D-02 One main profile every Ring starts from]], [[D-05 Inherit per field, copy without members]]). The library screen shows each photo with the Rings that use it, and the per-Ring screen is a picker: the main photo, a new photo, or any photo of the library.
 
